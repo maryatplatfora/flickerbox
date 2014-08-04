@@ -1,0 +1,94 @@
+
+<!DOCTYPE html
+  PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xml:lang="en-us" lang="en-us">
+<head><meta xmlns="http://www.w3.org/1999/xhtml" name="description" content="When you define a lens, you want the selection of fields to be broad enough to support all of the business questions you want to answer. A lens can be used by many visualizations and many users at the ..."/><meta http-equiv="Content-Type" content="text/html; charset=utf-8"/><meta name="copyright" content="(C) Copyright 2005"/><meta name="DC.rights.owner" content="(C) Copyright 2005"/><meta name="DC.Type" content="concept"/><meta name="DC.Title" content="Lens Best Practices"/><meta name="abstract" content="When you define a lens, you want the selection of fields to be broad enough to support all of the business questions you want to answer. A lens can be used by many visualizations and many users at the same time. On the other hand, you want to constrain the overall size of the lens so that it will fit into the available memory and so queries against the lens are fast."/><meta xmlns="http://www.w3.org/1999/xhtml" name="description" content="When you define a lens, you want the selection of fields to be broad enough to support all of the business questions you want to answer. A lens can be used by many visualizations and many users at the same time. On the other hand, you want to constrain the overall size of the lens so that it will fit into the available memory and so queries against the lens are fast."/><meta name="DC.Relation" scheme="URI" content="../../lens/lens_builder.html"/><meta name="DC.Format" content="XHTML"/><meta name="DC.Identifier" content="lens_best_practices"/><link rel="stylesheet" type="text/css" href="../../oxygen-webhelp/resources/css/commonltr.css"><!----></link><title>Lens Best Practices</title><meta http-equiv="Content-Type" content="text/html; charset=utf-8"/><link rel="stylesheet" type="text/css" href="../../oxygen-webhelp/resources/css/commonltr.css"><!----></link><link rel="stylesheet" type="text/css" href="../../oxygen-webhelp/resources/css/webhelp_topic.css"><!----></link><link rel="stylesheet" type="text/css" href="../../oxygen-webhelp/resources/skins/skin.css"><!----></link><link rel="stylesheet" type="text/css" href="../../oxygen-webhelp/resources/css/jquery.realperson.css"><!----></link><link rel="stylesheet" type="text/css" href="../../oxygen-webhelp/resources/css/comments.css"><!----></link><link rel="stylesheet" type="text/css" href="../../oxygen-webhelp/resources/css/jquery.cleditor.css"><!----></link><link rel="stylesheet" type="text/css" href="../../oxygen-webhelp/resources/css/admin.css"><!----></link><script type="text/javascript"><!--
+          
+          var prefix = "../../index.html";
+          
+          --></script><script type="text/javascript" src="../../oxygen-webhelp/resources/js/jquery-1.8.2.min.js"><!----></script><script type="text/javascript" src="../../oxygen-webhelp/resources/js/jquery.cookie.js"><!----></script><script type="text/javascript" src="../../oxygen-webhelp/resources/js/jquery-ui.custom.min.js"><!----></script><script type="text/javascript" charset="utf-8" src="../../oxygen-webhelp/resources/js/webhelp_topic.js"><!----></script><script type="text/javascript" charset="utf-8" src="../../oxygen-webhelp/resources/localization/strings.js"><!----></script><script type="text/javascript" charset="utf-8" src="../../oxygen-webhelp/resources/js/init.js"><!----></script><script type="text/javascript" charset="utf-8" src="../../oxygen-webhelp/resources/js/comments-functions.js"><!----></script></head>
+<body onload="init('../../')" id="lens_best_practices">
+<table class="nav"><tbody><tr><td colspan="2"><div id="printlink"><a href="javascript:window.print();" title="printThisPage"/></div><div id="permalink"><a href="#" title="linkToThis"/></div></td></tr><tr><td width="75%"><a class="navheader_parent_path" href="../../lens/lens_builder.html" title="To request data from Hadoop and load it into Platfora, you must define and build a lens. A lens can be though of as a dynamic, on-demand data mart purpose-built for a specific analysis project.">Build a Lens (Load Data)</a></td><td><div class="navheader">
+<span class="navparent"><a class="link" href="../../lens/lens_builder.html" title="To request data from Hadoop and load it into Platfora, you must define and build a lens. A lens can be though of as a dynamic, on-demand data mart purpose-built for a specific analysis project."><span class="navheader_label">Parent topic</span><span class="navheader_separator">: </span><span class="navheader_linktext">Build a Lens (Load Data)</span></a></span>  </div></td></tr></tbody></table>
+
+ <h1 class="title topictitle1">Lens Best Practices</h1>
+
+ 
+ <div class="body conbody"><p class="shortdesc">When you define a lens, you want the selection of fields to be broad enough to support
+  all of the business questions you want to answer. A lens can be used by many visualizations and
+  many users at the same time. On the other hand, you want to constrain the overall size of the lens
+  so that it will fit into the available memory and so queries against the lens are
+  fast.</p>
+
+  <div class="section"><h2 class="title sectiontitle">Check for existing lenses before you build a new one.</h2>
+   
+   <p class="p">Once you find a dataset that contains the data you want, first check for any existing lenses
+    that have been built from that dataset. There may already be a lens that you can use for your
+    analysis. Also, if there is an existing lens that contains some but not all of the fields you
+    want, you can always modify the lens definition to add additional fields. This is more efficient
+    than building a whole new lens from scratch.</p>
+
+  </div>
+
+  
+  <div class="section"><h2 class="title sectiontitle">Define lens filters to reduce the amount of data you request. </h2>
+   
+   <p class="p">You can add a lens filter on any dimension field of a dataset. Lens filters constrain the
+    number of records pulled into the lens from the data source. For example, if you store 10 years
+    worth of data in Hadoop, but only need to access the past year's worth of data, you can set a
+    date-based filter to limit the lens to get only the data you need. </p>
+
+   <div class="p">
+    <div class="note note"><span class="notetitle">Note:</span> Keep in mind that you can also create filters within visualizations. Lens filters should
+     be used to limit the number of records (and overall lens size). You don't want to have a lens
+     be too narrow in scope as to limit its analysis opportunities. </div>
+
+   </div>
+
+  </div>
+
+  
+  <div class="section"><h2 class="title sectiontitle">Don't include high cardinality fields in an aggregate lens unless they are essential to
+    your analysis.</h2>
+   
+   <p class="p">The size of an aggregate lens depends mostly on the cardinality (number of unique values) of
+    the dimension fields selected. The more granular the dimension data, the bigger the aggregate
+    lens will be. For example, aggregating time-based data to the second granularity will make the
+    lens significantly bigger than if you chose to analyze the data to the hour granularity. </p>
+
+   <p class="p">For fields that you intend to use as measures only (you only need the aggregated values), make
+    sure to deselect <span class="ph uicontrol">Original Value</span>. When <span class="ph uicontrol">Original
+     Value</span> is selected, the field is also included in your lens as a dimension
+    field.</p>
+
+  </div>
+
+  
+  <div class="section"><h2 class="title sectiontitle">Don't include DISTINCT measures in an aggregate lens unless they are essential to your
+    analysis.</h2>
+   
+   <p class="p">Measures that calculate <samp class="ph codeph">DISTINCT</samp> counts must also include the original field
+    values that they are counting. If you add a <samp class="ph codeph">DISTINCT</samp> measure on a
+    high-cardinality field, this can make your aggregate lens larger than expected. Only include
+     <samp class="ph codeph">DISTINCT</samp> measures in your lens when you are sure you need them for your
+    analysis. </p>
+
+   <div class="p">
+    <div class="note note"><span class="notetitle">Note:</span> For any dimension field you have in your lens, you can also calculate a
+      <samp class="ph codeph">DISTINCT</samp> count in the vizboard using a vizboard computed field.
+      <samp class="ph codeph">DISTINCT</samp> is the one measure aggregation that doesn't have to be calculated at
+     lens build time. </div>
+
+   </div>
+
+  </div>
+
+ </div>
+
+<div class="related-links"/>
+<div class="navfooter"><!---->
+<span class="navparent"><a class="link" href="../../lens/lens_builder.html" title="To request data from Hadoop and load it into Platfora, you must define and build a lens. A lens can be though of as a dynamic, on-demand data mart purpose-built for a specific analysis project."><span class="navheader_label">Parent topic</span><span class="navheader_separator">: </span><span class="navheader_linktext">Build a Lens (Load Data)</span></a></span>  </div><div class="footer">WebHelp output generated by<a href="http://www.oxygenxml.com" target="_blank"><span class="oXygenLogo"><img src="../../oxygen-webhelp/resources/img/LogoOxygen100x22.png" alt="Oxygen"/></span><span class="xmlauthor">XML Author</span></a></div>
+<div id="productInfo" style="display:none;"><span id="oxy_productID">webhelp</span><span id="oxy_productVersion">3.0</span></div><div id="loginData" style="display: none"><span class="bt_close" title="Close"><!----></span><form action="" target="passwordIframe" method="post" name="form_login" onsubmit="return loggInUser();" id="loginFormData" autocomplete="on"><input type="hidden" id="reloadComments" value="yes"><!----></input><table class="login"><thead><tr><td colspan="2"><span id="l_login2"><script type="text/javascript">$('#l_login2').html(getLocalization('label.login'));</script></span></td></tr><tr><td colspan="2"><div id="loginResponse"><!----></div></td></tr></thead><tr><td><span id="l_userName"><script type="text/javascript">$('#l_userName').html(getLocalization('label.userName'));</script></span></td><td><input name="usernameW" type="text" id="myUserName" autocomplete="on" required="required" autofocus="autofocus"><!----></input></td></tr><tr><td><span id="l_pswd"><script type="text/javascript">$('#l_pswd').html(getLocalization('label.pswd'));</script></span></td><td><input name="passwordW" type="password" id="myPassword" autocomplete="on" required="required"><!----></input></td></tr><tr><td colspan="2" align="left"><span id="ll_remember"><script type="text/javascript" xml:space="preserve">
+								$('#ll_remember').html(getLocalization('label.rememberme'));
+							</script></span>     <input name="myLoginRemember" type="checkbox" class="ck" id="myRemember" value="no"><!----></input></td></tr><tr><td colspan="2" align="center"><input id="l_bt_submit_log" type="submit" value="Submit" name="loginFormButton"><!----></input><script type="text/javascript">$('#l_bt_submit_log').attr('value',getLocalization('label.login'));</script><span class="btnHGlue"><!----></span><input class="bt_cancel" id="l_cancelLog" type="button" value="Cancel" name="loginFormButton"><!----></input><script type="text/javascript">$('#l_cancelLog').attr('value',getLocalization('label.cancel'));</script></td></tr></table><div class="loginAlternative"><span id="link_lostPwd" onclick="showLostPwd()"><script type="text/javascript">$('#link_lostPwd').html(getLocalization('label.lostPswd'));</script></span><span id="link_signUp" onclick="showSignUp()"><script type="text/javascript">$('#link_signUp').html(getLocalization('label.signUp'));</script></span></div></form><iframe id="passwordIframe" name="passwordIframe" style="display:none"><!----></iframe></div><div id="cmts"><!----></div></body>
+</html>

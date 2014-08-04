@@ -1,0 +1,309 @@
+
+<!DOCTYPE html
+  PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xml:lang="en-us" lang="en-us">
+<head><meta xmlns="http://www.w3.org/1999/xhtml" name="description" content="A lens is a Platfora object that represents data for a specific analysis project. A lens is defined, built, and then used in a project. Lens data come from one or more datasets. You can use Platfora ..."/><meta http-equiv="Content-Type" content="text/html; charset=utf-8"/><meta name="copyright" content="(C) Copyright 2005"/><meta name="DC.rights.owner" content="(C) Copyright 2005"/><meta name="DC.Type" content="topic"/><meta name="DC.Title" content="Overview"/><meta name="DC.Relation" scheme="URI" content="../api/api_lenses_top.html"/><meta name="DC.Format" content="XHTML"/><meta name="DC.Identifier" content="api_lens_entity"/><link rel="stylesheet" type="text/css" href="../oxygen-webhelp/resources/css/commonltr.css"><!----></link><title>Overview</title><meta http-equiv="Content-Type" content="text/html; charset=utf-8"/><link rel="stylesheet" type="text/css" href="../oxygen-webhelp/resources/css/commonltr.css"><!----></link><link rel="stylesheet" type="text/css" href="../oxygen-webhelp/resources/css/webhelp_topic.css"><!----></link><link rel="stylesheet" type="text/css" href="../oxygen-webhelp/resources/skins/skin.css"><!----></link><link rel="stylesheet" type="text/css" href="../oxygen-webhelp/resources/css/jquery.realperson.css"><!----></link><link rel="stylesheet" type="text/css" href="../oxygen-webhelp/resources/css/comments.css"><!----></link><link rel="stylesheet" type="text/css" href="../oxygen-webhelp/resources/css/jquery.cleditor.css"><!----></link><link rel="stylesheet" type="text/css" href="../oxygen-webhelp/resources/css/admin.css"><!----></link><script type="text/javascript"><!--
+          
+          var prefix = "../index.html";
+          
+          --></script><script type="text/javascript" src="../oxygen-webhelp/resources/js/jquery-1.8.2.min.js"><!----></script><script type="text/javascript" src="../oxygen-webhelp/resources/js/jquery.cookie.js"><!----></script><script type="text/javascript" src="../oxygen-webhelp/resources/js/jquery-ui.custom.min.js"><!----></script><script type="text/javascript" charset="utf-8" src="../oxygen-webhelp/resources/js/webhelp_topic.js"><!----></script><script type="text/javascript" charset="utf-8" src="../oxygen-webhelp/resources/localization/strings.js"><!----></script><script type="text/javascript" charset="utf-8" src="../oxygen-webhelp/resources/js/init.js"><!----></script><script type="text/javascript" charset="utf-8" src="../oxygen-webhelp/resources/js/comments-functions.js"><!----></script></head>
+<body onload="init('../')">
+<table class="nav"><tbody><tr><td colspan="2"><div id="printlink"><a href="javascript:window.print();" title="printThisPage"/></div><div id="permalink"><a href="#" title="linkToThis"/></div></td></tr><tr><td width="75%"><a class="navheader_parent_path" href="../api/api_lenses_top.html" title="Use the lenses resource to create a lens or list a collection of lenses in Platfora.">lenses Resource</a></td><td><div class="navheader">
+<span class="navparent"><a class="link" href="../api/api_lenses_top.html" title="Use the lenses resource to create a lens or list a collection of lenses in Platfora."><span class="navheader_label">Parent topic</span><span class="navheader_separator">: </span><span class="navheader_linktext">lenses Resource</span></a></span>  </div></td></tr></tbody></table>
+
+  <div class="nested0" id="api_lens_entity">
+    <h1 class="title topictitle1">Overview</h1>
+
+    <div class="body">
+      <p class="p">A lens is a Platfora object that represents data for a specific analysis project. A lens is
+        defined, built, and then used in a project. Lens data come from one or more datasets.
+        You can use Platfora to view or create both aggregate lenses and event series lenses. </p>
+
+      <div class="section"><h2 class="title sectiontitle">Differences between Aggregate and Event Series Lenses</h2>
+        
+        <p class="p">Aggregate lenses typically include fields from a single fact dataset. Fact datasets
+          contain data (measure and/or dimension) from a specific event such as a sales transaction
+          or a page view. An aggregate lens groups the data by one or more dimensions. Imagine a
+          dataset that details each sale in a region, how much the sale was, and when the sale
+          happened. An aggregated lens of this data may sum total sales by region. </p>
+
+        <p class="p">An event series relies on two datasets. One dataset, called a focus, has a primary key
+          that references records from one or more associated datasets. The associated dataset must
+          include a timestamp field. An event series lens orders records first by the focus' primary
+          key and secondarily by the timestamp. In this way, you can see each event for a specific
+          primary key in the order in which each event happened.</p>
+
+      </div>
+
+      <div class="section">
+        <p class="p">In addition to <a class="xref" href="ref_api_common_attrs.html" title="Common attributes include identifiers, version information, and object history.">the common attributes</a>, the
+          <samp class="ph codeph">lenses</samp> resource has the following attributes: </p>
+
+        
+<div class="tablenoborder"><table cellpadding="4" cellspacing="0" summary="" id="api_lens_entity__lenses_attrs" class="table" frame="border" border="1" rules="all">
+            
+            
+            <thead class="thead" align="left">
+              <tr class="row">
+                <th class="entry" valign="top" width="20%" id="d6771e56"><p class="p">Attribute</p>
+</th>
+
+                <th class="entry" valign="top" width="80%" id="d6771e60"><p class="p">Description</p>
+</th>
+
+              </tr>
+
+            </thead>
+
+            <tbody class="tbody">
+              <tr class="row">
+                <td class="entry" valign="top" width="20%" headers="d6771e56 "><p class="p"><span class="keyword parmname">abbreviation</span></p>
+</td>
+
+                <td class="entry" valign="top" width="80%" headers="d6771e60 "><p class="p">Identical to the <span class="keyword parmname">name</span> attribute.</p>
+</td>
+
+              </tr>
+
+              <tr class="row">
+                <td class="entry" valign="top" width="20%" headers="d6771e56 "><p class="p"><span class="keyword parmname">description</span></p>
+</td>
+
+                <td class="entry" valign="top" width="80%" headers="d6771e60 "><p class="p">Describes the lens contents.</p>
+</td>
+
+              </tr>
+
+              <tr class="row">
+                <td class="entry" valign="top" width="20%" headers="d6771e56 "><p class="p"><span class="keyword parmname">datasets</span></p>
+</td>
+
+                <td class="entry" valign="top" width="80%" headers="d6771e60 "><p class="p">Contains an array of data sets that the lens relies on.</p>
+</td>
+
+              </tr>
+
+              <tr class="row">
+                <td class="entry" valign="top" width="20%" headers="d6771e56 "><p class="p"><span class="keyword parmname">focusDataset</span></p>
+</td>
+
+                <td class="entry" valign="top" width="80%" headers="d6771e60 "><p class="p">Specifies the focus of an event series lens. This attribute is empty if
+                  <span class="keyword parmname">eventBased</span> is false.</p>
+</td>
+
+              </tr>
+
+              <tr class="row">
+                <td class="entry" valign="top" width="20%" headers="d6771e56 "><p class="p"><span class="keyword parmname">focusDatasetKey</span></p>
+</td>
+
+                <td class="entry" valign="top" width="80%" headers="d6771e60 "><p class="p">Specifies the primary key used to create an event series lens. This
+                  attribute is empty if <span class="keyword parmname">eventBased</span> is false.</p>
+</td>
+
+              </tr>
+
+              <tr class="row">
+                <td class="entry" valign="top" width="20%" headers="d6771e56 "><p class="p"><span class="keyword parmname">fields</span></p>
+</td>
+
+                <td class="entry" valign="top" width="80%" headers="d6771e60 "><p class="p">Contains a list of field structures representing the fields the lens
+                  uses.</p>
+</td>
+
+              </tr>
+
+              <tr class="row">
+                <td class="entry" valign="top" width="20%" headers="d6771e56 "><p class="p"><span class="keyword parmname">filters</span></p>
+</td>
+
+                <td class="entry" valign="top" width="80%" headers="d6771e60 "><p class="p">Contains an array of filter objects.</p>
+</td>
+
+              </tr>
+
+              <tr class="row">
+                <td class="entry" valign="top" width="20%" headers="d6771e56 "><p class="p"><span class="keyword parmname">drillDowns</span></p>
+</td>
+
+                <td class="entry" valign="top" width="80%" headers="d6771e60 "><p class="p">Contains an array of drill downs defined in the lens. A drill down is a
+                  path from the most summarized to the most detailed categorization of a
+                  particular dimension.</p>
+</td>
+
+              </tr>
+
+              <tr class="row">
+                <td class="entry" valign="top" width="20%" headers="d6771e56 "><p class="p"><span class="keyword parmname">eventBased</span></p>
+</td>
+
+                <td class="entry" valign="top" width="80%" headers="d6771e60 "><p class="p">Indicates whether the lens is an event series lens or not. This is a
+                  boolean value.</p>
+</td>
+
+              </tr>
+
+              <tr class="row">
+                <td class="entry" valign="top" width="20%" headers="d6771e56 "><p class="p"><span class="keyword parmname">buildSummaries</span></p>
+</td>
+
+                <td class="entry" valign="top" width="80%" headers="d6771e60 "><p class="p">Summarizes the lens' build history. If a build was attempted, includes the
+                  <samp class="ph codeph">LastAttempt</samp> structure. If a build was attempted and
+                  successful, the summary also describes a <samp class="ph codeph">LastSucessful</samp>
+                  structure.</p>
+</td>
+
+              </tr>
+
+            </tbody>
+
+          </table>
+</div>
+
+        <p class="p">The <span class="keyword parmname">fields</span> structure has the following content:</p>
+
+        
+<div class="tablenoborder"><table cellpadding="4" cellspacing="0" summary="" id="api_lens_entity__fields_structure" class="table" frame="border" border="1" rules="all">
+            
+            
+            <thead class="thead" align="left">
+              <tr class="row">
+                <th class="entry" valign="top" width="20%" id="d6771e225"><p class="p">Attribute</p>
+</th>
+
+                <th class="entry" valign="top" width="80%" id="d6771e229"><p class="p">Description</p>
+</th>
+
+              </tr>
+
+            </thead>
+
+            <tbody class="tbody">
+              <tr class="row">
+                <td class="entry" valign="top" width="20%" headers="d6771e225 "><p class="p"><span class="keyword parmname">name</span></p>
+</td>
+
+                <td class="entry" valign="top" width="80%" headers="d6771e229 ">Contains the name.</td>
+
+              </tr>
+
+              <tr class="row">
+                <td class="entry" valign="top" width="20%" headers="d6771e225 "><p class="p"><span class="keyword parmname">type</span></p>
+</td>
+
+                <td class="entry" valign="top" width="80%" headers="d6771e229 "><p class="p">Specifies the data type the field contains. Can be one of: </p>
+
+                  <ul class="ul">
+                    <li class="li"><p class="p"><samp class="ph codeph">INTEGER</samp></p>
+</li>
+
+                    <li class="li"><p class="p"><samp class="ph codeph">STRING</samp></p>
+</li>
+
+                    <li class="li"><p class="p"><samp class="ph codeph">DOUBLE</samp></p>
+</li>
+
+                    <li class="li"><p class="p"><samp class="ph codeph">LONG</samp></p>
+</li>
+
+                    <li class="li"><p class="p"><samp class="ph codeph">DATETIME</samp></p>
+</li>
+
+                    <li class="li"><p class="p"><samp class="ph codeph">CURRENCY</samp></p>
+</li>
+
+                    <li class="li"><p class="p"><samp class="ph codeph">REFERENCE</samp></p>
+</li>
+
+                  </ul>
+
+                </td>
+
+              </tr>
+
+              <tr class="row">
+                <td class="entry" valign="top" width="20%" headers="d6771e225 "><p class="p"><span class="keyword parmname">role</span></p>
+</td>
+
+                <td class="entry" valign="top" width="80%" headers="d6771e229 "><p class="p">Specifies the field's role in the lens: </p>
+
+                  <ul class="ul">
+                    <li class="li"><p class="p"><samp class="ph codeph">MEASURE</samp></p>
+</li>
+
+                    <li class="li"><p class="p"><samp class="ph codeph">REFERENCE</samp></p>
+</li>
+
+                    <li class="li"><p class="p"><samp class="ph codeph">VALUE</samp> (same as dimension)</p>
+</li>
+
+                  </ul>
+
+                </td>
+
+              </tr>
+
+              <tr class="row">
+                <td class="entry" valign="top" width="20%" headers="d6771e225 "><p class="p"><span class="keyword parmname">target</span></p>
+</td>
+
+                <td class="entry" valign="top" width="80%" headers="d6771e229 "><p class="p">Contains a JSON structure for resolving a reference field. Not required for
+                  <samp class="ph codeph">MEASURE</samp> or <samp class="ph codeph">VALUE</samp> fields.</p>
+</td>
+
+              </tr>
+
+              <tr class="row">
+                <td class="entry" valign="top" width="20%" headers="d6771e225 "><p class="p"><span class="keyword parmname">expression</span></p>
+</td>
+
+                <td class="entry" valign="top" width="80%" headers="d6771e229 "><p class="p">Contains the expression from the dataset.</p>
+</td>
+
+              </tr>
+
+              <tr class="row">
+                <td class="entry" valign="top" width="20%" headers="d6771e225 "><p class="p"><span class="keyword parmname">lensExpression</span></p>
+</td>
+
+                <td class="entry" valign="top" width="80%" headers="d6771e229 "><p class="p">Contains a boolean that identifies </p>
+</td>
+
+              </tr>
+
+              <tr class="row">
+                <td class="entry" valign="top" width="20%" headers="d6771e225 "><p class="p"><span class="keyword parmname">children</span></p>
+</td>
+
+                <td class="entry" valign="top" width="80%" headers="d6771e229 "><p class="p">Map of name to LensField JSON objects </p>
+</td>
+
+              </tr>
+
+              <tr class="row">
+                <td class="entry" valign="top" width="20%" headers="d6771e225 "><p class="p"><span class="keyword parmname">platforaManaged</span></p>
+</td>
+
+                <td class="entry" valign="top" width="80%" headers="d6771e229 "><p class="p">Indicates whether the lens field is generated and managed by Platfora instead of by the user. </p>
+</td>
+
+              </tr>
+
+            </tbody>
+
+          </table>
+</div>
+
+      </div>
+
+    </div>
+
+  <div class="related-links"/>
+</div>
+
+<div class="navfooter"><!---->
+<span class="navparent"><a class="link" href="../api/api_lenses_top.html" title="Use the lenses resource to create a lens or list a collection of lenses in Platfora."><span class="navheader_label">Parent topic</span><span class="navheader_separator">: </span><span class="navheader_linktext">lenses Resource</span></a></span>  </div><div class="footer">WebHelp output generated by<a href="http://www.oxygenxml.com" target="_blank"><span class="oXygenLogo"><img src="../oxygen-webhelp/resources/img/LogoOxygen100x22.png" alt="Oxygen"/></span><span class="xmlauthor">XML Author</span></a></div>
+<div id="productInfo" style="display:none;"><span id="oxy_productID">api_ref_guide</span><span id="oxy_productVersion">2.0</span></div><div id="loginData" style="display: none"><span class="bt_close" title="Close"><!----></span><form action="" target="passwordIframe" method="post" name="form_login" onsubmit="return loggInUser();" id="loginFormData" autocomplete="on"><input type="hidden" id="reloadComments" value="yes"><!----></input><table class="login"><thead><tr><td colspan="2"><span id="l_login2"><script type="text/javascript">$('#l_login2').html(getLocalization('label.login'));</script></span></td></tr><tr><td colspan="2"><div id="loginResponse"><!----></div></td></tr></thead><tr><td><span id="l_userName"><script type="text/javascript">$('#l_userName').html(getLocalization('label.userName'));</script></span></td><td><input name="usernameW" type="text" id="myUserName" autocomplete="on" required="required" autofocus="autofocus"><!----></input></td></tr><tr><td><span id="l_pswd"><script type="text/javascript">$('#l_pswd').html(getLocalization('label.pswd'));</script></span></td><td><input name="passwordW" type="password" id="myPassword" autocomplete="on" required="required"><!----></input></td></tr><tr><td colspan="2" align="left"><span id="ll_remember"><script type="text/javascript" xml:space="preserve">
+								$('#ll_remember').html(getLocalization('label.rememberme'));
+							</script></span>     <input name="myLoginRemember" type="checkbox" class="ck" id="myRemember" value="no"><!----></input></td></tr><tr><td colspan="2" align="center"><input id="l_bt_submit_log" type="submit" value="Submit" name="loginFormButton"><!----></input><script type="text/javascript">$('#l_bt_submit_log').attr('value',getLocalization('label.login'));</script><span class="btnHGlue"><!----></span><input class="bt_cancel" id="l_cancelLog" type="button" value="Cancel" name="loginFormButton"><!----></input><script type="text/javascript">$('#l_cancelLog').attr('value',getLocalization('label.cancel'));</script></td></tr></table><div class="loginAlternative"><span id="link_lostPwd" onclick="showLostPwd()"><script type="text/javascript">$('#link_lostPwd').html(getLocalization('label.lostPswd'));</script></span><span id="link_signUp" onclick="showSignUp()"><script type="text/javascript">$('#link_signUp').html(getLocalization('label.signUp'));</script></span></div></form><iframe id="passwordIframe" name="passwordIframe" style="display:none"><!----></iframe></div><div id="cmts"><!----></div></body>
+</html>

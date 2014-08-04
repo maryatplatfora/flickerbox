@@ -1,0 +1,87 @@
+
+<!DOCTYPE html
+  PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xml:lang="en-us" lang="en-us">
+<head><meta xmlns="http://www.w3.org/1999/xhtml" name="description" content="If your installation uses the TaskTracker (pre-YARN distributions), your lens builds can fail with out-of-memory errors. Better tuning of the TaskTracker task properties and Java virtual memory (JVM) ..."/><meta http-equiv="Content-Type" content="text/html; charset=utf-8"/><meta name="copyright" content="(C) Copyright 2005"/><meta name="DC.rights.owner" content="(C) Copyright 2005"/><meta name="DC.Type" content="topic"/><meta name="DC.Title" content="Avoid MapReduce Out-of-Memory Errors"/><meta name="abstract" content="Better tuning of the TaskTracker task properties and Java virtual memory (JVM) settings can fix these errors."/><meta xmlns="http://www.w3.org/1999/xhtml" name="description" content="Better tuning of the TaskTracker task properties and Java virtual memory (JVM) settings can fix these errors."/><meta name="DC.Relation" scheme="URI" content="../../system/lens_management/mapred_troubleshoot.html"/><meta name="DC.Format" content="XHTML"/><meta name="DC.Identifier" content="avoid_mr_errors"/><link rel="stylesheet" type="text/css" href="../../oxygen-webhelp/resources/css/commonltr.css"><!----></link><title>Avoid MapReduce Out-of-Memory Errors</title><meta http-equiv="Content-Type" content="text/html; charset=utf-8"/><link rel="stylesheet" type="text/css" href="../../oxygen-webhelp/resources/css/commonltr.css"><!----></link><link rel="stylesheet" type="text/css" href="../../oxygen-webhelp/resources/css/webhelp_topic.css"><!----></link><link rel="stylesheet" type="text/css" href="../../oxygen-webhelp/resources/skins/skin.css"><!----></link><link rel="stylesheet" type="text/css" href="../../oxygen-webhelp/resources/css/jquery.realperson.css"><!----></link><link rel="stylesheet" type="text/css" href="../../oxygen-webhelp/resources/css/comments.css"><!----></link><link rel="stylesheet" type="text/css" href="../../oxygen-webhelp/resources/css/jquery.cleditor.css"><!----></link><link rel="stylesheet" type="text/css" href="../../oxygen-webhelp/resources/css/admin.css"><!----></link><script type="text/javascript"><!--
+          
+          var prefix = "../../index.html";
+          
+          --></script><script type="text/javascript" src="../../oxygen-webhelp/resources/js/jquery-1.8.2.min.js"><!----></script><script type="text/javascript" src="../../oxygen-webhelp/resources/js/jquery.cookie.js"><!----></script><script type="text/javascript" src="../../oxygen-webhelp/resources/js/jquery-ui.custom.min.js"><!----></script><script type="text/javascript" charset="utf-8" src="../../oxygen-webhelp/resources/js/webhelp_topic.js"><!----></script><script type="text/javascript" charset="utf-8" src="../../oxygen-webhelp/resources/localization/strings.js"><!----></script><script type="text/javascript" charset="utf-8" src="../../oxygen-webhelp/resources/js/init.js"><!----></script><script type="text/javascript" charset="utf-8" src="../../oxygen-webhelp/resources/js/comments-functions.js"><!----></script></head>
+<body onload="init('../../')" id="avoid_mr_errors">
+<table class="nav"><tbody><tr><td colspan="2"><div id="printlink"><a href="javascript:window.print();" title="printThisPage"/></div><div id="permalink"><a href="#" title="linkToThis"/></div></td></tr><tr><td width="75%"><a class="navheader_parent_path" href="../../system/lens_management/../../system/lens_management/troubleshoot_lens_builds_top.html" title="This section describes how to investigate problems when a lens build fails.">Troubleshoot Lens Build Failures</a> / <a class="navheader_parent_path" href="../../system/lens_management/mapred_troubleshoot.html" title="This section describes how to adjust certain Hadoop-controlled parameters to avoid some common MapReduce errors in Platfora lens builds.">Troubleshoot Hadoop Configuration Problems</a></td><td><div class="navheader">
+<span class="navparent"><a class="link" href="../../system/lens_management/mapred_troubleshoot.html" title="This section describes how to adjust certain Hadoop-controlled parameters to avoid some common MapReduce errors in Platfora lens builds."><span class="navheader_label">Parent topic</span><span class="navheader_separator">: </span><span class="navheader_linktext">Troubleshoot Hadoop Configuration Problems</span></a></span>  </div></td></tr></tbody></table>
+
+  <h1 class="title topictitle1">Avoid MapReduce Out-of-Memory Errors</h1>
+
+  
+  <div class="body"><div class="abstract">If your installation uses the TaskTracker (pre-YARN distributions), your lens builds can fail with out-of-memory errors. <span class="shortdesc"> Better tuning of the TaskTracker task properties and Java virtual memory (JVM) settings can fix these errors.</span>
+</div>
+
+    <div class="section">
+      <p class="p">When creating a MapReduce job, Hadoop does not dynamically detect system resources to
+        determine the number of map or reduce task slots to allocate. Instead, the MapReduce job
+        tries to use as many task slots as it is allowed with as much Java virtual memory (JVM)
+        allowed. A Platfora configuration can pass JVM allocation for a MapReduce job but it cannot
+        set the allowable tasks.  The Hadoop configuration controls the allowable tasks.</p>
+
+      <p class="p">The maximum number of simultaneous tasks that can run on a Hadoop TaskTracker node is
+        configured by the following MapReduce configuration properties:</p>
+
+      <ul class="ul">
+        <li class="li"><samp class="ph codeph">mapred.tasktracker.map.tasks.maximum</samp>
+        </li>
+
+        <li class="li"><samp class="ph codeph">mapred.tasktracker.reduce.tasks.maximum</samp></li>
+
+      </ul>
+
+      <p class="p">Your Hadoop administrator configures these on the Hadoop TaskTracker nodes.</p>
+
+      <p class="p">The maximum number of tasks able to run on a single TaskTracker node has nothing to do with
+        the number of tasks a job needs. For example, a job may require 10 map tasks. If the maximum
+        map task slots is 5, then the job runs 5 tasks at a time until it completes all 10. Likewise
+        the maximum reduce task slots could be set to 10, but a job may only need to use 2 reduce
+        slots.</p>
+
+      <p class="p">Your Hadoop administrator should make sure that the number of task slots is sized according
+        to the amount of memory and CPU available on your Hadoop TaskTracker nodes, and the typical
+        job workload. If the tracker nodes have swap enabled, administrators can reduce these limits to take that into account.</p>
+
+      <p class="p">The total JVM size that Hadoop allocates per task slot is set by the
+        <samp class="ph codeph">mapred.java.child.opts</samp> property. You set this in Platfora's local
+        <span class="ph filepath">mapred-site.xml</span> file. Platfora needs at least a 1 GB JVM size for its
+        task slots. But if you decide to use a higher JVM size to optimize lens build performance,
+        you must make sure not to over-allocate system memory on your Hadoop TaskTracker nodes.</p>
+
+      <p class="p">In addition to its operating system requirements, a TaskTracker node requires enough RAM to
+        support the TaskTracker process, the data node virtual machine, and any other process a node
+        may run.  Think of this as the node's RAM requirements.  </p>
+
+      <p class="p">A good rule of thumb for setting <samp class="ph codeph">mapred.java.child.opts</samp> for Platfora is: </p>
+
+      <div class="p">
+        <pre class="pre codeblock">(Node RAM requirements – 4GB) / (<em class="ph i">mapred.tasktracker.map.tasks.maximum</em> + <em class="ph i">mapred.tasktracker.reduce.tasks.maximum</em>)</pre>
+
+      </div>
+
+      <p class="p">For example, if a TaskTracker node returns 32 GB of RAM, minus 4 GB reserve memory, then 28
+        GB is available for all MapReduce tasks. If the maximum map tasks allowed is 5 and the
+        maximum reduce tasks is 3, then no more than 8 tasks can run at one time on the node. 28 GB
+        divided by 8 is 3.5 GB per task ( -Xmx3500M ).</p>
+
+      <div class="note note"><span class="notetitle">Note:</span> <p class="p"> You should always supply an integer and never
+        a decimal for JVM settings; Otherwise, your processes can fail with a obscure error.</p>
+</div>
+
+    </div>
+
+  </div>
+
+  
+<div class="related-links"/>
+<div class="navfooter"><!---->
+<span class="navparent"><a class="link" href="../../system/lens_management/mapred_troubleshoot.html" title="This section describes how to adjust certain Hadoop-controlled parameters to avoid some common MapReduce errors in Platfora lens builds."><span class="navheader_label">Parent topic</span><span class="navheader_separator">: </span><span class="navheader_linktext">Troubleshoot Hadoop Configuration Problems</span></a></span>  </div><div class="footer">WebHelp output generated by<a href="http://www.oxygenxml.com" target="_blank"><span class="oXygenLogo"><img src="../../oxygen-webhelp/resources/img/LogoOxygen100x22.png" alt="Oxygen"/></span><span class="xmlauthor">XML Author</span></a></div>
+<div id="productInfo" style="display:none;"><span id="oxy_productID">webhelp</span><span id="oxy_productVersion">3.0</span></div><div id="loginData" style="display: none"><span class="bt_close" title="Close"><!----></span><form action="" target="passwordIframe" method="post" name="form_login" onsubmit="return loggInUser();" id="loginFormData" autocomplete="on"><input type="hidden" id="reloadComments" value="yes"><!----></input><table class="login"><thead><tr><td colspan="2"><span id="l_login2"><script type="text/javascript">$('#l_login2').html(getLocalization('label.login'));</script></span></td></tr><tr><td colspan="2"><div id="loginResponse"><!----></div></td></tr></thead><tr><td><span id="l_userName"><script type="text/javascript">$('#l_userName').html(getLocalization('label.userName'));</script></span></td><td><input name="usernameW" type="text" id="myUserName" autocomplete="on" required="required" autofocus="autofocus"><!----></input></td></tr><tr><td><span id="l_pswd"><script type="text/javascript">$('#l_pswd').html(getLocalization('label.pswd'));</script></span></td><td><input name="passwordW" type="password" id="myPassword" autocomplete="on" required="required"><!----></input></td></tr><tr><td colspan="2" align="left"><span id="ll_remember"><script type="text/javascript" xml:space="preserve">
+								$('#ll_remember').html(getLocalization('label.rememberme'));
+							</script></span>     <input name="myLoginRemember" type="checkbox" class="ck" id="myRemember" value="no"><!----></input></td></tr><tr><td colspan="2" align="center"><input id="l_bt_submit_log" type="submit" value="Submit" name="loginFormButton"><!----></input><script type="text/javascript">$('#l_bt_submit_log').attr('value',getLocalization('label.login'));</script><span class="btnHGlue"><!----></span><input class="bt_cancel" id="l_cancelLog" type="button" value="Cancel" name="loginFormButton"><!----></input><script type="text/javascript">$('#l_cancelLog').attr('value',getLocalization('label.cancel'));</script></td></tr></table><div class="loginAlternative"><span id="link_lostPwd" onclick="showLostPwd()"><script type="text/javascript">$('#link_lostPwd').html(getLocalization('label.lostPswd'));</script></span><span id="link_signUp" onclick="showSignUp()"><script type="text/javascript">$('#link_signUp').html(getLocalization('label.signUp'));</script></span></div></form><iframe id="passwordIframe" name="passwordIframe" style="display:none"><!----></iframe></div><div id="cmts"><!----></div></body>
+</html>

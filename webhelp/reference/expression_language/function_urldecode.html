@@ -1,0 +1,215 @@
+
+<!DOCTYPE html
+  PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xml:lang="en-us" lang="en-us">
+<head><meta xmlns="http://www.w3.org/1999/xhtml" name="description" content="URLDECODE is a row function that decodes a string that has been encoded with the application/x-www-form-urlencoded media type. URL encoding, also known as percent-encoding, is a mechanism for encoding ..."/><meta http-equiv="Content-Type" content="text/html; charset=utf-8"/><meta name="copyright" content="(C) Copyright 2005"/><meta name="DC.rights.owner" content="(C) Copyright 2005"/><meta name="DC.Type" content="reference"/><meta name="DC.Title" content="URLDECODE"/><meta name="abstract" content="URLDECODE is a row function that decodes a string that has been encoded with the application/x-www-form-urlencoded media type. URL encoding, also known as percent-encoding, is a mechanism for encoding information in a Uniform Resource Identifier (URI). When sent in an HTTP GET request, application/x-www-form-urlencoded data is included in the query component of the request URI. When sent in an HTTP POST request, the data is placed in the body of the message, and the name of the media type is included in the message Content-Type header."/><meta xmlns="http://www.w3.org/1999/xhtml" name="description" content="URLDECODE is a row function that decodes a string that has been encoded with the application/x-www-form-urlencoded media type. URL encoding, also known as percent-encoding, is a mechanism for encoding information in a Uniform Resource Identifier (URI). When sent in an HTTP GET request, application/x-www-form-urlencoded data is included in the query component of the request URI. When sent in an HTTP POST request, the data is placed in the body of the message, and the name of the media type is included in the message Content-Type header."/><meta name="DC.Relation" scheme="URI" content="../../reference/expression_language/row_url_functions_top.html"/><meta name="DC.Format" content="XHTML"/><meta name="DC.Identifier" content="ref_func_urldecode"/><link rel="stylesheet" type="text/css" href="../../oxygen-webhelp/resources/css/commonltr.css"><!----></link><title>URLDECODE</title><meta http-equiv="Content-Type" content="text/html; charset=utf-8"/><link rel="stylesheet" type="text/css" href="../../oxygen-webhelp/resources/css/commonltr.css"><!----></link><link rel="stylesheet" type="text/css" href="../../oxygen-webhelp/resources/css/webhelp_topic.css"><!----></link><link rel="stylesheet" type="text/css" href="../../oxygen-webhelp/resources/skins/skin.css"><!----></link><link rel="stylesheet" type="text/css" href="../../oxygen-webhelp/resources/css/jquery.realperson.css"><!----></link><link rel="stylesheet" type="text/css" href="../../oxygen-webhelp/resources/css/comments.css"><!----></link><link rel="stylesheet" type="text/css" href="../../oxygen-webhelp/resources/css/jquery.cleditor.css"><!----></link><link rel="stylesheet" type="text/css" href="../../oxygen-webhelp/resources/css/admin.css"><!----></link><script type="text/javascript"><!--
+          
+          var prefix = "../../index.html";
+          
+          --></script><script type="text/javascript" src="../../oxygen-webhelp/resources/js/jquery-1.8.2.min.js"><!----></script><script type="text/javascript" src="../../oxygen-webhelp/resources/js/jquery.cookie.js"><!----></script><script type="text/javascript" src="../../oxygen-webhelp/resources/js/jquery-ui.custom.min.js"><!----></script><script type="text/javascript" charset="utf-8" src="../../oxygen-webhelp/resources/js/webhelp_topic.js"><!----></script><script type="text/javascript" charset="utf-8" src="../../oxygen-webhelp/resources/localization/strings.js"><!----></script><script type="text/javascript" charset="utf-8" src="../../oxygen-webhelp/resources/js/init.js"><!----></script><script type="text/javascript" charset="utf-8" src="../../oxygen-webhelp/resources/js/comments-functions.js"><!----></script></head>
+<body onload="init('../../')" id="ref_func_urldecode">
+<table class="nav"><tbody><tr><td colspan="2"><div id="printlink"><a href="javascript:window.print();" title="printThisPage"/></div><div id="permalink"><a href="#" title="linkToThis"/></div></td></tr><tr><td width="75%"><a class="navheader_parent_path" href="../../reference/expression_language/../../reference/expression_language/expression_reference_top.html" title="An expression computes or produces a value by combining fields (or columns), constant values, operators, and functions. Platfora has a built-in expression language. You use the language's functions and operators to create a computed field.">Expression and Query Language Reference</a> / <a class="navheader_parent_path" href="../../reference/expression_language/row_url_functions_top.html" title="URL functions allow you to extract different portions of a URL string, and decode text that is URL-encoded.">URL Functions</a></td><td><div class="navheader">
+<span class="navparent"><a class="link" href="../../reference/expression_language/row_url_functions_top.html" title="URL functions allow you to extract different portions of a URL string, and decode text that is URL-encoded."><span class="navheader_label">Parent topic</span><span class="navheader_separator">: </span><span class="navheader_linktext">URL Functions</span></a></span>  </div></td></tr></tbody></table>
+
+  <h1 class="title topictitle1">URLDECODE</h1>
+
+  
+  <div class="body refbody"><p class="shortdesc"><samp class="ph codeph">URLDECODE</samp> is a row function that decodes
+      a string that has been encoded with the <samp class="ph codeph">application/x-www-form-urlencoded</samp>
+      media type. URL encoding, also known as percent-encoding, is a mechanism for encoding
+    information in a Uniform Resource Identifier (URI). When sent in an <samp class="ph codeph">HTTP GET</samp>
+    request, <samp class="ph codeph">application/x-www-form-urlencoded</samp> data is included in the query
+    component of the request URI. When sent in an <samp class="ph codeph">HTTP POST</samp> request, the data is
+    placed in the body of the message, and the name of the media type is included in the message
+      <samp class="ph codeph">Content-Type</samp> header. </p>
+
+    <div class="section"><h2 class="title sectiontitle">Syntax</h2><samp class="ph codeph" id="ref_func_urldecode__syntax_func_urldecode">
+        <span class="ph synph"><span class="keyword kwd">URLDECODE</span>(<span class="ph var">string</span>)</span>
+      </samp>
+    </div>
+
+    <div class="section"><h2 class="title sectiontitle">Return Value</h2>
+      
+      <p class="p">Returns a value of type <samp class="ph codeph">STRING</samp> with characters decoded as follows:</p>
+
+      <div class="p">
+        <ul class="ul">
+          <li class="li">Alphanumeric characters (a-z, A-Z, 0-9) remain unchanged.</li>
+
+          <li class="li">The special characters hyphen (<samp class="ph codeph">-</samp>), comma (<samp class="ph codeph">,</samp>),
+            underscore (<samp class="ph codeph">_</samp>), period (<samp class="ph codeph">.</samp>), and asterisk
+              (<samp class="ph codeph">*</samp>) remain unchanged.</li>
+
+          <li class="li">The plus sign (<samp class="ph codeph">+</samp>) character is converted to a space character.</li>
+
+          <li class="li">The percent character (<samp class="ph codeph">%</samp>) is interpreted as the start of a special
+            escaped sequence, where in the sequence <samp class="ph codeph">%<em class="ph i">HH</em></samp>,
+              <samp class="ph codeph"><em class="ph i">HH</em></samp> represents the hexadecimal value of the byte. For example,
+            some common escape sequences are: 
+<div class="tablenoborder"><table cellpadding="4" cellspacing="0" summary="" class="table" frame="border" border="1" rules="all">
+                
+                
+                <thead class="thead" align="left">
+                  <tr class="row">
+                    <th class="entry" valign="top" width="239pt" id="d113065e115"><p class="p">percent encoding sequence</p>
+</th>
+
+                    <th class="entry" valign="top" width="263pt" id="d113065e119"><p class="p">value</p>
+</th>
+
+                  </tr>
+
+                </thead>
+
+                <tbody class="tbody">
+                  <tr class="row">
+                    <td class="entry" valign="top" width="239pt" headers="d113065e115 "><p class="p"><samp class="ph codeph">%20</samp></p>
+</td>
+
+                    <td class="entry" valign="top" width="263pt" headers="d113065e119 "><p class="p">space</p>
+</td>
+
+                  </tr>
+
+                  <tr class="row">
+                    <td class="entry" valign="top" width="239pt" headers="d113065e115 "><p class="p"><samp class="ph codeph">%0A</samp> or <samp class="ph codeph">%0D</samp> or <samp class="ph codeph">%0D%0A</samp></p>
+
+                    </td>
+
+                    <td class="entry" valign="top" width="263pt" headers="d113065e119 "><p class="p">newline</p>
+</td>
+
+                  </tr>
+
+                  <tr class="row">
+                    <td class="entry" valign="top" width="239pt" headers="d113065e115 "><p class="p"><samp class="ph codeph">%22</samp></p>
+</td>
+
+                    <td class="entry" valign="top" width="263pt" headers="d113065e119 "><p class="p">double quote (<samp class="ph codeph">"</samp>)</p>
+</td>
+
+                  </tr>
+
+                  <tr class="row">
+                    <td class="entry" valign="top" width="239pt" headers="d113065e115 "><p class="p"><samp class="ph codeph">%25 </samp></p>
+</td>
+
+                    <td class="entry" valign="top" width="263pt" headers="d113065e119 "><p class="p">percent (<samp class="ph codeph">%</samp>)</p>
+</td>
+
+                  </tr>
+
+                  <tr class="row">
+                    <td class="entry" valign="top" width="239pt" headers="d113065e115 "><p class="p"><samp class="ph codeph">%2D</samp></p>
+</td>
+
+                    <td class="entry" valign="top" width="263pt" headers="d113065e119 "><p class="p">hyphen (<samp class="ph codeph">-</samp>)</p>
+</td>
+
+                  </tr>
+
+                  <tr class="row">
+                    <td class="entry" valign="top" width="239pt" headers="d113065e115 "><p class="p"><samp class="ph codeph">%2E</samp></p>
+</td>
+
+                    <td class="entry" valign="top" width="263pt" headers="d113065e119 "><p class="p">period (<samp class="ph codeph">.</samp>)</p>
+</td>
+
+                  </tr>
+
+                  <tr class="row">
+                    <td class="entry" valign="top" width="239pt" headers="d113065e115 "><p class="p"><samp class="ph codeph">%3C</samp></p>
+</td>
+
+                    <td class="entry" valign="top" width="263pt" headers="d113065e119 "><p class="p">less than (<samp class="ph codeph">&lt;</samp>)</p>
+</td>
+
+                  </tr>
+
+                  <tr class="row">
+                    <td class="entry" valign="top" width="239pt" headers="d113065e115 "><p class="p"><samp class="ph codeph">%3D</samp></p>
+</td>
+
+                    <td class="entry" valign="top" width="263pt" headers="d113065e119 "><p class="p">greater than (<samp class="ph codeph">&gt;</samp>)</p>
+</td>
+
+                  </tr>
+
+                  <tr class="row">
+                    <td class="entry" valign="top" width="239pt" headers="d113065e115 "><p class="p"><samp class="ph codeph">%5C</samp></p>
+</td>
+
+                    <td class="entry" valign="top" width="263pt" headers="d113065e119 "><p class="p">backslash (<samp class="ph codeph">\</samp>)</p>
+</td>
+
+                  </tr>
+
+                  <tr class="row">
+                    <td class="entry" valign="top" width="239pt" headers="d113065e115 "><p class="p"><samp class="ph codeph">%7C</samp></p>
+
+                    </td>
+
+                    <td class="entry" valign="top" width="263pt" headers="d113065e119 "><p class="p">pipe (<samp class="ph codeph">|</samp>)</p>
+</td>
+
+                  </tr>
+
+                </tbody>
+
+              </table>
+</div>
+</li>
+
+        </ul>
+
+      </div>
+
+      
+    </div>
+
+    <div class="section"><h2 class="title sectiontitle">Input Parameters</h2>
+      
+      <dl class="dl parml">
+        
+          <dt class="dt pt dlterm">string</dt>
+
+          <dd class="dd pd">Required. A field or expression that returns a <samp class="ph codeph">STRING</samp> value. It is
+            assumed that all characters in the input string are one of the following: lower-case
+            letters (a-z), upper-case letters (A-Z), numeric digits (0-9), or the hyphen
+              (<samp class="ph codeph">-</samp>), comma (<samp class="ph codeph">,</samp>), underscore (<samp class="ph codeph">_</samp>),
+            period (<samp class="ph codeph">.</samp>) or asterisk (<samp class="ph codeph">*</samp>) character. The percent
+            character (<samp class="ph codeph">%</samp>) is allowed, but is interpreted as the start of a special
+            escaped sequence. The plus character (<samp class="ph codeph">+</samp>) is allowed, but is interpreted
+            as a space character. </dd>
+
+        
+        
+      </dl>
+
+    </div>
+
+    <div class="section"><h2 class="title sectiontitle">Examples</h2>
+      
+      <p class="p">Decode the values of the <em class="ph i">url_query</em> field:</p>
+
+      <p class="p"><samp class="ph codeph">URLDECODE(url_query)</samp></p>
+
+      
+      <p class="p">Convert a literal URL encoded string (<samp class="ph codeph">N%2FA%20or%20%22not%20applicable%22</samp>)
+        to a human-readable value (<samp class="ph codeph">N/A or "not applicable"</samp>):</p>
+
+      <p class="p"><samp class="ph codeph" id="ref_func_urldecode__example_func_urldecode">URLDECODE(N%2FA%20or%20%22not%20applicable%22)</samp>
+        returns <samp class="ph codeph">N/A or "not applicable"</samp></p>
+
+      
+    </div>
+
+  </div>
+
+<div class="related-links"/>
+<div class="navfooter"><!---->
+<span class="navparent"><a class="link" href="../../reference/expression_language/row_url_functions_top.html" title="URL functions allow you to extract different portions of a URL string, and decode text that is URL-encoded."><span class="navheader_label">Parent topic</span><span class="navheader_separator">: </span><span class="navheader_linktext">URL Functions</span></a></span>  </div><div class="footer">WebHelp output generated by<a href="http://www.oxygenxml.com" target="_blank"><span class="oXygenLogo"><img src="../../oxygen-webhelp/resources/img/LogoOxygen100x22.png" alt="Oxygen"/></span><span class="xmlauthor">XML Author</span></a></div>
+<div id="productInfo" style="display:none;"><span id="oxy_productID">webhelp</span><span id="oxy_productVersion">3.0</span></div><div id="loginData" style="display: none"><span class="bt_close" title="Close"><!----></span><form action="" target="passwordIframe" method="post" name="form_login" onsubmit="return loggInUser();" id="loginFormData" autocomplete="on"><input type="hidden" id="reloadComments" value="yes"><!----></input><table class="login"><thead><tr><td colspan="2"><span id="l_login2"><script type="text/javascript">$('#l_login2').html(getLocalization('label.login'));</script></span></td></tr><tr><td colspan="2"><div id="loginResponse"><!----></div></td></tr></thead><tr><td><span id="l_userName"><script type="text/javascript">$('#l_userName').html(getLocalization('label.userName'));</script></span></td><td><input name="usernameW" type="text" id="myUserName" autocomplete="on" required="required" autofocus="autofocus"><!----></input></td></tr><tr><td><span id="l_pswd"><script type="text/javascript">$('#l_pswd').html(getLocalization('label.pswd'));</script></span></td><td><input name="passwordW" type="password" id="myPassword" autocomplete="on" required="required"><!----></input></td></tr><tr><td colspan="2" align="left"><span id="ll_remember"><script type="text/javascript" xml:space="preserve">
+								$('#ll_remember').html(getLocalization('label.rememberme'));
+							</script></span>     <input name="myLoginRemember" type="checkbox" class="ck" id="myRemember" value="no"><!----></input></td></tr><tr><td colspan="2" align="center"><input id="l_bt_submit_log" type="submit" value="Submit" name="loginFormButton"><!----></input><script type="text/javascript">$('#l_bt_submit_log').attr('value',getLocalization('label.login'));</script><span class="btnHGlue"><!----></span><input class="bt_cancel" id="l_cancelLog" type="button" value="Cancel" name="loginFormButton"><!----></input><script type="text/javascript">$('#l_cancelLog').attr('value',getLocalization('label.cancel'));</script></td></tr></table><div class="loginAlternative"><span id="link_lostPwd" onclick="showLostPwd()"><script type="text/javascript">$('#link_lostPwd').html(getLocalization('label.lostPswd'));</script></span><span id="link_signUp" onclick="showSignUp()"><script type="text/javascript">$('#link_signUp').html(getLocalization('label.signUp'));</script></span></div></form><iframe id="passwordIframe" name="passwordIframe" style="display:none"><!----></iframe></div><div id="cmts"><!----></div></body>
+</html>

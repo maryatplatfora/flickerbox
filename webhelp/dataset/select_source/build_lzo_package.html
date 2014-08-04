@@ -1,0 +1,207 @@
+
+<!DOCTYPE html
+  PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xml:lang="en-us" lang="en-us">
+<head><meta xmlns="http://www.w3.org/1999/xhtml" name="description" content="This optional procedure illustrates how to build a LZO for Hadoop. Following this procedure is only necessary if you want to build and install your own package. Attention: This procedure was run on ..."/><meta http-equiv="Content-Type" content="text/html; charset=utf-8"/><meta name="copyright" content="(C) Copyright 2005"/><meta name="DC.rights.owner" content="(C) Copyright 2005"/><meta name="DC.Type" content="task"/><meta name="DC.Title" content="Create LZO Compression Package (Optional)"/><meta name="abstract" content="This optional procedure illustrates how to build a LZO for Hadoop. Following this procedure is only necessary if you want to build and install your own package."/><meta xmlns="http://www.w3.org/1999/xhtml" name="description" content="This optional procedure illustrates how to build a LZO for Hadoop. Following this procedure is only necessary if you want to build and install your own package."/><meta name="DC.Relation" scheme="URI" content="../../dataset/select_source/supported_compression_libs.html"/><meta name="DC.Relation" scheme="URI" content="../../dataset/select_source/lzo_compression_libs.html"/><meta name="DC.Format" content="XHTML"/><meta name="DC.Identifier" content="lzo_compression_libs"/><link rel="stylesheet" type="text/css" href="../../oxygen-webhelp/resources/css/commonltr.css"><!----></link><title>Create LZO Compression Package (Optional)</title><meta http-equiv="Content-Type" content="text/html; charset=utf-8"/><link rel="stylesheet" type="text/css" href="../../oxygen-webhelp/resources/css/commonltr.css"><!----></link><link rel="stylesheet" type="text/css" href="../../oxygen-webhelp/resources/css/webhelp_topic.css"><!----></link><link rel="stylesheet" type="text/css" href="../../oxygen-webhelp/resources/skins/skin.css"><!----></link><link rel="stylesheet" type="text/css" href="../../oxygen-webhelp/resources/css/jquery.realperson.css"><!----></link><link rel="stylesheet" type="text/css" href="../../oxygen-webhelp/resources/css/comments.css"><!----></link><link rel="stylesheet" type="text/css" href="../../oxygen-webhelp/resources/css/jquery.cleditor.css"><!----></link><link rel="stylesheet" type="text/css" href="../../oxygen-webhelp/resources/css/admin.css"><!----></link><script type="text/javascript"><!--
+          
+          var prefix = "../../index.html";
+          
+          --></script><script type="text/javascript" src="../../oxygen-webhelp/resources/js/jquery-1.8.2.min.js"><!----></script><script type="text/javascript" src="../../oxygen-webhelp/resources/js/jquery.cookie.js"><!----></script><script type="text/javascript" src="../../oxygen-webhelp/resources/js/jquery-ui.custom.min.js"><!----></script><script type="text/javascript" charset="utf-8" src="../../oxygen-webhelp/resources/js/webhelp_topic.js"><!----></script><script type="text/javascript" charset="utf-8" src="../../oxygen-webhelp/resources/localization/strings.js"><!----></script><script type="text/javascript" charset="utf-8" src="../../oxygen-webhelp/resources/js/init.js"><!----></script><script type="text/javascript" charset="utf-8" src="../../oxygen-webhelp/resources/js/comments-functions.js"><!----></script></head>
+<body onload="init('../../')" id="lzo_compression_libs">
+<table class="nav"><tbody><tr><td colspan="2"><div id="printlink"><a href="javascript:window.print();" title="printThisPage"/></div><div id="permalink"><a href="#" title="linkToThis"/></div></td></tr><tr><td width="75%"><a class="navheader_parent_path" href="../../dataset/select_source/../../system/resources/other_topics_top.html" title="The Resources tab of the System page is where system administrators can monitor resources such as Platfora server memory, disk utilization, and status.">Other Management Topics</a> / <a class="navheader_parent_path" href="../../dataset/select_source/supported_compression_libs.html" title="Compressed data can save storage space and improve data transfer speeds. Alternatively, CPU utilization and processing time can increase during decompression. Platfora includes support for several file compression formats. You can add support for others.">Configure Compression Formats</a></td><td><div class="navheader">
+<span class="navparent"><a class="link" href="../../dataset/select_source/supported_compression_libs.html" title="Compressed data can save storage space and improve data transfer speeds. Alternatively, CPU utilization and processing time can increase during decompression. Platfora includes support for several file compression formats. You can add support for others."><span class="navheader_label">Parent topic</span><span class="navheader_separator">: </span><span class="navheader_linktext">Configure Compression Formats</span></a></span>  </div></td></tr></tbody></table>
+
+    <h1 class="title topictitle1">Create LZO Compression Package (Optional)</h1>
+
+    
+    <div class="body taskbody"><p class="shortdesc">This optional procedure illustrates how to build a LZO for Hadoop. Following this procedure is only necessary if you want to build and install your own package. </p>
+
+        <div class="section context">
+            <div class="note attention"><span class="attentiontitle">Attention:</span> This procedure was run on Redhat Linux 6. If your environment is different, the essential procedure remains the same but you may need to adjust the actual commands.</div>
+
+        </div>
+
+        <ol class="ol steps"><li class="li step">
+                <span class="ph cmd"><strong class="ph b">Setup your environment.</strong></span>
+
+                <ol type="a" class="ol substeps">
+                    <li class="li substep substepexpand">
+                        <span class="ph cmd">Install the dependencies</span>
+                        <div class="itemgroup stepxmp"><pre class="pre codeblock">$ <kbd class="ph userinput">sudo yum -y install git rpm-build make wget ant ant-nodeps ant-optional gcc gcc-c++ lzo-devel glibc-devel</kbd>
+$ <kbd class="ph userinput">sudo yum -y install java-1.7.0-openjdk</kbd></pre>
+</div>
+                    </li>
+
+                    <li class="li substep substepexpand">
+                        <span class="ph cmd">Set <samp class="ph codeph">JAVA_HOME</samp>.</span>
+                        <div class="itemgroup stepxmp"><pre class="pre codeblock">$ <kbd class="ph userinput">export JAVA_HOME=/usr/lib/jvm/java-1.7.0-openjdk.x86_64</kbd></pre>
+</div>
+                    </li>
+
+                </ol>
+
+            </li>
+<li class="li step" id="lzo_compression_libs__build-lzo">
+                <span class="ph cmd"><strong class="ph b">Build the LZO libraries.</strong></span>
+                <ol type="a" class="ol substeps">
+                    <li class="li substep substepexpand">
+                        <span class="ph cmd">Download the latest <span class="ph filepath">lzo-<var class="keyword varname">version</var>.tar.gz</span> from <a class="xref" href="http://www.oberhumer.com/opensource/lzo/" target="_blank">oberhumer.com</a>. </span>
+                        <div class="itemgroup info">This example uses the 2.07 version.</div>
+                    </li>
+
+                    <li class="li substep substepexpand">
+                        <span class="ph cmd">Extract the files from the tar.</span>
+                        <div class="itemgroup stepxmp"><pre class="pre codeblock">$ <kbd class="ph userinput">tar -xvf lzo-2.07.tar.gz</kbd></pre>
+</div>
+                    </li>
+
+                    <li class="li substep substepexpand">
+                        <span class="ph cmd">Change to the directory containing the source code.</span>
+                        <div class="itemgroup stepxmp">
+                            <pre class="pre codeblock">$ <kbd class="ph userinput">cd lzo-2.07</kbd></pre>
+
+                        </div>
+                        <div class="itemgroup info">The directory contains an <span class="ph filepath">INSTALL</span> file that includes architecture specific and generic build instructions. This procedure follows the generic instructions.</div>
+                    </li>
+
+
+                    <li class="li substep substepexpand">
+                        <span class="ph cmd">Use the <span class="ph filepath">./configure</span> script to check your environment. </span>
+                        <div class="itemgroup stepxmp">
+                            <pre class="pre codeblock">$ <kbd class="ph userinput">sudo ./configure CFLAGS=-m64 CXXFLAGS=-m64 --enable-shared</kbd></pre>
+
+                        </div>
+                        <div class="itemgroup info">This command's output may instruct you to install some dependencies before continuing.</div>
+                    </li>
+
+                    <li class="li substep substepexpand">
+                        <span class="ph cmd">Build the project.</span>
+                        <div class="itemgroup stepxmp">
+                            <pre class="pre codeblock">$ <kbd class="ph userinput">sudo make</kbd></pre>
+
+                        </div>
+                    </li>
+
+                    <li class="li substep substepexpand">
+                        <span class="ph cmd">Install the files.</span>
+                        <div class="itemgroup stepxmp">
+                            <pre class="pre codeblock">$ <kbd class="ph userinput">sudo make install</kbd></pre>
+
+                        </div>
+                        <div class="itemgroup info">This step adds the following files to the <span class="ph filepath">/usr/local/lib</span> directory: <ul class="ul">
+                                <li class="li"><span class="ph filepath">liblzo2.a</span></li>
+
+                                <li class="li"><span class="ph filepath">liblzo2.la</span></li>
+
+                                <li class="li"><span class="ph filepath">liblzo2.so -&gt; liblzo2.so.2.0.0</span></li>
+
+                                <li class="li"><span class="ph filepath">liblzo2.so.2 -&gt; liblzo2.so.2.0.0</span></li>
+
+                                <li class="li"><span class="ph filepath">liblzo2.so.2.0.0</span></li>
+
+                            </ul>
+</div>
+                    </li>
+
+                </ol>
+
+
+            </li>
+<li class="li step" id="lzo_compression_libs__build-hadoop-lzo">
+                <span class="ph cmd"><strong class="ph b">Build the Hadoop-LZO libraries.</strong></span>
+                <ol type="a" class="ol substeps">
+                    <li class="li substep substepexpand">
+                        <span class="ph cmd">Clone the <span class="ph filepath">hadoop-lzo.git</span> repository.</span>
+                        <div class="itemgroup stepxmp"><pre class="pre codeblock">$ <kbd class="ph userinput">git clone https://github.com/kevinweil/hadoop-lzo.git</kbd></pre>
+</div>
+                    </li>
+
+                    <li class="li substep substepexpand">
+                        <span class="ph cmd">Make sure your <samp class="ph codeph">JAVA_HOME</samp> is set:</span>
+                        <div class="itemgroup stepxmp">
+                            <pre class="pre codeblock">$ <kbd class="ph userinput">echo $JAVA_HOME</kbd>
+$ <kbd class="ph userinput">/usr/lib/jvm/java-1.6.0-openjdk.x86_64</kbd></pre>
+
+                        </div>
+                    </li>
+
+                    <li class="li substep substepexpand">
+                        <span class="ph cmd">Configure your environment.</span>
+                        <div class="itemgroup stepxmp">
+                            <pre class="pre codeblock">$ <kbd class="ph userinput">export CFLAGS=-m64</kbd> 
+$ <kbd class="ph userinput">export CXXFLAGS=-m64</kbd>                          </pre>
+
+                        </div>
+                    </li>
+
+                    <li class="li substep substepexpand">
+                        <span class="ph cmd">Build the project.</span>
+                        <div class="itemgroup stepxmp">
+                            <pre class="pre codeblock">$ <kbd class="ph userinput">ant compile-native tar</kbd></pre>
+
+                        </div>
+                        <div class="itemgroup info">The output from this step is placed in a <span class="ph filepath">build</span> subdirectory.</div>
+                    </li>
+
+                </ol>
+
+            </li>
+<li class="li step">
+                <span class="ph cmd"><strong class="ph b">Package the build output for distribution.</strong></span>
+                <ol type="a" class="ol substeps">
+                    <li class="li substep substepexpand">
+                        <span class="ph cmd">Using the output from <a class="xref" href="#lzo_compression_libs__build-lzo">Step 1</a> and <a class="xref" href="#lzo_compression_libs__build-hadoop-lzo">Step 2</a>, create a <span class="ph filepath">libgpcompression</span> directory with the
+                            following structure:</span>
+                        <div class="itemgroup stepresult">
+                            <pre class="pre codeblock">
+libgpcompression    
+├── hadoop-lzo-0.4.15.jar
+├── native
+│   ├── libgplcompression.so        
+│   ├── libgplcompression.so.0
+│   └── libgplcompression.so.0.0.0
+└── usr
+    └── lib
+        ├── liblzo2.a               
+        ├── liblzo2.so              
+        ├── liblzo2.so.2
+        ├── liblzo2.so.2.0.0
+        └── lzo-2.07.tar.gz    
+</pre>
+
+                            <p class="p">You can copy and rename <span class="ph filepath">hadoop-lzo//build/hadoop-lzo-0.4.15/lib/native/Linux-amd64-64/libgplcompression.so.0.0.0</span> to create the three <span class="ph filepath">libgplcopression.so*</span> files. You can copy the files from
+                                    <samp class="ph codeph">/usr/local/lib</samp> to populate the <span class="ph filepath">lib</span> directory.</p>
+
+                        </div>
+                    </li>
+
+                    <li class="li substep substepexpand">
+                        <span class="ph cmd">Tar and then Gzip the <span class="ph filepath">libgpcompression</span> directory.</span>
+                        <div class="itemgroup stepxmp"><pre class="pre codeblock">$ <kbd class="ph userinput">tar -cvf libgplcompression.tar libgplcompression/</kbd></pre>
+</div>
+                        <div class="itemgroup stepxmp"><pre class="pre codeblock">$ <kbd class="ph userinput">gzip libgplcompression.tar</kbd></pre>
+</div>
+                    </li>
+
+                </ol>
+
+            </li>
+</ol>
+
+        <div class="section postreq">
+            <p class="p">Follow Platfora's procedure for installing LZO on Platfora. Then, make sure you follow your Hadoop distribution's procedure for installing it with Hadoop. </p>
+
+        </div>
+
+    </div>
+
+<div class="related-links"><div class="relinfo reltasks"><strong>Related tasks</strong><br/>
+<div><a class="navheader_parent_path" href="../../dataset/select_source/lzo_compression_libs.html" title="This section describes how to support for LZO compressed files to Platfora. Hadoop expects splittable compression formats. For that reason, the LZO compressed file format requires both the base LZO installation and the Hadoop-LZO GitHub project.">Configure LZO Compression for Platfora</a></div>
+</div>
+</div>
+<div class="navfooter"><!---->
+<span class="navparent"><a class="link" href="../../dataset/select_source/supported_compression_libs.html" title="Compressed data can save storage space and improve data transfer speeds. Alternatively, CPU utilization and processing time can increase during decompression. Platfora includes support for several file compression formats. You can add support for others."><span class="navheader_label">Parent topic</span><span class="navheader_separator">: </span><span class="navheader_linktext">Configure Compression Formats</span></a></span>  </div><div class="footer">WebHelp output generated by<a href="http://www.oxygenxml.com" target="_blank"><span class="oXygenLogo"><img src="../../oxygen-webhelp/resources/img/LogoOxygen100x22.png" alt="Oxygen"/></span><span class="xmlauthor">XML Author</span></a></div>
+<div id="productInfo" style="display:none;"><span id="oxy_productID">webhelp</span><span id="oxy_productVersion">3.0</span></div><div id="loginData" style="display: none"><span class="bt_close" title="Close"><!----></span><form action="" target="passwordIframe" method="post" name="form_login" onsubmit="return loggInUser();" id="loginFormData" autocomplete="on"><input type="hidden" id="reloadComments" value="yes"><!----></input><table class="login"><thead><tr><td colspan="2"><span id="l_login2"><script type="text/javascript">$('#l_login2').html(getLocalization('label.login'));</script></span></td></tr><tr><td colspan="2"><div id="loginResponse"><!----></div></td></tr></thead><tr><td><span id="l_userName"><script type="text/javascript">$('#l_userName').html(getLocalization('label.userName'));</script></span></td><td><input name="usernameW" type="text" id="myUserName" autocomplete="on" required="required" autofocus="autofocus"><!----></input></td></tr><tr><td><span id="l_pswd"><script type="text/javascript">$('#l_pswd').html(getLocalization('label.pswd'));</script></span></td><td><input name="passwordW" type="password" id="myPassword" autocomplete="on" required="required"><!----></input></td></tr><tr><td colspan="2" align="left"><span id="ll_remember"><script type="text/javascript" xml:space="preserve">
+								$('#ll_remember').html(getLocalization('label.rememberme'));
+							</script></span>     <input name="myLoginRemember" type="checkbox" class="ck" id="myRemember" value="no"><!----></input></td></tr><tr><td colspan="2" align="center"><input id="l_bt_submit_log" type="submit" value="Submit" name="loginFormButton"><!----></input><script type="text/javascript">$('#l_bt_submit_log').attr('value',getLocalization('label.login'));</script><span class="btnHGlue"><!----></span><input class="bt_cancel" id="l_cancelLog" type="button" value="Cancel" name="loginFormButton"><!----></input><script type="text/javascript">$('#l_cancelLog').attr('value',getLocalization('label.cancel'));</script></td></tr></table><div class="loginAlternative"><span id="link_lostPwd" onclick="showLostPwd()"><script type="text/javascript">$('#link_lostPwd').html(getLocalization('label.lostPswd'));</script></span><span id="link_signUp" onclick="showSignUp()"><script type="text/javascript">$('#link_signUp').html(getLocalization('label.signUp'));</script></span></div></form><iframe id="passwordIframe" name="passwordIframe" style="display:none"><!----></iframe></div><div id="cmts"><!----></div></body>
+</html>

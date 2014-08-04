@@ -1,0 +1,121 @@
+
+<!DOCTYPE html
+  PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xml:lang="en-us" lang="en-us">
+<head><meta xmlns="http://www.w3.org/1999/xhtml" name="description" content="Filters a lens query by one or more predicate expression. Syntax WHERE predicate-expression [ AND predicate-expression ] A predicate-expression can be a comparison: column-name { = | | | &lt; | | | &gt; | | ..."/><meta http-equiv="Content-Type" content="text/html; charset=utf-8"/><meta name="copyright" content="(C) Copyright 2005"/><meta name="DC.rights.owner" content="(C) Copyright 2005"/><meta name="DC.Type" content="reference"/><meta name="DC.Title" content="WHERE Clause"/><meta name="abstract" content="Filters a lens query by one or more predicate expression."/><meta xmlns="http://www.w3.org/1999/xhtml" name="description" content="Filters a lens query by one or more predicate expression."/><meta name="DC.Relation" scheme="URI" content="../../reference/sql/select_statement.html"/><meta name="DC.Format" content="XHTML"/><meta name="DC.Identifier" content="where_clause"/><link rel="stylesheet" type="text/css" href="../../oxygen-webhelp/resources/css/commonltr.css"><!----></link><title>WHERE Clause</title><meta http-equiv="Content-Type" content="text/html; charset=utf-8"/><link rel="stylesheet" type="text/css" href="../../oxygen-webhelp/resources/css/commonltr.css"><!----></link><link rel="stylesheet" type="text/css" href="../../oxygen-webhelp/resources/css/webhelp_topic.css"><!----></link><link rel="stylesheet" type="text/css" href="../../oxygen-webhelp/resources/skins/skin.css"><!----></link><link rel="stylesheet" type="text/css" href="../../oxygen-webhelp/resources/css/jquery.realperson.css"><!----></link><link rel="stylesheet" type="text/css" href="../../oxygen-webhelp/resources/css/comments.css"><!----></link><link rel="stylesheet" type="text/css" href="../../oxygen-webhelp/resources/css/jquery.cleditor.css"><!----></link><link rel="stylesheet" type="text/css" href="../../oxygen-webhelp/resources/css/admin.css"><!----></link><script type="text/javascript"><!--
+          
+          var prefix = "../../index.html";
+          
+          --></script><script type="text/javascript" src="../../oxygen-webhelp/resources/js/jquery-1.8.2.min.js"><!----></script><script type="text/javascript" src="../../oxygen-webhelp/resources/js/jquery.cookie.js"><!----></script><script type="text/javascript" src="../../oxygen-webhelp/resources/js/jquery-ui.custom.min.js"><!----></script><script type="text/javascript" charset="utf-8" src="../../oxygen-webhelp/resources/js/webhelp_topic.js"><!----></script><script type="text/javascript" charset="utf-8" src="../../oxygen-webhelp/resources/localization/strings.js"><!----></script><script type="text/javascript" charset="utf-8" src="../../oxygen-webhelp/resources/js/init.js"><!----></script><script type="text/javascript" charset="utf-8" src="../../oxygen-webhelp/resources/js/comments-functions.js"><!----></script></head>
+<body onload="init('../../')" id="where_clause">
+<table class="nav"><tbody><tr><td colspan="2"><div id="printlink"><a href="javascript:window.print();" title="printThisPage"/></div><div id="permalink"><a href="#" title="linkToThis"/></div></td></tr><tr><td width="75%"><a class="navheader_parent_path" href="../../reference/sql/../../reference/expression_language/expression_reference_top.html" title="An expression computes or produces a value by combining fields (or columns), constant values, operators, and functions. Platfora has a built-in expression language. You use the language's functions and operators to create a computed field.">Expression and Query Language Reference</a> / <a class="navheader_parent_path" href="../../reference/sql/select_statement.html" title="Queries an aggregate lens. A SELECT statement is input to a progammatic lens query.">SELECT Statement</a></td><td><div class="navheader">
+<span class="navparent"><a class="link" href="../../reference/sql/select_statement.html" title="Queries an aggregate lens. A SELECT statement is input to a progammatic lens query."><span class="navheader_label">Parent topic</span><span class="navheader_separator">: </span><span class="navheader_linktext">SELECT Statement</span></a></span>  </div></td></tr></tbody></table>
+
+  <h1 class="title topictitle1">WHERE Clause</h1>
+
+  
+  <div class="body refbody"><p class="shortdesc">Filters a lens query by one or more  predicate expression.</p>
+
+    <div class="section refsyn"><h2 class="title sectiontitle">Syntax</h2>
+      
+      <div style="display: block; border: 1 black solid; padding: 2pt; color: maroon; margin-bottom: 6pt;">
+         
+          <kbd><b>WHERE</b></kbd>
+          <var>predicate-expression</var>
+          <kbd class="ph sep"> [ </kbd>
+          <kbd><b>AND</b></kbd>
+          <var>predicate-expression</var>
+          <kbd class="ph sep"> ] </kbd>
+         
+      </div>
+      <p class="p"/>
+
+      <p class="p">A <var class="keyword varname">predicate-expression</var> can be a comparison:</p>
+
+      <div style="display: block; border: 1 black solid; padding: 2pt; color: maroon; margin-bottom: 6pt;">
+         
+          <var>column-name</var>
+           { 
+            <kbd class="ph oper">=</kbd>
+             | <kbd class="ph sep"> | </kbd>
+             | <kbd class="ph oper">&lt;</kbd>
+             | <kbd class="ph sep"> | </kbd>
+             | <kbd class="ph oper">&gt;</kbd>
+             | <kbd class="ph sep"> | </kbd>
+             | <kbd class="ph oper">&lt;=</kbd>
+             | <kbd class="ph sep"> | </kbd>
+             | <kbd class="ph oper">&gt;=</kbd>
+             | <kbd class="ph sep"> | </kbd>
+             | <kbd class="ph oper">!=</kbd>
+           } 
+          <var>literal</var>
+         
+      </div>
+      <p class="p"/>
+
+      <p class="p">Or the predicate-expression can be a <var class="keyword varname">list-expression</var> such as this:</p>
+
+      <div style="display: block; border: 1 black solid; padding: 2pt; color: maroon; margin-bottom: 6pt;">
+         
+          <var>column-name</var>
+          <kbd class="ph sep"> [ </kbd>
+          <kbd><b>NOT</b></kbd>
+          <kbd class="ph sep"> ]</kbd>
+           { 
+         
+              <kbd><b>IN</b></kbd>
+              <var>list</var>
+             
+         | 
+            <kbd><b>LIKE</b></kbd>
+            <var>pattern</var>
+         
+             | 
+            <kbd><b>BETWEEN</b></kbd>
+            <var>literal</var>
+            <kbd><b>AND</b></kbd>
+            <var>literal</var>
+             
+           } 
+         
+      </div>
+    </div>
+
+    <div class="section"><h2 class="title sectiontitle">Description</h2><p class="p">Use <samp class="ph codeph">WHERE</samp> clause to filter a lens query by one or more predicate expressions. Use the <samp class="ph codeph">AND</samp> keyword to join multiple expressions. A <samp class="ph codeph">WHERE</samp> clause can include expressions that make use of the
+        comparison operators or list expressions. For detailed information about expressions syntax, see the <cite class="cite">Platfora Expression and Query Language Reference</cite>.</p>
+<p class="p">You cannot use<samp class="ph codeph">IS NULL</samp> or <samp class="ph codeph">IS NOT NULL</samp> comparisons in the
+          <samp class="ph codeph">WHERE</samp> clause. You also cannot use relative date filters (<samp class="ph codeph">LAST integer DAYS</samp>) You <em class="ph i">can</em> use the <samp class="ph codeph">NOT</samp> keyword to negate any list expressions. </p>
+<p class="p">The following example illustrate several different permutations of
+        expressions structures you can
+      use:</p>
+<pre class="pre codeblock">
+        SELECT count() 
+        FROM [View Summary] 
+        WHERE prior_views NOT IN (3,5,7,11,13,17) 
+        AND TO_LONG(prior_views) NOT IN (4294967296) 
+        AND avebitrate_double NOT IN (3101.0, 2598.0, 804.0) 
+        AND video.genre NOT IN ("Silent", "Exercise") 
+        AND video.genre NOT LIKE ("*a*") 
+        AND date.Date NOT IN (2011-08-04, 2011-06-04, 2011-07-04) 
+        AND prior_views &gt; 23 AND avebitrate_double &lt; 3101.0 
+        AND TO_FIXED(avebitrate_double) != 3101.0 
+        AND TO_LONG(prior_views) != 4294967296 
+        AND video.genre &lt;= "Silent" 
+        AND date.Date &gt; 2011-08-04 
+        AND date.Date NOT BETWEEN 2012-01-01 AND 2013-01-01 
+        AND video.genre BETWEEN "Exercise" and "Silent" 
+        AND prior_views BETWEEN 0 and 100 
+        AND avebitrate_double NOT BETWEEN 1234.5678 AND 2345.6789
+      </pre>
+When
+      comparing literal dates, make sure you use the format of <samp class="ph codeph">yyyy-MM-dd</samp> without any enclosing quotation marks or other punctuation. </div>
+
+  </div>
+
+<div class="related-links"/>
+<div class="navfooter"><!---->
+<span class="navparent"><a class="link" href="../../reference/sql/select_statement.html" title="Queries an aggregate lens. A SELECT statement is input to a progammatic lens query."><span class="navheader_label">Parent topic</span><span class="navheader_separator">: </span><span class="navheader_linktext">SELECT Statement</span></a></span>  </div><div class="footer">WebHelp output generated by<a href="http://www.oxygenxml.com" target="_blank"><span class="oXygenLogo"><img src="../../oxygen-webhelp/resources/img/LogoOxygen100x22.png" alt="Oxygen"/></span><span class="xmlauthor">XML Author</span></a></div>
+<div id="productInfo" style="display:none;"><span id="oxy_productID">webhelp</span><span id="oxy_productVersion">3.0</span></div><div id="loginData" style="display: none"><span class="bt_close" title="Close"><!----></span><form action="" target="passwordIframe" method="post" name="form_login" onsubmit="return loggInUser();" id="loginFormData" autocomplete="on"><input type="hidden" id="reloadComments" value="yes"><!----></input><table class="login"><thead><tr><td colspan="2"><span id="l_login2"><script type="text/javascript">$('#l_login2').html(getLocalization('label.login'));</script></span></td></tr><tr><td colspan="2"><div id="loginResponse"><!----></div></td></tr></thead><tr><td><span id="l_userName"><script type="text/javascript">$('#l_userName').html(getLocalization('label.userName'));</script></span></td><td><input name="usernameW" type="text" id="myUserName" autocomplete="on" required="required" autofocus="autofocus"><!----></input></td></tr><tr><td><span id="l_pswd"><script type="text/javascript">$('#l_pswd').html(getLocalization('label.pswd'));</script></span></td><td><input name="passwordW" type="password" id="myPassword" autocomplete="on" required="required"><!----></input></td></tr><tr><td colspan="2" align="left"><span id="ll_remember"><script type="text/javascript" xml:space="preserve">
+								$('#ll_remember').html(getLocalization('label.rememberme'));
+							</script></span>     <input name="myLoginRemember" type="checkbox" class="ck" id="myRemember" value="no"><!----></input></td></tr><tr><td colspan="2" align="center"><input id="l_bt_submit_log" type="submit" value="Submit" name="loginFormButton"><!----></input><script type="text/javascript">$('#l_bt_submit_log').attr('value',getLocalization('label.login'));</script><span class="btnHGlue"><!----></span><input class="bt_cancel" id="l_cancelLog" type="button" value="Cancel" name="loginFormButton"><!----></input><script type="text/javascript">$('#l_cancelLog').attr('value',getLocalization('label.cancel'));</script></td></tr></table><div class="loginAlternative"><span id="link_lostPwd" onclick="showLostPwd()"><script type="text/javascript">$('#link_lostPwd').html(getLocalization('label.lostPswd'));</script></span><span id="link_signUp" onclick="showSignUp()"><script type="text/javascript">$('#link_signUp').html(getLocalization('label.signUp'));</script></span></div></form><iframe id="passwordIframe" name="passwordIframe" style="display:none"><!----></iframe></div><div id="cmts"><!----></div></body>
+</html>

@@ -1,0 +1,151 @@
+
+<!DOCTYPE html
+  PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xml:lang="en-us" lang="en-us">
+<head><meta xmlns="http://www.w3.org/1999/xhtml" name="description" content="When you create a dataset based on a Hive table, Platfora maps the data types of the Hive columns to one of the Platfora internal data types. Platfora has a number of built-in data types that can be ..."/><meta http-equiv="Content-Type" content="text/html; charset=utf-8"/><meta name="copyright" content="(C) Copyright 2005"/><meta name="DC.rights.owner" content="(C) Copyright 2005"/><meta name="DC.Type" content="reference"/><meta name="DC.Title" content="Hive to Platfora Data Type Mapping"/><meta name="abstract" content="When you create a dataset based on a Hive table, Platfora maps the data types of the Hive columns to one of the Platfora internal data types."/><meta xmlns="http://www.w3.org/1999/xhtml" name="description" content="When you create a dataset based on a Hive table, Platfora maps the data types of the Hive columns to one of the Platfora internal data types."/><meta name="DC.Relation" scheme="URI" content="../../dataset/parse/parse_hive_table.html"/><meta name="DC.Format" content="XHTML"/><meta name="DC.Identifier" content="hive_to_platfora_datatype_map"/><link rel="stylesheet" type="text/css" href="../../oxygen-webhelp/resources/css/commonltr.css"><!----></link><title>Hive to Platfora Data Type Mapping</title><meta http-equiv="Content-Type" content="text/html; charset=utf-8"/><link rel="stylesheet" type="text/css" href="../../oxygen-webhelp/resources/css/commonltr.css"><!----></link><link rel="stylesheet" type="text/css" href="../../oxygen-webhelp/resources/css/webhelp_topic.css"><!----></link><link rel="stylesheet" type="text/css" href="../../oxygen-webhelp/resources/skins/skin.css"><!----></link><link rel="stylesheet" type="text/css" href="../../oxygen-webhelp/resources/css/jquery.realperson.css"><!----></link><link rel="stylesheet" type="text/css" href="../../oxygen-webhelp/resources/css/comments.css"><!----></link><link rel="stylesheet" type="text/css" href="../../oxygen-webhelp/resources/css/jquery.cleditor.css"><!----></link><link rel="stylesheet" type="text/css" href="../../oxygen-webhelp/resources/css/admin.css"><!----></link><script type="text/javascript"><!--
+          
+          var prefix = "../../index.html";
+          
+          --></script><script type="text/javascript" src="../../oxygen-webhelp/resources/js/jquery-1.8.2.min.js"><!----></script><script type="text/javascript" src="../../oxygen-webhelp/resources/js/jquery.cookie.js"><!----></script><script type="text/javascript" src="../../oxygen-webhelp/resources/js/jquery-ui.custom.min.js"><!----></script><script type="text/javascript" charset="utf-8" src="../../oxygen-webhelp/resources/js/webhelp_topic.js"><!----></script><script type="text/javascript" charset="utf-8" src="../../oxygen-webhelp/resources/localization/strings.js"><!----></script><script type="text/javascript" charset="utf-8" src="../../oxygen-webhelp/resources/js/init.js"><!----></script><script type="text/javascript" charset="utf-8" src="../../oxygen-webhelp/resources/js/comments-functions.js"><!----></script></head>
+<body onload="init('../../')" id="hive_to_platfora_datatype_map">
+<table class="nav"><tbody><tr><td colspan="2"><div id="printlink"><a href="javascript:window.print();" title="printThisPage"/></div><div id="permalink"><a href="#" title="linkToThis"/></div></td></tr><tr><td width="75%"><a class="navheader_parent_path" href="../../dataset/parse/../../dataset/parse/parse_data_top.html" title="The Parse Data step of the dataset workspace is where you describe your source data in tabular format by parsing it into rows (records) and columns (fields). For Platfora to be able to parse the source data, each record must have a similar data structure.">Parse Source Data into Rows and Columns</a> / <a class="navheader_parent_path" href="../../dataset/parse/parse_hive_table.html" title="When creating a dataset from a Hive table, there is no need to define parsing controls in Platfora. Platfora uses the Hive table definition to obtain metadata about the source data, such as which files to process, the parsing logic for rows and columns, and the field names and data types contained in the source data. You can only create a dataset based on Hive tables, not Hive views.">Parse Hive Tables</a></td><td><div class="navheader">
+<span class="navparent"><a class="link" href="../../dataset/parse/parse_hive_table.html" title="When creating a dataset from a Hive table, there is no need to define parsing controls in Platfora. Platfora uses the Hive table definition to obtain metadata about the source data, such as which files to process, the parsing logic for rows and columns, and the field names and data types contained in the source data. You can only create a dataset based on Hive tables, not Hive views."><span class="navheader_label">Parent topic</span><span class="navheader_separator">: </span><span class="navheader_linktext">Parse Hive Tables</span></a></span>  </div></td></tr></tbody></table>
+
+  <h1 class="title topictitle1">Hive to Platfora Data Type Mapping</h1>
+
+  
+  <div class="body refbody"><p class="shortdesc">When you create a dataset based on a Hive table, Platfora maps the data types of the
+    Hive columns to one of the Platfora internal data types.</p>
+
+    <div class="section">
+      <p class="p">Platfora has a number of built-in data types that can be used to classify the fields in a
+        dataset. Hive also has a set of primitive and complex data types it supports for Hive table
+        columns. </p>
+
+      <p class="p">Platfora does not currently support the Hive <samp class="ph codeph">BINARY</samp> or
+          <samp class="ph codeph">DECIMAL</samp> primitive data types. For the Hive complex data types
+          (<samp class="ph codeph">MAP</samp>, <samp class="ph codeph">ARRAY</samp>, <samp class="ph codeph">STRUCT</samp> and
+          <samp class="ph codeph">UNIONTYPE</samp>), the field values are imported into Platfora as a single
+        JSON-formatted STRING. You can then use the <a class="xref" href="../../reference/expression_language/row_string_functions_top.html" title="String functions allow you to manipulate and transform textual data, such as combining string values or extracting a portion of a string value.">JSON String
+          Functions</a> in the Platfora expression language to define new computed columns in the
+        dataset that extract a particular <em class="ph i">key:value</em> pair from the imported JSON
+        structure.</p>
+
+    </div>
+
+    
+    
+    
+<div class="tablenoborder"><table cellpadding="4" cellspacing="0" summary="" class="table" frame="border" border="1" rules="all">
+        
+        
+        <thead class="thead" align="left">
+          <tr class="row">
+            <th class="entry" valign="top" width="50%" id="d46473e65">Hive Data Type</th>
+
+            <th class="entry" valign="top" width="50%" id="d46473e68">Platfora Data Type</th>
+
+          </tr>
+
+        </thead>
+
+        <tbody class="tbody">
+          <tr class="row">
+            <td class="entry" valign="top" width="50%" headers="d46473e65 ">TINYINT</td>
+
+            <td class="entry" valign="top" width="50%" headers="d46473e68 ">INTEGER</td>
+
+          </tr>
+
+          <tr class="row">
+            <td class="entry" valign="top" width="50%" headers="d46473e65 ">SMALLINT</td>
+
+            <td class="entry" valign="top" width="50%" headers="d46473e68 ">INTEGER</td>
+
+          </tr>
+
+          <tr class="row">
+            <td class="entry" valign="top" width="50%" headers="d46473e65 ">INT</td>
+
+            <td class="entry" valign="top" width="50%" headers="d46473e68 ">INTEGER</td>
+
+          </tr>
+
+          <tr class="row">
+            <td class="entry" valign="top" width="50%" headers="d46473e65 ">BIGINT</td>
+
+            <td class="entry" valign="top" width="50%" headers="d46473e68 ">LONG</td>
+
+          </tr>
+
+          <tr class="row">
+            <td class="entry" valign="top" width="50%" headers="d46473e65 ">FLOAT</td>
+
+            <td class="entry" valign="top" width="50%" headers="d46473e68 ">DOUBLE</td>
+
+          </tr>
+
+          <tr class="row">
+            <td class="entry" valign="top" width="50%" headers="d46473e65 ">DOUBLE</td>
+
+            <td class="entry" valign="top" width="50%" headers="d46473e68 ">DOUBLE</td>
+
+          </tr>
+
+          <tr class="row">
+            <td class="entry" valign="top" width="50%" headers="d46473e65 ">STRING</td>
+
+            <td class="entry" valign="top" width="50%" headers="d46473e68 ">STRING</td>
+
+          </tr>
+
+          <tr class="row">
+            <td class="entry" valign="top" width="50%" headers="d46473e65 ">MAP</td>
+
+            <td class="entry" valign="top" width="50%" headers="d46473e68 ">STRING (JSON-formatted)</td>
+
+          </tr>
+
+          <tr class="row">
+            <td class="entry" valign="top" width="50%" headers="d46473e65 ">ARRAY</td>
+
+            <td class="entry" valign="top" width="50%" headers="d46473e68 ">STRING (JSON-formatted)</td>
+
+          </tr>
+
+          <tr class="row">
+            <td class="entry" valign="top" width="50%" headers="d46473e65 ">STRUCT</td>
+
+            <td class="entry" valign="top" width="50%" headers="d46473e68 ">STRING (JSON-formatted)</td>
+
+          </tr>
+
+          <tr class="row">
+            <td class="entry" valign="top" width="50%" headers="d46473e65 ">UNIONTYPE</td>
+
+            <td class="entry" valign="top" width="50%" headers="d46473e68 ">STRING (JSON-formatted) </td>
+
+          </tr>
+
+          <tr class="row">
+            <td class="entry" valign="top" width="50%" headers="d46473e65 ">TIMESTAMP (must be in Hive timestamp format of yyyy-MM-dd HH:mm:ss[:SSS]</td>
+
+            <td class="entry" valign="top" width="50%" headers="d46473e68 ">DATETIME </td>
+
+          </tr>
+
+        </tbody>
+
+      </table>
+</div>
+
+    
+  </div>
+
+<div class="related-links"/>
+<div class="navfooter"><!---->
+<span class="navparent"><a class="link" href="../../dataset/parse/parse_hive_table.html" title="When creating a dataset from a Hive table, there is no need to define parsing controls in Platfora. Platfora uses the Hive table definition to obtain metadata about the source data, such as which files to process, the parsing logic for rows and columns, and the field names and data types contained in the source data. You can only create a dataset based on Hive tables, not Hive views."><span class="navheader_label">Parent topic</span><span class="navheader_separator">: </span><span class="navheader_linktext">Parse Hive Tables</span></a></span>  </div><div class="footer">WebHelp output generated by<a href="http://www.oxygenxml.com" target="_blank"><span class="oXygenLogo"><img src="../../oxygen-webhelp/resources/img/LogoOxygen100x22.png" alt="Oxygen"/></span><span class="xmlauthor">XML Author</span></a></div>
+<div id="productInfo" style="display:none;"><span id="oxy_productID">webhelp</span><span id="oxy_productVersion">3.0</span></div><div id="loginData" style="display: none"><span class="bt_close" title="Close"><!----></span><form action="" target="passwordIframe" method="post" name="form_login" onsubmit="return loggInUser();" id="loginFormData" autocomplete="on"><input type="hidden" id="reloadComments" value="yes"><!----></input><table class="login"><thead><tr><td colspan="2"><span id="l_login2"><script type="text/javascript">$('#l_login2').html(getLocalization('label.login'));</script></span></td></tr><tr><td colspan="2"><div id="loginResponse"><!----></div></td></tr></thead><tr><td><span id="l_userName"><script type="text/javascript">$('#l_userName').html(getLocalization('label.userName'));</script></span></td><td><input name="usernameW" type="text" id="myUserName" autocomplete="on" required="required" autofocus="autofocus"><!----></input></td></tr><tr><td><span id="l_pswd"><script type="text/javascript">$('#l_pswd').html(getLocalization('label.pswd'));</script></span></td><td><input name="passwordW" type="password" id="myPassword" autocomplete="on" required="required"><!----></input></td></tr><tr><td colspan="2" align="left"><span id="ll_remember"><script type="text/javascript" xml:space="preserve">
+								$('#ll_remember').html(getLocalization('label.rememberme'));
+							</script></span>     <input name="myLoginRemember" type="checkbox" class="ck" id="myRemember" value="no"><!----></input></td></tr><tr><td colspan="2" align="center"><input id="l_bt_submit_log" type="submit" value="Submit" name="loginFormButton"><!----></input><script type="text/javascript">$('#l_bt_submit_log').attr('value',getLocalization('label.login'));</script><span class="btnHGlue"><!----></span><input class="bt_cancel" id="l_cancelLog" type="button" value="Cancel" name="loginFormButton"><!----></input><script type="text/javascript">$('#l_cancelLog').attr('value',getLocalization('label.cancel'));</script></td></tr></table><div class="loginAlternative"><span id="link_lostPwd" onclick="showLostPwd()"><script type="text/javascript">$('#link_lostPwd').html(getLocalization('label.lostPswd'));</script></span><span id="link_signUp" onclick="showSignUp()"><script type="text/javascript">$('#link_signUp').html(getLocalization('label.signUp'));</script></span></div></form><iframe id="passwordIframe" name="passwordIframe" style="display:none"><!----></iframe></div><div id="cmts"><!----></div></body>
+</html>

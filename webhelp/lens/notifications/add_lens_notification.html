@@ -1,0 +1,82 @@
+
+<!DOCTYPE html
+  PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xml:lang="en-us" lang="en-us">
+<head><meta xmlns="http://www.w3.org/1999/xhtml" name="description" content="Define a lens notification rule so Platfora sends an email to notify users when the data in a lens build meets specified criteria. You can define multiple rules per lens. To add a lens notification ..."/><meta http-equiv="Content-Type" content="text/html; charset=utf-8"/><meta name="copyright" content="(C) Copyright 2005"/><meta name="DC.rights.owner" content="(C) Copyright 2005"/><meta name="DC.Type" content="task"/><meta name="DC.Title" content="Add a Lens Notification Rule"/><meta name="abstract" content="Define a lens notification rule so Platfora sends an email to notify users when the data in a lens build meets specified criteria. You can define multiple rules per lens."/><meta xmlns="http://www.w3.org/1999/xhtml" name="description" content="Define a lens notification rule so Platfora sends an email to notify users when the data in a lens build meets specified criteria. You can define multiple rules per lens."/><meta name="DC.Relation" scheme="URI" content="../../lens/notifications/lens_notifications.html"/><meta name="DC.Format" content="XHTML"/><meta name="DC.Identifier" content="add_lens_notification"/><link rel="stylesheet" type="text/css" href="../../oxygen-webhelp/resources/css/commonltr.css"><!----></link><title>Add a Lens Notification Rule</title><meta http-equiv="Content-Type" content="text/html; charset=utf-8"/><link rel="stylesheet" type="text/css" href="../../oxygen-webhelp/resources/css/commonltr.css"><!----></link><link rel="stylesheet" type="text/css" href="../../oxygen-webhelp/resources/css/webhelp_topic.css"><!----></link><link rel="stylesheet" type="text/css" href="../../oxygen-webhelp/resources/skins/skin.css"><!----></link><link rel="stylesheet" type="text/css" href="../../oxygen-webhelp/resources/css/jquery.realperson.css"><!----></link><link rel="stylesheet" type="text/css" href="../../oxygen-webhelp/resources/css/comments.css"><!----></link><link rel="stylesheet" type="text/css" href="../../oxygen-webhelp/resources/css/jquery.cleditor.css"><!----></link><link rel="stylesheet" type="text/css" href="../../oxygen-webhelp/resources/css/admin.css"><!----></link><script type="text/javascript"><!--
+          
+          var prefix = "../../index.html";
+          
+          --></script><script type="text/javascript" src="../../oxygen-webhelp/resources/js/jquery-1.8.2.min.js"><!----></script><script type="text/javascript" src="../../oxygen-webhelp/resources/js/jquery.cookie.js"><!----></script><script type="text/javascript" src="../../oxygen-webhelp/resources/js/jquery-ui.custom.min.js"><!----></script><script type="text/javascript" charset="utf-8" src="../../oxygen-webhelp/resources/js/webhelp_topic.js"><!----></script><script type="text/javascript" charset="utf-8" src="../../oxygen-webhelp/resources/localization/strings.js"><!----></script><script type="text/javascript" charset="utf-8" src="../../oxygen-webhelp/resources/js/init.js"><!----></script><script type="text/javascript" charset="utf-8" src="../../oxygen-webhelp/resources/js/comments-functions.js"><!----></script></head>
+<body onload="init('../../')" id="add_lens_notification">
+<table class="nav"><tbody><tr><td colspan="2"><div id="printlink"><a href="javascript:window.print();" title="printThisPage"/></div><div id="permalink"><a href="#" title="linkToThis"/></div></td></tr><tr><td width="75%"><a class="navheader_parent_path" href="../../lens/notifications/../../lens/manage/manage_lenses.html" title="After a lens is defined, you can edit it, build it, check its status, update/rebuild it (refresh its data), or delete it. Lenses can be managed from the Data Catalog or System page.">Manage Lenses</a> / <a class="navheader_parent_path" href="../../lens/notifications/lens_notifications.html" title="You can configure a lens so Platfora sends an email message to users when it detects an anomaly in lens data. Do this by defining a lens notification. You might want to define a lens notification so data analysts know when to view a vizboard to analyze the data further.">Manage Lens Notifications</a></td><td><div class="navheader">
+<span class="navparent"><a class="link" href="../../lens/notifications/lens_notifications.html" title="You can configure a lens so Platfora sends an email message to users when it detects an anomaly in lens data. Do this by defining a lens notification. You might want to define a lens notification so data analysts know when to view a vizboard to analyze the data further."><span class="navheader_label">Parent topic</span><span class="navheader_separator">: </span><span class="navheader_linktext">Manage Lens Notifications</span></a></span>  </div></td></tr></tbody></table>
+
+    <h1 class="title topictitle1">Add a Lens Notification Rule</h1>
+
+    
+    <div class="body taskbody"><p class="shortdesc">Define a lens notification rule so Platfora sends an email to notify users when the
+        data in a lens build meets specified criteria. You can define multiple rules per
+        lens.</p>
+
+        <div class="section context">
+            <p class="p">To add a lens notification rule, you must be at least an
+                    <span class="ph uicontrol">Analyst</span> role or above. You must have
+                    <span class="ph uicontrol">Edit</span> object permissions on the lens and data access
+                permissions on the dataset, as well as any datasets that are included in the lens by
+                reference.</p>
+
+            <div class="fig fignone"><img class="image" src="../../images/./lens_builder/define_lens_notification.png" alt="define lens schedule"/>
+                
+            </div>
+
+        </div>
+
+        <ol class="ol steps"><li class="li step stepexpand">
+                <span class="ph cmd">Open the lens for which you want to define a lens notification rule.</span>
+            </li>
+<li class="li step stepexpand">
+                <span class="ph cmd">Click <span class="ph uicontrol">Notification rules</span>.</span>
+            </li>
+<li class="li step stepexpand">
+                <span class="ph cmd">In the <span class="ph uicontrol">Notifications</span> dialog, click
+                    <span class="ph uicontrol">Create</span>.</span>
+                <div class="itemgroup stepresult">A dialog appears where you can define a lens notification rule.</div>
+            </li>
+<li class="li step stepexpand">
+                <span class="ph cmd">Enter a name for this notification rule.</span>
+            </li>
+<li class="li step stepexpand">
+                <span class="ph cmd">Define the query to run against the lens after the lens is built.</span>
+                <div class="itemgroup stepresult">You must select one measure field, and you may select zero or more
+                    dimension fields. You can group by dimension fields, and filter the scope of
+                    rows by either dimension or measure fields. Click the <img class="image" id="add_lens_notification__image_wh2_yfm_ml" src="../../images/./icons/icn_notification_plus_sign.png" alt="plus sign"/> icon to include more fields in the
+                    query.</div>
+            </li>
+<li class="li step stepexpand">
+                <span class="ph cmd">Define the criteria in the query results that triggers Platfora to send the
+                    email notification.</span>
+                <div class="itemgroup stepresult">Select the <img class="image" src="../../images/./icons/icn_notification_plus_sign.png" alt="plus sign"/> icon to define additional criteria.</div>
+            </li>
+<li class="li step stepexpand">
+                <span class="ph cmd">Enter one or more email addresses that should receive the notification
+                    messages.</span>
+                <div class="itemgroup stepresult">Separate multiple email addresses with commas (,).</div>
+            </li>
+<li class="li step stepexpand">
+                <span class="ph cmd">Choose whether the lens notification email should be sent when the criteria defined here are met or not met.</span>
+            </li>
+<li class="li step stepexpand">
+                <span class="ph cmd">Click <span class="ph uicontrol">Save</span>.</span>
+                <div class="itemgroup stepresult">The lens notification rule is created and enabled by default.</div>
+            </li>
+</ol>
+
+    </div>
+
+<div class="related-links"/>
+<div class="navfooter"><!---->
+<span class="navparent"><a class="link" href="../../lens/notifications/lens_notifications.html" title="You can configure a lens so Platfora sends an email message to users when it detects an anomaly in lens data. Do this by defining a lens notification. You might want to define a lens notification so data analysts know when to view a vizboard to analyze the data further."><span class="navheader_label">Parent topic</span><span class="navheader_separator">: </span><span class="navheader_linktext">Manage Lens Notifications</span></a></span>  </div><div class="footer">WebHelp output generated by<a href="http://www.oxygenxml.com" target="_blank"><span class="oXygenLogo"><img src="../../oxygen-webhelp/resources/img/LogoOxygen100x22.png" alt="Oxygen"/></span><span class="xmlauthor">XML Author</span></a></div>
+<div id="productInfo" style="display:none;"><span id="oxy_productID">webhelp</span><span id="oxy_productVersion">3.0</span></div><div id="loginData" style="display: none"><span class="bt_close" title="Close"><!----></span><form action="" target="passwordIframe" method="post" name="form_login" onsubmit="return loggInUser();" id="loginFormData" autocomplete="on"><input type="hidden" id="reloadComments" value="yes"><!----></input><table class="login"><thead><tr><td colspan="2"><span id="l_login2"><script type="text/javascript">$('#l_login2').html(getLocalization('label.login'));</script></span></td></tr><tr><td colspan="2"><div id="loginResponse"><!----></div></td></tr></thead><tr><td><span id="l_userName"><script type="text/javascript">$('#l_userName').html(getLocalization('label.userName'));</script></span></td><td><input name="usernameW" type="text" id="myUserName" autocomplete="on" required="required" autofocus="autofocus"><!----></input></td></tr><tr><td><span id="l_pswd"><script type="text/javascript">$('#l_pswd').html(getLocalization('label.pswd'));</script></span></td><td><input name="passwordW" type="password" id="myPassword" autocomplete="on" required="required"><!----></input></td></tr><tr><td colspan="2" align="left"><span id="ll_remember"><script type="text/javascript" xml:space="preserve">
+								$('#ll_remember').html(getLocalization('label.rememberme'));
+							</script></span>     <input name="myLoginRemember" type="checkbox" class="ck" id="myRemember" value="no"><!----></input></td></tr><tr><td colspan="2" align="center"><input id="l_bt_submit_log" type="submit" value="Submit" name="loginFormButton"><!----></input><script type="text/javascript">$('#l_bt_submit_log').attr('value',getLocalization('label.login'));</script><span class="btnHGlue"><!----></span><input class="bt_cancel" id="l_cancelLog" type="button" value="Cancel" name="loginFormButton"><!----></input><script type="text/javascript">$('#l_cancelLog').attr('value',getLocalization('label.cancel'));</script></td></tr></table><div class="loginAlternative"><span id="link_lostPwd" onclick="showLostPwd()"><script type="text/javascript">$('#link_lostPwd').html(getLocalization('label.lostPswd'));</script></span><span id="link_signUp" onclick="showSignUp()"><script type="text/javascript">$('#link_signUp').html(getLocalization('label.signUp'));</script></span></div></form><iframe id="passwordIframe" name="passwordIframe" style="display:none"><!----></iframe></div><div id="cmts"><!----></div></body>
+</html>

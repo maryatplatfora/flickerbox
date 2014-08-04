@@ -1,0 +1,77 @@
+
+<!DOCTYPE html
+  PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xml:lang="en-us" lang="en-us">
+<head><meta xmlns="http://www.w3.org/1999/xhtml" name="description" content="For an event series lens, field selections are mostly dimension and timestamp fields. You can choose dimension fields from the currently selected dataset, and any fields from the event datasets it ..."/><meta http-equiv="Content-Type" content="text/html; charset=utf-8"/><meta name="copyright" content="(C) Copyright 2005"/><meta name="DC.rights.owner" content="(C) Copyright 2005"/><meta name="DC.Type" content="task"/><meta name="DC.Title" content="Choose Event Series Lens Fields"/><meta name="abstract" content="For an event series lens, field selections are mostly dimension and timestamp fields. You can choose dimension fields from the currently selected dataset, and any fields from the event datasets it references. Measure fields (aggregated variables) are not always applicable to event series analysis, since data is not aggregated in an event series lens."/><meta xmlns="http://www.w3.org/1999/xhtml" name="description" content="For an event series lens, field selections are mostly dimension and timestamp fields. You can choose dimension fields from the currently selected dataset, and any fields from the event datasets it references. Measure fields (aggregated variables) are not always applicable to event series analysis, since data is not aggregated in an event series lens."/><meta name="DC.Relation" scheme="URI" content="../../lens/create/choose_lens_fields.html"/><meta name="DC.Relation" scheme="URI" content="../../lens/create/esl_timestamp_fields.html"/><meta name="DC.Relation" scheme="URI" content="../../lens/create/esl_lens_measure_fields.html"/><meta name="DC.Format" content="XHTML"/><meta name="DC.Identifier" content="choose_esl_lens_fields"/><link rel="stylesheet" type="text/css" href="../../oxygen-webhelp/resources/css/commonltr.css"><!----></link><title>Choose Event Series Lens Fields</title><meta http-equiv="Content-Type" content="text/html; charset=utf-8"/><link rel="stylesheet" type="text/css" href="../../oxygen-webhelp/resources/css/commonltr.css"><!----></link><link rel="stylesheet" type="text/css" href="../../oxygen-webhelp/resources/css/webhelp_topic.css"><!----></link><link rel="stylesheet" type="text/css" href="../../oxygen-webhelp/resources/skins/skin.css"><!----></link><link rel="stylesheet" type="text/css" href="../../oxygen-webhelp/resources/css/jquery.realperson.css"><!----></link><link rel="stylesheet" type="text/css" href="../../oxygen-webhelp/resources/css/comments.css"><!----></link><link rel="stylesheet" type="text/css" href="../../oxygen-webhelp/resources/css/jquery.cleditor.css"><!----></link><link rel="stylesheet" type="text/css" href="../../oxygen-webhelp/resources/css/admin.css"><!----></link><script type="text/javascript"><!--
+          
+          var prefix = "../../index.html";
+          
+          --></script><script type="text/javascript" src="../../oxygen-webhelp/resources/js/jquery-1.8.2.min.js"><!----></script><script type="text/javascript" src="../../oxygen-webhelp/resources/js/jquery.cookie.js"><!----></script><script type="text/javascript" src="../../oxygen-webhelp/resources/js/jquery-ui.custom.min.js"><!----></script><script type="text/javascript" charset="utf-8" src="../../oxygen-webhelp/resources/js/webhelp_topic.js"><!----></script><script type="text/javascript" charset="utf-8" src="../../oxygen-webhelp/resources/localization/strings.js"><!----></script><script type="text/javascript" charset="utf-8" src="../../oxygen-webhelp/resources/js/init.js"><!----></script><script type="text/javascript" charset="utf-8" src="../../oxygen-webhelp/resources/js/comments-functions.js"><!----></script></head>
+<body onload="init('../../')" id="choose_esl_lens_fields">
+<table class="nav"><tbody><tr><td colspan="2"><div id="printlink"><a href="javascript:window.print();" title="printThisPage"/></div><div id="permalink"><a href="#" title="linkToThis"/></div></td></tr><tr><td width="75%"><a class="navheader_parent_path" href="../../lens/create/../../lens/create_lens.html" title="A lens is always defined from the focal point of a single dataset in the data catalog. Once you have located a dataset that has the data you need, first check and see if there are any existing lenses that you can use. If not, click Create Lens on the dataset details page to define and build a new lens from that dataset.">Create a Lens</a> / <a class="navheader_parent_path" href="../../lens/create/choose_lens_fields.html" title="Choosing fields for a lens depends on the lens type you pick (Aggregate Lens or Event Series Lens), and the type of analysis you plan to do. Aggregate lenses need both measure fields (aggregated variable data) and dimension fields (categorical data). Event series lenses only need dimension fields - measures are optional and not always applicable to event series analysis.">Choose Lens Fields</a></td><td><div class="navheader">
+<span class="navparent"><a class="link" href="../../lens/create/choose_lens_fields.html" title="Choosing fields for a lens depends on the lens type you pick (Aggregate Lens or Event Series Lens), and the type of analysis you plan to do. Aggregate lenses need both measure fields (aggregated variable data) and dimension fields (categorical data). Event series lenses only need dimension fields - measures are optional and not always applicable to event series analysis."><span class="navheader_label">Parent topic</span><span class="navheader_separator">: </span><span class="navheader_linktext">Choose Lens Fields</span></a></span>  </div></td></tr></tbody></table>
+
+    <h1 class="title topictitle1">Choose Event Series Lens Fields</h1>
+
+    
+    
+    <div class="body taskbody"><p class="shortdesc">For an event series lens, field selections are mostly dimension and timestamp fields.
+        You can choose dimension fields from the currently selected dataset, and any fields from the
+        event datasets it references. Measure fields (aggregated variables) are not always
+        applicable to event series analysis, since data is not aggregated in an event series lens. </p>
+
+        <div class="section context">
+            <div class="fig fignone"><img class="image" src="../../images/./lens_builder/esl_lens_choose_fields.png"/>
+                
+            </div>
+
+            <div class="p">
+                <ol class="ol">
+                    <li class="li">Click <span class="ph uicontrol">Add All</span> or <span class="ph uicontrol">Remove All</span> to
+                        add or remove all of the fields grouped under a dataset, reference, or event
+                        reference. Note that this does not apply to nested references and events.
+                        You must select fields from each referenced dataset independently.</li>
+
+                    <li class="li">Click the plus icon <img class="image" src="../../images/./icons/icn_lens_plus_sign.png"/> to <strong class="ph b">add</strong> a field to your lens. The plus sign means the field is
+                            <em class="ph i">not in</em> the lens.</li>
+
+                    <li class="li">Click the minus icon <img class="image" src="../../images/./icons/icn_lens_minus_sign.png"/> to <strong class="ph b">remove</strong> the field from your lens. The minus sign means the field
+                        is <em class="ph i">in</em> the lens.</li>
+
+                    <li class="li"><p class="p">Open the quick field selector to confirm the aggregate (measure) selections.</p>
+ <p class="p">In an
+                        event series lens, aggregated measures (such as <samp class="ph codeph">SUM</samp> or
+                            <samp class="ph codeph">AVG</samp>) are not always applicable. For example, if you
+                        want to do funnel analysis on some metric of the dataset, make sure that
+                            <span class="ph uicontrol">Original Value</span> (the default) is selected. This
+                        means the field will be included in the lens as a <dfn class="term">dimension</dfn>.</p>
+ </li>
+
+                    <li class="li">Expand events and references to find additional dimension fields.</li>
+
+                    <li class="li">Use the <span class="ph uicontrol">Fields added to lens</span> tab to confirm the field
+                        selections you have made.  </li>
+
+                </ol>
+
+            </div>
+
+        </div>
+
+        
+    </div>
+
+<div class="related-links">
+<ul class="ullinks">
+<li class="link ulchildlink"><strong><a href="../../lens/create/esl_timestamp_fields.html">Timestamp Fields and Event Series Lenses</a></strong><br/>
+Timestamp fields have a special purpose in an event series lens. They are used to         order all fact records included in the lens, including fact records coming from multiple         datasets. Event series lenses have a global <span class="ph uicontrol">Timestamp</span> field that         applies to all event records included in the lens. There are also global             <span class="ph uicontrol">Timestamp Date</span> and <span class="ph uicontrol">Timestamp Time</span>         references, which can be used to filter records on different granularities of date and time.  </li>
+<li class="link ulchildlink"><strong><a href="../../lens/create/esl_lens_measure_fields.html">Measure Fields and Event Series Lenses</a></strong><br/>
+In Platfora, measure fields are always the result of an aggregate calculation. Since         event series lenses do not contain aggregated data, measure fields are not always applicable         to event series analysis. Measure fields may be included in an event series lens, however         they may not show up in the vizboard (depending on the type of analysis you         choose).</li>
+</ul>
+</div>
+<div class="navfooter"><!---->
+<span class="navparent"><a class="link" href="../../lens/create/choose_lens_fields.html" title="Choosing fields for a lens depends on the lens type you pick (Aggregate Lens or Event Series Lens), and the type of analysis you plan to do. Aggregate lenses need both measure fields (aggregated variable data) and dimension fields (categorical data). Event series lenses only need dimension fields - measures are optional and not always applicable to event series analysis."><span class="navheader_label">Parent topic</span><span class="navheader_separator">: </span><span class="navheader_linktext">Choose Lens Fields</span></a></span>  </div><div class="footer">WebHelp output generated by<a href="http://www.oxygenxml.com" target="_blank"><span class="oXygenLogo"><img src="../../oxygen-webhelp/resources/img/LogoOxygen100x22.png" alt="Oxygen"/></span><span class="xmlauthor">XML Author</span></a></div>
+<div id="productInfo" style="display:none;"><span id="oxy_productID">webhelp</span><span id="oxy_productVersion">3.0</span></div><div id="loginData" style="display: none"><span class="bt_close" title="Close"><!----></span><form action="" target="passwordIframe" method="post" name="form_login" onsubmit="return loggInUser();" id="loginFormData" autocomplete="on"><input type="hidden" id="reloadComments" value="yes"><!----></input><table class="login"><thead><tr><td colspan="2"><span id="l_login2"><script type="text/javascript">$('#l_login2').html(getLocalization('label.login'));</script></span></td></tr><tr><td colspan="2"><div id="loginResponse"><!----></div></td></tr></thead><tr><td><span id="l_userName"><script type="text/javascript">$('#l_userName').html(getLocalization('label.userName'));</script></span></td><td><input name="usernameW" type="text" id="myUserName" autocomplete="on" required="required" autofocus="autofocus"><!----></input></td></tr><tr><td><span id="l_pswd"><script type="text/javascript">$('#l_pswd').html(getLocalization('label.pswd'));</script></span></td><td><input name="passwordW" type="password" id="myPassword" autocomplete="on" required="required"><!----></input></td></tr><tr><td colspan="2" align="left"><span id="ll_remember"><script type="text/javascript" xml:space="preserve">
+								$('#ll_remember').html(getLocalization('label.rememberme'));
+							</script></span>     <input name="myLoginRemember" type="checkbox" class="ck" id="myRemember" value="no"><!----></input></td></tr><tr><td colspan="2" align="center"><input id="l_bt_submit_log" type="submit" value="Submit" name="loginFormButton"><!----></input><script type="text/javascript">$('#l_bt_submit_log').attr('value',getLocalization('label.login'));</script><span class="btnHGlue"><!----></span><input class="bt_cancel" id="l_cancelLog" type="button" value="Cancel" name="loginFormButton"><!----></input><script type="text/javascript">$('#l_cancelLog').attr('value',getLocalization('label.cancel'));</script></td></tr></table><div class="loginAlternative"><span id="link_lostPwd" onclick="showLostPwd()"><script type="text/javascript">$('#link_lostPwd').html(getLocalization('label.lostPswd'));</script></span><span id="link_signUp" onclick="showSignUp()"><script type="text/javascript">$('#link_signUp').html(getLocalization('label.signUp'));</script></span></div></form><iframe id="passwordIframe" name="passwordIframe" style="display:none"><!----></iframe></div><div id="cmts"><!----></div></body>
+</html>

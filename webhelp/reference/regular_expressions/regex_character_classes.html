@@ -1,0 +1,371 @@
+
+<!DOCTYPE html
+  PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xml:lang="en-us" lang="en-us">
+<head><meta xmlns="http://www.w3.org/1999/xhtml" name="description" content="A character class allows you to specify a set of characters, enclosed in square brackets, that can produce a single character match. There are also a number of special predefined character classes ..."/><meta http-equiv="Content-Type" content="text/html; charset=utf-8"/><meta name="copyright" content="(C) Copyright 2005"/><meta name="DC.rights.owner" content="(C) Copyright 2005"/><meta name="DC.Type" content="reference"/><meta name="DC.Title" content="Regex Character Classes"/><meta name="abstract" content="A character class allows you to specify a set of characters, enclosed in square brackets, that can produce a single character match. There are also a number of special predefined character classes (backslash character sequences that are shorthand for the most common character sets)."/><meta xmlns="http://www.w3.org/1999/xhtml" name="description" content="A character class allows you to specify a set of characters, enclosed in square brackets, that can produce a single character match. There are also a number of special predefined character classes (backslash character sequences that are shorthand for the most common character sets)."/><meta name="DC.Relation" scheme="URI" content="../../reference/regular_expressions/regex_ref_top.html"/><meta name="DC.Format" content="XHTML"/><meta name="DC.Identifier" content="ref_regex_metacharacters"/><link rel="stylesheet" type="text/css" href="../../oxygen-webhelp/resources/css/commonltr.css"><!----></link><title>Regex Character Classes</title><meta http-equiv="Content-Type" content="text/html; charset=utf-8"/><link rel="stylesheet" type="text/css" href="../../oxygen-webhelp/resources/css/commonltr.css"><!----></link><link rel="stylesheet" type="text/css" href="../../oxygen-webhelp/resources/css/webhelp_topic.css"><!----></link><link rel="stylesheet" type="text/css" href="../../oxygen-webhelp/resources/skins/skin.css"><!----></link><link rel="stylesheet" type="text/css" href="../../oxygen-webhelp/resources/css/jquery.realperson.css"><!----></link><link rel="stylesheet" type="text/css" href="../../oxygen-webhelp/resources/css/comments.css"><!----></link><link rel="stylesheet" type="text/css" href="../../oxygen-webhelp/resources/css/jquery.cleditor.css"><!----></link><link rel="stylesheet" type="text/css" href="../../oxygen-webhelp/resources/css/admin.css"><!----></link><script type="text/javascript"><!--
+          
+          var prefix = "../../index.html";
+          
+          --></script><script type="text/javascript" src="../../oxygen-webhelp/resources/js/jquery-1.8.2.min.js"><!----></script><script type="text/javascript" src="../../oxygen-webhelp/resources/js/jquery.cookie.js"><!----></script><script type="text/javascript" src="../../oxygen-webhelp/resources/js/jquery-ui.custom.min.js"><!----></script><script type="text/javascript" charset="utf-8" src="../../oxygen-webhelp/resources/js/webhelp_topic.js"><!----></script><script type="text/javascript" charset="utf-8" src="../../oxygen-webhelp/resources/localization/strings.js"><!----></script><script type="text/javascript" charset="utf-8" src="../../oxygen-webhelp/resources/js/init.js"><!----></script><script type="text/javascript" charset="utf-8" src="../../oxygen-webhelp/resources/js/comments-functions.js"><!----></script></head>
+<body onload="init('../../')" id="ref_regex_metacharacters">
+<table class="nav"><tbody><tr><td colspan="2"><div id="printlink"><a href="javascript:window.print();" title="printThisPage"/></div><div id="permalink"><a href="#" title="linkToThis"/></div></td></tr><tr><td width="75%"><a class="navheader_parent_path" href="../../reference/regular_expressions/../../reference/expression_language/expression_reference_top.html" title="An expression computes or produces a value by combining fields (or columns), constant values, operators, and functions. Platfora has a built-in expression language. You use the language's functions and operators to create a computed field.">Expression and Query Language Reference</a> / <a class="navheader_parent_path" href="../../reference/regular_expressions/regex_ref_top.html" title="Regular expressions, also referred to as regex or regexp, are a standardized collection of special characters and constructs used for matching strings of text. They provide a flexible and precise language for matching particular characters, words, or patterns of characters. Regular expressions vary in complexity using a combination of basic constructs to describe a string matching pattern. This reference describes the most common regular expression matching patterns, but is not a comprehensive list.">Regular Expression Reference</a></td><td><div class="navheader">
+<span class="navparent"><a class="link" href="../../reference/regular_expressions/regex_ref_top.html" title="Regular expressions, also referred to as regex or regexp, are a standardized collection of special characters and constructs used for matching strings of text. They provide a flexible and precise language for matching particular characters, words, or patterns of characters. Regular expressions vary in complexity using a combination of basic constructs to describe a string matching pattern. This reference describes the most common regular expression matching patterns, but is not a comprehensive list."><span class="navheader_label">Parent topic</span><span class="navheader_separator">: </span><span class="navheader_linktext">Regular Expression Reference</span></a></span>  </div></td></tr></tbody></table>
+
+  <h1 class="title topictitle1">Regex Character Classes</h1>
+
+  
+  <div class="body refbody"><p class="shortdesc"><span class="ph" id="def_regex_charclass">A character class allows you to specify a set of characters, enclosed in square
+    brackets, that can produce a single character match. There are also a number of special
+    predefined character classes (backslash character sequences that are shorthand for the most
+    common character sets).</span>  </p>
+
+    <div class="section"><h2 class="title sectiontitle">Character Class Constructs</h2>
+      
+      <p class="p">A character class matches only to a single character. For example, <samp class="ph codeph">gr[ae]y</samp>
+        will match to <samp class="ph codeph">gray</samp> or <samp class="ph codeph">grey</samp>, but not to
+        <samp class="ph codeph">graay</samp> or <samp class="ph codeph">graey</samp>. The order of the characters inside the
+        brackets does not matter. </p>
+
+      <p class="p">You can use a hyphen inside a character class to specify a range of characters.  For
+        example, <samp class="ph codeph">[a-z]</samp> matches a single lower-case letter between
+          <samp class="ph codeph">a</samp> and <samp class="ph codeph">z</samp>. You can also use more than one range, or a
+        combination of ranges and single characters. For example, <samp class="ph codeph">[0-9X]</samp> matches a
+        numeric digit or the letter <samp class="ph codeph">X</samp>. Again, the order of the characters and the
+        ranges does not matter.</p>
+
+      <p class="p">A caret following an opening bracket specifies characters to exclude from a match. For
+        example, <samp class="ph codeph">[^abc]</samp> will match any character except <samp class="ph codeph">a</samp>,
+          <samp class="ph codeph">b</samp>, or <samp class="ph codeph">c</samp>. </p>
+
+      <div class="p">
+<div class="tablenoborder"><table cellpadding="4" cellspacing="0" summary="" id="ref_regex_metacharacters__regex_character_class_constructs" class="table" frame="border" border="1" rules="all">
+            
+            
+          
+            <thead class="thead" align="left">
+              <tr class="row">
+                <th class="entry" valign="top" width="17.113665389527462%" id="d148419e88">Construct</th>
+
+                <th class="entry" valign="top" width="12.77139208173691%" id="d148419e91">Type</th>
+
+                <th class="entry" valign="top" width="70.11494252873564%" id="d148419e94">Description </th>
+
+              </tr>
+
+            </thead>
+
+            <tbody class="tbody">
+              <tr class="row">
+                <td class="entry" valign="top" width="17.113665389527462%" headers="d148419e88 "><samp class="ph codeph">[<em class="ph i">abc</em>]</samp>
+                </td>
+
+                <td class="entry" valign="top" width="12.77139208173691%" headers="d148419e91 ">simple</td>
+
+                <td class="entry" valign="top" width="70.11494252873564%" headers="d148419e94 ">matches <samp class="ph codeph">a</samp> or <samp class="ph codeph">b</samp> or
+                  <samp class="ph codeph">c</samp></td>
+
+              </tr>
+
+              <tr class="row">
+                <td class="entry" valign="top" width="17.113665389527462%" headers="d148419e88 "><samp class="ph codeph">[^abc] </samp></td>
+
+                <td class="entry" valign="top" width="12.77139208173691%" headers="d148419e91 ">negation</td>
+
+                <td class="entry" valign="top" width="70.11494252873564%" headers="d148419e94 ">matches any character except <samp class="ph codeph">a</samp> or <samp class="ph codeph">b</samp> or
+                    <samp class="ph codeph">c</samp></td>
+
+              </tr>
+
+              <tr class="row">
+                <td class="entry" valign="top" width="17.113665389527462%" headers="d148419e88 "><samp class="ph codeph">[a-zA-Z]</samp></td>
+
+                <td class="entry" valign="top" width="12.77139208173691%" headers="d148419e91 ">range</td>
+
+                <td class="entry" valign="top" width="70.11494252873564%" headers="d148419e94 ">matches <samp class="ph codeph">a</samp> through <samp class="ph codeph">z</samp>, or <samp class="ph codeph">A</samp>
+                  through <samp class="ph codeph">Z</samp> (inclusive)</td>
+
+              </tr>
+
+              <tr class="row">
+                <td class="entry" valign="top" width="17.113665389527462%" headers="d148419e88 "><samp class="ph codeph">[a-d[m-p]]</samp></td>
+
+                <td class="entry" valign="top" width="12.77139208173691%" headers="d148419e91 ">union</td>
+
+                <td class="entry" valign="top" width="70.11494252873564%" headers="d148419e94 ">matches <samp class="ph codeph">a</samp> through <samp class="ph codeph">d</samp>, or <samp class="ph codeph">m</samp>
+                  through <samp class="ph codeph">p</samp></td>
+
+              </tr>
+
+              <tr class="row">
+                <td class="entry" valign="top" width="17.113665389527462%" headers="d148419e88 ">
+                  <samp class="ph codeph">[a-z&amp;&amp;[def]]</samp>
+                </td>
+
+                <td class="entry" valign="top" width="12.77139208173691%" headers="d148419e91 ">intersection</td>
+
+                <td class="entry" valign="top" width="70.11494252873564%" headers="d148419e94 ">matches <samp class="ph codeph">d</samp>, <samp class="ph codeph">e</samp>, or <samp class="ph codeph">f</samp></td>
+
+              </tr>
+
+              <tr class="row">
+                <td class="entry" valign="top" width="17.113665389527462%" headers="d148419e88 "><samp class="ph codeph">[a-z&amp;&amp;[^xq]]</samp></td>
+
+                <td class="entry" valign="top" width="12.77139208173691%" headers="d148419e91 ">subtraction</td>
+
+                <td class="entry" valign="top" width="70.11494252873564%" headers="d148419e94 ">matches <samp class="ph codeph">a</samp> through <samp class="ph codeph">z</samp>, except for
+                    <samp class="ph codeph">x</samp> and <samp class="ph codeph">q</samp></td>
+
+              </tr>
+
+            </tbody>
+
+          </table>
+</div>
+</div>
+
+    </div>
+
+    
+    <div class="section"><h2 class="title sectiontitle">Predefined Character Classes</h2>
+      
+      <p class="p">Predefined character classes offer convenient shorthands for commonly used regular
+        expressions.</p>
+
+      <div class="p">
+        
+<div class="tablenoborder"><table cellpadding="4" cellspacing="0" summary="" id="ref_regex_metacharacters__regex_predef_character_class" class="table" frame="border" border="1" rules="all">
+            
+            
+            
+            <thead class="thead" align="left">
+              <tr class="row">
+                <th class="entry" valign="top" width="12.004801920768307%" id="d148419e272">Construct</th>
+
+                <th class="entry" valign="top" width="47.05882352941176%" id="d148419e275">Description</th>
+
+                <th class="entry" valign="top" width="40.93637454981993%" id="d148419e278">Example</th>
+
+              </tr>
+
+            </thead>
+
+            <tbody class="tbody">
+              <tr class="row">
+                <td class="entry" valign="top" width="12.004801920768307%" headers="d148419e272 "><samp class="ph codeph">.</samp></td>
+
+                <td class="entry" valign="top" width="47.05882352941176%" headers="d148419e275 ">matches any single character (except newline)</td>
+
+                <td class="entry" valign="top" width="40.93637454981993%" headers="d148419e278 "><samp class="ph codeph">.at</samp> matches "cat", "hat", and also"bat" in the phrase "batch
+                  files"</td>
+
+              </tr>
+
+              <tr class="row">
+                <td class="entry" valign="top" width="12.004801920768307%" headers="d148419e272 "><samp class="ph codeph">\d</samp></td>
+
+                <td class="entry" valign="top" width="47.05882352941176%" headers="d148419e275 ">matches any digit character (equivalent to <samp class="ph codeph">[0-9]</samp>)</td>
+
+                <td class="entry" valign="top" width="40.93637454981993%" headers="d148419e278 "><samp class="ph codeph">\d</samp> matches "3" in "C3PO" and "2" in "file_2.txt"</td>
+
+              </tr>
+
+              <tr class="row">
+                <td class="entry" valign="top" width="12.004801920768307%" headers="d148419e272 "><samp class="ph codeph">\D</samp></td>
+
+                <td class="entry" valign="top" width="47.05882352941176%" headers="d148419e275 ">matches any non-digit character (equivalent to
+                  <samp class="ph codeph">[^0-9]</samp>)</td>
+
+                <td class="entry" valign="top" width="40.93637454981993%" headers="d148419e278 "><samp class="ph codeph">\D</samp> matches "S" in "900S" and "Q" in "Q45"</td>
+
+              </tr>
+
+              <tr class="row">
+                <td class="entry" valign="top" width="12.004801920768307%" headers="d148419e272 "><samp class="ph codeph">\s</samp></td>
+
+                <td class="entry" valign="top" width="47.05882352941176%" headers="d148419e275 ">matches any single white-space character (equivalent to <samp class="ph codeph">[
+                    \t\n\x0B\f\r]</samp>)</td>
+
+                <td class="entry" valign="top" width="40.93637454981993%" headers="d148419e278 "><samp class="ph codeph">\sbook</samp> matches "book" in "blue book" but nothing in
+                  "notebook"</td>
+
+              </tr>
+
+              <tr class="row">
+                <td class="entry" valign="top" width="12.004801920768307%" headers="d148419e272 "><samp class="ph codeph">\S</samp></td>
+
+                <td class="entry" valign="top" width="47.05882352941176%" headers="d148419e275 ">matches any single non-white-space character</td>
+
+                <td class="entry" valign="top" width="40.93637454981993%" headers="d148419e278 "><samp class="ph codeph">\Sbook</samp> matches "book" in "notebook" but nothing in "blue
+                  book"</td>
+
+              </tr>
+
+              <tr class="row">
+                <td class="entry" valign="top" width="12.004801920768307%" headers="d148419e272 "><samp class="ph codeph">\w</samp></td>
+
+                <td class="entry" valign="top" width="47.05882352941176%" headers="d148419e275 ">matches any alphanumeric character, including underscore (equivalent to
+                    <samp class="ph codeph">[A-Za-z0-9_]</samp>)</td>
+
+                <td class="entry" valign="top" width="40.93637454981993%" headers="d148419e278 "><samp class="ph codeph">r\w*</samp> matches "rm" and "root" </td>
+
+              </tr>
+
+              <tr class="row">
+                <td class="entry" valign="top" width="12.004801920768307%" headers="d148419e272 "><samp class="ph codeph">\W</samp></td>
+
+                <td class="entry" valign="top" width="47.05882352941176%" headers="d148419e275 ">matches any non-alphanumeric character (equivalent to
+                    <samp class="ph codeph">[^A-Za-z0-9_]</samp>)</td>
+
+                <td class="entry" valign="top" width="40.93637454981993%" headers="d148419e278 "><samp class="ph codeph">\W</samp> matches "&amp;" in "stmd &amp;" , "%" in "100%", and "$"
+                  in "$HOME"</td>
+
+              </tr>
+
+            </tbody>
+
+          </table>
+</div>
+
+      </div>
+
+    </div>
+
+    
+    <div class="section"><h2 class="title sectiontitle">POSIX Character Classes (US-ASCII)</h2>
+      
+      <p class="p">POSIX has a set of character classes that denote certain common ranges. They are similar to
+        bracket and predefined character classes, except they take into account the locale (the
+        local language/coding system).</p>
+
+      <div class="p">
+        
+<div class="tablenoborder"><table cellpadding="4" cellspacing="0" summary="" id="ref_regex_metacharacters__regex_posix_character_class" class="table" frame="border" border="1" rules="all">
+            
+            
+            <thead class="thead" align="left">
+              <tr class="row">
+                <th class="entry" valign="top" width="14.992503748125937%" id="d148419e433"> </th>
+
+                <th class="entry" valign="top" width="85.00749625187406%" id="d148419e435"> </th>
+
+              </tr>
+
+            </thead>
+
+            <tbody class="tbody">
+              <tr class="row">
+                <td class="entry" valign="top" width="14.992503748125937%" headers="d148419e433 "><samp class="ph codeph">\p{Lower} </samp></td>
+
+                <td class="entry" valign="top" width="85.00749625187406%" headers="d148419e435 ">a lower-case alphabetic character, <samp class="ph codeph">[a-z]</samp>
+                </td>
+
+              </tr>
+
+              <tr class="row">
+                <td class="entry" valign="top" width="14.992503748125937%" headers="d148419e433 "><samp class="ph codeph">\p{Upper}</samp></td>
+
+                <td class="entry" valign="top" width="85.00749625187406%" headers="d148419e435 ">an upper-case alphabetic character, <samp class="ph codeph">[A-Z]</samp>
+                </td>
+
+              </tr>
+
+              <tr class="row">
+                <td class="entry" valign="top" width="14.992503748125937%" headers="d148419e433 "><samp class="ph codeph">\p{ASCII}</samp></td>
+
+                <td class="entry" valign="top" width="85.00749625187406%" headers="d148419e435 ">an ASCII character, <samp class="ph codeph">[\x00-\x7F]</samp>
+                </td>
+
+              </tr>
+
+              <tr class="row">
+                <td class="entry" valign="top" width="14.992503748125937%" headers="d148419e433 "><samp class="ph codeph">\p{Alpha}</samp></td>
+
+                <td class="entry" valign="top" width="85.00749625187406%" headers="d148419e435 ">an alphabetic character, <samp class="ph codeph">[a-zA-z]</samp></td>
+
+              </tr>
+
+              <tr class="row">
+                <td class="entry" valign="top" width="14.992503748125937%" headers="d148419e433 "><samp class="ph codeph">\p{Digit}</samp></td>
+
+                <td class="entry" valign="top" width="85.00749625187406%" headers="d148419e435 ">a decimal digit, <samp class="ph codeph">[0-9]</samp></td>
+
+              </tr>
+
+              <tr class="row">
+                <td class="entry" valign="top" width="14.992503748125937%" headers="d148419e433 "><samp class="ph codeph">\p{Alnum}</samp></td>
+
+                <td class="entry" valign="top" width="85.00749625187406%" headers="d148419e435 ">an alphanumeric character, <samp class="ph codeph">[a-zA-z0-9]</samp></td>
+
+              </tr>
+
+              <tr class="row">
+                <td class="entry" valign="top" width="14.992503748125937%" headers="d148419e433 "><samp class="ph codeph">\p{Punct}</samp></td>
+
+                <td class="entry" valign="top" width="85.00749625187406%" headers="d148419e435 ">a punctuation character, one of
+                    <samp class="ph codeph">!"#$%&amp;'()*+,-./:;&lt;=&gt;?@[\]^_`{|}~ </samp></td>
+
+              </tr>
+
+              <tr class="row">
+                <td class="entry" valign="top" width="14.992503748125937%" headers="d148419e433 "><samp class="ph codeph">\p{Graph}</samp></td>
+
+                <td class="entry" valign="top" width="85.00749625187406%" headers="d148419e435 ">a visible character, <samp class="ph codeph">[\p{Alnum}\p{Punct}]</samp></td>
+
+              </tr>
+
+              <tr class="row">
+                <td class="entry" valign="top" width="14.992503748125937%" headers="d148419e433 "><samp class="ph codeph">\p{Print}</samp></td>
+
+                <td class="entry" valign="top" width="85.00749625187406%" headers="d148419e435 ">a printable character,  <samp class="ph codeph">[\p{Graph}\x20]</samp>
+                </td>
+
+              </tr>
+
+              <tr class="row">
+                <td class="entry" valign="top" width="14.992503748125937%" headers="d148419e433 "><samp class="ph codeph">\p{Blank}</samp></td>
+
+                <td class="entry" valign="top" width="85.00749625187406%" headers="d148419e435 ">a space or tab, <samp class="ph codeph">[ t]</samp></td>
+
+              </tr>
+
+              <tr class="row">
+                <td class="entry" valign="top" width="14.992503748125937%" headers="d148419e433 "><samp class="ph codeph">\p{Cntrl}</samp></td>
+
+                <td class="entry" valign="top" width="85.00749625187406%" headers="d148419e435 ">a control character,  <samp class="ph codeph">[\x00-\x1F\x7F] </samp></td>
+
+              </tr>
+
+              <tr class="row">
+                <td class="entry" valign="top" width="14.992503748125937%" headers="d148419e433 "><samp class="ph codeph">\p{XDigit}</samp></td>
+
+                <td class="entry" valign="top" width="85.00749625187406%" headers="d148419e435 ">a hexidecimal digit,  <samp class="ph codeph">[0-9a-fA-F]</samp>
+                </td>
+
+              </tr>
+
+              <tr class="row">
+                <td class="entry" valign="top" width="14.992503748125937%" headers="d148419e433 "><samp class="ph codeph">\p{Space}</samp></td>
+
+                <td class="entry" valign="top" width="85.00749625187406%" headers="d148419e435 ">a whitespace character,  <samp class="ph codeph">[ \t\n\x0B\f\r] </samp></td>
+
+              </tr>
+
+            </tbody>
+
+          </table>
+</div>
+
+      </div>
+
+    </div>
+
+   
+  </div>
+
+<div class="related-links"/>
+<div class="navfooter"><!---->
+<span class="navparent"><a class="link" href="../../reference/regular_expressions/regex_ref_top.html" title="Regular expressions, also referred to as regex or regexp, are a standardized collection of special characters and constructs used for matching strings of text. They provide a flexible and precise language for matching particular characters, words, or patterns of characters. Regular expressions vary in complexity using a combination of basic constructs to describe a string matching pattern. This reference describes the most common regular expression matching patterns, but is not a comprehensive list."><span class="navheader_label">Parent topic</span><span class="navheader_separator">: </span><span class="navheader_linktext">Regular Expression Reference</span></a></span>  </div><div class="footer">WebHelp output generated by<a href="http://www.oxygenxml.com" target="_blank"><span class="oXygenLogo"><img src="../../oxygen-webhelp/resources/img/LogoOxygen100x22.png" alt="Oxygen"/></span><span class="xmlauthor">XML Author</span></a></div>
+<div id="productInfo" style="display:none;"><span id="oxy_productID">webhelp</span><span id="oxy_productVersion">3.0</span></div><div id="loginData" style="display: none"><span class="bt_close" title="Close"><!----></span><form action="" target="passwordIframe" method="post" name="form_login" onsubmit="return loggInUser();" id="loginFormData" autocomplete="on"><input type="hidden" id="reloadComments" value="yes"><!----></input><table class="login"><thead><tr><td colspan="2"><span id="l_login2"><script type="text/javascript">$('#l_login2').html(getLocalization('label.login'));</script></span></td></tr><tr><td colspan="2"><div id="loginResponse"><!----></div></td></tr></thead><tr><td><span id="l_userName"><script type="text/javascript">$('#l_userName').html(getLocalization('label.userName'));</script></span></td><td><input name="usernameW" type="text" id="myUserName" autocomplete="on" required="required" autofocus="autofocus"><!----></input></td></tr><tr><td><span id="l_pswd"><script type="text/javascript">$('#l_pswd').html(getLocalization('label.pswd'));</script></span></td><td><input name="passwordW" type="password" id="myPassword" autocomplete="on" required="required"><!----></input></td></tr><tr><td colspan="2" align="left"><span id="ll_remember"><script type="text/javascript" xml:space="preserve">
+								$('#ll_remember').html(getLocalization('label.rememberme'));
+							</script></span>     <input name="myLoginRemember" type="checkbox" class="ck" id="myRemember" value="no"><!----></input></td></tr><tr><td colspan="2" align="center"><input id="l_bt_submit_log" type="submit" value="Submit" name="loginFormButton"><!----></input><script type="text/javascript">$('#l_bt_submit_log').attr('value',getLocalization('label.login'));</script><span class="btnHGlue"><!----></span><input class="bt_cancel" id="l_cancelLog" type="button" value="Cancel" name="loginFormButton"><!----></input><script type="text/javascript">$('#l_cancelLog').attr('value',getLocalization('label.cancel'));</script></td></tr></table><div class="loginAlternative"><span id="link_lostPwd" onclick="showLostPwd()"><script type="text/javascript">$('#link_lostPwd').html(getLocalization('label.lostPswd'));</script></span><span id="link_signUp" onclick="showSignUp()"><script type="text/javascript">$('#link_signUp').html(getLocalization('label.signUp'));</script></span></div></form><iframe id="passwordIframe" name="passwordIframe" style="display:none"><!----></iframe></div><div id="cmts"><!----></div></body>
+</html>

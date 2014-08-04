@@ -1,0 +1,94 @@
+
+<!DOCTYPE html
+  PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xml:lang="en-us" lang="en-us">
+<head><meta xmlns="http://www.w3.org/1999/xhtml" name="description" content="Platfora requires different configurations to be made before using the HDFS Delegated Authorization feature. For Platfora to use HDFS file permissions to determine data access permissions, the ..."/><meta http-equiv="Content-Type" content="text/html; charset=utf-8"/><meta name="copyright" content="(C) Copyright 2005"/><meta name="DC.rights.owner" content="(C) Copyright 2005"/><meta name="DC.Type" content="concept"/><meta name="DC.Title" content="HDFS Delegated Authorization Requirements"/><meta name="abstract" content="Platfora requires different configurations to be made before using the HDFS Delegated Authorization feature."/><meta xmlns="http://www.w3.org/1999/xhtml" name="description" content="Platfora requires different configurations to be made before using the HDFS Delegated Authorization feature."/><meta name="DC.Relation" scheme="URI" content="../../system/security/how_hdfs_delegated_auth_works.html"/><meta name="DC.Format" content="XHTML"/><meta name="DC.Identifier" content="hdfs_delegated_auth_requirements"/><link rel="stylesheet" type="text/css" href="../../oxygen-webhelp/resources/css/commonltr.css"><!----></link><title>HDFS Delegated Authorization Requirements</title><meta http-equiv="Content-Type" content="text/html; charset=utf-8"/><link rel="stylesheet" type="text/css" href="../../oxygen-webhelp/resources/css/commonltr.css"><!----></link><link rel="stylesheet" type="text/css" href="../../oxygen-webhelp/resources/css/webhelp_topic.css"><!----></link><link rel="stylesheet" type="text/css" href="../../oxygen-webhelp/resources/skins/skin.css"><!----></link><link rel="stylesheet" type="text/css" href="../../oxygen-webhelp/resources/css/jquery.realperson.css"><!----></link><link rel="stylesheet" type="text/css" href="../../oxygen-webhelp/resources/css/comments.css"><!----></link><link rel="stylesheet" type="text/css" href="../../oxygen-webhelp/resources/css/jquery.cleditor.css"><!----></link><link rel="stylesheet" type="text/css" href="../../oxygen-webhelp/resources/css/admin.css"><!----></link><script type="text/javascript"><!--
+          
+          var prefix = "../../index.html";
+          
+          --></script><script type="text/javascript" src="../../oxygen-webhelp/resources/js/jquery-1.8.2.min.js"><!----></script><script type="text/javascript" src="../../oxygen-webhelp/resources/js/jquery.cookie.js"><!----></script><script type="text/javascript" src="../../oxygen-webhelp/resources/js/jquery-ui.custom.min.js"><!----></script><script type="text/javascript" charset="utf-8" src="../../oxygen-webhelp/resources/js/webhelp_topic.js"><!----></script><script type="text/javascript" charset="utf-8" src="../../oxygen-webhelp/resources/localization/strings.js"><!----></script><script type="text/javascript" charset="utf-8" src="../../oxygen-webhelp/resources/js/init.js"><!----></script><script type="text/javascript" charset="utf-8" src="../../oxygen-webhelp/resources/js/comments-functions.js"><!----></script></head>
+<body onload="init('../../')" id="hdfs_delegated_auth_requirements">
+<table class="nav"><tbody><tr><td colspan="2"><div id="printlink"><a href="javascript:window.print();" title="printThisPage"/></div><div id="permalink"><a href="#" title="linkToThis"/></div></td></tr><tr><td width="75%"><a class="navheader_parent_path" href="../../system/security/../../system/security/about_hdfs_delegated_auth.html" title="System administrators can configure Platfora so that it grants data access permissions to LDAP users based on the users' file permissions in HDFS. By default, users have access to data in a source by a system administrator granting them data access to a configured data source or dataset. However, to base all data access permissions on HDFS file permissions, enable the HDFS Delegated Authorization feature.">Understand HDFS Delegated Authorization</a> / <a class="navheader_parent_path" href="../../system/security/how_hdfs_delegated_auth_works.html" title="However, when HDFS Delegated Authorization is enabled, Platfora authorizes itself against the Kerberos server and obtains its own Kerberos Ticket-Granting Ticket (TGT). Platfora uses the TGT to impersonate LDAP users (using Kerberos Impersonation) when communicating with HDFS and MapReduce.">How HDFS Delegated Authorization Works</a></td><td><div class="navheader">
+<span class="navparent"><a class="link" href="../../system/security/how_hdfs_delegated_auth_works.html" title="However, when HDFS Delegated Authorization is enabled, Platfora authorizes itself against the Kerberos server and obtains its own Kerberos Ticket-Granting Ticket (TGT). Platfora uses the TGT to impersonate LDAP users (using Kerberos Impersonation) when communicating with HDFS and MapReduce."><span class="navheader_label">Parent topic</span><span class="navheader_separator">: </span><span class="navheader_linktext">How HDFS Delegated Authorization Works</span></a></span>  </div></td></tr></tbody></table>
+
+ <h1 class="title topictitle1">HDFS Delegated Authorization Requirements</h1>
+
+ 
+  
+  
+ <div class="body conbody"><p class="shortdesc"> Platfora requires different configurations to be made before using the HDFS Delegated
+    Authorization feature.</p>
+
+  
+  <p class="p">For Platfora to use HDFS file permissions to determine data access permissions, the following
+   conditions must be true:</p>
+
+  <div class="p">
+   <ul class="ul" id="hdfs_delegated_auth_requirements__hdfs_del_auth_requirements_list">
+    <li class="li">
+      <p class="p">Platfora is configured to authenticate users via LDAP (rather than using local Platfora
+            user accounts). LDAP users must be mapped into Platfora to apply user file permissions,
+            and LDAP groups must be mapped into Platfora to apply group file permissions.</p>
+
+    </li>
+
+    <li class="li">
+          <p class="p">Platfora is configured as a Kerberos client, and the <em class="ph i">kstart</em> package must be used
+            to auto-renew Kerberos tickets for the Platfora server. For details on this, see
+            "Configuring Kerberos Authentication to Hadoop" in the <em class="ph i">Platfora Installation
+              Guide</em>.</p>
+
+        </li>
+
+        <li class="li">
+          <p class="p">The <samp class="ph codeph">platfora</samp> user has been added to the <samp class="ph codeph">supergroup</samp>
+            group in HDFS. This allows lens builds to succeed.</p>
+
+        </li>
+
+    <li class="li">
+          <p class="p">The Kerberos <samp class="ph codeph">krb5.conf</samp> file is in the <samp class="ph codeph">etc/krb5.conf</samp>
+            directory (default).</p>
+
+        </li>
+
+        <li class="li">
+          <p class="p">A <samp class="ph codeph">/user/<em class="ph i">username</em></samp> directory exists in Hadoop for each user with
+            write permission granted to the user.</p>
+
+        </li>
+
+    <li class="li">
+     <p class="p">Hadoop is configured to allow the <samp class="ph codeph">platfora</samp> UNIX user to impersonate LDAP
+            users. For details on how to do this, see <a class="xref" href="configure_kerberos_impersonation.html" title="To use HDFS Delegated Authorization, Kerberos must be configured to allow Platfora to impersonate its LDAP users.">Configure Kerberos to Allow Impersonation</a>.</p>
+
+    </li>
+
+    <li class="li">
+          <p class="p">The Hadoop MapReduce implementation is not Amazon Elastic Map Reduce (EMR).</p>
+
+        </li>
+
+        <li class="li">
+          <p class="p">The HDFS Delegated Authorization feature is enabled. For details on how to do this, see <a class="xref" href="enable_hdfs_delegated_auth.html" title="Only system administrators can enable HDFS Delegated Authorization. When HDFS Delegated Authorization is enabled, any previously configured data access permissions are overwritten with the permissions defined in HDFS.">Enable HDFS Delegated Authorization</a>.</p>
+
+        </li>
+
+   </ul>
+
+  </div>
+
+   
+
+ </div>
+
+  
+  
+  
+<div class="related-links"/>
+<div class="navfooter"><!---->
+<span class="navparent"><a class="link" href="../../system/security/how_hdfs_delegated_auth_works.html" title="However, when HDFS Delegated Authorization is enabled, Platfora authorizes itself against the Kerberos server and obtains its own Kerberos Ticket-Granting Ticket (TGT). Platfora uses the TGT to impersonate LDAP users (using Kerberos Impersonation) when communicating with HDFS and MapReduce."><span class="navheader_label">Parent topic</span><span class="navheader_separator">: </span><span class="navheader_linktext">How HDFS Delegated Authorization Works</span></a></span>  </div><div class="footer">WebHelp output generated by<a href="http://www.oxygenxml.com" target="_blank"><span class="oXygenLogo"><img src="../../oxygen-webhelp/resources/img/LogoOxygen100x22.png" alt="Oxygen"/></span><span class="xmlauthor">XML Author</span></a></div>
+<div id="productInfo" style="display:none;"><span id="oxy_productID">webhelp</span><span id="oxy_productVersion">3.0</span></div><div id="loginData" style="display: none"><span class="bt_close" title="Close"><!----></span><form action="" target="passwordIframe" method="post" name="form_login" onsubmit="return loggInUser();" id="loginFormData" autocomplete="on"><input type="hidden" id="reloadComments" value="yes"><!----></input><table class="login"><thead><tr><td colspan="2"><span id="l_login2"><script type="text/javascript">$('#l_login2').html(getLocalization('label.login'));</script></span></td></tr><tr><td colspan="2"><div id="loginResponse"><!----></div></td></tr></thead><tr><td><span id="l_userName"><script type="text/javascript">$('#l_userName').html(getLocalization('label.userName'));</script></span></td><td><input name="usernameW" type="text" id="myUserName" autocomplete="on" required="required" autofocus="autofocus"><!----></input></td></tr><tr><td><span id="l_pswd"><script type="text/javascript">$('#l_pswd').html(getLocalization('label.pswd'));</script></span></td><td><input name="passwordW" type="password" id="myPassword" autocomplete="on" required="required"><!----></input></td></tr><tr><td colspan="2" align="left"><span id="ll_remember"><script type="text/javascript" xml:space="preserve">
+								$('#ll_remember').html(getLocalization('label.rememberme'));
+							</script></span>     <input name="myLoginRemember" type="checkbox" class="ck" id="myRemember" value="no"><!----></input></td></tr><tr><td colspan="2" align="center"><input id="l_bt_submit_log" type="submit" value="Submit" name="loginFormButton"><!----></input><script type="text/javascript">$('#l_bt_submit_log').attr('value',getLocalization('label.login'));</script><span class="btnHGlue"><!----></span><input class="bt_cancel" id="l_cancelLog" type="button" value="Cancel" name="loginFormButton"><!----></input><script type="text/javascript">$('#l_cancelLog').attr('value',getLocalization('label.cancel'));</script></td></tr></table><div class="loginAlternative"><span id="link_lostPwd" onclick="showLostPwd()"><script type="text/javascript">$('#link_lostPwd').html(getLocalization('label.lostPswd'));</script></span><span id="link_signUp" onclick="showSignUp()"><script type="text/javascript">$('#link_signUp').html(getLocalization('label.signUp'));</script></span></div></form><iframe id="passwordIframe" name="passwordIframe" style="display:none"><!----></iframe></div><div id="cmts"><!----></div></body>
+</html>

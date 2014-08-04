@@ -1,0 +1,172 @@
+
+<!DOCTYPE html
+  PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xml:lang="en-us" lang="en-us">
+<head><meta xmlns="http://www.w3.org/1999/xhtml" name="description" content="Dimension fields can contain textual or numeric data, so filtering on a dimension depends on the data type of the selected field. Category filters allow you to select specific dimension members ..."/><meta http-equiv="Content-Type" content="text/html; charset=utf-8"/><meta name="copyright" content="(C) Copyright 2005"/><meta name="DC.rights.owner" content="(C) Copyright 2005"/><meta name="DC.Type" content="task"/><meta name="DC.Title" content="Filter on Dimension Fields"/><meta name="abstract" content="Dimension fields can contain textual or numeric data, so filtering on a dimension depends on the data type of the selected field. Category filters allow you to select specific dimension members (values) to include or exclude in your visualization. Range filters allow you to choose a range of values to include or exclude, and are only applicable to dimensions that contain numeric data."/><meta xmlns="http://www.w3.org/1999/xhtml" name="description" content="Dimension fields can contain textual or numeric data, so filtering on a dimension depends on the data type of the selected field. Category filters allow you to select specific dimension members (values) to include or exclude in your visualization. Range filters allow you to choose a range of values to include or exclude, and are only applicable to dimensions that contain numeric data."/><meta name="DC.Relation" scheme="URI" content="../../data_analysis/adhoc_analysis/viz_filter_by_field.html"/><meta name="DC.Format" content="XHTML"/><meta name="DC.Identifier" content="add_dimension_filter"/><link rel="stylesheet" type="text/css" href="../../oxygen-webhelp/resources/css/commonltr.css"><!----></link><title>Filter on Dimension Fields</title><meta http-equiv="Content-Type" content="text/html; charset=utf-8"/><link rel="stylesheet" type="text/css" href="../../oxygen-webhelp/resources/css/commonltr.css"><!----></link><link rel="stylesheet" type="text/css" href="../../oxygen-webhelp/resources/css/webhelp_topic.css"><!----></link><link rel="stylesheet" type="text/css" href="../../oxygen-webhelp/resources/skins/skin.css"><!----></link><link rel="stylesheet" type="text/css" href="../../oxygen-webhelp/resources/css/jquery.realperson.css"><!----></link><link rel="stylesheet" type="text/css" href="../../oxygen-webhelp/resources/css/comments.css"><!----></link><link rel="stylesheet" type="text/css" href="../../oxygen-webhelp/resources/css/jquery.cleditor.css"><!----></link><link rel="stylesheet" type="text/css" href="../../oxygen-webhelp/resources/css/admin.css"><!----></link><script type="text/javascript"><!--
+          
+          var prefix = "../../index.html";
+          
+          --></script><script type="text/javascript" src="../../oxygen-webhelp/resources/js/jquery-1.8.2.min.js"><!----></script><script type="text/javascript" src="../../oxygen-webhelp/resources/js/jquery.cookie.js"><!----></script><script type="text/javascript" src="../../oxygen-webhelp/resources/js/jquery-ui.custom.min.js"><!----></script><script type="text/javascript" charset="utf-8" src="../../oxygen-webhelp/resources/js/webhelp_topic.js"><!----></script><script type="text/javascript" charset="utf-8" src="../../oxygen-webhelp/resources/localization/strings.js"><!----></script><script type="text/javascript" charset="utf-8" src="../../oxygen-webhelp/resources/js/init.js"><!----></script><script type="text/javascript" charset="utf-8" src="../../oxygen-webhelp/resources/js/comments-functions.js"><!----></script></head>
+<body onload="init('../../')" id="add_dimension_filter">
+<table class="nav"><tbody><tr><td colspan="2"><div id="printlink"><a href="javascript:window.print();" title="printThisPage"/></div><div id="permalink"><a href="#" title="linkToThis"/></div></td></tr><tr><td width="75%"><a class="navheader_parent_path" href="../../data_analysis/adhoc_analysis/../../data_analysis/adhoc_analysis/viz_filters.html" title="Adding a filter to a visualization allows you to constrain the data that is shown in the visualization. You can add a filter using a particular field, or by selecting and isolating a set of marks on a viz.">Filtering Viz Data</a> / <a class="navheader_parent_path" href="../../data_analysis/adhoc_analysis/viz_filter_by_field.html" title="Filtering on a field allows you to include or exclude records from the visualization based on the values of the selected field. The filter controls differ depending on the type of field you are filtering on (dimension, measure, or date).">Add a Filter on a Field</a></td><td><div class="navheader">
+<span class="navparent"><a class="link" href="../../data_analysis/adhoc_analysis/viz_filter_by_field.html" title="Filtering on a field allows you to include or exclude records from the visualization based on the values of the selected field. The filter controls differ depending on the type of field you are filtering on (dimension, measure, or date)."><span class="navheader_label">Parent topic</span><span class="navheader_separator">: </span><span class="navheader_linktext">Add a Filter on a Field</span></a></span>  </div></td></tr></tbody></table>
+
+    <h1 class="title topictitle1">Filter on Dimension Fields</h1>
+
+    
+    <div class="body taskbody"><p class="shortdesc">Dimension fields can contain textual or numeric data, so filtering on a dimension
+        depends on the data type of the selected field. <em class="ph i">Category</em> filters allow you to select
+        specific dimension members (values) to include or exclude in your visualization.
+            <em class="ph i">Range</em> filters allow you to choose a range of values to include or exclude, and
+        are only applicable to dimensions that contain numeric data. </p>
+
+        <div class="section context">
+            <p class="p">When you add a dimension field to the <span class="ph uicontrol">Filters</span> panel, you get
+                the dimension filter control. Depending on the data type of the field selected, the
+                control defaults to either <span class="ph uicontrol">Category</span> (for textual data) or
+                    <span class="ph uicontrol">Range</span> (for numeric data). For numeric data, you can
+                change the filter control to <span class="ph uicontrol">Category</span> if you want to choose
+                specific numeric values to include or exclude.</p>
+
+        </div>
+
+        <div class="section"><h2 class="title sectiontitle">Basic Category Filters</h2>
+            
+            <p class="p">A category filter shows a list of the distinct values (or members) in the selected
+                dimension field. By default, the category filter control is <em class="ph i">inclusive</em>,
+                meaning you select the values you want to include in your visualization (unselected
+                values are filtered out). As long as the dimension field has 100 values or less, you
+                can scroll through the entire list of values and check the values you want. </p>
+
+            <div class="fig fignone"><img class="image" src="../../images/./vizbuilder/builder_filter_category.png"/>
+                
+            </div>
+
+        </div>
+
+        <div class="section"><h2 class="title sectiontitle">Category Filters with Long Member Lists</h2>
+            
+            <p class="p">For dimension fields that have a lot of distinct values (or members), the category
+                list only displays the first 100 values. To choose values that are not visible in
+                the list, you can either search for a specific value to select or add a match
+                pattern to select values.</p>
+
+            <p class="p"><strong class="ph b">To search for a specific value to select:</strong></p>
+
+            <p class="p">Type the search criteria in the <span class="ph uicontrol">Search</span> box and press
+                    <span class="ph uicontrol">ENTER</span> to find possible matches. You can use the wildcard
+                characters of <samp class="ph codeph">?</samp> (question mark) to represent a single character or
+                    <samp class="ph codeph">*</samp> (asterisk) to represent any number of characters, and
+                    <samp class="ph codeph">\</samp> (backslash) as the escape character. Note that the search
+                pattern you enter is <em class="ph i">not</em> case-sensitive, and it searches the <em class="ph i">entire
+                    string</em> for a match. For example, entering a search pattern of
+                    <samp class="ph codeph">A*</samp> will return any value that contains the letter
+                    <samp class="ph codeph">A</samp> or <samp class="ph codeph">a</samp>, not just values that begin with
+                    <samp class="ph codeph">A</samp>. </p>
+
+            <div class="fig fignone"><img class="image" src="../../images/./vizbuilder/builder_filter_high_cardinality.png"/>
+                
+            </div>
+
+            <p class="p"><strong class="ph b">To select values based on a match pattern:</strong></p>
+
+            <p class="p">Type the search criteria in the <span class="ph uicontrol">Search</span> box, and click
+                    <span class="ph uicontrol">Add Custom</span> to add the search criteria as a filter
+                selection. You can use the following wildcard characters in the filter match
+                pattern:</p>
+
+            <div class="p">
+                
+<div class="tablenoborder"><table cellpadding="4" cellspacing="0" summary="" class="table" frame="border" border="1" rules="all">
+                        
+                        
+                        <thead class="thead" align="left">
+                            <tr class="row">
+                                <th class="entry" valign="top" width="16.835016835016834%" id="d7327e138">Wildcard Character</th>
+
+                                <th class="entry" valign="top" width="83.16498316498317%" id="d7327e141">Matches</th>
+
+                            </tr>
+
+                        </thead>
+
+                        <tbody class="tbody">
+                            <tr class="row">
+                                <td class="entry" valign="top" width="16.835016835016834%" headers="d7327e138 "><samp class="ph codeph">*</samp></td>
+
+                                <td class="entry" valign="top" width="83.16498316498317%" headers="d7327e141 ">Zero or more characters</td>
+
+                            </tr>
+
+                            <tr class="row">
+                                <td class="entry" valign="top" width="16.835016835016834%" headers="d7327e138 "><samp class="ph codeph">?</samp></td>
+
+                                <td class="entry" valign="top" width="83.16498316498317%" headers="d7327e141 ">Any single character</td>
+
+                            </tr>
+
+                            <tr class="row">
+                                <td class="entry" valign="top" width="16.835016835016834%" headers="d7327e138 "><samp class="ph codeph">\*</samp></td>
+
+                                <td class="entry" valign="top" width="83.16498316498317%" headers="d7327e141 ">The asterisk (<samp class="ph codeph">*</samp>) character </td>
+
+                            </tr>
+
+                            <tr class="row">
+                                <td class="entry" valign="top" width="16.835016835016834%" headers="d7327e138 "><samp class="ph codeph">\?</samp></td>
+
+                                <td class="entry" valign="top" width="83.16498316498317%" headers="d7327e141 ">The question mark (<samp class="ph codeph">?</samp>) character</td>
+
+                            </tr>
+
+                            <tr class="row">
+                                <td class="entry" valign="top" width="16.835016835016834%" headers="d7327e138 "><samp class="ph codeph">\\</samp></td>
+
+                                <td class="entry" valign="top" width="83.16498316498317%" headers="d7327e141 ">The backslash (<samp class="ph codeph">\</samp>) character</td>
+
+                            </tr>
+
+                        </tbody>
+
+                    </table>
+</div>
+
+            </div>
+
+            <p class="p">Note that the match pattern you enter is <em class="ph i">not</em> case-sensitive, and it searches
+                from the <em class="ph i">beginning</em> of the string for a possible matches. For example, adding
+                a match pattern of <samp class="ph codeph">A*</samp> will only select values that begin with the
+                letter <samp class="ph codeph">A</samp> or <samp class="ph codeph">a</samp>. To select any value that contained
+                the letter <samp class="ph codeph">A</samp>, you could use a pattern of <samp class="ph codeph">*A*</samp>. </p>
+
+            <div class="fig fignone"><img class="image" src="../../images/./vizbuilder/builder_filter_high_cardinality2.png"/>
+                
+            </div>
+
+        </div>
+
+        <div class="section"><h2 class="title sectiontitle">Range Filters</h2>
+            
+            <p class="p">When you add a numeric dimension to the <span class="ph uicontrol">Filters</span> panel, the
+                default filter control is a range filter. You can type the
+                    <span class="ph uicontrol">Start</span> and <span class="ph uicontrol">End</span> range values (hit
+                    <span class="ph uicontrol">ENTER</span> to apply a value after typing it in). </p>
+
+            <div class="fig fignone"><img class="image" src="../../images/./vizbuilder/builder_filter_range.png"/>
+                
+            </div>
+
+            <p class="p">If your data is categorical in nature (for example, SKU numbers or product codes),
+                you can switch it to be a category filter instead. </p>
+
+        </div>
+
+    </div>
+
+<div class="related-links"/>
+<div class="navfooter"><!---->
+<span class="navparent"><a class="link" href="../../data_analysis/adhoc_analysis/viz_filter_by_field.html" title="Filtering on a field allows you to include or exclude records from the visualization based on the values of the selected field. The filter controls differ depending on the type of field you are filtering on (dimension, measure, or date)."><span class="navheader_label">Parent topic</span><span class="navheader_separator">: </span><span class="navheader_linktext">Add a Filter on a Field</span></a></span>  </div><div class="footer">WebHelp output generated by<a href="http://www.oxygenxml.com" target="_blank"><span class="oXygenLogo"><img src="../../oxygen-webhelp/resources/img/LogoOxygen100x22.png" alt="Oxygen"/></span><span class="xmlauthor">XML Author</span></a></div>
+<div id="productInfo" style="display:none;"><span id="oxy_productID">webhelp</span><span id="oxy_productVersion">3.0</span></div><div id="loginData" style="display: none"><span class="bt_close" title="Close"><!----></span><form action="" target="passwordIframe" method="post" name="form_login" onsubmit="return loggInUser();" id="loginFormData" autocomplete="on"><input type="hidden" id="reloadComments" value="yes"><!----></input><table class="login"><thead><tr><td colspan="2"><span id="l_login2"><script type="text/javascript">$('#l_login2').html(getLocalization('label.login'));</script></span></td></tr><tr><td colspan="2"><div id="loginResponse"><!----></div></td></tr></thead><tr><td><span id="l_userName"><script type="text/javascript">$('#l_userName').html(getLocalization('label.userName'));</script></span></td><td><input name="usernameW" type="text" id="myUserName" autocomplete="on" required="required" autofocus="autofocus"><!----></input></td></tr><tr><td><span id="l_pswd"><script type="text/javascript">$('#l_pswd').html(getLocalization('label.pswd'));</script></span></td><td><input name="passwordW" type="password" id="myPassword" autocomplete="on" required="required"><!----></input></td></tr><tr><td colspan="2" align="left"><span id="ll_remember"><script type="text/javascript" xml:space="preserve">
+								$('#ll_remember').html(getLocalization('label.rememberme'));
+							</script></span>     <input name="myLoginRemember" type="checkbox" class="ck" id="myRemember" value="no"><!----></input></td></tr><tr><td colspan="2" align="center"><input id="l_bt_submit_log" type="submit" value="Submit" name="loginFormButton"><!----></input><script type="text/javascript">$('#l_bt_submit_log').attr('value',getLocalization('label.login'));</script><span class="btnHGlue"><!----></span><input class="bt_cancel" id="l_cancelLog" type="button" value="Cancel" name="loginFormButton"><!----></input><script type="text/javascript">$('#l_cancelLog').attr('value',getLocalization('label.cancel'));</script></td></tr></table><div class="loginAlternative"><span id="link_lostPwd" onclick="showLostPwd()"><script type="text/javascript">$('#link_lostPwd').html(getLocalization('label.lostPswd'));</script></span><span id="link_signUp" onclick="showSignUp()"><script type="text/javascript">$('#link_signUp').html(getLocalization('label.signUp'));</script></span></div></form><iframe id="passwordIframe" name="passwordIframe" style="display:none"><!----></iframe></div><div id="cmts"><!----></div></body>
+</html>

@@ -1,0 +1,130 @@
+
+<!DOCTYPE html
+  PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xml:lang="en-us" lang="en-us">
+<head><meta xmlns="http://www.w3.org/1999/xhtml" name="description" content="Amazon Simple Storage Service (Amazon S3) is a distributed file system hosted on Amazon Web Services (AWS). Data transfer is free between S3 and Amazon cloud servers, making S3 an attractive choice ..."/><meta http-equiv="Content-Type" content="text/html; charset=utf-8"/><meta name="copyright" content="(C) Copyright 2005"/><meta name="DC.rights.owner" content="(C) Copyright 2005"/><meta name="DC.Type" content="task"/><meta name="DC.Title" content="Connect to an S3 Data Source"/><meta name="abstract" content="Amazon Simple Storage Service (Amazon S3) is a distributed file system hosted on Amazon Web Services (AWS). Data transfer is free between S3 and Amazon cloud servers, making S3 an attractive choice for users who run their Hadoop clusters on EC2 or utilize the Amazon EMR service."/><meta xmlns="http://www.w3.org/1999/xhtml" name="description" content="Amazon Simple Storage Service (Amazon S3) is a distributed file system hosted on Amazon Web Services (AWS). Data transfer is free between S3 and Amazon cloud servers, making S3 an attractive choice for users who run their Hadoop clusters on EC2 or utilize the Amazon EMR service."/><meta name="DC.Relation" scheme="URI" content="../data_source/add_datasource.html"/><meta name="DC.Format" content="XHTML"/><meta name="DC.Identifier" content="add_s3_datasource"/><link rel="stylesheet" type="text/css" href="../oxygen-webhelp/resources/css/commonltr.css"><!----></link><title>Connect to an S3 Data Source</title><meta http-equiv="Content-Type" content="text/html; charset=utf-8"/><link rel="stylesheet" type="text/css" href="../oxygen-webhelp/resources/css/commonltr.css"><!----></link><link rel="stylesheet" type="text/css" href="../oxygen-webhelp/resources/css/webhelp_topic.css"><!----></link><link rel="stylesheet" type="text/css" href="../oxygen-webhelp/resources/skins/skin.css"><!----></link><link rel="stylesheet" type="text/css" href="../oxygen-webhelp/resources/css/jquery.realperson.css"><!----></link><link rel="stylesheet" type="text/css" href="../oxygen-webhelp/resources/css/comments.css"><!----></link><link rel="stylesheet" type="text/css" href="../oxygen-webhelp/resources/css/jquery.cleditor.css"><!----></link><link rel="stylesheet" type="text/css" href="../oxygen-webhelp/resources/css/admin.css"><!----></link><script type="text/javascript"><!--
+          
+          var prefix = "../index.html";
+          
+          --></script><script type="text/javascript" src="../oxygen-webhelp/resources/js/jquery-1.8.2.min.js"><!----></script><script type="text/javascript" src="../oxygen-webhelp/resources/js/jquery.cookie.js"><!----></script><script type="text/javascript" src="../oxygen-webhelp/resources/js/jquery-ui.custom.min.js"><!----></script><script type="text/javascript" charset="utf-8" src="../oxygen-webhelp/resources/js/webhelp_topic.js"><!----></script><script type="text/javascript" charset="utf-8" src="../oxygen-webhelp/resources/localization/strings.js"><!----></script><script type="text/javascript" charset="utf-8" src="../oxygen-webhelp/resources/js/init.js"><!----></script><script type="text/javascript" charset="utf-8" src="../oxygen-webhelp/resources/js/comments-functions.js"><!----></script></head>
+<body onload="init('../')" id="add_s3_datasource">
+<table class="nav"><tbody><tr><td colspan="2"><div id="printlink"><a href="javascript:window.print();" title="printThisPage"/></div><div id="permalink"><a href="#" title="linkToThis"/></div></td></tr><tr><td width="75%"><a class="navheader_parent_path" href="../data_source/../data_source/datasources.html" title="The first step in making Hadoop data available in Platfora is identifying what source data you want to expose to your business users, and making sure the data is in a format that Platfora can work with. Although the source data may be coming into Hadoop from a variety of source systems, and in a variety of different file formats, Platfora needs to be able to parse it into rows and columns in order to create a dataset in Platfora. Platfora supports a number of data sources and source file formats.">Connect to Data Sources</a> / <a class="navheader_parent_path" href="../data_source/add_datasource.html" title="A data source is a connection to a mount point or directory on an external data server, such as a file system or database server. Platfora currently provides data source adapters for Hive﻿, HDFS, Amazon S3, and MapR FS.">Add a New Data Source</a></td><td><div class="navheader">
+<span class="navparent"><a class="link" href="../data_source/add_datasource.html" title="A data source is a connection to a mount point or directory on an external data server, such as a file system or database server. Platfora currently provides data source adapters for Hive﻿, HDFS, Amazon S3, and MapR FS."><span class="navheader_label">Parent topic</span><span class="navheader_separator">: </span><span class="navheader_linktext">Add a New Data Source</span></a></span>  </div></td></tr></tbody></table>
+
+    <h1 class="title topictitle1">Connect to an S3 Data Source</h1>
+
+    
+    <div class="body taskbody"><p class="shortdesc"> Amazon Simple Storage Service (Amazon S3) is a distributed file system hosted on
+        Amazon Web Services (AWS). Data transfer is free between S3 and Amazon cloud servers, making
+        S3 an attractive choice for users who run their Hadoop clusters on EC2 or utilize the Amazon
+        EMR service.</p>
+
+        <div class="section context">If you are not using Amazon EC2 or EMR as your primary Hadoop implementation for
+            Platfora, you can still use S3 as a data source, but keep in mind that the source data
+            will be copied to the Platfora primary Hadoop implementation during the lens build
+            process. If you are transferring a lot of data between S3 and another network outside of
+            Amazon, it could be slow.</div>
+
+        <div class="section context">Hadoop supports two S3 file systems as an alternative to HDFS: S3 Native File
+            System (s3n) and S3 Block File System (s3). Platfora supports the S3 Native File System
+            (s3n) only.</div>
+
+        <div class="section steps-informal">
+            <p class="p">When you add a new data source that connects to an S3 data source, you will need to
+                supply the following connection information:</p>
+
+            
+            
+<div class="tablenoborder"><table cellpadding="4" cellspacing="0" summary="" class="table" frame="border" border="1" rules="all">
+                    
+                    
+                    <thead class="thead" align="left">
+                        <tr class="row">
+                            <th class="entry" valign="top" width="24.87562189054727%" id="d32485e38"><p class="p">Connection Information</p>
+</th>
+
+                            <th class="entry" valign="top" width="75.12437810945275%" id="d32485e42"><p class="p">Select or Enter</p>
+</th>
+
+                        </tr>
+
+                    </thead>
+
+                    <tbody class="tbody">
+                        <tr class="row">
+                            <td class="entry" valign="top" width="24.87562189054727%" headers="d32485e38 "><p class="p"><span class="ph uicontrol">Source Type</span></p>
+</td>
+
+                            <td class="entry" valign="top" width="75.12437810945275%" headers="d32485e42 "><p class="p"><span class="ph uicontrol">Amazon S3</span></p>
+</td>
+
+                        </tr>
+
+                        <tr class="row">
+                            <td class="entry" valign="top" width="24.87562189054727%" headers="d32485e38 "><p class="p"><span class="ph uicontrol">Name</span></p>
+</td>
+
+                            <td class="entry" valign="top" width="75.12437810945275%" headers="d32485e42 "><p class="p">A name for the data source location. This can be any name you choose, such as <em class="ph i">S3 Sample
+                                Data</em> or  <em class="ph i">Marketing Bucket on S3</em>.</p>
+ </td>
+
+                        </tr>
+
+                        <tr class="row">
+                            <td class="entry" valign="top" width="24.87562189054727%" headers="d32485e38 "><p class="p"><span class="ph uicontrol">Bucket Name</span></p>
+</td>
+
+                            <td class="entry" valign="top" width="75.12437810945275%" headers="d32485e42 "><p class="p">A bucket is a named container for objects stored in Amazon S3. If you go to your AWS Management Console S3 Home Page, you can see the list of buckets you have created for your account.</p>
+ </td>
+
+                        </tr>
+
+                        <tr class="row">
+                            <td class="entry" valign="top" width="24.87562189054727%" headers="d32485e38 "><p class="p"><span class="ph uicontrol">Path</span></p>
+</td>
+
+                            <td class="entry" valign="top" width="75.12437810945275%" headers="d32485e42 "><p class="p">The directory in the specified bucket that Platfora should access. For example, to access the
+                                    entire bucket, use <span class="ph filepath">/</span> (root directory). To
+                                    access a particular directory only, enter the qualified path
+                                    (for example, <samp class="ph codeph">/user/data</samp> or
+                                        <samp class="ph codeph">/data/weblogs</samp>).</p>
+</td>
+
+                        </tr>
+
+                    </tbody>
+
+                </table>
+</div>
+
+            
+               
+            
+            
+            <p class="p">If the connection to Amazon S3 is successful, you will see a list of the files and
+                directories that reside in the specified location of the S3 file system when
+                defining a dataset from the data source. </p>
+
+            
+            <p class="p">If you have trouble connecting to Amazon S3, make sure that the Platfora server
+                machine has access over the network to Amazon Web Services, and that your S3
+                connection information and AWS security credentials are specified in the
+                    <samp class="ph codeph">core-site.xml</samp> configuration file of the Platfora master server.
+                If you are using Amazon EMR as the default Hadoop implementation for Platfora, your
+                Platfora administrator should have configured the S3 connection information and AWS
+                security credentials during installation. </p>
+
+            <p class="p"> </p>
+
+        </div>
+
+       
+    </div>
+
+<div class="related-links"/>
+<div class="navfooter"><!---->
+<span class="navparent"><a class="link" href="../data_source/add_datasource.html" title="A data source is a connection to a mount point or directory on an external data server, such as a file system or database server. Platfora currently provides data source adapters for Hive﻿, HDFS, Amazon S3, and MapR FS."><span class="navheader_label">Parent topic</span><span class="navheader_separator">: </span><span class="navheader_linktext">Add a New Data Source</span></a></span>  </div><div class="footer">WebHelp output generated by<a href="http://www.oxygenxml.com" target="_blank"><span class="oXygenLogo"><img src="../oxygen-webhelp/resources/img/LogoOxygen100x22.png" alt="Oxygen"/></span><span class="xmlauthor">XML Author</span></a></div>
+<div id="productInfo" style="display:none;"><span id="oxy_productID">webhelp</span><span id="oxy_productVersion">3.0</span></div><div id="loginData" style="display: none"><span class="bt_close" title="Close"><!----></span><form action="" target="passwordIframe" method="post" name="form_login" onsubmit="return loggInUser();" id="loginFormData" autocomplete="on"><input type="hidden" id="reloadComments" value="yes"><!----></input><table class="login"><thead><tr><td colspan="2"><span id="l_login2"><script type="text/javascript">$('#l_login2').html(getLocalization('label.login'));</script></span></td></tr><tr><td colspan="2"><div id="loginResponse"><!----></div></td></tr></thead><tr><td><span id="l_userName"><script type="text/javascript">$('#l_userName').html(getLocalization('label.userName'));</script></span></td><td><input name="usernameW" type="text" id="myUserName" autocomplete="on" required="required" autofocus="autofocus"><!----></input></td></tr><tr><td><span id="l_pswd"><script type="text/javascript">$('#l_pswd').html(getLocalization('label.pswd'));</script></span></td><td><input name="passwordW" type="password" id="myPassword" autocomplete="on" required="required"><!----></input></td></tr><tr><td colspan="2" align="left"><span id="ll_remember"><script type="text/javascript" xml:space="preserve">
+								$('#ll_remember').html(getLocalization('label.rememberme'));
+							</script></span>     <input name="myLoginRemember" type="checkbox" class="ck" id="myRemember" value="no"><!----></input></td></tr><tr><td colspan="2" align="center"><input id="l_bt_submit_log" type="submit" value="Submit" name="loginFormButton"><!----></input><script type="text/javascript">$('#l_bt_submit_log').attr('value',getLocalization('label.login'));</script><span class="btnHGlue"><!----></span><input class="bt_cancel" id="l_cancelLog" type="button" value="Cancel" name="loginFormButton"><!----></input><script type="text/javascript">$('#l_cancelLog').attr('value',getLocalization('label.cancel'));</script></td></tr></table><div class="loginAlternative"><span id="link_lostPwd" onclick="showLostPwd()"><script type="text/javascript">$('#link_lostPwd').html(getLocalization('label.lostPswd'));</script></span><span id="link_signUp" onclick="showSignUp()"><script type="text/javascript">$('#link_signUp').html(getLocalization('label.signUp'));</script></span></div></form><iframe id="passwordIframe" name="passwordIframe" style="display:none"><!----></iframe></div><div id="cmts"><!----></div></body>
+</html>

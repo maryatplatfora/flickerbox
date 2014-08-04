@@ -1,0 +1,115 @@
+
+<!DOCTYPE html
+  PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xml:lang="en-us" lang="en-us">
+<head><meta xmlns="http://www.w3.org/1999/xhtml" name="description" content="A funnel is a visualization analysis type that tracks users' behavior across a sequence of events. This topic answers some frequently asked questions about funnel analysis visualizations. What is a ..."/><meta http-equiv="Content-Type" content="text/html; charset=utf-8"/><meta name="copyright" content="(C) Copyright 2005"/><meta name="DC.rights.owner" content="(C) Copyright 2005"/><meta name="DC.Type" content="concept"/><meta name="DC.Title" content="Funnel Analysis Viz FAQs"/><meta name="abstract" content="A funnel is a visualization analysis type that tracks users' behavior across a sequence of events. This topic answers some frequently asked questions about funnel analysis visualizations."/><meta xmlns="http://www.w3.org/1999/xhtml" name="description" content="A funnel is a visualization analysis type that tracks users' behavior across a sequence of events. This topic answers some frequently asked questions about funnel analysis visualizations."/><meta name="DC.Relation" scheme="URI" content="../../data_analysis/funnel_analysis/funnel_viz_top.html"/><meta name="DC.Format" content="XHTML"/><meta name="DC.Identifier" content="funnel_viz_faq"/><link rel="stylesheet" type="text/css" href="../../oxygen-webhelp/resources/css/commonltr.css"><!----></link><title>Funnel Analysis Viz FAQs</title><meta http-equiv="Content-Type" content="text/html; charset=utf-8"/><link rel="stylesheet" type="text/css" href="../../oxygen-webhelp/resources/css/commonltr.css"><!----></link><link rel="stylesheet" type="text/css" href="../../oxygen-webhelp/resources/css/webhelp_topic.css"><!----></link><link rel="stylesheet" type="text/css" href="../../oxygen-webhelp/resources/skins/skin.css"><!----></link><link rel="stylesheet" type="text/css" href="../../oxygen-webhelp/resources/css/jquery.realperson.css"><!----></link><link rel="stylesheet" type="text/css" href="../../oxygen-webhelp/resources/css/comments.css"><!----></link><link rel="stylesheet" type="text/css" href="../../oxygen-webhelp/resources/css/jquery.cleditor.css"><!----></link><link rel="stylesheet" type="text/css" href="../../oxygen-webhelp/resources/css/admin.css"><!----></link><script type="text/javascript"><!--
+          
+          var prefix = "../../index.html";
+          
+          --></script><script type="text/javascript" src="../../oxygen-webhelp/resources/js/jquery-1.8.2.min.js"><!----></script><script type="text/javascript" src="../../oxygen-webhelp/resources/js/jquery.cookie.js"><!----></script><script type="text/javascript" src="../../oxygen-webhelp/resources/js/jquery-ui.custom.min.js"><!----></script><script type="text/javascript" charset="utf-8" src="../../oxygen-webhelp/resources/js/webhelp_topic.js"><!----></script><script type="text/javascript" charset="utf-8" src="../../oxygen-webhelp/resources/localization/strings.js"><!----></script><script type="text/javascript" charset="utf-8" src="../../oxygen-webhelp/resources/js/init.js"><!----></script><script type="text/javascript" charset="utf-8" src="../../oxygen-webhelp/resources/js/comments-functions.js"><!----></script></head>
+<body onload="init('../../')" id="funnel_viz_faq">
+<table class="nav"><tbody><tr><td colspan="2"><div id="printlink"><a href="javascript:window.print();" title="printThisPage"/></div><div id="permalink"><a href="#" title="linkToThis"/></div></td></tr><tr><td width="75%"><a class="navheader_parent_path" href="../../data_analysis/funnel_analysis/../../data_analysis/analyze_data_top.html" title="Vizboards is the business intelligence (BI) and data analytics area of Platfora. Once you have pulled data into Platfora by creating a lens, you can explore and interact with the data using Platfora's visualization builder tools. To begin analyzing data, you first create a project document called a vizboard. A vizboard is a container for one or more visualizations.">Analyze Data</a> / <a class="navheader_parent_path" href="../../data_analysis/funnel_analysis/funnel_viz_top.html" title="Funnel analysis visualizations allow you to track user behavior across one or more fact datasets defined in an event series lens. The analysis is performed on individual events instead of aggregated data in order to find sequential patterns in behavior.">Build Funnel Analysis Visualizations</a></td><td><div class="navheader">
+<span class="navparent"><a class="link" href="../../data_analysis/funnel_analysis/funnel_viz_top.html" title="Funnel analysis visualizations allow you to track user behavior across one or more fact datasets defined in an event series lens. The analysis is performed on individual events instead of aggregated data in order to find sequential patterns in behavior."><span class="navheader_label">Parent topic</span><span class="navheader_separator">: </span><span class="navheader_linktext">Build Funnel Analysis Visualizations</span></a></span>  </div></td></tr></tbody></table>
+
+ <h1 class="title topictitle1">Funnel Analysis Viz FAQs</h1>
+
+ 
+
+ <div class="body conbody"><p class="shortdesc">A funnel is a visualization analysis type that tracks users' behavior across a sequence
+  of events. This topic answers some frequently asked questions about funnel analysis
+  visualizations.</p>
+
+ 
+  <p class="p"><strong class="ph b">What is a funnel?</strong></p>
+
+  
+  <p class="p">A funnel is a visual analysis type that tracks users' behavior across a sequence of events.
+   Each step in the sequence is defined as a stage. Each funnel stage shows progressively decreasing
+   proportions of the original set of users. The first stage has 100% of the original group of users
+   by definition.</p>
+
+
+   <p class="p">For example, a funnel can be used to track the pathways users take through a website, such as
+   visiting a page, then viewing a video, and then registering. The first stage would be defined as
+   all users who click that page, the second stage would be defined as the users from the first
+   stage who then viewed the video, and the third stage would be defined as the users from the
+   second stage who then registered with the website.</p>
+
+      
+   <div class="p">
+   <div class="note note"><span class="notetitle">Note:</span> The Platfora documentation uses the term <em class="ph i">users</em> in a generic sense. Users can consist
+    of any type of dimension, such as customers, sessions, devices, players, etc.</div>
+
+  </div>
+
+
+  
+   <p class="p"><strong class="ph b">How are funnels created?</strong></p>
+
+  
+   <p class="p">Funnels can be created by Platfora users who have the <span class="ph uicontrol">Analyst</span> system
+   role (or above), provided they also have access to the underlying source data in Hadoop. Funnel
+   analysis visualizations are based on event series lenses. When adding a new viz, you first
+   choose <span class="ph uicontrol">Funnel</span> as the analysis type. When funnel analysis is selected,
+   Platfora lists the datasets that have an event series lens defined.</p>
+
+ 
+  <p class="p">In a funnel analysis viz, you create stages and then define filters for each stage. The order
+   of stages is important. By default, the funnel analysis viz counts all users that meet the
+   criteria for each stage. However, you can analyze the flow through each stage for different
+   sub-groups of users. After defining the funnel stages, drag into the <span class="ph uicontrol">Rows</span>
+   drop zone one or more dimension fields.</p>
+
+
+  <p class="p">For more context about the underlying data in the lens, see <a class="xref" href="../../lens/create/event_series_lens.html" title="An event series lens can only be built from dimension datasets that have at least one event reference defined in them. It contains non-aggregated fact records, partitioned by the key of the focus dataset, sorted by the time an event occurred. Choose this lens type if you want to do time series analysis, such as funnel paths.">About Event Series Lenses</a>. </p>
+
+
+
+  <p class="p"><strong class="ph b">How is each stage defined?</strong></p>
+
+
+  <p class="p">Each stage is based on an event dataset used in the lens with one or more stage conditions
+   applied. Each stage can use a different event dataset, allowing analysts to define flows from
+   different sources of event data related to the same users. For example, you can define one stage
+   based on website clicks and the next stage based on customer service phone calls.</p>
+
+  <p class="p">A member of a stage is a user that has a record in the event dataset, meets all conditions
+   defined in the stage, and whose timestamp is greater than the timestamp of its record in the
+   previous stage. For example, if stage one is defined as users who clicked home.html, and stage
+   two is defined as users who clicked checkout.html, then any user who clicked checkout.html after
+   clicking home.html is a member of both stage one and two, regardless of any website clicks in
+   between those events.</p>
+
+  
+
+
+   <p class="p"><strong class="ph b">Why would I want to create a funnel?</strong></p>
+
+   <p class="p">Use funnels to look for patterns in behaviors among users of a particular group. For example,
+   you might define a funnel for a particular sequence of events, and compare how users in different
+   segments compare to the total and to each other.</p>
+
+    
+  <p class="p">You can also use funnels to understand at which stages the most drop-off occurs in a multi-step
+   conversion process.</p>
+
+
+
+  
+  
+
+
+  
+  
+  
+  
+  
+ </div>
+
+<div class="related-links"/>
+<div class="navfooter"><!---->
+<span class="navparent"><a class="link" href="../../data_analysis/funnel_analysis/funnel_viz_top.html" title="Funnel analysis visualizations allow you to track user behavior across one or more fact datasets defined in an event series lens. The analysis is performed on individual events instead of aggregated data in order to find sequential patterns in behavior."><span class="navheader_label">Parent topic</span><span class="navheader_separator">: </span><span class="navheader_linktext">Build Funnel Analysis Visualizations</span></a></span>  </div><div class="footer">WebHelp output generated by<a href="http://www.oxygenxml.com" target="_blank"><span class="oXygenLogo"><img src="../../oxygen-webhelp/resources/img/LogoOxygen100x22.png" alt="Oxygen"/></span><span class="xmlauthor">XML Author</span></a></div>
+<div id="productInfo" style="display:none;"><span id="oxy_productID">webhelp</span><span id="oxy_productVersion">3.0</span></div><div id="loginData" style="display: none"><span class="bt_close" title="Close"><!----></span><form action="" target="passwordIframe" method="post" name="form_login" onsubmit="return loggInUser();" id="loginFormData" autocomplete="on"><input type="hidden" id="reloadComments" value="yes"><!----></input><table class="login"><thead><tr><td colspan="2"><span id="l_login2"><script type="text/javascript">$('#l_login2').html(getLocalization('label.login'));</script></span></td></tr><tr><td colspan="2"><div id="loginResponse"><!----></div></td></tr></thead><tr><td><span id="l_userName"><script type="text/javascript">$('#l_userName').html(getLocalization('label.userName'));</script></span></td><td><input name="usernameW" type="text" id="myUserName" autocomplete="on" required="required" autofocus="autofocus"><!----></input></td></tr><tr><td><span id="l_pswd"><script type="text/javascript">$('#l_pswd').html(getLocalization('label.pswd'));</script></span></td><td><input name="passwordW" type="password" id="myPassword" autocomplete="on" required="required"><!----></input></td></tr><tr><td colspan="2" align="left"><span id="ll_remember"><script type="text/javascript" xml:space="preserve">
+								$('#ll_remember').html(getLocalization('label.rememberme'));
+							</script></span>     <input name="myLoginRemember" type="checkbox" class="ck" id="myRemember" value="no"><!----></input></td></tr><tr><td colspan="2" align="center"><input id="l_bt_submit_log" type="submit" value="Submit" name="loginFormButton"><!----></input><script type="text/javascript">$('#l_bt_submit_log').attr('value',getLocalization('label.login'));</script><span class="btnHGlue"><!----></span><input class="bt_cancel" id="l_cancelLog" type="button" value="Cancel" name="loginFormButton"><!----></input><script type="text/javascript">$('#l_cancelLog').attr('value',getLocalization('label.cancel'));</script></td></tr></table><div class="loginAlternative"><span id="link_lostPwd" onclick="showLostPwd()"><script type="text/javascript">$('#link_lostPwd').html(getLocalization('label.lostPswd'));</script></span><span id="link_signUp" onclick="showSignUp()"><script type="text/javascript">$('#link_signUp').html(getLocalization('label.signUp'));</script></span></div></form><iframe id="passwordIframe" name="passwordIframe" style="display:none"><!----></iframe></div><div id="cmts"><!----></div></body>
+</html>

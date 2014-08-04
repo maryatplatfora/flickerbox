@@ -1,0 +1,509 @@
+
+<!DOCTYPE html
+  PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xml:lang="en-us" lang="en-us">
+<head><meta xmlns="http://www.w3.org/1999/xhtml" name="description" content="You can configure Platfora to access an external LDAP directory server to authenticate users. Platfora currently supports authenticating users in Microsoft Active Directory only. To enable Platfora to ..."/><meta http-equiv="Content-Type" content="text/html; charset=utf-8"/><meta name="copyright" content="(C) Copyright 2005"/><meta name="DC.rights.owner" content="(C) Copyright 2005"/><meta name="DC.Type" content="task"/><meta name="DC.Title" content="Configuring LDAP Access"/><meta name="abstract" content="You can configure Platfora to access an external LDAP directory server to authenticate users. Platfora currently supports authenticating users in Microsoft Active Directory only."/><meta xmlns="http://www.w3.org/1999/xhtml" name="description" content="You can configure Platfora to access an external LDAP directory server to authenticate users. Platfora currently supports authenticating users in Microsoft Active Directory only."/><meta name="DC.Relation" scheme="URI" content="../../system/security/configure_ldap_auth.html"/><meta name="DC.Format" content="XHTML"/><meta name="DC.Identifier" content="connect_to_ldap"/><link rel="stylesheet" type="text/css" href="../../oxygen-webhelp/resources/css/commonltr.css"><!----></link><title>Configuring LDAP Access</title><meta http-equiv="Content-Type" content="text/html; charset=utf-8"/><link rel="stylesheet" type="text/css" href="../../oxygen-webhelp/resources/css/commonltr.css"><!----></link><link rel="stylesheet" type="text/css" href="../../oxygen-webhelp/resources/css/webhelp_topic.css"><!----></link><link rel="stylesheet" type="text/css" href="../../oxygen-webhelp/resources/skins/skin.css"><!----></link><link rel="stylesheet" type="text/css" href="../../oxygen-webhelp/resources/css/jquery.realperson.css"><!----></link><link rel="stylesheet" type="text/css" href="../../oxygen-webhelp/resources/css/comments.css"><!----></link><link rel="stylesheet" type="text/css" href="../../oxygen-webhelp/resources/css/jquery.cleditor.css"><!----></link><link rel="stylesheet" type="text/css" href="../../oxygen-webhelp/resources/css/admin.css"><!----></link><script type="text/javascript"><!--
+          
+          var prefix = "../../index.html";
+          
+          --></script><script type="text/javascript" src="../../oxygen-webhelp/resources/js/jquery-1.8.2.min.js"><!----></script><script type="text/javascript" src="../../oxygen-webhelp/resources/js/jquery.cookie.js"><!----></script><script type="text/javascript" src="../../oxygen-webhelp/resources/js/jquery-ui.custom.min.js"><!----></script><script type="text/javascript" charset="utf-8" src="../../oxygen-webhelp/resources/js/webhelp_topic.js"><!----></script><script type="text/javascript" charset="utf-8" src="../../oxygen-webhelp/resources/localization/strings.js"><!----></script><script type="text/javascript" charset="utf-8" src="../../oxygen-webhelp/resources/js/init.js"><!----></script><script type="text/javascript" charset="utf-8" src="../../oxygen-webhelp/resources/js/comments-functions.js"><!----></script></head>
+<body onload="init('../../')" id="connect_to_ldap">
+<table class="nav"><tbody><tr><td colspan="2"><div id="printlink"><a href="javascript:window.print();" title="printThisPage"/></div><div id="permalink"><a href="#" title="linkToThis"/></div></td></tr><tr><td width="75%"><a class="navheader_parent_path" href="../../system/security/../../system/security/manage_users_groups.html" title="A user must have a login account in order to access the Platfora application. Platfora can authenticate a user's identity locally or via LDAP. Users can then be organized into groups to simplify the management of system, data, and object access permissions. Only Platfora system administrators can manage users and groups.">Authenticate and Authorize Users</a> / <a class="navheader_parent_path" href="../../system/security/configure_ldap_auth.html" title="Platfora can be configured to use an external LDAP directory service to authenticate users. With LDAP enabled, users log in to Platfora using their familiar LDAP identity and credentials.">Configure LDAP User Authentication</a></td><td><div class="navheader">
+<span class="navparent"><a class="link" href="../../system/security/configure_ldap_auth.html" title="Platfora can be configured to use an external LDAP directory service to authenticate users. With LDAP enabled, users log in to Platfora using their familiar LDAP identity and credentials."><span class="navheader_label">Parent topic</span><span class="navheader_separator">: </span><span class="navheader_linktext">Configure LDAP User Authentication</span></a></span>  </div></td></tr></tbody></table>
+
+    <h1 class="title topictitle1">Configuring LDAP Access</h1>
+
+    
+    <div class="body taskbody"><p class="shortdesc">You can configure Platfora to access an external LDAP directory server to
+        authenticate users. Platfora currently supports authenticating users in Microsoft Active
+        Directory only.</p>
+
+        <div class="section context">
+            <p class="p">To enable Platfora to authenticate users in LDAP, you must supply the connection
+                information to the LDAP server. </p>
+
+            <p class="p"><img class="image" src="../../images/./system/ldap_enable.png"/></p>
+
+        </div>
+
+        <ol class="ol steps"><li class="li step stepexpand">
+                <span class="ph cmd">Go to the <span class="ph uicontrol">System</span> page.</span>
+            </li>
+<li class="li step stepexpand">
+                <span class="ph cmd">Go to the <span class="ph uicontrol">Users</span> tab.</span>
+            </li>
+<li class="li step stepexpand">
+                <span class="ph cmd">Click <span class="ph uicontrol">Configure LDAP</span>.</span>
+            </li>
+<li class="li step stepexpand">
+                <span class="ph cmd">Make sure the <span class="ph uicontrol">Enable LDAP</span> check box is selected.</span>
+            </li>
+<li class="li step stepexpand">
+                <span class="ph cmd">Enter the connection information for the LDAP server.</span>
+                
+                    
+<div class="tablenoborder"><table cellpadding="4" cellspacing="0" summary="" class="table" frame="border" border="1" rules="all">
+                            
+                            
+                            <thead class="thead" align="left">
+                                <tr class="row">
+                                    <th class="entry" valign="top" width="20.61855670103093%" id="d166282e81">Field</th>
+
+                                    <th class="entry" valign="top" width="79.38144329896907%" id="d166282e84">Description</th>
+
+                                </tr>
+
+                            </thead>
+
+                            <tbody class="tbody">
+                                <tr class="row">
+                                    <td class="entry" valign="top" width="20.61855670103093%" headers="d166282e81 ">
+                                        <p class="p"><span class="ph uicontrol">LDAP Server</span></p>
+</td>
+
+                                    <td class="entry" valign="top" width="79.38144329896907%" headers="d166282e84 ">
+                                        <p class="p">The external DNS name or IP address of the LDAP
+                                            server.</p>
+
+                                    </td>
+
+                                </tr>
+
+                                <tr class="row">
+                                    <td class="entry" valign="top" width="20.61855670103093%" headers="d166282e81 ">
+                                        <p class="p"><span class="ph uicontrol">Port</span></p>
+</td>
+
+                                    <td class="entry" valign="top" width="79.38144329896907%" headers="d166282e84 ">
+                                        <p class="p">The port that the LDAP server is listening on for client
+                                            connections.</p>
+
+                                    </td>
+
+                                </tr>
+
+                                <tr class="row">
+                                    <td class="entry" valign="top" width="20.61855670103093%" headers="d166282e81 ">
+                                        <p class="p"><span class="ph uicontrol">Use default port</span></p>
+</td>
+
+                                    <td class="entry" valign="top" width="79.38144329896907%" headers="d166282e84 ">
+                                        <p class="p">Select if the LDAP server is listening on the default
+                                            port numbers. The default LDAP port is 389. The default
+                                            LDAPS port is 636. </p>
+
+                                    </td>
+
+                                </tr>
+
+                                <tr class="row">
+                                    <td class="entry" valign="top" width="20.61855670103093%" headers="d166282e81 ">
+                                        <p class="p"><span class="ph uicontrol">Use SSL to connect</span></p>
+</td>
+
+                                    <td class="entry" valign="top" width="79.38144329896907%" headers="d166282e84 ">
+                                        <p class="p">Select to encrypt connections between Platfora and the
+                                            LDAP server. The Platfora server must have SSL enabled
+                                            in order to use this option. Check your browser address
+                                            bar to see if HTTPS is being used. If not, you will have
+                                            to run setup on the Platfora master server to configure
+                                            it for SSL before you can enable this option. See the
+                                                <em class="ph i">Installation Guide</em> for details.</p>
+
+                                    </td>
+
+                                </tr>
+
+                                <tr class="row">
+                                    <td class="entry" valign="top" width="20.61855670103093%" headers="d166282e81 ">
+                                        <p class="p"><span class="ph uicontrol">Search Base</span></p>
+</td>
+
+                                    <td class="entry" valign="top" width="79.38144329896907%" headers="d166282e84 ">
+                                        <p class="p">Specifies the distinguished name (DN) of the location in
+                                            the LDAP directory tree from which to search for user
+                                            and group entries.</p>
+
+                                    </td>
+
+                                </tr>
+
+                            </tbody>
+
+                        </table>
+</div>
+
+                
+            </li>
+<li class="li step stepexpand">
+                <span class="ph cmd">Enter the <span class="ph uicontrol">Group Attributes</span> used to identify group
+                    entries in the LDAP directory.</span>
+                
+                    
+<div class="tablenoborder"><table cellpadding="4" cellspacing="0" summary="" class="table" frame="border" border="1" rules="all">
+                            
+                            
+                            <thead class="thead" align="left">
+                                <tr class="row">
+                                    <th class="entry" valign="top" width="21.14164904862579%" id="d166282e197">Field</th>
+
+                                    <th class="entry" valign="top" width="78.8583509513742%" id="d166282e200">Description</th>
+
+                                </tr>
+
+                            </thead>
+
+                            <tbody class="tbody">
+                                <tr class="row">
+                                    <td class="entry" valign="top" width="21.14164904862579%" headers="d166282e197 ">
+                                        <p class="p"><span class="ph uicontrol">Group Name</span></p>
+</td>
+
+                                    <td class="entry" valign="top" width="78.8583509513742%" headers="d166282e200 ">
+                                        <p class="p">This is the name of the LDAP attribute that specifies the
+                                            group name. The default attribute for Active Directory
+                                            is <samp class="ph codeph">name</samp>.</p>
+
+                                    </td>
+
+                                </tr>
+
+                                <tr class="row">
+                                    <td class="entry" valign="top" width="21.14164904862579%" headers="d166282e197 ">
+                                        <p class="p"><span class="ph uicontrol">Group Member for Users</span></p>
+</td>
+
+                                    <td class="entry" valign="top" width="78.8583509513742%" headers="d166282e200 ">
+                                        <p class="p">This is the name of the LDAP attribute that specifies the
+                                            members of a group. You can specify any LDAP attribute
+                                            to determine membership for a user, but the attribute
+                                            specified here must store values as either a
+                                            Distinguished Name, LDAP user ID, or LDAP user name. </p>
+
+                                        <p class="p">The default attribute for Active Directory is
+                                                <samp class="ph codeph">member</samp>.</p>
+
+                                    </td>
+
+                                </tr>
+
+                                <tr class="row">
+                                    <td class="entry" valign="top" width="21.14164904862579%" headers="d166282e197 ">
+                                        <p class="p"><span class="ph uicontrol">Group Member for Groups</span></p>
+</td>
+
+                                    <td class="entry" valign="top" width="78.8583509513742%" headers="d166282e200 ">
+                                        <p class="p">This is the name of the LDAP attribute that specifies the
+                                            members of a group. You can specify any LDAP attribute
+                                            to determine membership for a group, but the attribute
+                                            specified here must store values as either a
+                                            Distinguished Name or LDAP group name. </p>
+
+                                        <p class="p">The default attribute for Active Directory is
+                                                <samp class="ph codeph">member</samp>.</p>
+
+                                    </td>
+
+                                </tr>
+
+                                <tr class="row">
+                                    <td class="entry" valign="top" width="21.14164904862579%" headers="d166282e197 ">
+                                        <p class="p"><span class="ph uicontrol">Group Member Of</span></p>
+</td>
+
+                                    <td class="entry" valign="top" width="78.8583509513742%" headers="d166282e200 ">
+                                        <p class="p">This is the name of the LDAP attribute that specifies the
+                                            parent group of a group. You can specify any LDAP
+                                            attribute to determine membership for a group, but the
+                                            attribute specified here must store values as either a
+                                            Distinguished Name or LDAP group name. </p>
+
+                                        <p class="p">This field is optional. When a value is specified here
+                                            and in the <span class="ph uicontrol">Group Member for Users</span>
+                                            and <span class="ph uicontrol">Group Member for Groups</span>
+                                            fields, Platfora uses the attribute specified here to
+                                            determine membership and ignores anything configured in
+                                            the other two fields.</p>
+
+                                    </td>
+
+                                </tr>
+
+                                <tr class="row">
+                                    <td class="entry" valign="top" width="21.14164904862579%" headers="d166282e197 ">
+                                        <p class="p"><span class="ph uicontrol">Group Object Classes</span></p>
+</td>
+
+                                    <td class="entry" valign="top" width="78.8583509513742%" headers="d166282e200 ">
+                                        <p class="p">These are the LDAP object classes used to define a group.
+                                            The default object classes for Active Directory groups
+                                            are <samp class="ph codeph">top, group</samp>. </p>
+
+                                    </td>
+
+                                </tr>
+
+                            </tbody>
+
+                        </table>
+</div>
+
+                
+            </li>
+<li class="li step stepexpand">
+                <span class="ph cmd">Enter the <span class="ph uicontrol">User Attributes</span> of the LDAP user account that
+                    will be used to bind to the LDAP directory.</span>
+                
+                    
+<div class="tablenoborder"><table cellpadding="4" cellspacing="0" summary="" class="table" frame="border" border="1" rules="all">
+                            
+                            
+                            <thead class="thead" align="left">
+                                <tr class="row">
+                                    <th class="entry" valign="top" width="22.727272727272727%" id="d166282e336">Field</th>
+
+                                    <th class="entry" valign="top" width="77.27272727272727%" id="d166282e339">Description</th>
+
+                                </tr>
+
+                            </thead>
+
+                            <tbody class="tbody">
+                                <tr class="row">
+                                    <td class="entry" valign="top" width="22.727272727272727%" headers="d166282e336 ">
+                                        <p class="p"><span class="ph uicontrol">User Name</span></p>
+</td>
+
+                                    <td class="entry" valign="top" width="77.27272727272727%" headers="d166282e339 ">
+                                        <p class="p">This is the name of the LDAP attribute that specifies the
+                                            user name. The default attribute for Active Directory is
+                                                <samp class="ph codeph">name</samp>.</p>
+
+                                    </td>
+
+                                </tr>
+
+                                <tr class="row">
+                                    <td class="entry" valign="top" width="22.727272727272727%" headers="d166282e336 ">
+                                        <p class="p"><span class="ph uicontrol">User ID</span></p>
+</td>
+
+                                    <td class="entry" valign="top" width="77.27272727272727%" headers="d166282e339 ">
+                                        <p class="p">This is the name of the LDAP attribute that specifies the
+                                            unique user ID. The default attribute for Active
+                                            Directory is <samp class="ph codeph">sAMAccountName</samp>.</p>
+
+                                    </td>
+
+                                </tr>
+
+                                <tr class="row">
+                                    <td class="entry" valign="top" width="22.727272727272727%" headers="d166282e336 ">
+                                        <p class="p"><span class="ph uicontrol">User Member Of</span></p>
+</td>
+
+                                    <td class="entry" valign="top" width="77.27272727272727%" headers="d166282e339 ">
+                                        <p class="p">This is the name of the LDAP attribute that specifies the
+                                            group of a user. This is optional. You can specify any
+                                            LDAP attribute to determine membership for a user, but
+                                            the attribute specified here must store values as either
+                                            a Distinguished Name, LDAP user ID, or LDAP user name. </p>
+
+                                    </td>
+
+                                </tr>
+
+                                <tr class="row">
+                                    <td class="entry" valign="top" width="22.727272727272727%" headers="d166282e336 ">
+                                        <p class="p"><span class="ph uicontrol">User Object Classes</span></p>
+
+                                    </td>
+
+                                    <td class="entry" valign="top" width="77.27272727272727%" headers="d166282e339 ">
+                                        <p class="p">These are the LDAP object classes used to define a user.
+                                            The default object classes for Active Directory groups
+                                            are <samp class="ph codeph">user, top, person,
+                                                organizationalPerson</samp>.</p>
+
+                                    </td>
+
+                                </tr>
+
+                            </tbody>
+
+                        </table>
+</div>
+
+                
+            </li>
+<li class="li step stepexpand">
+                <span class="ph cmd">Enter the types of values stored in the membership fields.</span>
+                
+                    
+<div class="tablenoborder"><table cellpadding="4" cellspacing="0" summary="" class="table" frame="border" border="1" rules="all">
+                            
+                            
+                            <thead class="thead" align="left">
+                                <tr class="row">
+                                    <th class="entry" valign="top" width="22.727272727272727%" id="d166282e440">Field</th>
+
+                                    <th class="entry" valign="top" width="77.27272727272727%" id="d166282e443">Description</th>
+
+                                </tr>
+
+                            </thead>
+
+                            <tbody class="tbody">
+                                <tr class="row">
+                                    <td class="entry" valign="top" width="22.727272727272727%" headers="d166282e440 ">
+                                        <p class="p"><span class="ph uicontrol">Platfora Group Member Field</span></p>
+</td>
+
+                                    <td class="entry" valign="top" width="77.27272727272727%" headers="d166282e443 ">
+                                        <p class="p">The type of value stored in the configured group
+                                            membership fields, either <span class="ph uicontrol">Group Member for
+                                                Groups</span> or <span class="ph uicontrol">Group Member
+                                                Of</span>. The membership value can be either
+                                            an LDAP Distinguished Name, LDAP group name, or the
+                                            Platfora group name.</p>
+
+                                        <p class="p">For example, when the <span class="ph uicontrol">Group Member for
+                                                Groups</span> field specifies
+                                                <samp class="ph codeph">member</samp> or the <span class="ph uicontrol">Group
+                                                Member Of</span> field specifies
+                                                <samp class="ph codeph">memberOf</samp>, choose <span class="ph uicontrol">LDAP
+                                                Distinguished Name</span>, and when the
+                                                <span class="ph uicontrol">Group Member for Groups</span> field
+                                            specifies <samp class="ph codeph">memberUid</samp>, choose
+                                                <span class="ph uicontrol">LDAP Group Name</span>.</p>
+
+                                    </td>
+
+                                </tr>
+
+                                <tr class="row">
+                                    <td class="entry" valign="top" width="22.727272727272727%" headers="d166282e440 ">
+                                        <p class="p"><span class="ph uicontrol">Platfora User Member Field</span></p>
+</td>
+
+                                    <td class="entry" valign="top" width="77.27272727272727%" headers="d166282e443 ">
+                                        <p class="p">The type of value stored in the configured user
+                                            membership fields, either <span class="ph uicontrol">Group Member for
+                                                Users</span> or <span class="ph uicontrol">User Member
+                                                Of</span>. The membership value can be either
+                                            an LDAP Distinguished Name, LDAP user ID, or LDAP user
+                                            name.</p>
+
+                                        <p class="p">For example, when the <span class="ph uicontrol">Group Member for
+                                                Users</span> field uses <samp class="ph codeph">member</samp>
+                                            or the <span class="ph uicontrol">User Member Of</span> field uses
+                                                <samp class="ph codeph">memberOf</samp>, choose <span class="ph uicontrol">LDAP
+                                                Distinguished Name</span>.</p>
+
+                                    </td>
+
+                                </tr>
+
+                            </tbody>
+
+                        </table>
+</div>
+
+                
+            </li>
+<li class="li step stepexpand">
+                <span class="ph cmd">Enter the <span class="ph uicontrol">User Attributes</span> of the LDAP administrative
+                    user account that will be used to bind to the LDAP directory server.</span>
+                
+                    
+<div class="tablenoborder"><table cellpadding="4" cellspacing="0" summary="" class="table" frame="border" border="1" rules="all">
+                            
+                            
+                            <thead class="thead" align="left">
+                                <tr class="row">
+                                    <th class="entry" valign="top" width="22.727272727272727%" id="d166282e565">Field</th>
+
+                                    <th class="entry" valign="top" width="77.27272727272727%" id="d166282e568">Description</th>
+
+                                </tr>
+
+                            </thead>
+
+                            <tbody class="tbody">
+                                <tr class="row">
+                                    <td class="entry" valign="top" width="22.727272727272727%" headers="d166282e565 ">
+                                        <p class="p"><span class="ph uicontrol">LDAP Admin User DN</span></p>
+</td>
+
+                                    <td class="entry" valign="top" width="77.27272727272727%" headers="d166282e568 ">
+                                        <p class="p">The distinguished name (DN) of the administrative user
+                                            that Platfora should use to bind to the LDAP directory
+                                            server.</p>
+
+                                    </td>
+
+                                </tr>
+
+                                <tr class="row">
+                                    <td class="entry" valign="top" width="22.727272727272727%" headers="d166282e565 ">
+                                        <p class="p"><span class="ph uicontrol">Password</span></p>
+</td>
+
+                                    <td class="entry" valign="top" width="77.27272727272727%" headers="d166282e568 ">
+                                        <p class="p">The password for the administrative user.</p>
+
+                                    </td>
+
+                                </tr>
+
+                                <tr class="row">
+                                    <td class="entry" valign="top" width="22.727272727272727%" headers="d166282e565 ">
+                                        <p class="p"><span class="ph uicontrol">Save this login info</span></p>
+</td>
+
+                                    <td class="entry" valign="top" width="77.27272727272727%" headers="d166282e568 ">
+                                        <p class="p">If selected, these LDAP credentials will be saved in the
+                                            Platfora metadata catalog database, which currently does
+                                            not store passwords in encrypted format. If you choose
+                                            not the save the login credentials, then you must
+                                            configure your LDAP directory server to allow anonymous
+                                            access (so Platfora can bind to the LDAP server without
+                                            supplying login credentials).</p>
+
+                                    </td>
+
+                                </tr>
+
+                            </tbody>
+
+                        </table>
+</div>
+
+                
+            </li>
+<li class="li step stepexpand">
+                <span class="ph cmd">Click <span class="ph uicontrol">Test Connection</span> to verify that Platfora can
+                    connect to the LDAP server. </span>
+                <div class="itemgroup stepresult">Platfora will use the LDAP server connection information and the given
+                    user DN and password to see if it can bind to the LDAP server and authenticate
+                    the user. <span class="ph uicontrol">OK</span> means that LDAP authentication is
+                    successfully enabled. If the test connection fails, make sure that you can
+                    actually ping the LDAP server over the network and that the search DN and user
+                    credentials are correct in the LDAP directory tree.</div>
+                
+            </li>
+<li class="li step stepexpand">
+                <span class="ph cmd">Click <span class="ph uicontrol">Save</span> to save the LDAP connection information and
+                    enable LDAP authentication.</span>
+            </li>
+</ol>
+
+    </div>
+
+<div class="related-links"/>
+<div class="navfooter"><!---->
+<span class="navparent"><a class="link" href="../../system/security/configure_ldap_auth.html" title="Platfora can be configured to use an external LDAP directory service to authenticate users. With LDAP enabled, users log in to Platfora using their familiar LDAP identity and credentials."><span class="navheader_label">Parent topic</span><span class="navheader_separator">: </span><span class="navheader_linktext">Configure LDAP User Authentication</span></a></span>  </div><div class="footer">WebHelp output generated by<a href="http://www.oxygenxml.com" target="_blank"><span class="oXygenLogo"><img src="../../oxygen-webhelp/resources/img/LogoOxygen100x22.png" alt="Oxygen"/></span><span class="xmlauthor">XML Author</span></a></div>
+<div id="productInfo" style="display:none;"><span id="oxy_productID">webhelp</span><span id="oxy_productVersion">3.0</span></div><div id="loginData" style="display: none"><span class="bt_close" title="Close"><!----></span><form action="" target="passwordIframe" method="post" name="form_login" onsubmit="return loggInUser();" id="loginFormData" autocomplete="on"><input type="hidden" id="reloadComments" value="yes"><!----></input><table class="login"><thead><tr><td colspan="2"><span id="l_login2"><script type="text/javascript">$('#l_login2').html(getLocalization('label.login'));</script></span></td></tr><tr><td colspan="2"><div id="loginResponse"><!----></div></td></tr></thead><tr><td><span id="l_userName"><script type="text/javascript">$('#l_userName').html(getLocalization('label.userName'));</script></span></td><td><input name="usernameW" type="text" id="myUserName" autocomplete="on" required="required" autofocus="autofocus"><!----></input></td></tr><tr><td><span id="l_pswd"><script type="text/javascript">$('#l_pswd').html(getLocalization('label.pswd'));</script></span></td><td><input name="passwordW" type="password" id="myPassword" autocomplete="on" required="required"><!----></input></td></tr><tr><td colspan="2" align="left"><span id="ll_remember"><script type="text/javascript" xml:space="preserve">
+								$('#ll_remember').html(getLocalization('label.rememberme'));
+							</script></span>     <input name="myLoginRemember" type="checkbox" class="ck" id="myRemember" value="no"><!----></input></td></tr><tr><td colspan="2" align="center"><input id="l_bt_submit_log" type="submit" value="Submit" name="loginFormButton"><!----></input><script type="text/javascript">$('#l_bt_submit_log').attr('value',getLocalization('label.login'));</script><span class="btnHGlue"><!----></span><input class="bt_cancel" id="l_cancelLog" type="button" value="Cancel" name="loginFormButton"><!----></input><script type="text/javascript">$('#l_cancelLog').attr('value',getLocalization('label.cancel'));</script></td></tr></table><div class="loginAlternative"><span id="link_lostPwd" onclick="showLostPwd()"><script type="text/javascript">$('#link_lostPwd').html(getLocalization('label.lostPswd'));</script></span><span id="link_signUp" onclick="showSignUp()"><script type="text/javascript">$('#link_signUp').html(getLocalization('label.signUp'));</script></span></div></form><iframe id="passwordIframe" name="passwordIframe" style="display:none"><!----></iframe></div><div id="cmts"><!----></div></body>
+</html>

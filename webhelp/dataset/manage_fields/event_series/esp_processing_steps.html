@@ -1,0 +1,438 @@
+
+<!DOCTYPE html
+  PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xml:lang="en-us" lang="en-us">
+<head><meta xmlns="http://www.w3.org/1999/xhtml" name="description" content="This section explains how even series processing works by walking you through a simple use of the PARTITION() function. This is a example uses some weblog page view data. Each row represents a page ..."/><meta http-equiv="Content-Type" content="text/html; charset=utf-8"/><meta name="copyright" content="(C) Copyright 2005"/><meta name="DC.rights.owner" content="(C) Copyright 2005"/><meta name="DC.Type" content="concept"/><meta name="DC.Title" content="How Event Series Processing Works"/><meta name="abstract" content="This section explains how even series processing works by walking you through a simple use of the PARTITION() function."/><meta xmlns="http://www.w3.org/1999/xhtml" name="description" content="This section explains how even series processing works by walking you through a simple use of the PARTITION() function."/><meta name="DC.Relation" scheme="URI" content="../../../dataset/manage_fields/event_series/esp_fields_top.html"/><meta name="DC.Relation" scheme="URI" content="../../../dataset/manage_fields/event_series/esp_processing_order.html"/><meta name="DC.Relation" scheme="URI" content="../../../dataset/manage_fields/event_series/esp_processing_precedence.html"/><meta name="DC.Relation" scheme="URI" content="../../../dataset/manage_fields/event_series/esp_regex_quantifiers.html"/><meta name="DC.Format" content="XHTML"/><meta name="DC.Identifier" content="esp_processing_steps"/><link rel="stylesheet" type="text/css" href="../../../oxygen-webhelp/resources/css/commonltr.css"><!----></link><title>How Event Series Processing Works</title><meta http-equiv="Content-Type" content="text/html; charset=utf-8"/><link rel="stylesheet" type="text/css" href="../../../oxygen-webhelp/resources/css/commonltr.css"><!----></link><link rel="stylesheet" type="text/css" href="../../../oxygen-webhelp/resources/css/webhelp_topic.css"><!----></link><link rel="stylesheet" type="text/css" href="../../../oxygen-webhelp/resources/skins/skin.css"><!----></link><link rel="stylesheet" type="text/css" href="../../../oxygen-webhelp/resources/css/jquery.realperson.css"><!----></link><link rel="stylesheet" type="text/css" href="../../../oxygen-webhelp/resources/css/comments.css"><!----></link><link rel="stylesheet" type="text/css" href="../../../oxygen-webhelp/resources/css/jquery.cleditor.css"><!----></link><link rel="stylesheet" type="text/css" href="../../../oxygen-webhelp/resources/css/admin.css"><!----></link><script type="text/javascript"><!--
+          
+          var prefix = "../../../index.html";
+          
+          --></script><script type="text/javascript" src="../../../oxygen-webhelp/resources/js/jquery-1.8.2.min.js"><!----></script><script type="text/javascript" src="../../../oxygen-webhelp/resources/js/jquery.cookie.js"><!----></script><script type="text/javascript" src="../../../oxygen-webhelp/resources/js/jquery-ui.custom.min.js"><!----></script><script type="text/javascript" charset="utf-8" src="../../../oxygen-webhelp/resources/js/webhelp_topic.js"><!----></script><script type="text/javascript" charset="utf-8" src="../../../oxygen-webhelp/resources/localization/strings.js"><!----></script><script type="text/javascript" charset="utf-8" src="../../../oxygen-webhelp/resources/js/init.js"><!----></script><script type="text/javascript" charset="utf-8" src="../../../oxygen-webhelp/resources/js/comments-functions.js"><!----></script></head>
+<body onload="init('../../../')" id="esp_processing_steps">
+<table class="nav"><tbody><tr><td colspan="2"><div id="printlink"><a href="javascript:window.print();" title="printThisPage"/></div><div id="permalink"><a href="#" title="linkToThis"/></div></td></tr><tr><td width="75%"><a class="navheader_parent_path" href="../../../dataset/manage_fields/event_series/../../../dataset/use_expressions_top.html" title="Platfora includes an expression language to support advanced data analysis processing.">Work with Platfora's Expression Language</a> / <a class="navheader_parent_path" href="../../../dataset/manage_fields/event_series/esp_fields_top.html" title="You can add an event series processing computed field to a Platfora dataset. Event series processing is also referred to as pattern matching or event correlation.">Event Series Processing Computed Fields</a></td><td><div class="navheader">
+<span class="navparent"><a class="link" href="../../../dataset/manage_fields/event_series/esp_fields_top.html" title="You can add an event series processing computed field to a Platfora dataset. Event series processing is also referred to as pattern matching or event correlation."><span class="navheader_label">Parent topic</span><span class="navheader_separator">: </span><span class="navheader_linktext">Event Series Processing Computed Fields</span></a></span>  </div></td></tr></tbody></table>
+
+ <h1 class="title topictitle1">How Event Series Processing Works</h1>
+
+ 
+ <div class="body conbody"><p class="shortdesc">This section explains how even series processing works by walking you through a simple use of the <samp class="ph codeph">PARTITION()</samp> function.</p>
+
+  <p class="p">This is a example uses some weblog page view data. Each row represents a page view by a user at a give point in time within a session. Each session is unique and belongs to only one user. Users can have multiple sessions. Within in any session a user can visit any page one
+   or more times.</p>
+
+   
+<div class="tablenoborder"><table cellpadding="4" cellspacing="0" summary="" id="esp_processing_steps__table_before_partition" class="table" frame="border" border="1" rules="all">
+     
+     
+     
+     
+     <thead class="thead" align="left">
+      <tr class="row">
+       <th class="entry" valign="top" width="16.666666666666664%" id="d42606e37">SessionID</th>
+
+       <th class="entry" valign="top" width="16.666666666666664%" id="d42606e40">UserID</th>
+
+       <th class="entry" valign="top" width="33.33333333333333%" id="d42606e43">Timestamp</th>
+
+       <th class="entry" valign="top" width="33.33333333333333%" id="d42606e46">Page</th>
+
+      </tr>
+
+     </thead>
+
+     <tbody class="tbody">
+      <tr class="row">
+       <td class="entry" valign="top" width="16.666666666666664%" headers="d42606e37 ">2A</td>
+
+       <td class="entry" valign="top" width="16.666666666666664%" headers="d42606e40 ">2</td>
+
+       <td class="entry" valign="top" width="33.33333333333333%" headers="d42606e43 ">3/4/13 2:02 AM</td>
+
+       <td class="entry" valign="top" width="33.33333333333333%" headers="d42606e46 ">products.html</td>
+
+      </tr>
+
+      <tr class="row">
+       <td class="entry" valign="top" width="16.666666666666664%" headers="d42606e37 ">1A</td>
+
+       <td class="entry" valign="top" width="16.666666666666664%" headers="d42606e40 ">1</td>
+
+       <td class="entry" valign="top" width="33.33333333333333%" headers="d42606e43 ">12/1/13 9:00 AM</td>
+
+       <td class="entry" valign="top" width="33.33333333333333%" headers="d42606e46 ">home.html</td>
+
+      </tr>
+
+      
+      <tr class="row">
+       <td class="entry" valign="top" width="16.666666666666664%" headers="d42606e37 ">1A</td>
+
+       <td class="entry" valign="top" width="16.666666666666664%" headers="d42606e40 ">1</td>
+
+       <td class="entry" valign="top" width="33.33333333333333%" headers="d42606e43 ">12/1/13 9:10 AM</td>
+
+       <td class="entry" valign="top" width="33.33333333333333%" headers="d42606e46 ">products.html</td>
+
+      </tr>
+
+      <tr class="row">
+       <td class="entry" valign="top" width="16.666666666666664%" headers="d42606e37 ">1A</td>
+
+       <td class="entry" valign="top" width="16.666666666666664%" headers="d42606e40 ">1</td>
+
+       <td class="entry" valign="top" width="33.33333333333333%" headers="d42606e43 ">12/1/13 9:05 AM</td>
+
+       <td class="entry" valign="top" width="33.33333333333333%" headers="d42606e46 ">company.html</td>
+
+      </tr>
+
+      
+      <tr class="row">
+       <td class="entry" valign="top" width="16.666666666666664%" headers="d42606e37 ">1B</td>
+
+       <td class="entry" valign="top" width="16.666666666666664%" headers="d42606e40 ">1</td>
+
+       <td class="entry" valign="top" width="33.33333333333333%" headers="d42606e43 ">3/1/13 9:45 PM</td>
+
+       <td class="entry" valign="top" width="33.33333333333333%" headers="d42606e46 ">home.html</td>
+
+      </tr>
+
+      
+      <tr class="row">
+       <td class="entry" valign="top" width="16.666666666666664%" headers="d42606e37 ">1A</td>
+
+       <td class="entry" valign="top" width="16.666666666666664%" headers="d42606e40 ">1</td>
+
+       <td class="entry" valign="top" width="33.33333333333333%" headers="d42606e43 ">3/1/13 9:40 PM</td>
+
+       <td class="entry" valign="top" width="33.33333333333333%" headers="d42606e46 ">checkout.html</td>
+
+      </tr>
+
+      <tr class="row">
+       <td class="entry" valign="top" width="16.666666666666664%" headers="d42606e37 ">2A</td>
+
+       <td class="entry" valign="top" width="16.666666666666664%" headers="d42606e40 ">2</td>
+
+       <td class="entry" valign="top" width="33.33333333333333%" headers="d42606e43 ">3/4/13 2:56 AM</td>
+
+       <td class="entry" valign="top" width="33.33333333333333%" headers="d42606e46 ">checkout.html</td>
+
+      </tr>
+
+      <tr class="row">
+       <td class="entry" valign="top" width="16.666666666666664%" headers="d42606e37 ">1B</td>
+
+       <td class="entry" valign="top" width="16.666666666666664%" headers="d42606e40 ">1</td>
+
+       <td class="entry" valign="top" width="33.33333333333333%" headers="d42606e43 ">3/1/13 9:46 PM</td>
+
+       <td class="entry" valign="top" width="33.33333333333333%" headers="d42606e46 ">products.html</td>
+
+      </tr>
+
+     <tr class="row">
+      <td class="entry" valign="top" width="16.666666666666664%" headers="d42606e37 ">1A</td>
+
+      <td class="entry" valign="top" width="16.666666666666664%" headers="d42606e40 ">1</td>
+
+      <td class="entry" valign="top" width="33.33333333333333%" headers="d42606e43 ">12/1/13 9:20 AM</td>
+
+      <td class="entry" valign="top" width="33.33333333333333%" headers="d42606e46 ">checkout.html</td>
+
+     </tr>
+
+      
+      <tr class="row">
+       <td class="entry" valign="top" width="16.666666666666664%" headers="d42606e37 ">2A</td>
+
+       <td class="entry" valign="top" width="16.666666666666664%" headers="d42606e40 ">2</td>
+
+       <td class="entry" valign="top" width="33.33333333333333%" headers="d42606e43 ">3/4/13 2:20 AM</td>
+
+       <td class="entry" valign="top" width="33.33333333333333%" headers="d42606e46 ">home.html</td>
+
+      </tr>
+
+      <tr class="row">
+       <td class="entry" valign="top" width="16.666666666666664%" headers="d42606e37 ">2A</td>
+
+       <td class="entry" valign="top" width="16.666666666666664%" headers="d42606e40 ">2</td>
+
+       <td class="entry" valign="top" width="33.33333333333333%" headers="d42606e43 ">3/4/13 2:33 AM</td>
+
+       <td class="entry" valign="top" width="33.33333333333333%" headers="d42606e46 ">blogs.html</td>
+
+      </tr>
+
+      <tr class="row">
+       <td class="entry" valign="top" width="16.666666666666664%" headers="d42606e37 ">1A</td>
+
+       <td class="entry" valign="top" width="16.666666666666664%" headers="d42606e40 ">1</td>
+
+       <td class="entry" valign="top" width="33.33333333333333%" headers="d42606e43 ">12/1/13 9:15 AM</td>
+
+       <td class="entry" valign="top" width="33.33333333333333%" headers="d42606e46 ">blogs.html</td>
+
+      </tr>
+
+     </tbody>
+
+    </table>
+</div>
+
+   <p class="p">Consider the following partial <samp class="ph codeph">PARTITION()</samp> function:</p>
+
+  <div class="p">
+   <pre class="pre codeblock">PARTITION BY SessionID
+ORDER BY Timestamp
+...</pre>
+
+  </div>
+
+  <p class="p">This paritions the rows by session. Within each partition, the function orders each row by <samp class="ph codeph">Timestamp</samp> in ascending order (the default order).</p>
+
+
+  <p class="p">Suppose you wanted to find sessions where users traversed the pages in order from <span class="ph filepath">home.html</span>to <span class="ph filepath">products.html</span> and then to the <span class="ph filepath">checkout.html</span> page. To look for this page-view pattern, you complete the function like
+   this. </p>
+
+  <div class="p">
+   <pre class="pre codeblock">PARTITION BY SessionID
+ORDER BY Timestamp
+PATTERN (A,B,C)   
+    DEFINE A AS Page = "home.html",           
+           B AS Page = "product.html",           
+           C AS Page = "checkout.html"
+OUTPUT "TRUE"</pre>
+
+  </div>
+
+  <p class="p">The <samp class="ph codeph">PATTERN</samp> describes the sequence and the <samp class="ph codeph">DEFINE</samp> clause assigns values to the <samp class="ph codeph">PATTERN</samp> elements. This pattern says that there is a match whenever there are 3 consecutive rows that meet criteria A then B then C. If you add a
+   new computed field called  <kbd class="ph userinput">Purchased</kbd> with this <samp class="ph codeph">PARTITION()</samp> function and build a lens with it, you get output that looks like this:</p>
+
+  
+<div class="tablenoborder"><table cellpadding="4" cellspacing="0" summary="" id="esp_processing_steps__final_partition" class="table" frame="border" border="1" rules="all">
+    
+    
+    
+    
+    
+    <thead class="thead" align="left">
+     <tr class="row">
+      <th class="entry" valign="top" width="12.5%" id="d42606e313">SessionID</th>
+
+      <th class="entry" valign="top" width="12.5%" id="d42606e316">UserID</th>
+
+      <th class="entry" valign="top" width="25%" id="d42606e319">Timestamp</th>
+
+      <th class="entry" valign="top" width="25%" id="d42606e322">Page</th>
+
+      <th class="entry" valign="top" width="25%" id="d42606e325">Purchased</th>
+
+     </tr>
+
+    </thead>
+
+    <tbody class="tbody">
+     <tr class="row">
+      <td class="entry" valign="top" width="12.5%" headers="d42606e313 ">1A</td>
+
+      <td class="entry" valign="top" width="12.5%" headers="d42606e316 ">1</td>
+
+      <td class="entry" valign="top" width="25%" headers="d42606e319 ">12/1/13 9:00 AM</td>
+
+      <td class="entry" valign="top" width="25%" headers="d42606e322 ">home.html</td>
+
+      <td class="entry" valign="top" width="25%" headers="d42606e325 ">NULL</td>
+
+     </tr>
+
+     <tr class="row">
+      <td class="entry" valign="top" width="12.5%" headers="d42606e313 ">1A</td>
+
+      <td class="entry" valign="top" width="12.5%" headers="d42606e316 ">1</td>
+
+      <td class="entry" valign="top" width="25%" headers="d42606e319 ">12/1/13 9:05 AM</td>
+
+      <td class="entry" valign="top" width="25%" headers="d42606e322 ">company.html</td>
+
+      <td class="entry" valign="top" width="25%" headers="d42606e325 ">NULL</td>
+
+     </tr>
+
+     <tr class="row">
+      <td class="entry" valign="top" width="12.5%" headers="d42606e313 ">1A</td>
+
+      <td class="entry" valign="top" width="12.5%" headers="d42606e316 ">1</td>
+
+      <td class="entry" valign="top" width="25%" headers="d42606e319 ">12/1/13 9:10 AM</td>
+
+      <td class="entry" valign="top" width="25%" headers="d42606e322 ">products.html</td>
+
+      <td class="entry" valign="top" width="25%" headers="d42606e325 ">NULL</td>
+
+     </tr>
+
+     <tr class="row">
+      <td class="entry" valign="top" width="12.5%" headers="d42606e313 ">1A</td>
+
+      <td class="entry" valign="top" width="12.5%" headers="d42606e316 ">1</td>
+
+      <td class="entry" valign="top" width="25%" headers="d42606e319 ">12/1/13 9:15 AM</td>
+
+      <td class="entry" valign="top" width="25%" headers="d42606e322 ">blogs.html</td>
+
+      <td class="entry" valign="top" width="25%" headers="d42606e325 ">NULL</td>
+
+     </tr>
+
+     <tr class="row">
+      <td class="entry" valign="top" width="12.5%" headers="d42606e313 ">1A</td>
+
+      <td class="entry" valign="top" width="12.5%" headers="d42606e316 ">1</td>
+
+      <td class="entry" valign="top" width="25%" headers="d42606e319 ">12/1/13 9:20 AM</td>
+
+      <td class="entry" valign="top" width="25%" headers="d42606e322 ">checkout.html</td>
+
+      <td class="entry" valign="top" width="25%" headers="d42606e325 ">NULL</td>
+
+     </tr>
+
+     <tr class="row">
+      <td class="entry" valign="top" width="12.5%" headers="d42606e313 ">1B</td>
+
+      <td class="entry" valign="top" width="12.5%" headers="d42606e316 ">1</td>
+
+      <td class="entry" valign="top" width="25%" headers="d42606e319 ">3/1/13 9:40 PM</td>
+
+      <td class="entry" valign="top" width="25%" headers="d42606e322 ">home.html</td>
+
+      <td class="entry" valign="top" width="25%" headers="d42606e325 ">NULL</td>
+
+     </tr>
+
+     <tr class="row">
+      <td class="entry" valign="top" width="12.5%" headers="d42606e313 ">1B</td>
+
+      <td class="entry" valign="top" width="12.5%" headers="d42606e316 ">1</td>
+
+      <td class="entry" valign="top" width="25%" headers="d42606e319 ">3/1/13 9:45 PM</td>
+
+      <td class="entry" valign="top" width="25%" headers="d42606e322 ">products.html</td>
+
+      <td class="entry" valign="top" width="25%" headers="d42606e325 ">NULL</td>
+
+     </tr>
+
+     <tr class="row">
+      <td class="entry" valign="top" width="12.5%" headers="d42606e313 ">1B</td>
+
+      <td class="entry" valign="top" width="12.5%" headers="d42606e316 ">1</td>
+
+      <td class="entry" valign="top" width="25%" headers="d42606e319 ">3/1/13 9:46 PM</td>
+
+      <td class="entry" valign="top" width="25%" headers="d42606e322 ">checkout.html</td>
+
+      <td class="entry" valign="top" width="25%" headers="d42606e325 "><strong class="ph b">TRUE</strong></td>
+
+     </tr>
+
+     <tr class="row">
+      <td class="entry" valign="top" width="12.5%" headers="d42606e313 ">2A</td>
+
+      <td class="entry" valign="top" width="12.5%" headers="d42606e316 ">2</td>
+
+      <td class="entry" valign="top" width="25%" headers="d42606e319 ">3/4/13 2:02 AM</td>
+
+      <td class="entry" valign="top" width="25%" headers="d42606e322 ">products.html</td>
+
+      <td class="entry" valign="top" width="25%" headers="d42606e325 ">NULL</td>
+
+     </tr>
+
+     <tr class="row">
+      <td class="entry" valign="top" width="12.5%" headers="d42606e313 ">2A</td>
+
+      <td class="entry" valign="top" width="12.5%" headers="d42606e316 ">2</td>
+
+      <td class="entry" valign="top" width="25%" headers="d42606e319 ">3/4/13 2:20 AM</td>
+
+      <td class="entry" valign="top" width="25%" headers="d42606e322 ">home.html</td>
+
+      <td class="entry" valign="top" width="25%" headers="d42606e325 ">NULL</td>
+
+     </tr>
+
+     <tr class="row">
+      <td class="entry" valign="top" width="12.5%" headers="d42606e313 ">2A</td>
+
+      <td class="entry" valign="top" width="12.5%" headers="d42606e316 ">2</td>
+
+      <td class="entry" valign="top" width="25%" headers="d42606e319 ">3/4/13 2:33 AM</td>
+
+      <td class="entry" valign="top" width="25%" headers="d42606e322 ">blogs.html</td>
+
+      <td class="entry" valign="top" width="25%" headers="d42606e325 ">NULL</td>
+
+     </tr>
+
+     <tr class="row">
+      <td class="entry" valign="top" width="12.5%" headers="d42606e313 ">2A</td>
+
+      <td class="entry" valign="top" width="12.5%" headers="d42606e316 ">2</td>
+
+      <td class="entry" valign="top" width="25%" headers="d42606e319 ">3/4/13 2:56 AM</td>
+
+      <td class="entry" valign="top" width="25%" headers="d42606e322 ">checkout.html</td>
+
+      <td class="entry" valign="top" width="25%" headers="d42606e325 ">NULL</td>
+
+     </tr>
+
+    </tbody>
+
+   </table>
+</div>
+
+  <p class="p">The lens build processing behind these results are as follows:</p>
+
+  <div class="fig fignone"><img class="image" src="../../../images/./dataset/computed_fields/esp_example_processing_steps.png"/>
+   
+  </div>
+
+  <div class="p">
+   <ol class="ol">
+    <li class="li">Partition (or groups) the rows of the dataset by session. </li>
+
+    <li class="li">Order each group's rows by time (in ascending order by default). </li>
+
+    <li class="li">For each group, evaluate the rows through the <samp class="ph codeph">DEFINE</samp> clause and binds the row to the symbol used in the <samp class="ph codeph">PATTERN</samp> clause. </li>
+
+    <li class="li">Check if the <samp class="ph codeph">PATTERN</samp> clause conditions are met in the specified order and frequency. </li>
+
+    <li class="li">If the pattern criteria is met, output <samp class="ph codeph">TRUE</samp> in to the <kbd class="ph userinput">Purchased</kbd> field for the final row in the sequence (5). Otherwise, the build outputs NULL for rows that don’t meet all of the <samp class="ph codeph">PATTERN</samp> criteria.</li>
+
+   </ol>
+
+  </div>
+
+   
+ </div>
+
+<div class="related-links">
+<ul class="ullinks">
+<li class="link ulchildlink"><strong><a href="../../../dataset/manage_fields/event_series/esp_processing_order.html">Understand Pattern Match Processing Order</a></strong><br/>
+During lens processing, the build evaluates patterns row-by-row from the partitions top row and going downwards. A pattern match is evaluated based on the current row, and any rows that come before (in terms of their position in the partition). The pattern match only   looks back from the current row – it does not look ahead to the next row in the partition. </li>
+<li class="link ulchildlink"><strong><a href="../../../dataset/manage_fields/event_series/esp_processing_precedence.html">About Pattern Match Precedence</a></strong><br/>
+By default, pattern expressions are matched from left to right. The innermost parenthetical expressions are evaluated first and then moving outward from there.</li>
+<li class="link ulchildlink"><strong><a href="../../../dataset/manage_fields/event_series/esp_regex_quantifiers.html">About Regex-Style Quantifiers (Greedy and Reluctant)</a></strong><br/>
+The <samp class="ph codeph">PATTERN</samp> clause can use regex-style quantifiers to denote the frequency of a match. </li>
+</ul>
+</div>
+<div class="navfooter"><!---->
+<span class="navparent"><a class="link" href="../../../dataset/manage_fields/event_series/esp_fields_top.html" title="You can add an event series processing computed field to a Platfora dataset. Event series processing is also referred to as pattern matching or event correlation."><span class="navheader_label">Parent topic</span><span class="navheader_separator">: </span><span class="navheader_linktext">Event Series Processing Computed Fields</span></a></span>  </div><div class="footer">WebHelp output generated by<a href="http://www.oxygenxml.com" target="_blank"><span class="oXygenLogo"><img src="../../../oxygen-webhelp/resources/img/LogoOxygen100x22.png" alt="Oxygen"/></span><span class="xmlauthor">XML Author</span></a></div>
+<div id="productInfo" style="display:none;"><span id="oxy_productID">webhelp</span><span id="oxy_productVersion">3.0</span></div><div id="loginData" style="display: none"><span class="bt_close" title="Close"><!----></span><form action="" target="passwordIframe" method="post" name="form_login" onsubmit="return loggInUser();" id="loginFormData" autocomplete="on"><input type="hidden" id="reloadComments" value="yes"><!----></input><table class="login"><thead><tr><td colspan="2"><span id="l_login2"><script type="text/javascript">$('#l_login2').html(getLocalization('label.login'));</script></span></td></tr><tr><td colspan="2"><div id="loginResponse"><!----></div></td></tr></thead><tr><td><span id="l_userName"><script type="text/javascript">$('#l_userName').html(getLocalization('label.userName'));</script></span></td><td><input name="usernameW" type="text" id="myUserName" autocomplete="on" required="required" autofocus="autofocus"><!----></input></td></tr><tr><td><span id="l_pswd"><script type="text/javascript">$('#l_pswd').html(getLocalization('label.pswd'));</script></span></td><td><input name="passwordW" type="password" id="myPassword" autocomplete="on" required="required"><!----></input></td></tr><tr><td colspan="2" align="left"><span id="ll_remember"><script type="text/javascript" xml:space="preserve">
+								$('#ll_remember').html(getLocalization('label.rememberme'));
+							</script></span>     <input name="myLoginRemember" type="checkbox" class="ck" id="myRemember" value="no"><!----></input></td></tr><tr><td colspan="2" align="center"><input id="l_bt_submit_log" type="submit" value="Submit" name="loginFormButton"><!----></input><script type="text/javascript">$('#l_bt_submit_log').attr('value',getLocalization('label.login'));</script><span class="btnHGlue"><!----></span><input class="bt_cancel" id="l_cancelLog" type="button" value="Cancel" name="loginFormButton"><!----></input><script type="text/javascript">$('#l_cancelLog').attr('value',getLocalization('label.cancel'));</script></td></tr></table><div class="loginAlternative"><span id="link_lostPwd" onclick="showLostPwd()"><script type="text/javascript">$('#link_lostPwd').html(getLocalization('label.lostPswd'));</script></span><span id="link_signUp" onclick="showSignUp()"><script type="text/javascript">$('#link_signUp').html(getLocalization('label.signUp'));</script></span></div></form><iframe id="passwordIframe" name="passwordIframe" style="display:none"><!----></iframe></div><div id="cmts"><!----></div></body>
+</html>

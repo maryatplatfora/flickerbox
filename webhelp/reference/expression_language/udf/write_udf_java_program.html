@@ -1,0 +1,228 @@
+
+<!DOCTYPE html
+  PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xml:lang="en-us" lang="en-us">
+<head><meta xmlns="http://www.w3.org/1999/xhtml" name="description" content="User defined functions (UDFs) are written in the Java programming language and implement the Platfora-provided Java interface, com.platfora.udf.UserDefinedFunction . To define a user defined function ..."/><meta http-equiv="Content-Type" content="text/html; charset=utf-8"/><meta name="copyright" content="(C) Copyright 2005"/><meta name="DC.rights.owner" content="(C) Copyright 2005"/><meta name="DC.Type" content="task"/><meta name="DC.Title" content="Writing a Platfora UDF Java Program"/><meta name="abstract" content="User defined functions (UDFs) are written in the Java programming language and implement the Platfora-provided Java interface, com.platfora.udf.UserDefinedFunction."/><meta xmlns="http://www.w3.org/1999/xhtml" name="description" content="User defined functions (UDFs) are written in the Java programming language and implement the Platfora-provided Java interface, com.platfora.udf.UserDefinedFunction."/><meta name="DC.Relation" scheme="URI" content="../../../reference/expression_language/udf/add_udf_top.html"/><meta name="DC.Format" content="XHTML"/><meta name="DC.Identifier" content="write_udf_java_program"/><link rel="stylesheet" type="text/css" href="../../../oxygen-webhelp/resources/css/commonltr.css"><!----></link><title>Writing a Platfora UDF Java Program</title><meta http-equiv="Content-Type" content="text/html; charset=utf-8"/><link rel="stylesheet" type="text/css" href="../../../oxygen-webhelp/resources/css/commonltr.css"><!----></link><link rel="stylesheet" type="text/css" href="../../../oxygen-webhelp/resources/css/webhelp_topic.css"><!----></link><link rel="stylesheet" type="text/css" href="../../../oxygen-webhelp/resources/skins/skin.css"><!----></link><link rel="stylesheet" type="text/css" href="../../../oxygen-webhelp/resources/css/jquery.realperson.css"><!----></link><link rel="stylesheet" type="text/css" href="../../../oxygen-webhelp/resources/css/comments.css"><!----></link><link rel="stylesheet" type="text/css" href="../../../oxygen-webhelp/resources/css/jquery.cleditor.css"><!----></link><link rel="stylesheet" type="text/css" href="../../../oxygen-webhelp/resources/css/admin.css"><!----></link><script type="text/javascript"><!--
+          
+          var prefix = "../../../index.html";
+          
+          --></script><script type="text/javascript" src="../../../oxygen-webhelp/resources/js/jquery-1.8.2.min.js"><!----></script><script type="text/javascript" src="../../../oxygen-webhelp/resources/js/jquery.cookie.js"><!----></script><script type="text/javascript" src="../../../oxygen-webhelp/resources/js/jquery-ui.custom.min.js"><!----></script><script type="text/javascript" charset="utf-8" src="../../../oxygen-webhelp/resources/js/webhelp_topic.js"><!----></script><script type="text/javascript" charset="utf-8" src="../../../oxygen-webhelp/resources/localization/strings.js"><!----></script><script type="text/javascript" charset="utf-8" src="../../../oxygen-webhelp/resources/js/init.js"><!----></script><script type="text/javascript" charset="utf-8" src="../../../oxygen-webhelp/resources/js/comments-functions.js"><!----></script></head>
+<body onload="init('../../../')" id="write_udf_java_program">
+<table class="nav"><tbody><tr><td colspan="2"><div id="printlink"><a href="javascript:window.print();" title="printThisPage"/></div><div id="permalink"><a href="#" title="linkToThis"/></div></td></tr><tr><td width="75%"><a class="navheader_parent_path" href="../../../reference/expression_language/udf/../../../reference/expression_language/expression_reference_top.html" title="An expression computes or produces a value by combining fields (or columns), constant values, operators, and functions. Platfora has a built-in expression language. You use the language's functions and operators to create a computed field.">Expression and Query Language Reference</a> / <a class="navheader_parent_path" href="../../../reference/expression_language/udf/add_udf_top.html" title="User defined functions (UDFs) allow you to define your own per-row processing logic, and then expose that functionality to users in the Platfora application expression builder.">User Defined Functions (UDFs)</a></td><td><div class="navheader">
+<span class="navparent"><a class="link" href="../../../reference/expression_language/udf/add_udf_top.html" title="User defined functions (UDFs) allow you to define your own per-row processing logic, and then expose that functionality to users in the Platfora application expression builder."><span class="navheader_label">Parent topic</span><span class="navheader_separator">: </span><span class="navheader_linktext">User Defined Functions (UDFs)</span></a></span>  </div></td></tr></tbody></table>
+
+  <h1 class="title topictitle1">Writing a Platfora UDF Java Program</h1>
+
+  
+  <div class="body taskbody"><p class="shortdesc">User defined functions (UDFs) are written in the Java programming language and
+    implement the Platfora-provided Java interface,
+      <span class="keyword apiname">com.platfora.udf.UserDefinedFunction</span>. </p>
+
+    <div class="section context">
+      <p class="p">To define a user defined function for Platfora, you must have the Java Development Kit
+        (JDK) version 6 or 7 installed on the machine where you plan to do your development. </p>
+
+      <p class="p">You will also need the <span class="keyword apiname">com.platfora.udf.UserDefinedFunction</span> interface
+        Java code from your Platfora master server installation. If you go to the
+          <span class="ph filepath">$PLATFORA_HOME/tools/udf</span> directory of your Platfora master server
+        installation, you will find two files:</p>
+
+      <div class="p">
+        <ul class="ul">
+          <li class="li"><span class="ph filepath">platfora-udf.jar</span> – This is the compiled code for the
+              <span class="keyword apiname">com.platfora.udf.UserDefinedFunction</span> interface. You must link to
+            this jar file (place it in the <samp class="ph codeph">CLASSPATH</samp>) when you compile your UDF
+            Java program.</li>
+
+          <li class="li"><span class="ph filepath">/com/platfora/udf/UserDefinedFunction.java</span> – This is the source
+            code for the Java interface that your UDF classes need to implement. The source code is
+            provided as reference documentation of the Platfora
+              <span class="keyword apiname">UserDefinedFunction</span> interface. You can refer to this file when
+            writing your UDF Java programs.</li>
+
+        </ul>
+
+      </div>
+
+    </div>
+
+    <ol class="ol steps"><li class="li step">
+        <span class="ph cmd">Copy the file <samp class="ph codeph">$PLATFORA_HOME/tools/udf/platfora-udf.jar</samp> to a directory
+          on the machine where you plan to develop and compile your UDF program.</span>
+      </li>
+<li class="li step">
+        <span class="ph cmd">Write a Java program that implements
+            <span class="keyword apiname">com.platfora.udf.UserDefinedFunction</span> interface. </span>
+        
+          <p class="p">For example, here is a sample Java program that defines a
+              <samp class="ph codeph">REPEAT_STRING</samp> user defined function. This simple function repeats an
+            input string a specified number of times.</p>
+
+          <pre class="pre codeblock"><kbd class="ph userinput">import java.util.List;</kbd>
+
+/**
+ * Sample user-defined function implementation that demonstrates 
+ * how to create a REPEAT_STRING function.
+ */
+
+<kbd class="ph userinput">public class RepeatString implements com.platfora.udf.UserDefinedFunction {</kbd>
+
+    /**
+     * Returns the name of the user-defined function.
+     * The first character in the name must be a letter, 
+     * and subsequent characters must be either letters, 
+     * digits, or underscores. You cannot name your function 
+     * the same name as an existing Platfora
+     * built-in function. Names are case-insensitive.
+     */
+
+    <kbd class="ph userinput">@Override
+    public String getFunctionName() {
+        return "REPEAT_STRING";
+    }</kbd>
+
+    /**
+     * Returns one of the following values, reflecting the 
+     * return type of the user-defined function: 
+     * DATETIME, DOUBLE, FIXED, INTEGER, LONG, or STRING.
+     */
+
+    <kbd class="ph userinput">@Override
+    public String getReturnType() {
+        return "STRING";
+    }</kbd>
+
+    /**
+     * Returns an array of Strings, one for each of the 
+     * input arguments to the user-defined function, 
+     * specifying the required data type for each argument.  
+     * The Strings should be of the following values:
+     * DATETIME, DOUBLE, FIXED, INTEGER, LONG, STRING.
+     */
+
+   <kbd class="ph userinput">@Override
+    public String[] getArgumentTypes() {
+        return new String[] { "STRING", "INTEGER" };
+    }</kbd>
+
+    /**
+     * Returns a human-readable description of what the function 
+     * does, to be displayed to Platfora users in the 
+     * Expression Builder. May return null.
+     */
+   <kbd class="ph userinput">@Override
+    public String getDescription() {
+        return "The REPEAT_STRING function returns an input string repeated " +
+	    " a specified number of times.";
+    }</kbd>
+
+    /**
+     * Returns a human-readable description explaining the 
+     * value that the function returns, to be displayed to 
+     * Platfora users in the Expression Builder. May return null.
+     */
+   <kbd class="ph userinput">@Override
+    public String getReturnValueDescription() {
+        return "Returns one value per row of type STRING";
+    }</kbd>
+
+    /**
+     * Returns a human-readable example of the function syntax, 
+     * to be displayed to Platfora users in the Expression
+     * Builder. May return null.
+     */
+   <kbd class="ph userinput">@Override
+    public String getExampleUsage() {
+        return "CONCAT(\"It's a \", REPEAT_STRING(\"Mad \",4), \" World\")";
+    }</kbd>
+
+    /**
+     * The compute method performs the actual work of evaluating 
+     * the user-defined function. The method should operate on the 
+     * argument values provided to calculate the function return value 
+     * and return a Java object of the appropriate type to represent 
+     * the return value. The following mapping describes the Java 
+     * object type that is used to represent each Platfora data type:
+     * DATETIME -&gt; java.util.Date
+     * DOUBLE -&gt; java.lang.Double
+     * FIXED -&gt; java.lang.Long
+     * INTEGER -&gt; java.lang.Integer
+     * LONG -&gt; java.lang.Long
+     * STRING -&gt; java.lang.String
+     * Note on FIXED type: fixed-precision numbers in Platfora 
+     * are represented as Longs that have been scaled by a 
+     * factor of 10,000. 
+     *
+     * In the event that the user-defined function 
+     * encounters invalid inputs, or the function return value is not 
+     * defined given the inputs provided, the compute method should return 
+     * null rather than throwing an exception. The compute method should 
+     * avoid throwing any exceptions.
+     *
+     * @param arguments The values of the function inputs. 
+     *  
+     * The entries in this list will match the specification 
+     * provided by getArgumentTypes method in type, number, and order:
+     * for example, if getArgumentTypes returned an array of
+     * length 3 with the values STRING, DOUBLE, STRING, then
+     * the arguments parameter will hold be a list of 3 Java
+     * objects:  a java.lang.String, a java.lang.Double, and a
+     * java.lang.String.  Any of the values within the
+     * arguments List may be null.
+     */
+   <kbd class="ph userinput">@Override
+    public String compute(List arguments) {</kbd>
+        // cast the inputs to the correct types
+        <kbd class="ph userinput">final String toRepeat = (String) arguments.get(0);
+        final Integer numberOfRepeats = (Integer) arguments.get(1);</kbd>
+
+        // check for invalid inputs
+        <kbd class="ph userinput">if (toRepeat == null || numberOfRepeats == null || numberOfRepeats &lt; 0)
+            return null;</kbd>
+
+        // repeat the input string the specified number of times
+        <kbd class="ph userinput">final StringBuilder builder = new StringBuilder();
+        for (int i = 0; i &lt; numberOfRepeats; i++) {
+            builder.append(toRepeat);
+        }
+        return builder.toString();
+    }
+}</kbd></pre>
+
+        
+      </li>
+<li class="li step">
+        <span class="ph cmd">Compile your <samp class="ph codeph">.java</samp> UDF program file into a <samp class="ph codeph">.class</samp>
+          file (make sure to link to the <span class="ph filepath">platfora-udf.jar</span> file or place it in
+          your Java <samp class="ph codeph">CLASSPATH</samp>).</span>
+        
+          <p class="p">For example, to compile the <samp class="ph codeph">RepeatString.java</samp> program:</p>
+
+          <pre class="pre codeblock">javac -cp platfora-udf.jar RepeatString.java </pre>
+
+        
+      </li>
+<li class="li step">
+        <span class="ph cmd">Create a Java archive file (<samp class="ph codeph">.jar</samp>) containing your
+            <samp class="ph codeph">.class</samp> file.</span>
+        
+          <p class="p">For example:</p>
+
+          <pre class="pre codeblock">jar cf repeat-string-udf.jar RepeatString.class </pre>
+
+        
+      </li>
+</ol>
+
+    <div class="section postreq">After you have written and compiled your UDF Java program, you must then install and
+      enable it on the Platfora master server. See <a class="xref" href="install_udf_class.html" title="After you have written and compiled a user defined function (UDF) Java class, you must install your class on the Platfora master server and enable it so that it can be seen and used in the Platfora expression builder.">Adding a UDF to the Platfora Expression Builder</a>.</div>
+
+  </div>
+
+<div class="related-links"/>
+<div class="navfooter"><!---->
+<span class="navparent"><a class="link" href="../../../reference/expression_language/udf/add_udf_top.html" title="User defined functions (UDFs) allow you to define your own per-row processing logic, and then expose that functionality to users in the Platfora application expression builder."><span class="navheader_label">Parent topic</span><span class="navheader_separator">: </span><span class="navheader_linktext">User Defined Functions (UDFs)</span></a></span>  </div><div class="footer">WebHelp output generated by<a href="http://www.oxygenxml.com" target="_blank"><span class="oXygenLogo"><img src="../../../oxygen-webhelp/resources/img/LogoOxygen100x22.png" alt="Oxygen"/></span><span class="xmlauthor">XML Author</span></a></div>
+<div id="productInfo" style="display:none;"><span id="oxy_productID">webhelp</span><span id="oxy_productVersion">3.0</span></div><div id="loginData" style="display: none"><span class="bt_close" title="Close"><!----></span><form action="" target="passwordIframe" method="post" name="form_login" onsubmit="return loggInUser();" id="loginFormData" autocomplete="on"><input type="hidden" id="reloadComments" value="yes"><!----></input><table class="login"><thead><tr><td colspan="2"><span id="l_login2"><script type="text/javascript">$('#l_login2').html(getLocalization('label.login'));</script></span></td></tr><tr><td colspan="2"><div id="loginResponse"><!----></div></td></tr></thead><tr><td><span id="l_userName"><script type="text/javascript">$('#l_userName').html(getLocalization('label.userName'));</script></span></td><td><input name="usernameW" type="text" id="myUserName" autocomplete="on" required="required" autofocus="autofocus"><!----></input></td></tr><tr><td><span id="l_pswd"><script type="text/javascript">$('#l_pswd').html(getLocalization('label.pswd'));</script></span></td><td><input name="passwordW" type="password" id="myPassword" autocomplete="on" required="required"><!----></input></td></tr><tr><td colspan="2" align="left"><span id="ll_remember"><script type="text/javascript" xml:space="preserve">
+								$('#ll_remember').html(getLocalization('label.rememberme'));
+							</script></span>     <input name="myLoginRemember" type="checkbox" class="ck" id="myRemember" value="no"><!----></input></td></tr><tr><td colspan="2" align="center"><input id="l_bt_submit_log" type="submit" value="Submit" name="loginFormButton"><!----></input><script type="text/javascript">$('#l_bt_submit_log').attr('value',getLocalization('label.login'));</script><span class="btnHGlue"><!----></span><input class="bt_cancel" id="l_cancelLog" type="button" value="Cancel" name="loginFormButton"><!----></input><script type="text/javascript">$('#l_cancelLog').attr('value',getLocalization('label.cancel'));</script></td></tr></table><div class="loginAlternative"><span id="link_lostPwd" onclick="showLostPwd()"><script type="text/javascript">$('#link_lostPwd').html(getLocalization('label.lostPswd'));</script></span><span id="link_signUp" onclick="showSignUp()"><script type="text/javascript">$('#link_signUp').html(getLocalization('label.signUp'));</script></span></div></form><iframe id="passwordIframe" name="passwordIframe" style="display:none"><!----></iframe></div><div id="cmts"><!----></div></body>
+</html>

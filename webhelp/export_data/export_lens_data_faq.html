@@ -1,0 +1,187 @@
+
+<!DOCTYPE html
+  PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xml:lang="en-us" lang="en-us">
+<head><meta xmlns="http://www.w3.org/1999/xhtml" name="description" content="Lens data exports allow you to copy data out of Platfora. This topic answers some frequently asked questions about lens data exports. Who can export lens data? You must be an Analyst Limited system ..."/><meta http-equiv="Content-Type" content="text/html; charset=utf-8"/><meta name="copyright" content="(C) Copyright 2005"/><meta name="DC.rights.owner" content="(C) Copyright 2005"/><meta name="DC.Type" content="concept"/><meta name="DC.Title" content="Data Export FAQ"/><meta name="abstract" content="Lens data exports allow you to copy data out of Platfora. This topic answers some frequently asked questions about lens data exports."/><meta xmlns="http://www.w3.org/1999/xhtml" name="description" content="Lens data exports allow you to copy data out of Platfora. This topic answers some frequently asked questions about lens data exports."/><meta name="DC.Relation" scheme="URI" content="../export_data/export_lens_data.html"/><meta name="DC.Format" content="XHTML"/><meta name="DC.Identifier" content="export_lens_data_faq"/><link rel="stylesheet" type="text/css" href="../oxygen-webhelp/resources/css/commonltr.css"><!----></link><title>Data Export FAQ</title><meta http-equiv="Content-Type" content="text/html; charset=utf-8"/><link rel="stylesheet" type="text/css" href="../oxygen-webhelp/resources/css/commonltr.css"><!----></link><link rel="stylesheet" type="text/css" href="../oxygen-webhelp/resources/css/webhelp_topic.css"><!----></link><link rel="stylesheet" type="text/css" href="../oxygen-webhelp/resources/skins/skin.css"><!----></link><link rel="stylesheet" type="text/css" href="../oxygen-webhelp/resources/css/jquery.realperson.css"><!----></link><link rel="stylesheet" type="text/css" href="../oxygen-webhelp/resources/css/comments.css"><!----></link><link rel="stylesheet" type="text/css" href="../oxygen-webhelp/resources/css/jquery.cleditor.css"><!----></link><link rel="stylesheet" type="text/css" href="../oxygen-webhelp/resources/css/admin.css"><!----></link><script type="text/javascript"><!--
+          
+          var prefix = "../index.html";
+          
+          --></script><script type="text/javascript" src="../oxygen-webhelp/resources/js/jquery-1.8.2.min.js"><!----></script><script type="text/javascript" src="../oxygen-webhelp/resources/js/jquery.cookie.js"><!----></script><script type="text/javascript" src="../oxygen-webhelp/resources/js/jquery-ui.custom.min.js"><!----></script><script type="text/javascript" charset="utf-8" src="../oxygen-webhelp/resources/js/webhelp_topic.js"><!----></script><script type="text/javascript" charset="utf-8" src="../oxygen-webhelp/resources/localization/strings.js"><!----></script><script type="text/javascript" charset="utf-8" src="../oxygen-webhelp/resources/js/init.js"><!----></script><script type="text/javascript" charset="utf-8" src="../oxygen-webhelp/resources/js/comments-functions.js"><!----></script></head>
+<body onload="init('../')" id="export_lens_data_faq">
+<table class="nav"><tbody><tr><td colspan="2"><div id="printlink"><a href="javascript:window.print();" title="printThisPage"/></div><div id="permalink"><a href="#" title="linkToThis"/></div></td></tr><tr><td width="75%"><a class="navheader_parent_path" href="../export_data/export_lens_data.html" title="Platfora allows you to export lens data for use in other tools or applications. Lens data can be exported in comma-separated values (csv) format to a remote file system such as HDFS or Amazon S3.">Export Lens Data</a></td><td><div class="navheader">
+<span class="navparent"><a class="link" href="../export_data/export_lens_data.html" title="Platfora allows you to export lens data for use in other tools or applications. Lens data can be exported in comma-separated values (csv) format to a remote file system such as HDFS or Amazon S3."><span class="navheader_label">Parent topic</span><span class="navheader_separator">: </span><span class="navheader_linktext">Export Lens Data</span></a></span>  </div></td></tr></tbody></table>
+
+ <h1 class="title topictitle1">Data Export FAQ</h1>
+
+ 
+ <div class="body conbody"><p class="shortdesc">Lens data exports allow you to copy data out of Platfora. This topic answers some
+  frequently asked questions about lens data exports.</p>
+
+  
+  <div class="section"><h2 class="title sectiontitle">Who can export lens data?</h2>
+   
+   <p class="p">You must be an <span class="ph uicontrol">Analyst Limited</span> system role or above to export or
+    download lens data in CSV format, as well as have data access permissions to all of the datasets
+    included in the lens. </p>
+
+   <p class="p">To export the lens data to a location in a remote file system (such as HDFS or S3), Platfora
+    must have write permissions to the export directory you specify.</p>
+
+  </div>
+
+  
+  <div class="section"><h2 class="title sectiontitle">How do I export lens data?</h2>
+   
+   <p class="p">From the <span class="ph uicontrol">Data Catalog</span> &gt; <span class="ph uicontrol">Lenses</span> page, you can
+    export the entire contents of a lens to a location in a remote file system: </p>
+
+   <div class="fig fignone"><img class="image" src="../images/./export/lens_export_dfs.png"/>
+    
+   </div>
+
+   <p class="p">From a viz in a <span class="ph uicontrol">Vizboard</span>, you can export or download just the lens data
+    comprising that viz:</p>
+
+   <div class="fig fignone"><img class="image" src="../images/./export/lens_export_download_from_viz.png"/>
+    
+   </div>
+
+   <p class="p">You can also use the Platfora REST API to programmatically submit a lens query statement. For
+    example, using <samp class="ph codeph">curl</samp>:</p>
+
+   <div class="p">
+    <pre class="pre codeblock">curl -u admin:admin http://localhost:8001/api/v1/query?query=SELECT%20%5BTotal%20Records%5D%2C%5BLease%20Status%5D%20FROM%20%5BPlanes%5D%20GROUP%20BY%20%5BLease%20Status%5D
+
+"[Total Records]","Lease Status"
+"809","Capital Lease"
+"2388","Operating Lease"
+"3650","Owned" </pre>
+
+   </div>
+
+  </div>
+
+  
+  <div class="section"><h2 class="title sectiontitle">How much lens data can I export?</h2>
+   
+   <p class="p">For lens data that you download to your desktop, there is a default maximum row limit of one
+    million rows. This limit can be adjusted using the
+     <samp class="ph codeph">platfora.csv.download.max.rows</samp> property. Of course, the size of a lens row can
+    vary greatly - you may have 'wide' rows (lots of lens fields) or 'skinny' rows (just a few lens
+    fields). The download row limit is just a general safety threshold to prevent too much export
+    data from crashing your browser client.  </p>
+
+   <p class="p">For lens data that you export to a remote file system, there is no hard size limit, but you
+    are limited by the amount of disk space in the remote export location and the amount of memory
+    in the Platfora cluster. Very large lenses can be costly to export in terms of memory usage. To
+    prevent a large lens export from using all of the memory on the Platfora servers, only one
+    concurrent lens export query can execute at a time.</p>
+
+  </div>
+
+  
+  <div class="section"><h2 class="title sectiontitle">Can I download an entire lens to my desktop?</h2>
+   
+   <p class="p">Because entire lenses can be very large, the ability to download an entire lens is disabled by
+    default. You can enable download of a lens by setting the property
+     <samp class="ph codeph">platfora.data.download</samp> to true. This should be done with caution, however,
+    because trying to download a large lens can cause the Platfora server to run out of memory. </p>
+
+   <p class="p">You can always download a partial lens from a viz in a vizboard. The
+     <samp class="ph codeph">platfora.data.download</samp> property only applies to entire lens downloads, not
+    partial lens downloads.</p>
+
+  </div>
+
+  
+  <div class="section"><h2 class="title sectiontitle">What is the performance impact of a large lens export? </h2>
+   
+   <p class="p">In order to export data from a lens, Platfora uses the in-memory query engine to select the
+    export data. This is the same query engine that other Platfora users rely upon to build
+    visualizations. Lens export data is treated just like any other lens query. This means that
+    large lens exports can impact performance for other vizboard users by competing for in-memory
+    resources.</p>
+
+  </div>
+
+  
+  <div class="section"><h2 class="title sectiontitle">Can I prevent users from exporting lens data?</h2>
+   
+   <p class="p">You can't block individual users or groups from exporting lens data, however you can disable
+    lens exports entirely by setting the property <samp class="ph codeph">platfora.data.export</samp> to
+     <em class="ph i">false</em>.</p>
+
+  </div>
+
+  
+  <div class="section"><h2 class="title sectiontitle">Is there a way to request just some of the lens data rather than the entire lens?</h2>
+   
+   <p class="p">Yes. If you don't want to export all of the data in a lens, you can use the vizboard to
+    construct a viz that limits the number of fields to export and filters the number of rows
+    requested. Then you can export just the data comprising that viz. </p>
+
+   <p class="p">You can also programmatically export lens data by submitting a lens query using Platfora's
+    REST API. </p>
+
+  </div>
+
+  
+  <div class="section"><h2 class="title sectiontitle">What is the file format of the exported data?</h2>
+   
+   <p class="p">Lens data is exported in comma-separated values (<samp class="ph codeph">csv</samp>) format, and when the
+    files are exported to a remote file system they are compressed using gzip (<samp class="ph codeph">gz</samp>). </p>
+
+   <p class="p">The first row of a export file is a header row containing the lens field names. Measure field
+    names are enclosed in brackets <samp class="ph codeph">[]</samp>. Data values are enclosed in double-quotes
+     (<samp class="ph codeph">"</samp>) and separated by commas. If a data value contains a double-quote
+    character, then it is escaped using a double double-quote (<samp class="ph codeph">""</samp>). </p>
+
+   <p class="p">The column order in the export file is dimension fields first (in alphabetical order) followed
+    by measure fields (in alphabetical order). </p>
+
+  </div>
+
+  
+  <div class="section"><h2 class="title sectiontitle">Where are the export files located?</h2>
+   
+   <p class="p">When you choose to export lens data via a download to your local computer, a single export
+    file is created on your <span class="ph uicontrol">Desktop</span> (for Windows) or in
+     <span class="ph uicontrol">Downloads</span> (for Mac). The file naming convention is:</p>
+
+   <p class="p"><samp class="ph codeph"><var class="keyword varname">dataset-name</var>_<var class="keyword varname">lens-name</var>_<var class="keyword varname">epoch-timestamp</var>.csv</samp></p>
+
+   <p class="p">When you choose to export lens data to a remote file system such as HDFS or S3, a directory is
+    created in the specified export location using the directory naming convention:</p>
+
+   <p class="p"><samp class="ph codeph"><var class="keyword varname">export-location</var>/<var class="keyword varname">lens-name</var>/<var class="keyword varname">timestamp</var></samp></p>
+
+   <p class="p">When exporting data to a remote file system, the lens data is exported in parallel and is
+    usually split across multiple export files. The export location contains a series of
+     <samp class="ph codeph">csv.gz</samp> lens data files and a <samp class="ph codeph">.success</samp> file if the export
+    completed successfully. </p>
+
+  </div>
+
+  
+  <div class="section"><h2 class="title sectiontitle">Can I automate data exports following a scheduled lens build?</h2>
+   
+   <p class="p">Yes. When you create a lens build schedule, there is an option to export the lens data after
+    the lens build completes. You must supply a location in the remote file system to copy the
+    export files.</p>
+
+   <div class="fig fignone"><img class="image" src="../images/./export/lens_export_schedule.png"/>
+    
+   </div>
+
+  </div>
+
+  
+ </div>
+
+<div class="related-links"/>
+<div class="navfooter"><!---->
+<span class="navparent"><a class="link" href="../export_data/export_lens_data.html" title="Platfora allows you to export lens data for use in other tools or applications. Lens data can be exported in comma-separated values (csv) format to a remote file system such as HDFS or Amazon S3."><span class="navheader_label">Parent topic</span><span class="navheader_separator">: </span><span class="navheader_linktext">Export Lens Data</span></a></span>  </div><div class="footer">WebHelp output generated by<a href="http://www.oxygenxml.com" target="_blank"><span class="oXygenLogo"><img src="../oxygen-webhelp/resources/img/LogoOxygen100x22.png" alt="Oxygen"/></span><span class="xmlauthor">XML Author</span></a></div>
+<div id="productInfo" style="display:none;"><span id="oxy_productID">webhelp</span><span id="oxy_productVersion">3.0</span></div><div id="loginData" style="display: none"><span class="bt_close" title="Close"><!----></span><form action="" target="passwordIframe" method="post" name="form_login" onsubmit="return loggInUser();" id="loginFormData" autocomplete="on"><input type="hidden" id="reloadComments" value="yes"><!----></input><table class="login"><thead><tr><td colspan="2"><span id="l_login2"><script type="text/javascript">$('#l_login2').html(getLocalization('label.login'));</script></span></td></tr><tr><td colspan="2"><div id="loginResponse"><!----></div></td></tr></thead><tr><td><span id="l_userName"><script type="text/javascript">$('#l_userName').html(getLocalization('label.userName'));</script></span></td><td><input name="usernameW" type="text" id="myUserName" autocomplete="on" required="required" autofocus="autofocus"><!----></input></td></tr><tr><td><span id="l_pswd"><script type="text/javascript">$('#l_pswd').html(getLocalization('label.pswd'));</script></span></td><td><input name="passwordW" type="password" id="myPassword" autocomplete="on" required="required"><!----></input></td></tr><tr><td colspan="2" align="left"><span id="ll_remember"><script type="text/javascript" xml:space="preserve">
+								$('#ll_remember').html(getLocalization('label.rememberme'));
+							</script></span>     <input name="myLoginRemember" type="checkbox" class="ck" id="myRemember" value="no"><!----></input></td></tr><tr><td colspan="2" align="center"><input id="l_bt_submit_log" type="submit" value="Submit" name="loginFormButton"><!----></input><script type="text/javascript">$('#l_bt_submit_log').attr('value',getLocalization('label.login'));</script><span class="btnHGlue"><!----></span><input class="bt_cancel" id="l_cancelLog" type="button" value="Cancel" name="loginFormButton"><!----></input><script type="text/javascript">$('#l_cancelLog').attr('value',getLocalization('label.cancel'));</script></td></tr></table><div class="loginAlternative"><span id="link_lostPwd" onclick="showLostPwd()"><script type="text/javascript">$('#link_lostPwd').html(getLocalization('label.lostPswd'));</script></span><span id="link_signUp" onclick="showSignUp()"><script type="text/javascript">$('#link_signUp').html(getLocalization('label.signUp'));</script></span></div></form><iframe id="passwordIframe" name="passwordIframe" style="display:none"><!----></iframe></div><div id="cmts"><!----></div></body>
+</html>

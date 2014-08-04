@@ -1,0 +1,632 @@
+
+<!DOCTYPE html
+  PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xml:lang="en-us" lang="en-us">
+<head><meta xmlns="http://www.w3.org/1999/xhtml" name="description" content="ROLLUP is a modifier to an aggregate function that turns a regular aggregate function into a windowed , partitioned , or adaptive aggregate function. This is useful when you want to compute an ..."/><meta http-equiv="Content-Type" content="text/html; charset=utf-8"/><meta name="copyright" content="(C) Copyright 2005"/><meta name="DC.rights.owner" content="(C) Copyright 2005"/><meta name="DC.Type" content="reference"/><meta name="DC.Title" content="ROLLUP"/><meta name="abstract" content="ROLLUP is a modifier to an aggregate function that turns a regular aggregate function into a windowed, partitioned, or adaptive aggregate function. This is useful when you want to compute an aggregation over a subset of rows within the overall result of a viz query."/><meta xmlns="http://www.w3.org/1999/xhtml" name="description" content="ROLLUP is a modifier to an aggregate function that turns a regular aggregate function into a windowed, partitioned, or adaptive aggregate function. This is useful when you want to compute an aggregation over a subset of rows within the overall result of a viz query."/><meta name="DC.Relation" scheme="URI" content="../../reference/expression_language/window_functions_top.html"/><meta name="DC.Format" content="XHTML"/><meta name="DC.Identifier" content="ref_func_rollup"/><link rel="stylesheet" type="text/css" href="../../oxygen-webhelp/resources/css/commonltr.css"><!----></link><title>ROLLUP</title><meta http-equiv="Content-Type" content="text/html; charset=utf-8"/><link rel="stylesheet" type="text/css" href="../../oxygen-webhelp/resources/css/commonltr.css"><!----></link><link rel="stylesheet" type="text/css" href="../../oxygen-webhelp/resources/css/webhelp_topic.css"><!----></link><link rel="stylesheet" type="text/css" href="../../oxygen-webhelp/resources/skins/skin.css"><!----></link><link rel="stylesheet" type="text/css" href="../../oxygen-webhelp/resources/css/jquery.realperson.css"><!----></link><link rel="stylesheet" type="text/css" href="../../oxygen-webhelp/resources/css/comments.css"><!----></link><link rel="stylesheet" type="text/css" href="../../oxygen-webhelp/resources/css/jquery.cleditor.css"><!----></link><link rel="stylesheet" type="text/css" href="../../oxygen-webhelp/resources/css/admin.css"><!----></link><script type="text/javascript"><!--
+          
+          var prefix = "../../index.html";
+          
+          --></script><script type="text/javascript" src="../../oxygen-webhelp/resources/js/jquery-1.8.2.min.js"><!----></script><script type="text/javascript" src="../../oxygen-webhelp/resources/js/jquery.cookie.js"><!----></script><script type="text/javascript" src="../../oxygen-webhelp/resources/js/jquery-ui.custom.min.js"><!----></script><script type="text/javascript" charset="utf-8" src="../../oxygen-webhelp/resources/js/webhelp_topic.js"><!----></script><script type="text/javascript" charset="utf-8" src="../../oxygen-webhelp/resources/localization/strings.js"><!----></script><script type="text/javascript" charset="utf-8" src="../../oxygen-webhelp/resources/js/init.js"><!----></script><script type="text/javascript" charset="utf-8" src="../../oxygen-webhelp/resources/js/comments-functions.js"><!----></script></head>
+<body onload="init('../../')" id="ref_func_rollup">
+<table class="nav"><tbody><tr><td colspan="2"><div id="printlink"><a href="javascript:window.print();" title="printThisPage"/></div><div id="permalink"><a href="#" title="linkToThis"/></div></td></tr><tr><td width="75%"><a class="navheader_parent_path" href="../../reference/expression_language/../../reference/expression_language/expression_reference_top.html" title="An expression computes or produces a value by combining fields (or columns), constant values, operators, and functions. Platfora has a built-in expression language. You use the language's functions and operators to create a computed field.">Expression and Query Language Reference</a> / <a class="navheader_parent_path" href="../../reference/expression_language/window_functions_top.html" title="Window functions can only be used in conjunction with ROLLUP. ROLLUP is a modifier to an aggregate expression that determines the partitioning and ordering of a rowset before the associated aggregate function or window function is applied. ROLLUP defines a window or user-specified set of rows within a query result set. A window function then computes a value for each row in the window. You can use window functions to compute aggregated values such as moving averages, cumulative aggregates, running totals, or a top N per group results.">ROLLUP and Window Functions</a></td><td><div class="navheader">
+<span class="navparent"><a class="link" href="../../reference/expression_language/window_functions_top.html" title="Window functions can only be used in conjunction with ROLLUP. ROLLUP is a modifier to an aggregate expression that determines the partitioning and ordering of a rowset before the associated aggregate function or window function is applied. ROLLUP defines a window or user-specified set of rows within a query result set. A window function then computes a value for each row in the window. You can use window functions to compute aggregated values such as moving averages, cumulative aggregates, running totals, or a top N per group results."><span class="navheader_label">Parent topic</span><span class="navheader_separator">: </span><span class="navheader_linktext">ROLLUP and Window Functions</span></a></span>  </div></td></tr></tbody></table>
+
+  <h1 class="title topictitle1">ROLLUP</h1>
+
+  
+  
+  <div class="body refbody"><div class="abstract">
+     <span class="shortdesc"><samp class="ph codeph">ROLLUP</samp> is a modifier to an aggregate function that turns a regular
+      aggregate function into a <em class="ph i">windowed</em>, <em class="ph i">partitioned</em>, or <em class="ph i">adaptive</em> aggregate
+      function. This is useful when you want to compute an aggregation over a subset of rows within
+      the overall result of a viz query.  </span>
+
+  </div>
+
+    <div class="section"><h2 class="title sectiontitle">Syntax</h2>
+      <pre class="pre codeblock"><span class="ph synph"><span class="keyword kwd">ROLLUP</span> <span class="ph var">aggregate_expression</span> [ <span class="keyword kwd">WHERE</span> <span class="ph var">input_group_condition</span> [...] ]
+          [ <span class="keyword kwd">TO</span> ([<span class="ph var">partitioning_columns</span>]) 
+              [ <span class="keyword kwd">ORDER BY</span> (<span class="ph var">ordering_column</span> [ASC | DESC])
+                <span class="keyword kwd">ROWS</span>|<span class="keyword kwd">RANGE</span> <span class="ph var">window_boundary</span> [<span class="ph var">window_boundary</span>] 
+              | <span class="keyword kwd">BETWEEN</span> <span class="ph var">window_boundary</span> <span class="keyword kwd">AND</span> <span class="ph var">window_boundary</span> ] 
+          ]</span>
+
+<em class="ph i">where <var class="keyword varname">window_boundary</var> can be one of:</em>
+
+<span class="ph synph"><span class="keyword kwd">UNBOUNDED PRECEDING</span>
+<span class="ph var">value</span> <span class="keyword kwd">PRECEDING</span>
+<span class="ph var">value</span> <span class="keyword kwd">FOLLOWING</span>
+<span class="keyword kwd">UNBOUNDED FOLLOWING</span></span></pre>
+
+      
+      
+    </div>
+
+    <div class="section"><h2 class="title sectiontitle">Description</h2>
+      
+      <p class="p">A regular measure is the result of an aggregation (such as <samp class="ph codeph">SUM</samp> or
+          <samp class="ph codeph">AVG</samp>) applied to some <dfn class="term">fact</dfn> or metric column of a dataset. For
+        example, suppose we had a dataset with the following rows and columns:</p>
+
+      <div class="p">
+        
+<div class="tablenoborder"><table cellpadding="4" cellspacing="0" summary="" class="table" frame="border" border="1" rules="all">
+            
+            
+            
+            
+            <thead class="thead" align="left">
+              <tr class="row">
+                <th class="entry" valign="top" width="22.421524663677133%" id="d103155e147">Date</th>
+
+                <th class="entry" valign="top" width="23.094170403587444%" id="d103155e150">Sale Amount</th>
+
+                <th class="entry" valign="top" width="26.681614349775785%" id="d103155e153">Product</th>
+
+                <th class="entry" valign="top" width="27.802690582959645%" id="d103155e156">Region</th>
+
+              </tr>
+
+            </thead>
+
+            <tbody class="tbody">
+              <tr class="row">
+                <td class="entry" valign="top" width="22.421524663677133%" headers="d103155e147 ">05/01/2013</td>
+
+                <td class="entry" valign="top" width="23.094170403587444%" headers="d103155e150 ">100</td>
+
+                <td class="entry" valign="top" width="26.681614349775785%" headers="d103155e153 ">gadget</td>
+
+                <td class="entry" valign="top" width="27.802690582959645%" headers="d103155e156 ">west</td>
+
+              </tr>
+
+              <tr class="row">
+                <td class="entry" valign="top" width="22.421524663677133%" headers="d103155e147 ">05/01/2013</td>
+
+                <td class="entry" valign="top" width="23.094170403587444%" headers="d103155e150 ">200</td>
+
+                <td class="entry" valign="top" width="26.681614349775785%" headers="d103155e153 ">widget</td>
+
+                <td class="entry" valign="top" width="27.802690582959645%" headers="d103155e156 ">east</td>
+
+              </tr>
+
+              <tr class="row">
+                <td class="entry" valign="top" width="22.421524663677133%" headers="d103155e147 ">06/01/2013</td>
+
+                <td class="entry" valign="top" width="23.094170403587444%" headers="d103155e150 ">100</td>
+
+                <td class="entry" valign="top" width="26.681614349775785%" headers="d103155e153 ">gadget</td>
+
+                <td class="entry" valign="top" width="27.802690582959645%" headers="d103155e156 ">east</td>
+
+              </tr>
+
+              <tr class="row">
+                <td class="entry" valign="top" width="22.421524663677133%" headers="d103155e147 ">06/01/2013</td>
+
+                <td class="entry" valign="top" width="23.094170403587444%" headers="d103155e150 ">400</td>
+
+                <td class="entry" valign="top" width="26.681614349775785%" headers="d103155e153 ">widget</td>
+
+                <td class="entry" valign="top" width="27.802690582959645%" headers="d103155e156 ">west</td>
+
+              </tr>
+
+              <tr class="row">
+                <td class="entry" valign="top" width="22.421524663677133%" headers="d103155e147 ">07/01/2013</td>
+
+                <td class="entry" valign="top" width="23.094170403587444%" headers="d103155e150 ">300</td>
+
+                <td class="entry" valign="top" width="26.681614349775785%" headers="d103155e153 ">widget</td>
+
+                <td class="entry" valign="top" width="27.802690582959645%" headers="d103155e156 ">west</td>
+
+              </tr>
+
+              <tr class="row">
+                <td class="entry" valign="top" width="22.421524663677133%" headers="d103155e147 ">07/01/2013</td>
+
+                <td class="entry" valign="top" width="23.094170403587444%" headers="d103155e150 ">200</td>
+
+                <td class="entry" valign="top" width="26.681614349775785%" headers="d103155e153 ">gadget</td>
+
+                <td class="entry" valign="top" width="27.802690582959645%" headers="d103155e156 ">east</td>
+
+              </tr>
+
+            </tbody>
+
+          </table>
+</div>
+
+      </div>
+
+      <p class="p">To define a regular measure called <em class="ph i">Total Sales</em>, we would use the expression:</p>
+
+      <p class="p"><samp class="ph codeph">SUM([Sale Amount])</samp></p>
+
+      <p class="p">When this measure is used in a visualization, the group of input records passed into the
+        aggregate calculation is determined by the dimensions selected by the user when they create
+        the viz. For example, if the user chose <em class="ph i">Region</em> as a dimension in the viz, there would
+        be two input groups for which the measure would be calculated:</p>
+
+      <div class="p">
+        
+<div class="tablenoborder"><table cellpadding="4" cellspacing="0" summary="" class="table" frame="border" border="1" rules="all">
+            
+            
+            <tbody class="tbody">
+              <tr class="row">
+                <td class="entry" colspan="2" valign="top"><strong class="ph b">Total Sales / Region</strong></td>
+
+              </tr>
+
+              <tr class="row">
+                <td class="entry" valign="top" width="49.140049140049136%"><strong class="ph b">east</strong></td>
+
+                <td class="entry" valign="top" width="50.85995085995086%"><strong class="ph b">west</strong></td>
+
+              </tr>
+
+              <tr class="row">
+                <td class="entry" valign="top" width="49.140049140049136%">500</td>
+
+                <td class="entry" valign="top" width="50.85995085995086%">800</td>
+
+              </tr>
+
+            </tbody>
+
+          </table>
+</div>
+
+      </div>
+
+      <p class="p">If an aggregate expression includes a <samp class="ph codeph">ROLLUP</samp> clause, the column(s)
+        specified in the <samp class="ph codeph">TO</samp> clause of the <samp class="ph codeph">ROLLUP</samp> expression
+        determine the additional <em class="ph i">partitions</em> over which to compute the aggregate expression.
+        It divides the overall rows returned by the viz query into subsets or buckets, and then
+        computes the aggregate expression within each bucket. Every <samp class="ph codeph">ROLLUP</samp>
+        expression has implicit partitioning defined: an absent <samp class="ph codeph">TO</samp> clause treats
+        the entire result set as one partition; an empty <samp class="ph codeph">TO</samp> clause partitions by
+        whatever dimension columns are present in the viz query.</p>
+
+      <p class="p">The <samp class="ph codeph">WHERE</samp> clause is used to filter the input rows that flow into each
+        partition. Input rows that meet the <samp class="ph codeph">WHERE</samp> clause criteria will be
+        partitioned, and rows that don't will not be partitioned.</p>
+
+      <p class="p">The <samp class="ph codeph">ORDER BY</samp> with a <samp class="ph codeph">RANGE</samp> or <samp class="ph codeph">ROW</samp> clause
+        is used to define a window frame within each partition over which to compute the aggregate
+        expression.</p>
+
+      <p class="p">When a <samp class="ph codeph">ROLLUP</samp> measure is used in a visualization, the aggregate
+        calculation is computed across a set of input rows that are related to, but separate from,
+        the other dimension(s) used in the viz. This is similar to the type of calculation that is
+        done with a regular measure. However unlike a regular measure, a <samp class="ph codeph">ROLLUP</samp>
+        measure does not cause the input rows to be grouped into a single result set; the input rows
+        still retain their separate identities. The <samp class="ph codeph">ROLLUP</samp> clause determines how
+        the input rows are split up for processing by the <samp class="ph codeph">ROLLUP</samp>'s aggregate
+        function.</p>
+
+      <p class="p"><samp class="ph codeph">ROLLUP</samp> expressions can be written to make the partitioning <em class="ph i">adaptive</em>
+        to whatever dimension columns are selected in the visualization. This is done by using a
+          <em class="ph i">reference</em> name as the partitioning column, as opposed to a regular column. For
+        example, suppose we wanted to be able to calculate the total sales for any granularity of
+        date. We could create an adaptive measure called <em class="ph i">Rollup Sales to Date</em> that partitions
+        total sales by date as follows:</p>
+
+      <div class="p">
+        <pre class="pre codeblock">ROLLUP SUM([Sale Amount]) TO (Date)</pre>
+
+      </div>
+
+      <p class="p">When this measure is used in a visualization, the group of input records passed into the
+        aggregate calculation is determined by the dimension fields selected by the user in the viz,
+        but <em class="ph i">partitioned</em> by the granularity of <em class="ph i">Date</em> selected by the user. For example,
+        if the user chose the dimensions <em class="ph i">Date.Month</em> and <em class="ph i">Region</em> in the viz, then total
+        sales would be grouped by month and region, but the <samp class="ph codeph">ROLLUP</samp> measure
+        expression would aggregate the sales by month only. </p>
+
+      <p class="p">Notice that the results for the <strong class="ph b">east</strong> and <strong class="ph b">west</strong> regions are the same - this is
+        because the aggregation expression is only considering rows that share the same <em class="ph i">month</em>
+        when calculating the sum of sales.</p>
+
+      <div class="p">
+        
+<div class="tablenoborder"><table cellpadding="4" cellspacing="0" summary="" class="table" frame="border" border="1" rules="all">
+            
+            
+            
+            <tbody class="tbody">
+              <tr class="row">
+                <td class="entry" colspan="3" valign="top"><p class="p"><strong class="ph b">Month / (Measures) / Region</strong></p>
+</td>
+
+              </tr>
+
+              <tr class="row">
+                <td class="entry" valign="top" width="30.67484662576687%"><p class="p"><strong class="ph b">May 2013</strong></p>
+</td>
+
+                <td class="entry" valign="top" width="35.88957055214724%"><p class="p"><strong class="ph b">June 2013</strong></p>
+</td>
+
+                <td class="entry" valign="top" width="33.4355828220859%"><p class="p"><strong class="ph b">July 2013</strong></p>
+</td>
+
+              </tr>
+
+              <tr class="row">
+                <td class="entry" valign="top" width="30.67484662576687%"><p class="p"><strong class="ph b">Rollup Sales to Date</strong></p>
+</td>
+
+                <td class="entry" valign="top" width="35.88957055214724%"><p class="p"><strong class="ph b">Rollup Sales to Date</strong></p>
+</td>
+
+                <td class="entry" valign="top" width="33.4355828220859%"><p class="p"><strong class="ph b">Rollup Sales to Date</strong></p>
+</td>
+
+              </tr>
+
+              <tr class="row">
+                <td class="entry" valign="top" width="30.67484662576687%"><p class="p"><strong class="ph b">east   |   west</strong></p>
+</td>
+
+                <td class="entry" valign="top" width="35.88957055214724%"><p class="p"><strong class="ph b">east    |   west</strong></p>
+</td>
+
+                <td class="entry" valign="top" width="33.4355828220859%"><p class="p"><strong class="ph b">east    |   west</strong></p>
+</td>
+
+              </tr>
+
+              <tr class="row">
+                <td class="entry" valign="top" width="30.67484662576687%"><p class="p">300    |   300</p>
+</td>
+
+                <td class="entry" valign="top" width="35.88957055214724%"><p class="p">500    |   500</p>
+</td>
+
+                <td class="entry" valign="top" width="33.4355828220859%"><p class="p">500    |   500</p>
+</td>
+
+              </tr>
+
+            </tbody>
+
+          </table>
+</div>
+
+      </div>
+
+      <p class="p">Suppose within the date partition, we wanted to calculate the cumulative total day to day.
+        We could define a window measure called <em class="ph i">Running Total to Date</em> that looks at each day
+        and all preceding days as follows: </p>
+
+      <div class="p">
+        <pre class="pre codeblock">ROLLUP SUM([Sale Amount]) TO (Date) ORDER BY (Date.Date) ROWS UNBOUNDED PRECEDING</pre>
+
+      </div>
+
+      <p class="p">When this measure is used in a visualization, the group of input records passed into the
+        aggregate calculation is determined by the dimension fields selected by the user in the viz,
+        and <em class="ph i">partitioned</em> by the granularity of <em class="ph i">Date</em> selected by the user. Within each
+        partition the rows are ordered chronologically (by <em class="ph i">Date.Date</em>), and the sum amount is
+        then calculated per date partition by looking at the current row (or mark), and all rows
+        that come before it within the partition.  For example, if the user chose the dimension
+          <em class="ph i">Date.Month</em> in the viz, then the <samp class="ph codeph">ROLLUP</samp> measure expression would
+        cumulatively aggregate the sales within each month. </p>
+
+      <div class="p">
+        
+<div class="tablenoborder"><table cellpadding="4" cellspacing="0" summary="" class="table" frame="border" border="1" rules="all">
+            
+            
+            
+            <tbody class="tbody">
+              <tr class="row">
+                <td class="entry" colspan="3" valign="top"><p class="p"><strong class="ph b">Month / (Measures) / Date.Date</strong></p>
+</td>
+
+              </tr>
+
+              <tr class="row">
+                <td class="entry" valign="top" width="30.67484662576687%"><p class="p"><strong class="ph b">May 2013</strong></p>
+</td>
+
+                <td class="entry" valign="top" width="36.50306748466258%"><p class="p"><strong class="ph b">June 2013</strong></p>
+</td>
+
+                <td class="entry" valign="top" width="32.82208588957056%"><p class="p"><strong class="ph b">July 2013</strong></p>
+</td>
+
+              </tr>
+
+              <tr class="row">
+                <td class="entry" valign="top" width="30.67484662576687%"><strong class="ph b">2013-05-01</strong></td>
+
+                <td class="entry" valign="top" width="36.50306748466258%"><strong class="ph b">2013-06-01</strong></td>
+
+                <td class="entry" valign="top" width="32.82208588957056%"><strong class="ph b">2013-07-01</strong></td>
+
+              </tr>
+
+              <tr class="row">
+                <td class="entry" valign="top" width="30.67484662576687%"><p class="p"><strong class="ph b">Running Total to Date</strong></p>
+</td>
+
+                <td class="entry" valign="top" width="36.50306748466258%"><p class="p"><strong class="ph b">Rollup Sales to Date</strong></p>
+</td>
+
+                <td class="entry" valign="top" width="32.82208588957056%"><p class="p"><strong class="ph b">Rollup Sales to Date</strong></p>
+</td>
+
+              </tr>
+
+              <tr class="row">
+                <td class="entry" valign="top" width="30.67484662576687%"><p class="p">300</p>
+</td>
+
+                <td class="entry" valign="top" width="36.50306748466258%"><p class="p">500</p>
+</td>
+
+                <td class="entry" valign="top" width="32.82208588957056%"><p class="p">500</p>
+</td>
+
+              </tr>
+
+            </tbody>
+
+          </table>
+</div>
+
+      </div>
+
+    </div>
+
+    
+    <div class="section"><h2 class="title sectiontitle">Return Value</h2>
+      <p class="p">Returns a numeric value per partition based on the output type of the
+          <var class="keyword varname">aggregate_expression</var>.</p>
+
+    </div>
+
+    
+    <div class="section"><h2 class="title sectiontitle">Input Parameters</h2>
+      
+      <dl class="dl parml">
+        
+          <dt class="dt pt dlterm">aggregate_expression</dt>
+
+          <dd class="dd pd"><p class="p">Required. An expression containing an aggregate or window function. Simple aggregate functions
+              such as <samp class="ph codeph">COUNT</samp>, <samp class="ph codeph">AVG</samp>, <samp class="ph codeph">SUM</samp>,
+                <samp class="ph codeph">MIN</samp>, and <samp class="ph codeph">MAX</samp> are supported. Window functions such
+              as <samp class="ph codeph">RANK</samp>, <samp class="ph codeph">DENSE_RANK</samp>, and <samp class="ph codeph">NTILE</samp> are
+              supported and can only be used in conjuction with <samp class="ph codeph">ROLLUP</samp>. </p>
+
+            <p class="p">Complex aggregate functions such as <samp class="ph codeph">STDDEV</samp> and
+                <samp class="ph codeph">VARIANCE</samp> are not supported.</p>
+ </dd>
+
+          
+        
+        
+        
+          <dt class="dt pt dlterm">WHERE <var class="keyword varname">input_group_condition</var></dt>
+
+          <dd class="dd pd">
+            <p class="p">The <samp class="ph codeph">WHERE</samp> clause limits the group of input rows over which to
+              compute the aggregate expression. The input group condition is a Boolean (true or
+              false) condition defined using a comparison operator expression. Any row that does not
+              satisfy the condition will be excluded from the input group used to calculate the
+              aggregated measure value. For example (note that datetime values must be specified in
+                <samp class="ph codeph">yyyy-MM-dd</samp> format):</p>
+
+            <p class="p"><samp class="ph codeph">WHERE Date.Date BETWEEN 2012-06-01 AND 2012-07-31</samp></p>
+
+            <p class="p"><samp class="ph codeph">WHERE Date.Year BETWEEN 2009 AND 2013</samp></p>
+
+            <p class="p"><samp class="ph codeph">WHERE Company LIKE("Plat*")</samp></p>
+
+            <p class="p"><samp class="ph codeph">WHERE Code IN("a","b","c")</samp></p>
+
+            <p class="p"><samp class="ph codeph">WHERE Sales &lt; 50.00</samp></p>
+
+            <p class="p"><samp class="ph codeph">WHERE Age &gt;= 21</samp>
+            </p>
+
+            <p class="p">You can specify multiple <samp class="ph codeph">WHERE</samp> clauses in a <samp class="ph codeph">ROLLUP</samp>
+              expression.</p>
+
+          </dd>
+
+        
+        
+        
+        
+        
+          <dt class="dt pt dlterm">TO  ([<var class="keyword varname">partitioning_columns</var>])</dt>
+
+          <dd class="dd pd"><p class="p">The <samp class="ph codeph">TO</samp> clause is used to specify the dimension column(s) used to
+              partition a group of input rows. This allows you to calculate a measure value for a
+              specific dimension group (a subset of input rows) that are somehow related to the
+              other dimension groups used in a visualization (all input rows). It is possible to
+              define an empty group (meaning all rows) by using empty parenthesis.</p>
+<p class="p">When used
+              in a visualization, measure values are computed for groups of input rows that return
+              the same value for the columns specified in the partitioning list. For example, if the
+                <em class="ph i">Date.Month</em> column is used as a partitioning column, then all records that
+              have the same value for <em class="ph i">Date.Month</em> will be grouped together in order to
+              calculate the measure value. The aggregate expression is applied to the group
+              specified in the <samp class="ph codeph">TO</samp> clause independently of the other dimension
+              groupings used in the visualization. Note that the partitioning column(s) specified in
+              the <samp class="ph codeph">TO</samp> clause of an adaptive measure expression must also be included
+              as dimensions (or grouping columns) in the visualization. </p>
+A partitioning column
+            can also be the name of a <em class="ph i">reference</em> field. Using a reference field allows the
+            partition criteria to dynamically adapt based on any field of the referenced dataset
+            that is used in a viz. For example, if the partition column is a reference field
+            pointing to the <em class="ph i">Date</em> dimension, then any sub-field of <em class="ph i">Date</em>
+              (<em class="ph i">Date.Year</em>, <em class="ph i">Date.Month</em>, etc.) can be used as the partitioning column by
+            selecting it in a viz.<p class="p">A <samp class="ph codeph">TO</samp> clause with an empty partitioning list
+              treats each mark in the result set as an input group. For example, if the viz includes
+              the <em class="ph i">Month</em> and <em class="ph i">Region</em> columns, then <samp class="ph codeph">TO()</samp> would be
+              equivalent to <samp class="ph codeph">TO(Month,Region)</samp>. </p>
+</dd>
+
+        
+        
+        
+        
+        
+        
+
+
+        
+          <dt class="dt pt dlterm">ORDER BY (<var class="keyword varname">ordering_column</var>)</dt>
+
+          <dd class="dd pd">
+            <p class="p">The optional <samp class="ph codeph">ORDER BY</samp> clause orders the input rows using the values
+              in the specified column within each partition identified in the <samp class="ph codeph">TO</samp>
+              clause. Use the <samp class="ph codeph">ORDER BY</samp> clause along with the <samp class="ph codeph">ROWS</samp>
+              or <samp class="ph codeph">RANGE</samp> clauses to define windows over which to compute the
+              aggregate function. This is useful for computing moving averages, cumulative
+              aggregates, running totals, or a top value per group of input rows. The ordering
+              column specified in the <samp class="ph codeph">ORDER BY</samp> clause can be a dimension, measure,
+              or an aggregate expression (for example <samp class="ph codeph">ORDER BY (SUM(Sales))</samp>). If
+              the ordering column is a dimension, it must be included in the viz.</p>
+
+            <p class="p">By default, rows are sorted in ascending order (low to high values). You can use the
+                <samp class="ph codeph">DESC</samp> keyword to sort in descending order (high to low values).</p>
+</dd>
+
+        
+        
+        
+          <dt class="dt pt dlterm">ROWS | RANGE</dt>
+
+          <dd class="dd pd">
+            <p class="p">Required when using <samp class="ph codeph">ORDER BY</samp>. Further limits the rows within the
+              partition by specifying start and end points within the partition. This is done by
+              specifying a range of rows with respect to the current row either by logical
+              association (<samp class="ph codeph">RANGE</samp>) or physical association (<samp class="ph codeph">ROWS</samp>).
+              Use either a <samp class="ph codeph">ROWS</samp> or <samp class="ph codeph">RANGE</samp> clause to express the
+                <em class="ph i">window</em> boundary (the set of input rows in each partition, relative to the
+              current row, over which to compute the aggregate expression). The window boundary can
+              include one, several, or all rows of the partition.</p>
+
+            <p class="p">When using the <samp class="ph codeph">RANGE</samp> clause, the ordering column used in the
+                <samp class="ph codeph">ORDER BY</samp> clause must be a sub-column of a reference to Platfora's
+              built-in <em class="ph i">Date</em> dimension dataset.</p>
+
+          </dd>
+
+        
+        
+        
+          <dt class="dt pt dlterm"><var class="keyword varname">window_boundary</var></dt>
+
+          <dd class="dd pd">
+            <p class="p">A window boundary is required when using either <samp class="ph codeph">ROWS</samp> or
+                <samp class="ph codeph">RANGE</samp>. This defines the set of rows, relative to the current row,
+              over which to compute the aggregate expression. The row order is based on the ordering
+              specified in the <samp class="ph codeph">ORDER BY</samp> clause. </p>
+
+            <p class="p">A <samp class="ph codeph">PRECEEDING</samp> clause defines a lower window boundary (the number of
+              rows to include <em class="ph i">before</em> the current row). The <samp class="ph codeph">FOLLOWING</samp> clause
+              defines an upper window boundary (the number of rows to include <em class="ph i">after</em> the
+              current row). The window boundary expression must include either a
+                <samp class="ph codeph">PRECEEDING</samp> or <samp class="ph codeph">FOLLOWING</samp> clause, or both. If
+                <samp class="ph codeph">PRECEEDING</samp> is omitted, the current row is considered the first row
+              in the window. Similarly, if <samp class="ph codeph">FOLLOWING</samp> is omitted, the current row is
+              considered the last row in the window. The <samp class="ph codeph">UNBOUNDED</samp> keyword includes
+              all rows in the direction specified. When you need to specify both a start and end of
+              a window, use the <samp class="ph codeph">BETWEEN</samp> and <samp class="ph codeph">AND</samp> keywords. </p>
+
+            <p class="p">For example:</p>
+
+            <p class="p"><samp class="ph codeph">ROWS 2 PRECEDING</samp> means that the window is three rows in size,
+              starting with two rows preceding until and including the current row. </p>
+
+            <p class="p"><samp class="ph codeph">ROWS BETWEEN 2 PRECEDING AND 5 FOLLOWING</samp> means that the window is
+              eight rows in size, starting with two rows preceding, the current row, and five rows
+              following the current row. The current row is included in the set of rows by default. </p>
+
+            <p class="p">You can exclude the current row from the window by specifying a window start and end
+              point before or after the current row. For example: </p>
+
+            <p class="p"><samp class="ph codeph">ROWS BETWEEN UNBOUNDED PRECEDING AND 1 PRECEDING</samp> starts the window
+              with <em class="ph i">all</em> rows that come before the current row, and ends the window one row
+              before the current row, thereby excluding the current row from the window. </p>
+
+          </dd>
+
+        
+        
+
+      </dl>
+
+    </div>
+
+    
+    <div class="section"><h2 class="title sectiontitle">Examples</h2>
+      
+      <p class="p">Calculate the percentage of flight records in the same departure date period. Note that the
+          <em class="ph i">departure_date</em> field is a reference to the <em class="ph i">Date</em> dataset, meaning that the
+        group to which the measure is applied can adapt to any downstream field of
+          <em class="ph i">departure_date</em> (<em class="ph i">departure_date.Year</em>, <em class="ph i">departure_date.Month</em>, and so
+        on). When used in a viz, this will calculate the percentage of flights for each dimension
+        group in the viz that share the same value for <em class="ph i">departure_date</em>:</p>
+
+      <p class="p"><samp class="ph codeph" id="ref_func_rollup__example_func_rollup">100 * COUNT(Flights) / ROLLUP COUNT(Flights) TO
+          ([Departure Date])</samp></p>
+
+      
+      <p class="p">Normalize the number of flights using the carrier American Airlines (AA) as the benchmark.
+        This will allow you to compare the number of flights for other carriers against the fixed
+        baseline number of flights for AA (if AA = 100 percent, then all other carriers will fall
+        either above or below that percentage):</p>
+
+      <p class="p"><samp class="ph codeph">100 * COUNT(Flights) / ROLLUP COUNT(Flights) WHERE [Carrier Code]="AA"</samp></p>
+
+
+      <p class="p">Calculate a generic percentage of total sales. When this measure is used in a
+        visualization, it will show the percentage of total sales that a mark in the viz is
+        contributing to the total for all marks in the viz. The input rows depend on the dimensions
+        selected in the viz.</p>
+
+      <p class="p"><samp class="ph codeph">100 * SUM(sales) / ROLLUP SUM(sales) TO ()</samp></p>
+
+
+      <p class="p">Calculate the cumulative total of sales for a given year on a month-to-month basis
+        (year-to-month sales totals):</p>
+
+      <p class="p"><samp class="ph codeph">ROLLUP SUM(sales) TO (Date.Year) ORDER BY (Date.Month) ROWS UNBOUNDED
+          PRECEDING</samp></p>
+
+
+      <p class="p">Calculate the cumulative total of sales (for all input rows) for all previous years, but
+        exclude the current year from the total.</p>
+
+      <p class="p"><samp class="ph codeph">ROLLUP SUM(sales) TO () ORDER BY (Date.Year) ROWS BETWEEN UNBOUNDED PRECEDING AND 1
+          PRECEDING</samp></p>
+
+      
+
+
+    </div>
+
+    
+   
+   
+  </div>
+
+<div class="related-links"/>
+<div class="navfooter"><!---->
+<span class="navparent"><a class="link" href="../../reference/expression_language/window_functions_top.html" title="Window functions can only be used in conjunction with ROLLUP. ROLLUP is a modifier to an aggregate expression that determines the partitioning and ordering of a rowset before the associated aggregate function or window function is applied. ROLLUP defines a window or user-specified set of rows within a query result set. A window function then computes a value for each row in the window. You can use window functions to compute aggregated values such as moving averages, cumulative aggregates, running totals, or a top N per group results."><span class="navheader_label">Parent topic</span><span class="navheader_separator">: </span><span class="navheader_linktext">ROLLUP and Window Functions</span></a></span>  </div><div class="footer">WebHelp output generated by<a href="http://www.oxygenxml.com" target="_blank"><span class="oXygenLogo"><img src="../../oxygen-webhelp/resources/img/LogoOxygen100x22.png" alt="Oxygen"/></span><span class="xmlauthor">XML Author</span></a></div>
+<div id="productInfo" style="display:none;"><span id="oxy_productID">webhelp</span><span id="oxy_productVersion">3.0</span></div><div id="loginData" style="display: none"><span class="bt_close" title="Close"><!----></span><form action="" target="passwordIframe" method="post" name="form_login" onsubmit="return loggInUser();" id="loginFormData" autocomplete="on"><input type="hidden" id="reloadComments" value="yes"><!----></input><table class="login"><thead><tr><td colspan="2"><span id="l_login2"><script type="text/javascript">$('#l_login2').html(getLocalization('label.login'));</script></span></td></tr><tr><td colspan="2"><div id="loginResponse"><!----></div></td></tr></thead><tr><td><span id="l_userName"><script type="text/javascript">$('#l_userName').html(getLocalization('label.userName'));</script></span></td><td><input name="usernameW" type="text" id="myUserName" autocomplete="on" required="required" autofocus="autofocus"><!----></input></td></tr><tr><td><span id="l_pswd"><script type="text/javascript">$('#l_pswd').html(getLocalization('label.pswd'));</script></span></td><td><input name="passwordW" type="password" id="myPassword" autocomplete="on" required="required"><!----></input></td></tr><tr><td colspan="2" align="left"><span id="ll_remember"><script type="text/javascript" xml:space="preserve">
+								$('#ll_remember').html(getLocalization('label.rememberme'));
+							</script></span>     <input name="myLoginRemember" type="checkbox" class="ck" id="myRemember" value="no"><!----></input></td></tr><tr><td colspan="2" align="center"><input id="l_bt_submit_log" type="submit" value="Submit" name="loginFormButton"><!----></input><script type="text/javascript">$('#l_bt_submit_log').attr('value',getLocalization('label.login'));</script><span class="btnHGlue"><!----></span><input class="bt_cancel" id="l_cancelLog" type="button" value="Cancel" name="loginFormButton"><!----></input><script type="text/javascript">$('#l_cancelLog').attr('value',getLocalization('label.cancel'));</script></td></tr></table><div class="loginAlternative"><span id="link_lostPwd" onclick="showLostPwd()"><script type="text/javascript">$('#link_lostPwd').html(getLocalization('label.lostPswd'));</script></span><span id="link_signUp" onclick="showSignUp()"><script type="text/javascript">$('#link_signUp').html(getLocalization('label.signUp'));</script></span></div></form><iframe id="passwordIframe" name="passwordIframe" style="display:none"><!----></iframe></div><div id="cmts"><!----></div></body>
+</html>

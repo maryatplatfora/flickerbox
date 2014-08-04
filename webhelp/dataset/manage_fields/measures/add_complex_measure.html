@@ -1,0 +1,82 @@
+
+<!DOCTYPE html
+  PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xml:lang="en-us" lang="en-us">
+<head><meta xmlns="http://www.w3.org/1999/xhtml" name="description" content="In addition to quick measures, you can create more sophisticated measures using expressions.You use computed field containing an aggregate function to create a measure. Go to the Manage Fields step of ..."/><meta http-equiv="Content-Type" content="text/html; charset=utf-8"/><meta name="copyright" content="(C) Copyright 2005"/><meta name="DC.rights.owner" content="(C) Copyright 2005"/><meta name="DC.Type" content="task"/><meta name="DC.Title" content="Add Computed Measures"/><meta name="abstract" content="In addition to quick measures, you can create more sophisticated measures using expressions.You use computed field containing an aggregate function to create a measure."/><meta xmlns="http://www.w3.org/1999/xhtml" name="description" content="In addition to quick measures, you can create more sophisticated measures using expressions.You use computed field containing an aggregate function to create a measure."/><meta name="DC.Relation" scheme="URI" content="../../../dataset/manage_fields/measures/manage_measure_fields.html"/><meta name="DC.Format" content="XHTML"/><meta name="DC.Identifier" content="add_complex_measures"/><link rel="stylesheet" type="text/css" href="../../../oxygen-webhelp/resources/css/commonltr.css"><!----></link><title>Add Computed Measures</title><meta http-equiv="Content-Type" content="text/html; charset=utf-8"/><link rel="stylesheet" type="text/css" href="../../../oxygen-webhelp/resources/css/commonltr.css"><!----></link><link rel="stylesheet" type="text/css" href="../../../oxygen-webhelp/resources/css/webhelp_topic.css"><!----></link><link rel="stylesheet" type="text/css" href="../../../oxygen-webhelp/resources/skins/skin.css"><!----></link><link rel="stylesheet" type="text/css" href="../../../oxygen-webhelp/resources/css/jquery.realperson.css"><!----></link><link rel="stylesheet" type="text/css" href="../../../oxygen-webhelp/resources/css/comments.css"><!----></link><link rel="stylesheet" type="text/css" href="../../../oxygen-webhelp/resources/css/jquery.cleditor.css"><!----></link><link rel="stylesheet" type="text/css" href="../../../oxygen-webhelp/resources/css/admin.css"><!----></link><script type="text/javascript"><!--
+          
+          var prefix = "../../../index.html";
+          
+          --></script><script type="text/javascript" src="../../../oxygen-webhelp/resources/js/jquery-1.8.2.min.js"><!----></script><script type="text/javascript" src="../../../oxygen-webhelp/resources/js/jquery.cookie.js"><!----></script><script type="text/javascript" src="../../../oxygen-webhelp/resources/js/jquery-ui.custom.min.js"><!----></script><script type="text/javascript" charset="utf-8" src="../../../oxygen-webhelp/resources/js/webhelp_topic.js"><!----></script><script type="text/javascript" charset="utf-8" src="../../../oxygen-webhelp/resources/localization/strings.js"><!----></script><script type="text/javascript" charset="utf-8" src="../../../oxygen-webhelp/resources/js/init.js"><!----></script><script type="text/javascript" charset="utf-8" src="../../../oxygen-webhelp/resources/js/comments-functions.js"><!----></script></head>
+<body onload="init('../../../')" id="add_complex_measures">
+<table class="nav"><tbody><tr><td colspan="2"><div id="printlink"><a href="javascript:window.print();" title="printThisPage"/></div><div id="permalink"><a href="#" title="linkToThis"/></div></td></tr><tr><td width="75%"><a class="navheader_parent_path" href="../../../dataset/manage_fields/measures/../../../dataset/manage_fields/computed/manage_computed_fields.html" title="A source dataset contains a number of base fields parsed directly from the source data. You can add additional computed fields to do basic data cleansing and transformation tasks (such as transforming values to something more meaningful for your users), or to derive values from other fields (such as computing an age from a birth date).">Manage Computed Fields</a> / <a class="navheader_parent_path" href="../../../dataset/manage_fields/measures/manage_measure_fields.html" title="To define a dataset you must determine which fields to use as measures. Then, you define how to aggregate those fields. You do this by either defining a new computed field or by adding quick measures on an existing field.">About Measures</a></td><td><div class="navheader">
+<span class="navparent"><a class="link" href="../../../dataset/manage_fields/measures/manage_measure_fields.html" title="To define a dataset you must determine which fields to use as measures. Then, you define how to aggregate those fields. You do this by either defining a new computed field or by adding quick measures on an existing field."><span class="navheader_label">Parent topic</span><span class="navheader_separator">: </span><span class="navheader_linktext">About Measures</span></a></span>  </div></td></tr></tbody></table>
+
+    <h1 class="title topictitle1">Add Computed Measures</h1>
+
+    
+    <div class="body taskbody"><div class="abstract"><span class="shortdesc">In addition to quick measures, you can create more sophisticated measures using expressions.You use computed field containing an aggregate function to create a measure.</span>
+</div>
+
+        <div class="section context">
+            <p class="p">
+                <img class="image" src="../../../images/./dataset/dataset_complex_measure.png"/>
+                </p>
+
+        </div>
+
+        <ol class="ol steps"><li class="li step stepexpand">
+                <span class="ph cmd">Go to the <span class="ph uicontrol">Manage Fields</span> step of the dataset workspace.</span>
+                <div class="itemgroup info">Review the sample data values before writing your measure expression.</div>
+            </li>
+<li class="li step stepexpand">
+                <span class="ph cmd">Click <span class="ph uicontrol">Add Field</span> in the <span class="ph uicontrol">Field Info</span> panel.</span>
+                <div class="itemgroup stepresult">This opens the <span class="ph uicontrol">Add Field</span> dialog containing the expression builder controls.</div>
+            </li>
+<li class="li step stepexpand">
+                <span class="ph cmd">Enter a name for your field and a description.</span>
+                <div class="itemgroup info">The description is optional but very useful for others that might use your dataset later.</div>
+            </li>
+<li class="li step stepexpand">
+                <span class="ph cmd">Choose <span class="ph uicontrol">Aggregate</span> from the <span class="ph uicontrol">Functions</span> dropdown.</span>
+                <div class="itemgroup stepresult">The list shows available <span class="ph uicontrol">Aggregate</span> functions.</div>
+            </li>
+<li class="li step stepexpand">
+                <span class="ph cmd">Double-click a function from the list to add it to the <span class="ph uicontrol">Expression</span> area.</span>
+                <div class="itemgroup stepresult">The <span class="ph uicontrol">Expression</span> panel updates with the function's template.  Also, the <kbd class="ph userinput">Fields</kbd> list refreshes with those fields you can use with the function. For example,<samp class="ph codeph">MIN</samp> and <samp class="ph codeph">MAX</samp> functions can aggregate numeric or datetime data types.</div>
+            </li>
+<li class="li step stepexpand">
+                <span class="ph cmd">Double-click a field to add it into the <span class="ph uicontrol">Expression</span> area.</span>
+            </li>
+<li class="li step stepexpand">
+                <span class="ph cmd">Continue adding functions and fields into your expression is complete.</span>
+                <div class="itemgroup info">
+                    Aggregate functions can only take other aggregate functions, fields, or literal values as input.</div>
+            </li>
+<li class="li step stepexpand">
+                <span class="ph cmd">Make sure your expression is correct. </span>
+                <div class="itemgroup info">The system checks your syntax as you build the expression. The yellow text box below the <span class="ph uicontrol">Expression</span> area displays error messages. Platfora only allows you to save expressions that evaluate successfully. If it cannot resolve an expression, the <span class="ph uicontrol">Save</span> button is not available.</div>
+            </li>
+<li class="li step stepexpand">
+                <span class="ph cmd">Click <span class="ph uicontrol">Save</span> to add the new computed measure field to the dataset. </span>
+                <div class="itemgroup stepresult">Your new field appears in the dataset. At this point, the field has no sample values. As an aggregate field, it depends on a defined group of input rows to calculate a value.  </div>
+            </li>
+<li class="li step stepexpand">
+                <span class="ph cmd">(Optional) Hide the field you used as input to the aggregate function.</span>
+                <div class="itemgroup info">Hiding the input field is useful when only the computed fields is useful for future analysis.</div>
+            </li>
+</ol>
+
+        <div class="section postreq">
+            <p class="p">Expressions are an advanced topic. For information on working with expression syntax, see <a class="xref" href="../../use_expressions_top.html#use_expressions_top" title="Platfora includes an expression language to support advanced data analysis processing.">Work with Platfora's Expression Language</a>. </p>
+
+        </div>
+
+    </div>
+
+<div class="related-links"/>
+<div class="navfooter"><!---->
+<span class="navparent"><a class="link" href="../../../dataset/manage_fields/measures/manage_measure_fields.html" title="To define a dataset you must determine which fields to use as measures. Then, you define how to aggregate those fields. You do this by either defining a new computed field or by adding quick measures on an existing field."><span class="navheader_label">Parent topic</span><span class="navheader_separator">: </span><span class="navheader_linktext">About Measures</span></a></span>  </div><div class="footer">WebHelp output generated by<a href="http://www.oxygenxml.com" target="_blank"><span class="oXygenLogo"><img src="../../../oxygen-webhelp/resources/img/LogoOxygen100x22.png" alt="Oxygen"/></span><span class="xmlauthor">XML Author</span></a></div>
+<div id="productInfo" style="display:none;"><span id="oxy_productID">webhelp</span><span id="oxy_productVersion">3.0</span></div><div id="loginData" style="display: none"><span class="bt_close" title="Close"><!----></span><form action="" target="passwordIframe" method="post" name="form_login" onsubmit="return loggInUser();" id="loginFormData" autocomplete="on"><input type="hidden" id="reloadComments" value="yes"><!----></input><table class="login"><thead><tr><td colspan="2"><span id="l_login2"><script type="text/javascript">$('#l_login2').html(getLocalization('label.login'));</script></span></td></tr><tr><td colspan="2"><div id="loginResponse"><!----></div></td></tr></thead><tr><td><span id="l_userName"><script type="text/javascript">$('#l_userName').html(getLocalization('label.userName'));</script></span></td><td><input name="usernameW" type="text" id="myUserName" autocomplete="on" required="required" autofocus="autofocus"><!----></input></td></tr><tr><td><span id="l_pswd"><script type="text/javascript">$('#l_pswd').html(getLocalization('label.pswd'));</script></span></td><td><input name="passwordW" type="password" id="myPassword" autocomplete="on" required="required"><!----></input></td></tr><tr><td colspan="2" align="left"><span id="ll_remember"><script type="text/javascript" xml:space="preserve">
+								$('#ll_remember').html(getLocalization('label.rememberme'));
+							</script></span>     <input name="myLoginRemember" type="checkbox" class="ck" id="myRemember" value="no"><!----></input></td></tr><tr><td colspan="2" align="center"><input id="l_bt_submit_log" type="submit" value="Submit" name="loginFormButton"><!----></input><script type="text/javascript">$('#l_bt_submit_log').attr('value',getLocalization('label.login'));</script><span class="btnHGlue"><!----></span><input class="bt_cancel" id="l_cancelLog" type="button" value="Cancel" name="loginFormButton"><!----></input><script type="text/javascript">$('#l_cancelLog').attr('value',getLocalization('label.cancel'));</script></td></tr></table><div class="loginAlternative"><span id="link_lostPwd" onclick="showLostPwd()"><script type="text/javascript">$('#link_lostPwd').html(getLocalization('label.lostPswd'));</script></span><span id="link_signUp" onclick="showSignUp()"><script type="text/javascript">$('#link_signUp').html(getLocalization('label.signUp'));</script></span></div></form><iframe id="passwordIframe" name="passwordIframe" style="display:none"><!----></iframe></div><div id="cmts"><!----></div></body>
+</html>

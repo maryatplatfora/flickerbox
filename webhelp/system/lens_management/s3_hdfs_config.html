@@ -1,0 +1,90 @@
+
+<!DOCTYPE html
+  PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xml:lang="en-us" lang="en-us">
+<head><meta xmlns="http://www.w3.org/1999/xhtml" name="description" content="This section describes how to configure Platfora to avoid dictionary errors resulting from modifications to HDFS and S3 data sources. Lens builds that access source data on HDFS or S3 can return ..."/><meta http-equiv="Content-Type" content="text/html; charset=utf-8"/><meta name="copyright" content="(C) Copyright 2005"/><meta name="DC.rights.owner" content="(C) Copyright 2005"/><meta name="DC.Type" content="topic"/><meta name="DC.Title" content="Avoiding Dictionary Errors in Lens Builds"/><meta name="abstract" content="This section describes how to configure Platfora to avoid dictionary errors resulting from modifications to HDFS and S3 data sources."/><meta xmlns="http://www.w3.org/1999/xhtml" name="description" content="This section describes how to configure Platfora to avoid dictionary errors resulting from modifications to HDFS and S3 data sources."/><meta name="DC.Relation" scheme="URI" content="../../system/lens_management/mapred_troubleshoot.html"/><meta name="DC.Format" content="XHTML"/><meta name="DC.Identifier" content="s3_hdfs_config"/><link rel="stylesheet" type="text/css" href="../../oxygen-webhelp/resources/css/commonltr.css"><!----></link><title>Avoiding Dictionary Errors in Lens Builds</title><meta http-equiv="Content-Type" content="text/html; charset=utf-8"/><link rel="stylesheet" type="text/css" href="../../oxygen-webhelp/resources/css/commonltr.css"><!----></link><link rel="stylesheet" type="text/css" href="../../oxygen-webhelp/resources/css/webhelp_topic.css"><!----></link><link rel="stylesheet" type="text/css" href="../../oxygen-webhelp/resources/skins/skin.css"><!----></link><link rel="stylesheet" type="text/css" href="../../oxygen-webhelp/resources/css/jquery.realperson.css"><!----></link><link rel="stylesheet" type="text/css" href="../../oxygen-webhelp/resources/css/comments.css"><!----></link><link rel="stylesheet" type="text/css" href="../../oxygen-webhelp/resources/css/jquery.cleditor.css"><!----></link><link rel="stylesheet" type="text/css" href="../../oxygen-webhelp/resources/css/admin.css"><!----></link><script type="text/javascript"><!--
+          
+          var prefix = "../../index.html";
+          
+          --></script><script type="text/javascript" src="../../oxygen-webhelp/resources/js/jquery-1.8.2.min.js"><!----></script><script type="text/javascript" src="../../oxygen-webhelp/resources/js/jquery.cookie.js"><!----></script><script type="text/javascript" src="../../oxygen-webhelp/resources/js/jquery-ui.custom.min.js"><!----></script><script type="text/javascript" charset="utf-8" src="../../oxygen-webhelp/resources/js/webhelp_topic.js"><!----></script><script type="text/javascript" charset="utf-8" src="../../oxygen-webhelp/resources/localization/strings.js"><!----></script><script type="text/javascript" charset="utf-8" src="../../oxygen-webhelp/resources/js/init.js"><!----></script><script type="text/javascript" charset="utf-8" src="../../oxygen-webhelp/resources/js/comments-functions.js"><!----></script></head>
+<body onload="init('../../')" id="s3_hdfs_config">
+<table class="nav"><tbody><tr><td colspan="2"><div id="printlink"><a href="javascript:window.print();" title="printThisPage"/></div><div id="permalink"><a href="#" title="linkToThis"/></div></td></tr><tr><td width="75%"><a class="navheader_parent_path" href="../../system/lens_management/../../system/lens_management/troubleshoot_lens_builds_top.html" title="This section describes how to investigate problems when a lens build fails.">Troubleshoot Lens Build Failures</a> / <a class="navheader_parent_path" href="../../system/lens_management/mapred_troubleshoot.html" title="This section describes how to adjust certain Hadoop-controlled parameters to avoid some common MapReduce errors in Platfora lens builds.">Troubleshoot Hadoop Configuration Problems</a></td><td><div class="navheader">
+<span class="navparent"><a class="link" href="../../system/lens_management/mapred_troubleshoot.html" title="This section describes how to adjust certain Hadoop-controlled parameters to avoid some common MapReduce errors in Platfora lens builds."><span class="navheader_label">Parent topic</span><span class="navheader_separator">: </span><span class="navheader_linktext">Troubleshoot Hadoop Configuration Problems</span></a></span>  </div></td></tr></tbody></table>
+
+  <h1 class="title topictitle1">Avoiding Dictionary Errors in Lens Builds</h1>
+
+  
+  <div class="body"><div class="abstract"><span class="shortdesc">This section describes how to configure Platfora to avoid dictionary errors
+      resulting from modifications to HDFS and S3 data sources.</span>
+ Lens builds that access
+    source data on HDFS or S3 can return missing dictionary errors. You can avoid them by
+    understanding how they occur and then configuring your Platfora environment to avoid
+    them.</div>
+
+
+    <div class="section" id="s3_hdfs_config__s3_dictionary_error_plan"><h2 class="title sectiontitle">Conflicts Between Writing and Reading
+        Files</h2><p class="p">When building a lens Platfora assumes that the source files it reads are not
+        actively being written. For example, if a dataset resolves to
+          <span class="ph filepath">/some/path/*.csv</span>, then source files that match that pattern should
+        not be modified when Platfora tries to read them. Modification means either the concurrent
+        write of a file or a subsequent append or delete (replace).</p>
+When using HDFS, you can
+      avoid write conflicts during Platfora's ingest and lens builds using an intermediate, temp
+      directory together with an atomic move/rename operation. Write files to the temp directory
+      (for example, <samp class="ph codeph">/temp/some/path/datafile.csv</samp>). After closing the file, use HDFS
+      to move the file to the dataset location (<samp class="ph codeph">mv /temp/some/path/datafile.csv
+        /some/path</samp>). With this technique, Platfora can always safely read the files visible
+      under <span class="ph filepath">/some/path/datafile.csv</span>.<p class="p">Unfortunately, Amazon S3 does not have
+        an atomic move/rename operation. Instead, S3 copies to them to the destination causing a
+        change to the /<samp class="ph codeph">some/path/</samp> files. As a result, Platfora sees inconsistent
+        reads of some files during a lens build and reports errors exactly as if the files were
+        actively written to the destination in the first place. </p>
+</div>
+
+    <div class="section"><h2 class="title sectiontitle">Configure a Skip Files Value</h2>
+      
+      <p class="p">You can use the Platfora's <samp class="ph codeph">platfora.builder.file.skip.modified.age</samp>
+        property to avoid missing dictionary errors with S3. The lens builder uses the property's
+        value to skip processing of dataset files modified. The property takes a value representing
+        the number of seconds from the last change.  For example, when
+          <samp class="ph codeph">platfora.builder.file.skip.modified.age</samp> is set to <samp class="ph codeph">120</samp>,
+        Platfora's lens build skips files modified in the last 120 seconds (2 minutes). </p>
+
+      <p class="p">By default, <samp class="ph codeph">platfora.builder.file.skip.modified.age</samp> is 0 (zero). This
+        means Platfora does not skip any files. Set this property to value that is greater than the
+        longest duration of a write to a dataset file. With this setting, Platfora avoids reading
+        actively written files. Keep in mind that when this value is set, Platfora also avoids
+        recently written files until the files age beyond this value. At that point, Platfora
+        considers the file stable.</p>
+
+      <p class="p">The age limit does not apply to files inside the Platfora DFS directory, including uploads,
+        derived datasets or segments, the date/time datasets, and so forth. These data are generally
+        sourced from individual files without patterns or they are managed by Platfora. As a result,
+        missing dictionary errors are rare for these files.</p>
+
+    </div>
+
+    <div class="section"><h2 class="title sectiontitle">Scheduling Lens Builds in an S3 Environment</h2>
+      
+      <p class="p">In addition to setting <samp class="ph codeph">platfora.builder.file.skip.modified.age</samp>,you can
+        avoid read/write conflicts by coordinating your Hadoop processes with your lens builds
+        scheduling. </p>
+
+      <p class="p"> If your Hadoop cluster regularly processes large files that take a long time to write,
+        identify when the write typically concludes. If you can anticiapte the time between writes,
+        schedule lens builds to take place then. Configure the
+          <samp class="ph codeph">platfora.builder.file.skip.modified.age</samp> to a relatively high value. This
+        allows for the Hadoop write to exceed the window but still allow the lens build to retrieve
+        updated data. </p>
+
+    </div>
+
+  </div>
+
+<div class="related-links"/>
+<div class="navfooter"><!---->
+<span class="navparent"><a class="link" href="../../system/lens_management/mapred_troubleshoot.html" title="This section describes how to adjust certain Hadoop-controlled parameters to avoid some common MapReduce errors in Platfora lens builds."><span class="navheader_label">Parent topic</span><span class="navheader_separator">: </span><span class="navheader_linktext">Troubleshoot Hadoop Configuration Problems</span></a></span>  </div><div class="footer">WebHelp output generated by<a href="http://www.oxygenxml.com" target="_blank"><span class="oXygenLogo"><img src="../../oxygen-webhelp/resources/img/LogoOxygen100x22.png" alt="Oxygen"/></span><span class="xmlauthor">XML Author</span></a></div>
+<div id="productInfo" style="display:none;"><span id="oxy_productID">webhelp</span><span id="oxy_productVersion">3.0</span></div><div id="loginData" style="display: none"><span class="bt_close" title="Close"><!----></span><form action="" target="passwordIframe" method="post" name="form_login" onsubmit="return loggInUser();" id="loginFormData" autocomplete="on"><input type="hidden" id="reloadComments" value="yes"><!----></input><table class="login"><thead><tr><td colspan="2"><span id="l_login2"><script type="text/javascript">$('#l_login2').html(getLocalization('label.login'));</script></span></td></tr><tr><td colspan="2"><div id="loginResponse"><!----></div></td></tr></thead><tr><td><span id="l_userName"><script type="text/javascript">$('#l_userName').html(getLocalization('label.userName'));</script></span></td><td><input name="usernameW" type="text" id="myUserName" autocomplete="on" required="required" autofocus="autofocus"><!----></input></td></tr><tr><td><span id="l_pswd"><script type="text/javascript">$('#l_pswd').html(getLocalization('label.pswd'));</script></span></td><td><input name="passwordW" type="password" id="myPassword" autocomplete="on" required="required"><!----></input></td></tr><tr><td colspan="2" align="left"><span id="ll_remember"><script type="text/javascript" xml:space="preserve">
+								$('#ll_remember').html(getLocalization('label.rememberme'));
+							</script></span>     <input name="myLoginRemember" type="checkbox" class="ck" id="myRemember" value="no"><!----></input></td></tr><tr><td colspan="2" align="center"><input id="l_bt_submit_log" type="submit" value="Submit" name="loginFormButton"><!----></input><script type="text/javascript">$('#l_bt_submit_log').attr('value',getLocalization('label.login'));</script><span class="btnHGlue"><!----></span><input class="bt_cancel" id="l_cancelLog" type="button" value="Cancel" name="loginFormButton"><!----></input><script type="text/javascript">$('#l_cancelLog').attr('value',getLocalization('label.cancel'));</script></td></tr></table><div class="loginAlternative"><span id="link_lostPwd" onclick="showLostPwd()"><script type="text/javascript">$('#link_lostPwd').html(getLocalization('label.lostPswd'));</script></span><span id="link_signUp" onclick="showSignUp()"><script type="text/javascript">$('#link_signUp').html(getLocalization('label.signUp'));</script></span></div></form><iframe id="passwordIframe" name="passwordIframe" style="display:none"><!----></iframe></div><div id="cmts"><!----></div></body>
+</html>

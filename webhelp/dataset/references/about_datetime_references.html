@@ -1,0 +1,162 @@
+
+<!DOCTYPE html
+  PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xml:lang="en-us" lang="en-us">
+<head><meta xmlns="http://www.w3.org/1999/xhtml" name="description" content="Slicing and dicing data by date is a very common reporting requirement. Platfora allows you to analyze date and time-based data at different granularities by automatically linking DATETIME fields to ..."/><meta http-equiv="Content-Type" content="text/html; charset=utf-8"/><meta name="copyright" content="(C) Copyright 2005"/><meta name="DC.rights.owner" content="(C) Copyright 2005"/><meta name="DC.Type" content="concept"/><meta name="DC.Title" content="About Date and Time References"/><meta name="abstract" content="Slicing and dicing data by date is a very common reporting requirement. Platfora allows you to analyze date and time-based data at different granularities by automatically linking DATETIME fields to Platfora's built-in Date and Time dimension datasets."/><meta xmlns="http://www.w3.org/1999/xhtml" name="description" content="Slicing and dicing data by date is a very common reporting requirement. Platfora allows you to analyze date and time-based data at different granularities by automatically linking DATETIME fields to Platfora's built-in Date and Time dimension datasets."/><meta name="DC.Relation" scheme="URI" content="../../dataset/references/model_references_and_events.html"/><meta name="DC.Format" content="XHTML"/><meta name="DC.Identifier" content="about_datetime_reference_fields"/><link rel="stylesheet" type="text/css" href="../../oxygen-webhelp/resources/css/commonltr.css"><!----></link><title>About Date and Time References</title><meta http-equiv="Content-Type" content="text/html; charset=utf-8"/><link rel="stylesheet" type="text/css" href="../../oxygen-webhelp/resources/css/commonltr.css"><!----></link><link rel="stylesheet" type="text/css" href="../../oxygen-webhelp/resources/css/webhelp_topic.css"><!----></link><link rel="stylesheet" type="text/css" href="../../oxygen-webhelp/resources/skins/skin.css"><!----></link><link rel="stylesheet" type="text/css" href="../../oxygen-webhelp/resources/css/jquery.realperson.css"><!----></link><link rel="stylesheet" type="text/css" href="../../oxygen-webhelp/resources/css/comments.css"><!----></link><link rel="stylesheet" type="text/css" href="../../oxygen-webhelp/resources/css/jquery.cleditor.css"><!----></link><link rel="stylesheet" type="text/css" href="../../oxygen-webhelp/resources/css/admin.css"><!----></link><script type="text/javascript"><!--
+          
+          var prefix = "../../index.html";
+          
+          --></script><script type="text/javascript" src="../../oxygen-webhelp/resources/js/jquery-1.8.2.min.js"><!----></script><script type="text/javascript" src="../../oxygen-webhelp/resources/js/jquery.cookie.js"><!----></script><script type="text/javascript" src="../../oxygen-webhelp/resources/js/jquery-ui.custom.min.js"><!----></script><script type="text/javascript" charset="utf-8" src="../../oxygen-webhelp/resources/js/webhelp_topic.js"><!----></script><script type="text/javascript" charset="utf-8" src="../../oxygen-webhelp/resources/localization/strings.js"><!----></script><script type="text/javascript" charset="utf-8" src="../../oxygen-webhelp/resources/js/init.js"><!----></script><script type="text/javascript" charset="utf-8" src="../../oxygen-webhelp/resources/js/comments-functions.js"><!----></script></head>
+<body onload="init('../../')" id="about_datetime_reference_fields">
+<table class="nav"><tbody><tr><td colspan="2"><div id="printlink"><a href="javascript:window.print();" title="printThisPage"/></div><div id="permalink"><a href="#" title="linkToThis"/></div></td></tr><tr><td width="75%"><a class="navheader_parent_path" href="../../dataset/references/../../dataset/dataset_top.html" title="Source data is mapped into Platfora by creating a dataset. A dataset describes the characteristics of the source data, such as its file locations, the structure of individual rows or records, the fields and data types, and the processing logic to cleanse, transform, and aggregate the data when it is loaded into Platfora. The collection of modeled datasets make up the data catalog (the source data items available to Platfora users).">Define Datasets</a> / <a class="navheader_parent_path" href="../../dataset/references/model_references_and_events.html" title="A reference allows two datasets to be joined together on fields that they share in common. A reference creates a link in one dataset to the primary key of another dataset. An event is similar to a reference, except that the direction of the reference link is reversed. An event is created in a dataset that has a primary key and points to a foreign key field in another dataset.">Model Dataset References and Events</a></td><td><div class="navheader">
+<span class="navparent"><a class="link" href="../../dataset/references/model_references_and_events.html" title="A reference allows two datasets to be joined together on fields that they share in common. A reference creates a link in one dataset to the primary key of another dataset. An event is similar to a reference, except that the direction of the reference link is reversed. An event is created in a dataset that has a primary key and points to a foreign key field in another dataset."><span class="navheader_label">Parent topic</span><span class="navheader_separator">: </span><span class="navheader_linktext">Model Dataset References and Events</span></a></span>  </div></td></tr></tbody></table>
+
+ <h1 class="title topictitle1">About Date and Time References</h1>
+
+ 
+ <div class="body conbody"><p class="shortdesc">Slicing and dicing data by date is a very common reporting requirement. Platfora allows
+  you to analyze date and time-based data at different granularities by automatically linking
+   <samp class="ph codeph">DATETIME</samp> fields to Platfora's built-in <em class="ph i">Date</em> and <em class="ph i">Time</em> dimension
+  datasets. </p>
+
+  <p class="p">Every <samp class="ph codeph">DATETIME</samp> field in a dataset automatically references the built-in
+    <em class="ph i">Date</em> and <em class="ph i">Time</em> dimension datasets. These datasets have a built-in hierarchy that
+   allows you to explore dates at different granularities.</p>
+
+  <p class="p">The source data for these datasets is added to the Hadoop file system when Platfora first
+   starts up (in <span class="ph filepath">/platfora/system</span> by default). If you have a different fiscal
+   calendar for your business, you can either replace the built-in datasets or add additional ones
+   and link your datasets to those instead. You cannot delete the default <em class="ph i">Date</em> and
+    <em class="ph i">Time</em> references, however you can hide them if you do not need them. </p>
+
+  <p class="p">The <em class="ph i">Date</em> dataset has Gregorian calendar dates ranging from <em class="ph i">January 1, 1800</em> to
+    <em class="ph i">December 31, 2300</em>. Each date is broken down into the following columns:</p>
+
+  <div class="p">
+   
+<div class="tablenoborder"><table cellpadding="4" cellspacing="0" summary="" class="table" frame="border" border="1" rules="all">
+     
+     
+     <thead class="thead" align="left">
+      <tr class="row">
+       <th class="entry" valign="top" width="31.545741324921135%" id="d50892e74">Date Dimension Column</th>
+
+       <th class="entry" valign="top" width="68.45425867507886%" id="d50892e77">Description</th>
+
+      </tr>
+
+     </thead>
+
+     <tbody class="tbody">
+      <tr class="row">
+       <td class="entry" valign="top" width="31.545741324921135%" headers="d50892e74 ">Date</td>
+
+       <td class="entry" valign="top" width="68.45425867507886%" headers="d50892e77 ">A single date in the format yyyy-MM-dd, for example 2013-02-14</td>
+
+      </tr>
+
+      <tr class="row">
+       <td class="entry" valign="top" width="31.545741324921135%" headers="d50892e74 ">Day_of_Month</td>
+
+       <td class="entry" valign="top" width="68.45425867507886%" headers="d50892e77 ">The day of the month from 1-31</td>
+
+      </tr>
+
+      <tr class="row">
+       <td class="entry" valign="top" width="31.545741324921135%" headers="d50892e74 ">Day_of_Year</td>
+
+       <td class="entry" valign="top" width="68.45425867507886%" headers="d50892e77 ">The day of the year from 1-366</td>
+
+      </tr>
+
+      <tr class="row">
+       <td class="entry" valign="top" width="31.545741324921135%" headers="d50892e74 ">Month</td>
+
+       <td class="entry" valign="top" width="68.45425867507886%" headers="d50892e77 ">Calendar month, for example January 2013</td>
+
+      </tr>
+
+      <tr class="row">
+       <td class="entry" valign="top" width="31.545741324921135%" headers="d50892e74 ">Month_Name</td>
+
+       <td class="entry" valign="top" width="68.45425867507886%" headers="d50892e77 ">The month name (January, February, etc.)</td>
+
+      </tr>
+
+      <tr class="row">
+       <td class="entry" valign="top" width="31.545741324921135%" headers="d50892e74 ">Month_Number</td>
+
+       <td class="entry" valign="top" width="68.45425867507886%" headers="d50892e77 ">The month number where January=1 and December=12</td>
+
+      </tr>
+
+      <tr class="row">
+       <td class="entry" valign="top" width="31.545741324921135%" headers="d50892e74 ">Quarter</td>
+
+       <td class="entry" valign="top" width="68.45425867507886%" headers="d50892e77 ">The quarter number with year (Q1 2013) where quarters start on January 1, April 1,
+        July 1, or October 1.</td>
+
+      </tr>
+
+      <tr class="row">
+       <td class="entry" valign="top" width="31.545741324921135%" headers="d50892e74 ">Quarter_Name</td>
+
+       <td class="entry" valign="top" width="68.45425867507886%" headers="d50892e77 ">The quarter number without year (Q1) where quarters start on January 1, April 1, July
+        1, or October 1</td>
+
+      </tr>
+
+      <tr class="row">
+       <td class="entry" valign="top" width="31.545741324921135%" headers="d50892e74 ">Week</td>
+
+       <td class="entry" valign="top" width="68.45425867507886%" headers="d50892e77 ">The week number within the year where week 1 starts on the first Monday of the
+        calendar year</td>
+
+      </tr>
+
+      <tr class="row">
+       <td class="entry" valign="top" width="31.545741324921135%" headers="d50892e74 ">Weekday</td>
+
+       <td class="entry" valign="top" width="68.45425867507886%" headers="d50892e77 ">The weekday name (Monday, Tuesday, etc.)</td>
+
+      </tr>
+
+      <tr class="row">
+       <td class="entry" valign="top" width="31.545741324921135%" headers="d50892e74 ">Weekday_Number</td>
+
+       <td class="entry" valign="top" width="68.45425867507886%" headers="d50892e77 ">The day of the week where Sunday is 1 and Saturday is 7</td>
+
+      </tr>
+
+      <tr class="row">
+       <td class="entry" valign="top" width="31.545741324921135%" headers="d50892e74 ">Work_Day</td>
+
+       <td class="entry" valign="top" width="68.45425867507886%" headers="d50892e77 ">One of two values; Weekend (Saturday, Sunday) or Weekday (Monday - Friday)</td>
+
+      </tr>
+
+      <tr class="row">
+       <td class="entry" valign="top" width="31.545741324921135%" headers="d50892e74 ">Year</td>
+
+       <td class="entry" valign="top" width="68.45425867507886%" headers="d50892e77 ">Calendar year, for example 2013</td>
+
+      </tr>
+
+     </tbody>
+
+    </table>
+</div>
+
+  </div>
+
+  <p class="p">The <em class="ph i">Time</em> dataset has each time of day down to the second granularity. </p>
+
+ </div>
+
+<div class="related-links"/>
+<div class="navfooter"><!---->
+<span class="navparent"><a class="link" href="../../dataset/references/model_references_and_events.html" title="A reference allows two datasets to be joined together on fields that they share in common. A reference creates a link in one dataset to the primary key of another dataset. An event is similar to a reference, except that the direction of the reference link is reversed. An event is created in a dataset that has a primary key and points to a foreign key field in another dataset."><span class="navheader_label">Parent topic</span><span class="navheader_separator">: </span><span class="navheader_linktext">Model Dataset References and Events</span></a></span>  </div><div class="footer">WebHelp output generated by<a href="http://www.oxygenxml.com" target="_blank"><span class="oXygenLogo"><img src="../../oxygen-webhelp/resources/img/LogoOxygen100x22.png" alt="Oxygen"/></span><span class="xmlauthor">XML Author</span></a></div>
+<div id="productInfo" style="display:none;"><span id="oxy_productID">webhelp</span><span id="oxy_productVersion">3.0</span></div><div id="loginData" style="display: none"><span class="bt_close" title="Close"><!----></span><form action="" target="passwordIframe" method="post" name="form_login" onsubmit="return loggInUser();" id="loginFormData" autocomplete="on"><input type="hidden" id="reloadComments" value="yes"><!----></input><table class="login"><thead><tr><td colspan="2"><span id="l_login2"><script type="text/javascript">$('#l_login2').html(getLocalization('label.login'));</script></span></td></tr><tr><td colspan="2"><div id="loginResponse"><!----></div></td></tr></thead><tr><td><span id="l_userName"><script type="text/javascript">$('#l_userName').html(getLocalization('label.userName'));</script></span></td><td><input name="usernameW" type="text" id="myUserName" autocomplete="on" required="required" autofocus="autofocus"><!----></input></td></tr><tr><td><span id="l_pswd"><script type="text/javascript">$('#l_pswd').html(getLocalization('label.pswd'));</script></span></td><td><input name="passwordW" type="password" id="myPassword" autocomplete="on" required="required"><!----></input></td></tr><tr><td colspan="2" align="left"><span id="ll_remember"><script type="text/javascript" xml:space="preserve">
+								$('#ll_remember').html(getLocalization('label.rememberme'));
+							</script></span>     <input name="myLoginRemember" type="checkbox" class="ck" id="myRemember" value="no"><!----></input></td></tr><tr><td colspan="2" align="center"><input id="l_bt_submit_log" type="submit" value="Submit" name="loginFormButton"><!----></input><script type="text/javascript">$('#l_bt_submit_log').attr('value',getLocalization('label.login'));</script><span class="btnHGlue"><!----></span><input class="bt_cancel" id="l_cancelLog" type="button" value="Cancel" name="loginFormButton"><!----></input><script type="text/javascript">$('#l_cancelLog').attr('value',getLocalization('label.cancel'));</script></td></tr></table><div class="loginAlternative"><span id="link_lostPwd" onclick="showLostPwd()"><script type="text/javascript">$('#link_lostPwd').html(getLocalization('label.lostPswd'));</script></span><span id="link_signUp" onclick="showSignUp()"><script type="text/javascript">$('#link_signUp').html(getLocalization('label.signUp'));</script></span></div></form><iframe id="passwordIframe" name="passwordIframe" style="display:none"><!----></iframe></div><div id="cmts"><!----></div></body>
+</html>

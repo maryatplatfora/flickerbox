@@ -1,0 +1,90 @@
+
+<!DOCTYPE html
+  PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xml:lang="en-us" lang="en-us">
+<head><meta xmlns="http://www.w3.org/1999/xhtml" name="description" content="CIDR_MATCH is a row function that compares two STRING arguments representing a CIDR mask and an IP address, and returns 1 if the IP address falls within the specified subnet mask or 0 if it does not. ..."/><meta http-equiv="Content-Type" content="text/html; charset=utf-8"/><meta name="copyright" content="(C) Copyright 2005"/><meta name="DC.rights.owner" content="(C) Copyright 2005"/><meta name="DC.Type" content="reference"/><meta name="DC.Title" content="CIDR_MATCH"/><meta name="abstract" content="CIDR_MATCH is a row function that compares two STRING arguments representing a CIDR mask and an IP address, and returns 1 if the IP address falls within the specified subnet mask or 0 if it does not."/><meta xmlns="http://www.w3.org/1999/xhtml" name="description" content="CIDR_MATCH is a row function that compares two STRING arguments representing a CIDR mask and an IP address, and returns 1 if the IP address falls within the specified subnet mask or 0 if it does not."/><meta name="DC.Relation" scheme="URI" content="../../reference/expression_language/row_ip_functions_top.html"/><meta name="DC.Format" content="XHTML"/><meta name="DC.Identifier" content="ref_func_cidrmatch"/><link rel="stylesheet" type="text/css" href="../../oxygen-webhelp/resources/css/commonltr.css"><!----></link><title>CIDR_MATCH</title><meta http-equiv="Content-Type" content="text/html; charset=utf-8"/><link rel="stylesheet" type="text/css" href="../../oxygen-webhelp/resources/css/commonltr.css"><!----></link><link rel="stylesheet" type="text/css" href="../../oxygen-webhelp/resources/css/webhelp_topic.css"><!----></link><link rel="stylesheet" type="text/css" href="../../oxygen-webhelp/resources/skins/skin.css"><!----></link><link rel="stylesheet" type="text/css" href="../../oxygen-webhelp/resources/css/jquery.realperson.css"><!----></link><link rel="stylesheet" type="text/css" href="../../oxygen-webhelp/resources/css/comments.css"><!----></link><link rel="stylesheet" type="text/css" href="../../oxygen-webhelp/resources/css/jquery.cleditor.css"><!----></link><link rel="stylesheet" type="text/css" href="../../oxygen-webhelp/resources/css/admin.css"><!----></link><script type="text/javascript"><!--
+          
+          var prefix = "../../index.html";
+          
+          --></script><script type="text/javascript" src="../../oxygen-webhelp/resources/js/jquery-1.8.2.min.js"><!----></script><script type="text/javascript" src="../../oxygen-webhelp/resources/js/jquery.cookie.js"><!----></script><script type="text/javascript" src="../../oxygen-webhelp/resources/js/jquery-ui.custom.min.js"><!----></script><script type="text/javascript" charset="utf-8" src="../../oxygen-webhelp/resources/js/webhelp_topic.js"><!----></script><script type="text/javascript" charset="utf-8" src="../../oxygen-webhelp/resources/localization/strings.js"><!----></script><script type="text/javascript" charset="utf-8" src="../../oxygen-webhelp/resources/js/init.js"><!----></script><script type="text/javascript" charset="utf-8" src="../../oxygen-webhelp/resources/js/comments-functions.js"><!----></script></head>
+<body onload="init('../../')" id="ref_func_cidrmatch">
+<table class="nav"><tbody><tr><td colspan="2"><div id="printlink"><a href="javascript:window.print();" title="printThisPage"/></div><div id="permalink"><a href="#" title="linkToThis"/></div></td></tr><tr><td width="75%"><a class="navheader_parent_path" href="../../reference/expression_language/../../reference/expression_language/expression_reference_top.html" title="An expression computes or produces a value by combining fields (or columns), constant values, operators, and functions. Platfora has a built-in expression language. You use the language's functions and operators to create a computed field.">Expression and Query Language Reference</a> / <a class="navheader_parent_path" href="../../reference/expression_language/row_ip_functions_top.html" title="IP address functions allow you to manipulate and transform STRING data consisting of IP address values.">IP Address Functions</a></td><td><div class="navheader">
+<span class="navparent"><a class="link" href="../../reference/expression_language/row_ip_functions_top.html" title="IP address functions allow you to manipulate and transform STRING data consisting of IP address values."><span class="navheader_label">Parent topic</span><span class="navheader_separator">: </span><span class="navheader_linktext">IP Address Functions</span></a></span>  </div></td></tr></tbody></table>
+
+  <h1 class="title topictitle1">CIDR_MATCH</h1>
+
+  
+  <div class="body refbody"><p class="shortdesc"><samp class="ph codeph">CIDR_MATCH</samp> is a row function that compares two <samp class="ph codeph">STRING</samp> arguments representing a CIDR mask and an IP address,
+      and returns <samp class="ph codeph">1</samp> if the IP address falls within the specified subnet mask or
+        <samp class="ph codeph">0</samp> if it does not.</p>
+
+    <div class="section"><h2 class="title sectiontitle">Syntax</h2><samp class="ph codeph" id="ref_func_cidrmatch__syntax_func_cidrmatch">
+        <span class="ph synph"><span class="keyword kwd">CIDR_MATCH</span>(<span class="ph var">CIDR_string</span>, <span class="ph var">IP_string</span>)</span>
+      </samp>
+    </div>
+
+    <div class="section"><h2 class="title sectiontitle">Return Value</h2>
+      
+      <p class="p">Returns an <samp class="ph codeph">INTEGER</samp> value of <samp class="ph codeph">1</samp> if the IP address falls
+        within the subnet indicated by the CIDR mask and <samp class="ph codeph">0</samp> if it does not.</p>
+
+      <p class="p">
+        
+      </p>
+
+    </div>
+
+    <div class="section"><h2 class="title sectiontitle">Input Parameters</h2>
+      
+      <dl class="dl parml">
+        
+          <dt class="dt pt dlterm">CIDR_string</dt>
+
+          <dd class="dd pd">Required. A field or expression that returns a <samp class="ph codeph">STRING</samp> value
+            containing either an IPv4 or IPv6 CIDR mask (Classless InterDomain Routing subnet
+            notation). An IPv4 CIDR mask can only successfully match IPv4 addresses, and an IPv6
+            CIDR mask can only successfully match IPv6 addresses.  </dd>
+
+        
+        
+        
+          <dt class="dt pt dlterm">IP_string</dt>
+
+          <dd class="dd pd">Required. A field or expression that returns a <samp class="ph codeph">STRING</samp> value
+            containing either an IPv4 or IPv6 internet protocol (IP) address. </dd>
+
+        
+        
+      </dl>
+
+    </div>
+
+    <div class="section"><h2 class="title sectiontitle">Examples</h2>
+      
+      <p class="p">Compare an IPv4 CIDR subnet mask to an IPv4 IP address:</p>
+
+      <p class="p"><samp class="ph codeph" id="ref_func_cidrmatch__example_func_cidrmatch">CIDR_MATCH("60.145.56.0/24","60.145.56.246") returns
+            <em class="ph i">1</em></samp></p>
+
+      <p class="p"><samp class="ph codeph">CIDR_MATCH("60.145.56.0/30","60.145.56.246") returns <em class="ph i">0</em></samp></p>
+
+      <p class="p"/>
+
+      
+      <p class="p">Compare an IPv6 CIDR subnet mask to an IPv6 IP address:</p>
+
+      <p class="p"><samp class="ph codeph">CIDR_MATCH("fe80::/70","FE80::0202:B3FF:FE1E:8329") returns <em class="ph i">1</em></samp></p>
+
+      <p class="p"><samp class="ph codeph">CIDR_MATCH("fe80::/72","FE80::0202:B3FF:FE1E:8329") returns <em class="ph i">0</em></samp></p>
+
+    </div>
+
+  </div>
+
+<div class="related-links"/>
+<div class="navfooter"><!---->
+<span class="navparent"><a class="link" href="../../reference/expression_language/row_ip_functions_top.html" title="IP address functions allow you to manipulate and transform STRING data consisting of IP address values."><span class="navheader_label">Parent topic</span><span class="navheader_separator">: </span><span class="navheader_linktext">IP Address Functions</span></a></span>  </div><div class="footer">WebHelp output generated by<a href="http://www.oxygenxml.com" target="_blank"><span class="oXygenLogo"><img src="../../oxygen-webhelp/resources/img/LogoOxygen100x22.png" alt="Oxygen"/></span><span class="xmlauthor">XML Author</span></a></div>
+<div id="productInfo" style="display:none;"><span id="oxy_productID">webhelp</span><span id="oxy_productVersion">3.0</span></div><div id="loginData" style="display: none"><span class="bt_close" title="Close"><!----></span><form action="" target="passwordIframe" method="post" name="form_login" onsubmit="return loggInUser();" id="loginFormData" autocomplete="on"><input type="hidden" id="reloadComments" value="yes"><!----></input><table class="login"><thead><tr><td colspan="2"><span id="l_login2"><script type="text/javascript">$('#l_login2').html(getLocalization('label.login'));</script></span></td></tr><tr><td colspan="2"><div id="loginResponse"><!----></div></td></tr></thead><tr><td><span id="l_userName"><script type="text/javascript">$('#l_userName').html(getLocalization('label.userName'));</script></span></td><td><input name="usernameW" type="text" id="myUserName" autocomplete="on" required="required" autofocus="autofocus"><!----></input></td></tr><tr><td><span id="l_pswd"><script type="text/javascript">$('#l_pswd').html(getLocalization('label.pswd'));</script></span></td><td><input name="passwordW" type="password" id="myPassword" autocomplete="on" required="required"><!----></input></td></tr><tr><td colspan="2" align="left"><span id="ll_remember"><script type="text/javascript" xml:space="preserve">
+								$('#ll_remember').html(getLocalization('label.rememberme'));
+							</script></span>     <input name="myLoginRemember" type="checkbox" class="ck" id="myRemember" value="no"><!----></input></td></tr><tr><td colspan="2" align="center"><input id="l_bt_submit_log" type="submit" value="Submit" name="loginFormButton"><!----></input><script type="text/javascript">$('#l_bt_submit_log').attr('value',getLocalization('label.login'));</script><span class="btnHGlue"><!----></span><input class="bt_cancel" id="l_cancelLog" type="button" value="Cancel" name="loginFormButton"><!----></input><script type="text/javascript">$('#l_cancelLog').attr('value',getLocalization('label.cancel'));</script></td></tr></table><div class="loginAlternative"><span id="link_lostPwd" onclick="showLostPwd()"><script type="text/javascript">$('#link_lostPwd').html(getLocalization('label.lostPswd'));</script></span><span id="link_signUp" onclick="showSignUp()"><script type="text/javascript">$('#link_signUp').html(getLocalization('label.signUp'));</script></span></div></form><iframe id="passwordIframe" name="passwordIframe" style="display:none"><!----></iframe></div><div id="cmts"><!----></div></body>
+</html>

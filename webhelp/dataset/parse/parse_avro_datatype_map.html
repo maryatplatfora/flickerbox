@@ -1,0 +1,150 @@
+
+<!DOCTYPE html
+  PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xml:lang="en-us" lang="en-us">
+<head><meta xmlns="http://www.w3.org/1999/xhtml" name="description" content="Avro has a set of primitive and complex data types it supports. These are mapped to Platfora's internal data types. Complex data types are imported into Platfora as a single JSON-formatted STRING . ..."/><meta http-equiv="Content-Type" content="text/html; charset=utf-8"/><meta name="copyright" content="(C) Copyright 2005"/><meta name="DC.rights.owner" content="(C) Copyright 2005"/><meta name="DC.Type" content="reference"/><meta name="DC.Title" content="Avro to Platfora Data Type Mapping"/><meta name="abstract" content="Avro has a set of primitive and complex data types it supports. These are mapped to Platfora's internal data types."/><meta xmlns="http://www.w3.org/1999/xhtml" name="description" content="Avro has a set of primitive and complex data types it supports. These are mapped to Platfora's internal data types."/><meta name="DC.Relation" scheme="URI" content="../../dataset/parse/parse_avro_data.html"/><meta name="DC.Format" content="XHTML"/><meta name="DC.Identifier" content="avro_to_platfora_datatype_map"/><link rel="stylesheet" type="text/css" href="../../oxygen-webhelp/resources/css/commonltr.css"><!----></link><title>Avro to Platfora Data Type Mapping</title><meta http-equiv="Content-Type" content="text/html; charset=utf-8"/><link rel="stylesheet" type="text/css" href="../../oxygen-webhelp/resources/css/commonltr.css"><!----></link><link rel="stylesheet" type="text/css" href="../../oxygen-webhelp/resources/css/webhelp_topic.css"><!----></link><link rel="stylesheet" type="text/css" href="../../oxygen-webhelp/resources/skins/skin.css"><!----></link><link rel="stylesheet" type="text/css" href="../../oxygen-webhelp/resources/css/jquery.realperson.css"><!----></link><link rel="stylesheet" type="text/css" href="../../oxygen-webhelp/resources/css/comments.css"><!----></link><link rel="stylesheet" type="text/css" href="../../oxygen-webhelp/resources/css/jquery.cleditor.css"><!----></link><link rel="stylesheet" type="text/css" href="../../oxygen-webhelp/resources/css/admin.css"><!----></link><script type="text/javascript"><!--
+          
+          var prefix = "../../index.html";
+          
+          --></script><script type="text/javascript" src="../../oxygen-webhelp/resources/js/jquery-1.8.2.min.js"><!----></script><script type="text/javascript" src="../../oxygen-webhelp/resources/js/jquery.cookie.js"><!----></script><script type="text/javascript" src="../../oxygen-webhelp/resources/js/jquery-ui.custom.min.js"><!----></script><script type="text/javascript" charset="utf-8" src="../../oxygen-webhelp/resources/js/webhelp_topic.js"><!----></script><script type="text/javascript" charset="utf-8" src="../../oxygen-webhelp/resources/localization/strings.js"><!----></script><script type="text/javascript" charset="utf-8" src="../../oxygen-webhelp/resources/js/init.js"><!----></script><script type="text/javascript" charset="utf-8" src="../../oxygen-webhelp/resources/js/comments-functions.js"><!----></script></head>
+<body onload="init('../../')" id="avro_to_platfora_datatype_map">
+<table class="nav"><tbody><tr><td colspan="2"><div id="printlink"><a href="javascript:window.print();" title="printThisPage"/></div><div id="permalink"><a href="#" title="linkToThis"/></div></td></tr><tr><td width="75%"><a class="navheader_parent_path" href="../../dataset/parse/../../dataset/parse/parse_data_top.html" title="The Parse Data step of the dataset workspace is where you describe your source data in tabular format by parsing it into rows (records) and columns (fields). For Platfora to be able to parse the source data, each record must have a similar data structure.">Parse Source Data into Rows and Columns</a> / <a class="navheader_parent_path" href="../../dataset/parse/parse_avro_data.html" title="The Platfora Avro parser supports Avro container files where the top-level object is an Avro record data type. The file must have a JSON schema declared at the beginning of the file, and the serialized data must be in the Avro binary-encoded format.">Parse Avro Files</a></td><td><div class="navheader">
+<span class="navparent"><a class="link" href="../../dataset/parse/parse_avro_data.html" title="The Platfora Avro parser supports Avro container files where the top-level object is an Avro record data type. The file must have a JSON schema declared at the beginning of the file, and the serialized data must be in the Avro binary-encoded format."><span class="navheader_label">Parent topic</span><span class="navheader_separator">: </span><span class="navheader_linktext">Parse Avro Files</span></a></span>  </div></td></tr></tbody></table>
+
+  <h1 class="title topictitle1">Avro to Platfora Data Type Mapping</h1>
+
+  
+  <div class="body refbody"><p class="shortdesc">Avro has a set of primitive and complex data types it supports. These are mapped to Platfora's internal data types.</p>
+
+    <div class="section">
+      <p class="p">Complex data types are imported into Platfora as a
+        single JSON-formatted <samp class="ph codeph">STRING</samp>. You can then use the <a class="xref" href="../../reference/expression_language/row_string_functions_top.html" title="String functions allow you to manipulate and transform textual data, such as combining string values or extracting a portion of a string value.">JSON String Functions</a> in the Platfora
+        expression language to define new computed columns in the dataset that extract a
+        particular <em class="ph i">name:value</em> pair from the imported JSON structure.</p>
+
+      
+      
+<div class="tablenoborder"><table cellpadding="4" cellspacing="0" summary="" class="table" frame="border" border="1" rules="all">
+          
+          
+          <thead class="thead" align="left">
+            <tr class="row">
+              <th class="entry" valign="top" width="22.88329519450801%" id="d47463e45">Avro Data Type</th>
+
+              <th class="entry" valign="top" width="77.11670480549199%" id="d47463e48">Platfora Data Type</th>
+
+            </tr>
+
+          </thead>
+
+          <tbody class="tbody">
+            <tr class="row">
+              <td class="entry" valign="top" width="22.88329519450801%" headers="d47463e45 ">BOOLEAN</td>
+
+              <td class="entry" valign="top" width="77.11670480549199%" headers="d47463e48 ">INTEGER</td>
+
+            </tr>
+
+            <tr class="row">
+              <td class="entry" valign="top" width="22.88329519450801%" headers="d47463e45 ">INT</td>
+
+              <td class="entry" valign="top" width="77.11670480549199%" headers="d47463e48 ">INTEGER</td>
+
+            </tr>
+
+            <tr class="row">
+              <td class="entry" valign="top" width="22.88329519450801%" headers="d47463e45 ">LONG</td>
+
+              <td class="entry" valign="top" width="77.11670480549199%" headers="d47463e48 ">LONG</td>
+
+            </tr>
+
+            <tr class="row">
+              <td class="entry" valign="top" width="22.88329519450801%" headers="d47463e45 ">FLOAT</td>
+
+              <td class="entry" valign="top" width="77.11670480549199%" headers="d47463e48 ">DOUBLE</td>
+
+            </tr>
+
+            <tr class="row">
+              <td class="entry" valign="top" width="22.88329519450801%" headers="d47463e45 ">DOUBLE</td>
+
+              <td class="entry" valign="top" width="77.11670480549199%" headers="d47463e48 ">DOUBLE</td>
+
+            </tr>
+
+            <tr class="row">
+              <td class="entry" valign="top" width="22.88329519450801%" headers="d47463e45 ">STRING</td>
+
+              <td class="entry" valign="top" width="77.11670480549199%" headers="d47463e48 ">STRING</td>
+
+            </tr>
+
+            <tr class="row">
+              <td class="entry" valign="top" width="22.88329519450801%" headers="d47463e45 ">BYTES</td>
+
+              <td class="entry" valign="top" width="77.11670480549199%" headers="d47463e48 ">STRING (Hex-encoded)</td>
+
+            </tr>
+
+            <tr class="row">
+              <td class="entry" valign="top" width="22.88329519450801%" headers="d47463e45 ">RECORD</td>
+
+              <td class="entry" valign="top" width="77.11670480549199%" headers="d47463e48 ">STRING (JSON-formatted)</td>
+
+            </tr>
+
+            <tr class="row">
+              <td class="entry" valign="top" width="22.88329519450801%" headers="d47463e45 ">ENUM</td>
+
+              <td class="entry" valign="top" width="77.11670480549199%" headers="d47463e48 ">STRING (JSON-formatted)</td>
+
+            </tr>
+
+            <tr class="row">
+              <td class="entry" valign="top" width="22.88329519450801%" headers="d47463e45 ">ARRAY</td>
+
+              <td class="entry" valign="top" width="77.11670480549199%" headers="d47463e48 ">STRING (JSON-formatted)</td>
+
+            </tr>
+
+            <tr class="row">
+              <td class="entry" valign="top" width="22.88329519450801%" headers="d47463e45 ">MAP</td>
+
+              <td class="entry" valign="top" width="77.11670480549199%" headers="d47463e48 ">STRING (JSON-formatted)</td>
+
+            </tr>
+
+            <tr class="row">
+              <td class="entry" valign="top" width="22.88329519450801%" headers="d47463e45 ">UNION</td>
+
+              <td class="entry" valign="top" width="77.11670480549199%" headers="d47463e48 ">STRING (JSON-formatted)</td>
+
+            </tr>
+
+            <tr class="row">
+              <td class="entry" valign="top" width="22.88329519450801%" headers="d47463e45 ">FIXED</td>
+
+              <td class="entry" valign="top" width="77.11670480549199%" headers="d47463e48 ">FIXED</td>
+
+            </tr>
+
+          </tbody>
+
+        </table>
+</div>
+
+    </div>
+
+    
+      
+    
+  </div>
+
+<div class="related-links"/>
+<div class="navfooter"><!---->
+<span class="navparent"><a class="link" href="../../dataset/parse/parse_avro_data.html" title="The Platfora Avro parser supports Avro container files where the top-level object is an Avro record data type. The file must have a JSON schema declared at the beginning of the file, and the serialized data must be in the Avro binary-encoded format."><span class="navheader_label">Parent topic</span><span class="navheader_separator">: </span><span class="navheader_linktext">Parse Avro Files</span></a></span>  </div><div class="footer">WebHelp output generated by<a href="http://www.oxygenxml.com" target="_blank"><span class="oXygenLogo"><img src="../../oxygen-webhelp/resources/img/LogoOxygen100x22.png" alt="Oxygen"/></span><span class="xmlauthor">XML Author</span></a></div>
+<div id="productInfo" style="display:none;"><span id="oxy_productID">webhelp</span><span id="oxy_productVersion">3.0</span></div><div id="loginData" style="display: none"><span class="bt_close" title="Close"><!----></span><form action="" target="passwordIframe" method="post" name="form_login" onsubmit="return loggInUser();" id="loginFormData" autocomplete="on"><input type="hidden" id="reloadComments" value="yes"><!----></input><table class="login"><thead><tr><td colspan="2"><span id="l_login2"><script type="text/javascript">$('#l_login2').html(getLocalization('label.login'));</script></span></td></tr><tr><td colspan="2"><div id="loginResponse"><!----></div></td></tr></thead><tr><td><span id="l_userName"><script type="text/javascript">$('#l_userName').html(getLocalization('label.userName'));</script></span></td><td><input name="usernameW" type="text" id="myUserName" autocomplete="on" required="required" autofocus="autofocus"><!----></input></td></tr><tr><td><span id="l_pswd"><script type="text/javascript">$('#l_pswd').html(getLocalization('label.pswd'));</script></span></td><td><input name="passwordW" type="password" id="myPassword" autocomplete="on" required="required"><!----></input></td></tr><tr><td colspan="2" align="left"><span id="ll_remember"><script type="text/javascript" xml:space="preserve">
+								$('#ll_remember').html(getLocalization('label.rememberme'));
+							</script></span>     <input name="myLoginRemember" type="checkbox" class="ck" id="myRemember" value="no"><!----></input></td></tr><tr><td colspan="2" align="center"><input id="l_bt_submit_log" type="submit" value="Submit" name="loginFormButton"><!----></input><script type="text/javascript">$('#l_bt_submit_log').attr('value',getLocalization('label.login'));</script><span class="btnHGlue"><!----></span><input class="bt_cancel" id="l_cancelLog" type="button" value="Cancel" name="loginFormButton"><!----></input><script type="text/javascript">$('#l_cancelLog').attr('value',getLocalization('label.cancel'));</script></td></tr></table><div class="loginAlternative"><span id="link_lostPwd" onclick="showLostPwd()"><script type="text/javascript">$('#link_lostPwd').html(getLocalization('label.lostPswd'));</script></span><span id="link_signUp" onclick="showSignUp()"><script type="text/javascript">$('#link_signUp').html(getLocalization('label.signUp'));</script></span></div></form><iframe id="passwordIframe" name="passwordIframe" style="display:none"><!----></iframe></div><div id="cmts"><!----></div></body>
+</html>

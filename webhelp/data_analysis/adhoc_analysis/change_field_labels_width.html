@@ -1,0 +1,112 @@
+
+<!DOCTYPE html
+  PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xml:lang="en-us" lang="en-us">
+<head><meta xmlns="http://www.w3.org/1999/xhtml" name="description" content="When you add a dimension field to your visualization, the field name and its values are assigned a width by default. Platfora calculates a best guess width based on several factors including the ..."/><meta http-equiv="Content-Type" content="text/html; charset=utf-8"/><meta name="copyright" content="(C) Copyright 2005"/><meta name="DC.rights.owner" content="(C) Copyright 2005"/><meta name="DC.Type" content="task"/><meta name="DC.Title" content="Change Field Labels Width in a Viz"/><meta name="abstract" content="When you add a dimension field to your visualization, the field name and its values are assigned a width by default. Platfora calculates a best guess width based on several factors including the length of the current values in the field. However, you can define the width assigned the labels of fields used in a drop-zone."/><meta xmlns="http://www.w3.org/1999/xhtml" name="description" content="When you add a dimension field to your visualization, the field name and its values are assigned a width by default. Platfora calculates a best guess width based on several factors including the length of the current values in the field. However, you can define the width assigned the labels of fields used in a drop-zone."/><meta name="DC.Relation" scheme="URI" content="../../data_analysis/adhoc_analysis/viz_axis_dimension_options.html"/><meta name="DC.Format" content="XHTML"/><meta name="DC.Identifier" content="change_field_labels_width"/><link rel="stylesheet" type="text/css" href="../../oxygen-webhelp/resources/css/commonltr.css"><!----></link><title>Change Field Labels Width in a Viz</title><meta http-equiv="Content-Type" content="text/html; charset=utf-8"/><link rel="stylesheet" type="text/css" href="../../oxygen-webhelp/resources/css/commonltr.css"><!----></link><link rel="stylesheet" type="text/css" href="../../oxygen-webhelp/resources/css/webhelp_topic.css"><!----></link><link rel="stylesheet" type="text/css" href="../../oxygen-webhelp/resources/skins/skin.css"><!----></link><link rel="stylesheet" type="text/css" href="../../oxygen-webhelp/resources/css/jquery.realperson.css"><!----></link><link rel="stylesheet" type="text/css" href="../../oxygen-webhelp/resources/css/comments.css"><!----></link><link rel="stylesheet" type="text/css" href="../../oxygen-webhelp/resources/css/jquery.cleditor.css"><!----></link><link rel="stylesheet" type="text/css" href="../../oxygen-webhelp/resources/css/admin.css"><!----></link><script type="text/javascript"><!--
+          
+          var prefix = "../../index.html";
+          
+          --></script><script type="text/javascript" src="../../oxygen-webhelp/resources/js/jquery-1.8.2.min.js"><!----></script><script type="text/javascript" src="../../oxygen-webhelp/resources/js/jquery.cookie.js"><!----></script><script type="text/javascript" src="../../oxygen-webhelp/resources/js/jquery-ui.custom.min.js"><!----></script><script type="text/javascript" charset="utf-8" src="../../oxygen-webhelp/resources/js/webhelp_topic.js"><!----></script><script type="text/javascript" charset="utf-8" src="../../oxygen-webhelp/resources/localization/strings.js"><!----></script><script type="text/javascript" charset="utf-8" src="../../oxygen-webhelp/resources/js/init.js"><!----></script><script type="text/javascript" charset="utf-8" src="../../oxygen-webhelp/resources/js/comments-functions.js"><!----></script></head>
+<body onload="init('../../')" id="change_field_labels_width">
+<table class="nav"><tbody><tr><td colspan="2"><div id="printlink"><a href="javascript:window.print();" title="printThisPage"/></div><div id="permalink"><a href="#" title="linkToThis"/></div></td></tr><tr><td width="75%"><a class="navheader_parent_path" href="../../data_analysis/adhoc_analysis/../../data_analysis/adhoc_analysis/viz_axis_controls.html" title="Visualizations use a grid layout of columns and rows. Fields added to the X-axis drop-zone show on the horizontal axis (equivalent to columns), and fields added to the Y-axis drop-zone show on the vertical axis (equivalent to rows). The axes have headers that display the field names, and labels denoting the field values (or members).">Control the Axes of a Viz</a> / <a class="navheader_parent_path" href="../../data_analysis/adhoc_analysis/viz_axis_dimension_options.html" title="When you have a dimension field in the X-axis or Y-axis drop zone, the corresponding axis shows the labels of the dimension values. You can change the sort order of a dimension axis, limit the number of values shown on the axis, or toggle the axis type to display values on a categorical or quantitative scale.">Changing Axis Options for Dimension Data</a></td><td><div class="navheader">
+<span class="navparent"><a class="link" href="../../data_analysis/adhoc_analysis/viz_axis_dimension_options.html" title="When you have a dimension field in the X-axis or Y-axis drop zone, the corresponding axis shows the labels of the dimension values. You can change the sort order of a dimension axis, limit the number of values shown on the axis, or toggle the axis type to display values on a categorical or quantitative scale."><span class="navheader_label">Parent topic</span><span class="navheader_separator">: </span><span class="navheader_linktext">Changing Axis Options for Dimension Data</span></a></span>  </div></td></tr></tbody></table>
+
+    <h1 class="title topictitle1">Change Field Labels Width in a Viz</h1>
+
+    
+    <div class="body taskbody"><p class="shortdesc">When you add a dimension field to your visualization, the field name and its values
+        are assigned a width by default. Platfora calculates a best guess width based on several
+        factors including the length of the current values in the field. However, you can define the
+        width assigned the labels of fields used in a drop-zone.</p>
+
+        <div class="section context">
+            
+            <p class="p">You can choose one of the following options when configuring field label width for a
+                dimension field:</p>
+
+            <div class="p">
+                <ul class="ul">
+                    <li class="li">
+                        <p class="p"><span class="ph uicontrol">Fit to best guess.</span> Platfora calculates a label
+                            width based on several factors including the size of the viz and length
+                            of values in the field. This is the default.</p>
+
+                    </li>
+
+                    <li class="li">
+                        <p class="p"><span class="ph uicontrol">Fit to axis values.</span> The label width is large
+                            enough to accommodate the longest value along the axis.</p>
+
+                    </li>
+
+                    <li class="li">
+                        <p class="p"><span class="ph uicontrol">Fit to field name.</span> The label width is as wide as
+                            the field name.</p>
+
+                    </li>
+
+                    <li class="li">
+                        <p class="p"><span class="ph uicontrol">Max pixel width.</span> You can choose the number of
+                            pixels to use for the label width.</p>
+
+                    </li>
+
+                </ul>
+
+            </div>
+
+            <p class="p">The label width applies to the field in both <span class="ph uicontrol">Chart</span> and
+                    <span class="ph uicontrol">Cross-Tab</span> view.</p>
+
+            
+            <div class="fig fignone"><img class="image" src="../../images/./vizbuilder/change_field_labels_width.png" alt="Truncate Field Labels on an Axis"/></div>
+
+            
+
+
+        </div>
+
+        <ol class="ol steps"><li class="li step stepexpand">
+                <span class="ph cmd">Click a visualization to select it. Field label widths are controlled on a
+                    per-viz basis. </span>
+            </li>
+<li class="li step stepexpand">
+                <span class="ph cmd">Find the dimension field in the <span class="ph uicontrol">Builder</span> panel that you
+                    want to edit, and select <span class="ph uicontrol">Options and Sort</span> from its field
+                    menu. </span>
+                <div class="itemgroup stepresult">(Optional) Click the field name in the viz to open the
+                    <span class="ph uicontrol">Options and Sort</span> dialog.</div>
+            </li>
+<li class="li step stepexpand">
+                <span class="ph cmd">Click the <span class="ph uicontrol">Labels</span> tab.</span>
+            </li>
+<li class="li step stepexpand">
+                <span class="ph cmd">Choose how to calculate the field label width.</span>
+            </li>
+<li class="li step stepexpand">
+                <span class="ph cmd">Click <span class="ph uicontrol">Apply</span>.</span>
+            </li>
+<li class="li step stepexpand">
+                <span class="ph cmd">The field label width is updated in the currently selected viz.
+                </span>
+                 <div class="itemgroup stepresult"><div class="note note"><span class="notetitle">Note:</span> The field label width applies to the current viz only. The width does
+                        not affect other visualizations in the same vizboard. When the field is
+                        removed from a drop zone and added again, the width setting is reverted to
+                        the default.</div>
+
+                 </div>
+            </li>
+</ol>
+
+
+        
+
+    </div>
+
+<div class="related-links"/>
+<div class="navfooter"><!---->
+<span class="navparent"><a class="link" href="../../data_analysis/adhoc_analysis/viz_axis_dimension_options.html" title="When you have a dimension field in the X-axis or Y-axis drop zone, the corresponding axis shows the labels of the dimension values. You can change the sort order of a dimension axis, limit the number of values shown on the axis, or toggle the axis type to display values on a categorical or quantitative scale."><span class="navheader_label">Parent topic</span><span class="navheader_separator">: </span><span class="navheader_linktext">Changing Axis Options for Dimension Data</span></a></span>  </div><div class="footer">WebHelp output generated by<a href="http://www.oxygenxml.com" target="_blank"><span class="oXygenLogo"><img src="../../oxygen-webhelp/resources/img/LogoOxygen100x22.png" alt="Oxygen"/></span><span class="xmlauthor">XML Author</span></a></div>
+<div id="productInfo" style="display:none;"><span id="oxy_productID">webhelp</span><span id="oxy_productVersion">3.0</span></div><div id="loginData" style="display: none"><span class="bt_close" title="Close"><!----></span><form action="" target="passwordIframe" method="post" name="form_login" onsubmit="return loggInUser();" id="loginFormData" autocomplete="on"><input type="hidden" id="reloadComments" value="yes"><!----></input><table class="login"><thead><tr><td colspan="2"><span id="l_login2"><script type="text/javascript">$('#l_login2').html(getLocalization('label.login'));</script></span></td></tr><tr><td colspan="2"><div id="loginResponse"><!----></div></td></tr></thead><tr><td><span id="l_userName"><script type="text/javascript">$('#l_userName').html(getLocalization('label.userName'));</script></span></td><td><input name="usernameW" type="text" id="myUserName" autocomplete="on" required="required" autofocus="autofocus"><!----></input></td></tr><tr><td><span id="l_pswd"><script type="text/javascript">$('#l_pswd').html(getLocalization('label.pswd'));</script></span></td><td><input name="passwordW" type="password" id="myPassword" autocomplete="on" required="required"><!----></input></td></tr><tr><td colspan="2" align="left"><span id="ll_remember"><script type="text/javascript" xml:space="preserve">
+								$('#ll_remember').html(getLocalization('label.rememberme'));
+							</script></span>     <input name="myLoginRemember" type="checkbox" class="ck" id="myRemember" value="no"><!----></input></td></tr><tr><td colspan="2" align="center"><input id="l_bt_submit_log" type="submit" value="Submit" name="loginFormButton"><!----></input><script type="text/javascript">$('#l_bt_submit_log').attr('value',getLocalization('label.login'));</script><span class="btnHGlue"><!----></span><input class="bt_cancel" id="l_cancelLog" type="button" value="Cancel" name="loginFormButton"><!----></input><script type="text/javascript">$('#l_cancelLog').attr('value',getLocalization('label.cancel'));</script></td></tr></table><div class="loginAlternative"><span id="link_lostPwd" onclick="showLostPwd()"><script type="text/javascript">$('#link_lostPwd').html(getLocalization('label.lostPswd'));</script></span><span id="link_signUp" onclick="showSignUp()"><script type="text/javascript">$('#link_signUp').html(getLocalization('label.signUp'));</script></span></div></form><iframe id="passwordIframe" name="passwordIframe" style="display:none"><!----></iframe></div><div id="cmts"><!----></div></body>
+</html>

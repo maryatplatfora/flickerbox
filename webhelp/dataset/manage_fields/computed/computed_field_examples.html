@@ -1,0 +1,136 @@
+
+<!DOCTYPE html
+  PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xml:lang="en-us" lang="en-us">
+<head><meta xmlns="http://www.w3.org/1999/xhtml" name="description" content="This section contains examples of some common data processing tasks you can accomplish using Platfora computed fields. The Expression and Query Language Reference has examples for all of the built-in ..."/><meta http-equiv="Content-Type" content="text/html; charset=utf-8"/><meta name="copyright" content="(C) Copyright 2005"/><meta name="DC.rights.owner" content="(C) Copyright 2005"/><meta name="DC.Type" content="concept"/><meta name="DC.Title" content="Computed Field Examples"/><meta name="abstract" content="This section contains examples of some common data processing tasks you can accomplish using Platfora computed fields."/><meta xmlns="http://www.w3.org/1999/xhtml" name="description" content="This section contains examples of some common data processing tasks you can accomplish using Platfora computed fields."/><meta name="DC.Relation" scheme="URI" content="../../../dataset/manage_fields/use_computed_top.html"/><meta name="DC.Format" content="XHTML"/><meta name="DC.Identifier" content="computed_field_expression_examples"/><link rel="stylesheet" type="text/css" href="../../../oxygen-webhelp/resources/css/commonltr.css"><!----></link><title>Computed Field Examples</title><meta http-equiv="Content-Type" content="text/html; charset=utf-8"/><link rel="stylesheet" type="text/css" href="../../../oxygen-webhelp/resources/css/commonltr.css"><!----></link><link rel="stylesheet" type="text/css" href="../../../oxygen-webhelp/resources/css/webhelp_topic.css"><!----></link><link rel="stylesheet" type="text/css" href="../../../oxygen-webhelp/resources/skins/skin.css"><!----></link><link rel="stylesheet" type="text/css" href="../../../oxygen-webhelp/resources/css/jquery.realperson.css"><!----></link><link rel="stylesheet" type="text/css" href="../../../oxygen-webhelp/resources/css/comments.css"><!----></link><link rel="stylesheet" type="text/css" href="../../../oxygen-webhelp/resources/css/jquery.cleditor.css"><!----></link><link rel="stylesheet" type="text/css" href="../../../oxygen-webhelp/resources/css/admin.css"><!----></link><script type="text/javascript"><!--
+          
+          var prefix = "../../../index.html";
+          
+          --></script><script type="text/javascript" src="../../../oxygen-webhelp/resources/js/jquery-1.8.2.min.js"><!----></script><script type="text/javascript" src="../../../oxygen-webhelp/resources/js/jquery.cookie.js"><!----></script><script type="text/javascript" src="../../../oxygen-webhelp/resources/js/jquery-ui.custom.min.js"><!----></script><script type="text/javascript" charset="utf-8" src="../../../oxygen-webhelp/resources/js/webhelp_topic.js"><!----></script><script type="text/javascript" charset="utf-8" src="../../../oxygen-webhelp/resources/localization/strings.js"><!----></script><script type="text/javascript" charset="utf-8" src="../../../oxygen-webhelp/resources/js/init.js"><!----></script><script type="text/javascript" charset="utf-8" src="../../../oxygen-webhelp/resources/js/comments-functions.js"><!----></script></head>
+<body onload="init('../../../')" id="computed_field_expression_examples">
+<table class="nav"><tbody><tr><td colspan="2"><div id="printlink"><a href="javascript:window.print();" title="printThisPage"/></div><div id="permalink"><a href="#" title="linkToThis"/></div></td></tr><tr><td width="75%"><a class="navheader_parent_path" href="../../../dataset/manage_fields/../../dataset/use_expressions_top.html" title="Platfora includes an expression language to support advanced data analysis processing.">Work with Platfora's Expression Language</a> / <a class="navheader_parent_path" href="../../../dataset/manage_fields/use_computed_top.html" title="You can add computed fields in a dataset or in the vizboard. This section discusses some differences between computed fields in datasets and vizboards, provides examples of computed fields, and discusses troubleshooting errors.">Use Computed Fields</a></td><td><div class="navheader">
+<span class="navparent"><a class="link" href="../../../dataset/manage_fields/use_computed_top.html" title="You can add computed fields in a dataset or in the vizboard. This section discusses some differences between computed fields in datasets and vizboards, provides examples of computed fields, and discusses troubleshooting errors."><span class="navheader_label">Parent topic</span><span class="navheader_separator">: </span><span class="navheader_linktext">Use Computed Fields</span></a></span>  </div></td></tr></tbody></table>
+
+ <h1 class="title topictitle1">Computed Field Examples</h1>
+
+ 
+ <div class="body conbody"><p class="shortdesc">This section contains examples of some common data processing tasks you can accomplish using Platfora computed fields.</p>
+
+  <p class="p">The <a class="xref" href="../../../reference/expression_language/expression_reference_top.html" title="An expression computes or produces a value by combining fields (or columns), constant values, operators, and functions. Platfora has a built-in expression language. You use the language's functions and operators to create a computed field.">Expression and Query Language Reference</a> has examples for all of the built-in functions that Platfora provides.</p>
+
+  <div class="section"><h2 class="title sectiontitle">Finding and Replacing Values</h2>
+   
+   <p class="p">You may have a particular values in your data that you want to find and change to something
+    else, or reformat them in a way so they are all consistent. For example, find and replace values
+    in a <em class="ph i">name</em> field where name values are formatted as <samp class="ph codeph">firstname lastname</samp>
+    and replace them with name values formatted as <samp class="ph codeph">lastname, firstname</samp>:</p>
+
+   <pre class="pre codeblock">REGEX_REPLACE(name,"(.*) (.*)","$2, $1")</pre>
+
+   
+   <p class="p">Or you may have field values that are not formatted exactly the same, and want to change them
+    so that like values can be grouped and sorted together. For example, change all
+     <em class="ph i">profession_title</em> field values that contain the word "Retired" anywhere in the string to
+    just be a value of "Retired":</p>
+
+   <pre class="pre codeblock">REGEX_REPLACE(profession_title,".*(Retired).*","Retired")</pre>
+
+  </div>
+
+  
+  <div class="section"><h2 class="title sectiontitle">Extracting Information from File Names and Directories</h2>
+   
+   <p class="p">You may have a dataset where the information you need is not inside the source files, but in
+    the Hadoop file name or directory path, such as dates or server names. </p>
+
+   <p class="p">Suppose your dataset is based on daily log files that are organized into directories by date,
+    and the file names are the server IP address of the server that produced the log file. </p>
+
+   <p class="p">For example, the URI path to a log file produced by server <em class="ph i">172.12.131.118</em> on <em class="ph i">July 4,
+     2012</em> is:</p>
+
+   <p class="p"><em class="ph i">hdfs://myhdfs-server.com/data/logs/20120704/172.12.131.118.log</em></p>
+
+   <p class="p">The following expression uses <samp class="ph codeph">FILE_PATH()</samp> in combination with <samp class="ph codeph">REGEX()</samp> and <samp class="ph codeph">TO_DATE()</samp> to create a date field from the date directory name:</p>
+
+   <div class="p">
+    <pre class="pre codeblock">TO_DATE(REGEX(FILE_PATH(),"hdfs://myhdfs-server.com/data/logs/(\d{8})/(?:\d{1,3}\.*)+\.log"),"yyyyMMdd")</pre>
+
+   </div>
+
+   <p class="p">And the following expression uses <samp class="ph codeph">FILE_NAME()</samp> and <samp class="ph codeph">REGEX()</samp> to extract the server IP address from the file name: </p>
+
+   <pre class="pre codeblock">REGEX(FILE_NAME(),"(\d{1,3}\.\d{1,3}\.\d{1,3}\.\d{1,3})\.log")</pre>
+
+  </div>
+
+  
+  <div class="section"><h2 class="title sectiontitle">Extracting a Portion of Field Values</h2>
+   
+   <p class="p">You may have field values where only part of the value contains useful information. You can
+    pull out a portion of a field value to define a new field. For example, suppose you had an
+     <em class="ph i">email_address</em> field with values in the format of <em class="ph i">username@provider.domain</em>, and
+    you wanted to extract just the <em class="ph i">provider</em> portion of the email address:</p>
+
+   <div class="p">
+    <pre class="pre codeblock">REGEX(email,"^[a-zA-Z0-9._%+-]+@<strong class="ph b">([a-zA-Z0-9._-]+)</strong>\.[a-zA-Z]{2,4}$")</pre>
+
+   </div>
+
+  </div>
+
+  
+  <div class="section"><h2 class="title sectiontitle">Renaming Field Values</h2>
+   
+   <p class="p">Sometimes field values are not very user-friendly. For example, a Boolean field may have
+    values of 0 and 1 that you want to change to more human-readable values. </p>
+
+   <pre class="pre codeblock">CASE WHEN cancelled=0 THEN "Not Cancelled" WHEN cancelled=1 THEN "Cancelled" ELSE NULL END</pre>
+
+   
+   
+  </div>
+
+  
+  <div class="section"><h2 class="title sectiontitle">Deriving a New Field from Other Fields</h2>
+   
+   <p class="p">You may want to combine the values of other fields to create a new field. For example, you
+    could combine a <em class="ph i">month</em>, <em class="ph i">day</em>, and <em class="ph i">year</em> field into a single <em class="ph i">date</em> field.
+    This would then allow you to reference Platfora's built-in <em class="ph i">Date</em> dimension dataset.</p>
+
+   <pre class="pre codeblock">TO_DATE(CONCAT(month,"/",day,"/",year),"MM/dd/yyyy")</pre>
+
+   <p class="p">You can also use the values of other fields to calculate a new value. For example, you could
+    calculate a gross profit margin percentage using the values of a <em class="ph i">revenue</em> and <em class="ph i">cost</em>
+    field as follows: </p>
+
+   <div class="p">
+    <pre class="pre codeblock">((revenue - cost) / cost) * 100</pre>
+
+   </div>
+
+  </div>
+
+  
+  <div class="section"><h2 class="title sectiontitle">Cleansing and Casting Field Values</h2>
+   
+   <p class="p">Sometimes the are data values in a column need to be transformed and cast to another data type
+    in order to allow for further calculations on the data. For example, you might have some numeric
+    data that you want to use as a measure, however, it has string values of "NA" to represent what
+    should really be <samp class="ph codeph">NULL</samp> values. You could transform the "NA" values to
+     <samp class="ph codeph">NULL</samp> and then cast the column to a numeric data type. </p>
+
+   <pre class="pre codeblock">TO_INT(CASE WHEN delay_minutes="NA" then NULL ELSE delay_minutes END)</pre>
+
+  </div>
+
+ 
+ </div>
+
+<div class="related-links"/>
+<div class="navfooter"><!---->
+<span class="navparent"><a class="link" href="../../../dataset/manage_fields/use_computed_top.html" title="You can add computed fields in a dataset or in the vizboard. This section discusses some differences between computed fields in datasets and vizboards, provides examples of computed fields, and discusses troubleshooting errors."><span class="navheader_label">Parent topic</span><span class="navheader_separator">: </span><span class="navheader_linktext">Use Computed Fields</span></a></span>  </div><div class="footer">WebHelp output generated by<a href="http://www.oxygenxml.com" target="_blank"><span class="oXygenLogo"><img src="../../../oxygen-webhelp/resources/img/LogoOxygen100x22.png" alt="Oxygen"/></span><span class="xmlauthor">XML Author</span></a></div>
+<div id="productInfo" style="display:none;"><span id="oxy_productID">webhelp</span><span id="oxy_productVersion">3.0</span></div><div id="loginData" style="display: none"><span class="bt_close" title="Close"><!----></span><form action="" target="passwordIframe" method="post" name="form_login" onsubmit="return loggInUser();" id="loginFormData" autocomplete="on"><input type="hidden" id="reloadComments" value="yes"><!----></input><table class="login"><thead><tr><td colspan="2"><span id="l_login2"><script type="text/javascript">$('#l_login2').html(getLocalization('label.login'));</script></span></td></tr><tr><td colspan="2"><div id="loginResponse"><!----></div></td></tr></thead><tr><td><span id="l_userName"><script type="text/javascript">$('#l_userName').html(getLocalization('label.userName'));</script></span></td><td><input name="usernameW" type="text" id="myUserName" autocomplete="on" required="required" autofocus="autofocus"><!----></input></td></tr><tr><td><span id="l_pswd"><script type="text/javascript">$('#l_pswd').html(getLocalization('label.pswd'));</script></span></td><td><input name="passwordW" type="password" id="myPassword" autocomplete="on" required="required"><!----></input></td></tr><tr><td colspan="2" align="left"><span id="ll_remember"><script type="text/javascript" xml:space="preserve">
+								$('#ll_remember').html(getLocalization('label.rememberme'));
+							</script></span>     <input name="myLoginRemember" type="checkbox" class="ck" id="myRemember" value="no"><!----></input></td></tr><tr><td colspan="2" align="center"><input id="l_bt_submit_log" type="submit" value="Submit" name="loginFormButton"><!----></input><script type="text/javascript">$('#l_bt_submit_log').attr('value',getLocalization('label.login'));</script><span class="btnHGlue"><!----></span><input class="bt_cancel" id="l_cancelLog" type="button" value="Cancel" name="loginFormButton"><!----></input><script type="text/javascript">$('#l_cancelLog').attr('value',getLocalization('label.cancel'));</script></td></tr></table><div class="loginAlternative"><span id="link_lostPwd" onclick="showLostPwd()"><script type="text/javascript">$('#link_lostPwd').html(getLocalization('label.lostPswd'));</script></span><span id="link_signUp" onclick="showSignUp()"><script type="text/javascript">$('#link_signUp').html(getLocalization('label.signUp'));</script></span></div></form><iframe id="passwordIframe" name="passwordIframe" style="display:none"><!----></iframe></div><div id="cmts"><!----></div></body>
+</html>

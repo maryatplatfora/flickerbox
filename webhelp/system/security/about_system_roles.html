@@ -1,0 +1,154 @@
+
+<!DOCTYPE html
+  PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xml:lang="en-us" lang="en-us">
+<head><meta xmlns="http://www.w3.org/1999/xhtml" name="description" content="Platfora currently has five system roles that can be assigned to a user (or group). These roles control the actions that users can do in the Platfora application. In addition to these roles, Platfora ..."/><meta http-equiv="Content-Type" content="text/html; charset=utf-8"/><meta name="copyright" content="(C) Copyright 2005"/><meta name="DC.rights.owner" content="(C) Copyright 2005"/><meta name="DC.Type" content="concept"/><meta name="DC.Title" content="Understand Platfora System Roles"/><meta name="abstract" content="Platfora currently has five system roles that can be assigned to a user (or group). These roles control the actions that users can do in the Platfora application. In addition to these roles, Platfora includes a Super Admin mode that allows system administrators to perform all actions."/><meta xmlns="http://www.w3.org/1999/xhtml" name="description" content="Platfora currently has five system roles that can be assigned to a user (or group). These roles control the actions that users can do in the Platfora application. In addition to these roles, Platfora includes a Super Admin mode that allows system administrators to perform all actions."/><meta name="DC.Relation" scheme="URI" content="../../system/security/about_security_model.html"/><meta name="DC.Relation" scheme="URI" content="../../system/security/about_super_admin_mode.html"/><meta name="DC.Format" content="XHTML"/><meta name="DC.Identifier" content="about_system_roles"/><link rel="stylesheet" type="text/css" href="../../oxygen-webhelp/resources/css/commonltr.css"><!----></link><title>Understand Platfora System Roles</title><meta http-equiv="Content-Type" content="text/html; charset=utf-8"/><link rel="stylesheet" type="text/css" href="../../oxygen-webhelp/resources/css/commonltr.css"><!----></link><link rel="stylesheet" type="text/css" href="../../oxygen-webhelp/resources/css/webhelp_topic.css"><!----></link><link rel="stylesheet" type="text/css" href="../../oxygen-webhelp/resources/skins/skin.css"><!----></link><link rel="stylesheet" type="text/css" href="../../oxygen-webhelp/resources/css/jquery.realperson.css"><!----></link><link rel="stylesheet" type="text/css" href="../../oxygen-webhelp/resources/css/comments.css"><!----></link><link rel="stylesheet" type="text/css" href="../../oxygen-webhelp/resources/css/jquery.cleditor.css"><!----></link><link rel="stylesheet" type="text/css" href="../../oxygen-webhelp/resources/css/admin.css"><!----></link><script type="text/javascript"><!--
+          
+          var prefix = "../../index.html";
+          
+          --></script><script type="text/javascript" src="../../oxygen-webhelp/resources/js/jquery-1.8.2.min.js"><!----></script><script type="text/javascript" src="../../oxygen-webhelp/resources/js/jquery.cookie.js"><!----></script><script type="text/javascript" src="../../oxygen-webhelp/resources/js/jquery-ui.custom.min.js"><!----></script><script type="text/javascript" charset="utf-8" src="../../oxygen-webhelp/resources/js/webhelp_topic.js"><!----></script><script type="text/javascript" charset="utf-8" src="../../oxygen-webhelp/resources/localization/strings.js"><!----></script><script type="text/javascript" charset="utf-8" src="../../oxygen-webhelp/resources/js/init.js"><!----></script><script type="text/javascript" charset="utf-8" src="../../oxygen-webhelp/resources/js/comments-functions.js"><!----></script></head>
+<body onload="init('../../')" id="about_system_roles">
+<table class="nav"><tbody><tr><td colspan="2"><div id="printlink"><a href="javascript:window.print();" title="printThisPage"/></div><div id="permalink"><a href="#" title="linkToThis"/></div></td></tr><tr><td width="75%"><a class="navheader_parent_path" href="../../system/security/../../system/system_admin_top.html" title="From the Platfora System page, authorized system administrators can manage and monitor various aspects of the Platfora system, such as lens builds, user access, data access, server resources, and system configuration. Users who do not have system administrator permissions will only have access to the System page to monitor and manage their own lenses.">System Administration</a> / <a class="navheader_parent_path" href="../../system/security/about_security_model.html" title="Platfora provides role-based access control (RBAC) to configure what users can do in the Platfora application, what data they can see, and what objects they can access. Access can be controlled at both broad and detail levels.">Manage Access and Permissions</a></td><td><div class="navheader">
+<span class="navparent"><a class="link" href="../../system/security/about_security_model.html" title="Platfora provides role-based access control (RBAC) to configure what users can do in the Platfora application, what data they can see, and what objects they can access. Access can be controlled at both broad and detail levels."><span class="navheader_label">Parent topic</span><span class="navheader_separator">: </span><span class="navheader_linktext">Manage Access and Permissions</span></a></span>  </div></td></tr></tbody></table>
+
+ <h1 class="title topictitle1">Understand Platfora System Roles</h1>
+
+ 
+ <div class="body conbody"><p class="shortdesc">Platfora currently has five system roles that can be assigned to a user (or group).
+  These roles control the actions that users can do in the Platfora application. In addition to
+  these roles, Platfora includes a Super Admin mode that allows system administrators to perform all
+  actions.</p>
+
+  <p class="p">If you do not choose a system role when you create a new user or group account, the default
+   system role is <span class="ph uicontrol">Viewer</span>.</p>
+
+  <p class="p">If a user belongs to multiple groups with conflicting system roles, the most permissive role
+   takes precedence. For example, <span class="ph uicontrol">System Administrator</span> is the most
+   permissive role and <span class="ph uicontrol">Viewer</span> is the least permissive role.  </p>
+
+  
+<div class="tablenoborder"><table cellpadding="4" cellspacing="0" summary="" class="table" frame="border" border="1" rules="all">
+    
+    
+    <thead class="thead" align="left">
+     <tr class="row">
+      <th class="entry" valign="top" width="23.04147465437788%" id="d164049e42">Role Name</th>
+
+      <th class="entry" valign="top" width="76.95852534562212%" id="d164049e45">This role can…</th>
+
+     </tr>
+
+    </thead>
+
+    <tbody class="tbody">
+     
+     <tr class="row">
+      <td class="entry" valign="top" width="23.04147465437788%" headers="d164049e42 "><span class="ph uicontrol">Viewer </span></td>
+
+      <td class="entry" valign="top" width="76.95852534562212%" headers="d164049e45 ">
+       <p class="p">View datasets, lenses, and vizboards for which they have object permissions</p>
+
+       <p class="p">Manage own user account</p>
+
+      </td>
+
+     </tr>
+
+     <tr class="row">
+      <td class="entry" valign="top" width="23.04147465437788%" headers="d164049e42 "><span class="ph uicontrol">Analyst (Limited) </span></td>
+
+      <td class="entry" valign="top" width="76.95852534562212%" headers="d164049e45 ">
+       <p class="p"><em class="ph i">All permissions of Viewer plus</em>:</p>
+
+       <p class="p">Create vizboards</p>
+
+      </td>
+
+     </tr>
+
+     <tr class="row">
+      <td class="entry" valign="top" width="23.04147465437788%" headers="d164049e42 "><span class="ph uicontrol">Analyst</span></td>
+
+      <td class="entry" valign="top" width="76.95852534562212%" headers="d164049e45 ">
+       <p class="p"><em class="ph i">All permissions of Analyst (Limited) plus</em>:</p>
+
+       <p class="p">Define lenses</p>
+
+       <p class="p">Build lenses up to 1 GB in size (configurable)</p>
+
+      </td>
+
+     </tr>
+
+     <tr class="row">
+      <td class="entry" valign="top" width="23.04147465437788%" headers="d164049e42 "><span class="ph uicontrol">Data Administrator</span></td>
+
+      <td class="entry" valign="top" width="76.95852534562212%" headers="d164049e45 ">
+       <p class="p"><em class="ph i">All permissions of Analyst plus</em>:</p>
+
+       <p class="p">Create datasets</p>
+
+       <p class="p">Build lenses up to 1 TB in size (configurable)</p>
+
+      </td>
+
+     </tr>
+
+     <tr class="row">
+      <td class="entry" valign="top" width="23.04147465437788%" headers="d164049e42 "><span class="ph uicontrol">System Administrator</span></td>
+
+      <td class="entry" valign="top" width="76.95852534562212%" headers="d164049e45 ">
+       <p class="p"><em class="ph i">All permissions of Data Administrator plus</em>:</p>
+
+       <p class="p">Create data sources</p>
+
+       <p class="p">Manage all users and groups</p>
+
+       <p class="p">Manage system settings</p>
+
+       <p class="p">Build lenses up to unlimited size (configurable)</p>
+
+      </td>
+
+     </tr>
+
+     <tr class="row">
+      <td class="entry" valign="top" width="23.04147465437788%" headers="d164049e42 "><span class="ph uicontrol">System Administrator</span> in <span class="ph uicontrol">Super
+        Administrator</span> mode</td>
+
+      <td class="entry" valign="top" width="76.95852534562212%" headers="d164049e45 ">
+       <p class="p"><em class="ph i">All permissions of System Administrator plus</em>:</p>
+
+       <p class="p">Manage all data access and object privileges</p>
+
+       <div class="p">
+        <div class="note note"><span class="notetitle">Note:</span> System administrators in <span class="ph uicontrol">Super Administrator</span> mode can perform
+         all tasks regardless of the object and data access permissions granted to them on different
+         objects. However, all actions are logged in the Platfora server logs for auditing
+         purposes.</div>
+
+       </div>
+
+      </td>
+
+     </tr>
+
+    </tbody>
+
+   </table>
+</div>
+
+ </div>
+
+<div class="related-links">
+<ul class="ullinks">
+<li class="link ulchildlink"><strong><a href="../../system/security/about_super_admin_mode.html">About Super Administrator Mode</a></strong><br/>
+System administrators with the appropriate permission can temporarily enter a mode where   they can perform all tasks in Platfora regardless of the object and data access permissions   granted to them on different objects. To do this, system administrators must enter    <span class="ph uicontrol">Super Administrator</span> mode.</li>
+</ul>
+</div>
+<div class="navfooter"><!---->
+<span class="navparent"><a class="link" href="../../system/security/about_security_model.html" title="Platfora provides role-based access control (RBAC) to configure what users can do in the Platfora application, what data they can see, and what objects they can access. Access can be controlled at both broad and detail levels."><span class="navheader_label">Parent topic</span><span class="navheader_separator">: </span><span class="navheader_linktext">Manage Access and Permissions</span></a></span>  </div><div class="footer">WebHelp output generated by<a href="http://www.oxygenxml.com" target="_blank"><span class="oXygenLogo"><img src="../../oxygen-webhelp/resources/img/LogoOxygen100x22.png" alt="Oxygen"/></span><span class="xmlauthor">XML Author</span></a></div>
+<div id="productInfo" style="display:none;"><span id="oxy_productID">webhelp</span><span id="oxy_productVersion">3.0</span></div><div id="loginData" style="display: none"><span class="bt_close" title="Close"><!----></span><form action="" target="passwordIframe" method="post" name="form_login" onsubmit="return loggInUser();" id="loginFormData" autocomplete="on"><input type="hidden" id="reloadComments" value="yes"><!----></input><table class="login"><thead><tr><td colspan="2"><span id="l_login2"><script type="text/javascript">$('#l_login2').html(getLocalization('label.login'));</script></span></td></tr><tr><td colspan="2"><div id="loginResponse"><!----></div></td></tr></thead><tr><td><span id="l_userName"><script type="text/javascript">$('#l_userName').html(getLocalization('label.userName'));</script></span></td><td><input name="usernameW" type="text" id="myUserName" autocomplete="on" required="required" autofocus="autofocus"><!----></input></td></tr><tr><td><span id="l_pswd"><script type="text/javascript">$('#l_pswd').html(getLocalization('label.pswd'));</script></span></td><td><input name="passwordW" type="password" id="myPassword" autocomplete="on" required="required"><!----></input></td></tr><tr><td colspan="2" align="left"><span id="ll_remember"><script type="text/javascript" xml:space="preserve">
+								$('#ll_remember').html(getLocalization('label.rememberme'));
+							</script></span>     <input name="myLoginRemember" type="checkbox" class="ck" id="myRemember" value="no"><!----></input></td></tr><tr><td colspan="2" align="center"><input id="l_bt_submit_log" type="submit" value="Submit" name="loginFormButton"><!----></input><script type="text/javascript">$('#l_bt_submit_log').attr('value',getLocalization('label.login'));</script><span class="btnHGlue"><!----></span><input class="bt_cancel" id="l_cancelLog" type="button" value="Cancel" name="loginFormButton"><!----></input><script type="text/javascript">$('#l_cancelLog').attr('value',getLocalization('label.cancel'));</script></td></tr></table><div class="loginAlternative"><span id="link_lostPwd" onclick="showLostPwd()"><script type="text/javascript">$('#link_lostPwd').html(getLocalization('label.lostPswd'));</script></span><span id="link_signUp" onclick="showSignUp()"><script type="text/javascript">$('#link_signUp').html(getLocalization('label.signUp'));</script></span></div></form><iframe id="passwordIframe" name="passwordIframe" style="display:none"><!----></iframe></div><div id="cmts"><!----></div></body>
+</html>

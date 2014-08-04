@@ -1,0 +1,159 @@
+
+<!DOCTYPE html
+  PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xml:lang="en-us" lang="en-us">
+<head><meta xmlns="http://www.w3.org/1999/xhtml" name="description" content="This section provides some tips and examples for querying a lens. Discovering Lens Fields When querying a lens, you must use the sql REST API endpoint. Before constructing your query, it is a good ..."/><meta http-equiv="Content-Type" content="text/html; charset=utf-8"/><meta name="copyright" content="(C) Copyright 2005"/><meta name="DC.rights.owner" content="(C) Copyright 2005"/><meta name="DC.Type" content="topic"/><meta name="DC.Title" content="Example of Lens Queries"/><meta name="abstract" content="This section provides some tips and examples for querying a lens."/><meta xmlns="http://www.w3.org/1999/xhtml" name="description" content="This section provides some tips and examples for querying a lens."/><meta name="DC.Relation" scheme="URI" content="../../reference/sql/select_statement.html"/><meta name="DC.Format" content="XHTML"/><meta name="DC.Identifier" content="sql_examples"/><link rel="stylesheet" type="text/css" href="../../oxygen-webhelp/resources/css/commonltr.css"><!----></link><title>Example of Lens Queries</title><meta http-equiv="Content-Type" content="text/html; charset=utf-8"/><link rel="stylesheet" type="text/css" href="../../oxygen-webhelp/resources/css/commonltr.css"><!----></link><link rel="stylesheet" type="text/css" href="../../oxygen-webhelp/resources/css/webhelp_topic.css"><!----></link><link rel="stylesheet" type="text/css" href="../../oxygen-webhelp/resources/skins/skin.css"><!----></link><link rel="stylesheet" type="text/css" href="../../oxygen-webhelp/resources/css/jquery.realperson.css"><!----></link><link rel="stylesheet" type="text/css" href="../../oxygen-webhelp/resources/css/comments.css"><!----></link><link rel="stylesheet" type="text/css" href="../../oxygen-webhelp/resources/css/jquery.cleditor.css"><!----></link><link rel="stylesheet" type="text/css" href="../../oxygen-webhelp/resources/css/admin.css"><!----></link><script type="text/javascript"><!--
+          
+          var prefix = "../../index.html";
+          
+          --></script><script type="text/javascript" src="../../oxygen-webhelp/resources/js/jquery-1.8.2.min.js"><!----></script><script type="text/javascript" src="../../oxygen-webhelp/resources/js/jquery.cookie.js"><!----></script><script type="text/javascript" src="../../oxygen-webhelp/resources/js/jquery-ui.custom.min.js"><!----></script><script type="text/javascript" charset="utf-8" src="../../oxygen-webhelp/resources/js/webhelp_topic.js"><!----></script><script type="text/javascript" charset="utf-8" src="../../oxygen-webhelp/resources/localization/strings.js"><!----></script><script type="text/javascript" charset="utf-8" src="../../oxygen-webhelp/resources/js/init.js"><!----></script><script type="text/javascript" charset="utf-8" src="../../oxygen-webhelp/resources/js/comments-functions.js"><!----></script></head>
+<body onload="init('../../')" id="sql_examples">
+<table class="nav"><tbody><tr><td colspan="2"><div id="printlink"><a href="javascript:window.print();" title="printThisPage"/></div><div id="permalink"><a href="#" title="linkToThis"/></div></td></tr><tr><td width="75%"><a class="navheader_parent_path" href="../../reference/sql/../../reference/expression_language/expression_reference_top.html" title="An expression computes or produces a value by combining fields (or columns), constant values, operators, and functions. Platfora has a built-in expression language. You use the language's functions and operators to create a computed field.">Expression and Query Language Reference</a> / <a class="navheader_parent_path" href="../../reference/sql/select_statement.html" title="Queries an aggregate lens. A SELECT statement is input to a progammatic lens query.">SELECT Statement</a></td><td><div class="navheader">
+<span class="navparent"><a class="link" href="../../reference/sql/select_statement.html" title="Queries an aggregate lens. A SELECT statement is input to a progammatic lens query."><span class="navheader_label">Parent topic</span><span class="navheader_separator">: </span><span class="navheader_linktext">SELECT Statement</span></a></span>  </div></td></tr></tbody></table>
+
+  <h1 class="title topictitle1">Example of Lens Queries</h1>
+
+  
+  <div class="body"><p class="shortdesc">This section provides some tips and examples for querying a lens. </p>
+
+    <div class="section"><h2 class="title sectiontitle">Discovering Lens Fields</h2>
+      
+      <div class="p">When querying a lens, you must use the <samp class="ph codeph">sql</samp> REST API endpoint. Before constructing your query, it is a good idea to list the lens fields with a REST call to the <samp class="ph codeph">lens</samp> resource. One suggested method is to make the following calls:<ul class="ul" id="sql_examples__ul_utv_wwx_zn">
+          <li class="li">List the lens by calling <samp class="ph codeph">GET</samp> on the <samp class="ph codeph">http://<var class="keyword varname">hostname</var>:<var class="keyword varname">port</var>/api/v1/lenses</samp> resource.</li>
+
+          <li class="li">Locate the lens <samp class="ph codeph">id</samp> value in the lens list.</li>
+
+          <li class="li">Get the lens by calling <samp class="ph codeph">GET</samp> to the <samp class="ph codeph">http://<var class="keyword varname">hostname</var>:<var class="keyword varname">port</var>/api/v1/lenses/<var class="keyword varname">id</var></samp> resource.</li>
+
+          <li class="li">Review the lens fields.</li>
+
+        </ul>
+</div>
+
+        
+      <div class="p"> This is one way to discover existing aggregate expressions and quick measures in the lens.  For example, listing lens fields give you examples such as the following:<pre class="pre codeblock"/>
+</div>
+
+      <pre class="pre codeblock">
+        ...
+      "fields": {
+          "Active Clusters (Total)": {
+            "name": "Active Clusters (Total)",
+            "expression": "DISTINCT([Temp Field for Count Active Clusters])",
+            "lensExpression": false,
+            "platforaManaged": false,
+            "role": "MEASURE",
+            "type": "LONG"
+          },
+          "Are there new Active Clusters since Yesterday?": {
+            "name": "Are there new Active Clusters since Yesterday?",
+            "expression": "[Active Clusters (Total)] - ROLLUP [Active Clusters (Total)] TO ([Log DateTime Date].Date) ORDER BY ([Log DateTime Date].Date) ROWS BETWEEN 1 PRECEDING AND 1 PRECEDING",
+            "lensExpression": false,
+            "platforaManaged": false,
+            "role": "MEASURE",
+            "type": "LONG"
+          },
+          "Avg Page Views per Session": {
+            "name": "Avg Page Views per Session",
+            "expression": "[Total Records]/(DISTINCT(sessionId))",
+            "lensExpression": false,
+            "platforaManaged": false,
+            "role": "MEASURE",
+            "type": "DOUBLE"
+          },       
+        ...
+      </pre>
+
+      <p class="p">Using the JSON description of a lens, you can quickly see measures used in your lens versus navigating the lens in Platfora's UI.</p>
+
+    </div>
+
+  <div class="section"><h2 class="title sectiontitle">Complex DEFINE Clauses</h2>
+    
+    <div class="p">This example illustrates the use of multiple <samp class="ph codeph">DEFINE</samp> clauses. Notice the descriptive name for the <samp class="ph codeph">ROLLUP()</samp> computed field.
+      <pre class="pre codeblock">
+ DEFINE Manu_Genre AS CONCAT ([device].[manufacturer], [video].[genre]) 
+ DEFINE [ROLLUP num_views TO Manu] as ROLLUP COUNT() TO (device.manufacturer) 
+ DEFINE [ROLLUP num_views TO Manu_Genre] as ROLLUP COUNT() TO ([Manu_Genre]) 
+ SELECT device.manufacturer, Manu_Genre, [Num Views], [ROLLUP num_views TO Manu], [ROLLUP num_views TO Manu_Genre] 
+ FROM moview_view2G_PSM 
+ WHERE Manu_Genre LIKE (\"*Action/Comedy\", \"*Anime\", \"*Drama/Silent\") 
+ GROUP BY device.manufacturer SORT ASC, Manu_Genre SORT ASC 
+ HAVING [ROLLUP num_views TO Manu] &gt; 30000 AND [ROLLUP num_views TO Manu_Genre] &gt; 1000     
+    </pre>
+</div>
+</div>
+
+    <div class="section"><h2 class="title sectiontitle">Build a WHERE Clause</h2>
+      
+      <p class="p">The following example shows a <samp class="ph codeph">WHERE</samp> clause using mixed predicates and row comparison.  It also uses the <samp class="ph codeph">NOT</samp> keyword to negate list expressions </p>
+
+      <pre class="pre codeblock">
+  SELECT count() 
+  FROM [(test) View Summary] 
+  WHERE prior_views NOT IN (3,5,7,11,13,17) 
+  AND TO_LONG(prior_views) NOT IN (4294967296) 
+  AND avebitrate_double NOT IN (3101.0, 2598.0, 804.0) 
+  AND video.genre NOT IN ("Silent", "Exercise") 
+  AND video.genre NOT LIKE ("*a*") 
+  AND date.Date 
+  NOT IN (2011-08-04, 2011-06-04, 2011-07-04) 
+  AND prior_views &gt; 23 
+  AND avebitrate_double &lt; 3101.0 
+  AND TO_FIXED(avebitrate_double) != 3101.0 
+  AND TO_LONG(prior_views) != 4294967296 
+  AND video.genre &lt;= "Silent" and date.Date &gt; 2011-08-04 
+  AND date.Date NOT BETWEEN 2012-01-01 
+  AND 2013-01-01 
+  AND video.genre BETWEEN "Exercise" AND "Silent" 
+  AND prior_views BETWEEN 0 AND 100 
+  AND avebitrate_double NOT BETWEEN 1234.5678 AND 2345.6789      
+      </pre>
+
+      <p class="p">You cannot use <samp class="ph codeph">IS NULL</samp> or <samp class="ph codeph">IS NOT NULL</samp> comparisons. You also cannot use relative date filters (<samp class="ph codeph">LAST <var class="keyword varname">integer</var> DAYS</samp>).</p>
+
+    </div>
+
+    <div class="section"><h2 class="title sectiontitle">
+        Complex Measure Expression
+      </h2>
+      
+      <p class="p">The following example illustrates a measure expression that includes both a ROLLUP and use of aggregate functions.</p>
+
+      <pre class="pre codeblock">
+        SELECT device.manufacturer, 
+              CONCAT([device].[manufacturer], 
+              [video].[genre]) AS Manu_Genre, [Num Views], 
+              ROLLUP COUNT() TO (device.manufacturer) as [ROLLUP num_views TO Manu], 
+              ROLLUP COUNT() TO ([Manu_Genre]) AS [ROLLUP num_views TO Manu_Genre] 
+        FROM movie_view2G_PSM 
+        WHERE Manu_Genre LIKE (\"*Action/Comedy\", \"*Anime\", \"*Drama/Silent\") 
+        GROUP BY device.manufacturer SORT ASC, Manu_Genre SORT ASC 
+        HAVING [ROLLUP num_views TO Manu] &gt; 30000 AND [ROLLUP num_views TO Manu_Genre] &gt; 1000
+      </pre>
+
+    </div>
+
+    <div class="section"><h2 class="title sectiontitle"> Complex Row Expressions </h2>
+      
+      <p class="p">This row expression uses multiple row terms and factors:</p>
+
+      <pre class="pre codeblock">
+SELECT duration + [days after release] + user.age + user.location.estimatedpopulation AS [Row-Expression multi-factors], [Num Views] 
+FROM movie_view2G_PSM 
+GROUP BY [Row-Expression multi-factors] SORT ASC  
+      </pre>
+
+      <p class="p">You'll notice that the <samp class="ph codeph">Row-Expression multi-factors</samp> alias for the <samp class="ph codeph">SELECT</samp> complex expression is reused in the <samp class="ph codeph">GROUP BY</samp> clause.</p>
+
+    </div>
+
+  </div>
+
+<div class="related-links"/>
+<div class="navfooter"><!---->
+<span class="navparent"><a class="link" href="../../reference/sql/select_statement.html" title="Queries an aggregate lens. A SELECT statement is input to a progammatic lens query."><span class="navheader_label">Parent topic</span><span class="navheader_separator">: </span><span class="navheader_linktext">SELECT Statement</span></a></span>  </div><div class="footer">WebHelp output generated by<a href="http://www.oxygenxml.com" target="_blank"><span class="oXygenLogo"><img src="../../oxygen-webhelp/resources/img/LogoOxygen100x22.png" alt="Oxygen"/></span><span class="xmlauthor">XML Author</span></a></div>
+<div id="productInfo" style="display:none;"><span id="oxy_productID">webhelp</span><span id="oxy_productVersion">3.0</span></div><div id="loginData" style="display: none"><span class="bt_close" title="Close"><!----></span><form action="" target="passwordIframe" method="post" name="form_login" onsubmit="return loggInUser();" id="loginFormData" autocomplete="on"><input type="hidden" id="reloadComments" value="yes"><!----></input><table class="login"><thead><tr><td colspan="2"><span id="l_login2"><script type="text/javascript">$('#l_login2').html(getLocalization('label.login'));</script></span></td></tr><tr><td colspan="2"><div id="loginResponse"><!----></div></td></tr></thead><tr><td><span id="l_userName"><script type="text/javascript">$('#l_userName').html(getLocalization('label.userName'));</script></span></td><td><input name="usernameW" type="text" id="myUserName" autocomplete="on" required="required" autofocus="autofocus"><!----></input></td></tr><tr><td><span id="l_pswd"><script type="text/javascript">$('#l_pswd').html(getLocalization('label.pswd'));</script></span></td><td><input name="passwordW" type="password" id="myPassword" autocomplete="on" required="required"><!----></input></td></tr><tr><td colspan="2" align="left"><span id="ll_remember"><script type="text/javascript" xml:space="preserve">
+								$('#ll_remember').html(getLocalization('label.rememberme'));
+							</script></span>     <input name="myLoginRemember" type="checkbox" class="ck" id="myRemember" value="no"><!----></input></td></tr><tr><td colspan="2" align="center"><input id="l_bt_submit_log" type="submit" value="Submit" name="loginFormButton"><!----></input><script type="text/javascript">$('#l_bt_submit_log').attr('value',getLocalization('label.login'));</script><span class="btnHGlue"><!----></span><input class="bt_cancel" id="l_cancelLog" type="button" value="Cancel" name="loginFormButton"><!----></input><script type="text/javascript">$('#l_cancelLog').attr('value',getLocalization('label.cancel'));</script></td></tr></table><div class="loginAlternative"><span id="link_lostPwd" onclick="showLostPwd()"><script type="text/javascript">$('#link_lostPwd').html(getLocalization('label.lostPswd'));</script></span><span id="link_signUp" onclick="showSignUp()"><script type="text/javascript">$('#link_signUp').html(getLocalization('label.signUp'));</script></span></div></form><iframe id="passwordIframe" name="passwordIframe" style="display:none"><!----></iframe></div><div id="cmts"><!----></div></body>
+</html>

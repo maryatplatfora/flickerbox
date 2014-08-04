@@ -1,0 +1,1501 @@
+
+<!DOCTYPE html
+  PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xml:lang="en-us" lang="en-us">
+<head><meta xmlns="http://www.w3.org/1999/xhtml" name="description" content="An expression is a combination of columns (or fields), constant values, operators, and functions used to evaluate, transform, or produce a value. Simple expressions can be combined to make more ..."/><meta http-equiv="Content-Type" content="text/html; charset=utf-8"/><meta name="copyright" content="(C) Copyright 2005"/><meta name="DC.rights.owner" content="(C) Copyright 2005"/><meta name="DC.Type" content="concept"/><meta name="DC.Title" content="Expression Builder Dictionary"/><meta name="abstract" content="An expression is a combination of columns (or fields), constant values, operators, and functions used to evaluate, transform, or produce a value. Simple expressions can be combined to make more complex expressions. This quick reference describes the functions and operators that can be used to write expressions."/><meta xmlns="http://www.w3.org/1999/xhtml" name="description" content="An expression is a combination of columns (or fields), constant values, operators, and functions used to evaluate, transform, or produce a value. Simple expressions can be combined to make more complex expressions. This quick reference describes the functions and operators that can be used to write expressions."/><meta name="DC.Relation" scheme="URI" content="../../reference/expression_language/expression_reference_top.html"/><meta name="DC.Format" content="XHTML"/><meta name="DC.Identifier" content="ref_expr_quickstart"/><link rel="stylesheet" type="text/css" href="../../oxygen-webhelp/resources/css/commonltr.css"><!----></link><title>Expression Builder Dictionary</title><meta http-equiv="Content-Type" content="text/html; charset=utf-8"/><link rel="stylesheet" type="text/css" href="../../oxygen-webhelp/resources/css/commonltr.css"><!----></link><link rel="stylesheet" type="text/css" href="../../oxygen-webhelp/resources/css/webhelp_topic.css"><!----></link><link rel="stylesheet" type="text/css" href="../../oxygen-webhelp/resources/skins/skin.css"><!----></link><link rel="stylesheet" type="text/css" href="../../oxygen-webhelp/resources/css/jquery.realperson.css"><!----></link><link rel="stylesheet" type="text/css" href="../../oxygen-webhelp/resources/css/comments.css"><!----></link><link rel="stylesheet" type="text/css" href="../../oxygen-webhelp/resources/css/jquery.cleditor.css"><!----></link><link rel="stylesheet" type="text/css" href="../../oxygen-webhelp/resources/css/admin.css"><!----></link><script type="text/javascript"><!--
+          
+          var prefix = "../../index.html";
+          
+          --></script><script type="text/javascript" src="../../oxygen-webhelp/resources/js/jquery-1.8.2.min.js"><!----></script><script type="text/javascript" src="../../oxygen-webhelp/resources/js/jquery.cookie.js"><!----></script><script type="text/javascript" src="../../oxygen-webhelp/resources/js/jquery-ui.custom.min.js"><!----></script><script type="text/javascript" charset="utf-8" src="../../oxygen-webhelp/resources/js/webhelp_topic.js"><!----></script><script type="text/javascript" charset="utf-8" src="../../oxygen-webhelp/resources/localization/strings.js"><!----></script><script type="text/javascript" charset="utf-8" src="../../oxygen-webhelp/resources/js/init.js"><!----></script><script type="text/javascript" charset="utf-8" src="../../oxygen-webhelp/resources/js/comments-functions.js"><!----></script></head>
+<body onload="init('../../')" id="ref_expr_quickstart">
+<table class="nav"><tbody><tr><td colspan="2"><div id="printlink"><a href="javascript:window.print();" title="printThisPage"/></div><div id="permalink"><a href="#" title="linkToThis"/></div></td></tr><tr><td width="75%"><a class="navheader_parent_path" href="../../reference/expression_language/expression_reference_top.html" title="An expression computes or produces a value by combining fields (or columns), constant values, operators, and functions. Platfora has a built-in expression language. You use the language's functions and operators to create a computed field.">Expression and Query Language Reference</a></td><td><div class="navheader">
+<span class="navparent"><a class="link" href="../../reference/expression_language/expression_reference_top.html" title="An expression computes or produces a value by combining fields (or columns), constant values, operators, and functions. Platfora has a built-in expression language. You use the language's functions and operators to create a computed field."><span class="navheader_label">Parent topic</span><span class="navheader_separator">: </span><span class="navheader_linktext">Expression and Query Language Reference</span></a></span>  </div></td></tr></tbody></table>
+
+  <h1 class="title topictitle1">Expression Builder Dictionary</h1>
+
+  
+  <div class="body conbody"><p class="shortdesc">An expression is a combination of columns (or fields), constant values, operators, and
+    functions used to evaluate, transform, or produce a value. Simple expressions can be combined to
+    make more complex expressions. This quick reference describes the functions and operators that
+    can be used to write expressions. </p>
+
+    <p class="p">Platfora's built-in functions and operators are divided into the following categories:</p>
+
+    <div class="p">
+      <ul class="ul">
+        <li class="li"><a class="xref" href="expression_quickref.html#ref_expr_quickstart__conditional_processing_functions">Conditional and NULL Processing Language and Functions</a></li>
+
+        <li class="li"><a class="xref" href="expression_quickref.html#ref_expr_quickstart__esp_functions">Event Series Processing
+          Functions</a></li>
+
+        <li class="li"><a class="xref" href="expression_quickref.html#ref_expr_quickstart__string_functions">String Functions</a></li>
+
+        <li class="li"><a class="xref" href="expression_quickref.html#ref_expr_quickstart__date_functions">Date and Time
+          Functions</a></li>
+
+        <li class="li"><a class="xref" href="expression_quickref.html#ref_expr_quickstart__url_functions">URL Functions</a></li>
+
+        <li class="li"><a class="xref" href="expression_quickref.html#ref_expr_quickstart__ip_functions">IP Functions</a></li>
+
+        <li class="li"><a class="xref" href="expression_quickref.html#ref_expr_quickstart__math_functions">Math Functions</a></li>
+
+        <li class="li"><a class="xref" href="expression_quickref.html#ref_expr_quickstart__conversion_functions">Data Type Conversion
+            Functions</a></li>
+
+        <li class="li"><a class="xref" href="expression_quickref.html#ref_expr_quickstart__aggregate_functions">Aggregate
+            Functions</a></li>
+
+        <li class="li"><a class="xref" href="expression_quickref.html#ref_expr_quickstart__window_functions">ROLLUP and Window
+          Functions</a></li>
+
+        <li class="li"><a class="xref" href="expression_quickref.html#ref_expr_quickstart__udfs">User Defined
+          Functions</a></li>
+
+        <li class="li"><a class="xref" href="expression_quickref.html#ref_expr_quickstart__comparison_operators">Comparison
+            Operators</a></li>
+
+        <li class="li"><a class="xref" href="expression_quickref.html#ref_expr_quickstart__arithmetic_operators">Arithmetic
+            Operators</a></li>
+
+      </ul>
+
+    </div>
+
+    
+    <div class="section" id="ref_expr_quickstart__conditional_processing_functions"><h2 class="title sectiontitle">Conditional and NULL Processing Language and Functions</h2>
+      
+      <p class="p">Conditional and NULL processing allows you to transform or manipulate data values based on
+        certain defined conditions. Conditional processing (<samp class="ph codeph">CASE</samp>) can be done at
+        either the dataset or vizboard level. NULL processing (<samp class="ph codeph">COALESCE</samp> and
+          <samp class="ph codeph">IS_VALID</samp>) is only applicable at the dataset level. During a lens build,
+        any NULL values in the source data are converted to default values, so lenses and vizboards
+        have no concept of NULL values.   </p>
+
+      
+<div class="tablenoborder"><table cellpadding="4" cellspacing="0" summary="" class="table" frame="border" border="1" rules="all">
+          
+          
+          
+          <thead class="thead" align="left">
+            <tr class="row">
+              <th class="entry" valign="top" width="23.04147465437788%" id="d78221e122">Function</th>
+
+              <th class="entry" valign="top" width="26.72811059907834%" id="d78221e125">Description</th>
+
+              <th class="entry" valign="top" width="50.23041474654379%" id="d78221e128">Example</th>
+
+            </tr>
+
+          </thead>
+
+          <tbody class="tbody">
+            <tr class="row">
+              <td class="entry" valign="top" width="23.04147465437788%" headers="d78221e122 "><a class="xref" href="function_case.html" title="CASE is a row function that evaluates each row in the dataset according to one or more input conditions, and outputs the specified result when the input conditions are met.">CASE</a></td>
+
+              <td class="entry" valign="top" width="26.72811059907834%" headers="d78221e125 "><p class="p">evaluates each row in the dataset according to one or more input conditions, and outputs the specified result when the input conditions are met</p>
+</td>
+
+              <td class="entry" valign="top" width="50.23041474654379%" headers="d78221e128 "><samp class="ph codeph">CASE WHEN gender = "M" THEN "Male" WHEN gender = "F" THEN "Female" ELSE "Unknown"
+          END</samp></td>
+
+            </tr>
+
+            <tr class="row">
+              <td class="entry" valign="top" width="23.04147465437788%" headers="d78221e122 "><a class="xref" href="function_coalesce.html" title="COALESCE is a row function that returns the first valid value (NOT NULL value) from a comma-separated list of expressions.">COALESCE</a></td>
+
+              <td class="entry" valign="top" width="26.72811059907834%" headers="d78221e125 "><p class="p">returns the first valid value (NOT NULL value) from a comma-separated list of expressions</p>
+</td>
+
+              <td class="entry" valign="top" width="50.23041474654379%" headers="d78221e128 "><samp class="ph codeph">COALESCE(hourly_wage * 40 * 52, salary)</samp></td>
+
+            </tr>
+
+            <tr class="row">
+              <td class="entry" valign="top" width="23.04147465437788%" headers="d78221e122 "><a class="xref" href="function_isvalid.html" title="IS_VALID is a row function that returns 0 if the returned value is NULL, and 1 if the returned value is NOT NULL. This is useful for computing other calculations where you want to exclude NULL values (such as when computing averages).">IS_VALID</a></td>
+
+              <td class="entry" valign="top" width="26.72811059907834%" headers="d78221e125 "><p class="p">returns <samp class="ph codeph">0</samp> if the returned value is <samp class="ph codeph">NULL</samp>, and <samp class="ph codeph">1</samp>
+                  if the returned value is <samp class="ph codeph">NOT NULL</samp>.</p>
+</td>
+
+              <td class="entry" valign="top" width="50.23041474654379%" headers="d78221e128 "><samp class="ph codeph">IS_VALID(sale_amount)</samp></td>
+
+            </tr>
+
+          </tbody>
+
+        </table>
+</div>
+     
+    </div>
+
+    
+    <div class="section" id="ref_expr_quickstart__esp_functions"><h2 class="title sectiontitle">Event Series Processing Language and Functions</h2>
+      
+      <p class="p">Event series processing allows you to partition rows of input data, order the rows
+        sequentially (typically by a timestamp), and search for matching patterns in a set of rows.
+        Computed fields that are defined in a dataset using a <samp class="ph codeph">PARTITION</samp> expression
+        are considered event series processing computed fields. Event series processing computed
+        fields are processed differently than regular computed fields. Instead of computing values
+        from the input of a single row, they compute values from inputs of multiple rows in the
+        dataset. Event series processing computed fields can only be defined in the dataset - not in
+        the vizboard.</p>
+
+      
+<div class="tablenoborder"><table cellpadding="4" cellspacing="0" summary="" class="table" frame="border" border="1" rules="all">
+          
+          
+          
+          <thead class="thead" align="left">
+            <tr class="row">
+              <th class="entry" valign="top" width="23.04147465437788%" id="d78221e257">Function</th>
+
+              <th class="entry" valign="top" width="26.72811059907834%" id="d78221e260">Description</th>
+
+              <th class="entry" valign="top" width="50.23041474654379%" id="d78221e263">Example</th>
+
+            </tr>
+
+          </thead>
+
+          <tbody class="tbody">
+            <tr class="row">
+              <td class="entry" valign="top" width="23.04147465437788%" headers="d78221e257 "><a class="xref" href="function_pack_values.html" title="PACK_VALUES is a row function that returns multiple output values packed into a single string of key/value pairs separated by the Platfora default key and pair separators. This is useful when the OUTPUT clause of a PARTITION expression returns multiple output values. The string returned is in a format that can be read by the EXTRACT_VALUE function. PACK_VALUES uses the same key and pair separator values that EXTRACT_VALUE uses (the Unicode escape sequences u0003 and u0002, respectively).">PACK_VALUES</a></td>
+
+              <td class="entry" valign="top" width="26.72811059907834%" headers="d78221e260 ">
+                <p class="p">returns multiple output values packed into a single string of key/value pairs
+                  separated by the Platfora default key and pair separators - useful when the
+                    <samp class="ph codeph">OUTPUT</samp> clause of a <samp class="ph codeph">PARTITION</samp> expression
+                  returns multiple output values</p>
+
+              </td>
+
+              <td class="entry" valign="top" width="50.23041474654379%" headers="d78221e263 "><samp class="ph codeph">PACK_VALUES("ID",custid,"Age",age)</samp></td>
+
+            </tr>
+
+            <tr class="row">
+              <td class="entry" valign="top" width="23.04147465437788%" headers="d78221e257 "><a class="xref" href="function_partition.html" title="PARTITION is an event series processing language that partitions the rows of a dataset, orders the rows sequentially (typically by a timestamp), and searches for matching patterns in a set of rows. Computed fields that are defined in a dataset using a PARTITION expression are considered event series processing computed fields. Event series processing computed fields are processed differently than regular computed fields. Instead of computing values from the input of a single row, they compute values from inputs of multiple rows in the dataset.">PARTITION</a></td>
+
+              <td class="entry" valign="top" width="26.72811059907834%" headers="d78221e260 ">
+                <p class="p">partitions the rows of a dataset, orders the rows sequentially (typically by a
+                  timestamp), and searches for matching patterns in a set of rows</p>
+
+              </td>
+
+              <td class="entry" valign="top" width="50.23041474654379%" headers="d78221e263 ">
+                <p class="p"><samp class="ph codeph">PARTITION BY SessionID ORDER BY Timestamp PATTERN (A,B,C)        DEFINE A
+                    AS Page = "home.html",                       B AS Page = "product.html",
+                    C AS Page = "checkout.html" OUTPUT "TRUE"</samp></p>
+
+              </td>
+
+            </tr>
+
+          </tbody>
+
+        </table>
+</div>
+
+    </div>
+
+    
+    
+    <div class="section" id="ref_expr_quickstart__string_functions"><h2 class="title sectiontitle">String Functions</h2>
+      
+      <p class="p">String functions allow you to manipulate and transform textual data, such as combining string values or extracting a portion of a string value.</p>
+
+      
+<div class="tablenoborder"><table cellpadding="4" cellspacing="0" summary="" class="table" frame="border" border="1" rules="all">
+          
+          
+          
+          <thead class="thead" align="left">
+            <tr class="row">
+              <th class="entry" valign="top" width="23.04147465437788%" id="d78221e376">Function</th>
+
+              <th class="entry" valign="top" width="26.72811059907834%" id="d78221e379">Description</th>
+
+              <th class="entry" valign="top" width="50.23041474654379%" id="d78221e382">Example</th>
+
+            </tr>
+
+          </thead>
+
+          <tbody class="tbody">
+            <tr class="row">
+              <td class="entry" valign="top" width="23.04147465437788%" headers="d78221e376 "><a class="xref" href="function_array_contains.html" title="ARRAY_CONTAINS is a row function that performs a whole string match against a string containing delimited values and returns a 1 or 0 depending on whether or not the string contains the search value.">ARRAY_CONTAINS</a></td>
+
+              <td class="entry" valign="top" width="26.72811059907834%" headers="d78221e379 "><p class="p">performs a whole string match against a string containing delimited values and returns a 1 or 0
+                  depending on whether or not the string contains the search value.</p>
+</td>
+
+              <td class="entry" valign="top" width="50.23041474654379%" headers="d78221e382 "><samp class="ph codeph">ARRAY_CONTAINS(device,",","iPad")</samp></td>
+
+            </tr>
+
+            <tr class="row">
+              <td class="entry" valign="top" width="23.04147465437788%" headers="d78221e376 "><a class="xref" href="function_concat.html" title="CONCAT is a row function that returns a string by concatenating (combining together) the results of multiple string expressions.">CONCAT</a></td>
+
+              <td class="entry" valign="top" width="26.72811059907834%" headers="d78221e379 "><p class="p">concatenates (combines together) the results of multiple string expressions</p>
+</td>
+
+              <td class="entry" valign="top" width="50.23041474654379%" headers="d78221e382 "><samp class="ph codeph">CONCAT(month,"/",day,"/",year)</samp></td>
+
+            </tr>
+
+            <tr class="row">
+              <td class="entry" valign="top" width="23.04147465437788%" headers="d78221e376 "><a class="xref" href="function_filename.html" title="FILE_NAME is a row function that returns the original file name from the source file system. This is useful when the source data that comprises a dataset comes from multiple files, and there is useful information in the file names themselves (such as dates or server names). You can use FILE_NAME in combination with other string processing functions to extract useful information from the file name.">FILE_NAME</a></td>
+
+              <td class="entry" valign="top" width="26.72811059907834%" headers="d78221e379 "><p class="p">returns the original file name from the source file system</p>
+</td>
+
+              <td class="entry" valign="top" width="50.23041474654379%" headers="d78221e382 "><samp class="ph codeph">TO_DATE(SUBSTRING(FILE_NAME(),0,8),"yyyyMMdd")</samp></td>
+
+            </tr>
+
+            <tr class="row">
+              <td class="entry" valign="top" width="23.04147465437788%" headers="d78221e376 "><a class="xref" href="function_filepath.html" title="FILE_PATH is a row function that returns the full URI path from the source file system. This is useful when the source data that comprises a dataset comes from multiple files, and there is useful information in the directory names or file names themselves (such as dates or server names). You can use FILE_PATH in combination with other string processing functions to extract useful information from the file path.">FILE_PATH</a></td>
+
+              <td class="entry" valign="top" width="26.72811059907834%" headers="d78221e379 "><p class="p">returns the full URI path from the source file system</p>
+</td>
+
+              <td class="entry" valign="top" width="50.23041474654379%" headers="d78221e382 "><samp class="ph codeph">TO_DATE(REGEX(FILE_PATH(),"hdfs://myhdfs-server.com/data/logs/<strong class="ph b">(\d{8})</strong>/(?:\d{1,3}\.*)+\.log"),"yyyyMMdd")</samp></td>
+
+            </tr>
+
+            <tr class="row">
+              <td class="entry" valign="top" width="23.04147465437788%" headers="d78221e376 "><a class="xref" href="function_extract_cookie.html" title="EXTRACT_COOKIE is a row function that extracts the value of the given cookie identifier from a semi-colon delimited list of cookie key=value pairs. This function can be used to extract a particular cookie value from a combined web access log Cookie column.">EXTRACT_COOKIE</a></td>
+
+              <td class="entry" valign="top" width="26.72811059907834%" headers="d78221e379 "><p class="p">extracts the value of the given cookie identifier from a semi-colon delimited list of cookie
+                    <em class="ph i">key=value</em> pairs.</p>
+</td>
+
+              <td class="entry" valign="top" width="50.23041474654379%" headers="d78221e382 "><samp class="ph codeph">EXTRACT_COOKIE("SSID=ABC; vID=44", "vID") returns
+            <em class="ph i">44</em></samp></td>
+
+            </tr>
+
+            <tr class="row">
+              <td class="entry" valign="top" width="23.04147465437788%" headers="d78221e376 "><a class="xref" href="function_extract_value.html" title="EXTRACT_VALUE is a row function that extracts the value for the given key from a string containing delimited key/value pairs.">EXTRACT_VALUE</a></td>
+
+              <td class="entry" valign="top" width="26.72811059907834%" headers="d78221e379 "><p class="p">extracts the value for the given key from a string containing delimited key/value pairs.</p>
+</td>
+
+              <td class="entry" valign="top" width="50.23041474654379%" headers="d78221e382 "><samp class="ph codeph">EXTRACT_VALUE("firstname;daria|lastname;hutch","lastname",";","|") returns
+          <em class="ph i">hutch</em></samp></td>
+
+            </tr>
+
+
+
+            <tr class="row">
+              <td class="entry" valign="top" width="23.04147465437788%" headers="d78221e376 "><a class="xref" href="function_instr.html" title="INSTR is a row function that returns an integer indicating the position of a character within a string that is the first character of the occurrence of a substring. Platfora's INSTR function is similar to the FIND function in Excel, except that the first letter is position 0 and the order of the arguments is reversed.">INSTR</a></td>
+
+              <td class="entry" valign="top" width="26.72811059907834%" headers="d78221e379 "><p class="p">returns an integer indicating the
+                position of a character within a string that is the first character of the occurrence of a
+                substring.</p>
+</td>
+
+              <td class="entry" valign="top" width="50.23041474654379%" headers="d78221e382 "><samp class="ph codeph">INSTR(url,"http://",-1,1)</samp></td>
+
+            </tr>
+
+            
+
+            <tr class="row">
+              <td class="entry" valign="top" width="23.04147465437788%" headers="d78221e376 "><a class="xref" href="function_java_string.html" title="JAVA_STRING is a row function that returns the unescaped version of a Java unicode character escape sequence as a string value. This is useful when you want to specify unicode characters in an expression. For example, you can use JAVA_STRING to specify the unicode value representing a control character.">JAVA_STRING</a></td>
+
+              <td class="entry" valign="top" width="26.72811059907834%" headers="d78221e379 "><p class="p">returns the unescaped version of a Java unicode character escape sequence as a string value</p>
+</td>
+
+              <td class="entry" valign="top" width="50.23041474654379%" headers="d78221e382 "><samp class="ph codeph">CASE WHEN currency == JAVA_STRING("\u00a5") THEN "yes" ELSE "no" END</samp></td>
+
+            </tr>
+
+            <tr class="row">
+              <td class="entry" valign="top" width="23.04147465437788%" headers="d78221e376 "><a class="xref" href="function_join_strings.html" title="JOIN_STRINGS is a row function that returns a string by concatenating (combining together) the results of multiple values with the separator in between each non-null value.">JOIN_STRINGS</a></td>
+
+              <td class="entry" valign="top" width="26.72811059907834%" headers="d78221e379 "><p class="p">concatenates (combines together) the results of multiple string expressions with the separator in
+                between each non-null value</p>
+</td>
+
+              <td class="entry" valign="top" width="50.23041474654379%" headers="d78221e382 "><samp class="ph codeph">JOIN_STRINGS("/",month,day,year)</samp></td>
+
+            </tr>
+
+            <tr class="row">
+              <td class="entry" valign="top" width="23.04147465437788%" headers="d78221e376 "><a class="xref" href="function_json_array_contains.html" title="JSON_ARRAY_CONTAINS is a row function that performs a whole string match against a string formatted as a JSON array and returns a 1 or 0 depending on whether or not the string contains the search value.">JSON_ARRAY_CONTAINS</a></td>
+
+              <td class="entry" valign="top" width="26.72811059907834%" headers="d78221e379 "><p class="p">performs a whole string match against a string formatted as a JSON array and returns a 1 or 0
+                  depending on whether or not the string contains the search value</p>
+</td>
+
+              <td class="entry" valign="top" width="50.23041474654379%" headers="d78221e382 "><samp class="ph codeph">JSON_ARRAY_CONTAINS(software,"platfora")</samp></td>
+
+            </tr>
+
+            <tr class="row">
+              <td class="entry" valign="top" width="23.04147465437788%" headers="d78221e376 "><a class="xref" href="function_json_double.html" title="JSON_DOUBLE is a row function that extracts a DOUBLE value from a field in a JSON object.">JSON_DOUBLE</a></td>
+
+              <td class="entry" valign="top" width="26.72811059907834%" headers="d78221e379 "><p class="p">extracts a <samp class="ph codeph">DOUBLE</samp> value from a field in a JSON object</p>
+</td>
+
+              <td class="entry" valign="top" width="50.23041474654379%" headers="d78221e382 "><samp class="ph codeph">JSON_DOUBLE(top_scores,"test_scores.2")</samp></td>
+
+            </tr>
+
+            <tr class="row">
+              <td class="entry" valign="top" width="23.04147465437788%" headers="d78221e376 "><a class="xref" href="function_json_fixed.html" title="JSON_FIXED is a row function that extracts a FIXED value from a field in a JSON object.">JSON_FIXED</a></td>
+
+              <td class="entry" valign="top" width="26.72811059907834%" headers="d78221e379 "><p class="p">extracts a <samp class="ph codeph">FIXED</samp> value from a field in a JSON object</p>
+</td>
+
+              <td class="entry" valign="top" width="50.23041474654379%" headers="d78221e382 "><samp class="ph codeph">JSON_FIXED(top_scores,"test_scores.2")</samp></td>
+
+            </tr>
+
+            <tr class="row">
+              <td class="entry" valign="top" width="23.04147465437788%" headers="d78221e376 "><a class="xref" href="function_json_integer.html" title="JSON_INTEGER is a row function that extracts an INTEGER value from a field in a JSON object.">JSON_INTEGER</a></td>
+
+              <td class="entry" valign="top" width="26.72811059907834%" headers="d78221e379 "><p class="p">extracts an <samp class="ph codeph">INTEGER</samp> value from a field in a JSON object</p>
+</td>
+
+              <td class="entry" valign="top" width="50.23041474654379%" headers="d78221e382 "><samp class="ph codeph">JSON_INTEGER(top_scores,"test_scores.2")</samp></td>
+
+            </tr>
+
+            <tr class="row">
+              <td class="entry" valign="top" width="23.04147465437788%" headers="d78221e376 "><a class="xref" href="function_json_long.html" title="JSON_LONG is a row function that extracts a LONG value from a field in a JSON object.">JSON_LONG</a></td>
+
+              <td class="entry" valign="top" width="26.72811059907834%" headers="d78221e379 "><p class="p">extracts a <samp class="ph codeph">LONG</samp> value from a field in a JSON object</p>
+</td>
+
+              <td class="entry" valign="top" width="50.23041474654379%" headers="d78221e382 "><samp class="ph codeph">JSON_LONG(top_scores,"test_scores.2")</samp></td>
+
+            </tr>
+
+            <tr class="row">
+              <td class="entry" valign="top" width="23.04147465437788%" headers="d78221e376 "><a class="xref" href="function_json_string.html" title="JSON_STRING is a row function that extracts a STRING value from a field in a JSON object.">JSON_STRING</a></td>
+
+              <td class="entry" valign="top" width="26.72811059907834%" headers="d78221e379 "><p class="p">extracts a <samp class="ph codeph">STRING</samp> value from a field in a JSON object</p>
+</td>
+
+              <td class="entry" valign="top" width="50.23041474654379%" headers="d78221e382 "><samp class="ph codeph">JSON_STRING(misc,"hobbies.0")</samp></td>
+
+            </tr>
+
+            <tr class="row">
+              <td class="entry" valign="top" width="23.04147465437788%" headers="d78221e376 "><a class="xref" href="function_length.html" title="LENGTH is a row function that returns the count of characters in a string value.">LENGTH</a></td>
+
+              <td class="entry" valign="top" width="26.72811059907834%" headers="d78221e379 "><p class="p">returns the count of characters in a string value</p>
+</td>
+
+              <td class="entry" valign="top" width="50.23041474654379%" headers="d78221e382 "><samp class="ph codeph">LENGTH(name)</samp></td>
+
+            </tr>
+
+            <tr class="row">
+              <td class="entry" valign="top" width="23.04147465437788%" headers="d78221e376 "><a class="xref" href="function_regex.html" title="REGEX is a row function that performs a whole string match against a string value with a regular expression and returns the portion of the string matching the first capturing group of the regular expression.">REGEX</a></td>
+
+              <td class="entry" valign="top" width="26.72811059907834%" headers="d78221e379 "><p class="p">performs a whole string match against a string value with a regular expression and returns the portion of the string matching the first capturing group of the regular expression</p>
+</td>
+
+              <td class="entry" valign="top" width="50.23041474654379%" headers="d78221e382 "><samp class="ph codeph">
+            REGEX(weblog.request_line,"GET\s/<strong class="ph b">([a-zA-Z0-9._%-]+\.[html])</strong>\sHTTP/[0-9.]+")</samp></td>
+
+            </tr>
+
+            <tr class="row">
+              <td class="entry" valign="top" width="23.04147465437788%" headers="d78221e376 "><a class="xref" href="function_regex_replace.html" title="REGEX_REPLACE is a row function that evaluates a string value against a regular expression to determine if there is a match, and replaces matched strings with the specified replacement value.">REGEX_REPLACE</a></td>
+
+              <td class="entry" valign="top" width="26.72811059907834%" headers="d78221e379 "><p class="p">evaluates a string value against a regular expression to determine if there is a match, and
+                  replaces matched strings with the specified replacement value</p>
+</td>
+
+              <td class="entry" valign="top" width="50.23041474654379%" headers="d78221e382 "><samp class="ph codeph">REGEX_REPLACE(phone_number,"([0-9]{3})\.([[0-9]]{3})\.([[0-9]]{4})","\($1\)
+          $2-$3")</samp></td>
+
+            </tr>
+
+            <tr class="row">
+              <td class="entry" valign="top" width="23.04147465437788%" headers="d78221e376 "><a class="xref" href="function_split.html" title="SPLIT is a row function that breaks down a delimited input string into sections and returns the specified section of the string. A section is considered any sub-string between the specified delimiter.">SPLIT</a></td>
+
+              <td class="entry" valign="top" width="26.72811059907834%" headers="d78221e379 "><p class="p">breaks down a delimited input string into sections and returns the specified
+                section of the string</p>
+</td>
+
+              <td class="entry" valign="top" width="50.23041474654379%" headers="d78221e382 "><samp class="ph codeph">SPLIT("Restaurants&gt;Location&gt;San Francisco","&gt;", 3) returns
+            <em class="ph i">San Francisco</em></samp></td>
+
+            </tr>
+
+            <tr class="row">
+              <td class="entry" valign="top" width="23.04147465437788%" headers="d78221e376 "><a class="xref" href="function_substring.html" title="SUBSTRING is a row function that returns the specified characters of a string value based on the given start and end position.">SUBSTRING</a></td>
+
+              <td class="entry" valign="top" width="26.72811059907834%" headers="d78221e379 "><p class="p">returns the specified characters of a string value based on the given start and end position</p>
+</td>
+
+              <td class="entry" valign="top" width="50.23041474654379%" headers="d78221e382 "><samp class="ph codeph">SUBSTRING(name,0,1)</samp></td>
+
+            </tr>
+
+            <tr class="row">
+              <td class="entry" valign="top" width="23.04147465437788%" headers="d78221e376 "><a class="xref" href="function_tolower.html" title="TO_LOWER is a row function that converts all alphabetic characters in a string to lower case.">TO_LOWER</a></td>
+
+              <td class="entry" valign="top" width="26.72811059907834%" headers="d78221e379 ">converts all alphabetic characters in a string to lower case</td>
+
+              <td class="entry" valign="top" width="50.23041474654379%" headers="d78221e382 "><samp class="ph codeph">TO_LOWER("123 Main Street") returns <em class="ph i">123 main
+            street</em></samp></td>
+
+            </tr>
+
+            <tr class="row">
+              <td class="entry" valign="top" width="23.04147465437788%" headers="d78221e376 "><a class="xref" href="function_toupper.html" title="TO_UPPER is a row function that converts all alphabetic characters in a string to upper case.">TO_UPPER</a></td>
+
+              <td class="entry" valign="top" width="26.72811059907834%" headers="d78221e379 ">converts all alphabetic characters in a string to upper case</td>
+
+              <td class="entry" valign="top" width="50.23041474654379%" headers="d78221e382 "><samp class="ph codeph">TO_UPPER("123 Main Street") returns <em class="ph i">123 MAIN
+            STREET</em></samp></td>
+
+            </tr>
+
+            <tr class="row">
+              <td class="entry" valign="top" width="23.04147465437788%" headers="d78221e376 "><a class="xref" href="function_trim.html" title="TRIM is a row function that removes leading and trailing spaces from a string value.">TRIM</a></td>
+
+              <td class="entry" valign="top" width="26.72811059907834%" headers="d78221e379 "><p class="p">removes leading and trailing spaces from a string value</p>
+</td>
+
+              <td class="entry" valign="top" width="50.23041474654379%" headers="d78221e382 "><samp class="ph codeph">TRIM(area_code)</samp></td>
+
+            </tr>
+
+          </tbody>
+
+        </table>
+</div>
+ 
+    </div>
+
+    
+    
+    <div class="section" id="ref_expr_quickstart__date_functions"><h2 class="title sectiontitle">Date and Time Functions</h2>
+      
+      <p class="p">Date and time functions allow you to manipulate and transform datetime values, such as calculating time differences between two datetime values, or extracting a portion of a datetime value.</p>
+
+      
+      
+<div class="tablenoborder"><table cellpadding="4" cellspacing="0" summary="" class="table" frame="border" border="1" rules="all">
+          
+          
+          
+          <thead class="thead" align="left">
+            <tr class="row">
+              <th class="entry" valign="top" width="23.04147465437788%" id="d78221e970">Function</th>
+
+              <th class="entry" valign="top" width="26.72811059907834%" id="d78221e973">Description</th>
+
+              <th class="entry" valign="top" width="50.23041474654379%" id="d78221e976">Example</th>
+
+            </tr>
+
+          </thead>
+
+          <tbody class="tbody">
+            <tr class="row">
+              <td class="entry" valign="top" width="23.04147465437788%" headers="d78221e970 "><a class="xref" href="function_daysbetween.html" title="DAYS_BETWEEN is a row function that calculates the whole number of days (ignoring time) between two DATETIME values (value1-value2).">DAYS_BETWEEN</a></td>
+
+              <td class="entry" valign="top" width="26.72811059907834%" headers="d78221e973 "><p class="p">calculates the whole number of days (ignoring time) between two <samp class="ph codeph">DATETIME</samp>
+                  values</p>
+</td>
+
+              <td class="entry" valign="top" width="50.23041474654379%" headers="d78221e976 "><samp class="ph codeph">DAYS_BETWEEN(ship_date,order_date)</samp></td>
+
+            </tr>
+
+            <tr class="row">
+              <td class="entry" valign="top" width="23.04147465437788%" headers="d78221e970 "><a class="xref" href="function_date_add.html" title="DATE_ADD is a row function that adds the specified time interval to a DATETIME value.">DATE_ADD</a></td>
+
+              <td class="entry" valign="top" width="26.72811059907834%" headers="d78221e973 "><p class="p">adds the specified time interval to a <samp class="ph codeph">DATETIME</samp> value</p>
+</td>
+
+              <td class="entry" valign="top" width="50.23041474654379%" headers="d78221e976 "><samp class="ph codeph">DATE_ADD(invoice_date,45,"day")</samp></td>
+
+            </tr>
+
+            <tr class="row">
+              <td class="entry" valign="top" width="23.04147465437788%" headers="d78221e970 "><a class="xref" href="function_hoursbetween.html" title="HOURS_BETWEEN is a row function that calculates the whole number of hours (ignoring minutes, seconds, and milliseconds) between two DATETIME values (value1-value2).">HOURS_BETWEEN</a></td>
+
+              <td class="entry" valign="top" width="26.72811059907834%" headers="d78221e973 "><p class="p">calculates the whole number of hours (ignoring minutes, seconds, and milliseconds) between two <samp class="ph codeph">DATETIME</samp> values</p>
+</td>
+
+              <td class="entry" valign="top" width="50.23041474654379%" headers="d78221e976 "><samp class="ph codeph">HOURS_BETWEEN(NOW(),impressions.adview_timestamp)</samp></td>
+
+            </tr>
+
+            <tr class="row">
+              <td class="entry" valign="top" width="23.04147465437788%" headers="d78221e970 "><a class="xref" href="function_extract.html" title="EXTRACT is a row function that returns the specified portion of a DATETIME value.">EXTRACT</a></td>
+
+              <td class="entry" valign="top" width="26.72811059907834%" headers="d78221e973 "><p class="p">returns the specified portion of a <samp class="ph codeph">DATETIME</samp> value</p>
+</td>
+
+              <td class="entry" valign="top" width="50.23041474654379%" headers="d78221e976 "><samp class="ph codeph">EXTRACT("hour",order_date)</samp></td>
+
+            </tr>
+
+            <tr class="row">
+              <td class="entry" valign="top" width="23.04147465437788%" headers="d78221e970 "><a class="xref" href="function_millisecondsbetween.html" title="MILLISECONDS_BETWEEN is a row function that calculates the whole number of milliseconds between two DATETIME values (value1-value2).">MILLISECONDS_BETWEEN</a></td>
+
+              <td class="entry" valign="top" width="26.72811059907834%" headers="d78221e973 "><p class="p">calculates the whole number of milliseconds between two <samp class="ph codeph">DATETIME</samp> values</p>
+</td>
+
+              <td class="entry" valign="top" width="50.23041474654379%" headers="d78221e976 "><samp class="ph codeph">MILLISECONDS_BETWEEN(request_timestamp,response_timestamp)</samp></td>
+
+            </tr>
+
+            <tr class="row">
+              <td class="entry" valign="top" width="23.04147465437788%" headers="d78221e970 "><a class="xref" href="function_minutesbetween.html" title="MINUTES_BETWEEN is a row function that calculates the whole number of minutes (ignoring seconds and milliseconds) between two DATETIME values (value1-value2).">MINUTES_BETWEEN</a></td>
+
+              <td class="entry" valign="top" width="26.72811059907834%" headers="d78221e973 "><p class="p">calculates the whole number of minutes (ignoring seconds and milliseconds) between two <samp class="ph codeph">DATETIME</samp> values</p>
+</td>
+
+              <td class="entry" valign="top" width="50.23041474654379%" headers="d78221e976 "><samp class="ph codeph">MINUTES_BETWEEN(impression_timestamp,conversion_timestamp)</samp></td>
+
+            </tr>
+
+            <tr class="row">
+              <td class="entry" valign="top" width="23.04147465437788%" headers="d78221e970 "><a class="xref" href="function_now.html" title="NOW is a scalar function that returns the current system date and time as a DATETIME value. It can be used in other expressions involving DATETIME type fields, such as , , or . Note that the value of NOW is only evaluated at the time a lens is built (it is not re-evaluated with each query).">NOW</a></td>
+
+              <td class="entry" valign="top" width="26.72811059907834%" headers="d78221e973 "><p class="p">returns the current system date and time as a <samp class="ph codeph">DATETIME</samp> value</p>
+</td>
+
+              <td class="entry" valign="top" width="50.23041474654379%" headers="d78221e976 "><samp class="ph codeph">YEAR_DIFF(NOW(),users.birthdate)</samp></td>
+
+            </tr>
+
+            <tr class="row">
+              <td class="entry" valign="top" width="23.04147465437788%" headers="d78221e970 "><a class="xref" href="function_secondsbetween.html" title="SECONDS_BETWEEN is a row function that calculates the whole number of seconds (ignoring milliseconds) between two DATETIME values (value1-value2).">SECONDS_BETWEEN</a></td>
+
+              <td class="entry" valign="top" width="26.72811059907834%" headers="d78221e973 "><p class="p">calculates the whole number of seconds (ignoring milliseconds) between two <samp class="ph codeph">DATETIME</samp> values</p>
+</td>
+
+              <td class="entry" valign="top" width="50.23041474654379%" headers="d78221e976 "><samp class="ph codeph">SECONDS_BETWEEN(impression_timestamp,conversion_timestamp)</samp></td>
+
+            </tr>
+
+            <tr class="row">
+              <td class="entry" valign="top" width="23.04147465437788%" headers="d78221e970 "><a class="xref" href="function_trunc.html" title="TRUNC is a row function that truncates a DATETIME value to the specified format.">TRUNC</a></td>
+
+              <td class="entry" valign="top" width="26.72811059907834%" headers="d78221e973 "><p class="p">truncates a <samp class="ph codeph">DATETIME</samp> value to the specified format</p>
+</td>
+
+              <td class="entry" valign="top" width="50.23041474654379%" headers="d78221e976 "><samp class="ph codeph">TRUNC(TO_DATE(order_date,"MM/dd/yyyy HH:mm:ss"),"day")</samp></td>
+
+            </tr>
+
+            <tr class="row">
+              <td class="entry" valign="top" width="23.04147465437788%" headers="d78221e970 "><a class="xref" href="function_yeardiff.html" title="YEAR_DIFF is a row function that calculates the fractional number of years between two DATETIME values (value1-value2).">YEAR_DIFF</a></td>
+
+              <td class="entry" valign="top" width="26.72811059907834%" headers="d78221e973 "><p class="p">calculates the fractional number of years between two <samp class="ph codeph">DATETIME</samp> values</p>
+</td>
+
+              <td class="entry" valign="top" width="50.23041474654379%" headers="d78221e976 "><samp class="ph codeph">YEAR_DIFF(NOW(),users.birthdate)</samp></td>
+
+            </tr>
+
+          </tbody>
+
+        </table>
+</div>
+ 
+      
+    </div>
+
+    
+    <div class="section" id="ref_expr_quickstart__url_functions"><h2 class="title sectiontitle">URL Functions</h2>
+      
+      <p class="p">URL functions allow you to extract different portions of a
+        URL string, and decode text that is URL-encoded.</p>
+
+      <div class="p">
+        
+<div class="tablenoborder"><table cellpadding="4" cellspacing="0" summary="" class="table" frame="border" border="1" rules="all">
+            
+            
+            
+            <thead class="thead" align="left">
+              <tr class="row">
+                <th class="entry" valign="top" width="23.04147465437788%" id="d78221e1331">Function</th>
+
+                <th class="entry" valign="top" width="26.72811059907834%" id="d78221e1334">Description</th>
+
+                <th class="entry" valign="top" width="50.23041474654379%" id="d78221e1337">Example</th>
+
+              </tr>
+
+            </thead>
+
+            <tbody class="tbody">
+              <tr class="row">
+                <td class="entry" valign="top" width="23.04147465437788%" headers="d78221e1331 "><a class="xref" href="function_url_authority.html" title="URL_AUTHORITY is a row function that returns the authority portion of a URL string. The authority portion of a URL is the part that has the information on how to locate and connect to the server.">URL_AUTHORITY</a></td>
+
+                <td class="entry" valign="top" width="26.72811059907834%" headers="d78221e1334 "><p class="p">returns the authority portion of a URL string</p>
+</td>
+
+                <td class="entry" valign="top" width="50.23041474654379%" headers="d78221e1337 "><samp class="ph codeph">URL_AUTHORITY(http://user:password@mycompany.com:8012/mypage.html) returns
+            <em class="ph i">user:password@mycompany.com:8012</em></samp></td>
+
+              </tr>
+
+              <tr class="row">
+                <td class="entry" valign="top" width="23.04147465437788%" headers="d78221e1331 "><a class="xref" href="function_url_fragment.html" title="URL_FRAGMENT is a row function that returns the fragment portion of a URL string.">URL_FRAGMENT</a></td>
+
+                <td class="entry" valign="top" width="26.72811059907834%" headers="d78221e1334 "><p class="p">returns the fragment portion of a URL string</p>
+</td>
+
+                <td class="entry" valign="top" width="50.23041474654379%" headers="d78221e1337 "><samp class="ph codeph">URL_FRAGMENT(http://platfora.com/news.php?topic=press#Platfora%20News) returns
+            <em class="ph i">Platfora%20News</em></samp></td>
+
+              </tr>
+
+              <tr class="row">
+                <td class="entry" valign="top" width="23.04147465437788%" headers="d78221e1331 "><a class="xref" href="function_url_host.html" title="URL_HOST is a row function that returns the host, domain, or IP address portion of a URL string.">URL_HOST</a></td>
+
+                <td class="entry" valign="top" width="26.72811059907834%" headers="d78221e1334 "><p class="p">returns the host, domain, or IP address portion of a URL string</p>
+</td>
+
+                <td class="entry" valign="top" width="50.23041474654379%" headers="d78221e1337 "><samp class="ph codeph">URL_HOST(http://user:password@mycompany.com:8012/mypage.html) returns
+            <em class="ph i">mycompany.com</em></samp></td>
+
+              </tr>
+
+              <tr class="row">
+                <td class="entry" valign="top" width="23.04147465437788%" headers="d78221e1331 "><a class="xref" href="function_url_path.html" title="URL_PATH is a row function that returns the path portion of a URL string.">URL_PATH</a></td>
+
+                <td class="entry" valign="top" width="26.72811059907834%" headers="d78221e1334 "><p class="p">returns the path portion of a URL string</p>
+</td>
+
+                <td class="entry" valign="top" width="50.23041474654379%" headers="d78221e1337 "><samp class="ph codeph">URL_PATH(http://platfora.com/company/contact.html)
+          returns <em class="ph i">/company/contact.html</em></samp></td>
+
+              </tr>
+
+              <tr class="row">
+                <td class="entry" valign="top" width="23.04147465437788%" headers="d78221e1331 "><a class="xref" href="function_url_port.html" title="URL_PORT is a row function that returns the port portion of a URL string.">URL_PORT</a></td>
+
+                <td class="entry" valign="top" width="26.72811059907834%" headers="d78221e1334 "><p class="p">returns the port portion of a URL string</p>
+</td>
+
+                <td class="entry" valign="top" width="50.23041474654379%" headers="d78221e1337 "><samp class="ph codeph">URL_PORT(http://user:password@mycompany.com:8012/mypage.html) returns
+          <em class="ph i">8012</em></samp></td>
+
+              </tr>
+
+              <tr class="row">
+                <td class="entry" valign="top" width="23.04147465437788%" headers="d78221e1331 "><a class="xref" href="function_url_protocol.html" title="URL_PROTOCOL is a row function that returns the protocol (or URI scheme name) portion of a URL string.">URL_PROTOCOL</a></td>
+
+                <td class="entry" valign="top" width="26.72811059907834%" headers="d78221e1334 "><p class="p">returns the protocol (or URI scheme name) portion of a URL string</p>
+</td>
+
+                <td class="entry" valign="top" width="50.23041474654379%" headers="d78221e1337 "><samp class="ph codeph">URL_PROTOCOL(http://www.platfora.com) returns <em class="ph i">http</em></samp></td>
+
+              </tr>
+
+              <tr class="row">
+                <td class="entry" valign="top" width="23.04147465437788%" headers="d78221e1331 "><a class="xref" href="function_url_query.html" title="URL_QUERY is a row function that returns the query portion of a URL string.">URL_QUERY</a></td>
+
+                <td class="entry" valign="top" width="26.72811059907834%" headers="d78221e1334 "><p class="p">returns the query portion of a URL string</p>
+</td>
+
+                <td class="entry" valign="top" width="50.23041474654379%" headers="d78221e1337 "><samp class="ph codeph">URL_QUERY(http://platfora.com/news.php?topic=press&amp;timeframe=today) returns
+            <em class="ph i">topic=press&amp;timeframe=today</em></samp></td>
+
+              </tr>
+
+              <tr class="row">
+                <td class="entry" valign="top" width="23.04147465437788%" headers="d78221e1331 "><a class="xref" href="function_urldecode.html" title="URLDECODE is a row function that decodes a string that has been encoded with the application/x-www-form-urlencoded media type. URL encoding, also known as percent-encoding, is a mechanism for encoding information in a Uniform Resource Identifier (URI). When sent in an HTTP GET request, application/x-www-form-urlencoded data is included in the query component of the request URI. When sent in an HTTP POST request, the data is placed in the body of the message, and the name of the media type is included in the message Content-Type header.">URLDECODE</a></td>
+
+                <td class="entry" valign="top" width="26.72811059907834%" headers="d78221e1334 "><p class="p">decodes a string that has been encoded with the <samp class="ph codeph">application/x-www-form-urlencoded</samp> media type</p>
+</td>
+
+                <td class="entry" valign="top" width="50.23041474654379%" headers="d78221e1337 "><samp class="ph codeph">URLDECODE(N%2FA%20or%20%22not%20applicable%22)</samp></td>
+
+              </tr>
+
+            </tbody>
+
+          </table>
+</div>
+
+      </div>
+
+      
+    </div>
+
+    
+    <div class="section" id="ref_expr_quickstart__ip_functions"><h2 class="title sectiontitle">IP Address Functions</h2>
+      
+      <p class="p">IP address functions allow you to manipulate and transform STRING data consisting of IP address values.</p>
+
+      
+<div class="tablenoborder"><table cellpadding="4" cellspacing="0" summary="" class="table" frame="border" border="1" rules="all">
+          
+          
+          
+          <thead class="thead" align="left">
+            <tr class="row">
+              <th class="entry" valign="top" width="23.04147465437788%" id="d78221e1572">Function</th>
+
+              <th class="entry" valign="top" width="26.72811059907834%" id="d78221e1575">Description</th>
+
+              <th class="entry" valign="top" width="50.23041474654379%" id="d78221e1578">Example</th>
+
+            </tr>
+
+          </thead>
+
+          <tbody class="tbody">
+            <tr class="row">
+              <td class="entry" valign="top" width="23.04147465437788%" headers="d78221e1572 "><a class="xref" href="function_cidrmatch.html" title="CIDR_MATCH is a row function that compares two STRING arguments representing a CIDR mask and an IP address, and returns 1 if the IP address falls within the specified subnet mask or 0 if it does not.">CIDR_MATCH</a></td>
+
+              <td class="entry" valign="top" width="26.72811059907834%" headers="d78221e1575 "><p class="p">compares two <samp class="ph codeph">STRING</samp> arguments representing a CIDR mask and an IP address, and
+                  returns 1 if the IP address falls within the specified subnet mask or
+                    <samp class="ph codeph">0</samp> if it does not</p>
+</td>
+
+              <td class="entry" valign="top" width="50.23041474654379%" headers="d78221e1578 "><samp class="ph codeph">CIDR_MATCH("60.145.56.0/24","60.145.56.246") returns
+            <em class="ph i">1</em></samp></td>
+
+            </tr>
+
+            <tr class="row">
+              <td class="entry" valign="top" width="23.04147465437788%" headers="d78221e1572 "><a class="xref" href="function_hextoip.html" title="HEX_TO_IP is a row function that converts a hexadecimal-encoded STRING to a text representation of an IP address.">HEX_TO_IP</a></td>
+
+              <td class="entry" valign="top" width="26.72811059907834%" headers="d78221e1575 "><p class="p">converts a hexadecimal-encoded <samp class="ph codeph">STRING</samp> to a text representation of an IP
+                  address</p>
+</td>
+
+              <td class="entry" valign="top" width="50.23041474654379%" headers="d78221e1578 "><samp class="ph codeph">HEX_TO_IP(AB20FE01) returns <em class="ph i">171.32.254.1</em></samp></td>
+
+            </tr>
+
+            
+          </tbody>
+
+        </table>
+</div>
+ 
+    </div>
+
+    
+    
+    <div class="section" id="ref_expr_quickstart__math_functions"><h2 class="title sectiontitle">Math Functions</h2>
+      
+      <p class="p">Math functions allow you to perform basic math calculations on numeric values. You can also
+        use the <a class="xref" href="operators_math.html" title="Arithmetic operators perform basic math operations on two expressions of the same data type resulting in a numeric value. The plus (+) and minus (-) operators can also be used to perform arithmetic operations on DATETIME values.">arithmetic operators</a> to perform simple math
+        calculations, such as addition, subtraction, division and multiplication.</p>
+
+      
+<div class="tablenoborder"><table cellpadding="4" cellspacing="0" summary="" class="table" frame="border" border="1" rules="all">
+          
+          
+          
+          <thead class="thead" align="left">
+            <tr class="row">
+              <th class="entry" valign="top" width="23.04147465437788%" id="d78221e1688">Function</th>
+
+              <th class="entry" valign="top" width="26.72811059907834%" id="d78221e1691">Description</th>
+
+              <th class="entry" valign="top" width="50.23041474654379%" id="d78221e1694">Example</th>
+
+            </tr>
+
+          </thead>
+
+          <tbody class="tbody">
+            <tr class="row">
+              <td class="entry" valign="top" width="23.04147465437788%" headers="d78221e1688 "><a class="xref" href="function_div.html" title="DIV is a row function that divides two LONG values and returns a quotient value of type LONG (the result is truncated to 0 decimal places).">DIV</a></td>
+
+              <td class="entry" valign="top" width="26.72811059907834%" headers="d78221e1691 "><p class="p">divides two <samp class="ph codeph">LONG</samp> values and returns a quotient value of type
+                    <samp class="ph codeph">LONG</samp></p>
+</td>
+
+              <td class="entry" valign="top" width="50.23041474654379%" headers="d78221e1694 "><samp class="ph codeph">DIV(TO_LONG(file_size),1024)</samp></td>
+
+            </tr>
+
+            <tr class="row">
+              <td class="entry" valign="top" width="23.04147465437788%" headers="d78221e1688 "><a class="xref" href="function_exp.html" title="EXP is a row function that raises the mathematical constant e to the power (exponent) of a numeric value and returns a value of type DOUBLE.">EXP</a></td>
+
+              <td class="entry" valign="top" width="26.72811059907834%" headers="d78221e1691 "><p class="p">raises the mathematical constant <em class="ph i">e</em> to the power (exponent) of a numeric value and
+                  returns a value of type <samp class="ph codeph">DOUBLE</samp>.</p>
+</td>
+
+              <td class="entry" valign="top" width="50.23041474654379%" headers="d78221e1694 "><samp class="ph codeph">EXP(Value)</samp></td>
+
+            </tr>
+
+            <tr class="row">
+              <td class="entry" valign="top" width="23.04147465437788%" headers="d78221e1688 "><a class="xref" href="function_floor.html" title="FLOOR is a row function that returns the largest integer that is less than or equal to the input argument.">FLOOR</a></td>
+
+              <td class="entry" valign="top" width="26.72811059907834%" headers="d78221e1691 "><p class="p">returns the largest integer that is less than or equal to the input argument</p>
+</td>
+
+              <td class="entry" valign="top" width="50.23041474654379%" headers="d78221e1694 "><samp class="ph codeph">FLOOR(32.6789) returns <em class="ph i">32.0</em></samp></td>
+
+            </tr>
+
+            <tr class="row">
+              <td class="entry" valign="top" width="23.04147465437788%" headers="d78221e1688 "><a class="xref" href="function_hash.html" title="HASH is a row function that evenly partitions data values into the specified number of buckets. It creates a hash of the input value and assigns that value a bucket number. Equal values will always hash to the same bucket number.">HASH</a></td>
+
+              <td class="entry" valign="top" width="26.72811059907834%" headers="d78221e1691 ">evenly partitions data values into the specified number of buckets</td>
+
+              <td class="entry" valign="top" width="50.23041474654379%" headers="d78221e1694 "><samp class="ph codeph">HASH(username,20)</samp></td>
+
+            </tr>
+
+            <tr class="row">
+              <td class="entry" valign="top" width="23.04147465437788%" headers="d78221e1688 "><a class="xref" href="function_ln.html" title="LN is a row function that returns the natural logarithm of a number. The natural logarithm is the logarithm to the base e, where e (Euler's number) is a mathematical constant approximately equal to 2.718281828. The natural logarithm of a number x is the power to which the constant e must be raised in order to equal x.">LN</a></td>
+
+              <td class="entry" valign="top" width="26.72811059907834%" headers="d78221e1691 "><p class="p">returns the natural logarithm of a number</p>
+</td>
+
+              <td class="entry" valign="top" width="50.23041474654379%" headers="d78221e1694 "><samp class="ph codeph">LN(2.718281828) returns <em class="ph i">1</em></samp></td>
+
+            </tr>
+
+            <tr class="row">
+              <td class="entry" valign="top" width="23.04147465437788%" headers="d78221e1688 "><a class="xref" href="function_mod.html" title="MOD is a row function that divides two LONG values and returns the remainder value of type LONG (the result is truncated to 0 decimal places).">MOD</a></td>
+
+              <td class="entry" valign="top" width="26.72811059907834%" headers="d78221e1691 "><p class="p">divides two <samp class="ph codeph">LONG</samp> values and returns the remainder value of type
+                    <samp class="ph codeph">LONG</samp></p>
+</td>
+
+              <td class="entry" valign="top" width="50.23041474654379%" headers="d78221e1694 "><samp class="ph codeph">MOD(TO_LONG(file_size),1024)</samp></td>
+
+            </tr>
+
+            <tr class="row">
+              <td class="entry" valign="top" width="23.04147465437788%" headers="d78221e1688 "><a class="xref" href="function_pow.html" title="POW is a row function that raises the a numeric value to the power (exponent) of another numeric value and returns a value of type DOUBLE.">POW</a></td>
+
+              <td class="entry" valign="top" width="26.72811059907834%" headers="d78221e1691 "><p class="p">raises a numeric value to the power (exponent) of another numeric value and returns a value of
+                type <samp class="ph codeph">DOUBLE</samp>.</p>
+</td>
+
+              <td class="entry" valign="top" width="50.23041474654379%" headers="d78221e1694 "><samp class="ph codeph">100 * POW(end_value/start_value, 0.2) - 1</samp></td>
+
+            </tr>
+
+            <tr class="row">
+              <td class="entry" valign="top" width="23.04147465437788%" headers="d78221e1688 "><a class="xref" href="function_round.html" title="ROUND is a row function that rounds a DOUBLE value to the specified number of decimal places.">ROUND</a></td>
+
+              <td class="entry" valign="top" width="26.72811059907834%" headers="d78221e1691 "><p class="p">rounds a <samp class="ph codeph">DOUBLE</samp> value to the specified number of decimal places</p>
+</td>
+
+              <td class="entry" valign="top" width="50.23041474654379%" headers="d78221e1694 "><samp class="ph codeph">ROUND(32.4678954,2) returns <em class="ph i">32.47</em></samp></td>
+
+            </tr>
+
+          </tbody>
+
+        </table>
+</div>
+ 
+    </div>
+
+    
+    <div class="section" id="ref_expr_quickstart__conversion_functions"><h2 class="title sectiontitle">Data Type Conversion Functions</h2>
+      
+      <p class="p">Data type conversion functions allow you to cast data values from one data type to another.
+        These functions are used implicitly whenever you set the data type of a field or column in
+        the Platfora user interface. The supported data types are: <samp class="ph codeph">INTEGER</samp>,
+          <samp class="ph codeph">LONG</samp>, <samp class="ph codeph">DOUBLE</samp>, <samp class="ph codeph">FIXED</samp>,
+          <samp class="ph codeph">DATETIME</samp>, and <samp class="ph codeph">STRING</samp></p>
+
+      
+<div class="tablenoborder"><table cellpadding="4" cellspacing="0" summary="" class="table" frame="border" border="1" rules="all">
+          
+          
+          
+          <thead class="thead" align="left">
+            <tr class="row">
+              <th class="entry" valign="top" width="23.04147465437788%" id="d78221e1980">Function</th>
+
+              <th class="entry" valign="top" width="26.72811059907834%" id="d78221e1983">Description</th>
+
+              <th class="entry" valign="top" width="50.23041474654379%" id="d78221e1986">Example</th>
+
+            </tr>
+
+          </thead>
+
+          <tbody class="tbody">
+            <tr class="row">
+              <td class="entry" valign="top" width="23.04147465437788%" headers="d78221e1980 "><a class="xref" href="function_epochms_todate.html" title="EPOCH_MS_TO_DATE is a row function that converts LONG values to DATETIME values, where the input number represents the number of milliseconds since the epoch.">EPOCH_MS_TO_DATE</a></td>
+
+              <td class="entry" valign="top" width="26.72811059907834%" headers="d78221e1983 "><p class="p">converts <samp class="ph codeph">LONG</samp> values to <samp class="ph codeph">DATETIME</samp> values, where the input number
+                  represents the number of milliseconds since the epoch</p>
+</td>
+
+              <td class="entry" valign="top" width="50.23041474654379%" headers="d78221e1986 "><samp class="ph codeph">EPOCH_MS_TO_DATE(1360260240000) returns
+            <em class="ph i">2013-02-07T18:04:00:000Z</em></samp>
+              </td>
+
+            </tr>
+
+            <tr class="row">
+              <td class="entry" valign="top" width="23.04147465437788%" headers="d78221e1980 "><a class="xref" href="function_tofixed.html" title="TO_FIXED is a row function that converts STRING, INTEGER, LONG, or DOUBLE values to fixed-decimal values. Using a FIXED data type to represent monetary values allows you to calculate and aggregate monetary values with accuracy to a ten-thousandth of a monetary unit.">TO_FIXED</a></td>
+
+              <td class="entry" valign="top" width="26.72811059907834%" headers="d78221e1983 "><p class="p">converts <samp class="ph codeph">STRING</samp>, <samp class="ph codeph">INTEGER</samp>, <samp class="ph codeph">LONG</samp>, or
+                    <samp class="ph codeph">DOUBLE</samp> values to fixed-decimal values</p>
+</td>
+
+              <td class="entry" valign="top" width="50.23041474654379%" headers="d78221e1986 "><samp class="ph codeph">TO_FIXED(opening_price)</samp></td>
+
+            </tr>
+
+            <tr class="row">
+              <td class="entry" valign="top" width="23.04147465437788%" headers="d78221e1980 "><a class="xref" href="function_todate.html" title="TO_DATE is a row function that converts STRING values to DATETIME values, and specifies the format of the date and time elements in the string.">TO_DATE</a></td>
+
+              <td class="entry" valign="top" width="26.72811059907834%" headers="d78221e1983 "><p class="p">converts <samp class="ph codeph">STRING</samp> values to <samp class="ph codeph">DATETIME</samp> values, and specifies the
+                  format of the date and time elements in the string</p>
+</td>
+
+              <td class="entry" valign="top" width="50.23041474654379%" headers="d78221e1986 "><samp class="ph codeph">TO_DATE(order_date,"yyyy.MM.dd 'at' HH:mm:ss z")</samp>
+              </td>
+
+            </tr>
+
+            <tr class="row">
+              <td class="entry" valign="top" width="23.04147465437788%" headers="d78221e1980 "><a class="xref" href="function_todouble.html" title="TO_DOUBLE is a row function that converts STRING, INTEGER, LONG, or DOUBLE values to DOUBLE (decimal) values.">TO_DOUBLE</a></td>
+
+              <td class="entry" valign="top" width="26.72811059907834%" headers="d78221e1983 "><p class="p">converts <samp class="ph codeph">STRING</samp>, <samp class="ph codeph">INTEGER</samp>, <samp class="ph codeph">LONG</samp>, or
+                    <samp class="ph codeph">DOUBLE</samp> values to <samp class="ph codeph">DOUBLE</samp> (decimal) values</p>
+</td>
+
+              <td class="entry" valign="top" width="50.23041474654379%" headers="d78221e1986 "><samp class="ph codeph">TO_DOUBLE(average_rating)</samp></td>
+
+            </tr>
+
+            <tr class="row">
+              <td class="entry" valign="top" width="23.04147465437788%" headers="d78221e1980 "><a class="xref" href="function_toint.html" title="TO_INT is a row function that converts STRING, INTEGER, LONG, or DOUBLE values to INTEGER (whole number) values. When converting DOUBLE values, everything after the decimal will be truncated (not rounded up or down).">TO_INT</a></td>
+
+              <td class="entry" valign="top" width="26.72811059907834%" headers="d78221e1983 "><p class="p">converts <samp class="ph codeph">STRING</samp>, <samp class="ph codeph">INTEGER</samp>, <samp class="ph codeph">LONG</samp>, or
+                    <samp class="ph codeph">DOUBLE</samp> values to <samp class="ph codeph">INTEGER</samp> (whole number)
+                  values</p>
+</td>
+
+              <td class="entry" valign="top" width="50.23041474654379%" headers="d78221e1986 "><samp class="ph codeph">TO_INT(average_rating)</samp></td>
+
+            </tr>
+
+            <tr class="row">
+              <td class="entry" valign="top" width="23.04147465437788%" headers="d78221e1980 "><a class="xref" href="function_tolong.html" title="TO_LONG is a row function that converts STRING, INTEGER, LONG, or DOUBLE values to LONG (whole number) values. When converting DOUBLE values, everything after the decimal will be truncated (not rounded up or down).">TO_LONG</a></td>
+
+              <td class="entry" valign="top" width="26.72811059907834%" headers="d78221e1983 "><p class="p">converts <samp class="ph codeph">STRING</samp>, <samp class="ph codeph">INTEGER</samp>, <samp class="ph codeph">LONG</samp>, or
+                    <samp class="ph codeph">DOUBLE</samp> values to <samp class="ph codeph">LONG</samp> (whole number)
+                  values</p>
+</td>
+
+              <td class="entry" valign="top" width="50.23041474654379%" headers="d78221e1986 "><samp class="ph codeph">TO_LONG(average_rating)</samp></td>
+
+            </tr>
+
+            <tr class="row">
+              <td class="entry" valign="top" width="23.04147465437788%" headers="d78221e1980 "><a class="xref" href="function_tostring.html" title="TO_STRING is a row function that converts values of other data types to STRING (character) values.">TO_STRING</a></td>
+
+              <td class="entry" valign="top" width="26.72811059907834%" headers="d78221e1983 "><p class="p">converts values of other data types to STRING (character) values</p>
+</td>
+
+              <td class="entry" valign="top" width="50.23041474654379%" headers="d78221e1986 "><samp class="ph codeph">TO_STRING(sku_number)</samp></td>
+
+            </tr>
+
+          </tbody>
+
+        </table>
+</div>
+
+    </div>
+
+    
+    <div class="section" id="ref_expr_quickstart__aggregate_functions"><h2 class="title sectiontitle">Aggregate Functions</h2>
+      
+      <p class="p">An aggregate function groups the values of multiple rows together based on some defined
+        input expression. Aggregate functions return one value for a group of rows, and are only
+        valid for defining <a href="../../glossary/gdef_measure.html" title="&#xA;        A measure is a numeric value representing an aggregation of some dataset metric (such as total dollars sold, average number of users, and so on). To create measures, you add computed fields to a dataset or a lens.&#xA;            &#xA;        When a lens is built, the build calculates any measures and stores them in the lens. In a visualization, measures provide the basis for quantitative analysis.&#xA;        Measures represent a set of real-world events (or facts) and typically answer &#34;how&#34; questions about data such as how many or how long? If you are familiar with SQL, measure values come from the aggregate functions such as SUM(), COUNT(), MAX(), MIN(). Measure fields&#xA;            are typically derived from numeric fields in a dataset, and their values are always the result of an aggregation (average, count, sum, min, max, and so on). &#xA;    "><dfn class="term">measures</dfn></a> in Platfora. In the dataset,
+        measures can be defined using any of the aggregate functions. In the vizboard, only the
+        DISTINCT, MAX, or MIN aggregate functions are allowed. </p>
+
+      
+<div class="tablenoborder"><table cellpadding="4" cellspacing="0" summary="" class="table" frame="border" border="1" rules="all">
+          
+          
+          
+          <thead class="thead" align="left">
+            <tr class="row">
+              <th class="entry" valign="top" width="23.25581395348837%" id="d78221e2326">Function</th>
+
+              <th class="entry" valign="top" width="26.51162790697674%" id="d78221e2329">Description</th>
+
+              <th class="entry" valign="top" width="50.23255813953489%" id="d78221e2332">Example</th>
+
+            </tr>
+
+          </thead>
+
+          <tbody class="tbody">
+            <tr class="row">
+              <td class="entry" valign="top" width="23.25581395348837%" headers="d78221e2326 "><a class="xref" href="function_avg.html" title="AVG is an aggregate function that returns the average of all valid numeric values. It sums all values in the provided expression and divides by the number of valid (NOT NULL) rows. If you want to compute an average that includes all values in the row count (including NULL values), you can use a SUM/COUNT expression instead.">AVG</a></td>
+
+              <td class="entry" valign="top" width="26.51162790697674%" headers="d78221e2329 "><p class="p">returns the average of all valid numeric values</p>
+</td>
+
+              <td class="entry" valign="top" width="50.23255813953489%" headers="d78221e2332 "><samp class="ph codeph">AVG(sale_amount)</samp></td>
+
+            </tr>
+
+            <tr class="row">
+              <td class="entry" valign="top" width="23.25581395348837%" headers="d78221e2326 "><a class="xref" href="function_count.html" title="COUNT is an aggregate function that returns the number of rows in a dataset.">COUNT</a></td>
+
+              <td class="entry" valign="top" width="26.51162790697674%" headers="d78221e2329 "><p class="p">returns the number of rows in a dataset</p>
+</td>
+
+              <td class="entry" valign="top" width="50.23255813953489%" headers="d78221e2332 "><samp class="ph codeph">COUNT(sales.customers)</samp></td>
+
+            </tr>
+
+            <tr class="row">
+              <td class="entry" valign="top" width="23.25581395348837%" headers="d78221e2326 "><a class="xref" href="function_countvalid.html" title="COUNT_VALID is an aggregate function that returns the number of rows for which the given expression is valid (excludes NULL values).">COUNT_VALID</a></td>
+
+              <td class="entry" valign="top" width="26.51162790697674%" headers="d78221e2329 "><p class="p">returns the number of rows for which the given expression is valid</p>
+</td>
+
+              <td class="entry" valign="top" width="50.23255813953489%" headers="d78221e2332 "><samp class="ph codeph">COUNT_VALID(page_views)</samp></td>
+
+            </tr>
+
+            <tr class="row">
+              <td class="entry" valign="top" width="23.25581395348837%" headers="d78221e2326 "><a class="xref" href="function_distinct.html" title="DISTINCT is an aggregate function that returns the number of distinct values for the given expression.">DISTINCT</a></td>
+
+              <td class="entry" valign="top" width="26.51162790697674%" headers="d78221e2329 "><p class="p">returns the number of distinct values for the given expression</p>
+</td>
+
+              <td class="entry" valign="top" width="50.23255813953489%" headers="d78221e2332 "><samp class="ph codeph">DISTINCT(user_id)</samp></td>
+
+            </tr>
+
+            <tr class="row">
+              <td class="entry" valign="top" width="23.25581395348837%" headers="d78221e2326 "><a class="xref" href="function_max.html" title="MAX is an aggregate function that returns the biggest value from the given input expression.">MAX</a></td>
+
+              <td class="entry" valign="top" width="26.51162790697674%" headers="d78221e2329 "><p class="p">returns the biggest value from the given input expression</p>
+</td>
+
+              <td class="entry" valign="top" width="50.23255813953489%" headers="d78221e2332 "><samp class="ph codeph">MAX(sale_amount)</samp></td>
+
+            </tr>
+
+            <tr class="row">
+              <td class="entry" valign="top" width="23.25581395348837%" headers="d78221e2326 "><a class="xref" href="function_min.html" title="MIN is an aggregate function that returns the smallest value from the given input expression.">MIN</a></td>
+
+              <td class="entry" valign="top" width="26.51162790697674%" headers="d78221e2329 "><p class="p">returns the smallest value from the given input expression</p>
+</td>
+
+              <td class="entry" valign="top" width="50.23255813953489%" headers="d78221e2332 "><samp class="ph codeph">MIN(sale_amount)</samp></td>
+
+            </tr>
+
+            <tr class="row">
+              <td class="entry" valign="top" width="23.25581395348837%" headers="d78221e2326 "><a class="xref" href="function_sum.html" title="SUM is an aggregate function that returns the total of all values from the given input expression.">SUM</a></td>
+
+              <td class="entry" valign="top" width="26.51162790697674%" headers="d78221e2329 "><p class="p">returns the total of all values from the given input expression</p>
+</td>
+
+              <td class="entry" valign="top" width="50.23255813953489%" headers="d78221e2332 "><samp class="ph codeph">SUM(sale_amount)</samp></td>
+
+            </tr>
+
+            <tr class="row">
+              <td class="entry" valign="top" width="23.25581395348837%" headers="d78221e2326 "><a class="xref" href="function_stddev.html" title="STDDEV is an aggregate function that calculates the population standard deviation for a group of numeric values. Standard deviation is the square root of the variance.">STDDEV</a></td>
+
+              <td class="entry" valign="top" width="26.51162790697674%" headers="d78221e2329 "><p class="p">calculates the population standard deviation for a group of numeric values</p>
+</td>
+
+              <td class="entry" valign="top" width="50.23255813953489%" headers="d78221e2332 ">
+                <p class="p"><samp class="ph codeph">STDDEV(sale_amount)</samp></p>
+
+              </td>
+
+            </tr>
+
+            <tr class="row">
+              <td class="entry" valign="top" width="23.25581395348837%" headers="d78221e2326 "><a class="xref" href="function_variance.html" title="VARIANCE is an aggregate function that calculates the population variance for a group of numeric values. Variance measures the amount by which all values in a group vary from the average value of the group. Data with low variance contains values that are identical or similar. Data with high variance contains values that are not similar. Variance is calculated as the average of the squares of the deviations from the mean. Squaring the deviations ensures that negative and positive deviations do not cancel each other out.">VARIANCE</a></td>
+
+              <td class="entry" valign="top" width="26.51162790697674%" headers="d78221e2329 "><p class="p">calculates the population variance for a group of numeric values</p>
+</td>
+
+              <td class="entry" valign="top" width="50.23255813953489%" headers="d78221e2332 "><p class="p"><samp class="ph codeph">VARIANCE(sale_amount)</samp></p>
+
+               
+              </td>
+
+            </tr>
+
+          </tbody>
+
+        </table>
+</div>
+
+    </div>
+
+    
+    <div class="section" id="ref_expr_quickstart__window_functions"><h2 class="title sectiontitle">ROLLUP Statements and Window Functions</h2>
+      
+      <p class="p"><samp class="ph codeph">ROLLUP</samp> is a modifier to an aggregate expression that turns an aggregate
+        into a windowed aggregate. Window functions (<samp class="ph codeph">RANK</samp>,
+          <samp class="ph codeph">DENSE_RANK</samp> and <samp class="ph codeph">NTILE</samp>) can only be used within a
+          <samp class="ph codeph">ROLLUP</samp> statement. The <samp class="ph codeph">ROLLUP</samp> statement defines the
+        partitioning and ordering of a rowset before the associated aggregate function or window
+        function is applied. </p>
+
+      <p class="p"><samp class="ph codeph">ROLLUP</samp> defines a window or user-specified set of rows within a query
+        result set. A window function then computes a value for each row in the window. You can use
+        window functions to compute aggregated values such as moving averages, cumulative
+        aggregates, running totals, or a top <em class="ph i">N</em> per group results. </p>
+
+      <p class="p"><samp class="ph codeph">ROLLUP</samp> statements can be specified in either the dataset or the vizboard.
+        When using a <samp class="ph codeph">ROLLUP</samp> in a vizboard, the measure for which you are
+        calculating the <samp class="ph codeph">ROLLUP</samp> must already exist in the lens you are using in the
+        vizboard.</p>
+
+      
+<div class="tablenoborder"><table cellpadding="4" cellspacing="0" summary="" class="table" frame="border" border="1" rules="all">
+          
+          
+          
+          <thead class="thead" align="left">
+            <tr class="row">
+              <th class="entry" valign="top" width="23.25581395348837%" id="d78221e2613">Function</th>
+
+              <th class="entry" valign="top" width="26.51162790697674%" id="d78221e2616">Description</th>
+
+              <th class="entry" valign="top" width="50.23255813953489%" id="d78221e2619">Example</th>
+
+            </tr>
+
+          </thead>
+
+          <tbody class="tbody">     
+            <tr class="row">
+              <td class="entry" valign="top" width="23.25581395348837%" headers="d78221e2613 "><a class="xref" href="function_dense_rank.html" title="DENSE_RANK is an aggregate function that assigns the rank (position) of each row in a group (partition) of rows and does not skip rank numbers in the event of tie. The rank of a row is one plus the number of distinct ranks that come before the row. DENSE_RANK must be used with the ROLLUP function, which acts as a modifier for DENSE_RANK. Use a column in the ROLLUP order by clause to determine on which column to determine the ranking.">DENSE_RANK</a></td>
+
+              <td class="entry" valign="top" width="26.51162790697674%" headers="d78221e2616 "><p class="p">assigns the rank (position) of each row in a group (partition) of rows and does <em class="ph i">not</em> skip
+                  rank numbers in the event of tie</p>
+</td>
+
+              <td class="entry" valign="top" width="50.23255813953489%" headers="d78221e2619 "><samp class="ph codeph">ROLLUP DENSE_RANK() TO (Quarter) ORDER BY (sum_sales DESC)
+          ROWS UNBOUNDED PRECEDING</samp></td>
+
+            </tr>
+
+            
+            <tr class="row">
+              <td class="entry" valign="top" width="23.25581395348837%" headers="d78221e2613 "><a class="xref" href="function_ntile.html" title="NTILE is a windowing aggregate function that divides a partitioned group of rows into the specified number of buckets, and returns the bucket number to which the current row belongs. NTILE must be used within a ROLLUP expression.">NTILE</a></td>
+
+              <td class="entry" valign="top" width="26.51162790697674%" headers="d78221e2616 "><p class="p">divides a partitioned group of rows into the specified number of buckets, and returns the bucket
+                  number to which the current row belongs</p>
+</td>
+
+              <td class="entry" valign="top" width="50.23255813953489%" headers="d78221e2619 "><samp class="ph codeph">ROLLUP NTILE(100) TO () ORDER BY ([Total Records] DESC)
+          ROWS UNBOUNDED PRECEDING</samp></td>
+
+            </tr>
+
+            
+            <tr class="row">
+              <td class="entry" valign="top" width="23.25581395348837%" headers="d78221e2613 "><a class="xref" href="function_rank.html" title="RANK is an aggregate function that assigns the rank (position) of each row in a group (partition) of rows and skips rank numbers in the event of tie. The rank of a row is one plus the number of ranks that come before the row. RANK must be used with the ROLLUP function, which acts as a modifier for RANK. Use a column in the ROLLUP order by clause to determine on which column to determine the ranking.">RANK</a></td>
+
+              <td class="entry" valign="top" width="26.51162790697674%" headers="d78221e2616 "><p class="p">assigns the rank (position) of each row in a group (partition) of rows and skips rank numbers in
+                the event of tie</p>
+</td>
+
+              <td class="entry" valign="top" width="50.23255813953489%" headers="d78221e2619 "><samp class="ph codeph">ROLLUP RANK() TO (Quarter) ORDER BY (sum_sales DESC) ROWS
+          UNBOUNDED PRECEDING</samp></td>
+
+            </tr>
+
+            
+            <tr class="row">
+              <td class="entry" valign="top" width="23.25581395348837%" headers="d78221e2613 "><a class="xref" href="function_rollup.html" title="ROLLUP is a modifier to an aggregate function that turns a regular aggregate function into a windowed, partitioned, or adaptive aggregate function. This is useful when you want to compute an aggregation over a subset of rows within the overall result of a viz query.">ROLLUP</a></td>
+
+              <td class="entry" valign="top" width="26.51162790697674%" headers="d78221e2616 "><p class="p">a modifier to an aggregate function that turns a regular aggregate function into a
+                    <em class="ph i">windowed</em>, <em class="ph i">partitioned</em>, or <em class="ph i">adaptive</em> aggregate function</p>
+</td>
+
+              <td class="entry" valign="top" width="50.23255813953489%" headers="d78221e2619 "><samp class="ph codeph">100 * COUNT(Flights) / ROLLUP COUNT(Flights) TO
+          ([Departure Date])</samp></td>
+
+            </tr>
+
+            
+            
+            <tr class="row">
+              <td class="entry" valign="top" width="23.25581395348837%" headers="d78221e2613 "><a class="xref" href="function_rownumber.html" title="ROW_NUMBER is a windowing aggregate function that assigns a unique, sequential number to each row in a group (partition) of rows, starting at 1 for the first row in each partition. ROW_NUMBER must be used within a ROLLUP expression, which acts as a modifier for ROW_NUMBER. Use a column in the ROLLUP order by clause to determine on which column to determine the row number.">ROW_NUMBER</a></td>
+
+              <td class="entry" valign="top" width="26.51162790697674%" headers="d78221e2616 "><p class="p">a modifier to an aggregate function that turns a regular aggregate function into a
+                <em class="ph i">windowed</em>, <em class="ph i">partitioned</em>, or <em class="ph i">adaptive</em> aggregate function</p>
+</td>
+
+              <td class="entry" valign="top" width="50.23255813953489%" headers="d78221e2619 "><samp class="ph codeph">ROLLUP ROW_NUMBER() TO (Quarter) ORDER BY (Sum_Sales
+          DESC) ROWS UNBOUNDED PRECEDING</samp></td>
+
+            </tr>
+
+            
+          </tbody>
+
+        </table>
+</div>
+
+    </div>
+
+    
+    <div class="section" id="ref_expr_quickstart__udfs"><h2 class="title sectiontitle">User Defined Functions</h2>
+      
+      <p class="p">User defined functions (UDFs) allow you to define your own per-row processing logic, and
+        then expose that functionality to users in the Platfora application expression builder. See
+          <a class="xref" href="udf/add_udf_top.html" title="User defined functions (UDFs) allow you to define your own per-row processing logic, and then expose that functionality to users in the Platfora application expression builder.">User Defined Functions (UDFs)</a> for more information.</p>
+
+    </div>
+
+    
+    <div class="section" id="ref_expr_quickstart__comparison_operators"><h2 class="title sectiontitle">Comparison Operators</h2>
+      
+      <p class="p">Comparison operators are used to compare the equivalency of two expressions of the same
+        data type. The result of a comparison expression is a Boolean value (returns
+          <samp class="ph codeph">1</samp> for true, <samp class="ph codeph">0</samp> for false, or <samp class="ph codeph">NULL</samp> for
+        invalid). Boolean expressions are most often used to specify data processing conditions or
+        filters.</p>
+
+      <div class="p">
+        
+<div class="tablenoborder"><table cellpadding="4" cellspacing="0" summary="" class="table" frame="border" border="1" rules="all">
+            
+            
+            
+            <thead class="thead" align="left">
+              <tr class="row">
+                <th class="entry" valign="top" width="23.52941176470588%" id="d78221e2860"><p class="p">Operator</p>
+</th>
+
+                <th class="entry" valign="top" width="29.411764705882355%" id="d78221e2864"><p class="p">Meaning</p>
+</th>
+
+                <th class="entry" valign="top" width="47.05882352941176%" id="d78221e2868"><p class="p">Example Expression</p>
+</th>
+
+              </tr>
+
+            </thead>
+
+            <tbody class="tbody">
+              <tr class="row">
+                <td class="entry" valign="top" width="23.52941176470588%" headers="d78221e2860 "><p class="p"><samp class="ph codeph ignore_table_context">=</samp> or <samp class="ph codeph ignore_table_context">==</samp></p>
+</td>
+
+                <td class="entry" valign="top" width="29.411764705882355%" headers="d78221e2864 "><p class="p">Equal to</p>
+</td>
+
+                <td class="entry" valign="top" width="47.05882352941176%" headers="d78221e2868 "><p class="p"><samp class="ph codeph ignore_table_context">order_date = "12/22/2011"</samp></p>
+</td>
+
+              </tr>
+
+              <tr class="row">
+                <td class="entry" valign="top" width="23.52941176470588%" headers="d78221e2860 ">
+                  <p class="p"><samp class="ph codeph ignore_table_context">&gt;</samp></p>
+</td>
+
+                <td class="entry" valign="top" width="29.411764705882355%" headers="d78221e2864 "><p class="p">Greater than</p>
+</td>
+
+                <td class="entry" valign="top" width="47.05882352941176%" headers="d78221e2868 "><p class="p"><samp class="ph codeph ignore_table_context">age &gt; 18</samp></p>
+
+                </td>
+
+              </tr>
+
+              <tr class="row">
+                <td class="entry" valign="top" width="23.52941176470588%" headers="d78221e2860 ">
+                  <p class="p"><samp class="ph codeph ignore_table_context">!&gt;</samp></p>
+</td>
+
+                <td class="entry" valign="top" width="29.411764705882355%" headers="d78221e2864 "><p class="p">Not greater than</p>
+</td>
+
+                <td class="entry" valign="top" width="47.05882352941176%" headers="d78221e2868 "><p class="p"><samp class="ph codeph ignore_table_context">age !&gt; 8</samp></p>
+
+                </td>
+
+              </tr>
+
+              <tr class="row">
+                <td class="entry" valign="top" width="23.52941176470588%" headers="d78221e2860 ">
+                  <p class="p"><samp class="ph codeph ignore_table_context">&lt;</samp></p>
+</td>
+
+                <td class="entry" valign="top" width="29.411764705882355%" headers="d78221e2864 "><p class="p">Less than</p>
+</td>
+
+                <td class="entry" valign="top" width="47.05882352941176%" headers="d78221e2868 "><p class="p"><samp class="ph codeph ignore_table_context">age &lt; 30</samp></p>
+</td>
+
+              </tr>
+
+              <tr class="row">
+                <td class="entry" valign="top" width="23.52941176470588%" headers="d78221e2860 ">
+                  <p class="p"><samp class="ph codeph ignore_table_context">!&lt;</samp></p>
+</td>
+
+                <td class="entry" valign="top" width="29.411764705882355%" headers="d78221e2864 "><p class="p">Not less than</p>
+</td>
+
+                <td class="entry" valign="top" width="47.05882352941176%" headers="d78221e2868 "><p class="p"><samp class="ph codeph ignore_table_context">age !&lt; 12</samp></p>
+</td>
+
+              </tr>
+
+              <tr class="row">
+                <td class="entry" valign="top" width="23.52941176470588%" headers="d78221e2860 ">
+                  <p class="p"><samp class="ph codeph ignore_table_context">&gt;=</samp></p>
+</td>
+
+                <td class="entry" valign="top" width="29.411764705882355%" headers="d78221e2864 "><p class="p">Greater than or equal to</p>
+</td>
+
+                <td class="entry" valign="top" width="47.05882352941176%" headers="d78221e2868 "><p class="p"><samp class="ph codeph ignore_table_context">age &gt;= 20</samp></p>
+</td>
+
+              </tr>
+
+              <tr class="row">
+                <td class="entry" valign="top" width="23.52941176470588%" headers="d78221e2860 "><p class="p"><samp class="ph codeph ignore_table_context">&lt;=</samp></p>
+
+                </td>
+
+                <td class="entry" valign="top" width="29.411764705882355%" headers="d78221e2864 "><p class="p">Less than or equal to</p>
+</td>
+
+                <td class="entry" valign="top" width="47.05882352941176%" headers="d78221e2868 "><p class="p"><samp class="ph codeph ignore_table_context">age &lt;= 29</samp></p>
+</td>
+
+              </tr>
+
+              <tr class="row">
+                <td class="entry" valign="top" width="23.52941176470588%" headers="d78221e2860 "><p class="p"><samp class="ph codeph ignore_table_context">&lt;&gt;</samp> or <samp class="ph codeph ignore_table_context">!=</samp> or <samp class="ph codeph ignore_table_context">^=</samp></p>
+</td>
+
+                <td class="entry" valign="top" width="29.411764705882355%" headers="d78221e2864 "><p class="p">Not equal to </p>
+</td>
+
+                <td class="entry" valign="top" width="47.05882352941176%" headers="d78221e2868 "><p class="p"><samp class="ph codeph ignore_table_context">age &lt;&gt; 30</samp></p>
+</td>
+
+              </tr>
+
+            </tbody>
+
+          </table>
+</div>
+
+      </div>
+
+    </div>
+
+    
+    <div class="section" id="ref_expr_quickstart__arithmetic_operators"><h2 class="title sectiontitle">Arithmetic Operators</h2>
+      
+      <p class="p">Arithmetic operators perform basic math operations on two expressions of the same data type
+        resulting in a numeric value. The plus (+) and minus (-) operators can also be used to
+        perform arithmetic operations on <samp class="ph codeph">DATETIME</samp> values.</p>
+
+      <div class="p">
+        
+<div class="tablenoborder"><table cellpadding="4" cellspacing="0" summary="" class="table" frame="border" border="1" rules="all">
+            
+            
+            
+            
+            <thead class="thead" align="left">
+              <tr class="row">
+                <th class="entry" valign="top" width="15.789473684210526%" id="d78221e3062">Operator</th>
+
+                <th class="entry" valign="top" width="21.052631578947366%" id="d78221e3065">Description</th>
+
+                <th class="entry" valign="top" width="63.1578947368421%" id="d78221e3068">Example</th>
+
+              </tr>
+
+            </thead>
+
+            <tbody class="tbody">
+              <tr class="row">
+                <td class="entry" valign="top" width="15.789473684210526%" headers="d78221e3062 "><samp class="ph codeph">+</samp></td>
+
+                <td class="entry" valign="top" width="21.052631578947366%" headers="d78221e3065 "> Addition</td>
+
+                <td class="entry" valign="top" width="63.1578947368421%" headers="d78221e3068 "><samp class="ph codeph">amount + 10</samp>  (add 10 to the value of the <em class="ph i">amount</em>
+                  field)</td>
+
+              </tr>
+
+              <tr class="row">
+                <td class="entry" valign="top" width="15.789473684210526%" headers="d78221e3062 ">
+                  <samp class="ph codeph">-</samp></td>
+
+                <td class="entry" valign="top" width="21.052631578947366%" headers="d78221e3065 "> Subtraction </td>
+
+                <td class="entry" valign="top" width="63.1578947368421%" headers="d78221e3068 "><samp class="ph codeph">amount - 10</samp>  (subtract 10 from the value of the
+                    <em class="ph i">amount</em> field)</td>
+
+              </tr>
+
+              <tr class="row">
+                <td class="entry" valign="top" width="15.789473684210526%" headers="d78221e3062 ">
+                  <samp class="ph codeph">*</samp></td>
+
+                <td class="entry" valign="top" width="21.052631578947366%" headers="d78221e3065 "> Multiplication </td>
+
+                <td class="entry" valign="top" width="63.1578947368421%" headers="d78221e3068 "><samp class="ph codeph">amount * 100</samp>  (multiply the value of the <em class="ph i">amount</em> field
+                  by 100)</td>
+
+              </tr>
+
+              <tr class="row">
+                <td class="entry" valign="top" width="15.789473684210526%" headers="d78221e3062 ">
+                  <samp class="ph codeph">/</samp></td>
+
+                <td class="entry" valign="top" width="21.052631578947366%" headers="d78221e3065 "> Division </td>
+
+                <td class="entry" valign="top" width="63.1578947368421%" headers="d78221e3068 "><samp class="ph codeph">bytes / 1024</samp>  (divide the value of the <em class="ph i">bytes</em> field by
+                  1024 and return the quotient)</td>
+
+              </tr>
+
+            </tbody>
+
+          </table>
+</div>
+
+      </div>
+
+    </div>
+
+  </div>
+
+<div class="related-links"/>
+<div class="navfooter"><!---->
+<span class="navparent"><a class="link" href="../../reference/expression_language/expression_reference_top.html" title="An expression computes or produces a value by combining fields (or columns), constant values, operators, and functions. Platfora has a built-in expression language. You use the language's functions and operators to create a computed field."><span class="navheader_label">Parent topic</span><span class="navheader_separator">: </span><span class="navheader_linktext">Expression and Query Language Reference</span></a></span>  </div><div class="footer">WebHelp output generated by<a href="http://www.oxygenxml.com" target="_blank"><span class="oXygenLogo"><img src="../../oxygen-webhelp/resources/img/LogoOxygen100x22.png" alt="Oxygen"/></span><span class="xmlauthor">XML Author</span></a></div>
+<div id="productInfo" style="display:none;"><span id="oxy_productID">webhelp</span><span id="oxy_productVersion">3.0</span></div><div id="loginData" style="display: none"><span class="bt_close" title="Close"><!----></span><form action="" target="passwordIframe" method="post" name="form_login" onsubmit="return loggInUser();" id="loginFormData" autocomplete="on"><input type="hidden" id="reloadComments" value="yes"><!----></input><table class="login"><thead><tr><td colspan="2"><span id="l_login2"><script type="text/javascript">$('#l_login2').html(getLocalization('label.login'));</script></span></td></tr><tr><td colspan="2"><div id="loginResponse"><!----></div></td></tr></thead><tr><td><span id="l_userName"><script type="text/javascript">$('#l_userName').html(getLocalization('label.userName'));</script></span></td><td><input name="usernameW" type="text" id="myUserName" autocomplete="on" required="required" autofocus="autofocus"><!----></input></td></tr><tr><td><span id="l_pswd"><script type="text/javascript">$('#l_pswd').html(getLocalization('label.pswd'));</script></span></td><td><input name="passwordW" type="password" id="myPassword" autocomplete="on" required="required"><!----></input></td></tr><tr><td colspan="2" align="left"><span id="ll_remember"><script type="text/javascript" xml:space="preserve">
+								$('#ll_remember').html(getLocalization('label.rememberme'));
+							</script></span>     <input name="myLoginRemember" type="checkbox" class="ck" id="myRemember" value="no"><!----></input></td></tr><tr><td colspan="2" align="center"><input id="l_bt_submit_log" type="submit" value="Submit" name="loginFormButton"><!----></input><script type="text/javascript">$('#l_bt_submit_log').attr('value',getLocalization('label.login'));</script><span class="btnHGlue"><!----></span><input class="bt_cancel" id="l_cancelLog" type="button" value="Cancel" name="loginFormButton"><!----></input><script type="text/javascript">$('#l_cancelLog').attr('value',getLocalization('label.cancel'));</script></td></tr></table><div class="loginAlternative"><span id="link_lostPwd" onclick="showLostPwd()"><script type="text/javascript">$('#link_lostPwd').html(getLocalization('label.lostPswd'));</script></span><span id="link_signUp" onclick="showSignUp()"><script type="text/javascript">$('#link_signUp').html(getLocalization('label.signUp'));</script></span></div></form><iframe id="passwordIframe" name="passwordIframe" style="display:none"><!----></iframe></div><div id="cmts"><!----></div></body>
+</html>

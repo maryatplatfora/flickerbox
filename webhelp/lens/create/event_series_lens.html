@@ -1,0 +1,360 @@
+
+<!DOCTYPE html
+  PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xml:lang="en-us" lang="en-us">
+<head><meta xmlns="http://www.w3.org/1999/xhtml" name="description" content="An event series lens can only be built from dimension datasets that have at least one event reference defined in them. It contains non-aggregated fact records, partitioned by the key of the focus ..."/><meta http-equiv="Content-Type" content="text/html; charset=utf-8"/><meta name="copyright" content="(C) Copyright 2005"/><meta name="DC.rights.owner" content="(C) Copyright 2005"/><meta name="DC.Type" content="concept"/><meta name="DC.Title" content="About Event Series Lenses"/><meta name="abstract" content="An event series lens can only be built from dimension datasets that have at least one event reference defined in them. It contains non-aggregated fact records, partitioned by the key of the focus dataset, sorted by the time an event occurred. Choose this lens type if you want to do time series analysis, such as funnel paths."/><meta xmlns="http://www.w3.org/1999/xhtml" name="description" content="An event series lens can only be built from dimension datasets that have at least one event reference defined in them. It contains non-aggregated fact records, partitioned by the key of the focus dataset, sorted by the time an event occurred. Choose this lens type if you want to do time series analysis, such as funnel paths."/><meta name="DC.Relation" scheme="URI" content="../../lens/create/lens_type.html"/><meta name="DC.Format" content="XHTML"/><meta name="DC.Identifier" content="about_event_series_lens"/><link rel="stylesheet" type="text/css" href="../../oxygen-webhelp/resources/css/commonltr.css"><!----></link><title>About Event Series Lenses</title><meta http-equiv="Content-Type" content="text/html; charset=utf-8"/><link rel="stylesheet" type="text/css" href="../../oxygen-webhelp/resources/css/commonltr.css"><!----></link><link rel="stylesheet" type="text/css" href="../../oxygen-webhelp/resources/css/webhelp_topic.css"><!----></link><link rel="stylesheet" type="text/css" href="../../oxygen-webhelp/resources/skins/skin.css"><!----></link><link rel="stylesheet" type="text/css" href="../../oxygen-webhelp/resources/css/jquery.realperson.css"><!----></link><link rel="stylesheet" type="text/css" href="../../oxygen-webhelp/resources/css/comments.css"><!----></link><link rel="stylesheet" type="text/css" href="../../oxygen-webhelp/resources/css/jquery.cleditor.css"><!----></link><link rel="stylesheet" type="text/css" href="../../oxygen-webhelp/resources/css/admin.css"><!----></link><script type="text/javascript"><!--
+          
+          var prefix = "../../index.html";
+          
+          --></script><script type="text/javascript" src="../../oxygen-webhelp/resources/js/jquery-1.8.2.min.js"><!----></script><script type="text/javascript" src="../../oxygen-webhelp/resources/js/jquery.cookie.js"><!----></script><script type="text/javascript" src="../../oxygen-webhelp/resources/js/jquery-ui.custom.min.js"><!----></script><script type="text/javascript" charset="utf-8" src="../../oxygen-webhelp/resources/js/webhelp_topic.js"><!----></script><script type="text/javascript" charset="utf-8" src="../../oxygen-webhelp/resources/localization/strings.js"><!----></script><script type="text/javascript" charset="utf-8" src="../../oxygen-webhelp/resources/js/init.js"><!----></script><script type="text/javascript" charset="utf-8" src="../../oxygen-webhelp/resources/js/comments-functions.js"><!----></script></head>
+<body onload="init('../../')" id="about_event_series_lens">
+<table class="nav"><tbody><tr><td colspan="2"><div id="printlink"><a href="javascript:window.print();" title="printThisPage"/></div><div id="permalink"><a href="#" title="linkToThis"/></div></td></tr><tr><td width="75%"><a class="navheader_parent_path" href="../../lens/create/../../lens/create_lens.html" title="A lens is always defined from the focal point of a single dataset in the data catalog. Once you have located a dataset that has the data you need, first check and see if there are any existing lenses that you can use. If not, click Create Lens on the dataset details page to define and build a new lens from that dataset.">Create a Lens</a> / <a class="navheader_parent_path" href="../../lens/create/lens_type.html" title="There are two types of lenses you can create in Platfora: an Aggregate Lens or an Event Series Lens. The type of lens you can choose depends on the underlying characteristics of the dataset you pick as the focus of your lens. The type of lens you build also determines what kinds of visualizations you can create and what kinds of analyses you can perform when using the lens in a vizboard.">Choose the Lens Type</a></td><td><div class="navheader">
+<span class="navparent"><a class="link" href="../../lens/create/lens_type.html" title="There are two types of lenses you can create in Platfora: an Aggregate Lens or an Event Series Lens. The type of lens you can choose depends on the underlying characteristics of the dataset you pick as the focus of your lens. The type of lens you build also determines what kinds of visualizations you can create and what kinds of analyses you can perform when using the lens in a vizboard."><span class="navheader_label">Parent topic</span><span class="navheader_separator">: </span><span class="navheader_linktext">Choose the Lens Type</span></a></span>  </div></td></tr></tbody></table>
+
+  <h1 class="title topictitle1">About Event Series Lenses</h1>
+
+  
+  <div class="body conbody"><p class="shortdesc">An event series lens can only be built from dimension datasets that have at least one
+      <dfn class="term">event</dfn> reference defined in them. It contains non-aggregated fact records,
+    partitioned by the key of the focus dataset, sorted by the time an event occurred. Choose this
+    lens type if you want to do time series analysis, such as funnel paths.</p>
+
+    <p class="p">To build an event series lens, the dataset you choose as the focus of your lens must meet the
+      following data model requirements:</p>
+
+    <div class="p">
+      <ul class="ul">
+        <li class="li">The dataset must have a primary key.</li>
+
+        <li class="li">The dataset must have at least one event reference modeled in it. Events are a special
+          reverse-references that associate a dimension dataset to a fact dataset, and designate a
+          timestamp field for ordering of the fact records.</li>
+
+      </ul>
+
+    </div>
+
+    <p class="p">An event series lens contains a selection of dimension fields chosen from the focal point of
+      a single dimension dataset, and from any event datasets associated to that dimension dataset. </p>
+
+    <p class="p">Measure fields are not always applicable to event series lenses, since the data is not
+      aggregated at lens build time. If you do decide to add measure fields, you can only choose
+      measures from the event datasets (not from the focus dataset). These measures will be added to
+      the lens, but will not always be visible in the vizboard depending on the type of analysis you
+      choose. For example, measures are hidden in the vizboard if you choose to do funnel analysis.   </p>
+
+    <p class="p">A completed or <dfn class="term">built</dfn> lens can be thought of as a table that contains individual
+      event records partitioned by the <em class="ph i">primary key</em> of the dimension dataset, and ordered by a
+      timestamp field. </p>
+
+    <p class="p">An event series lens can contain records from multiple event datasets, as long as the event
+      references have been modeled in the dimension dataset. </p>
+
+    <p class="p">For example, suppose you had a dimension dataset that contained these 2 user records. This
+      dataset has a primary key (a <em class="ph i">user_id</em> field that is unique for each user record in the
+      dataset):</p>
+
+    <div class="p">
+      
+<div class="tablenoborder"><table cellpadding="4" cellspacing="0" summary="" class="table" frame="border" border="1" rules="all">
+          
+          
+          <thead class="thead" align="left">
+            <tr class="row">
+              <th class="entry" valign="top" width="43.103448275862064%" id="d71850e72">user_id</th>
+
+              <th class="entry" valign="top" width="56.89655172413792%" id="d71850e75">name</th>
+
+            </tr>
+
+          </thead>
+
+          <tbody class="tbody">
+            <tr class="row">
+              <td class="entry" valign="top" width="43.103448275862064%" headers="d71850e72 ">A</td>
+
+              <td class="entry" valign="top" width="56.89655172413792%" headers="d71850e75 ">smith</td>
+
+            </tr>
+
+            <tr class="row">
+              <td class="entry" valign="top" width="43.103448275862064%" headers="d71850e72 ">B</td>
+
+              <td class="entry" valign="top" width="56.89655172413792%" headers="d71850e75 ">hutchinson</td>
+
+            </tr>
+
+          </tbody>
+
+        </table>
+</div>
+
+    </div>
+
+    <p class="p">This user dataset contains a <em class="ph i">purchase</em> event reference that points to a dataset
+      containing these 6 purchase event records: </p>
+
+    <div class="p">
+      
+<div class="tablenoborder"><table cellpadding="4" cellspacing="0" summary="" class="table" frame="border" border="1" rules="all">
+          
+          
+          
+          
+          
+          
+          
+          <thead class="thead" align="left">
+            <tr class="row">
+              <th class="entry" valign="top" width="14.285714285714285%" id="d71850e135">transaction</th>
+
+              <th class="entry" valign="top" width="14.701803051317613%" id="d71850e138">date</th>
+
+              <th class="entry" valign="top" width="13.869625520110956%" id="d71850e141">user_id</th>
+
+              <th class="entry" valign="top" width="14.285714285714285%" id="d71850e144">product</th>
+
+              <th class="entry" valign="top" width="14.285714285714285%" id="d71850e147">quantity</th>
+
+              <th class="entry" valign="top" width="14.285714285714285%" id="d71850e151">unit price</th>
+
+              <th class="entry" valign="top" width="14.285714285714285%" id="d71850e154">total amount</th>
+
+            </tr>
+
+          </thead>
+
+          <tbody class="tbody">
+            <tr class="row">
+              <td class="entry" valign="top" width="14.285714285714285%" headers="d71850e135 ">1</td>
+
+              <td class="entry" valign="top" width="14.701803051317613%" headers="d71850e138 ">Jan 1 2014</td>
+
+              <td class="entry" valign="top" width="13.869625520110956%" headers="d71850e141 ">A</td>
+
+              <td class="entry" valign="top" width="14.285714285714285%" headers="d71850e144 ">tea</td>
+
+              <td class="entry" valign="top" width="14.285714285714285%" headers="d71850e147 ">2</td>
+
+              <td class="entry" valign="top" width="14.285714285714285%" headers="d71850e151 ">1.00</td>
+
+              <td class="entry" valign="top" width="14.285714285714285%" headers="d71850e154 ">2.00</td>
+
+            </tr>
+
+            <tr class="row">
+              <td class="entry" valign="top" width="14.285714285714285%" headers="d71850e135 ">2</td>
+
+              <td class="entry" valign="top" width="14.701803051317613%" headers="d71850e138 ">Jan 1 2014</td>
+
+              <td class="entry" valign="top" width="13.869625520110956%" headers="d71850e141 ">B</td>
+
+              <td class="entry" valign="top" width="14.285714285714285%" headers="d71850e144 ">coffee</td>
+
+              <td class="entry" valign="top" width="14.285714285714285%" headers="d71850e147 ">1</td>
+
+              <td class="entry" valign="top" width="14.285714285714285%" headers="d71850e151 ">1.00</td>
+
+              <td class="entry" valign="top" width="14.285714285714285%" headers="d71850e154 ">1.00</td>
+
+            </tr>
+
+            <tr class="row">
+              <td class="entry" valign="top" width="14.285714285714285%" headers="d71850e135 ">3</td>
+
+              <td class="entry" valign="top" width="14.701803051317613%" headers="d71850e138 ">Jan 2 2014</td>
+
+              <td class="entry" valign="top" width="13.869625520110956%" headers="d71850e141 ">A</td>
+
+              <td class="entry" valign="top" width="14.285714285714285%" headers="d71850e144 ">coffee</td>
+
+              <td class="entry" valign="top" width="14.285714285714285%" headers="d71850e147 ">1</td>
+
+              <td class="entry" valign="top" width="14.285714285714285%" headers="d71850e151 ">1.00</td>
+
+              <td class="entry" valign="top" width="14.285714285714285%" headers="d71850e154 ">1.00</td>
+
+            </tr>
+
+            <tr class="row">
+              <td class="entry" valign="top" width="14.285714285714285%" headers="d71850e135 ">4</td>
+
+              <td class="entry" valign="top" width="14.701803051317613%" headers="d71850e138 ">Jan 3 2014</td>
+
+              <td class="entry" valign="top" width="13.869625520110956%" headers="d71850e141 ">A</td>
+
+              <td class="entry" valign="top" width="14.285714285714285%" headers="d71850e144 ">coffee</td>
+
+              <td class="entry" valign="top" width="14.285714285714285%" headers="d71850e147 ">3</td>
+
+              <td class="entry" valign="top" width="14.285714285714285%" headers="d71850e151 ">1.00</td>
+
+              <td class="entry" valign="top" width="14.285714285714285%" headers="d71850e154 ">3.00</td>
+
+            </tr>
+
+            <tr class="row">
+              <td class="entry" valign="top" width="14.285714285714285%" headers="d71850e135 ">5</td>
+
+              <td class="entry" valign="top" width="14.701803051317613%" headers="d71850e138 ">Jan 4 2014</td>
+
+              <td class="entry" valign="top" width="13.869625520110956%" headers="d71850e141 ">A</td>
+
+              <td class="entry" valign="top" width="14.285714285714285%" headers="d71850e144 ">tea</td>
+
+              <td class="entry" valign="top" width="14.285714285714285%" headers="d71850e147 ">1</td>
+
+              <td class="entry" valign="top" width="14.285714285714285%" headers="d71850e151 ">1.00</td>
+
+              <td class="entry" valign="top" width="14.285714285714285%" headers="d71850e154 ">1.00</td>
+
+            </tr>
+
+            <tr class="row">
+              <td class="entry" valign="top" width="14.285714285714285%" headers="d71850e135 ">6</td>
+
+              <td class="entry" valign="top" width="14.701803051317613%" headers="d71850e138 ">Jan 3 2014</td>
+
+              <td class="entry" valign="top" width="13.869625520110956%" headers="d71850e141 ">B</td>
+
+              <td class="entry" valign="top" width="14.285714285714285%" headers="d71850e144 ">tea</td>
+
+              <td class="entry" valign="top" width="14.285714285714285%" headers="d71850e147 ">1</td>
+
+              <td class="entry" valign="top" width="14.285714285714285%" headers="d71850e151 ">1.00</td>
+
+              <td class="entry" valign="top" width="14.285714285714285%" headers="d71850e154 ">1.00</td>
+
+            </tr>
+
+          </tbody>
+
+        </table>
+</div>
+
+    </div>
+
+    <div class="p">In an event series lens, individual event records are partitioned by the primary key of the
+      dimension dataset and sorted by time. If our event series lens contained one measure (sum of
+        <em class="ph i">total amount</em>) and one dimesion (<em class="ph i">product</em>), then the data in the lens would look
+      something like this: 
+<div class="tablenoborder"><table cellpadding="4" cellspacing="0" summary="" class="table" frame="border" border="1" rules="all">
+          
+          
+          
+          
+          <thead class="thead" align="left">
+            <tr class="row">
+              <th class="entry" valign="top" width="25%" id="d71850e340">user_id</th>
+
+              <th class="entry" valign="top" width="25%" id="d71850e343">date</th>
+
+              <th class="entry" valign="top" width="25%" id="d71850e346">product</th>
+
+              <th class="entry" valign="top" width="25%" id="d71850e349">total amount</th>
+
+            </tr>
+
+          </thead>
+
+          <tbody class="tbody">
+            <tr class="row">
+              <td class="entry" valign="top" width="25%" headers="d71850e340 ">A</td>
+
+              <td class="entry" valign="top" width="25%" headers="d71850e343 ">Jan 1 2014</td>
+
+              <td class="entry" valign="top" width="25%" headers="d71850e346 ">tea</td>
+
+              <td class="entry" valign="top" width="25%" headers="d71850e349 ">2.00</td>
+
+            </tr>
+
+            <tr class="row">
+              <td class="entry" valign="top" width="25%" headers="d71850e340 ">A</td>
+
+              <td class="entry" valign="top" width="25%" headers="d71850e343 ">Jan 2 2014</td>
+
+              <td class="entry" valign="top" width="25%" headers="d71850e346 ">coffee</td>
+
+              <td class="entry" valign="top" width="25%" headers="d71850e349 ">1.00</td>
+
+            </tr>
+
+            <tr class="row">
+              <td class="entry" valign="top" width="25%" headers="d71850e340 ">A</td>
+
+              <td class="entry" valign="top" width="25%" headers="d71850e343 ">Jan 3 2014</td>
+
+              <td class="entry" valign="top" width="25%" headers="d71850e346 ">coffee</td>
+
+              <td class="entry" valign="top" width="25%" headers="d71850e349 ">3.00</td>
+
+            </tr>
+
+            <tr class="row">
+              <td class="entry" valign="top" width="25%" headers="d71850e340 ">A</td>
+
+              <td class="entry" valign="top" width="25%" headers="d71850e343 ">Jan 4 2014</td>
+
+              <td class="entry" valign="top" width="25%" headers="d71850e346 ">tea</td>
+
+              <td class="entry" valign="top" width="25%" headers="d71850e349 ">1.00</td>
+
+            </tr>
+
+            <tr class="row">
+              <td class="entry" valign="top" width="25%" headers="d71850e340 ">B</td>
+
+              <td class="entry" valign="top" width="25%" headers="d71850e343 ">Jan 1 2014</td>
+
+              <td class="entry" valign="top" width="25%" headers="d71850e346 ">coffee</td>
+
+              <td class="entry" valign="top" width="25%" headers="d71850e349 ">1.00</td>
+
+            </tr>
+
+            <tr class="row">
+              <td class="entry" valign="top" width="25%" headers="d71850e340 ">B</td>
+
+              <td class="entry" valign="top" width="25%" headers="d71850e343 ">Jan 3 2014</td>
+
+              <td class="entry" valign="top" width="25%" headers="d71850e346 ">tea</td>
+
+              <td class="entry" valign="top" width="25%" headers="d71850e349 ">1.00</td>
+
+            </tr>
+
+          </tbody>
+
+        </table>
+</div>
+</div>
+
+    <p class="p">Notice that there are a couple of differences between event series lens data and <a class="xref" href="aggregate_lens.html" title="An aggregate lens can be built from any dataset. There are no special data modeling requirements to build an aggregate lens. Aggregate lenses contain aggregated measure data grouped by the various dimension fields you select from the dataset. Choose this lens type when you want to do ad hoc data analysis.">aggregate lens</a> data:</p>
+
+    <div class="p">
+      <ul class="ul">
+        <li class="li">The key field (<em class="ph i">user_id</em>) and timestamp field (<em class="ph i">date</em>) of the event are
+          automatically included in the lens.</li>
+
+        <li class="li">Measure data is not pre-aggregated. Instead, individual event records are partitioned by
+          the key field and ordered by time. </li>
+
+      </ul>
+
+    </div>
+
+    <p class="p">Having the lens data structured in this way allows analysts to create special event series
+      viz types in the vizboard. Event series lenses allow you to analyze sequences of events,
+      including finding patterns between multiple types of events (purchases and returns, for
+      example).</p>
+
+  </div>
+
+<div class="related-links"/>
+<div class="navfooter"><!---->
+<span class="navparent"><a class="link" href="../../lens/create/lens_type.html" title="There are two types of lenses you can create in Platfora: an Aggregate Lens or an Event Series Lens. The type of lens you can choose depends on the underlying characteristics of the dataset you pick as the focus of your lens. The type of lens you build also determines what kinds of visualizations you can create and what kinds of analyses you can perform when using the lens in a vizboard."><span class="navheader_label">Parent topic</span><span class="navheader_separator">: </span><span class="navheader_linktext">Choose the Lens Type</span></a></span>  </div><div class="footer">WebHelp output generated by<a href="http://www.oxygenxml.com" target="_blank"><span class="oXygenLogo"><img src="../../oxygen-webhelp/resources/img/LogoOxygen100x22.png" alt="Oxygen"/></span><span class="xmlauthor">XML Author</span></a></div>
+<div id="productInfo" style="display:none;"><span id="oxy_productID">webhelp</span><span id="oxy_productVersion">3.0</span></div><div id="loginData" style="display: none"><span class="bt_close" title="Close"><!----></span><form action="" target="passwordIframe" method="post" name="form_login" onsubmit="return loggInUser();" id="loginFormData" autocomplete="on"><input type="hidden" id="reloadComments" value="yes"><!----></input><table class="login"><thead><tr><td colspan="2"><span id="l_login2"><script type="text/javascript">$('#l_login2').html(getLocalization('label.login'));</script></span></td></tr><tr><td colspan="2"><div id="loginResponse"><!----></div></td></tr></thead><tr><td><span id="l_userName"><script type="text/javascript">$('#l_userName').html(getLocalization('label.userName'));</script></span></td><td><input name="usernameW" type="text" id="myUserName" autocomplete="on" required="required" autofocus="autofocus"><!----></input></td></tr><tr><td><span id="l_pswd"><script type="text/javascript">$('#l_pswd').html(getLocalization('label.pswd'));</script></span></td><td><input name="passwordW" type="password" id="myPassword" autocomplete="on" required="required"><!----></input></td></tr><tr><td colspan="2" align="left"><span id="ll_remember"><script type="text/javascript" xml:space="preserve">
+								$('#ll_remember').html(getLocalization('label.rememberme'));
+							</script></span>     <input name="myLoginRemember" type="checkbox" class="ck" id="myRemember" value="no"><!----></input></td></tr><tr><td colspan="2" align="center"><input id="l_bt_submit_log" type="submit" value="Submit" name="loginFormButton"><!----></input><script type="text/javascript">$('#l_bt_submit_log').attr('value',getLocalization('label.login'));</script><span class="btnHGlue"><!----></span><input class="bt_cancel" id="l_cancelLog" type="button" value="Cancel" name="loginFormButton"><!----></input><script type="text/javascript">$('#l_cancelLog').attr('value',getLocalization('label.cancel'));</script></td></tr></table><div class="loginAlternative"><span id="link_lostPwd" onclick="showLostPwd()"><script type="text/javascript">$('#link_lostPwd').html(getLocalization('label.lostPswd'));</script></span><span id="link_signUp" onclick="showSignUp()"><script type="text/javascript">$('#link_signUp').html(getLocalization('label.signUp'));</script></span></div></form><iframe id="passwordIframe" name="passwordIframe" style="display:none"><!----></iframe></div><div id="cmts"><!----></div></body>
+</html>

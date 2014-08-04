@@ -1,0 +1,125 @@
+
+<!DOCTYPE html
+  PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xml:lang="en-us" lang="en-us">
+<head><meta xmlns="http://www.w3.org/1999/xhtml" name="description" content="A reference allows two datasets to be joined together on fields that they share in common. A reference creates a link in one dataset to the primary key of another dataset. An event is similar to a ..."/><meta http-equiv="Content-Type" content="text/html; charset=utf-8"/><meta name="copyright" content="(C) Copyright 2005"/><meta name="DC.rights.owner" content="(C) Copyright 2005"/><meta name="DC.Type" content="task"/><meta name="DC.Title" content="Model References and Events"/><meta name="abstract" content="A reference allows two datasets to be joined together on fields that they share in common. A reference creates a link in one dataset to the primary key of another dataset. An event is similar to a reference, except that the direction of the reference link is reversed. An event is created in a dataset that has a primary key and points to a foreign key field in another dataset."/><meta xmlns="http://www.w3.org/1999/xhtml" name="description" content="A reference allows two datasets to be joined together on fields that they share in common. A reference creates a link in one dataset to the primary key of another dataset. An event is similar to a reference, except that the direction of the reference link is reversed. An event is created in a dataset that has a primary key and points to a foreign key field in another dataset."/><meta name="DC.Relation" scheme="URI" content="../tutorial/tutorial_top.html"/><meta name="DC.Format" content="XHTML"/><meta name="DC.Identifier" content="tutorial_model_references"/><link rel="stylesheet" type="text/css" href="../oxygen-webhelp/resources/css/commonltr.css"><!----></link><title>Model References and Events</title><meta http-equiv="Content-Type" content="text/html; charset=utf-8"/><link rel="stylesheet" type="text/css" href="../oxygen-webhelp/resources/css/commonltr.css"><!----></link><link rel="stylesheet" type="text/css" href="../oxygen-webhelp/resources/css/webhelp_topic.css"><!----></link><link rel="stylesheet" type="text/css" href="../oxygen-webhelp/resources/skins/skin.css"><!----></link><link rel="stylesheet" type="text/css" href="../oxygen-webhelp/resources/css/jquery.realperson.css"><!----></link><link rel="stylesheet" type="text/css" href="../oxygen-webhelp/resources/css/comments.css"><!----></link><link rel="stylesheet" type="text/css" href="../oxygen-webhelp/resources/css/jquery.cleditor.css"><!----></link><link rel="stylesheet" type="text/css" href="../oxygen-webhelp/resources/css/admin.css"><!----></link><script type="text/javascript"><!--
+          
+          var prefix = "../index.html";
+          
+          --></script><script type="text/javascript" src="../oxygen-webhelp/resources/js/jquery-1.8.2.min.js"><!----></script><script type="text/javascript" src="../oxygen-webhelp/resources/js/jquery.cookie.js"><!----></script><script type="text/javascript" src="../oxygen-webhelp/resources/js/jquery-ui.custom.min.js"><!----></script><script type="text/javascript" charset="utf-8" src="../oxygen-webhelp/resources/js/webhelp_topic.js"><!----></script><script type="text/javascript" charset="utf-8" src="../oxygen-webhelp/resources/localization/strings.js"><!----></script><script type="text/javascript" charset="utf-8" src="../oxygen-webhelp/resources/js/init.js"><!----></script><script type="text/javascript" charset="utf-8" src="../oxygen-webhelp/resources/js/comments-functions.js"><!----></script></head>
+<body onload="init('../')" id="tutorial_model_references">
+<table class="nav"><tbody><tr><td colspan="2"><div id="printlink"><a href="javascript:window.print();" title="printThisPage"/></div><div id="permalink"><a href="#" title="linkToThis"/></div></td></tr><tr><td width="75%"><a class="navheader_parent_path" href="../tutorial/tutorial_top.html" title="The best way to learn a new product is by example. This tutorial walks you through the major features of Platfora using some sample data that comes with your Platfora server installation. After completing this tutorial, you should have a good understanding of how to create datasets, lenses, vizboards, and visualizations.">Getting Started Tutorial</a></td><td><div class="navheader">
+<span class="navparent"><a class="link" href="../tutorial/tutorial_top.html" title="The best way to learn a new product is by example. This tutorial walks you through the major features of Platfora using some sample data that comes with your Platfora server installation. After completing this tutorial, you should have a good understanding of how to create datasets, lenses, vizboards, and visualizations."><span class="navheader_label">Parent topic</span><span class="navheader_separator">: </span><span class="navheader_linktext">Getting Started Tutorial</span></a></span>  </div></td></tr></tbody></table>
+
+    <h1 class="title topictitle1">Model References and Events</h1>
+
+    
+    <div class="body taskbody"><p class="shortdesc">A reference allows two datasets to be joined together on fields that they share in
+        common. A reference creates a link in one dataset to the primary key of another dataset. An
+        event is similar to a reference, except that the direction of the reference link is
+        reversed. An event is created in a dataset that has a primary key and points to a foreign
+        key field in another dataset.</p>
+
+        <div class="section context">
+            <p class="p">In this exercise, we will edit the <em class="ph i">Flights</em> dataset and add a reference to the
+                    <em class="ph i">Planes</em> dataset. This will allow us to choose additional dimension fields
+                about planes when we build an aggregate lens from the <em class="ph i">Flights</em> dataset.</p>
+
+            <p class="p">Once the reference to <em class="ph i">Planes</em> has been defined, we can then add an event
+                reference in <em class="ph i">Planes</em> that points to a specific event in <em class="ph i">Flights</em>.
+                Modeling events is only necessary if you want to build event series lenses. </p>
+
+            <p class="p">For more information about the tutorial datasets and their relationships, see <a class="xref" href="about_sample_data.html" title="Your Platfora installation comes with some sample data that you can use to complete this tutorial. The sample data is FAA flight data from October 2012 (the month of hurricane Sandy). There is a command-line utility in your Platfora server installation to load this data. This utility uploads five csv-formatted source files to the default Uploads data source. The sample data is about 54 MB in size.">About the Tutorial Sample Data</a>.</p>
+
+        </div>
+
+        <div class="section"><h2 class="title sectiontitle">Step 1: Model a Reference</h2>
+            
+            <p class="p">References are created in a fact dataset (<em class="ph i">Flights</em> in this example), and point
+                to a dimension dataset (<em class="ph i">Planes</em> in this example). Creating a reference allows
+                the datasets to be joined when building lenses, similar to a foreign key to primary
+                key relationship in a relational database. </p>
+
+            <p class="p">The focus dataset must have a key defined before you can create a reference to it.
+                Also the foreign key in the fact dataset must be of the same data type as the key
+                field(s) in the dimension dataset.</p>
+
+            <div class="fig fignone"><img class="image" src="../images/./tutorial/tutorial_model_reference.png"/>
+                
+            </div>
+
+            <div class="p">
+                <ol class="ol">
+                    <li class="li">Go to the <span class="ph uicontrol">Data Catalog</span>, find the <em class="ph i">Flights</em>
+                        dataset, and choose <span class="ph uicontrol">Edit</span> from the dataset action
+                        menu.</li>
+
+                    <li class="li">Go to the <span class="ph uicontrol">Create References</span> step of the dataset
+                        workspace.</li>
+
+                    <li class="li">Choose <em class="ph i">Planes</em> for the <span class="ph uicontrol">Focus Dataset</span>.</li>
+
+                    <li class="li">Choose <em class="ph i">Carrier Code</em> and <em class="ph i">Tail Number</em> as the <span class="ph uicontrol">Foreign
+                            Keys</span>. </li>
+
+                    <li class="li"><span class="ph uicontrol">Name this Reference</span>
+                        <em class="ph i">Plane</em> and click <span class="ph uicontrol">Add</span>.</li>
+
+                    <li class="li">Click <span class="ph uicontrol">Save and Exit</span>.</li>
+
+                </ol>
+
+            </div>
+
+        </div>
+
+        <div class="section"><h2 class="title sectiontitle">Step 2: Model an Event Reference</h2>
+            
+            <p class="p">Event references are created in a dimension dataset (<em class="ph i">Planes</em> in this example)
+                and point to a fact dataset (<em class="ph i">Flights</em> in this example). Before you can define
+                an event, you must create regular references first. </p>
+
+            <p class="p">Modeling event references in a dimension dataset allows you to define event series
+                lenses from the dataset. Since event series lenses order event records by time,
+                event references also require you to choose a datetime type field.</p>
+
+            <div class="fig fignone"><img class="image" src="../images/./tutorial/tutorial_model_event.png"/>
+                
+            </div>
+
+            <div class="p">
+                <ol class="ol">
+                    <li class="li">Go to the <span class="ph uicontrol">Data Catalog</span>, find the <em class="ph i">Planes</em>
+                        dataset, and choose <span class="ph uicontrol">Edit</span> from the dataset action
+                        menu.</li>
+
+                    <li class="li">Go to the <span class="ph uicontrol">Create References </span>step of the dataset
+                        workspace.</li>
+
+                    <li class="li">Click <span class="ph uicontrol">Add Event</span>.</li>
+
+                    <li class="li">Enter <em class="ph i">Flight Departure</em> as the <span class="ph uicontrol">Event Name</span>.</li>
+
+                    <li class="li">Choose <em class="ph i">depart_datetime</em> as the <span class="ph uicontrol">Ordering Field</span>.
+                        Event records are always ordered by a datetime type field in an event series
+                        lens.</li>
+
+                    <li class="li">Click <span class="ph uicontrol">Add Event</span>.</li>
+
+                    <li class="li">Click <span class="ph uicontrol">Save and Exit</span>.</li>
+
+                </ol>
+
+            </div>
+
+        </div>
+
+    </div>
+
+<div class="related-links"/>
+<div class="navfooter"><!---->
+<span class="navparent"><a class="link" href="../tutorial/tutorial_top.html" title="The best way to learn a new product is by example. This tutorial walks you through the major features of Platfora using some sample data that comes with your Platfora server installation. After completing this tutorial, you should have a good understanding of how to create datasets, lenses, vizboards, and visualizations."><span class="navheader_label">Parent topic</span><span class="navheader_separator">: </span><span class="navheader_linktext">Getting Started Tutorial</span></a></span>  </div><div class="footer">WebHelp output generated by<a href="http://www.oxygenxml.com" target="_blank"><span class="oXygenLogo"><img src="../oxygen-webhelp/resources/img/LogoOxygen100x22.png" alt="Oxygen"/></span><span class="xmlauthor">XML Author</span></a></div>
+<div id="productInfo" style="display:none;"><span id="oxy_productID">webhelp</span><span id="oxy_productVersion">3.0</span></div><div id="loginData" style="display: none"><span class="bt_close" title="Close"><!----></span><form action="" target="passwordIframe" method="post" name="form_login" onsubmit="return loggInUser();" id="loginFormData" autocomplete="on"><input type="hidden" id="reloadComments" value="yes"><!----></input><table class="login"><thead><tr><td colspan="2"><span id="l_login2"><script type="text/javascript">$('#l_login2').html(getLocalization('label.login'));</script></span></td></tr><tr><td colspan="2"><div id="loginResponse"><!----></div></td></tr></thead><tr><td><span id="l_userName"><script type="text/javascript">$('#l_userName').html(getLocalization('label.userName'));</script></span></td><td><input name="usernameW" type="text" id="myUserName" autocomplete="on" required="required" autofocus="autofocus"><!----></input></td></tr><tr><td><span id="l_pswd"><script type="text/javascript">$('#l_pswd').html(getLocalization('label.pswd'));</script></span></td><td><input name="passwordW" type="password" id="myPassword" autocomplete="on" required="required"><!----></input></td></tr><tr><td colspan="2" align="left"><span id="ll_remember"><script type="text/javascript" xml:space="preserve">
+								$('#ll_remember').html(getLocalization('label.rememberme'));
+							</script></span>     <input name="myLoginRemember" type="checkbox" class="ck" id="myRemember" value="no"><!----></input></td></tr><tr><td colspan="2" align="center"><input id="l_bt_submit_log" type="submit" value="Submit" name="loginFormButton"><!----></input><script type="text/javascript">$('#l_bt_submit_log').attr('value',getLocalization('label.login'));</script><span class="btnHGlue"><!----></span><input class="bt_cancel" id="l_cancelLog" type="button" value="Cancel" name="loginFormButton"><!----></input><script type="text/javascript">$('#l_cancelLog').attr('value',getLocalization('label.cancel'));</script></td></tr></table><div class="loginAlternative"><span id="link_lostPwd" onclick="showLostPwd()"><script type="text/javascript">$('#link_lostPwd').html(getLocalization('label.lostPswd'));</script></span><span id="link_signUp" onclick="showSignUp()"><script type="text/javascript">$('#link_signUp').html(getLocalization('label.signUp'));</script></span></div></form><iframe id="passwordIframe" name="passwordIframe" style="display:none"><!----></iframe></div><div id="cmts"><!----></div></body>
+</html>

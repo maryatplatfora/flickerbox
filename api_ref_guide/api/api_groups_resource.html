@@ -1,0 +1,201 @@
+
+<!DOCTYPE html
+  PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xml:lang="en-us" lang="en-us">
+<head><meta xmlns="http://www.w3.org/1999/xhtml" name="description" content="The groups resource represents a permission group in Platfora. A group has an associated systemRole that grants permissions to its members. All Platfora users belong to the system defined Everyone ..."/><meta http-equiv="Content-Type" content="text/html; charset=utf-8"/><meta name="copyright" content="(C) Copyright 2005"/><meta name="DC.rights.owner" content="(C) Copyright 2005"/><meta name="DC.Type" content="topic"/><meta name="DC.Title" content="Overview"/><meta name="DC.Relation" scheme="URI" content="../api/api_groups_top.html"/><meta name="DC.Format" content="XHTML"/><meta name="DC.Identifier" content="api_groups_entity"/><link rel="stylesheet" type="text/css" href="../oxygen-webhelp/resources/css/commonltr.css"><!----></link><title>Overview</title><meta http-equiv="Content-Type" content="text/html; charset=utf-8"/><link rel="stylesheet" type="text/css" href="../oxygen-webhelp/resources/css/commonltr.css"><!----></link><link rel="stylesheet" type="text/css" href="../oxygen-webhelp/resources/css/webhelp_topic.css"><!----></link><link rel="stylesheet" type="text/css" href="../oxygen-webhelp/resources/skins/skin.css"><!----></link><link rel="stylesheet" type="text/css" href="../oxygen-webhelp/resources/css/jquery.realperson.css"><!----></link><link rel="stylesheet" type="text/css" href="../oxygen-webhelp/resources/css/comments.css"><!----></link><link rel="stylesheet" type="text/css" href="../oxygen-webhelp/resources/css/jquery.cleditor.css"><!----></link><link rel="stylesheet" type="text/css" href="../oxygen-webhelp/resources/css/admin.css"><!----></link><script type="text/javascript"><!--
+          
+          var prefix = "../index.html";
+          
+          --></script><script type="text/javascript" src="../oxygen-webhelp/resources/js/jquery-1.8.2.min.js"><!----></script><script type="text/javascript" src="../oxygen-webhelp/resources/js/jquery.cookie.js"><!----></script><script type="text/javascript" src="../oxygen-webhelp/resources/js/jquery-ui.custom.min.js"><!----></script><script type="text/javascript" charset="utf-8" src="../oxygen-webhelp/resources/js/webhelp_topic.js"><!----></script><script type="text/javascript" charset="utf-8" src="../oxygen-webhelp/resources/localization/strings.js"><!----></script><script type="text/javascript" charset="utf-8" src="../oxygen-webhelp/resources/js/init.js"><!----></script><script type="text/javascript" charset="utf-8" src="../oxygen-webhelp/resources/js/comments-functions.js"><!----></script></head>
+<body onload="init('../')">
+<table class="nav"><tbody><tr><td colspan="2"><div id="printlink"><a href="javascript:window.print();" title="printThisPage"/></div><div id="permalink"><a href="#" title="linkToThis"/></div></td></tr><tr><td width="75%"><a class="navheader_parent_path" href="../api/api_groups_top.html" title="Use the groups resource to manage Platfora groups.">groups Resource</a></td><td><div class="navheader">
+<span class="navparent"><a class="link" href="../api/api_groups_top.html" title="Use the groups resource to manage Platfora groups."><span class="navheader_label">Parent topic</span><span class="navheader_separator">: </span><span class="navheader_linktext">groups Resource</span></a></span>  </div></td></tr></tbody></table>
+
+  <div class="nested0" id="api_groups_entity">
+    <h1 class="title topictitle1">Overview</h1>
+
+    <div class="body">
+      <p class="p">The <samp class="ph codeph">groups</samp> resource represents a permission group in Platfora. A group has an associated <samp class="ph codeph">systemRole</samp> that grants permissions to its members. All Platfora users belong to the system defined <span class="ph uicontrol">Everyone</span> group; You cannot
+        update this group directly. Creating a new user does indirectly update the <span class="ph uicontrol">Everyone</span> group by adding to its members. </p>
+
+      <p class="p">Platfora allows you to create groups locally in Platfora or reuse groups defined through an external directory service such as LDAP.  Regardless of which technique you use, all groups have a defined system role.  </p>
+
+      <p class="p">Groups can belong to other groups. A group's membership in other groups can change the group's <samp class="ph codeph">effectiveRole</samp> value. The <samp class="ph codeph">effectiveRole</samp> is the derived role for the group when taking into account the group's <samp class="ph codeph">systemRole</samp> and
+        its group membership. The most permissive role takes precedence.</p>
+
+      <p class="p">Once you create a local group, you cannot delete it. You can update local groups.  The <samp class="ph codeph">groups</samp> resource has the following structure:</p>
+
+      
+<div class="tablenoborder"><table cellpadding="4" cellspacing="0" summary="" id="api_groups_entity__groupses_attrs" class="table" frame="border" border="1" rules="all">
+          
+          
+          <thead class="thead" align="left">
+            <tr class="row">
+              <th class="entry" valign="top" width="20%" id="d3974e62"><p class="p">Attribute</p>
+</th>
+
+              <th class="entry" valign="top" width="80%" id="d3974e66"><p class="p">Description</p>
+</th>
+
+            </tr>
+
+          </thead>
+
+          <tbody class="tbody">
+            <tr class="row">
+              <td class="entry" valign="top" width="20%" headers="d3974e62 "><p class="p"><span class="keyword parmname">name</span></p>
+</td>
+
+              <td class="entry" valign="top" width="80%" headers="d3974e66 "><p class="p">A name for display in the UI.</p>
+</td>
+
+            </tr>
+
+            <tr class="row">
+              <td class="entry" valign="top" width="20%" headers="d3974e62 "><p class="p"><span class="keyword parmname">description</span></p>
+</td>
+
+              <td class="entry" valign="top" width="80%" headers="d3974e66 "><p class="p">A description for display in the UI.</p>
+</td>
+
+            </tr>
+
+            <tr class="row">
+              <td class="entry" valign="top" width="20%" headers="d3974e62 "><p class="p"><span class="keyword parmname">members</span></p>
+</td>
+
+              <td class="entry" valign="top" width="80%" headers="d3974e66 "><p class="p">An array describing each user that belongs to the group. </p>
+</td>
+
+            </tr>
+
+            <tr class="row">
+              <td class="entry" valign="top" width="20%" headers="d3974e62 "><p class="p"><span class="keyword parmname">href</span></p>
+</td>
+
+              <td class="entry" valign="top" width="80%" headers="d3974e66 "><p class="p">A quick link to the group.</p>
+</td>
+
+            </tr>
+
+            <tr class="row">
+              <td class="entry" valign="top" width="20%" headers="d3974e62 "><p class="p"><span class="keyword parmname">id</span></p>
+</td>
+
+              <td class="entry" valign="top" width="80%" headers="d3974e66 "><p class="p">The internal identifier for the group.</p>
+</td>
+
+            </tr>
+
+            <tr class="row">
+              <td class="entry" valign="top" width="20%" headers="d3974e62 "><p class="p"><span class="keyword parmname">type</span></p>
+</td>
+
+              <td class="entry" valign="top" width="80%" headers="d3974e66 "><p class="p">Where the group is defined. This can be either <samp class="ph codeph">LOCAL</samp> to Platfora or from an <samp class="ph codeph">EXTERNAL</samp> directory service.</p>
+</td>
+
+            </tr>
+
+            <tr class="row">
+              <td class="entry" valign="top" width="20%" headers="d3974e62 "><p class="p"><span class="keyword parmname">systemRole</span></p>
+</td>
+
+              <td class="entry" valign="top" width="80%" headers="d3974e66 "><p class="p">This is the system role assigned directly to the group.</p>
+</td>
+
+            </tr>
+
+            <tr class="row">
+              <td class="entry" valign="top" width="20%" headers="d3974e62 "><p class="p"><span class="keyword parmname">effectiveRole</span></p>
+</td>
+
+              <td class="entry" valign="top" width="80%" headers="d3974e66 "><p class="p">The derived system role when taking into consideration the groups memberships in other groups.  The most permissive role takes precedence.</p>
+</td>
+
+            </tr>
+
+            <tr class="row">
+              <td class="entry" valign="top" width="20%" headers="d3974e62 "><p class="p"><span class="keyword parmname">externalGroupId</span></p>
+</td>
+
+              <td class="entry" valign="top" width="80%" headers="d3974e66 "><p class="p">An ID from the external directory service. Not returned for <samp class="ph codeph">LOCAL</samp> groups.</p>
+</td>
+
+            </tr>
+
+            <tr class="row">
+              <td class="entry" valign="top" width="20%" headers="d3974e62 "><p class="p"><span class="keyword parmname">externalGroupName</span></p>
+</td>
+
+              <td class="entry" valign="top" width="80%" headers="d3974e66 "><p class="p">An name defined in the external directory service. Not returned for <samp class="ph codeph">LOCAL</samp> groups.</p>
+</td>
+
+            </tr>
+
+          </tbody>
+
+        </table>
+</div>
+
+      <p class="p">The <span class="keyword parmname">members</span> array returns a user structure for each member. That structure has the following content:</p>
+
+      
+<div class="tablenoborder"><table cellpadding="4" cellspacing="0" summary="" id="api_groups_entity__fields_structure" class="table" frame="border" border="1" rules="all">
+          
+          
+          <thead class="thead" align="left">
+            <tr class="row">
+              <th class="entry" valign="top" width="20%" id="d3974e229"><p class="p">Attribute</p>
+</th>
+
+              <th class="entry" valign="top" width="80%" id="d3974e233"><p class="p">Description</p>
+</th>
+
+            </tr>
+
+          </thead>
+
+          <tbody class="tbody">
+            <tr class="row">
+              <td class="entry" valign="top" width="20%" headers="d3974e229 "><p class="p"><span class="keyword parmname">href</span></p>
+</td>
+
+              <td class="entry" valign="top" width="80%" headers="d3974e233 "><p class="p">A link to the member's user resource.</p>
+</td>
+
+            </tr>
+
+            <tr class="row">
+              <td class="entry" valign="top" width="20%" headers="d3974e229 "><p class="p"><span class="keyword parmname">id</span></p>
+</td>
+
+              <td class="entry" valign="top" width="80%" headers="d3974e233 "><p class="p">The user's id.</p>
+</td>
+
+            </tr>
+
+            <tr class="row">
+              <td class="entry" valign="top" width="20%" headers="d3974e229 "><p class="p"><span class="keyword parmname">type</span></p>
+</td>
+
+              <td class="entry" valign="top" width="80%" headers="d3974e233 "><p class="p">Where the user originates.  This can be either <samp class="ph codeph">LOCAL</samp> to Platfora or from an <samp class="ph codeph">EXTERNAL</samp> directory service. </p>
+</td>
+
+            </tr>
+
+          </tbody>
+
+        </table>
+</div>
+
+    </div>
+
+  <div class="related-links"/>
+</div>
+
+<div class="navfooter"><!---->
+<span class="navparent"><a class="link" href="../api/api_groups_top.html" title="Use the groups resource to manage Platfora groups."><span class="navheader_label">Parent topic</span><span class="navheader_separator">: </span><span class="navheader_linktext">groups Resource</span></a></span>  </div><div class="footer">WebHelp output generated by<a href="http://www.oxygenxml.com" target="_blank"><span class="oXygenLogo"><img src="../oxygen-webhelp/resources/img/LogoOxygen100x22.png" alt="Oxygen"/></span><span class="xmlauthor">XML Author</span></a></div>
+<div id="productInfo" style="display:none;"><span id="oxy_productID">api_ref_guide</span><span id="oxy_productVersion">2.0</span></div><div id="loginData" style="display: none"><span class="bt_close" title="Close"><!----></span><form action="" target="passwordIframe" method="post" name="form_login" onsubmit="return loggInUser();" id="loginFormData" autocomplete="on"><input type="hidden" id="reloadComments" value="yes"><!----></input><table class="login"><thead><tr><td colspan="2"><span id="l_login2"><script type="text/javascript">$('#l_login2').html(getLocalization('label.login'));</script></span></td></tr><tr><td colspan="2"><div id="loginResponse"><!----></div></td></tr></thead><tr><td><span id="l_userName"><script type="text/javascript">$('#l_userName').html(getLocalization('label.userName'));</script></span></td><td><input name="usernameW" type="text" id="myUserName" autocomplete="on" required="required" autofocus="autofocus"><!----></input></td></tr><tr><td><span id="l_pswd"><script type="text/javascript">$('#l_pswd').html(getLocalization('label.pswd'));</script></span></td><td><input name="passwordW" type="password" id="myPassword" autocomplete="on" required="required"><!----></input></td></tr><tr><td colspan="2" align="left"><span id="ll_remember"><script type="text/javascript" xml:space="preserve">
+								$('#ll_remember').html(getLocalization('label.rememberme'));
+							</script></span>     <input name="myLoginRemember" type="checkbox" class="ck" id="myRemember" value="no"><!----></input></td></tr><tr><td colspan="2" align="center"><input id="l_bt_submit_log" type="submit" value="Submit" name="loginFormButton"><!----></input><script type="text/javascript">$('#l_bt_submit_log').attr('value',getLocalization('label.login'));</script><span class="btnHGlue"><!----></span><input class="bt_cancel" id="l_cancelLog" type="button" value="Cancel" name="loginFormButton"><!----></input><script type="text/javascript">$('#l_cancelLog').attr('value',getLocalization('label.cancel'));</script></td></tr></table><div class="loginAlternative"><span id="link_lostPwd" onclick="showLostPwd()"><script type="text/javascript">$('#link_lostPwd').html(getLocalization('label.lostPswd'));</script></span><span id="link_signUp" onclick="showSignUp()"><script type="text/javascript">$('#link_signUp').html(getLocalization('label.signUp'));</script></span></div></form><iframe id="passwordIframe" name="passwordIframe" style="display:none"><!----></iframe></div><div id="cmts"><!----></div></body>
+</html>

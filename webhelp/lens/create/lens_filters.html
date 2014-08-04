@@ -1,0 +1,94 @@
+
+<!DOCTYPE html
+  PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xml:lang="en-us" lang="en-us">
+<head><meta xmlns="http://www.w3.org/1999/xhtml" name="description" content="One way to limit the size of a lens is to define a filter to constrain the number of rows pulled in from the data source. You can only define filters on dimension fields - one filter condition per ..."/><meta http-equiv="Content-Type" content="text/html; charset=utf-8"/><meta name="copyright" content="(C) Copyright 2005"/><meta name="DC.rights.owner" content="(C) Copyright 2005"/><meta name="DC.Type" content="task"/><meta name="DC.Title" content="Define Lens Filters"/><meta name="abstract" content="One way to limit the size of a lens is to define a filter to constrain the number of rows pulled in from the data source. You can only define filters on dimension fields - one filter condition per field. Filters are evaluated independently during a lens build, so the order in which they are added to the lens does not matter."/><meta xmlns="http://www.w3.org/1999/xhtml" name="description" content="One way to limit the size of a lens is to define a filter to constrain the number of rows pulled in from the data source. You can only define filters on dimension fields - one filter condition per field. Filters are evaluated independently during a lens build, so the order in which they are added to the lens does not matter."/><meta name="DC.Relation" scheme="URI" content="../../lens/create_lens.html"/><meta name="DC.Relation" scheme="URI" content="../../lens/create/lens_date_filters.html"/><meta name="DC.Relation" scheme="URI" content="../../lens/create/lens_expression_troubleshooting.html"/><meta name="DC.Format" content="XHTML"/><meta name="DC.Identifier" content="lens_filters"/><link rel="stylesheet" type="text/css" href="../../oxygen-webhelp/resources/css/commonltr.css"><!----></link><title>Define Lens Filters</title><meta http-equiv="Content-Type" content="text/html; charset=utf-8"/><link rel="stylesheet" type="text/css" href="../../oxygen-webhelp/resources/css/commonltr.css"><!----></link><link rel="stylesheet" type="text/css" href="../../oxygen-webhelp/resources/css/webhelp_topic.css"><!----></link><link rel="stylesheet" type="text/css" href="../../oxygen-webhelp/resources/skins/skin.css"><!----></link><link rel="stylesheet" type="text/css" href="../../oxygen-webhelp/resources/css/jquery.realperson.css"><!----></link><link rel="stylesheet" type="text/css" href="../../oxygen-webhelp/resources/css/comments.css"><!----></link><link rel="stylesheet" type="text/css" href="../../oxygen-webhelp/resources/css/jquery.cleditor.css"><!----></link><link rel="stylesheet" type="text/css" href="../../oxygen-webhelp/resources/css/admin.css"><!----></link><script type="text/javascript"><!--
+          
+          var prefix = "../../index.html";
+          
+          --></script><script type="text/javascript" src="../../oxygen-webhelp/resources/js/jquery-1.8.2.min.js"><!----></script><script type="text/javascript" src="../../oxygen-webhelp/resources/js/jquery.cookie.js"><!----></script><script type="text/javascript" src="../../oxygen-webhelp/resources/js/jquery-ui.custom.min.js"><!----></script><script type="text/javascript" charset="utf-8" src="../../oxygen-webhelp/resources/js/webhelp_topic.js"><!----></script><script type="text/javascript" charset="utf-8" src="../../oxygen-webhelp/resources/localization/strings.js"><!----></script><script type="text/javascript" charset="utf-8" src="../../oxygen-webhelp/resources/js/init.js"><!----></script><script type="text/javascript" charset="utf-8" src="../../oxygen-webhelp/resources/js/comments-functions.js"><!----></script></head>
+<body onload="init('../../')" id="lens_filters">
+<table class="nav"><tbody><tr><td colspan="2"><div id="printlink"><a href="javascript:window.print();" title="printThisPage"/></div><div id="permalink"><a href="#" title="linkToThis"/></div></td></tr><tr><td width="75%"><a class="navheader_parent_path" href="../../lens/../lens/lens_builder.html" title="To request data from Hadoop and load it into Platfora, you must define and build a lens. A lens can be though of as a dynamic, on-demand data mart purpose-built for a specific analysis project.">Build a Lens (Load Data)</a> / <a class="navheader_parent_path" href="../../lens/create_lens.html" title="A lens is always defined from the focal point of a single dataset in the data catalog. Once you have located a dataset that has the data you need, first check and see if there are any existing lenses that you can use. If not, click Create Lens on the dataset details page to define and build a new lens from that dataset.">Create a Lens</a></td><td><div class="navheader">
+<span class="navparent"><a class="link" href="../../lens/create_lens.html" title="A lens is always defined from the focal point of a single dataset in the data catalog. Once you have located a dataset that has the data you need, first check and see if there are any existing lenses that you can use. If not, click Create Lens on the dataset details page to define and build a new lens from that dataset."><span class="navheader_label">Parent topic</span><span class="navheader_separator">: </span><span class="navheader_linktext">Create a Lens</span></a></span>  </div></td></tr></tbody></table>
+
+    <h1 class="title topictitle1">Define Lens Filters</h1>
+
+    
+    <div class="body taskbody"><p class="shortdesc">One way to limit the size of a lens is to define a filter to constrain the number of
+        rows pulled in from the data source. You can only define filters on dimension fields - one
+        filter condition per field. Filters are evaluated independently during a lens build, so the
+        order in which they are added to the lens does not matter.  </p>
+
+        <div class="section context">
+            <div class="fig fignone"><img class="image" src="../../images/./lens_builder/lens_add_filter.png"/>
+                
+            </div>
+
+        </div>
+
+        <ol class="ol steps"><li class="li step">
+                <span class="ph cmd">Select the dimension field to filter on.</span>
+            </li>
+<li class="li step">
+                <span class="ph cmd">Click the filter icon to the right of the field name. You can only define one
+                    filter per field.</span>
+            </li>
+<li class="li step">
+                <span class="ph cmd">Define the <span class="ph uicontrol">Filter expression</span>.</span>
+                <p class="p">Filter expressions are always Boolean expressions, meaning they must evaluate to either true or
+                        false.</p>
+
+                    <p class="p">Note that the selected field name serves as the first argument of the
+                        expression, followed by a <a class="xref" href="../../reference/expression_language/operators_comparison.html" title="Comparison operators are used to compare the equivalency of two expressions of the same data type. The result of a comparison expression is a Boolean value (returns 1 for true, 0 for false, or NULL for invalid). Boolean expressions are most often used to specify data processing conditions or filter criteria.">comparison
+                            operator</a> or <a class="xref" href="../../reference/expression_language/operators_logical.html" title="You use logical operators in a WHERE clause to test the truth of some condition. They return a Boolean value of TRUE (1) or FALSE (O). The result of a comparison expression is a Boolean value (returns 1 for true, 0 for false, or NULL for invalid). Logical expressions are most often used to specify filter criteria.">logical
+                            operator</a>, and then the comparison value. The comparison value
+                        must be of the same data type as the field you are filtering on. </p>
+
+                    <p class="p">Some examples of lens filter expressions:</p>
+
+                    <pre class="pre codeblock">BETWEEN 2012-06-01 AND 2012-07-31
+
+LAST 7 DAYS
+                
+LIKE("Plat*")
+
+IN("Larry","Curly","Moe")
+
+NOT IN ("Saturday","Sunday")
+                
+&lt; 50.00
+                
+&gt;= 21
+
+BETWEEN 2009 AND 2012
+
+IS NOT NULL</pre>
+
+                
+            </li>
+<li class="li step">
+                <span class="ph cmd">Click <span class="ph uicontrol">Add Filter</span>.</span>
+            </li>
+<li class="li step">
+                <span class="ph cmd">Make sure the filter is added in the <span class="ph uicontrol">Filters</span>
+                    panel.</span>
+            </li>
+</ol>
+
+        
+    </div>
+
+<div class="related-links">
+<ul class="ullinks">
+<li class="link ulchildlink"><strong><a href="../../lens/create/lens_date_filters.html">Lens Filters on DATETIME Type Fields</a></strong><br/>
+ This section contains special considerations you must make when filtering on    datetime type values.</li>
+<li class="link ulchildlink"><strong><a href="../../lens/create/lens_expression_troubleshooting.html">Troubleshoot Lens Filter Expressions</a></strong><br/>
+Invalid lens filter expressions don't always result in an error in the web application. Some invalid filter expressions are only caught during a lens build and can cause the lens build to fail. This section has some common lens filter expression mistakes that can   cause an error or a lens build failure.</li>
+</ul>
+</div>
+<div class="navfooter"><!---->
+<span class="navparent"><a class="link" href="../../lens/create_lens.html" title="A lens is always defined from the focal point of a single dataset in the data catalog. Once you have located a dataset that has the data you need, first check and see if there are any existing lenses that you can use. If not, click Create Lens on the dataset details page to define and build a new lens from that dataset."><span class="navheader_label">Parent topic</span><span class="navheader_separator">: </span><span class="navheader_linktext">Create a Lens</span></a></span>  </div><div class="footer">WebHelp output generated by<a href="http://www.oxygenxml.com" target="_blank"><span class="oXygenLogo"><img src="../../oxygen-webhelp/resources/img/LogoOxygen100x22.png" alt="Oxygen"/></span><span class="xmlauthor">XML Author</span></a></div>
+<div id="productInfo" style="display:none;"><span id="oxy_productID">webhelp</span><span id="oxy_productVersion">3.0</span></div><div id="loginData" style="display: none"><span class="bt_close" title="Close"><!----></span><form action="" target="passwordIframe" method="post" name="form_login" onsubmit="return loggInUser();" id="loginFormData" autocomplete="on"><input type="hidden" id="reloadComments" value="yes"><!----></input><table class="login"><thead><tr><td colspan="2"><span id="l_login2"><script type="text/javascript">$('#l_login2').html(getLocalization('label.login'));</script></span></td></tr><tr><td colspan="2"><div id="loginResponse"><!----></div></td></tr></thead><tr><td><span id="l_userName"><script type="text/javascript">$('#l_userName').html(getLocalization('label.userName'));</script></span></td><td><input name="usernameW" type="text" id="myUserName" autocomplete="on" required="required" autofocus="autofocus"><!----></input></td></tr><tr><td><span id="l_pswd"><script type="text/javascript">$('#l_pswd').html(getLocalization('label.pswd'));</script></span></td><td><input name="passwordW" type="password" id="myPassword" autocomplete="on" required="required"><!----></input></td></tr><tr><td colspan="2" align="left"><span id="ll_remember"><script type="text/javascript" xml:space="preserve">
+								$('#ll_remember').html(getLocalization('label.rememberme'));
+							</script></span>     <input name="myLoginRemember" type="checkbox" class="ck" id="myRemember" value="no"><!----></input></td></tr><tr><td colspan="2" align="center"><input id="l_bt_submit_log" type="submit" value="Submit" name="loginFormButton"><!----></input><script type="text/javascript">$('#l_bt_submit_log').attr('value',getLocalization('label.login'));</script><span class="btnHGlue"><!----></span><input class="bt_cancel" id="l_cancelLog" type="button" value="Cancel" name="loginFormButton"><!----></input><script type="text/javascript">$('#l_cancelLog').attr('value',getLocalization('label.cancel'));</script></td></tr></table><div class="loginAlternative"><span id="link_lostPwd" onclick="showLostPwd()"><script type="text/javascript">$('#link_lostPwd').html(getLocalization('label.lostPswd'));</script></span><span id="link_signUp" onclick="showSignUp()"><script type="text/javascript">$('#link_signUp').html(getLocalization('label.signUp'));</script></span></div></form><iframe id="passwordIframe" name="passwordIframe" style="display:none"><!----></iframe></div><div id="cmts"><!----></div></body>
+</html>

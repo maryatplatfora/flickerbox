@@ -1,0 +1,153 @@
+
+<!DOCTYPE html
+  PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xml:lang="en-us" lang="en-us">
+<head><meta xmlns="http://www.w3.org/1999/xhtml" name="description" content="When you create a computed field Platfora catches any syntax error in your expression when you try to save the field. This section describes the most common causes of expression syntax errors. ..."/><meta http-equiv="Content-Type" content="text/html; charset=utf-8"/><meta name="copyright" content="(C) Copyright 2005"/><meta name="DC.rights.owner" content="(C) Copyright 2005"/><meta name="DC.Type" content="concept"/><meta name="DC.Title" content="Troubleshoot Computed Field Errors"/><meta name="abstract" content="When you create a computed field Platfora catches any syntax error in your expression when you try to save the field. This section describes the most common causes of expression syntax errors."/><meta xmlns="http://www.w3.org/1999/xhtml" name="description" content="When you create a computed field Platfora catches any syntax error in your expression when you try to save the field. This section describes the most common causes of expression syntax errors."/><meta name="DC.Relation" scheme="URI" content="../../../dataset/manage_fields/use_computed_top.html"/><meta name="DC.Format" content="XHTML"/><meta name="DC.Identifier" content="troubleshooting_expressions"/><link rel="stylesheet" type="text/css" href="../../../oxygen-webhelp/resources/css/commonltr.css"><!----></link><title>Troubleshoot Computed Field Errors</title><meta http-equiv="Content-Type" content="text/html; charset=utf-8"/><link rel="stylesheet" type="text/css" href="../../../oxygen-webhelp/resources/css/commonltr.css"><!----></link><link rel="stylesheet" type="text/css" href="../../../oxygen-webhelp/resources/css/webhelp_topic.css"><!----></link><link rel="stylesheet" type="text/css" href="../../../oxygen-webhelp/resources/skins/skin.css"><!----></link><link rel="stylesheet" type="text/css" href="../../../oxygen-webhelp/resources/css/jquery.realperson.css"><!----></link><link rel="stylesheet" type="text/css" href="../../../oxygen-webhelp/resources/css/comments.css"><!----></link><link rel="stylesheet" type="text/css" href="../../../oxygen-webhelp/resources/css/jquery.cleditor.css"><!----></link><link rel="stylesheet" type="text/css" href="../../../oxygen-webhelp/resources/css/admin.css"><!----></link><script type="text/javascript"><!--
+          
+          var prefix = "../../../index.html";
+          
+          --></script><script type="text/javascript" src="../../../oxygen-webhelp/resources/js/jquery-1.8.2.min.js"><!----></script><script type="text/javascript" src="../../../oxygen-webhelp/resources/js/jquery.cookie.js"><!----></script><script type="text/javascript" src="../../../oxygen-webhelp/resources/js/jquery-ui.custom.min.js"><!----></script><script type="text/javascript" charset="utf-8" src="../../../oxygen-webhelp/resources/js/webhelp_topic.js"><!----></script><script type="text/javascript" charset="utf-8" src="../../../oxygen-webhelp/resources/localization/strings.js"><!----></script><script type="text/javascript" charset="utf-8" src="../../../oxygen-webhelp/resources/js/init.js"><!----></script><script type="text/javascript" charset="utf-8" src="../../../oxygen-webhelp/resources/js/comments-functions.js"><!----></script></head>
+<body onload="init('../../../')" id="troubleshooting_expressions">
+<table class="nav"><tbody><tr><td colspan="2"><div id="printlink"><a href="javascript:window.print();" title="printThisPage"/></div><div id="permalink"><a href="#" title="linkToThis"/></div></td></tr><tr><td width="75%"><a class="navheader_parent_path" href="../../../dataset/manage_fields/../../dataset/use_expressions_top.html" title="Platfora includes an expression language to support advanced data analysis processing.">Work with Platfora's Expression Language</a> / <a class="navheader_parent_path" href="../../../dataset/manage_fields/use_computed_top.html" title="You can add computed fields in a dataset or in the vizboard. This section discusses some differences between computed fields in datasets and vizboards, provides examples of computed fields, and discusses troubleshooting errors.">Use Computed Fields</a></td><td><div class="navheader">
+<span class="navparent"><a class="link" href="../../../dataset/manage_fields/use_computed_top.html" title="You can add computed fields in a dataset or in the vizboard. This section discusses some differences between computed fields in datasets and vizboards, provides examples of computed fields, and discusses troubleshooting errors."><span class="navheader_label">Parent topic</span><span class="navheader_separator">: </span><span class="navheader_linktext">Use Computed Fields</span></a></span>  </div></td></tr></tbody></table>
+
+ <h1 class="title topictitle1">Troubleshoot Computed Field Errors</h1>
+
+ 
+ 
+ <div class="body conbody"><p class="shortdesc">When you create a computed field Platfora catches any syntax error in your expression when you try to save the field. This section describes the most common causes of expression syntax errors.</p>
+
+  
+  <div class="section"><h2 class="title sectiontitle">Function Arguments Don't Match the Expected Data Type</h2>
+   
+   <p class="p">Functions expect input arguments to be of a certain data type. When a function uses another
+    field as its input argument, and that field is not of the expected data type, you might see an
+    error such as:</p>
+
+   <pre class="pre codeblock">Function REGEX takes 2 arguments with types STRING, STRING, but one
+argument of type INTEGER was provided.</pre>
+
+   <p class="p">Look at the function's arguments that appear in the error message and verify they are the proper data types. If the argument is a field, you might need to change the data type of the base field or use a data type conversion function to cpnvert the argument to the expected
+    data type within the expression itself.</p>
+
+   <p class="p">See also: <a class="xref" href="about_expression_functions.html" title="Functions perform common data processing tasks. While not all expressions contain functions, most do. This section describes basic concepts you need to know to use functions.">Functions in an Expression</a>
+   </p>
+
+  </div>
+
+  
+  <div class="section"><h2 class="title sectiontitle">Not Escaping Field and Dataset Names</h2>
+   
+   <p class="p">Field and dataset names used in an expression must be enclosed in square brackets (<samp class="ph codeph">[
+     ]</samp>) if they contain spaces, special characters, reserved keywords, or start with
+    numeric characters. When an expression contains a field or dataset name that meets one of these
+    criteria and is not encosed in square brackets, you might see an error such as:</p>
+
+   <pre class="pre codeblock">Platfora expected the string `)', but instead received `F'.
+TO_LONG(New <strong class="ph b">F</strong>ield)</pre>
+
+   <p class="p">Look at the bolded character in the expression to find the location of the error. Note the
+    text that comes after this position. If it is part of a field or dataset name, you need to
+    enclose the name with square brackets. To correct the expression in this example, use:
+     <samp class="ph codeph">TO_LONG([New Field])</samp></p>
+
+   <p class="p">See also: <a class="xref" href="fields_in_expressions.html" title="This section explains how to use field names in expressions.">Escaping Spaces or Special Characters in Field and Dataset Names</a></p>
+
+  </div>
+
+  
+  <div class="section"><h2 class="title sectiontitle">Not Specifying the Full Path to Fields of a Referenced Dataset</h2>
+   
+   <p class="p">Functions can use a field that is in dataset referenced from the focus dataset. You must specify the field's full path by including the reference dataset's reference name. If you forget to use the full path, you might see an error like:</p>
+
+   <pre class="pre codeblock">Field not found: carrier_name</pre>
+
+   <p class="p">When you see the <samp class="ph codeph">Field not found</samp> error, make sure the field is qualified with the reference name. In this example, <em class="ph i">carrier_name</em> is a field in a referenced dataset. The reference name in this example is <em class="ph i">carriers</em>. To correct this expression,
+    use: <samp class="ph codeph">carriers.carrier_name</samp> for the field name.</p>
+
+   <p class="p">See also: <a class="xref" href="fields_in_expressions.html#expression_field_refs__referenced_fields">Referring to Fields in a Referenced Dataset</a></p>
+
+  </div>
+
+  
+  
+  <div class="section"><h2 class="title sectiontitle">Unenclosed Literal Strings</h2>
+   
+   <p class="p">You can include a literal string value as a function argument, but it must be enclosed in
+    double quotes (<samp class="ph codeph">"</samp>). When an expression uses a literal string that isn't enclosed
+    in double quotes, you might see an error such as:</p>
+
+   <pre class="pre codeblock">Field not found: Platfora</pre>
+
+   <p class="p">When you see the <samp class="ph codeph">Field not found</samp> error, one option is that the alleged field
+    is meant to be a literal string and needs to be enclosed in double quotes. To correct this
+    expression, use: <samp class="ph codeph">"Platfora"</samp> for the string.</p>
+
+   <p class="p">See also: <a class="xref" href="literals_in_expressions.html" title="This section explains how to use literals in expressions.">Literal Values in an Expression</a></p>
+
+  </div>
+
+  
+  
+  <div class="section"><h2 class="title sectiontitle">Unescaped Special Characters</h2>
+   
+   <p class="p">Field and dataset names may contain a right square bracket (<samp class="ph codeph">]</samp>), but it must
+    be preceded by another right square bracket (<samp class="ph codeph">]]</samp>). Literal strings may contain a
+    double quote (<samp class="ph codeph">"</samp>), but it must be preceded by another double quote
+     (<samp class="ph codeph">""</samp>). Suppose you want to concatenate the strings <samp class="ph codeph">"Hello</samp> and
+     <samp class="ph codeph"> world."</samp> to make the string <samp class="ph codeph">"Hello world."</samp>. The double quotes
+    in each string are special characters and must be escaped in the expression. If not, you might
+    see an error like: </p>
+
+   <pre class="pre codeblock">Platfora expected the string `)', but instead received `H'.
+CONCAT(""<strong class="ph b">H</strong>ello", " world."")</pre>
+
+   <p class="p">Look at the bolded character in the expression to find the location of the error. To correct
+    this error, escape the double quotes with another double quote:</p>
+
+   <p class="p"><samp class="ph codeph">CONCAT("""Hello", " world.""")</samp></p>
+
+  </div>
+
+  
+  
+  <div class="section"><h2 class="title sectiontitle">Invalid Syntax</h2>
+   
+   <p class="p">Functions have specific requirements, including required arguments and keywords. When an
+    expression is missing a keyword, you might see an error such as:</p>
+
+<pre class="pre codeblock">Platfora expected a string matching the regular expression
+`(?i)\Qend\E', but instead received end of source.
+CASE WHEN cancel_code=0 THEN "Not Cancelled" WHEN cancel_code=1 THEN
+"Cancelled" ELSE NULL</pre>
+
+   <p class="p">Look at the bolded character in the expression to find the location of the error. In this example, it expected the string <samp class="ph codeph">END</samp> (indicated by <samp class="ph codeph">(?i)\Qend\E</samp>), but instead it reached the end of the expression. The <samp class="ph codeph">CASE</samp> function
+    requires the <samp class="ph codeph">END</samp> keyword at the end of its syntax string. To correct this error, add <samp class="ph codeph">END</samp> to the end of the expression:</p>
+
+   <p class="p"><samp class="ph codeph">CASE WHEN cancel_code=0 THEN "Not Cancelled" WHEN cancel_code=1 THEN
+    "Cancelled" ELSE NULL END</samp></p>
+
+   <p class="p">See also: <a class="xref" href="../../../reference/expression_language/expression_reference_top.html" title="An expression computes or produces a value by combining fields (or columns), constant values, operators, and functions. Platfora has a built-in expression language. You use the language's functions and operators to create a computed field.">Expression and Query Language Reference</a></p>
+
+  </div>
+
+  
+  <div class="section"><h2 class="title sectiontitle">Using Row and Aggregate Functions Together in the Same Expression</h2>
+   <p class="p">Aggregate
+   functions (functions used to define measures) cannot use nested expressions as their input
+   arguments. Aggregate functions can only accept field names as input. You also cannot use an
+   aggregate expression as input to a row function expression. Aggregate functions and row functions
+   cannot be mixed together in one expression.</p>
+ </div>
+
+  
+ 
+ </div>
+
+<div class="related-links"/>
+<div class="navfooter"><!---->
+<span class="navparent"><a class="link" href="../../../dataset/manage_fields/use_computed_top.html" title="You can add computed fields in a dataset or in the vizboard. This section discusses some differences between computed fields in datasets and vizboards, provides examples of computed fields, and discusses troubleshooting errors."><span class="navheader_label">Parent topic</span><span class="navheader_separator">: </span><span class="navheader_linktext">Use Computed Fields</span></a></span>  </div><div class="footer">WebHelp output generated by<a href="http://www.oxygenxml.com" target="_blank"><span class="oXygenLogo"><img src="../../../oxygen-webhelp/resources/img/LogoOxygen100x22.png" alt="Oxygen"/></span><span class="xmlauthor">XML Author</span></a></div>
+<div id="productInfo" style="display:none;"><span id="oxy_productID">webhelp</span><span id="oxy_productVersion">3.0</span></div><div id="loginData" style="display: none"><span class="bt_close" title="Close"><!----></span><form action="" target="passwordIframe" method="post" name="form_login" onsubmit="return loggInUser();" id="loginFormData" autocomplete="on"><input type="hidden" id="reloadComments" value="yes"><!----></input><table class="login"><thead><tr><td colspan="2"><span id="l_login2"><script type="text/javascript">$('#l_login2').html(getLocalization('label.login'));</script></span></td></tr><tr><td colspan="2"><div id="loginResponse"><!----></div></td></tr></thead><tr><td><span id="l_userName"><script type="text/javascript">$('#l_userName').html(getLocalization('label.userName'));</script></span></td><td><input name="usernameW" type="text" id="myUserName" autocomplete="on" required="required" autofocus="autofocus"><!----></input></td></tr><tr><td><span id="l_pswd"><script type="text/javascript">$('#l_pswd').html(getLocalization('label.pswd'));</script></span></td><td><input name="passwordW" type="password" id="myPassword" autocomplete="on" required="required"><!----></input></td></tr><tr><td colspan="2" align="left"><span id="ll_remember"><script type="text/javascript" xml:space="preserve">
+								$('#ll_remember').html(getLocalization('label.rememberme'));
+							</script></span>     <input name="myLoginRemember" type="checkbox" class="ck" id="myRemember" value="no"><!----></input></td></tr><tr><td colspan="2" align="center"><input id="l_bt_submit_log" type="submit" value="Submit" name="loginFormButton"><!----></input><script type="text/javascript">$('#l_bt_submit_log').attr('value',getLocalization('label.login'));</script><span class="btnHGlue"><!----></span><input class="bt_cancel" id="l_cancelLog" type="button" value="Cancel" name="loginFormButton"><!----></input><script type="text/javascript">$('#l_cancelLog').attr('value',getLocalization('label.cancel'));</script></td></tr></table><div class="loginAlternative"><span id="link_lostPwd" onclick="showLostPwd()"><script type="text/javascript">$('#link_lostPwd').html(getLocalization('label.lostPswd'));</script></span><span id="link_signUp" onclick="showSignUp()"><script type="text/javascript">$('#link_signUp').html(getLocalization('label.signUp'));</script></span></div></form><iframe id="passwordIframe" name="passwordIframe" style="display:none"><!----></iframe></div><div id="cmts"><!----></div></body>
+</html>

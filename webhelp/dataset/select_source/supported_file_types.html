@@ -1,0 +1,252 @@
+
+<!DOCTYPE html
+  PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xml:lang="en-us" lang="en-us">
+<head><meta xmlns="http://www.w3.org/1999/xhtml" name="description" content="To ingest source data, Platfora uses its parsing facilities to parse the data into records (rows) and fields (columns). Source files that support compression can be compressed. Platfora supports the ..."/><meta http-equiv="Content-Type" content="text/html; charset=utf-8"/><meta name="copyright" content="(C) Copyright 2005"/><meta name="DC.rights.owner" content="(C) Copyright 2005"/><meta name="DC.Type" content="reference"/><meta name="DC.Title" content="Supported Source File Formats"/><meta name="abstract" content="To ingest source data, Platfora uses its parsing facilities to parse the data into records (rows) and fields (columns). Source files that support compression can be compressed. Platfora supports the following file formats:"/><meta xmlns="http://www.w3.org/1999/xhtml" name="description" content="To ingest source data, Platfora uses its parsing facilities to parse the data into records (rows) and fields (columns). Source files that support compression can be compressed. Platfora supports the following file formats:"/><meta name="DC.Relation" scheme="URI" content="../../dataset/select_source/select_data_top.html"/><meta name="DC.Format" content="XHTML"/><meta name="DC.Identifier" content="supported_file_formats"/><link rel="stylesheet" type="text/css" href="../../oxygen-webhelp/resources/css/commonltr.css"><!----></link><title>Supported Source File Formats</title><meta http-equiv="Content-Type" content="text/html; charset=utf-8"/><link rel="stylesheet" type="text/css" href="../../oxygen-webhelp/resources/css/commonltr.css"><!----></link><link rel="stylesheet" type="text/css" href="../../oxygen-webhelp/resources/css/webhelp_topic.css"><!----></link><link rel="stylesheet" type="text/css" href="../../oxygen-webhelp/resources/skins/skin.css"><!----></link><link rel="stylesheet" type="text/css" href="../../oxygen-webhelp/resources/css/jquery.realperson.css"><!----></link><link rel="stylesheet" type="text/css" href="../../oxygen-webhelp/resources/css/comments.css"><!----></link><link rel="stylesheet" type="text/css" href="../../oxygen-webhelp/resources/css/jquery.cleditor.css"><!----></link><link rel="stylesheet" type="text/css" href="../../oxygen-webhelp/resources/css/admin.css"><!----></link><script type="text/javascript"><!--
+          
+          var prefix = "../../index.html";
+          
+          --></script><script type="text/javascript" src="../../oxygen-webhelp/resources/js/jquery-1.8.2.min.js"><!----></script><script type="text/javascript" src="../../oxygen-webhelp/resources/js/jquery.cookie.js"><!----></script><script type="text/javascript" src="../../oxygen-webhelp/resources/js/jquery-ui.custom.min.js"><!----></script><script type="text/javascript" charset="utf-8" src="../../oxygen-webhelp/resources/js/webhelp_topic.js"><!----></script><script type="text/javascript" charset="utf-8" src="../../oxygen-webhelp/resources/localization/strings.js"><!----></script><script type="text/javascript" charset="utf-8" src="../../oxygen-webhelp/resources/js/init.js"><!----></script><script type="text/javascript" charset="utf-8" src="../../oxygen-webhelp/resources/js/comments-functions.js"><!----></script></head>
+<body onload="init('../../')" id="supported_file_formats">
+<table class="nav"><tbody><tr><td colspan="2"><div id="printlink"><a href="javascript:window.print();" title="printThisPage"/></div><div id="permalink"><a href="#" title="linkToThis"/></div></td></tr><tr><td width="75%"><a class="navheader_parent_path" href="../../dataset/select_source/../../dataset/dataset_top.html" title="Source data is mapped into Platfora by creating a dataset. A dataset describes the characteristics of the source data, such as its file locations, the structure of individual rows or records, the fields and data types, and the processing logic to cleanse, transform, and aggregate the data when it is loaded into Platfora. The collection of modeled datasets make up the data catalog (the source data items available to Platfora users).">Define Datasets</a> / <a class="navheader_parent_path" href="../../dataset/select_source/select_data_top.html" title="After you have created a data source, the first step in creating a dataset is selecting some Hadoop source data to expose in Platfora. This is accomplished by choosing files from the source file system.">Select Source Data</a></td><td><div class="navheader">
+<span class="navparent"><a class="link" href="../../dataset/select_source/select_data_top.html" title="After you have created a data source, the first step in creating a dataset is selecting some Hadoop source data to expose in Platfora. This is accomplished by choosing files from the source file system."><span class="navheader_label">Parent topic</span><span class="navheader_separator">: </span><span class="navheader_linktext">Select Source Data</span></a></span>  </div></td></tr></tbody></table>
+
+  <h1 class="title topictitle1">Supported Source File Formats</h1>
+
+  
+  <div class="body refbody"><p class="shortdesc">To ingest source data, Platfora uses its parsing facilities to parse the data into records (rows) and fields (columns). Source files that support compression can be compressed. Platfora supports the following file formats:  </p>
+
+    <div class="section">
+   
+    
+        
+<div class="tablenoborder"><table cellpadding="4" cellspacing="0" summary="" class="table" frame="border" border="1" rules="all">
+            
+            
+            <thead class="thead" align="left">
+              <tr class="row">
+                <th class="entry" valign="top" width="22.98850574712644%" id="d54645e29"><p class="p">Format</p>
+</th>
+
+                <th class="entry" valign="top" width="77.01149425287358%" id="d54645e33"><p class="p">Description</p>
+</th>
+
+              </tr>
+
+            </thead>
+
+            <tbody class="tbody">
+              <tr class="row">
+                <td class="entry" valign="top" width="22.98850574712644%" headers="d54645e29 "><p class="p">Hive Tables</p>
+</td>
+
+                <td class="entry" valign="top" width="77.01149425287358%" headers="d54645e33 "><p class="p">When creating a dataset from a Hive table, there is no need to define parsing
+              controls in Platfora. Platfora uses the Hive table definition to obtain metadata about
+              the source data, such as which files to process, the parsing logic for rows and
+              columns, and the field names and data types contained in the source data. Since
+              Platfora relies on Hive to do the file parsing, you must make sure that Hive is able
+              to correctly handle the source file format of the underlying table data files.</p>
+
+              <p class="p">Platfora is able to parse Hive tables that refer to data in the following file
+                formats:</p>
+
+              <div class="p">
+                <ul class="ul">
+                  <li class="li">Delimited Text file format</li>
+
+                  <li class="li">SequenceFile format</li>
+
+                  <li class="li">Record Columnar File (RCFile format)</li>
+
+                  <li class="li">Optimized Row Columnar (ORC file format) </li>
+
+                  <li class="li">Custom Input Format (provided that the SERDE used to define the row format is
+                    also installed in Platfora)</li>
+
+                </ul>
+
+              </div>
+</td>
+
+              </tr>
+
+              <tr class="row">
+                <td class="entry" valign="top" width="22.98850574712644%" headers="d54645e29 "><p class="p">Delimited Text</p>
+</td>
+
+                <td class="entry" valign="top" width="77.01149425287358%" headers="d54645e33 "><p class="p">A delimited file is a plain text file format for describing tabular data. It
+              refers to any file that is plain text (typically ASCII or Unicode characters), has one
+              record per line, has records divided into fields, and has the same sequence of fields
+              for every record. Records (or rows) are separated by line breaks, and fields (or
+              columns) within a line are separated by a special character called
+                the <em class="ph i">delimiter</em> (usually a comma or tab character). If the delimiter also
+              appears in the field values, it must be escaped. The Platfora delimited parser
+              supports single character escapes (such as a backslash), as well as enclosing field
+              values in double quotes (as is common with CSV files).</p>
+ </td>
+
+              </tr>
+
+              <tr class="row">
+                <td class="entry" valign="top" width="22.98850574712644%" headers="d54645e29 "><p class="p">CSV</p>
+</td>
+
+                <td class="entry" valign="top" width="77.01149425287358%" headers="d54645e33 "><p class="p">Comma-separated value (CSV) files are a type of delimited text files. The Platfora delimited file parser also supports typical CSV formatting conventions, such as enclosing field values in double quotes, using double quotes to escape literal quotes, and the use of header
+                rows.</p>
+ </td>
+
+              </tr>
+
+              <tr class="row">
+                <td class="entry" valign="top" width="22.98850574712644%" headers="d54645e29 "><p class="p">JSON</p>
+</td>
+
+                <td class="entry" valign="top" width="77.01149425287358%" headers="d54645e33 "><p class="p">JavaScript Object Notation (JSON) is a data-interchange format based on a
+              subset of the JavaScript Programming Language. JSON is a text format comprised of two
+              basic data structures: objects and arrays. The Platfora JSON parser supports the
+              selection of a top-level JSON object to signify a record or row, and selection of
+              name:value pairs within an object to signify columns or fields (including nested
+              objects and arrays).</p>
+</td>
+
+              </tr>
+
+          <tr class="row">
+            <td class="entry" valign="top" width="22.98850574712644%" headers="d54645e29 "><p class="p">XML</p>
+</td>
+
+            <td class="entry" valign="top" width="77.01149425287358%" headers="d54645e33 "><p class="p">Extensible Markup Language (XML) is a markup language that defines a set of rules
+              for encoding documents in a format that is both human-readable and machine-readable.
+              XML is a text format comprised of two basic data structures: elements and attributes.
+              The Platfora XML parser supports the selection of a top-level XML element to signify a
+              record or row, and selection of <em class="ph i">attribute:value</em> or <em class="ph i">element:value</em> pairs
+              within a parent element to signify columns or fields (including nested
+              elements).</p>
+</td>
+
+          </tr>
+
+              <tr class="row">
+                <td class="entry" valign="top" width="22.98850574712644%" headers="d54645e29 "><p class="p">Avro</p>
+</td>
+
+                <td class="entry" valign="top" width="77.01149425287358%" headers="d54645e33 "><p class="p">Apache Avro is a remote procedure call (RPC) and data serialization framework. Its primary use is to provide a data serialization format for persistent data stored in Hadoop. It uses JSON for defining schema, and JSON or binary format for data encoding. When Avro data is stored in a persistent file (called a container file), its schema is stored along with it. This allows any program to be able to read the serialized data in the file.</p>
+</td>
+
+              </tr>
+
+          <tr class="row">
+            <td class="entry" valign="top" width="22.98850574712644%" headers="d54645e29 "><p class="p">Hadoop Sequence Files</p>
+</td>
+
+            <td class="entry" valign="top" width="77.01149425287358%" headers="d54645e33 "><p class="p">Sequence files are file format generated by Hadoop MapReduce tasks, and are a common format for storing data in Hadoop. It is a flat file format containing binary records. Platfora can import records contained within a sequence file as long as the format of the records is
+                delimited text, CSV, JSON, XML, or Avro.</p>
+ </td>
+
+          </tr>
+
+              <tr class="row">
+                <td class="entry" valign="top" width="22.98850574712644%" headers="d54645e29 "><p class="p">Web Access Logs</p>
+</td>
+
+                <td class="entry" valign="top" width="77.01149425287358%" headers="d54645e33 "><p class="p">A web access log contains records about incoming requests made to a web
+              server. Platfora has a built-in parser that automatically recognizes web access logs
+              that adhere to the NCSA common or combined log formats used by many popular web
+              servers (such as Apache HTTP Server).</p>
+</td>
+
+              </tr>
+
+              <tr class="row">
+                <td class="entry" valign="top" width="22.98850574712644%" headers="d54645e29 "><p class="p">Other File Types</p>
+</td>
+
+                <td class="entry" valign="top" width="77.01149425287358%" headers="d54645e33 "><p class="p">For semi-structured file formats, you can still define parsing logic using
+              regular expressions or Platfora's built-in expression language. Platfora provides a
+              Regex or Line parser to allow you to define your own parsing logic to extract data
+              columns from the records in your source files (as long as your source files have one
+              record per line).</p>
+</td>
+
+              </tr>
+
+            </tbody>
+
+          </table>
+</div>
+
+    </div>
+
+    <div class="section">
+  <div class="p">For Platfora to read a compressed source file, both your Platfora and your Hadoop configuration must support the compression format. By default, Platfora supports the following formats: 
+<div class="tablenoborder"><table cellpadding="4" cellspacing="0" summary="" id="supported_file_formats__d3831e22" class="table" frame="border" border="1" rules="all">
+      
+      
+      <thead class="thead" align="left">
+       <tr class="row">
+        <th class="entry" valign="top" width="33.33333333333333%" id="d54645e197">Format</th>
+
+        <th class="entry" valign="top" width="66.66666666666666%" id="d54645e200">Notes</th>
+
+       </tr>
+
+      </thead>
+
+      <tbody class="tbody">
+       <tr class="row">
+        <td class="entry" valign="top" width="33.33333333333333%" headers="d54645e197 ">Deflate (zlib)</td>
+
+        <td class="entry" rowspan="3" valign="top" width="66.66666666666666%" headers="d54645e200 ">Platfora and Hadoop support these formats out-of-the-box. </td>
+
+       </tr>
+
+       <tr class="row">
+        <td class="entry" valign="top" width="33.33333333333333%" headers="d54645e197 ">Gzip</td>
+
+       </tr>
+
+       <tr class="row">
+        <td class="entry" valign="top" width="33.33333333333333%" headers="d54645e197 ">Bzip</td>
+
+       </tr>
+
+       <tr class="row">
+        <td class="entry" valign="top" width="33.33333333333333%" headers="d54645e197 ">Snappy</td>
+
+        <td class="entry" valign="top" width="66.66666666666666%" headers="d54645e200 ">Platfora includes support for Snappy in its distribution. Hadoop does not. Your administrator must configure Hadoop to support Snappy. Refer to your Hadoop distribution documentation for information on configuring Snappy.</td>
+
+       </tr>
+
+       <tr class="row">
+        <td class="entry" valign="top" width="33.33333333333333%" headers="d54645e197 ">LZO (Hadoop-LZO)</td>
+
+        <td class="entry" rowspan="2" valign="top" width="66.66666666666666%" headers="d54645e200 "><p class="p">Due to licensing restrictions, Platfora does not bundle support for these with the product. Your administrator must configure these compression formats both in Platfora and Hadoop. </p>
+
+         <p class="p">Although neither compression format is explicitly qualified with each
+         new release, Platfora will fix issues and release patches if a problem is discovered.</p>
+ </td>
+
+       </tr>
+
+       <tr class="row">
+        <td class="entry" valign="top" width="33.33333333333333%" headers="d54645e197 ">LZ4</td>
+
+       </tr>
+
+      </tbody>
+
+     </table>
+</div>
+</div>
+
+  </div>
+
+  </div>
+
+<div class="related-links"/>
+<div class="navfooter"><!---->
+<span class="navparent"><a class="link" href="../../dataset/select_source/select_data_top.html" title="After you have created a data source, the first step in creating a dataset is selecting some Hadoop source data to expose in Platfora. This is accomplished by choosing files from the source file system."><span class="navheader_label">Parent topic</span><span class="navheader_separator">: </span><span class="navheader_linktext">Select Source Data</span></a></span>  </div><div class="footer">WebHelp output generated by<a href="http://www.oxygenxml.com" target="_blank"><span class="oXygenLogo"><img src="../../oxygen-webhelp/resources/img/LogoOxygen100x22.png" alt="Oxygen"/></span><span class="xmlauthor">XML Author</span></a></div>
+<div id="productInfo" style="display:none;"><span id="oxy_productID">webhelp</span><span id="oxy_productVersion">3.0</span></div><div id="loginData" style="display: none"><span class="bt_close" title="Close"><!----></span><form action="" target="passwordIframe" method="post" name="form_login" onsubmit="return loggInUser();" id="loginFormData" autocomplete="on"><input type="hidden" id="reloadComments" value="yes"><!----></input><table class="login"><thead><tr><td colspan="2"><span id="l_login2"><script type="text/javascript">$('#l_login2').html(getLocalization('label.login'));</script></span></td></tr><tr><td colspan="2"><div id="loginResponse"><!----></div></td></tr></thead><tr><td><span id="l_userName"><script type="text/javascript">$('#l_userName').html(getLocalization('label.userName'));</script></span></td><td><input name="usernameW" type="text" id="myUserName" autocomplete="on" required="required" autofocus="autofocus"><!----></input></td></tr><tr><td><span id="l_pswd"><script type="text/javascript">$('#l_pswd').html(getLocalization('label.pswd'));</script></span></td><td><input name="passwordW" type="password" id="myPassword" autocomplete="on" required="required"><!----></input></td></tr><tr><td colspan="2" align="left"><span id="ll_remember"><script type="text/javascript" xml:space="preserve">
+								$('#ll_remember').html(getLocalization('label.rememberme'));
+							</script></span>     <input name="myLoginRemember" type="checkbox" class="ck" id="myRemember" value="no"><!----></input></td></tr><tr><td colspan="2" align="center"><input id="l_bt_submit_log" type="submit" value="Submit" name="loginFormButton"><!----></input><script type="text/javascript">$('#l_bt_submit_log').attr('value',getLocalization('label.login'));</script><span class="btnHGlue"><!----></span><input class="bt_cancel" id="l_cancelLog" type="button" value="Cancel" name="loginFormButton"><!----></input><script type="text/javascript">$('#l_cancelLog').attr('value',getLocalization('label.cancel'));</script></td></tr></table><div class="loginAlternative"><span id="link_lostPwd" onclick="showLostPwd()"><script type="text/javascript">$('#link_lostPwd').html(getLocalization('label.lostPswd'));</script></span><span id="link_signUp" onclick="showSignUp()"><script type="text/javascript">$('#link_signUp').html(getLocalization('label.signUp'));</script></span></div></form><iframe id="passwordIframe" name="passwordIframe" style="display:none"><!----></iframe></div><div id="cmts"><!----></div></body>
+</html>

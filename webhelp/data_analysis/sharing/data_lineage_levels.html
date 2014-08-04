@@ -1,0 +1,195 @@
+
+<!DOCTYPE html
+  PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xml:lang="en-us" lang="en-us">
+<head><meta xmlns="http://www.w3.org/1999/xhtml" name="description" content="System administrators can configure how much of a data lineage to report. This configuration applies to all data in Platfora's catalog. Administrators cannot configure lineage on individual catalog ..."/><meta http-equiv="Content-Type" content="text/html; charset=utf-8"/><meta name="copyright" content="(C) Copyright 2005"/><meta name="DC.rights.owner" content="(C) Copyright 2005"/><meta name="DC.Type" content="concept"/><meta name="DC.Title" content="Interpret Data Lineage Levels"/><meta name="abstract" content="System administrators can configure how much of a data lineage to report."/><meta xmlns="http://www.w3.org/1999/xhtml" name="description" content="System administrators can configure how much of a data lineage to report."/><meta name="DC.Relation" scheme="URI" content="../../data_analysis/sharing/data_lineage_top.html"/><meta name="DC.Relation" scheme="URI" content="../../data_analysis/sharing/data_lineage_top.html"/><meta name="DC.Format" content="XHTML"/><meta name="DC.Identifier" content="data_lineage_levels"/><link rel="stylesheet" type="text/css" href="../../oxygen-webhelp/resources/css/commonltr.css"><!----></link><title>Interpret Data Lineage Levels</title><meta http-equiv="Content-Type" content="text/html; charset=utf-8"/><link rel="stylesheet" type="text/css" href="../../oxygen-webhelp/resources/css/commonltr.css"><!----></link><link rel="stylesheet" type="text/css" href="../../oxygen-webhelp/resources/css/webhelp_topic.css"><!----></link><link rel="stylesheet" type="text/css" href="../../oxygen-webhelp/resources/skins/skin.css"><!----></link><link rel="stylesheet" type="text/css" href="../../oxygen-webhelp/resources/css/jquery.realperson.css"><!----></link><link rel="stylesheet" type="text/css" href="../../oxygen-webhelp/resources/css/comments.css"><!----></link><link rel="stylesheet" type="text/css" href="../../oxygen-webhelp/resources/css/jquery.cleditor.css"><!----></link><link rel="stylesheet" type="text/css" href="../../oxygen-webhelp/resources/css/admin.css"><!----></link><script type="text/javascript"><!--
+          
+          var prefix = "../../index.html";
+          
+          --></script><script type="text/javascript" src="../../oxygen-webhelp/resources/js/jquery-1.8.2.min.js"><!----></script><script type="text/javascript" src="../../oxygen-webhelp/resources/js/jquery.cookie.js"><!----></script><script type="text/javascript" src="../../oxygen-webhelp/resources/js/jquery-ui.custom.min.js"><!----></script><script type="text/javascript" charset="utf-8" src="../../oxygen-webhelp/resources/js/webhelp_topic.js"><!----></script><script type="text/javascript" charset="utf-8" src="../../oxygen-webhelp/resources/localization/strings.js"><!----></script><script type="text/javascript" charset="utf-8" src="../../oxygen-webhelp/resources/js/init.js"><!----></script><script type="text/javascript" charset="utf-8" src="../../oxygen-webhelp/resources/js/comments-functions.js"><!----></script></head>
+<body onload="init('../../')" id="data_lineage_levels">
+<table class="nav"><tbody><tr><td colspan="2"><div id="printlink"><a href="javascript:window.print();" title="printThisPage"/></div><div id="permalink"><a href="#" title="linkToThis"/></div></td></tr><tr><td width="75%"/><td><div class="navheader">
+<span class="navparent"><a class="link" href="../../data_analysis/sharing/data_lineage_top.html" title="Analysts can trace data lineage through Platfora lenses, datasets, all field types (computed, base, and measure), and data sources to the source files in Hadoop."><span class="navheader_label">Parent topic</span><span class="navheader_separator">: </span><span class="navheader_linktext">Tracing the Data Lineage of Viz Fields</span></a></span>  
+<span class="navparent"><a class="link" href="../../data_analysis/sharing/data_lineage_top.html" title="Analysts can trace data lineage through Platfora lenses, datasets, all field types (computed, base, and measure), and data sources to the source files in Hadoop."><span class="navheader_label">Parent topic</span><span class="navheader_separator">: </span><span class="navheader_linktext">Tracing the Data Lineage of Viz Fields</span></a></span>  </div></td></tr></tbody></table>
+
+ <h1 class="title topictitle1">Interpret Data Lineage Levels</h1>
+
+ 
+ <div class="body conbody"><div class="abstract">
+   <span class="shortdesc">System administrators can configure how much of a data lineage to report. </span>
+This configuration applies to all data in Platfora's catalog. Administrators cannot configure lineage on individual catalog items</div>
+
+  <p class="p"> You can view data lineage for a single field or all fields in a viz. To view a field's lineage, choose <span class="ph uicontrol">Show Data Lineage</span> from the field's menu. To view lineage for an entire viz, choose <span class="ph uicontrol">Export Lineage as JSON</span> from a
+   visualization's menu.</p>
+
+  <p class="p">When interpreting lineage, think of a field as a root of a tree. Each object that feeds into this field is a branch. The lens itself is always the initial "branch" of a field. The simplest tree is always a base field: </p>
+
+  <div class="p">
+   <div class="fig fignone"><img class="image" src="../../images/./vizboard/base_field_lineage.png"/>
+    
+   </div>
+
+  </div>
+
+  <p class="p">The <span class="ph uicontrol">Device ID</span> tree has one branch (<span class="ph uicontrol">LENS: VOD Device</span>) with two ancestors, the <span class="ph uicontrol">VOD Device</span> lens itself and its parent dataset, <span class="ph uicontrol">VOD Mobile</span>. On any Platfora lineage, the last parent is always the dataset.</p>
+
+  <p class="p">A field can have multiple branches. For example, fields formed from aggregate functions or other computation have multiple branches. Consider a <span class="ph uicontrol">Session Event Count</span> field that results from the <span class="ph uicontrol">MAX(Session Event Number)</span> function.
+   The <span class="ph uicontrol">Session Event Count</span> lineage contains two branches, the lens and the <span class="ph uicontrol">Session Event Number</span>: </p>
+
+  <div class="p">
+   <div class="fig fignone"><img class="image" src="../../images/./vizboard/field_lineage.png"/>
+
+    
+   </div>
+
+  </div>
+
+  <p class="p">You can see that the <span class="ph uicontrol">Session Even Number</span> branch is itself a computed field. As such, the branch has four ancestors <span class="ph uicontrol">Event Name</span>, <span class="ph uicontrol">Device-Asset</span>, <span class="ph uicontrol">Client Time</span> and the <span class="ph uicontrol">VOD
+    Device</span> lens.</p>
+
+  <p class="p">A Platfora system administrator can configure the number of levels from the root field to the end of an ancestor branch. When reading a report, each ancestor appears as a branch with subsequent levels indented after that. For example, the <span class="ph uicontrol">Session Event
+    Count</span> field shows three levels to reach through the <span class="ph uicontrol">Session Event Number</span> to the dataset:</p>
+
+  <ul class="ul">
+   <li class="li"><p class="p"><span class="ph uicontrol">Session Event Number</span></p>
+
+   </li>
+
+   <li class="li"><p class="p"><span class="ph uicontrol">LENS: VOD Device</span></p>
+
+   </li>
+
+   <li class="li"><p class="p"><span class="ph uicontrol">DATASET: VOD Mobile</span></p>
+
+   </li>
+
+  </ul>
+
+  <p class="p">By default, Platfora displays five levels of lineage on the graphical report and 10 levels in an exported JSON file. System administrators can configure reporting levels on the <span class="ph uicontrol">System &gt; Global Settings</span> page. Increasing the levels is only necessary if
+   your data contains multiple derived datasets or computed fields.</p>
+
+  <p class="p">The following table lists the possible ancestors for each object type.</p>
+
+  
+<div class="tablenoborder"><table cellpadding="4" cellspacing="0" summary="" class="table" frame="border" border="1" rules="all">
+    
+    
+    <thead class="thead" align="left">
+     <tr class="row">
+      <th class="entry" valign="top" width="50%" id="d23606e147">
+       Object
+      </th>
+
+      <th class="entry" valign="top" width="50%" id="d23606e150">
+       Possible Ancestors
+      </th>
+
+     </tr>
+
+    </thead>
+
+    <tbody class="tbody">
+     <tr class="row">
+      <td class="entry" valign="top" width="50%" headers="d23606e147 ">
+       Lens or dataset field that is a base field
+      </td>
+
+      <td class="entry" valign="top" width="50%" headers="d23606e150 ">
+       lens
+      </td>
+
+     </tr>
+
+     <tr class="row">
+      <td class="entry" valign="top" width="50%" headers="d23606e147 ">
+       Lens or dataset field that is a computed dimension field
+      </td>
+
+      <td class="entry" valign="top" width="50%" headers="d23606e150 ">
+       lens, lens or dataset field
+      </td>
+
+     </tr>
+
+     <tr class="row">
+      <td class="entry" valign="top" width="50%" headers="d23606e147 ">
+       Lens or dataset field that is a measure (aggregate) field
+      </td>
+
+      <td class="entry" valign="top" width="50%" headers="d23606e150 ">
+       lens, lens or dataset field
+      </td>
+
+     </tr>
+
+     <tr class="row">
+      <td class="entry" valign="top" width="50%" headers="d23606e147 ">
+       Lens or dataset field that is a referenced field
+      </td>
+
+      <td class="entry" valign="top" width="50%" headers="d23606e150 ">
+       lens, lens or dataset field that is a referenced field, lens or dataset field that is the foreign key
+      </td>
+
+     </tr>
+
+     <tr class="row">
+      <td class="entry" valign="top" width="50%" headers="d23606e147 ">
+       Lens
+      </td>
+
+      <td class="entry" valign="top" width="50%" headers="d23606e150 ">
+       dataset
+      </td>
+
+     </tr>
+
+     <tr class="row">
+      <td class="entry" valign="top" width="50%" headers="d23606e147 ">
+       Dataset that is a derived dataset
+      </td>
+
+      <td class="entry" valign="top" width="50%" headers="d23606e150 ">
+       lens
+      </td>
+
+     </tr>
+
+     <tr class="row">
+      <td class="entry" valign="top" width="50%" headers="d23606e147 ">
+       Dataset that is not a derived dataset
+      </td>
+
+      <td class="entry" valign="top" width="50%" headers="d23606e150 ">
+       data source
+      </td>
+
+     </tr>
+
+     <tr class="row">
+      <td class="entry" valign="top" width="50%" headers="d23606e147 ">
+       Data source
+      </td>
+
+      <td class="entry" valign="top" width="50%" headers="d23606e150 ">
+       no parent
+      </td>
+
+     </tr>
+
+    </tbody>
+
+   </table>
+</div>
+
+
+ </div>
+
+<div class="related-links"/>
+<div class="navfooter"><!---->
+<span class="navparent"><a class="link" href="../../data_analysis/sharing/data_lineage_top.html" title="Analysts can trace data lineage through Platfora lenses, datasets, all field types (computed, base, and measure), and data sources to the source files in Hadoop."><span class="navheader_label">Parent topic</span><span class="navheader_separator">: </span><span class="navheader_linktext">Tracing the Data Lineage of Viz Fields</span></a></span>  
+<span class="navparent"><a class="link" href="../../data_analysis/sharing/data_lineage_top.html" title="Analysts can trace data lineage through Platfora lenses, datasets, all field types (computed, base, and measure), and data sources to the source files in Hadoop."><span class="navheader_label">Parent topic</span><span class="navheader_separator">: </span><span class="navheader_linktext">Tracing the Data Lineage of Viz Fields</span></a></span>  </div><div class="footer">WebHelp output generated by<a href="http://www.oxygenxml.com" target="_blank"><span class="oXygenLogo"><img src="../../oxygen-webhelp/resources/img/LogoOxygen100x22.png" alt="Oxygen"/></span><span class="xmlauthor">XML Author</span></a></div>
+<div id="productInfo" style="display:none;"><span id="oxy_productID">webhelp</span><span id="oxy_productVersion">3.0</span></div><div id="loginData" style="display: none"><span class="bt_close" title="Close"><!----></span><form action="" target="passwordIframe" method="post" name="form_login" onsubmit="return loggInUser();" id="loginFormData" autocomplete="on"><input type="hidden" id="reloadComments" value="yes"><!----></input><table class="login"><thead><tr><td colspan="2"><span id="l_login2"><script type="text/javascript">$('#l_login2').html(getLocalization('label.login'));</script></span></td></tr><tr><td colspan="2"><div id="loginResponse"><!----></div></td></tr></thead><tr><td><span id="l_userName"><script type="text/javascript">$('#l_userName').html(getLocalization('label.userName'));</script></span></td><td><input name="usernameW" type="text" id="myUserName" autocomplete="on" required="required" autofocus="autofocus"><!----></input></td></tr><tr><td><span id="l_pswd"><script type="text/javascript">$('#l_pswd').html(getLocalization('label.pswd'));</script></span></td><td><input name="passwordW" type="password" id="myPassword" autocomplete="on" required="required"><!----></input></td></tr><tr><td colspan="2" align="left"><span id="ll_remember"><script type="text/javascript" xml:space="preserve">
+								$('#ll_remember').html(getLocalization('label.rememberme'));
+							</script></span>     <input name="myLoginRemember" type="checkbox" class="ck" id="myRemember" value="no"><!----></input></td></tr><tr><td colspan="2" align="center"><input id="l_bt_submit_log" type="submit" value="Submit" name="loginFormButton"><!----></input><script type="text/javascript">$('#l_bt_submit_log').attr('value',getLocalization('label.login'));</script><span class="btnHGlue"><!----></span><input class="bt_cancel" id="l_cancelLog" type="button" value="Cancel" name="loginFormButton"><!----></input><script type="text/javascript">$('#l_cancelLog').attr('value',getLocalization('label.cancel'));</script></td></tr></table><div class="loginAlternative"><span id="link_lostPwd" onclick="showLostPwd()"><script type="text/javascript">$('#link_lostPwd').html(getLocalization('label.lostPswd'));</script></span><span id="link_signUp" onclick="showSignUp()"><script type="text/javascript">$('#link_signUp').html(getLocalization('label.signUp'));</script></span></div></form><iframe id="passwordIframe" name="passwordIframe" style="display:none"><!----></iframe></div><div id="cmts"><!----></div></body>
+</html>

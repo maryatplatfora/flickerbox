@@ -1,0 +1,89 @@
+
+<!DOCTYPE html
+  PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xml:lang="en-us" lang="en-us">
+<head><meta xmlns="http://www.w3.org/1999/xhtml" name="description" content="You add a computed field by writing an expression that transforms existing fields. Computed fields help you refine your data analysis. Once you define the computed field, it is added to the lens data ..."/><meta http-equiv="Content-Type" content="text/html; charset=utf-8"/><meta name="copyright" content="(C) Copyright 2005"/><meta name="DC.rights.owner" content="(C) Copyright 2005"/><meta name="DC.Type" content="task"/><meta name="DC.Title" content="Add a Vizboard Computed Field"/><meta name="abstract" content="You add a computed field by writing an expression that transforms existing fields. Computed fields help you refine your data analysis."/><meta xmlns="http://www.w3.org/1999/xhtml" name="description" content="You add a computed field by writing an expression that transforms existing fields. Computed fields help you refine your data analysis."/><meta name="DC.Relation" scheme="URI" content="../../data_analysis/supplement/supplement_lens_data_top.html"/><meta name="DC.Format" content="XHTML"/><meta name="DC.Identifier" content="add_vb_computed_field"/><link rel="stylesheet" type="text/css" href="../../oxygen-webhelp/resources/css/commonltr.css"><!----></link><title>Add a Vizboard Computed Field</title><meta http-equiv="Content-Type" content="text/html; charset=utf-8"/><link rel="stylesheet" type="text/css" href="../../oxygen-webhelp/resources/css/commonltr.css"><!----></link><link rel="stylesheet" type="text/css" href="../../oxygen-webhelp/resources/css/webhelp_topic.css"><!----></link><link rel="stylesheet" type="text/css" href="../../oxygen-webhelp/resources/skins/skin.css"><!----></link><link rel="stylesheet" type="text/css" href="../../oxygen-webhelp/resources/css/jquery.realperson.css"><!----></link><link rel="stylesheet" type="text/css" href="../../oxygen-webhelp/resources/css/comments.css"><!----></link><link rel="stylesheet" type="text/css" href="../../oxygen-webhelp/resources/css/jquery.cleditor.css"><!----></link><link rel="stylesheet" type="text/css" href="../../oxygen-webhelp/resources/css/admin.css"><!----></link><script type="text/javascript"><!--
+          
+          var prefix = "../../index.html";
+          
+          --></script><script type="text/javascript" src="../../oxygen-webhelp/resources/js/jquery-1.8.2.min.js"><!----></script><script type="text/javascript" src="../../oxygen-webhelp/resources/js/jquery.cookie.js"><!----></script><script type="text/javascript" src="../../oxygen-webhelp/resources/js/jquery-ui.custom.min.js"><!----></script><script type="text/javascript" charset="utf-8" src="../../oxygen-webhelp/resources/js/webhelp_topic.js"><!----></script><script type="text/javascript" charset="utf-8" src="../../oxygen-webhelp/resources/localization/strings.js"><!----></script><script type="text/javascript" charset="utf-8" src="../../oxygen-webhelp/resources/js/init.js"><!----></script><script type="text/javascript" charset="utf-8" src="../../oxygen-webhelp/resources/js/comments-functions.js"><!----></script></head>
+<body onload="init('../../')" id="add_vb_computed_field">
+<table class="nav"><tbody><tr><td colspan="2"><div id="printlink"><a href="javascript:window.print();" title="printThisPage"/></div><div id="permalink"><a href="#" title="linkToThis"/></div></td></tr><tr><td width="75%"><a class="navheader_parent_path" href="../../data_analysis/supplement/../../data_analysis/analyze_data_top.html" title="Vizboards is the business intelligence (BI) and data analytics area of Platfora. Once you have pulled data into Platfora by creating a lens, you can explore and interact with the data using Platfora's visualization builder tools. To begin analyzing data, you first create a project document called a vizboard. A vizboard is a container for one or more visualizations.">Analyze Data</a> / <a class="navheader_parent_path" href="../../data_analysis/supplement/supplement_lens_data_top.html" title="The data available for a viz is determined by the fields made available in the lens. If the lens currently doesn't have the data you need, you can modify the lens to add more fields if you have the proper permissions. Data analysts without the permissions to edit a lens still have other options to enhance and supplement existing lens data.">Enhance and Supplement Lens Data in a Viz</a></td><td><div class="navheader">
+<span class="navparent"><a class="link" href="../../data_analysis/supplement/supplement_lens_data_top.html" title="The data available for a viz is determined by the fields made available in the lens. If the lens currently doesn't have the data you need, you can modify the lens to add more fields if you have the proper permissions. Data analysts without the permissions to edit a lens still have other options to enhance and supplement existing lens data."><span class="navheader_label">Parent topic</span><span class="navheader_separator">: </span><span class="navheader_linktext">Enhance and Supplement Lens Data in a Viz</span></a></span>  </div></td></tr></tbody></table>
+
+    <h1 class="title topictitle1">Add a Vizboard Computed Field</h1>
+
+    
+    <div class="body taskbody"><div class="abstract"><span class="shortdesc">You add a computed field by writing an expression that transforms existing
+            fields. Computed fields help you refine your data analysis.</span>
+ Once you define
+        the computed field, it is added to the lens data panel of the vizboard. You can then use the
+        computed field by dragging it to a <span class="ph uicontrol">Builder</span> drop zone. </div>
+
+        <div class="section context">
+             <p class="p">Computed fields contain expressions that can take other fields as input. These fields can be base fields or they can be other computed fields.</p>
+
+            <div class="fig fignone"><img class="image" src="../../images/./vizbuilder/lens_add_vcbf.png"/>
+     
+                
+                    
+            </div>
+
+        </div>
+
+        <ol class="ol steps"><li class="li step stepexpand">
+                <span class="ph cmd">Select <span class="ph uicontrol">Add Computed Field</span> from the <span class="ph uicontrol">Add</span> menu.</span>
+                <div class="itemgroup stepresult">This opens the <span class="ph uicontrol">Add Field</span> expression builder
+                    window.</div>
+            </li>
+<li class="li step stepexpand">
+                <span class="ph cmd">Enter a field name and a description.</span>
+                <div class="itemgroup info">The description is optional but very useful for others that might use your analysis later.</div>
+            </li>
+<li class="li step stepexpand">
+                <span class="ph cmd">Choose function from the <span class="ph uicontrol">Functions</span> list.</span>
+                <div class="itemgroup stepresult">Use the drop-down to restrict the type of functions you see.</div>
+            </li>
+<li class="li step stepexpand">
+                <span class="ph cmd">Double-click a function from the list to add it to the <span class="ph uicontrol">Expression</span> area.</span>
+                <div class="itemgroup stepresult">The <span class="ph uicontrol">Expression</span> panel updates with the function's
+                    template. Also, the <span class="ph uicontrol">Fields</span> list refreshes with those
+                    fields you can use with the function. For example, <samp class="ph codeph">TO_DATE</samp>
+                    works on STRING data types.</div>
+            </li>
+<li class="li step stepexpand">
+                <span class="ph cmd">Double-click a field to add it into the <span class="ph uicontrol">Expression</span> area.</span>
+            </li>
+<li class="li step stepexpand">
+                <span class="ph cmd">Continue adding functions and fields into your expression is complete.</span>
+            </li>
+<li class="li step stepexpand">
+                <span class="ph cmd">Make sure your expression is correct. </span>
+                <div class="itemgroup info">The system checks your syntax as you build the expression. The yellow text box
+                    below the <span class="ph uicontrol">Expression</span> area displays error messages.
+                    Platfora only allows you to save expressions that evaluate successfully. If it
+                    cannot resolve an expression, the <span class="ph uicontrol">Save</span> button is not
+                    available.</div>
+            </li>
+<li class="li step stepexpand">
+                <span class="ph cmd">Click <span class="ph uicontrol">Save</span> to add the new computed field to the vizboard.
+                </span>
+                <div class="itemgroup info">Computed field names are blue to distinguish them from regular lens fields.</div>
+            </li>
+</ol>
+
+        <div class="section postreq">
+            <p class="p">Writing expressions for computed fields is an advanced topic. For information on
+                working with expression syntax, see <a class="xref" href="../../dataset/use_expressions_top.html#use_expressions_top" title="Platfora includes an expression language to support advanced data analysis processing.">Work with Platfora's Expression Language</a>.</p>
+
+        </div>
+
+    </div>
+
+<div class="related-links"/>
+<div class="navfooter"><!---->
+<span class="navparent"><a class="link" href="../../data_analysis/supplement/supplement_lens_data_top.html" title="The data available for a viz is determined by the fields made available in the lens. If the lens currently doesn't have the data you need, you can modify the lens to add more fields if you have the proper permissions. Data analysts without the permissions to edit a lens still have other options to enhance and supplement existing lens data."><span class="navheader_label">Parent topic</span><span class="navheader_separator">: </span><span class="navheader_linktext">Enhance and Supplement Lens Data in a Viz</span></a></span>  </div><div class="footer">WebHelp output generated by<a href="http://www.oxygenxml.com" target="_blank"><span class="oXygenLogo"><img src="../../oxygen-webhelp/resources/img/LogoOxygen100x22.png" alt="Oxygen"/></span><span class="xmlauthor">XML Author</span></a></div>
+<div id="productInfo" style="display:none;"><span id="oxy_productID">webhelp</span><span id="oxy_productVersion">3.0</span></div><div id="loginData" style="display: none"><span class="bt_close" title="Close"><!----></span><form action="" target="passwordIframe" method="post" name="form_login" onsubmit="return loggInUser();" id="loginFormData" autocomplete="on"><input type="hidden" id="reloadComments" value="yes"><!----></input><table class="login"><thead><tr><td colspan="2"><span id="l_login2"><script type="text/javascript">$('#l_login2').html(getLocalization('label.login'));</script></span></td></tr><tr><td colspan="2"><div id="loginResponse"><!----></div></td></tr></thead><tr><td><span id="l_userName"><script type="text/javascript">$('#l_userName').html(getLocalization('label.userName'));</script></span></td><td><input name="usernameW" type="text" id="myUserName" autocomplete="on" required="required" autofocus="autofocus"><!----></input></td></tr><tr><td><span id="l_pswd"><script type="text/javascript">$('#l_pswd').html(getLocalization('label.pswd'));</script></span></td><td><input name="passwordW" type="password" id="myPassword" autocomplete="on" required="required"><!----></input></td></tr><tr><td colspan="2" align="left"><span id="ll_remember"><script type="text/javascript" xml:space="preserve">
+								$('#ll_remember').html(getLocalization('label.rememberme'));
+							</script></span>     <input name="myLoginRemember" type="checkbox" class="ck" id="myRemember" value="no"><!----></input></td></tr><tr><td colspan="2" align="center"><input id="l_bt_submit_log" type="submit" value="Submit" name="loginFormButton"><!----></input><script type="text/javascript">$('#l_bt_submit_log').attr('value',getLocalization('label.login'));</script><span class="btnHGlue"><!----></span><input class="bt_cancel" id="l_cancelLog" type="button" value="Cancel" name="loginFormButton"><!----></input><script type="text/javascript">$('#l_cancelLog').attr('value',getLocalization('label.cancel'));</script></td></tr></table><div class="loginAlternative"><span id="link_lostPwd" onclick="showLostPwd()"><script type="text/javascript">$('#link_lostPwd').html(getLocalization('label.lostPswd'));</script></span><span id="link_signUp" onclick="showSignUp()"><script type="text/javascript">$('#link_signUp').html(getLocalization('label.signUp'));</script></span></div></form><iframe id="passwordIframe" name="passwordIframe" style="display:none"><!----></iframe></div><div id="cmts"><!----></div></body>
+</html>

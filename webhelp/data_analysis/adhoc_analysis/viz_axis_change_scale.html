@@ -1,0 +1,102 @@
+
+<!DOCTYPE html
+  PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xml:lang="en-us" lang="en-us">
+<head><meta xmlns="http://www.w3.org/1999/xhtml" name="description" content="When you have a measure field in the axis drop zones ( X-axis or Y-axis ), the corresponding axis shows a numeric scale depicting the range of values for the selected measure. By default, measure axes ..."/><meta http-equiv="Content-Type" content="text/html; charset=utf-8"/><meta name="copyright" content="(C) Copyright 2005"/><meta name="DC.rights.owner" content="(C) Copyright 2005"/><meta name="DC.Type" content="task"/><meta name="DC.Title" content="Change the Scale of a Measure Axis"/><meta name="abstract" content="When you have a measure field in the axis drop zones (X-axis or Y-axis), the corresponding axis shows a numeric scale depicting the range of values for the selected measure. By default, measure axes show a Linear scale of numeric values from lowest to highest. You can change a measure axis to display values on a Logarithmic scale or a Percent of Total scale."/><meta xmlns="http://www.w3.org/1999/xhtml" name="description" content="When you have a measure field in the axis drop zones (X-axis or Y-axis), the corresponding axis shows a numeric scale depicting the range of values for the selected measure. By default, measure axes show a Linear scale of numeric values from lowest to highest. You can change a measure axis to display values on a Logarithmic scale or a Percent of Total scale."/><meta name="DC.Relation" scheme="URI" content="../../data_analysis/adhoc_analysis/viz_axis_measure_options.html"/><meta name="DC.Format" content="XHTML"/><meta name="DC.Identifier" content="change_measure_axis_scale"/><link rel="stylesheet" type="text/css" href="../../oxygen-webhelp/resources/css/commonltr.css"><!----></link><title>Change the Scale of a Measure Axis</title><meta http-equiv="Content-Type" content="text/html; charset=utf-8"/><link rel="stylesheet" type="text/css" href="../../oxygen-webhelp/resources/css/commonltr.css"><!----></link><link rel="stylesheet" type="text/css" href="../../oxygen-webhelp/resources/css/webhelp_topic.css"><!----></link><link rel="stylesheet" type="text/css" href="../../oxygen-webhelp/resources/skins/skin.css"><!----></link><link rel="stylesheet" type="text/css" href="../../oxygen-webhelp/resources/css/jquery.realperson.css"><!----></link><link rel="stylesheet" type="text/css" href="../../oxygen-webhelp/resources/css/comments.css"><!----></link><link rel="stylesheet" type="text/css" href="../../oxygen-webhelp/resources/css/jquery.cleditor.css"><!----></link><link rel="stylesheet" type="text/css" href="../../oxygen-webhelp/resources/css/admin.css"><!----></link><script type="text/javascript"><!--
+          
+          var prefix = "../../index.html";
+          
+          --></script><script type="text/javascript" src="../../oxygen-webhelp/resources/js/jquery-1.8.2.min.js"><!----></script><script type="text/javascript" src="../../oxygen-webhelp/resources/js/jquery.cookie.js"><!----></script><script type="text/javascript" src="../../oxygen-webhelp/resources/js/jquery-ui.custom.min.js"><!----></script><script type="text/javascript" charset="utf-8" src="../../oxygen-webhelp/resources/js/webhelp_topic.js"><!----></script><script type="text/javascript" charset="utf-8" src="../../oxygen-webhelp/resources/localization/strings.js"><!----></script><script type="text/javascript" charset="utf-8" src="../../oxygen-webhelp/resources/js/init.js"><!----></script><script type="text/javascript" charset="utf-8" src="../../oxygen-webhelp/resources/js/comments-functions.js"><!----></script></head>
+<body onload="init('../../')" id="change_measure_axis_scale">
+<table class="nav"><tbody><tr><td colspan="2"><div id="printlink"><a href="javascript:window.print();" title="printThisPage"/></div><div id="permalink"><a href="#" title="linkToThis"/></div></td></tr><tr><td width="75%"><a class="navheader_parent_path" href="../../data_analysis/adhoc_analysis/../../data_analysis/adhoc_analysis/viz_axis_controls.html" title="Visualizations use a grid layout of columns and rows. Fields added to the X-axis drop-zone show on the horizontal axis (equivalent to columns), and fields added to the Y-axis drop-zone show on the vertical axis (equivalent to rows). The axes have headers that display the field names, and labels denoting the field values (or members).">Control the Axes of a Viz</a> / <a class="navheader_parent_path" href="../../data_analysis/adhoc_analysis/viz_axis_measure_options.html" title="Measure fields represent the quantitative data in your viz, and always contain aggregated numeric type data. When you place a measure field in the X-axis or Y-axis drop-zone, you get a quantitative (or continuous) axis. You can change various display options of a measure axis such as the display name formatting, value range, the scale, or the number formatting.">Change Axis Options for Measure Data</a></td><td><div class="navheader">
+<span class="navparent"><a class="link" href="../../data_analysis/adhoc_analysis/viz_axis_measure_options.html" title="Measure fields represent the quantitative data in your viz, and always contain aggregated numeric type data. When you place a measure field in the X-axis or Y-axis drop-zone, you get a quantitative (or continuous) axis. You can change various display options of a measure axis such as the display name formatting, value range, the scale, or the number formatting."><span class="navheader_label">Parent topic</span><span class="navheader_separator">: </span><span class="navheader_linktext">Change Axis Options for Measure Data</span></a></span>  </div></td></tr></tbody></table>
+
+    <h1 class="title topictitle1">Change the Scale of a Measure Axis</h1>
+
+    
+    <div class="body taskbody"><p class="shortdesc">When you have a measure field in the axis drop zones (<span class="ph uicontrol">X-axis</span>
+        or <span class="ph uicontrol">Y-axis</span>), the corresponding axis shows a numeric scale depicting
+        the range of values for the selected measure. By default, measure axes show a
+            <span class="ph uicontrol">Linear</span> scale of numeric values from lowest to highest. You can
+        change a measure axis to display values on a <span class="ph uicontrol">Logarithmic</span> scale or a
+            <span class="ph uicontrol">Percent of Total</span> scale.</p>
+
+        
+        <div class="section"><h2 class="title sectiontitle">Logarithmic Scale Axis</h2>
+            
+            <p class="p">There are two main reasons to use a logarithmic scale for a measure axis in a viz.
+                The first is to respond to <em class="ph i">skewness</em> towards large values (cases in which a
+                few values are significantly larger than the bulk of the data). The second is to
+                show change of magnitude for data values that grow exponentially, such as Richter
+                scale values that measure the strength of an earthquake. Also, when the marks
+                plotted on the viz cover a very large range, changing the measure axis to a
+                logarithmic scale can make it easier to see the growth curve of the data.</p>
+
+            <p class="p">A linear scale is plotted with equal distance between the tick marks, each unit of
+                change is represented by the same distance on the scale. By contrast, a logarithmic
+                scale is plotted so that the tick marks are not positioned equidistantly; instead,
+                the scale is plotted in such a way that two equal magnitude changes are plotted with
+                the same distance on the scale. For example, here is stock data that shows the
+                average spread (difference between the high and low price) for certain stocks. When
+                shown linearly, the axis shows the average price difference in 2 dollar increments.
+                When shown logarithmicly, the axis shows the magnitude of change between the average
+                price difference values. </p>
+
+            <div class="fig fignone"><img class="image" src="../../images/./vizbuilder/axis_measure_log_example.png"/>
+                
+            </div>
+
+            <p class="p">The values on a log scale axis show the <em class="ph i">natural</em> logarithm to the base of
+                    <em class="ph i">e</em>, where <em class="ph i">e</em> (Euler's number) is a mathematical constant
+                approximately equal to 2.718. The natural logarithm is the power to which the
+                constant <em class="ph i">e</em> must be raised in order to equal the value of magnitude change
+                between the values plotted on the viz. Switching from a linear to a log axis does
+                not change the underlying measure values; it only changes how the values are
+                rendered on the axis. </p>
+
+            <p class="p"> </p>
+
+            <div class="note note"><span class="notetitle">Note:</span> Log axes are not compatible with the <span class="ph uicontrol">Bar</span> or
+                    <span class="ph uicontrol">Edge</span> mark types. They only make sense for mark types that
+                can show curves in the data, such as <span class="ph uicontrol">Line</span>,
+                    <span class="ph uicontrol">Point</span>, or <span class="ph uicontrol">Area</span>. Negative values
+                cannot be plotted on a logarithmic scale. </div>
+
+        </div>
+
+        
+        <div class="section"><h2 class="title sectiontitle">Percent of Total Scale Axis</h2>
+            
+            <p class="p">A <span class="ph uicontrol">Percent of Total</span> scale axis only makes sense when showing
+                    <em class="ph i">stacked</em> charts, such as stacked <a class="xref" href="marktype_bar.html" title="Bars are useful for comparing quantitative data by different categorical groupings. Bar is the default mark choice when you are analyzing a single measure across one or more dimensions, such as comparing sales totals by region.">bar
+                    charts</a>, stacked <a class="xref" href="marktype_line.html" title="A line chart displays a series of individual quantitative (measure) data points connected by line segments. A line chart is often used to visualize a trend in measure data over intervals of time (time series data) with the line drawn chronologically. Line is the default mark choice when you are analyzing a measure across a date or a numeric (quantitative) dimension.">line charts</a>, or <a class="xref" href="marktype_area.html" title="Similar to a line graph, an area graph displays quantitative (measure) data over a continuum (such as time), and is typically used to compare two or more quantities. However, unlike lines, area charts are typically used to represent cumulated totals rather than individual totals. An area chart shows the space between marks filled in with color, which is helpful for showing how the member of a dimension is contributing to an overall trend.">area charts</a>. When you enable <span class="ph uicontrol">Percent of
+                    Total</span> on a measure axis, the axis scale is rendered as the
+                percentage that each dimension group contributed to the total for each column (or
+                row). The measure values are also represented as percentages rather than the actual
+                values.</p>
+
+            <p class="p">For example, in the first column of the stacked bar chart below, the
+                    <span class="ph uicontrol">Percent of Total</span> axis shows that morning departure
+                flights contributed about 30% to the total number of flights served on <em class="ph i">October 1,
+                    2012</em>. This is in contrast to 5,000 flights by count.
+                    <span class="ph uicontrol">Date</span> is the column in this case for which the percent of
+                total is being calculated.</p>
+
+            <div class="fig fignone"><img class="image" src="../../images/./vizbuilder/axis_measure_percent_of_total.png"/>
+                
+            </div>
+
+            <div class="note note"><span class="notetitle">Note:</span> If your measure values contain negative numbers, the axis scale may show
+                percentages above 100% or below 0%. </div>
+
+        </div>
+
+    </div>
+
+<div class="related-links"/>
+<div class="navfooter"><!---->
+<span class="navparent"><a class="link" href="../../data_analysis/adhoc_analysis/viz_axis_measure_options.html" title="Measure fields represent the quantitative data in your viz, and always contain aggregated numeric type data. When you place a measure field in the X-axis or Y-axis drop-zone, you get a quantitative (or continuous) axis. You can change various display options of a measure axis such as the display name formatting, value range, the scale, or the number formatting."><span class="navheader_label">Parent topic</span><span class="navheader_separator">: </span><span class="navheader_linktext">Change Axis Options for Measure Data</span></a></span>  </div><div class="footer">WebHelp output generated by<a href="http://www.oxygenxml.com" target="_blank"><span class="oXygenLogo"><img src="../../oxygen-webhelp/resources/img/LogoOxygen100x22.png" alt="Oxygen"/></span><span class="xmlauthor">XML Author</span></a></div>
+<div id="productInfo" style="display:none;"><span id="oxy_productID">webhelp</span><span id="oxy_productVersion">3.0</span></div><div id="loginData" style="display: none"><span class="bt_close" title="Close"><!----></span><form action="" target="passwordIframe" method="post" name="form_login" onsubmit="return loggInUser();" id="loginFormData" autocomplete="on"><input type="hidden" id="reloadComments" value="yes"><!----></input><table class="login"><thead><tr><td colspan="2"><span id="l_login2"><script type="text/javascript">$('#l_login2').html(getLocalization('label.login'));</script></span></td></tr><tr><td colspan="2"><div id="loginResponse"><!----></div></td></tr></thead><tr><td><span id="l_userName"><script type="text/javascript">$('#l_userName').html(getLocalization('label.userName'));</script></span></td><td><input name="usernameW" type="text" id="myUserName" autocomplete="on" required="required" autofocus="autofocus"><!----></input></td></tr><tr><td><span id="l_pswd"><script type="text/javascript">$('#l_pswd').html(getLocalization('label.pswd'));</script></span></td><td><input name="passwordW" type="password" id="myPassword" autocomplete="on" required="required"><!----></input></td></tr><tr><td colspan="2" align="left"><span id="ll_remember"><script type="text/javascript" xml:space="preserve">
+								$('#ll_remember').html(getLocalization('label.rememberme'));
+							</script></span>     <input name="myLoginRemember" type="checkbox" class="ck" id="myRemember" value="no"><!----></input></td></tr><tr><td colspan="2" align="center"><input id="l_bt_submit_log" type="submit" value="Submit" name="loginFormButton"><!----></input><script type="text/javascript">$('#l_bt_submit_log').attr('value',getLocalization('label.login'));</script><span class="btnHGlue"><!----></span><input class="bt_cancel" id="l_cancelLog" type="button" value="Cancel" name="loginFormButton"><!----></input><script type="text/javascript">$('#l_cancelLog').attr('value',getLocalization('label.cancel'));</script></td></tr></table><div class="loginAlternative"><span id="link_lostPwd" onclick="showLostPwd()"><script type="text/javascript">$('#link_lostPwd').html(getLocalization('label.lostPswd'));</script></span><span id="link_signUp" onclick="showSignUp()"><script type="text/javascript">$('#link_signUp').html(getLocalization('label.signUp'));</script></span></div></form><iframe id="passwordIframe" name="passwordIframe" style="display:none"><!----></iframe></div><div id="cmts"><!----></div></body>
+</html>

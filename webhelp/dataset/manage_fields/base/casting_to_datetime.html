@@ -1,0 +1,68 @@
+
+<!DOCTYPE html
+  PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xml:lang="en-us" lang="en-us">
+<head><meta xmlns="http://www.w3.org/1999/xhtml" name="description" content="If Platfora can recognize the format of a date field, it will automatically cast it to the DATETIME data type. However, some date formats are not automatically recognized by Platfora and need to be ..."/><meta http-equiv="Content-Type" content="text/html; charset=utf-8"/><meta name="copyright" content="(C) Copyright 2005"/><meta name="DC.rights.owner" content="(C) Copyright 2005"/><meta name="DC.Type" content="task"/><meta name="DC.Title" content="Set DATETIME Data Types"/><meta name="abstract" content="If Platfora can recognize the format of a date field, it will automatically cast it to the DATETIME data type. However, some date formats are not automatically recognized by Platfora and need to be converted to DATETIME using a computed field expression."/><meta xmlns="http://www.w3.org/1999/xhtml" name="description" content="If Platfora can recognize the format of a date field, it will automatically cast it to the DATETIME data type. However, some date formats are not automatically recognized by Platfora and need to be converted to DATETIME using a computed field expression."/><meta name="DC.Relation" scheme="URI" content="../../../dataset/manage_fields/base/manage_base_fields.html"/><meta name="DC.Format" content="XHTML"/><meta name="DC.Identifier" content="cast_datetime_fields"/><link rel="stylesheet" type="text/css" href="../../../oxygen-webhelp/resources/css/commonltr.css"><!----></link><title>Set DATETIME Data Types</title><meta http-equiv="Content-Type" content="text/html; charset=utf-8"/><link rel="stylesheet" type="text/css" href="../../../oxygen-webhelp/resources/css/commonltr.css"><!----></link><link rel="stylesheet" type="text/css" href="../../../oxygen-webhelp/resources/css/webhelp_topic.css"><!----></link><link rel="stylesheet" type="text/css" href="../../../oxygen-webhelp/resources/skins/skin.css"><!----></link><link rel="stylesheet" type="text/css" href="../../../oxygen-webhelp/resources/css/jquery.realperson.css"><!----></link><link rel="stylesheet" type="text/css" href="../../../oxygen-webhelp/resources/css/comments.css"><!----></link><link rel="stylesheet" type="text/css" href="../../../oxygen-webhelp/resources/css/jquery.cleditor.css"><!----></link><link rel="stylesheet" type="text/css" href="../../../oxygen-webhelp/resources/css/admin.css"><!----></link><script type="text/javascript"><!--
+          
+          var prefix = "../../../index.html";
+          
+          --></script><script type="text/javascript" src="../../../oxygen-webhelp/resources/js/jquery-1.8.2.min.js"><!----></script><script type="text/javascript" src="../../../oxygen-webhelp/resources/js/jquery.cookie.js"><!----></script><script type="text/javascript" src="../../../oxygen-webhelp/resources/js/jquery-ui.custom.min.js"><!----></script><script type="text/javascript" charset="utf-8" src="../../../oxygen-webhelp/resources/js/webhelp_topic.js"><!----></script><script type="text/javascript" charset="utf-8" src="../../../oxygen-webhelp/resources/localization/strings.js"><!----></script><script type="text/javascript" charset="utf-8" src="../../../oxygen-webhelp/resources/js/init.js"><!----></script><script type="text/javascript" charset="utf-8" src="../../../oxygen-webhelp/resources/js/comments-functions.js"><!----></script></head>
+<body onload="init('../../../')" id="cast_datetime_fields">
+<table class="nav"><tbody><tr><td colspan="2"><div id="printlink"><a href="javascript:window.print();" title="printThisPage"/></div><div id="permalink"><a href="#" title="linkToThis"/></div></td></tr><tr><td width="75%"><a class="navheader_parent_path" href="../../../dataset/manage_fields/base/../../../dataset/manage_fields/manage_fields_top.html" title="The Manage Fields step of the dataset workspace is where you verify, cleanse, and transform the raw data fields into the actual fields that users can browse and select in the Platfora data catalog. This is where the majority of the dataset definition work is performed.">Manage Dataset Fields</a> / <a class="navheader_parent_path" href="../../../dataset/manage_fields/base/manage_base_fields.html" title="When you first add a dataset, it only has its Base fields. These are the fields parsed direcly from the raw source data.">Manage Base Fields</a></td><td><div class="navheader">
+<span class="navparent"><a class="link" href="../../../dataset/manage_fields/base/manage_base_fields.html" title="When you first add a dataset, it only has its Base fields. These are the fields parsed direcly from the raw source data."><span class="navheader_label">Parent topic</span><span class="navheader_separator">: </span><span class="navheader_linktext">Manage Base Fields</span></a></span>  </div></td></tr></tbody></table>
+
+    <h1 class="title topictitle1">Set DATETIME Data Types</h1>
+
+    
+    
+    <div class="body taskbody"><div class="abstract">
+         <span class="shortdesc">If Platfora can recognize the format of a date field, it will automatically cast
+            it to the <samp class="ph codeph">DATETIME</samp> data type. However, some date formats are not
+            automatically recognized by Platfora and need to be converted to
+                <samp class="ph codeph">DATETIME</samp> using a computed field expression. </span>
+
+    </div>
+
+        <div class="section context"><div class="fig fignone"><img class="image" src="../../../images/./dataset/dataset_compfield_datetime.png"/>
+        </div>
+
+            
+        </div>
+
+        <ol class="ol steps"><li class="li step stepexpand">
+                <span class="ph cmd">On the <span class="ph uicontrol">Manage Fields</span> step of the dataset workspace, find
+                    your base date field.</span>
+                <div class="itemgroup info">If the data type is <samp class="ph codeph">STRING</samp> and not <samp class="ph codeph">DATETIME</samp>,
+                    that means that Platfora could not automatically parse the date format. </div>
+            </li>
+<li class="li step stepexpand">
+                <span class="ph cmd">In the <span class="ph uicontrol">Field Info</span> panel, click <span class="ph uicontrol">Add
+                        Field</span> to define a new computed field.</span>
+            </li>
+<li class="li step stepexpand">
+                <span class="ph cmd">Enter a name for the new computed field.</span>
+            </li>
+<li class="li step stepexpand">
+                <span class="ph cmd">Write an <span class="ph uicontrol">Expression</span> using the <a class="xref" href="../../../reference/expression_language/function_todate.html" title="TO_DATE is a row function that converts STRING values to DATETIME values, and specifies the format of the date and time elements in the string.">TO_DATE</a> function. This function converts values to
+                        <samp class="ph codeph">DATETIME</samp> using the date format you specify. </span>
+            </li>
+<li class="li step stepexpand">
+                <span class="ph cmd">Click <span class="ph uicontrol">Save</span> to add the computed field to the dataset.
+                </span>
+            </li>
+<li class="li step stepexpand">
+                <span class="ph cmd">Verify that the new <samp class="ph codeph">DATETIME</samp> field is formatting the date
+                    values correctly. Also check that the automatic references to the <em class="ph i">Date</em>
+                    and <em class="ph i">Time</em> datasets are created.</span>
+            </li>
+</ol>
+
+    </div>
+
+<div class="related-links"/>
+<div class="navfooter"><!---->
+<span class="navparent"><a class="link" href="../../../dataset/manage_fields/base/manage_base_fields.html" title="When you first add a dataset, it only has its Base fields. These are the fields parsed direcly from the raw source data."><span class="navheader_label">Parent topic</span><span class="navheader_separator">: </span><span class="navheader_linktext">Manage Base Fields</span></a></span>  </div><div class="footer">WebHelp output generated by<a href="http://www.oxygenxml.com" target="_blank"><span class="oXygenLogo"><img src="../../../oxygen-webhelp/resources/img/LogoOxygen100x22.png" alt="Oxygen"/></span><span class="xmlauthor">XML Author</span></a></div>
+<div id="productInfo" style="display:none;"><span id="oxy_productID">webhelp</span><span id="oxy_productVersion">3.0</span></div><div id="loginData" style="display: none"><span class="bt_close" title="Close"><!----></span><form action="" target="passwordIframe" method="post" name="form_login" onsubmit="return loggInUser();" id="loginFormData" autocomplete="on"><input type="hidden" id="reloadComments" value="yes"><!----></input><table class="login"><thead><tr><td colspan="2"><span id="l_login2"><script type="text/javascript">$('#l_login2').html(getLocalization('label.login'));</script></span></td></tr><tr><td colspan="2"><div id="loginResponse"><!----></div></td></tr></thead><tr><td><span id="l_userName"><script type="text/javascript">$('#l_userName').html(getLocalization('label.userName'));</script></span></td><td><input name="usernameW" type="text" id="myUserName" autocomplete="on" required="required" autofocus="autofocus"><!----></input></td></tr><tr><td><span id="l_pswd"><script type="text/javascript">$('#l_pswd').html(getLocalization('label.pswd'));</script></span></td><td><input name="passwordW" type="password" id="myPassword" autocomplete="on" required="required"><!----></input></td></tr><tr><td colspan="2" align="left"><span id="ll_remember"><script type="text/javascript" xml:space="preserve">
+								$('#ll_remember').html(getLocalization('label.rememberme'));
+							</script></span>     <input name="myLoginRemember" type="checkbox" class="ck" id="myRemember" value="no"><!----></input></td></tr><tr><td colspan="2" align="center"><input id="l_bt_submit_log" type="submit" value="Submit" name="loginFormButton"><!----></input><script type="text/javascript">$('#l_bt_submit_log').attr('value',getLocalization('label.login'));</script><span class="btnHGlue"><!----></span><input class="bt_cancel" id="l_cancelLog" type="button" value="Cancel" name="loginFormButton"><!----></input><script type="text/javascript">$('#l_cancelLog').attr('value',getLocalization('label.cancel'));</script></td></tr></table><div class="loginAlternative"><span id="link_lostPwd" onclick="showLostPwd()"><script type="text/javascript">$('#link_lostPwd').html(getLocalization('label.lostPswd'));</script></span><span id="link_signUp" onclick="showSignUp()"><script type="text/javascript">$('#link_signUp').html(getLocalization('label.signUp'));</script></span></div></form><iframe id="passwordIframe" name="passwordIframe" style="display:none"><!----></iframe></div><div id="cmts"><!----></div></body>
+</html>

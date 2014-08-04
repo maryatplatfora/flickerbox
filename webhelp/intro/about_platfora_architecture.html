@@ -1,0 +1,83 @@
+
+<!DOCTYPE html
+  PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xml:lang="en-us" lang="en-us">
+<head><meta xmlns="http://www.w3.org/1999/xhtml" name="description" content="Platfora runs on dedicated servers in the same network as your Hadoop cluster, and uses the Distributed File System (DFS) and MapReduce services of Hadoop. The Platfora server architecture is ..."/><meta http-equiv="Content-Type" content="text/html; charset=utf-8"/><meta name="copyright" content="(C) Copyright 2005"/><meta name="DC.rights.owner" content="(C) Copyright 2005"/><meta name="DC.Type" content="concept"/><meta name="DC.Title" content="The Platfora Architecture"/><meta name="abstract" content="The Platfora server architecture is comprised of three main components: the Lens Builder, the In-Memory Data Server, and the Platfora Application Server."/><meta xmlns="http://www.w3.org/1999/xhtml" name="description" content="The Platfora server architecture is comprised of three main components: the Lens Builder, the In-Memory Data Server, and the Platfora Application Server."/><meta name="DC.Relation" scheme="URI" content="../intro/intro_to_platfora.html"/><meta name="DC.Format" content="XHTML"/><meta name="DC.Identifier" content="intro_architecture"/><link rel="stylesheet" type="text/css" href="../oxygen-webhelp/resources/css/commonltr.css"><!----></link><title>The Platfora Architecture</title><meta http-equiv="Content-Type" content="text/html; charset=utf-8"/><link rel="stylesheet" type="text/css" href="../oxygen-webhelp/resources/css/commonltr.css"><!----></link><link rel="stylesheet" type="text/css" href="../oxygen-webhelp/resources/css/webhelp_topic.css"><!----></link><link rel="stylesheet" type="text/css" href="../oxygen-webhelp/resources/skins/skin.css"><!----></link><link rel="stylesheet" type="text/css" href="../oxygen-webhelp/resources/css/jquery.realperson.css"><!----></link><link rel="stylesheet" type="text/css" href="../oxygen-webhelp/resources/css/comments.css"><!----></link><link rel="stylesheet" type="text/css" href="../oxygen-webhelp/resources/css/jquery.cleditor.css"><!----></link><link rel="stylesheet" type="text/css" href="../oxygen-webhelp/resources/css/admin.css"><!----></link><script type="text/javascript"><!--
+          
+          var prefix = "../index.html";
+          
+          --></script><script type="text/javascript" src="../oxygen-webhelp/resources/js/jquery-1.8.2.min.js"><!----></script><script type="text/javascript" src="../oxygen-webhelp/resources/js/jquery.cookie.js"><!----></script><script type="text/javascript" src="../oxygen-webhelp/resources/js/jquery-ui.custom.min.js"><!----></script><script type="text/javascript" charset="utf-8" src="../oxygen-webhelp/resources/js/webhelp_topic.js"><!----></script><script type="text/javascript" charset="utf-8" src="../oxygen-webhelp/resources/localization/strings.js"><!----></script><script type="text/javascript" charset="utf-8" src="../oxygen-webhelp/resources/js/init.js"><!----></script><script type="text/javascript" charset="utf-8" src="../oxygen-webhelp/resources/js/comments-functions.js"><!----></script></head>
+<body onload="init('../')" id="intro_architecture">
+<table class="nav"><tbody><tr><td colspan="2"><div id="printlink"><a href="javascript:window.print();" title="printThisPage"/></div><div id="permalink"><a href="#" title="linkToThis"/></div></td></tr><tr><td width="75%"><a class="navheader_parent_path" href="../intro/intro_to_platfora.html" title="This section introduces you to the Platfora software. You'll learn why Platfora is useful. You'll also get a quick introduction to the architecture, the key components, and the data pipeline.">Get an Introduction to Platfora</a></td><td><div class="navheader">
+<span class="navparent"><a class="link" href="../intro/intro_to_platfora.html" title="This section introduces you to the Platfora software. You'll learn why Platfora is useful. You'll also get a quick introduction to the architecture, the key components, and the data pipeline."><span class="navheader_label">Parent topic</span><span class="navheader_separator">: </span><span class="navheader_linktext">Get an Introduction to Platfora</span></a></span>  </div></td></tr></tbody></table>
+
+ <h1 class="title topictitle1">The Platfora Architecture</h1>
+
+ 
+
+ <div class="body conbody"><div class="abstract">Platfora runs on dedicated servers in the same network as your Hadoop cluster, and uses
+  the Distributed File System (DFS) and MapReduce services of Hadoop.  <span class="shortdesc">The Platfora server
+   architecture is comprised of three main components: the Lens Builder, the In-Memory Data Server,
+   and the Platfora Application Server.</span>
+</div>
+
+  <div class="section">
+   <div class="p">
+    <div class="fig fignone"><br/><div class="imageleft"><img class="image imageleft" src="../images/./architecture/arch_master_server.png"/></div><br/>
+     
+    </div>
+
+   </div>
+
+  </div>
+
+  <div class="section"><h2 class="title sectiontitle">The Lens Builder</h2>
+   
+   <p class="p">The lens builder hides Hadoop's complex processing and query framework from users. Users
+    request data from the Platfora data catalog. Platfora's lens builder translates the request into
+    a series of custom MapReduce jobs. Then, the builder submits the MapReduce jobs to Hadoop. </p>
+
+   <p class="p">MapReduce processes, transforms, and aggregates the requested data. Platfora retrieves the
+    job's results from DFS and places it in its on-disk storage. Then, Platfora makes the results
+    available to users as an optimized data structure called a <dfn class="term">lens</dfn>. </p>
+
+   <p class="p">Business analysts use a lens to create a <dfn class="term">visualization</dfn> in Platfora. </p>
+
+  </div>
+
+  <div class="section"><h2 class="title sectiontitle">In-memory Data Server</h2>
+   
+   <p class="p">Visualizations are the visible results of a user's data analysis. When users construct
+    visualizations, they choose a lens to work with. Choosing a lens loads its data into Platfora's
+    in-memory data server. Users analyse the data by selecting fields, filtering them, and placing
+    them on graphical drop zones to develop a visualization. </p>
+
+   <p class="p">This user activity results in underlying queries against the data. Platfora's in-memory data
+    server manages building the queries, running them, and returning their results. All users
+    experience are the visible changes to their visualization. For example, a user might filter lens
+    data by a single field and a heatmap shows increased intensity as a result.</p>
+
+   <p class="p">As users work with lens data the server optimizes the queries required to render the
+    visualization that the user wants. Administrators can add in-memory server nodes to scale up
+    lens capacity and balance query workloads.</p>
+
+  </div>
+
+  <div class="section"><h2 class="title sectiontitle">Platfora Application Server</h2>
+   
+   <p class="p">Platfora's user interface runs as a web application in your network. Users connect to Platfora
+    using any HTML5-compliant browser. Through the browser, users interact with data in Hadoop as
+    easily as browsing a web site. Metadata for the Platfora application is stored in a relational
+    database managed by the Platfora master server. </p>
+
+  </div>
+
+ </div>
+
+<div class="related-links"/>
+<div class="navfooter"><!---->
+<span class="navparent"><a class="link" href="../intro/intro_to_platfora.html" title="This section introduces you to the Platfora software. You'll learn why Platfora is useful. You'll also get a quick introduction to the architecture, the key components, and the data pipeline."><span class="navheader_label">Parent topic</span><span class="navheader_separator">: </span><span class="navheader_linktext">Get an Introduction to Platfora</span></a></span>  </div><div class="footer">WebHelp output generated by<a href="http://www.oxygenxml.com" target="_blank"><span class="oXygenLogo"><img src="../oxygen-webhelp/resources/img/LogoOxygen100x22.png" alt="Oxygen"/></span><span class="xmlauthor">XML Author</span></a></div>
+<div id="productInfo" style="display:none;"><span id="oxy_productID">webhelp</span><span id="oxy_productVersion">3.0</span></div><div id="loginData" style="display: none"><span class="bt_close" title="Close"><!----></span><form action="" target="passwordIframe" method="post" name="form_login" onsubmit="return loggInUser();" id="loginFormData" autocomplete="on"><input type="hidden" id="reloadComments" value="yes"><!----></input><table class="login"><thead><tr><td colspan="2"><span id="l_login2"><script type="text/javascript">$('#l_login2').html(getLocalization('label.login'));</script></span></td></tr><tr><td colspan="2"><div id="loginResponse"><!----></div></td></tr></thead><tr><td><span id="l_userName"><script type="text/javascript">$('#l_userName').html(getLocalization('label.userName'));</script></span></td><td><input name="usernameW" type="text" id="myUserName" autocomplete="on" required="required" autofocus="autofocus"><!----></input></td></tr><tr><td><span id="l_pswd"><script type="text/javascript">$('#l_pswd').html(getLocalization('label.pswd'));</script></span></td><td><input name="passwordW" type="password" id="myPassword" autocomplete="on" required="required"><!----></input></td></tr><tr><td colspan="2" align="left"><span id="ll_remember"><script type="text/javascript" xml:space="preserve">
+								$('#ll_remember').html(getLocalization('label.rememberme'));
+							</script></span>     <input name="myLoginRemember" type="checkbox" class="ck" id="myRemember" value="no"><!----></input></td></tr><tr><td colspan="2" align="center"><input id="l_bt_submit_log" type="submit" value="Submit" name="loginFormButton"><!----></input><script type="text/javascript">$('#l_bt_submit_log').attr('value',getLocalization('label.login'));</script><span class="btnHGlue"><!----></span><input class="bt_cancel" id="l_cancelLog" type="button" value="Cancel" name="loginFormButton"><!----></input><script type="text/javascript">$('#l_cancelLog').attr('value',getLocalization('label.cancel'));</script></td></tr></table><div class="loginAlternative"><span id="link_lostPwd" onclick="showLostPwd()"><script type="text/javascript">$('#link_lostPwd').html(getLocalization('label.lostPswd'));</script></span><span id="link_signUp" onclick="showSignUp()"><script type="text/javascript">$('#link_signUp').html(getLocalization('label.signUp'));</script></span></div></form><iframe id="passwordIframe" name="passwordIframe" style="display:none"><!----></iframe></div><div id="cmts"><!----></div></body>
+</html>

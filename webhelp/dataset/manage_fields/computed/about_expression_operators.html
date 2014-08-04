@@ -1,0 +1,420 @@
+
+<!DOCTYPE html
+  PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xml:lang="en-us" lang="en-us">
+<head><meta xmlns="http://www.w3.org/1999/xhtml" name="description" content="Platfora has a number of built-in operators for doing arithmetic, logical, and comparison operations. Often, you'll use operators to combine or compare values. The values can be literal values, fields ..."/><meta http-equiv="Content-Type" content="text/html; charset=utf-8"/><meta name="copyright" content="(C) Copyright 2005"/><meta name="DC.rights.owner" content="(C) Copyright 2005"/><meta name="DC.Type" content="concept"/><meta name="DC.Title" content="Operators in an Expression"/><meta name="abstract" content="Platfora has a number of built-in operators for doing arithmetic, logical, and comparison operations."/><meta xmlns="http://www.w3.org/1999/xhtml" name="description" content="Platfora has a number of built-in operators for doing arithmetic, logical, and comparison operations."/><meta name="DC.Relation" scheme="URI" content="../../../dataset/common_lang_elements_top.html"/><meta name="DC.Format" content="XHTML"/><meta name="DC.Identifier" content="about_expression_operators"/><link rel="stylesheet" type="text/css" href="../../../oxygen-webhelp/resources/css/commonltr.css"><!----></link><title>Operators in an Expression</title><meta http-equiv="Content-Type" content="text/html; charset=utf-8"/><link rel="stylesheet" type="text/css" href="../../../oxygen-webhelp/resources/css/commonltr.css"><!----></link><link rel="stylesheet" type="text/css" href="../../../oxygen-webhelp/resources/css/webhelp_topic.css"><!----></link><link rel="stylesheet" type="text/css" href="../../../oxygen-webhelp/resources/skins/skin.css"><!----></link><link rel="stylesheet" type="text/css" href="../../../oxygen-webhelp/resources/css/jquery.realperson.css"><!----></link><link rel="stylesheet" type="text/css" href="../../../oxygen-webhelp/resources/css/comments.css"><!----></link><link rel="stylesheet" type="text/css" href="../../../oxygen-webhelp/resources/css/jquery.cleditor.css"><!----></link><link rel="stylesheet" type="text/css" href="../../../oxygen-webhelp/resources/css/admin.css"><!----></link><script type="text/javascript"><!--
+          
+          var prefix = "../../../index.html";
+          
+          --></script><script type="text/javascript" src="../../../oxygen-webhelp/resources/js/jquery-1.8.2.min.js"><!----></script><script type="text/javascript" src="../../../oxygen-webhelp/resources/js/jquery.cookie.js"><!----></script><script type="text/javascript" src="../../../oxygen-webhelp/resources/js/jquery-ui.custom.min.js"><!----></script><script type="text/javascript" charset="utf-8" src="../../../oxygen-webhelp/resources/js/webhelp_topic.js"><!----></script><script type="text/javascript" charset="utf-8" src="../../../oxygen-webhelp/resources/localization/strings.js"><!----></script><script type="text/javascript" charset="utf-8" src="../../../oxygen-webhelp/resources/js/init.js"><!----></script><script type="text/javascript" charset="utf-8" src="../../../oxygen-webhelp/resources/js/comments-functions.js"><!----></script></head>
+<body onload="init('../../../')" id="about_expression_operators">
+<table class="nav"><tbody><tr><td colspan="2"><div id="printlink"><a href="javascript:window.print();" title="printThisPage"/></div><div id="permalink"><a href="#" title="linkToThis"/></div></td></tr><tr><td width="75%"><a class="navheader_parent_path" href="../../../dataset/../dataset/use_expressions_top.html" title="Platfora includes an expression language to support advanced data analysis processing.">Work with Platfora's Expression Language</a> / <a class="navheader_parent_path" href="../../../dataset/common_lang_elements_top.html" title="In this section you learn how Platfora's expression language and programmatic query support are related, where you can use them, and which components they share.">Understand Expression Basics</a></td><td><div class="navheader">
+<span class="navparent"><a class="link" href="../../../dataset/common_lang_elements_top.html" title="In this section you learn how Platfora's expression language and programmatic query support are related, where you can use them, and which components they share."><span class="navheader_label">Parent topic</span><span class="navheader_separator">: </span><span class="navheader_linktext">Understand Expression Basics</span></a></span>  </div></td></tr></tbody></table>
+
+  <h1 class="title topictitle1">Operators in an Expression</h1>
+
+  
+  <div class="body conbody"><div class="abstract"><span class="shortdesc">Platfora has a number of built-in operators for doing arithmetic, logical, and comparison operations. </span>
+Often, you'll use operators to combine or compare values. The values can be literal values, fields references, or even other expressions.</div>
+
+    <div class="section"><h2 class="title sectiontitle">Arithmetic Operators</h2>
+      
+      <p class="p">Arithmetic operators perform basic math operations on two values of the same data type. For example, you could calculate the <em class="ph i">gross profit margin percentage</em> using the values of a <em class="ph i">total_revenue</em> and <em class="ph i">total_cost</em> field as follows: </p>
+
+      <pre class="pre codeblock">((total_revenue - total_cost) / total_cost) * 100</pre>
+
+      <p class="p">Or you can create a string:</p>
+
+      <pre class="pre codeblock">"Firstname" + " " + "Lastname"</pre>
+
+      <p class="p">You can use the plus (+) and minus (-) operators to add or subtract DATETIME values. The following table lists the math operators:</p>
+
+      
+<div class="tablenoborder"><table cellpadding="4" cellspacing="0" summary="" id="about_expression_operators__table_3" class="table" frame="border" border="1" rules="all">
+            
+            
+            
+            
+            <thead class="thead" align="left">
+              <tr class="row">
+                <th class="entry" valign="top" width="15.789473684210526%" id="d38627e61">Operator</th>
+
+                <th class="entry" valign="top" width="21.052631578947366%" id="d38627e64">Description</th>
+
+                <th class="entry" valign="top" width="63.1578947368421%" id="d38627e67">Example</th>
+
+              </tr>
+
+            </thead>
+
+            <tbody class="tbody">
+              <tr class="row">
+                <td class="entry" valign="top" width="15.789473684210526%" headers="d38627e61 "><samp class="ph codeph">+</samp></td>
+
+                <td class="entry" valign="top" width="21.052631578947366%" headers="d38627e64 "> Addition</td>
+
+                <td class="entry" valign="top" width="63.1578947368421%" headers="d38627e67 "><samp class="ph codeph">amount + 10</samp>  (add 10 to the value of the <em class="ph i">amount</em>
+                  field)</td>
+
+              </tr>
+
+              <tr class="row">
+                <td class="entry" valign="top" width="15.789473684210526%" headers="d38627e61 ">
+                  <samp class="ph codeph">-</samp></td>
+
+                <td class="entry" valign="top" width="21.052631578947366%" headers="d38627e64 "> Subtraction </td>
+
+                <td class="entry" valign="top" width="63.1578947368421%" headers="d38627e67 "><samp class="ph codeph">amount - 10</samp>  (subtract 10 from the value of the
+                    <em class="ph i">amount</em> field)</td>
+
+              </tr>
+
+              <tr class="row">
+                <td class="entry" valign="top" width="15.789473684210526%" headers="d38627e61 ">
+                  <samp class="ph codeph">*</samp></td>
+
+                <td class="entry" valign="top" width="21.052631578947366%" headers="d38627e64 "> Multiplication </td>
+
+                <td class="entry" valign="top" width="63.1578947368421%" headers="d38627e67 "><samp class="ph codeph">amount * 100</samp>  (multiply the value of the <em class="ph i">amount</em> field
+                  by 100)</td>
+
+              </tr>
+
+              <tr class="row">
+                <td class="entry" valign="top" width="15.789473684210526%" headers="d38627e61 ">
+                  <samp class="ph codeph">/</samp></td>
+
+                <td class="entry" valign="top" width="21.052631578947366%" headers="d38627e64 "> Division </td>
+
+                <td class="entry" valign="top" width="63.1578947368421%" headers="d38627e67 "><samp class="ph codeph">bytes / 1024</samp>  (divide the value of the <em class="ph i">bytes</em> field by
+                  1024 and return the quotient)</td>
+
+              </tr>
+
+            </tbody>
+
+          </table>
+</div>
+
+ 
+    </div>
+
+    <div class="section"><h2 class="title sectiontitle">Comparison Operators</h2>
+      
+      <p class="p">Use comparison operators test whether two values are equal or unequal. Comparisons return <samp class="ph codeph">1</samp> for true, <samp class="ph codeph">0</samp> for false. If the comparison is invalid, for example comparing a STRING to an INTEGER, comparison operators return.</p>
+
+        <p class="p">For example, you could use comparison operators within a <samp class="ph codeph">CASE</samp> function to build an expression like this: </p>
+
+        <pre class="pre codeblock">TO_STRING(CASE WHEN age &lt;= 25 THEN "0-25" WHEN age &lt;= 50 THEN "26-50
+ELSE "over 50" END)   </pre>
+
+        <p class="p">This expression compares the age field against other values. The <samp class="ph codeph">TO_STRING()</samp> function returns a value depending on which <samp class="ph codeph">CASE</samp> the age value falls
+        into.</p>
+
+      <p class="p">You cannot use comparison operators to test for equality between <samp class="ph codeph">DATETIME</samp> values.  The following table lists the comparison operators:</p>
+
+      
+<div class="tablenoborder"><table cellpadding="4" cellspacing="0" summary="" id="about_expression_operators__table_2" class="table" frame="border" border="1" rules="all">
+            
+            
+            
+            <thead class="thead" align="left">
+              <tr class="row">
+                <th class="entry" valign="top" width="23.52941176470588%" id="d38627e206"><p class="p">Operator</p>
+</th>
+
+                <th class="entry" valign="top" width="29.411764705882355%" id="d38627e210"><p class="p">Meaning</p>
+</th>
+
+                <th class="entry" valign="top" width="47.05882352941176%" id="d38627e214"><p class="p">Example Expression</p>
+</th>
+
+              </tr>
+
+            </thead>
+
+            <tbody class="tbody">
+              <tr class="row">
+                <td class="entry" valign="top" width="23.52941176470588%" headers="d38627e206 "><p class="p"><samp class="ph codeph ignore_table_context">=</samp> or <samp class="ph codeph ignore_table_context">==</samp></p>
+</td>
+
+                <td class="entry" valign="top" width="29.411764705882355%" headers="d38627e210 "><p class="p">Equal to</p>
+</td>
+
+                <td class="entry" valign="top" width="47.05882352941176%" headers="d38627e214 "><p class="p"><samp class="ph codeph ignore_table_context">order_date = "12/22/2011"</samp></p>
+</td>
+
+              </tr>
+
+              <tr class="row">
+                <td class="entry" valign="top" width="23.52941176470588%" headers="d38627e206 ">
+                  <p class="p"><samp class="ph codeph ignore_table_context">&gt;</samp></p>
+</td>
+
+                <td class="entry" valign="top" width="29.411764705882355%" headers="d38627e210 "><p class="p">Greater than</p>
+</td>
+
+                <td class="entry" valign="top" width="47.05882352941176%" headers="d38627e214 "><p class="p"><samp class="ph codeph ignore_table_context">age &gt; 18</samp></p>
+
+                </td>
+
+              </tr>
+
+              <tr class="row">
+                <td class="entry" valign="top" width="23.52941176470588%" headers="d38627e206 ">
+                  <p class="p"><samp class="ph codeph ignore_table_context">!&gt;</samp></p>
+</td>
+
+                <td class="entry" valign="top" width="29.411764705882355%" headers="d38627e210 "><p class="p">Not greater than</p>
+</td>
+
+                <td class="entry" valign="top" width="47.05882352941176%" headers="d38627e214 "><p class="p"><samp class="ph codeph ignore_table_context">age !&gt; 8</samp></p>
+
+                </td>
+
+              </tr>
+
+              <tr class="row">
+                <td class="entry" valign="top" width="23.52941176470588%" headers="d38627e206 ">
+                  <p class="p"><samp class="ph codeph ignore_table_context">&lt;</samp></p>
+</td>
+
+                <td class="entry" valign="top" width="29.411764705882355%" headers="d38627e210 "><p class="p">Less than</p>
+</td>
+
+                <td class="entry" valign="top" width="47.05882352941176%" headers="d38627e214 "><p class="p"><samp class="ph codeph ignore_table_context">age &lt; 30</samp></p>
+</td>
+
+              </tr>
+
+              <tr class="row">
+                <td class="entry" valign="top" width="23.52941176470588%" headers="d38627e206 ">
+                  <p class="p"><samp class="ph codeph ignore_table_context">!&lt;</samp></p>
+</td>
+
+                <td class="entry" valign="top" width="29.411764705882355%" headers="d38627e210 "><p class="p">Not less than</p>
+</td>
+
+                <td class="entry" valign="top" width="47.05882352941176%" headers="d38627e214 "><p class="p"><samp class="ph codeph ignore_table_context">age !&lt; 12</samp></p>
+</td>
+
+              </tr>
+
+              <tr class="row">
+                <td class="entry" valign="top" width="23.52941176470588%" headers="d38627e206 ">
+                  <p class="p"><samp class="ph codeph ignore_table_context">&gt;=</samp></p>
+</td>
+
+                <td class="entry" valign="top" width="29.411764705882355%" headers="d38627e210 "><p class="p">Greater than or equal to</p>
+</td>
+
+                <td class="entry" valign="top" width="47.05882352941176%" headers="d38627e214 "><p class="p"><samp class="ph codeph ignore_table_context">age &gt;= 20</samp></p>
+</td>
+
+              </tr>
+
+              <tr class="row">
+                <td class="entry" valign="top" width="23.52941176470588%" headers="d38627e206 "><p class="p"><samp class="ph codeph ignore_table_context">&lt;=</samp></p>
+
+                </td>
+
+                <td class="entry" valign="top" width="29.411764705882355%" headers="d38627e210 "><p class="p">Less than or equal to</p>
+</td>
+
+                <td class="entry" valign="top" width="47.05882352941176%" headers="d38627e214 "><p class="p"><samp class="ph codeph ignore_table_context">age &lt;= 29</samp></p>
+</td>
+
+              </tr>
+
+              <tr class="row">
+                <td class="entry" valign="top" width="23.52941176470588%" headers="d38627e206 "><p class="p"><samp class="ph codeph ignore_table_context">&lt;&gt;</samp> or <samp class="ph codeph ignore_table_context">!=</samp> or <samp class="ph codeph ignore_table_context">^=</samp></p>
+</td>
+
+                <td class="entry" valign="top" width="29.411764705882355%" headers="d38627e210 "><p class="p">Not equal to </p>
+</td>
+
+                <td class="entry" valign="top" width="47.05882352941176%" headers="d38627e214 "><p class="p"><samp class="ph codeph ignore_table_context">age &lt;&gt; 30</samp></p>
+</td>
+
+              </tr>
+
+            </tbody>
+
+          </table>
+</div>
+
+    </div>
+
+    <div class="section"><h2 class="title sectiontitle">Logical operators</h2>
+      
+      <div class="p">Logical operators are used in expressions to test for a condition. Logical operators are often used in lens or vizboard filters.  Filters test if a field or value meets some condition.  For example, this tests for a dates between two other
+        dates.<pre class="pre codeblock">BETWEEN 2013-06-01 AND 2013-07-31</pre>
+</div>
+
+      <p class="p">Logical operators are commonly used to construct <samp class="ph codeph">WHERE</samp> clauses in Platfora's query language. The following table lists the logical operators: </p>
+
+      
+<div class="tablenoborder"><table cellpadding="4" cellspacing="0" summary="" id="about_expression_operators__table_1" class="table" frame="border" border="1" rules="all">
+            
+            
+            
+            <thead class="thead" align="left">
+              <tr class="row">
+                <th class="entry" valign="top" width="23.04147465437788%" id="d38627e410"><p class="p">Operator</p>
+</th>
+
+                <th class="entry" valign="top" width="26.72811059907834%" id="d38627e414"><p class="p">Meaning</p>
+</th>
+
+                <th class="entry" valign="top" width="50.23041474654379%" id="d38627e418"><p class="p">Example Expression</p>
+</th>
+
+              </tr>
+
+            </thead>
+
+            <tbody class="tbody">
+              <tr class="row">
+                <td class="entry" valign="top" width="23.04147465437788%" headers="d38627e410 "><p class="p"><samp class="ph codeph ignore_table_context">AND</samp></p>
+</td>
+
+                <td class="entry" valign="top" width="26.72811059907834%" headers="d38627e414 ">Test whether two conditions are true.</td>
+
+                <td class="entry" valign="top" width="50.23041474654379%" headers="d38627e418 "> </td>
+
+              </tr>
+
+              <tr class="row">
+                <td class="entry" valign="top" width="23.04147465437788%" headers="d38627e410 "><p class="p"><samp class="ph codeph ignore_table_context">OR</samp></p>
+</td>
+
+                <td class="entry" valign="top" width="26.72811059907834%" headers="d38627e414 ">Test if either of two conditions are true.</td>
+
+                <td class="entry" valign="top" width="50.23041474654379%" headers="d38627e418 "> </td>
+
+              </tr>
+
+              <tr class="row">
+                <td class="entry" valign="top" width="23.04147465437788%" headers="d38627e410 "><p class="p"><samp class="ph codeph ignore_table_context">BETWEEN <var class="keyword varname">min_value</var> AND
+                    <var class="keyword varname">max_value</var></samp></p>
+
+                  
+                </td>
+
+                <td class="entry" valign="top" width="26.72811059907834%" headers="d38627e414 "><p class="p">Test whether a date or numeric value is within the <em class="ph i">min</em> and <em class="ph i">max</em> values (inclusive).</p>
+</td>
+
+                <td class="entry" valign="top" width="50.23041474654379%" headers="d38627e418 "><p class="p"><samp class="ph codeph ignore_table_context">year BETWEEN 2000 AND 2012</samp></p>
+
+                </td>
+
+                
+              </tr>
+
+ 
+              <tr class="row">
+                <td class="entry" valign="top" width="23.04147465437788%" headers="d38627e410 "><p class="p"><samp class="ph codeph ignore_table_context">IN(<var class="keyword varname">list</var>)</samp></p>
+</td>
+
+                <td class="entry" valign="top" width="26.72811059907834%" headers="d38627e414 "><p class="p">Test whether a value is within a set.</p>
+</td>
+
+                <td class="entry" valign="top" width="50.23041474654379%" headers="d38627e418 "><p class="p"><samp class="ph codeph ignore_table_context">product_type IN("tablet","phone","laptop")</samp></p>
+</td>
+
+              </tr>
+
+              
+              <tr class="row">
+                <td class="entry" valign="top" width="23.04147465437788%" headers="d38627e410 "><p class="p"><samp class="ph codeph ignore_table_context">LIKE("<var class="keyword varname">pattern</var>")</samp></p>
+</td>
+
+                <td class="entry" valign="top" width="26.72811059907834%" headers="d38627e414 ">
+                  <p class="p">Simple inclusive case-insensitive character pattern matching. The
+                      <samp class="ph codeph">*</samp> character matches any number of characters. The
+                      <samp class="ph codeph">?</samp> character matches exactly one character. </p>
+
+                </td>
+
+                <td class="entry" valign="top" width="50.23041474654379%" headers="d38627e418 "><p class="p"><samp class="ph codeph ignore_table_context">last_name LIKE("?utch*")</samp></p>
+ 
+                  <p class="p">matches <em class="ph i">Kutcher</em>, <em class="ph i">hutch</em> but not <em class="ph i">Krutcher</em> or
+                    <em class="ph i">crutch</em></p>
+ 
+                <p class="p"><samp class="ph codeph">company_name LIKE("platfora")</samp></p>
+
+                  <p class="p">matches <em class="ph i">Platfora</em> or <em class="ph i">platfora</em></p>
+</td>
+
+              </tr>
+
+              <tr class="row">
+                <td class="entry" valign="top" width="23.04147465437788%" headers="d38627e410 "><var class="keyword varname">value</var>
+                  <samp class="ph codeph ignore_table_context">IS NULL</samp></td>
+
+                <td class="entry" valign="top" width="26.72811059907834%" headers="d38627e414 ">
+                  <p class="p">Check whether a field value or expression is null (empty)</p>
+
+                </td>
+
+                <td class="entry" valign="top" width="50.23041474654379%" headers="d38627e418 ">
+                  <p class="p"><samp class="ph codeph ignore_table_context">ship_date IS NULL</samp></p>
+
+                  <p class="p">evaluates to <em class="ph i">true</em> when the <em class="ph i">ship_date</em> field is empty</p>
+
+                </td>
+
+              </tr>
+
+              <tr class="row">
+                <td class="entry" valign="top" width="23.04147465437788%" headers="d38627e410 "><p class="p"><samp class="ph codeph ignore_table_context">NOT</samp></p>
+</td>
+
+                <td class="entry" valign="top" width="26.72811059907834%" headers="d38627e414 ">Reverses the value of other operators.  </td>
+
+                <td class="entry" valign="top" width="50.23041474654379%" headers="d38627e418 ">
+                  <ul class="ul">
+                    <li class="li"><p class="p"><samp class="ph codeph ignore_table_context">year <strong class="ph b">NOT</strong> BETWEEN 2000 AND 2012</samp></p>
+</li>
+
+                    <li class="li">
+                      <p class="p"><samp class="ph codeph ignore_table_context">first_name <strong class="ph b">NOT</strong> LIKE("Jo?n*")</samp></p>
+
+                      <p class="p">excludes <em class="ph i">John</em>, <em class="ph i">jonny</em> but not <em class="ph i">Jon</em> or <em class="ph i">Joann</em></p>
+
+                    </li>
+
+                    <li class="li"><samp class="ph codeph ignore_table_context">Date.Weekday <strong class="ph b">NOT</strong> IN("Saturday","Sunday")</samp></li>
+
+                    <li class="li">
+                      <p class="p"><samp class="ph codeph ignore_table_context">purchase_date IS <strong class="ph b">NOT</strong> NULL</samp></p>
+
+                      <p class="p">evaluates to <em class="ph i">true</em> when the <em class="ph i">purchase_date</em> field is not
+                        empty</p>
+
+                    </li>
+
+                  </ul>
+
+                  
+                </td>
+
+              </tr>
+
+            </tbody>
+
+          </table>
+</div>
+
+    </div>
+
+
+  </div>
+
+<div class="related-links"/>
+<div class="navfooter"><!---->
+<span class="navparent"><a class="link" href="../../../dataset/common_lang_elements_top.html" title="In this section you learn how Platfora's expression language and programmatic query support are related, where you can use them, and which components they share."><span class="navheader_label">Parent topic</span><span class="navheader_separator">: </span><span class="navheader_linktext">Understand Expression Basics</span></a></span>  </div><div class="footer">WebHelp output generated by<a href="http://www.oxygenxml.com" target="_blank"><span class="oXygenLogo"><img src="../../../oxygen-webhelp/resources/img/LogoOxygen100x22.png" alt="Oxygen"/></span><span class="xmlauthor">XML Author</span></a></div>
+<div id="productInfo" style="display:none;"><span id="oxy_productID">webhelp</span><span id="oxy_productVersion">3.0</span></div><div id="loginData" style="display: none"><span class="bt_close" title="Close"><!----></span><form action="" target="passwordIframe" method="post" name="form_login" onsubmit="return loggInUser();" id="loginFormData" autocomplete="on"><input type="hidden" id="reloadComments" value="yes"><!----></input><table class="login"><thead><tr><td colspan="2"><span id="l_login2"><script type="text/javascript">$('#l_login2').html(getLocalization('label.login'));</script></span></td></tr><tr><td colspan="2"><div id="loginResponse"><!----></div></td></tr></thead><tr><td><span id="l_userName"><script type="text/javascript">$('#l_userName').html(getLocalization('label.userName'));</script></span></td><td><input name="usernameW" type="text" id="myUserName" autocomplete="on" required="required" autofocus="autofocus"><!----></input></td></tr><tr><td><span id="l_pswd"><script type="text/javascript">$('#l_pswd').html(getLocalization('label.pswd'));</script></span></td><td><input name="passwordW" type="password" id="myPassword" autocomplete="on" required="required"><!----></input></td></tr><tr><td colspan="2" align="left"><span id="ll_remember"><script type="text/javascript" xml:space="preserve">
+								$('#ll_remember').html(getLocalization('label.rememberme'));
+							</script></span>     <input name="myLoginRemember" type="checkbox" class="ck" id="myRemember" value="no"><!----></input></td></tr><tr><td colspan="2" align="center"><input id="l_bt_submit_log" type="submit" value="Submit" name="loginFormButton"><!----></input><script type="text/javascript">$('#l_bt_submit_log').attr('value',getLocalization('label.login'));</script><span class="btnHGlue"><!----></span><input class="bt_cancel" id="l_cancelLog" type="button" value="Cancel" name="loginFormButton"><!----></input><script type="text/javascript">$('#l_cancelLog').attr('value',getLocalization('label.cancel'));</script></td></tr></table><div class="loginAlternative"><span id="link_lostPwd" onclick="showLostPwd()"><script type="text/javascript">$('#link_lostPwd').html(getLocalization('label.lostPswd'));</script></span><span id="link_signUp" onclick="showSignUp()"><script type="text/javascript">$('#link_signUp').html(getLocalization('label.signUp'));</script></span></div></form><iframe id="passwordIframe" name="passwordIframe" style="display:none"><!----></iframe></div><div id="cmts"><!----></div></body>
+</html>

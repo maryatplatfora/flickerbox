@@ -1,0 +1,454 @@
+
+<!DOCTYPE html
+  PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xml:lang="en-us" lang="en-us">
+<head><meta xmlns="http://www.w3.org/1999/xhtml" name="description" content="Lens jobs might fail due to a problem with Hadoop, Platfora, or the input data. Platfora allows system administrators to configure different limits and timeout values related to lens builds. For ..."/><meta http-equiv="Content-Type" content="text/html; charset=utf-8"/><meta name="copyright" content="(C) Copyright 2005"/><meta name="DC.rights.owner" content="(C) Copyright 2005"/><meta name="DC.Type" content="concept"/><meta name="DC.Title" content="Common Reasons Lens Jobs Fail"/><meta name="abstract" content="Lens jobs might fail due to a problem with Hadoop, Platfora, or the input data."/><meta xmlns="http://www.w3.org/1999/xhtml" name="description" content="Lens jobs might fail due to a problem with Hadoop, Platfora, or the input data."/><meta name="DC.Relation" scheme="URI" content="../../system/lens_management/troubleshoot_lens_builds_top.html"/><meta name="DC.Format" content="XHTML"/><meta name="DC.Identifier" content="admin_lens_build_failure_reasons"/><link rel="stylesheet" type="text/css" href="../../oxygen-webhelp/resources/css/commonltr.css"><!----></link><title>Common Reasons Lens Jobs Fail</title><meta http-equiv="Content-Type" content="text/html; charset=utf-8"/><link rel="stylesheet" type="text/css" href="../../oxygen-webhelp/resources/css/commonltr.css"><!----></link><link rel="stylesheet" type="text/css" href="../../oxygen-webhelp/resources/css/webhelp_topic.css"><!----></link><link rel="stylesheet" type="text/css" href="../../oxygen-webhelp/resources/skins/skin.css"><!----></link><link rel="stylesheet" type="text/css" href="../../oxygen-webhelp/resources/css/jquery.realperson.css"><!----></link><link rel="stylesheet" type="text/css" href="../../oxygen-webhelp/resources/css/comments.css"><!----></link><link rel="stylesheet" type="text/css" href="../../oxygen-webhelp/resources/css/jquery.cleditor.css"><!----></link><link rel="stylesheet" type="text/css" href="../../oxygen-webhelp/resources/css/admin.css"><!----></link><script type="text/javascript"><!--
+          
+          var prefix = "../../index.html";
+          
+          --></script><script type="text/javascript" src="../../oxygen-webhelp/resources/js/jquery-1.8.2.min.js"><!----></script><script type="text/javascript" src="../../oxygen-webhelp/resources/js/jquery.cookie.js"><!----></script><script type="text/javascript" src="../../oxygen-webhelp/resources/js/jquery-ui.custom.min.js"><!----></script><script type="text/javascript" charset="utf-8" src="../../oxygen-webhelp/resources/js/webhelp_topic.js"><!----></script><script type="text/javascript" charset="utf-8" src="../../oxygen-webhelp/resources/localization/strings.js"><!----></script><script type="text/javascript" charset="utf-8" src="../../oxygen-webhelp/resources/js/init.js"><!----></script><script type="text/javascript" charset="utf-8" src="../../oxygen-webhelp/resources/js/comments-functions.js"><!----></script></head>
+<body onload="init('../../')" id="admin_lens_build_failure_reasons">
+<table class="nav"><tbody><tr><td colspan="2"><div id="printlink"><a href="javascript:window.print();" title="printThisPage"/></div><div id="permalink"><a href="#" title="linkToThis"/></div></td></tr><tr><td width="75%"><a class="navheader_parent_path" href="../../system/lens_management/../../system/lens_management/system_lens_top.html" title="The Activities &amp; Lenses tab of the System page is where you can manage all lenses in Platfora and monitor the status of lens builds. System administrators can manage all lenses in the system. Other roles can only manage lenses they own.">Manage Lens Builds and Lenses</a> / <a class="navheader_parent_path" href="../../system/lens_management/troubleshoot_lens_builds_top.html" title="This section describes how to investigate problems when a lens build fails.">Troubleshoot Lens Build Failures</a></td><td><div class="navheader">
+<span class="navparent"><a class="link" href="../../system/lens_management/troubleshoot_lens_builds_top.html" title="This section describes how to investigate problems when a lens build fails."><span class="navheader_label">Parent topic</span><span class="navheader_separator">: </span><span class="navheader_linktext">Troubleshoot Lens Build Failures</span></a></span>  </div></td></tr></tbody></table>
+
+ <h1 class="title topictitle1">Common Reasons Lens Jobs Fail</h1>
+
+ 
+ <div class="body conbody"><p class="shortdesc">Lens jobs might fail due to a problem with Hadoop, Platfora, or the input
+  data.</p>
+
+  <div class="section">
+   <p class="p">Platfora allows system administrators to configure different limits and timeout values related
+    to lens builds. For example, you can configure:</p>
+
+   <ul class="ul">
+    <li class="li"><p class="p">the maximum amount of time to build a lens</p>
+</li>
+
+    <li class="li"><p class="p">the maximum number of files Platfora creates in HDFS per individual lens build</p>
+</li>
+
+    <li class="li"><p class="p">the maximum number of files Platfora creates in HDFS cumulatively for all lens builds
+     </p>
+</li>
+
+   </ul>
+
+   <p class="p">To view your configuration, open the <span class="ph uicontrol">Global Settings</span> on the
+     <span class="ph uicontrol">System</span> page in Platfora. Key values directly related to lens builds
+    appear in the <span class="ph uicontrol">Lens Builder</span> section. Other <span class="ph uicontrol">Global
+     Settings</span> can also impact lens builds. The following sections address common causes
+    of lens build failures and ways to correct them.</p>
+
+  </div>
+
+  <div class="section"><h2 class="title sectiontitle">Hadoop Failures</h2>
+   
+   <p class="p">Hadoop failures are usually (but not always) related to resource failures. For example,
+    someone may have upgraded Hadoop without first ensuring the new Hadoop version was compatible
+    with Platfora. Or, the Hadoop configuration prevents Platfora from reaching the data. The
+    following issues can arise out of Hadoop failures: </p>
+
+   
+<div class="tablenoborder"><table cellpadding="4" cellspacing="0" summary="" class="table" frame="border" border="1" rules="all">
+     
+     
+     <thead class="thead" align="left">
+      <tr class="row">
+       <th class="entry" valign="top" width="34.61538461538461%" id="d156265e71">
+        <p class="p">Issue </p>
+
+       </th>
+
+       <th class="entry" valign="top" width="65.38461538461539%" id="d156265e77">
+        <p class="p">Notes</p>
+
+       </th>
+
+      </tr>
+
+     </thead>
+
+     <tbody class="tbody">
+      <tr class="row">
+       <td class="entry" valign="top" width="34.61538461538461%" headers="d156265e71 ">
+        <p class="p">Tasks run out of memory</p>
+
+       </td>
+
+       <td class="entry" valign="top" width="65.38461538461539%" headers="d156265e77 ">
+        <p class="p">A misconfiguration of Hadoop resources can cause Platfora lens builds to fail. Platfora
+         lens builds use all task slots and memory they are given, so overcommitting these resources
+         in Hadoop causes failures. For more information about configuring Hadoop to work with
+         Platfora, see the "Hadoop Resource Requirements" section in the Platfora <em class="ph i">Installation
+          Guide</em>.</p>
+
+       </td>
+
+      </tr>
+
+      <tr class="row">
+       <td class="entry" valign="top" width="34.61538461538461%" headers="d156265e71 ">
+        <p class="p">Limits exceeded</p>
+
+       </td>
+
+       <td class="entry" valign="top" width="65.38461538461539%" headers="d156265e77 ">
+        <p class="p">If your Hadoop environment uses a scheduler, ensure that the queue that the <samp class="ph codeph ignore_table_context">platfora</samp> user is in has sufficient priority
+         and high enough configured limits to allow Platfora MapReduce jobs to succeed. Lens builds
+         can fail when Hadoop limits are exceeded. For example, HortonWorks places Hadoop users in
+         the default queue (which doesn't have enough resources for Platfora jobs) unless explicitly
+         placed in a different queue.</p>
+
+       </td>
+
+      </tr>
+
+      
+      <tr class="row">
+       <td class="entry" valign="top" width="34.61538461538461%" headers="d156265e71 ">
+        <p class="p">Unsupported Hadoop version</p>
+
+       </td>
+
+       <td class="entry" valign="top" width="65.38461538461539%" headers="d156265e77 ">
+        <p class="p">Platfora is qualified to work with specific Hadoop versions. Although Platfora doesn't
+         prevent you from using it with an unqualified version of Hadoop, additional errors may
+         occur, especially with newer Hadoop features that haven't been tested yet.</p>
+
+       </td>
+
+      </tr>
+
+      <tr class="row">
+       <td class="entry" valign="top" width="34.61538461538461%" headers="d156265e71 ">
+        <p class="p">Hadoop bugs</p>
+
+       </td>
+
+       <td class="entry" valign="top" width="65.38461538461539%" headers="d156265e77 ">
+        <p class="p">Hadoop has bugs and sometimes the Platfora MapReduce jobs uncover bugs in Hadoop. Check
+         the known limitations in the release notes for your Hadoop distribution for more
+         information.</p>
+
+       </td>
+
+      </tr>
+
+      <tr class="row">
+       <td class="entry" valign="top" width="34.61538461538461%" headers="d156265e71 "><p class="p">Missing dictionary value</p>
+</td>
+
+       <td class="entry" valign="top" width="65.38461538461539%" headers="d156265e77 "><p class="p">Typically returned by EMR's Simple Storage Service (S3). This error occurs when the files that
+         are part of a lens build are changing while a lens build is running. Other errors can also
+         occur, for example, Platfora may have a read error due to an ill-timed read of an
+         inconsistent file. </p>
+
+        <p class="p">You can use the Platfora's <samp class="ph codeph">platfora.builder.file.skip.modified.age</samp>
+         property to avoid these errors. See <a class="xref" href="s3_hdfs_config.html" title="This section describes how to configure Platfora to avoid dictionary errors resulting from modifications to HDFS and S3 data sources.">Avoiding Dictionary Errors in Lens Builds</a> for additional
+         information about setting this value.</p>
+</td>
+
+      </tr>
+
+      <tr class="row">
+       <td class="entry" valign="top" width="34.61538461538461%" headers="d156265e71 ">No valid local directories</td>
+
+       <td class="entry" valign="top" width="65.38461538461539%" headers="d156265e77 ">A misconfiguration of Platfora's local Hadoop configuration can cause segment creation
+        to fail in a lens build.  This can be cause by including the <samp class="ph codeph">hadoop.tmp.dir</samp>
+        property in Platfora's <span class="ph filepath">core-site.xml</span> file. You can fix this by removing
+        the property from the file.  If the error continues, consider removing the
+         <samp class="ph codeph">mapreduce.cluster.local.dir</samp> property from Platfora's local
+         <span class="ph filepath">mapred-site.xml</span> file as well.</td>
+
+      </tr>
+
+     </tbody>
+
+    </table>
+</div>
+
+  </div>
+
+  <div class="section"><h2 class="title sectiontitle">Platfora Failures</h2>
+   
+   <p class="p">Failures that originate with Platfora are typically configuration failures. The following
+    table lists some common reasons a lens build can fail and related configuration values you can
+    adjust.</p>
+
+   
+<div class="tablenoborder"><table cellpadding="4" cellspacing="0" summary="" class="table" frame="border" border="1" rules="all">
+     
+     
+     <thead class="thead" align="left">
+      <tr class="row">
+       <th class="entry" valign="top" width="34.61538461538461%" id="d156265e223">
+        <p class="p">Issue Summary</p>
+
+       </th>
+
+       <th class="entry" valign="top" width="65.38461538461539%" id="d156265e229">
+        <p class="p">Notes</p>
+
+       </th>
+
+      </tr>
+
+     </thead>
+
+     <tbody class="tbody">
+      
+      <tr class="row">
+       <td class="entry" valign="top" width="34.61538461538461%" headers="d156265e223 ">
+        <p class="p">Not enough disk space to copy completed lenses</p>
+
+       </td>
+
+       <td class="entry" valign="top" width="65.38461538461539%" headers="d156265e229 ">
+        <p class="p">When the MapReduce tasks complete, Platfora copies the lens files from HDFS to the
+         Platfora cluster. If there isn't enough disk space on the Platfora nodes, the lens build
+         fails. This happens at the last step, "Copying data files from DFS to Platfora." </p>
+
+        <p class="p">If you increase the available disk space on the Platfora nodes and build the lens again,
+         Platfora detects the previously successful MapReduce job and copies the lens files to the
+         Platfora cluster without running new MapReduce jobs. </p>
+
+       </td>
+
+      </tr>
+
+      <tr class="row">
+       <td class="entry" valign="top" width="34.61538461538461%" headers="d156265e223 ">
+        <p class="p">Not enough memory on the NameNode</p>
+
+       </td>
+
+       <td class="entry" valign="top" width="65.38461538461539%" headers="d156265e229 ">
+        <p class="p">The NameNode keeps track of all files in HDFS. If a lens build creates more files than
+         the NameNode can store in memory, the NameNode runs out of memory and causes the build to
+         fail. </p>
+
+        <p class="p">Adjust Platfora's <a class="xref" href="../../reference/platfora_properties/platfora.builder.lens.build.file.limit.html" title="Enter the maximum number of files Platfora creates in HDFS for each lens build.">platfora.builder.lens.build.file.limit</a> setting to avoid these types of failures on
+         individual builds. If concurrent lens builds fail you may have exceeded the global limit,
+         in which case you should adjust Platfora's <a class="xref" href="../../reference/platfora_properties/platfora.builder.global.lens.build.file.limit.html" title="Enter the maximum number of files Platfora creates in HDFS for all lens builds.">platfora.builder.global.lens.build.file.limit</a> setting.</p>
+
+       </td>
+
+      </tr>
+
+      <tr class="row">
+       <td class="entry" valign="top" width="34.61538461538461%" headers="d156265e223 ">
+        <p class="p">Lens file list is too big to fit in RAM of Platfora nodes</p>
+
+       </td>
+
+       <td class="entry" valign="top" width="65.38461538461539%" headers="d156265e229 ">
+        <p class="p">Lens builds can create a very large number of lens files. Platfora keeps a running list
+         of these files in memory (RAM) on the Platfora master node. If the list of files takes up
+         more memory than the Platfora master node has, the lens build fails when the size exceeds
+         the available memory. One way to avoid this issue is to limit the number of concurrent lens
+         builds using the <a class="xref" href="../../reference/platfora_properties/platfora.builder.lens.build.concurrency.html" title="Enter the maximum number of lens builds that can be active at the same time.">platfora.builder.lens.build.concurrency</a> setting.</p>
+
+       </td>
+
+      </tr>
+
+      <tr class="row">
+       <td class="entry" valign="top" width="34.61538461538461%" headers="d156265e223 ">
+        <p class="p">Not enough disk space on HDFS</p>
+
+       </td>
+
+       <td class="entry" valign="top" width="65.38461538461539%" headers="d156265e229 ">
+        <p class="p">The greater the number of distinct values for a dimension, the larger the lens files and
+         the intermediate files Platfora creates when building a lens. Including a dimension field
+         in a lens with a very large number of unique values can cause the Platfora files to exceed
+         the disk space on HDFS. This is also true of including a <samp class="ph codeph ignore_table_context">DISTINCT</samp> measure on a very high cardinality
+         field in the lens. For example, this might occur if a <samp class="ph codeph">user_id</samp> column
+         contains millions of distinct users.</p>
+
+       </td>
+
+      </tr>
+
+     </tbody>
+
+    </table>
+</div>
+
+  </div>
+
+
+  <div class="section"><h2 class="title sectiontitle">Data Input Failures </h2>
+   
+   <p class="p">Your lens build can fail because of the input data. For example, the data files could be
+    corrupt, the data format may not be supported, or the <samp class="ph codeph">platfora</samp> user may not
+    have authorization to the data in the remote file system. The following table lists some common
+    data input failures you can encounter:</p>
+
+   
+<div class="tablenoborder"><table cellpadding="4" cellspacing="0" summary="" class="table" frame="border" border="1" rules="all">
+     
+     
+     <thead class="thead" align="left">
+      <tr class="row">
+       <th class="entry" valign="top" width="34.61538461538461%" id="d156265e359">
+        <p class="p">Issue Summary</p>
+
+       </th>
+
+       <th class="entry" valign="top" width="65.38461538461539%" id="d156265e365">
+        <p class="p">Notes</p>
+
+       </th>
+
+      </tr>
+
+     </thead>
+
+     <tbody class="tbody">
+      
+      <tr class="row">
+       <td class="entry" valign="top" width="34.61538461538461%" headers="d156265e359 ">
+        <p class="p">"Dirty" data, corrupt input files</p>
+
+       </td>
+
+       <td class="entry" valign="top" width="65.38461538461539%" headers="d156265e365 ">
+        <p class="p">When the input files are corrupt, Platfora cannot parse the data because the fields and
+         data types don’t match as defined in the Platfora dataset definition. By default, Platfora
+         skips all corrupt files when building a lens. When Platfora skips corrupt files and
+         completes the lens build, it warns users that some source files were skipped.</p>
+
+        <p class="p">Change the <a class="xref" href="../../reference/platfora_properties/platfora.max.corrupt.files.to.skip.html" title="Enter the maximum number of invalid/corrupt compressed source files to skip before failing a lens build.">platfora.max.corrupt.files.to.skip</a> setting in
+          <span class="ph uicontrol">Global Settings</span> to set your tolerance for skipped input files. </p>
+
+       </td>
+
+      </tr>
+
+      <tr class="row">
+       <td class="entry" valign="top" width="34.61538461538461%" headers="d156265e359 ">
+        <p class="p">Empty input files, unintentional lens filters</p>
+
+       </td>
+
+       <td class="entry" valign="top" width="65.38461538461539%" headers="d156265e365 ">
+        <p class="p">Platfora completes lens builds with a warning when the lens contains no data. Possible
+         reasons for having no data in the lens are:</p>
+
+        <div class="p">
+         <ul class="ul">
+          <li class="li">
+           <p class="p">The input files of the focus dataset contain no data for the fields selected in the
+            lens.</p>
+
+          </li>
+
+          <li class="li">
+           <p class="p">A lens filter expression filters out all data from the lens.</p>
+
+          </li>
+
+         </ul>
+
+        </div>
+
+       </td>
+
+      </tr>
+
+      <tr class="row">
+       <td class="entry" valign="top" width="34.61538461538461%" headers="d156265e359 ">
+        <p class="p">Invalid computed field or lens filter expressions</p>
+
+       </td>
+
+       <td class="entry" valign="top" width="65.38461538461539%" headers="d156265e365 ">
+        <p class="p">Invalid expressions in Platfora can cause a lens build to fail. This can happen at the
+         following locations:</p>
+
+        <div class="p">
+         <ul class="ul">
+          <li class="li">
+           <p class="p"><strong class="ph b">Lens filter expression.</strong> Platfora does not validate filter expressions when
+            saving the lens. Platfora validates when building a lens, typically during the third
+            step when aggregating measure data.</p>
+
+          </li>
+
+          <li class="li">
+           <p class="p"><strong class="ph b">Computed field expression.</strong> Platfora validates computed field expressions when
+            saving a dataset. You can only save a dataset when there are no errors. However, a
+            computed field expression might become invalid if it uses a field in a referenced
+            dataset that is modified or deleted after the dataset was saved. </p>
+
+          </li>
+
+         </ul>
+
+        </div>
+
+       </td>
+
+      </tr>
+
+      <tr class="row">
+       <td class="entry" valign="top" width="34.61538461538461%" headers="d156265e359 ">
+        <p class="p">Insufficient file permissions in HDFS</p>
+
+       </td>
+
+       <td class="entry" valign="top" width="65.38461538461539%" headers="d156265e365 ">
+        <p class="p">Lens builds fail when the <samp class="ph codeph">platfora</samp> system user does not have permissions
+         in HDFS to read the input files or to write to the output staging directories.</p>
+
+       </td>
+
+      </tr>
+
+      <tr class="row">
+       <td class="entry" valign="top" width="34.61538461538461%" headers="d156265e359 ">
+        <p class="p">Unsupported file types and compression libraries</p>
+
+       </td>
+
+       <td class="entry" valign="top" width="65.38461538461539%" headers="d156265e365 ">
+        <p class="p">Lens builds fail when Platfora encounters an input file whose format it doesn’t
+         recognize.
+         </p>
+
+        <p class="p">Lens builds fail when the input data is compressed using a compression type that Platfora
+         doesn’t recognize.
+         </p>
+
+        <div class="p">
+         <div class="note note"><span class="notetitle">Note:</span> If using custom Hive SerDes or compression libraries, make sure to add the
+           <span class="ph filepath">.jar</span> files to your Platfora installation here:
+           <span class="ph filepath">$PLATFORA_DATA_DIR/ extlib</span> Then, restart your Platfora nodes.
+         </div>
+
+        </div>
+
+       </td>
+
+      </tr>
+
+     </tbody>
+
+    </table>
+</div>
+</div>
+
+
+
+
+ </div>
+
+<div class="related-links"/>
+<div class="navfooter"><!---->
+<span class="navparent"><a class="link" href="../../system/lens_management/troubleshoot_lens_builds_top.html" title="This section describes how to investigate problems when a lens build fails."><span class="navheader_label">Parent topic</span><span class="navheader_separator">: </span><span class="navheader_linktext">Troubleshoot Lens Build Failures</span></a></span>  </div><div class="footer">WebHelp output generated by<a href="http://www.oxygenxml.com" target="_blank"><span class="oXygenLogo"><img src="../../oxygen-webhelp/resources/img/LogoOxygen100x22.png" alt="Oxygen"/></span><span class="xmlauthor">XML Author</span></a></div>
+<div id="productInfo" style="display:none;"><span id="oxy_productID">webhelp</span><span id="oxy_productVersion">3.0</span></div><div id="loginData" style="display: none"><span class="bt_close" title="Close"><!----></span><form action="" target="passwordIframe" method="post" name="form_login" onsubmit="return loggInUser();" id="loginFormData" autocomplete="on"><input type="hidden" id="reloadComments" value="yes"><!----></input><table class="login"><thead><tr><td colspan="2"><span id="l_login2"><script type="text/javascript">$('#l_login2').html(getLocalization('label.login'));</script></span></td></tr><tr><td colspan="2"><div id="loginResponse"><!----></div></td></tr></thead><tr><td><span id="l_userName"><script type="text/javascript">$('#l_userName').html(getLocalization('label.userName'));</script></span></td><td><input name="usernameW" type="text" id="myUserName" autocomplete="on" required="required" autofocus="autofocus"><!----></input></td></tr><tr><td><span id="l_pswd"><script type="text/javascript">$('#l_pswd').html(getLocalization('label.pswd'));</script></span></td><td><input name="passwordW" type="password" id="myPassword" autocomplete="on" required="required"><!----></input></td></tr><tr><td colspan="2" align="left"><span id="ll_remember"><script type="text/javascript" xml:space="preserve">
+								$('#ll_remember').html(getLocalization('label.rememberme'));
+							</script></span>     <input name="myLoginRemember" type="checkbox" class="ck" id="myRemember" value="no"><!----></input></td></tr><tr><td colspan="2" align="center"><input id="l_bt_submit_log" type="submit" value="Submit" name="loginFormButton"><!----></input><script type="text/javascript">$('#l_bt_submit_log').attr('value',getLocalization('label.login'));</script><span class="btnHGlue"><!----></span><input class="bt_cancel" id="l_cancelLog" type="button" value="Cancel" name="loginFormButton"><!----></input><script type="text/javascript">$('#l_cancelLog').attr('value',getLocalization('label.cancel'));</script></td></tr></table><div class="loginAlternative"><span id="link_lostPwd" onclick="showLostPwd()"><script type="text/javascript">$('#link_lostPwd').html(getLocalization('label.lostPswd'));</script></span><span id="link_signUp" onclick="showSignUp()"><script type="text/javascript">$('#link_signUp').html(getLocalization('label.signUp'));</script></span></div></form><iframe id="passwordIframe" name="passwordIframe" style="display:none"><!----></iframe></div><div id="cmts"><!----></div></body>
+</html>

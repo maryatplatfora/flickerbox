@@ -1,0 +1,673 @@
+
+<!DOCTYPE html
+  PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xml:lang="en-us" lang="en-us">
+<head><meta xmlns="http://www.w3.org/1999/xhtml" name="description" content="This section lists the Hadoop distributions and versions that are compatible with the Platfora installation packages. If using Hive as a data source for Platfora, the version of Hive must be ..."/><meta http-equiv="Content-Type" content="text/html; charset=utf-8"/><meta name="copyright" content="(C) Copyright 2005"/><meta name="DC.rights.owner" content="(C) Copyright 2005"/><meta name="DC.Type" content="topic"/><meta name="DC.Title" content="Hadoop Distribution and Resource Requirements"/><meta name="abstract" content="Platfora must be able to connect to an existing Hadoop installation. Platfora also requires permissions and resources in the Hadoop source system."/><meta xmlns="http://www.w3.org/1999/xhtml" name="description" content="Platfora must be able to connect to an existing Hadoop installation. Platfora also requires permissions and resources in the Hadoop source system."/><meta name="DC.Relation" scheme="URI" content="../../system/install_planning/install_plan_intro.html"/><meta name="DC.Format" content="XHTML"/><meta name="DC.Identifier" content="sys_reqs_hdfs"/><link rel="stylesheet" type="text/css" href="../../oxygen-webhelp/resources/css/commonltr.css"><!----></link><title>Hadoop Distribution and Resource Requirements</title><meta http-equiv="Content-Type" content="text/html; charset=utf-8"/><link rel="stylesheet" type="text/css" href="../../oxygen-webhelp/resources/css/commonltr.css"><!----></link><link rel="stylesheet" type="text/css" href="../../oxygen-webhelp/resources/css/webhelp_topic.css"><!----></link><link rel="stylesheet" type="text/css" href="../../oxygen-webhelp/resources/skins/skin.css"><!----></link><link rel="stylesheet" type="text/css" href="../../oxygen-webhelp/resources/css/jquery.realperson.css"><!----></link><link rel="stylesheet" type="text/css" href="../../oxygen-webhelp/resources/css/comments.css"><!----></link><link rel="stylesheet" type="text/css" href="../../oxygen-webhelp/resources/css/jquery.cleditor.css"><!----></link><link rel="stylesheet" type="text/css" href="../../oxygen-webhelp/resources/css/admin.css"><!----></link><script type="text/javascript"><!--
+          
+          var prefix = "../../index.html";
+          
+          --></script><script type="text/javascript" src="../../oxygen-webhelp/resources/js/jquery-1.8.2.min.js"><!----></script><script type="text/javascript" src="../../oxygen-webhelp/resources/js/jquery.cookie.js"><!----></script><script type="text/javascript" src="../../oxygen-webhelp/resources/js/jquery-ui.custom.min.js"><!----></script><script type="text/javascript" charset="utf-8" src="../../oxygen-webhelp/resources/js/webhelp_topic.js"><!----></script><script type="text/javascript" charset="utf-8" src="../../oxygen-webhelp/resources/localization/strings.js"><!----></script><script type="text/javascript" charset="utf-8" src="../../oxygen-webhelp/resources/js/init.js"><!----></script><script type="text/javascript" charset="utf-8" src="../../oxygen-webhelp/resources/js/comments-functions.js"><!----></script></head>
+<body onload="init('../../')" id="sys_reqs_hdfs">
+<table class="nav"><tbody><tr><td colspan="2"><div id="printlink"><a href="javascript:window.print();" title="printThisPage"/></div><div id="permalink"><a href="#" title="linkToThis"/></div></td></tr><tr><td width="75%"><a class="navheader_parent_path" href="../../system/install_planning/../../system/system_admin_top.html" title="From the Platfora System page, authorized system administrators can manage and monitor various aspects of the Platfora system, such as lens builds, user access, data access, server resources, and system configuration. Users who do not have system administrator permissions will only have access to the System page to monitor and manage their own lenses.">System Administration</a> / <a class="navheader_parent_path" href="../../system/install_planning/install_plan_intro.html" title="This section describes the Platfora installation. You'll learn about the hardware and software requirements for a Platfora master and/or server node. You'll also learn about the supported Hadoop implementations and what is required of them. Finally, you'll learn about the components of a Platfora installation. If you want to install the Platfora software, refer to the appropriate Platfora install guide for your Hadoop implementation.">Understand the Platfora Installation</a></td><td><div class="navheader">
+<span class="navparent"><a class="link" href="../../system/install_planning/install_plan_intro.html" title="This section describes the Platfora installation. You'll learn about the hardware and software requirements for a Platfora master and/or server node. You'll also learn about the supported Hadoop implementations and what is required of them. Finally, you'll learn about the components of a Platfora installation. If you want to install the Platfora software, refer to the appropriate Platfora install guide for your Hadoop implementation."><span class="navheader_label">Parent topic</span><span class="navheader_separator">: </span><span class="navheader_linktext">Understand the Platfora Installation</span></a></span>  </div></td></tr></tbody></table>
+
+  <h1 class="title topictitle1">Hadoop Distribution and Resource Requirements</h1>
+
+  <div class="abstract"><span class="shortdesc">Platfora must be able to connect to an existing Hadoop installation. Platfora also
+      requires permissions and resources in the Hadoop source system.</span>
+</div>
+
+    
+   
+    
+    <div class="related-links"/>
+<div class="topic nested1" id="hadoop_hive_support">
+      <h2 class="title topictitle2">Hadoop and Hive Version Support</h2>
+
+     <div class="body"> <p class="p">This section lists the Hadoop distributions and versions that are compatible with the
+        Platfora installation packages. If using Hive as a data source for Platfora, the version of
+        Hive must be compatible with the version of Hadoop you are using. </p>
+
+      
+<div class="tablenoborder"><table cellpadding="4" cellspacing="0" summary="" class="table" frame="border" border="1" rules="all">
+          
+          
+          
+          
+          
+          <thead class="thead" align="left">
+            <tr class="row">
+              <th class="entry" valign="top" width="17.543859649122805%" id="d61850e54">
+                <p class="p">Hadoop Distro</p>
+
+              </th>
+
+              <th class="entry" valign="top" width="16.869095816464238%" id="d61850e60">
+                <p class="p">Version</p>
+
+              </th>
+
+              <th class="entry" valign="top" width="14.979757085020243%" id="d61850e66">
+                <p class="p">Hive Version</p>
+
+              </th>
+
+              <th class="entry" valign="top" width="13.49527665317139%" id="d61850e72">
+                <p class="p">MapReduce Version</p>
+
+              </th>
+
+              <th class="entry" valign="top" width="37.11201079622132%" id="d61850e78">
+                <p class="p">Platfora Package</p>
+
+              </th>
+
+            </tr>
+
+          </thead>
+
+          <tbody class="tbody">
+            <tr class="row">
+              <td class="entry" valign="top" width="17.543859649122805%" headers="d61850e54 ">
+                <p class="p">Cloudera</p>
+
+              </td>
+
+              <td class="entry" valign="top" width="16.869095816464238%" headers="d61850e60 ">
+                <p class="p">CDH4.2</p>
+
+              </td>
+
+              <td class="entry" valign="top" width="14.979757085020243%" headers="d61850e66 ">
+                <p class="p">0.10</p>
+
+              </td>
+
+              <td class="entry" valign="top" width="13.49527665317139%" headers="d61850e72 ">
+                <p class="p">MRv1</p>
+
+              </td>
+
+              <td class="entry" valign="top" width="37.11201079622132%" headers="d61850e78 ">
+                <p class="p">cdh4 (Cloudera)</p>
+
+              </td>
+
+            </tr>
+
+            <tr class="row">
+              <td class="entry" valign="top" width="17.543859649122805%" headers="d61850e54 ">
+                <p class="p">Cloudera</p>
+
+              </td>
+
+              <td class="entry" valign="top" width="16.869095816464238%" headers="d61850e60 ">
+                <p class="p">CDH4.3</p>
+
+              </td>
+
+              <td class="entry" valign="top" width="14.979757085020243%" headers="d61850e66 ">
+                <p class="p">0.10</p>
+
+              </td>
+
+              <td class="entry" valign="top" width="13.49527665317139%" headers="d61850e72 ">
+                <p class="p">MRv1</p>
+
+              </td>
+
+              <td class="entry" valign="top" width="37.11201079622132%" headers="d61850e78 ">
+                <p class="p">cdh4 (Cloudera)</p>
+
+              </td>
+
+            </tr>
+
+            <tr class="row">
+              <td class="entry" valign="top" width="17.543859649122805%" headers="d61850e54 ">
+                <p class="p">Cloudera</p>
+
+              </td>
+
+              <td class="entry" valign="top" width="16.869095816464238%" headers="d61850e60 ">
+                <p class="p">CDH4.4</p>
+
+              </td>
+
+              <td class="entry" valign="top" width="14.979757085020243%" headers="d61850e66 ">
+                <p class="p">0.10</p>
+
+              </td>
+
+              <td class="entry" valign="top" width="13.49527665317139%" headers="d61850e72 ">
+                <p class="p">MRv1</p>
+
+              </td>
+
+              <td class="entry" valign="top" width="37.11201079622132%" headers="d61850e78 ">
+                <p class="p">cdh4 (Cloudera)</p>
+
+              </td>
+
+            </tr>
+
+            <tr class="row">
+              <td class="entry" valign="top" width="17.543859649122805%" headers="d61850e54 ">
+                <p class="p">Cloudera</p>
+
+              </td>
+
+              <td class="entry" valign="top" width="16.869095816464238%" headers="d61850e60 ">
+                <p class="p">CDH4.5</p>
+
+              </td>
+
+              <td class="entry" valign="top" width="14.979757085020243%" headers="d61850e66 ">
+                <p class="p">0.10</p>
+
+              </td>
+
+              <td class="entry" valign="top" width="13.49527665317139%" headers="d61850e72 ">
+                <p class="p">MRv1</p>
+
+              </td>
+
+              <td class="entry" valign="top" width="37.11201079622132%" headers="d61850e78 ">
+                <p class="p">cdh4 (Cloudera)</p>
+
+              </td>
+
+            </tr>
+
+            <tr class="row">
+              <td class="entry" valign="top" width="17.543859649122805%" headers="d61850e54 ">
+                <p class="p">Cloudera</p>
+
+              </td>
+
+              <td class="entry" valign="top" width="16.869095816464238%" headers="d61850e60 ">
+                <p class="p">CDH4.6</p>
+
+              </td>
+
+              <td class="entry" valign="top" width="14.979757085020243%" headers="d61850e66 ">
+                <p class="p">0.10</p>
+
+              </td>
+
+              <td class="entry" valign="top" width="13.49527665317139%" headers="d61850e72 ">
+                <p class="p">MRv1</p>
+
+              </td>
+
+              <td class="entry" valign="top" width="37.11201079622132%" headers="d61850e78 ">
+                <p class="p">cdh4 (Cloudera)</p>
+
+              </td>
+
+            </tr>
+
+            <tr class="row">
+              <td class="entry" valign="top" width="17.543859649122805%" headers="d61850e54 ">
+                <p class="p">Cloudera</p>
+
+              </td>
+
+              <td class="entry" valign="top" width="16.869095816464238%" headers="d61850e60 ">
+                <p class="p">CDH5</p>
+
+              </td>
+
+              <td class="entry" valign="top" width="14.979757085020243%" headers="d61850e66 ">
+                <p class="p">0.12</p>
+
+              </td>
+
+              <td class="entry" valign="top" width="13.49527665317139%" headers="d61850e72 ">
+                <p class="p">YARN</p>
+
+              </td>
+
+              <td class="entry" valign="top" width="37.11201079622132%" headers="d61850e78 ">
+                <p class="p">cdh5 (Cloudera)</p>
+
+              </td>
+
+            </tr>
+
+            <tr class="row">
+              <td class="entry" valign="top" width="17.543859649122805%" headers="d61850e54 ">
+                <p class="p">Hortonworks</p>
+
+              </td>
+
+              <td class="entry" valign="top" width="16.869095816464238%" headers="d61850e60 ">
+                <p class="p">HDP 1.0.X</p>
+
+              </td>
+
+              <td class="entry" valign="top" width="14.979757085020243%" headers="d61850e66 ">
+                <p class="p">0.9.0</p>
+
+              </td>
+
+              <td class="entry" valign="top" width="13.49527665317139%" headers="d61850e72 ">
+                <p class="p">MRv1</p>
+
+              </td>
+
+              <td class="entry" valign="top" width="37.11201079622132%" headers="d61850e78 ">
+                <p class="p">hadoop_1_0_3_hive_0_9_0</p>
+
+              </td>
+
+            </tr>
+
+            <tr class="row">
+              <td class="entry" valign="top" width="17.543859649122805%" headers="d61850e54 ">
+                <p class="p">Hortonworks</p>
+
+              </td>
+
+              <td class="entry" valign="top" width="16.869095816464238%" headers="d61850e60 ">
+                <p class="p">HDP 1.3.X</p>
+
+              </td>
+
+              <td class="entry" valign="top" width="14.979757085020243%" headers="d61850e66 ">
+                <p class="p">0.11.0</p>
+
+              </td>
+
+              <td class="entry" valign="top" width="13.49527665317139%" headers="d61850e72 ">
+                <p class="p">MRv1</p>
+
+              </td>
+
+              <td class="entry" valign="top" width="37.11201079622132%" headers="d61850e78 ">
+                <p class="p">hadoop_1_2_0_hive_0_11_0</p>
+
+              </td>
+
+            </tr>
+
+            <tr class="row">
+              <td class="entry" valign="top" width="17.543859649122805%" headers="d61850e54 ">
+                <p class="p">Hortonworks</p>
+
+              </td>
+
+              <td class="entry" valign="top" width="16.869095816464238%" headers="d61850e60 ">
+                <p class="p">HDP 2.0.X</p>
+
+              </td>
+
+              <td class="entry" valign="top" width="14.979757085020243%" headers="d61850e66 ">
+                <p class="p">0.12.0</p>
+
+              </td>
+
+              <td class="entry" valign="top" width="13.49527665317139%" headers="d61850e72 ">
+                <p class="p">YARN</p>
+
+              </td>
+
+              <td class="entry" valign="top" width="37.11201079622132%" headers="d61850e78 ">
+                <p class="p">hadoop_2_2_0_hive_0_12_0</p>
+
+              </td>
+
+            </tr>
+
+            <tr class="row">
+              <td class="entry" valign="top" width="17.543859649122805%" headers="d61850e54 ">
+                <p class="p">Hortonworks</p>
+
+              </td>
+
+              <td class="entry" valign="top" width="16.869095816464238%" headers="d61850e60 ">
+                <p class="p">HDP 2.1.X</p>
+
+              </td>
+
+              <td class="entry" valign="top" width="14.979757085020243%" headers="d61850e66 ">
+                <p class="p">0.13.0</p>
+
+              </td>
+
+              <td class="entry" valign="top" width="13.49527665317139%" headers="d61850e72 ">
+                <p class="p">YARN</p>
+
+              </td>
+
+              <td class="entry" valign="top" width="37.11201079622132%" headers="d61850e78 ">
+                <p class="p">hadoop_2_4_0_hive_0_13_0</p>
+
+              </td>
+
+            </tr>
+
+            <tr class="row">
+              <td class="entry" valign="top" width="17.543859649122805%" headers="d61850e54 ">
+                <p class="p">Amazon EMR</p>
+
+              </td>
+
+              <td class="entry" valign="top" width="16.869095816464238%" headers="d61850e60 ">
+                <p class="p">EMR (1.0.3)</p>
+
+              </td>
+
+              <td class="entry" valign="top" width="14.979757085020243%" headers="d61850e66 ">
+                <p class="p">0.9.0 <a name="fnsrc_1" href="#fntarg_1"><sup>1</sup></a></p>
+
+              </td>
+
+              <td class="entry" valign="top" width="13.49527665317139%" headers="d61850e72 ">
+                <p class="p">MRv1</p>
+
+              </td>
+
+              <td class="entry" valign="top" width="37.11201079622132%" headers="d61850e78 ">
+                <p class="p">hadoop_1_0_3_hive_0_9_0 </p>
+
+              </td>
+
+            </tr>
+
+            <tr class="row">
+              <td class="entry" valign="top" width="17.543859649122805%" headers="d61850e54 ">
+                <p class="p">Amazon EMR</p>
+
+              </td>
+
+              <td class="entry" valign="top" width="16.869095816464238%" headers="d61850e60 ">
+                <p class="p">EMR (1.0.3)</p>
+
+              </td>
+
+              <td class="entry" valign="top" width="14.979757085020243%" headers="d61850e66 ">
+                <p class="p">0.11.0</p>
+
+              </td>
+
+              <td class="entry" valign="top" width="13.49527665317139%" headers="d61850e72 ">
+                <p class="p">MRv1</p>
+
+              </td>
+
+              <td class="entry" valign="top" width="37.11201079622132%" headers="d61850e78 ">
+                <p class="p">hadoop_1_0_3_hive_0_11_0 </p>
+
+              </td>
+
+            </tr>
+     
+            <tr class="row">
+              <td class="entry" valign="top" width="17.543859649122805%" headers="d61850e54 ">
+                <p class="p">MapR</p>
+
+              </td>
+
+              <td class="entry" valign="top" width="16.869095816464238%" headers="d61850e60 ">
+                <p class="p">MapR 2.1</p>
+
+              </td>
+
+              <td class="entry" valign="top" width="14.979757085020243%" headers="d61850e66 ">
+                <p class="p">0.9.0</p>
+
+              </td>
+
+              <td class="entry" valign="top" width="13.49527665317139%" headers="d61850e72 ">
+                <p class="p">MRv1</p>
+
+              </td>
+
+              <td class="entry" valign="top" width="37.11201079622132%" headers="d61850e78 ">
+                <p class="p">mapr2</p>
+
+              </td>
+
+            </tr>
+
+            <tr class="row">
+              <td class="entry" valign="top" width="17.543859649122805%" headers="d61850e54 ">
+                <p class="p">MapR</p>
+
+              </td>
+
+              <td class="entry" valign="top" width="16.869095816464238%" headers="d61850e60 ">
+                <p class="p">MapR 3.0.2</p>
+
+              </td>
+
+              <td class="entry" valign="top" width="14.979757085020243%" headers="d61850e66 "><p class="p">0.9.0</p>
+</td>
+
+              <td class="entry" valign="top" width="13.49527665317139%" headers="d61850e72 ">
+                <p class="p">MRv1</p>
+
+              </td>
+
+              <td class="entry" valign="top" width="37.11201079622132%" headers="d61850e78 ">
+                <p class="p">mapr3<a name="fnsrc_2" href="#fntarg_2"><sup>2</sup></a></p>
+
+              </td>
+
+            </tr>
+
+            <tr class="row">
+              <td class="entry" valign="top" width="17.543859649122805%" headers="d61850e54 ">
+                <p class="p">MapR</p>
+
+              </td>
+
+              <td class="entry" valign="top" width="16.869095816464238%" headers="d61850e60 ">
+                <p class="p">MapR 3.1</p>
+
+              </td>
+
+              <td class="entry" valign="top" width="14.979757085020243%" headers="d61850e66 "><p class="p">0.12.0</p>
+</td>
+
+              <td class="entry" valign="top" width="13.49527665317139%" headers="d61850e72 ">
+                <p class="p">MRv1</p>
+
+              </td>
+
+              <td class="entry" valign="top" width="37.11201079622132%" headers="d61850e78 ">
+                <p class="p">mapr3<a name="fnsrc_3" href="#fntarg_3"><sup>3</sup></a></p>
+
+              </td>
+
+            </tr>
+
+            <tr class="row">
+              <td class="entry" valign="top" width="17.543859649122805%" headers="d61850e54 ">
+                <p class="p">Pivotal Labs</p>
+
+              </td>
+
+              <td class="entry" valign="top" width="16.869095816464238%" headers="d61850e60 ">
+                <p class="p">PivotalHD 1.1</p>
+
+              </td>
+
+              <td class="entry" valign="top" width="14.979757085020243%" headers="d61850e66 ">
+                <p class="p">0.11.0</p>
+
+              </td>
+
+              <td class="entry" valign="top" width="13.49527665317139%" headers="d61850e72 ">
+                <p class="p">YARN</p>
+
+              </td>
+
+              <td class="entry" valign="top" width="37.11201079622132%" headers="d61850e78 ">
+                <p class="p">pivotal_1.1</p>
+
+              </td>
+
+            </tr>
+
+            <tr class="row">
+              <td class="entry" valign="top" width="17.543859649122805%" headers="d61850e54 ">
+                <p class="p">Apache 1.0.3</p>
+
+              </td>
+
+              <td class="entry" valign="top" width="16.869095816464238%" headers="d61850e60 ">
+                <p class="p">1.0.3</p>
+
+              </td>
+
+              <td class="entry" valign="top" width="14.979757085020243%" headers="d61850e66 ">
+                <p class="p">0.9.0</p>
+
+              </td>
+
+              <td class="entry" valign="top" width="13.49527665317139%" headers="d61850e72 ">
+                <p class="p">MRv1</p>
+
+              </td>
+
+              <td class="entry" valign="top" width="37.11201079622132%" headers="d61850e78 ">
+                <p class="p">hadoop_1_0_3_hive_0_11_0 </p>
+
+              </td>
+
+            </tr>
+
+            <tr class="row">
+              <td class="entry" valign="top" width="17.543859649122805%" headers="d61850e54 ">
+                <p class="p">Apache 1.2.0</p>
+
+              </td>
+
+              <td class="entry" valign="top" width="16.869095816464238%" headers="d61850e60 ">
+                <p class="p">1.2.0</p>
+
+              </td>
+
+              <td class="entry" valign="top" width="14.979757085020243%" headers="d61850e66 ">
+                <p class="p">0.11.0</p>
+
+              </td>
+
+              <td class="entry" valign="top" width="13.49527665317139%" headers="d61850e72 ">
+                <p class="p">MRv1</p>
+
+              </td>
+
+              <td class="entry" valign="top" width="37.11201079622132%" headers="d61850e78 ">
+                <p class="p">hadoop_1_2_0_hive_0_11_0</p>
+
+              </td>
+
+            </tr>
+
+          </tbody>
+
+        </table>
+</div>
+
+     </div>
+
+    </div>
+
+    
+    
+    <div class="topic nested1" id="hadoop_resource_req">
+      <h2 class="title topictitle2">Minimum Hadoop Resource Requirements</h2>
+
+      <div class="body">
+<div class="tablenoborder"><table cellpadding="4" cellspacing="0" summary="" id="hadoop_resource_req__table_sys_reqs_hadoop" class="table header_left" frame="border" border="1" rules="all">
+          
+          
+          <tbody class="tbody">
+            <tr class="row">
+              <td class="entry" valign="top" width="22.026431718061673%">
+                <p class="p">DFS Disk Space </p>
+
+              </td>
+
+              <td class="entry" valign="top" width="77.97356828193833%">
+                <p class="p">Platfora requires a designated persistent storage directory in the remote
+                  distributed file system (DFS) with appropriate free space for aggregated data
+                  structures (Platfora lenses).  The location is configurable.</p>
+
+              </td>
+
+            </tr>
+
+            <tr class="row">
+              <td class="entry" valign="top" width="22.026431718061673%">
+                <p class="p">DFS Permissions</p>
+
+              </td>
+
+              <td class="entry" valign="top" width="77.97356828193833%">
+                <p class="p">The <samp class="ph codeph ignore_table_context">platfora</samp> system user needs read permissions to source data
+                  directories and files. </p>
+
+                <p class="p">The <samp class="ph codeph ignore_table_context">platfora</samp> system user needs write permissions to Platfora's
+                  persistent storage directory on DFS. </p>
+
+              </td>
+
+            </tr>
+
+            <tr class="row">
+              <td class="entry" valign="top" width="22.026431718061673%">
+                <p class="p">MapReduce Permissions</p>
+
+              </td>
+
+              <td class="entry" valign="top" width="77.97356828193833%">
+                <p class="p">The <samp class="ph codeph ignore_table_context">platfora</samp> system user needs to be added to the submit-jobs and
+                  administer-jobs access control list (or added to a group that has these
+                  permissions).</p>
+
+              </td>
+
+            </tr>
+
+            <tr class="row">
+              <td class="entry" valign="top" width="22.026431718061673%"><p class="p">DFS Resources</p>
+</td>
+
+              <td class="entry" valign="top" width="77.97356828193833%">
+                <p class="p">Minimum Open File Limit = 5000</p>
+
+                
+              </td>
+
+            </tr>
+
+            <tr class="row">
+              <td class="entry" valign="top" width="22.026431718061673%"><p class="p">MapReduce Resources</p>
+</td>
+
+              <td class="entry" valign="top" width="77.97356828193833%"><p class="p">Minimum Memory for Task Processes = 1 GB</p>
+</td>
+
+            </tr>
+
+          </tbody>
+
+        </table>
+</div>
+</div>
+
+    </div>
+
+    
+   
+    
+  <div class="fn"><a name="fntarg_1" href="#fnsrc_1"><sup>1</sup></a>  The latest EMR AMI for Apache Hadoop 1.0.3 supports Hive 0.11.0</div><div class="fn"><a name="fntarg_2" href="#fnsrc_2"><sup>2</sup></a>  Use the MapR 2.1 Platfora binary with MapR 3.0.2 cluster and client.</div><div class="fn"><a name="fntarg_3" href="#fnsrc_3"><sup>3</sup></a>  Use the MapR 2.1 Platfora binary with MapR 3.0.2 cluster and client.</div><div class="navfooter"><!---->
+<span class="navparent"><a class="link" href="../../system/install_planning/install_plan_intro.html" title="This section describes the Platfora installation. You'll learn about the hardware and software requirements for a Platfora master and/or server node. You'll also learn about the supported Hadoop implementations and what is required of them. Finally, you'll learn about the components of a Platfora installation. If you want to install the Platfora software, refer to the appropriate Platfora install guide for your Hadoop implementation."><span class="navheader_label">Parent topic</span><span class="navheader_separator">: </span><span class="navheader_linktext">Understand the Platfora Installation</span></a></span>  </div><div class="footer">WebHelp output generated by<a href="http://www.oxygenxml.com" target="_blank"><span class="oXygenLogo"><img src="../../oxygen-webhelp/resources/img/LogoOxygen100x22.png" alt="Oxygen"/></span><span class="xmlauthor">XML Author</span></a></div>
+<div id="productInfo" style="display:none;"><span id="oxy_productID">webhelp</span><span id="oxy_productVersion">3.0</span></div><div id="loginData" style="display: none"><span class="bt_close" title="Close"><!----></span><form action="" target="passwordIframe" method="post" name="form_login" onsubmit="return loggInUser();" id="loginFormData" autocomplete="on"><input type="hidden" id="reloadComments" value="yes"><!----></input><table class="login"><thead><tr><td colspan="2"><span id="l_login2"><script type="text/javascript">$('#l_login2').html(getLocalization('label.login'));</script></span></td></tr><tr><td colspan="2"><div id="loginResponse"><!----></div></td></tr></thead><tr><td><span id="l_userName"><script type="text/javascript">$('#l_userName').html(getLocalization('label.userName'));</script></span></td><td><input name="usernameW" type="text" id="myUserName" autocomplete="on" required="required" autofocus="autofocus"><!----></input></td></tr><tr><td><span id="l_pswd"><script type="text/javascript">$('#l_pswd').html(getLocalization('label.pswd'));</script></span></td><td><input name="passwordW" type="password" id="myPassword" autocomplete="on" required="required"><!----></input></td></tr><tr><td colspan="2" align="left"><span id="ll_remember"><script type="text/javascript" xml:space="preserve">
+								$('#ll_remember').html(getLocalization('label.rememberme'));
+							</script></span>     <input name="myLoginRemember" type="checkbox" class="ck" id="myRemember" value="no"><!----></input></td></tr><tr><td colspan="2" align="center"><input id="l_bt_submit_log" type="submit" value="Submit" name="loginFormButton"><!----></input><script type="text/javascript">$('#l_bt_submit_log').attr('value',getLocalization('label.login'));</script><span class="btnHGlue"><!----></span><input class="bt_cancel" id="l_cancelLog" type="button" value="Cancel" name="loginFormButton"><!----></input><script type="text/javascript">$('#l_cancelLog').attr('value',getLocalization('label.cancel'));</script></td></tr></table><div class="loginAlternative"><span id="link_lostPwd" onclick="showLostPwd()"><script type="text/javascript">$('#link_lostPwd').html(getLocalization('label.lostPswd'));</script></span><span id="link_signUp" onclick="showSignUp()"><script type="text/javascript">$('#link_signUp').html(getLocalization('label.signUp'));</script></span></div></form><iframe id="passwordIframe" name="passwordIframe" style="display:none"><!----></iframe></div><div id="cmts"><!----></div></body>
+</html>

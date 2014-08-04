@@ -1,0 +1,68 @@
+
+<!DOCTYPE html
+  PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xml:lang="en-us" lang="en-us">
+<head><meta xmlns="http://www.w3.org/1999/xhtml" name="description" content="If you wanted to bin text or STRING values, you can define a computed field that groups values together using a CASE expression. For example, here is a CASE expression to bucket values of a name field ..."/><meta http-equiv="Content-Type" content="text/html; charset=utf-8"/><meta name="copyright" content="(C) Copyright 2005"/><meta name="DC.rights.owner" content="(C) Copyright 2005"/><meta name="DC.Type" content="task"/><meta name="DC.Title" content="Bin Text Values"/><meta name="abstract" content="If you wanted to bin text or STRING values, you can define a computed field that groups values together using a CASE expression."/><meta xmlns="http://www.w3.org/1999/xhtml" name="description" content="If you wanted to bin text or STRING values, you can define a computed field that groups values together using a CASE expression."/><meta name="DC.Relation" scheme="URI" content="../../../dataset/manage_fields/computed/about_binned_fields.html"/><meta name="DC.Format" content="XHTML"/><meta name="DC.Identifier" content="bucket_text_values"/><link rel="stylesheet" type="text/css" href="../../../oxygen-webhelp/resources/css/commonltr.css"><!----></link><title>Bin Text Values</title><meta http-equiv="Content-Type" content="text/html; charset=utf-8"/><link rel="stylesheet" type="text/css" href="../../../oxygen-webhelp/resources/css/commonltr.css"><!----></link><link rel="stylesheet" type="text/css" href="../../../oxygen-webhelp/resources/css/webhelp_topic.css"><!----></link><link rel="stylesheet" type="text/css" href="../../../oxygen-webhelp/resources/skins/skin.css"><!----></link><link rel="stylesheet" type="text/css" href="../../../oxygen-webhelp/resources/css/jquery.realperson.css"><!----></link><link rel="stylesheet" type="text/css" href="../../../oxygen-webhelp/resources/css/comments.css"><!----></link><link rel="stylesheet" type="text/css" href="../../../oxygen-webhelp/resources/css/jquery.cleditor.css"><!----></link><link rel="stylesheet" type="text/css" href="../../../oxygen-webhelp/resources/css/admin.css"><!----></link><script type="text/javascript"><!--
+          
+          var prefix = "../../../index.html";
+          
+          --></script><script type="text/javascript" src="../../../oxygen-webhelp/resources/js/jquery-1.8.2.min.js"><!----></script><script type="text/javascript" src="../../../oxygen-webhelp/resources/js/jquery.cookie.js"><!----></script><script type="text/javascript" src="../../../oxygen-webhelp/resources/js/jquery-ui.custom.min.js"><!----></script><script type="text/javascript" charset="utf-8" src="../../../oxygen-webhelp/resources/js/webhelp_topic.js"><!----></script><script type="text/javascript" charset="utf-8" src="../../../oxygen-webhelp/resources/localization/strings.js"><!----></script><script type="text/javascript" charset="utf-8" src="../../../oxygen-webhelp/resources/js/init.js"><!----></script><script type="text/javascript" charset="utf-8" src="../../../oxygen-webhelp/resources/js/comments-functions.js"><!----></script></head>
+<body onload="init('../../../')" id="bucket_text_values">
+<table class="nav"><tbody><tr><td colspan="2"><div id="printlink"><a href="javascript:window.print();" title="printThisPage"/></div><div id="permalink"><a href="#" title="linkToThis"/></div></td></tr><tr><td width="75%"><a class="navheader_parent_path" href="../../../dataset/manage_fields/computed/../../../dataset/manage_fields/computed/manage_computed_fields.html" title="A source dataset contains a number of base fields parsed directly from the source data. You can add additional computed fields to do basic data cleansing and transformation tasks (such as transforming values to something more meaningful for your users), or to derive values from other fields (such as computing an age from a birth date).">Manage Computed Fields</a> / <a class="navheader_parent_path" href="../../../dataset/manage_fields/computed/about_binned_fields.html" title="A binned field is a special kind of computed field that groups ranges of values together to create new categories.">About Binned Fields</a></td><td><div class="navheader">
+<span class="navparent"><a class="link" href="../../../dataset/manage_fields/computed/about_binned_fields.html" title="A binned field is a special kind of computed field that groups ranges of values together to create new categories."><span class="navheader_label">Parent topic</span><span class="navheader_separator">: </span><span class="navheader_linktext">About Binned Fields</span></a></span>  </div></td></tr></tbody></table>
+
+    <h1 class="title topictitle1">Bin Text Values</h1>
+
+    
+    <div class="body taskbody"><p class="shortdesc"> If you wanted to bin text or <samp class="ph codeph">STRING</samp> values, you can define a
+        computed field that groups values together using a <samp class="ph codeph">CASE</samp> expression. </p>
+
+        <div class="section steps-informal">
+            <p class="p">For example, here is a <a class="xref" href="../../../reference/expression_language/function_case.html" title="CASE is a row function that evaluates each row in the dataset according to one or more input conditions, and outputs the specified result when the input conditions are met.">CASE</a> expression to
+                bucket values of a <em class="ph i">name</em> field together by their first letter:</p>
+
+            <pre class="pre codeblock">CASE WHEN SUBSTRING(name,0,1)=="A" THEN "A" 
+WHEN SUBSTRING(name,0,1)=="B" THEN "B" 
+WHEN SUBSTRING(name,0,1)=="C" THEN "C" 
+WHEN SUBSTRING(name,0,1)=="D" THEN "D" 
+WHEN SUBSTRING(name,0,1)=="E" THEN "E" 
+WHEN SUBSTRING(name,0,1)=="F" THEN "F" 
+WHEN SUBSTRING(name,0,1)=="G" THEN "G" 
+WHEN SUBSTRING(name,0,1)=="H" THEN "H" 
+WHEN SUBSTRING(name,0,1)=="I" THEN "I" 
+WHEN SUBSTRING(name,0,1)=="J" THEN "J" 
+WHEN SUBSTRING(name,0,1)=="K" THEN "K" 
+WHEN SUBSTRING(name,0,1)=="L" THEN "L" 
+WHEN SUBSTRING(name,0,1)=="M" THEN "M" 
+WHEN SUBSTRING(name,0,1)=="N" THEN "N" 
+WHEN SUBSTRING(name,0,1)=="O" THEN "O" 
+WHEN SUBSTRING(name,0,1)=="P" THEN "P" 
+WHEN SUBSTRING(name,0,1)=="Q" THEN "Q" 
+WHEN SUBSTRING(name,0,1)=="R" THEN "R" 
+WHEN SUBSTRING(name,0,1)=="S" THEN "S" 
+WHEN SUBSTRING(name,0,1)=="T" THEN "T" 
+WHEN SUBSTRING(name,0,1)=="U" THEN "U" 
+WHEN SUBSTRING(name,0,1)=="V" THEN "V" 
+WHEN SUBSTRING(name,0,1)=="W" THEN "W" 
+WHEN SUBSTRING(name,0,1)=="X" THEN "X" 
+WHEN SUBSTRING(name,0,1)=="Y" THEN "Y" 
+WHEN SUBSTRING(name,0,1)=="Z" THEN "Z" 
+ELSE "unknown" END</pre>
+
+        </div>
+
+        <div class="section postreq">
+            <p class="p">Expressions are an advanced topic. For information on working with expressions and their component parts, see <a class="xref" href="../../use_expressions_top.html#use_expressions_top" title="Platfora includes an expression language to support advanced data analysis processing.">Work with Platfora's Expression Language</a>. </p>
+
+        </div>
+
+    </div>
+
+    
+<div class="related-links"/>
+<div class="navfooter"><!---->
+<span class="navparent"><a class="link" href="../../../dataset/manage_fields/computed/about_binned_fields.html" title="A binned field is a special kind of computed field that groups ranges of values together to create new categories."><span class="navheader_label">Parent topic</span><span class="navheader_separator">: </span><span class="navheader_linktext">About Binned Fields</span></a></span>  </div><div class="footer">WebHelp output generated by<a href="http://www.oxygenxml.com" target="_blank"><span class="oXygenLogo"><img src="../../../oxygen-webhelp/resources/img/LogoOxygen100x22.png" alt="Oxygen"/></span><span class="xmlauthor">XML Author</span></a></div>
+<div id="productInfo" style="display:none;"><span id="oxy_productID">webhelp</span><span id="oxy_productVersion">3.0</span></div><div id="loginData" style="display: none"><span class="bt_close" title="Close"><!----></span><form action="" target="passwordIframe" method="post" name="form_login" onsubmit="return loggInUser();" id="loginFormData" autocomplete="on"><input type="hidden" id="reloadComments" value="yes"><!----></input><table class="login"><thead><tr><td colspan="2"><span id="l_login2"><script type="text/javascript">$('#l_login2').html(getLocalization('label.login'));</script></span></td></tr><tr><td colspan="2"><div id="loginResponse"><!----></div></td></tr></thead><tr><td><span id="l_userName"><script type="text/javascript">$('#l_userName').html(getLocalization('label.userName'));</script></span></td><td><input name="usernameW" type="text" id="myUserName" autocomplete="on" required="required" autofocus="autofocus"><!----></input></td></tr><tr><td><span id="l_pswd"><script type="text/javascript">$('#l_pswd').html(getLocalization('label.pswd'));</script></span></td><td><input name="passwordW" type="password" id="myPassword" autocomplete="on" required="required"><!----></input></td></tr><tr><td colspan="2" align="left"><span id="ll_remember"><script type="text/javascript" xml:space="preserve">
+								$('#ll_remember').html(getLocalization('label.rememberme'));
+							</script></span>     <input name="myLoginRemember" type="checkbox" class="ck" id="myRemember" value="no"><!----></input></td></tr><tr><td colspan="2" align="center"><input id="l_bt_submit_log" type="submit" value="Submit" name="loginFormButton"><!----></input><script type="text/javascript">$('#l_bt_submit_log').attr('value',getLocalization('label.login'));</script><span class="btnHGlue"><!----></span><input class="bt_cancel" id="l_cancelLog" type="button" value="Cancel" name="loginFormButton"><!----></input><script type="text/javascript">$('#l_cancelLog').attr('value',getLocalization('label.cancel'));</script></td></tr></table><div class="loginAlternative"><span id="link_lostPwd" onclick="showLostPwd()"><script type="text/javascript">$('#link_lostPwd').html(getLocalization('label.lostPswd'));</script></span><span id="link_signUp" onclick="showSignUp()"><script type="text/javascript">$('#link_signUp').html(getLocalization('label.signUp'));</script></span></div></form><iframe id="passwordIframe" name="passwordIframe" style="display:none"><!----></iframe></div><div id="cmts"><!----></div></body>
+</html>

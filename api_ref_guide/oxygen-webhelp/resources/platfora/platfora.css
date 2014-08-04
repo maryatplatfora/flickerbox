@@ -1,0 +1,202 @@
+/** PLATFORA specific css*/
+
+/*
+ * The following header and footer are unique to our CSS
+ */
+ 
+/* Select only the H1 in the help title bar*/
+div#productTitle > h1:before{
+    display:inline;
+    content:url('../img/platfora_logo.png');
+    width:124px;
+    height:23px;
+}
+
+div#productTitle > div#printLink {
+    padding-right: 2em;
+    padding-top: 2em;
+}
+
+div.footer span.platforaLogo{
+    display:inline;
+    vertical-align: bottom;
+    content:url('../img/platfora_icon.png');
+}
+
+div.footer span.xmlauthor{
+    margin-bottom:14px;
+    margin-right:14px;
+    text-transform:uppercase;
+    font-weight:600;
+}
+
+th.entry {
+    background-color:#eee;
+}
+
+ul.ullinks {
+    list-style-image: url('../img/bullet.png');
+    margin-left: 1em;
+    padding-left: .5em;
+}
+
+
+
+/**
+ * Overrides for:
+ * INSTALL_DIR/frameworks/dita/DITA-OT/plugins/com.oxygenxml.webhelp/oxygen-webhelp/resources/css/toc.css
+ * 
+ */
+ 
+ #tocMenu div{ 
+    background-color:#c8c8c8;
+    color:#363636;
+    text-shadow:0 1px 0 #e6e6e6;
+    margin:0px 4px 0px 0px;
+    padding-top:2px;
+    cursor:pointer;
+    border:1px solid #b4b4b4;
+    border-radius:3px 3px 0 0;
+    border-bottom:0;
+    box-shadow:inset 0 1px 0 #e3e3e3;
+    width:80px;
+    text-align:center;
+    float:right;
+    font-weight:600;
+}
+
+#tocMenu div:hover{ 
+    color:#777;
+}
+
+#tocMenu div.selectedTab{ 
+    background-color:#e6e6e6;
+    text-shadow:0 1px 0 #fff;
+    border:1px solid #b0b0b0;
+    border-bottom:0;
+    box-shadow:inset 0 1px 0 #fff;
+}
+
+#contentBlock a:hover,
+a.link:hover,
+a.navheader_parent_path:hover{
+    text-decoration:underline;
+    color:#38abc5;
+    background-color: inherit;
+}
+
+#contentBlock a, a.link, a.navheader_parent_path{
+    font-size:12px;
+    color:black;
+}
+
+.hasSubMenuClosed{
+    background:url('../img/pl_book_closed16.png') no-repeat;
+    padding-left:16px;
+    cursor:pointer;
+
+} 
+
+.hasSubMenuOpened{
+    background:url('../img/pl_book_opened16.png') no-repeat;
+    padding-left:16px;
+    cursor:pointer;
+} 
+
+.menuItemSelected{
+    background-color:#dae8f8;
+    font-weight:normal;
+} 
+
+#searchBlock #searchForm{
+    margin:15px 10px;
+}
+
+.topic{
+    background-image:url('../img/pl_topic16.png');
+    background-repeat:no-repeat;
+    padding-left:16px;
+} 
+
+/**
+ * Overrides for:
+ * INSTALL_DIR/frameworks/dita/DITA-OT/plugins/com.oxygenxml.webhelp/oxygen-webhelp/resources/skins/desktop/toc_custom.css
+ * 
+ */
+ 
+ #lHeader{   
+  float: right;
+  width: 100%;     
+  position: relative;
+  background-color: #d6d6d6;     
+} 
+
+#productTitle{
+  float: left;
+  width: 100%;
+  top:0;
+  display: block;
+  background-color: #d6d6d6;
+  padding: 0 5px 0 5px;
+}
+
+#space{ 
+    border-top: 2px solid #e6e6e6;
+    background: #e6e6e6;
+    border-bottom: 2px solid #e6e6e6;
+    clear: both;
+} 
+
+table.tool td{
+  padding: 0;
+  margin:0;
+  background-color:#d6d6d6;
+}
+
+#tocMenu{
+    float: right; 
+    background-color: #D6D6D6; 
+} 
+
+/**
+ * Overrides for:
+ * INSTALL_DIR/frameworks/dita/DITA-OT/plugins/com.oxygenxml.webhelp/oxygen-webhelp/resources/css/webhelp_topic.css
+ * 
+ */
+ 
+ body{
+    background-color:#fff;
+    font-family:Open Sans, arial, helvetica, sans-serif;
+    line-height:18px;
+    font-size:10pt;
+    height: 100%;
+    width: 100%;
+    margin: 0;
+    padding: 0;
+}  
+
+h1.title,
+h2.title{
+    color:black;
+    font-weight: 500;
+    background-color:inherit;
+    text-shadow:none;
+    padding: 0.5em 0.4em 0.4em 0em;
+    box-shadow: none;
+}  
+
+h1.topictitle1{
+    color:black;
+    font-size:24px;
+    font-weight: 400;
+    padding: 1em 0em .6em 0em;
+    margin: 0 0.3em 0 0;
+} 
+
+
+#content{
+    margin-left:0em;
+    border-left:0px none;
+    padding-left:0em;
+}  
+

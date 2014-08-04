@@ -1,0 +1,435 @@
+
+<!DOCTYPE html
+  PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xml:lang="en-us" lang="en-us">
+<head><meta xmlns="http://www.w3.org/1999/xhtml" name="description" content="TO_DATE is a row function that converts STRING values to DATETIME values, and specifies the format of the date and time elements in the string. Syntax TO_DATE ( string_expression ,&#34; date_format &#34;) ..."/><meta http-equiv="Content-Type" content="text/html; charset=utf-8"/><meta name="copyright" content="(C) Copyright 2005"/><meta name="DC.rights.owner" content="(C) Copyright 2005"/><meta name="DC.Type" content="reference"/><meta name="DC.Title" content="TO_DATE"/><meta name="abstract" content="TO_DATE is a row function that converts STRING values to DATETIME values, and specifies the format of the date and time elements in the string."/><meta xmlns="http://www.w3.org/1999/xhtml" name="description" content="TO_DATE is a row function that converts STRING values to DATETIME values, and specifies the format of the date and time elements in the string."/><meta name="DC.Relation" scheme="URI" content="../../reference/expression_language/row_conversion_functions_top.html"/><meta name="DC.Format" content="XHTML"/><meta name="DC.Identifier" content="ref_func_todate"/><link rel="stylesheet" type="text/css" href="../../oxygen-webhelp/resources/css/commonltr.css"><!----></link><title>TO_DATE</title><meta http-equiv="Content-Type" content="text/html; charset=utf-8"/><link rel="stylesheet" type="text/css" href="../../oxygen-webhelp/resources/css/commonltr.css"><!----></link><link rel="stylesheet" type="text/css" href="../../oxygen-webhelp/resources/css/webhelp_topic.css"><!----></link><link rel="stylesheet" type="text/css" href="../../oxygen-webhelp/resources/skins/skin.css"><!----></link><link rel="stylesheet" type="text/css" href="../../oxygen-webhelp/resources/css/jquery.realperson.css"><!----></link><link rel="stylesheet" type="text/css" href="../../oxygen-webhelp/resources/css/comments.css"><!----></link><link rel="stylesheet" type="text/css" href="../../oxygen-webhelp/resources/css/jquery.cleditor.css"><!----></link><link rel="stylesheet" type="text/css" href="../../oxygen-webhelp/resources/css/admin.css"><!----></link><script type="text/javascript"><!--
+          
+          var prefix = "../../index.html";
+          
+          --></script><script type="text/javascript" src="../../oxygen-webhelp/resources/js/jquery-1.8.2.min.js"><!----></script><script type="text/javascript" src="../../oxygen-webhelp/resources/js/jquery.cookie.js"><!----></script><script type="text/javascript" src="../../oxygen-webhelp/resources/js/jquery-ui.custom.min.js"><!----></script><script type="text/javascript" charset="utf-8" src="../../oxygen-webhelp/resources/js/webhelp_topic.js"><!----></script><script type="text/javascript" charset="utf-8" src="../../oxygen-webhelp/resources/localization/strings.js"><!----></script><script type="text/javascript" charset="utf-8" src="../../oxygen-webhelp/resources/js/init.js"><!----></script><script type="text/javascript" charset="utf-8" src="../../oxygen-webhelp/resources/js/comments-functions.js"><!----></script></head>
+<body onload="init('../../')" id="ref_func_todate">
+<table class="nav"><tbody><tr><td colspan="2"><div id="printlink"><a href="javascript:window.print();" title="printThisPage"/></div><div id="permalink"><a href="#" title="linkToThis"/></div></td></tr><tr><td width="75%"><a class="navheader_parent_path" href="../../reference/expression_language/../../reference/expression_language/expression_reference_top.html" title="An expression computes or produces a value by combining fields (or columns), constant values, operators, and functions. Platfora has a built-in expression language. You use the language's functions and operators to create a computed field.">Expression and Query Language Reference</a> / <a class="navheader_parent_path" href="../../reference/expression_language/row_conversion_functions_top.html" title="Data type conversion functions allow you to cast data values from one data type to another. These functions are used implicitly whenever you set the data type of a field or column in the Platfora user interface. The supported data types are: INTEGER, LONG, DOUBLE, FIXED, DATETIME, and STRING.">Data Type Conversion Functions</a></td><td><div class="navheader">
+<span class="navparent"><a class="link" href="../../reference/expression_language/row_conversion_functions_top.html" title="Data type conversion functions allow you to cast data values from one data type to another. These functions are used implicitly whenever you set the data type of a field or column in the Platfora user interface. The supported data types are: INTEGER, LONG, DOUBLE, FIXED, DATETIME, and STRING."><span class="navheader_label">Parent topic</span><span class="navheader_separator">: </span><span class="navheader_linktext">Data Type Conversion Functions</span></a></span>  </div></td></tr></tbody></table>
+
+  <h1 class="title topictitle1">TO_DATE</h1>
+
+  
+  <div class="body refbody"><p class="shortdesc"><samp class="ph codeph">TO_DATE</samp> is a row function that converts
+        <samp class="ph codeph">STRING</samp> values to <samp class="ph codeph">DATETIME</samp> values, and specifies the format
+      of the date and time elements in the string. </p>
+
+    
+    <div class="section"><h2 class="title sectiontitle">Syntax</h2>
+      
+      <samp class="ph codeph" id="ref_func_todate__syntax_func_todate"><span class="ph synph"><span class="keyword kwd">TO_DATE</span>(<span class="ph var">string_expression</span>,"<span class="ph var">date_format</span>")</span></samp>
+      
+    </div>
+
+    
+    <div class="section"><h2 class="title sectiontitle">Return Value</h2>
+      <p class="p">Returns one value per row of type <samp class="ph codeph">DATETIME</samp> in UTC format <em class="ph i">yyyy-MM-dd
+          HH:mm:ss:SSS Z</em>.</p>
+
+    </div>
+
+    
+    <div class="section"><h2 class="title sectiontitle">Input Parameters</h2>
+      
+      
+      <dl class="dl parml">
+        
+          <dt class="dt pt dlterm">string_expression</dt>
+
+          <dd class="dd pd">Required. A field or expression of type <samp class="ph codeph">STRING</samp>.</dd>
+
+        
+        
+        
+          <dt class="dt pt dlterm">date_format</dt>
+
+          <dd class="dd pd">Required. A pattern that
+            describes how the date is formatted.</dd>
+
+        
+        
+        
+        
+      </dl>
+
+    </div>
+
+    
+    <div class="section"><h2 class="title sectiontitle">Date Pattern Format</h2>
+      
+      <p class="p">Use the following pattern symbols to define your date format. The count and ordering of the
+        pattern letters determines the datetime format. Any characters in the pattern that are not
+        in the ranges of a-z and A-Z are treated as quoted delimiter text. For instance, characters
+        such as slash (/) or colon (:) will appear in the resulting output even they are not escaped
+        with single quotes. </p>
+
+      
+<div class="tablenoborder"><table cellpadding="4" cellspacing="0" summary="" id="ref_func_todate__table_date_format" class="table" frame="border" border="1" rules="all"><caption><span class="tablecap">Table 1. Date Pattern Symbols</span></caption>
+          
+          
+          
+          
+          
+          <thead class="thead" align="left">
+            <tr class="row">
+              <th class="entry" valign="top" width="6.443298969072166%" id="d107316e115">Symbol</th>
+
+              <th class="entry" valign="top" width="23.90463917525773%" id="d107316e118">Meaning</th>
+
+              <th class="entry" valign="top" width="10.309278350515465%" id="d107316e121">Presentation</th>
+
+              <th class="entry" valign="top" width="19.07216494845361%" id="d107316e124">Examples</th>
+
+              <th class="entry" valign="top" width="40.27061855670103%" id="d107316e127">Notes</th>
+
+            </tr>
+
+          </thead>
+
+          <tbody class="tbody">
+            <tr class="row">
+              <td class="entry" valign="top" width="6.443298969072166%" headers="d107316e115 ">G</td>
+
+              <td class="entry" valign="top" width="23.90463917525773%" headers="d107316e118 ">era</td>
+
+              <td class="entry" valign="top" width="10.309278350515465%" headers="d107316e121 ">text</td>
+
+              <td class="entry" valign="top" width="19.07216494845361%" headers="d107316e124 ">AD</td>
+
+              <td class="entry" valign="top" width="40.27061855670103%" headers="d107316e127 "> </td>
+
+            </tr>
+
+            <tr class="row">
+              <td class="entry" valign="top" width="6.443298969072166%" headers="d107316e115 ">C</td>
+
+              <td class="entry" valign="top" width="23.90463917525773%" headers="d107316e118 ">century of era (0 or greater)</td>
+
+              <td class="entry" valign="top" width="10.309278350515465%" headers="d107316e121 ">number</td>
+
+              <td class="entry" valign="top" width="19.07216494845361%" headers="d107316e124 ">20</td>
+
+              <td class="entry" valign="top" width="40.27061855670103%" headers="d107316e127 "> </td>
+
+            </tr>
+
+            <tr class="row">
+              <td class="entry" valign="top" width="6.443298969072166%" headers="d107316e115 ">Y</td>
+
+              <td class="entry" valign="top" width="23.90463917525773%" headers="d107316e118 ">year of era (0 or greater)</td>
+
+              <td class="entry" valign="top" width="10.309278350515465%" headers="d107316e121 ">year</td>
+
+              <td class="entry" valign="top" width="19.07216494845361%" headers="d107316e124 ">1996</td>
+
+              <td class="entry" rowspan="2" valign="top" width="40.27061855670103%" headers="d107316e127 ">Numeric presentation for year and week year fields are handled
+                specially. For example, if the count of 'y' is 2, the year will be displayed as the
+                zero-based year of the century, which is two digits.</td>
+
+            </tr>
+
+            <tr class="row">
+              <td class="entry" valign="top" width="6.443298969072166%" headers="d107316e115 ">x</td>
+
+              <td class="entry" valign="top" width="23.90463917525773%" headers="d107316e118 ">week year</td>
+
+              <td class="entry" valign="top" width="10.309278350515465%" headers="d107316e121 ">year</td>
+
+              <td class="entry" valign="top" width="19.07216494845361%" headers="d107316e124 ">1996</td>
+
+            </tr>
+
+            <tr class="row">
+              <td class="entry" valign="top" width="6.443298969072166%" headers="d107316e115 ">w</td>
+
+              <td class="entry" valign="top" width="23.90463917525773%" headers="d107316e118 ">week number of week year</td>
+
+              <td class="entry" valign="top" width="10.309278350515465%" headers="d107316e121 ">number</td>
+
+              <td class="entry" valign="top" width="19.07216494845361%" headers="d107316e124 ">27</td>
+
+              <td class="entry" valign="top" width="40.27061855670103%" headers="d107316e127 "> </td>
+
+            </tr>
+
+            <tr class="row">
+              <td class="entry" valign="top" width="6.443298969072166%" headers="d107316e115 ">e</td>
+
+              <td class="entry" valign="top" width="23.90463917525773%" headers="d107316e118 ">day of week (number)</td>
+
+              <td class="entry" valign="top" width="10.309278350515465%" headers="d107316e121 ">number</td>
+
+              <td class="entry" valign="top" width="19.07216494845361%" headers="d107316e124 ">2</td>
+
+              <td class="entry" valign="top" width="40.27061855670103%" headers="d107316e127 "> </td>
+
+            </tr>
+
+            <tr class="row">
+              <td class="entry" valign="top" width="6.443298969072166%" headers="d107316e115 ">E</td>
+
+              <td class="entry" valign="top" width="23.90463917525773%" headers="d107316e118 ">day of week (name)</td>
+
+              <td class="entry" valign="top" width="10.309278350515465%" headers="d107316e121 ">text</td>
+
+              <td class="entry" valign="top" width="19.07216494845361%" headers="d107316e124 ">Tuesday; Tue</td>
+
+              <td class="entry" valign="top" width="40.27061855670103%" headers="d107316e127 ">If the number of pattern letters is 4 or more, the full form is used; otherwise
+                a short or abbreviated form is used.</td>
+
+            </tr>
+
+            <tr class="row">
+              <td class="entry" valign="top" width="6.443298969072166%" headers="d107316e115 ">y</td>
+
+              <td class="entry" valign="top" width="23.90463917525773%" headers="d107316e118 ">year</td>
+
+              <td class="entry" valign="top" width="10.309278350515465%" headers="d107316e121 ">year</td>
+
+              <td class="entry" valign="top" width="19.07216494845361%" headers="d107316e124 ">1996</td>
+
+              <td class="entry" valign="top" width="40.27061855670103%" headers="d107316e127 "> </td>
+
+            </tr>
+
+            <tr class="row">
+              <td class="entry" valign="top" width="6.443298969072166%" headers="d107316e115 ">D</td>
+
+              <td class="entry" valign="top" width="23.90463917525773%" headers="d107316e118 ">day of year</td>
+
+              <td class="entry" valign="top" width="10.309278350515465%" headers="d107316e121 ">number</td>
+
+              <td class="entry" valign="top" width="19.07216494845361%" headers="d107316e124 ">189</td>
+
+              <td class="entry" valign="top" width="40.27061855670103%" headers="d107316e127 "> </td>
+
+            </tr>
+
+            <tr class="row">
+              <td class="entry" valign="top" width="6.443298969072166%" headers="d107316e115 ">M</td>
+
+              <td class="entry" valign="top" width="23.90463917525773%" headers="d107316e118 ">month of year</td>
+
+              <td class="entry" valign="top" width="10.309278350515465%" headers="d107316e121 ">month</td>
+
+              <td class="entry" valign="top" width="19.07216494845361%" headers="d107316e124 ">July; Jul; 07</td>
+
+              <td class="entry" valign="top" width="40.27061855670103%" headers="d107316e127 ">3 or more uses text, otherwise uses a number</td>
+
+            </tr>
+
+            <tr class="row">
+              <td class="entry" valign="top" width="6.443298969072166%" headers="d107316e115 ">d</td>
+
+              <td class="entry" valign="top" width="23.90463917525773%" headers="d107316e118 ">day of month</td>
+
+              <td class="entry" valign="top" width="10.309278350515465%" headers="d107316e121 ">number</td>
+
+              <td class="entry" valign="top" width="19.07216494845361%" headers="d107316e124 ">10</td>
+
+              <td class="entry" valign="top" width="40.27061855670103%" headers="d107316e127 ">If the number of pattern letters is 3 or more, the text form is used; otherwise
+                the number is used.</td>
+
+            </tr>
+
+            <tr class="row">
+              <td class="entry" valign="top" width="6.443298969072166%" headers="d107316e115 ">a</td>
+
+              <td class="entry" valign="top" width="23.90463917525773%" headers="d107316e118 ">half day of day</td>
+
+              <td class="entry" valign="top" width="10.309278350515465%" headers="d107316e121 ">text</td>
+
+              <td class="entry" valign="top" width="19.07216494845361%" headers="d107316e124 ">PM</td>
+
+              <td class="entry" valign="top" width="40.27061855670103%" headers="d107316e127 "> </td>
+
+            </tr>
+
+            <tr class="row">
+              <td class="entry" valign="top" width="6.443298969072166%" headers="d107316e115 ">K</td>
+
+              <td class="entry" valign="top" width="23.90463917525773%" headers="d107316e118 ">hour of half day (0-11)</td>
+
+              <td class="entry" valign="top" width="10.309278350515465%" headers="d107316e121 ">number</td>
+
+              <td class="entry" valign="top" width="19.07216494845361%" headers="d107316e124 ">0</td>
+
+              <td class="entry" valign="top" width="40.27061855670103%" headers="d107316e127 "> </td>
+
+            </tr>
+
+            <tr class="row">
+              <td class="entry" valign="top" width="6.443298969072166%" headers="d107316e115 ">h</td>
+
+              <td class="entry" valign="top" width="23.90463917525773%" headers="d107316e118 ">clock hour of half day (1-12)</td>
+
+              <td class="entry" valign="top" width="10.309278350515465%" headers="d107316e121 ">number</td>
+
+              <td class="entry" valign="top" width="19.07216494845361%" headers="d107316e124 ">12</td>
+
+              <td class="entry" valign="top" width="40.27061855670103%" headers="d107316e127 "> </td>
+
+            </tr>
+
+            <tr class="row">
+              <td class="entry" valign="top" width="6.443298969072166%" headers="d107316e115 ">H</td>
+
+              <td class="entry" valign="top" width="23.90463917525773%" headers="d107316e118 ">hour of day (0-23)</td>
+
+              <td class="entry" valign="top" width="10.309278350515465%" headers="d107316e121 ">number</td>
+
+              <td class="entry" valign="top" width="19.07216494845361%" headers="d107316e124 ">0</td>
+
+              <td class="entry" valign="top" width="40.27061855670103%" headers="d107316e127 "> </td>
+
+            </tr>
+
+            <tr class="row">
+              <td class="entry" valign="top" width="6.443298969072166%" headers="d107316e115 ">k</td>
+
+              <td class="entry" valign="top" width="23.90463917525773%" headers="d107316e118 ">clock hour of day (1-24)</td>
+
+              <td class="entry" valign="top" width="10.309278350515465%" headers="d107316e121 ">number</td>
+
+              <td class="entry" valign="top" width="19.07216494845361%" headers="d107316e124 ">24</td>
+
+              <td class="entry" valign="top" width="40.27061855670103%" headers="d107316e127 "> </td>
+
+            </tr>
+
+            <tr class="row">
+              <td class="entry" valign="top" width="6.443298969072166%" headers="d107316e115 ">m</td>
+
+              <td class="entry" valign="top" width="23.90463917525773%" headers="d107316e118 ">minute of hour</td>
+
+              <td class="entry" valign="top" width="10.309278350515465%" headers="d107316e121 ">number</td>
+
+              <td class="entry" valign="top" width="19.07216494845361%" headers="d107316e124 ">30</td>
+
+              <td class="entry" valign="top" width="40.27061855670103%" headers="d107316e127 "> </td>
+
+            </tr>
+
+            <tr class="row">
+              <td class="entry" valign="top" width="6.443298969072166%" headers="d107316e115 ">s</td>
+
+              <td class="entry" valign="top" width="23.90463917525773%" headers="d107316e118 ">second of minute</td>
+
+              <td class="entry" valign="top" width="10.309278350515465%" headers="d107316e121 ">number</td>
+
+              <td class="entry" valign="top" width="19.07216494845361%" headers="d107316e124 ">55</td>
+
+              <td class="entry" valign="top" width="40.27061855670103%" headers="d107316e127 "> </td>
+
+            </tr>
+
+            <tr class="row">
+              <td class="entry" valign="top" width="6.443298969072166%" headers="d107316e115 ">S</td>
+
+              <td class="entry" valign="top" width="23.90463917525773%" headers="d107316e118 ">fraction of second</td>
+
+              <td class="entry" valign="top" width="10.309278350515465%" headers="d107316e121 ">number</td>
+
+              <td class="entry" valign="top" width="19.07216494845361%" headers="d107316e124 ">978</td>
+
+              <td class="entry" valign="top" width="40.27061855670103%" headers="d107316e127 "> </td>
+
+            </tr>
+
+            <tr class="row">
+              <td class="entry" valign="top" width="6.443298969072166%" headers="d107316e115 ">z</td>
+
+              <td class="entry" valign="top" width="23.90463917525773%" headers="d107316e118 ">time zone</td>
+
+              <td class="entry" valign="top" width="10.309278350515465%" headers="d107316e121 ">text</td>
+
+              <td class="entry" valign="top" width="19.07216494845361%" headers="d107316e124 ">Pacific Standard Time; PST</td>
+
+              <td class="entry" valign="top" width="40.27061855670103%" headers="d107316e127 ">If the number of pattern letters is 4 or more, the full form is used; otherwise
+                a short or abbreviated form is used.</td>
+
+            </tr>
+
+            <tr class="row">
+              <td class="entry" valign="top" width="6.443298969072166%" headers="d107316e115 ">Z</td>
+
+              <td class="entry" valign="top" width="23.90463917525773%" headers="d107316e118 ">time zone offset/id </td>
+
+              <td class="entry" valign="top" width="10.309278350515465%" headers="d107316e121 ">zone</td>
+
+              <td class="entry" valign="top" width="19.07216494845361%" headers="d107316e124 ">-0800; -08:00; America/Los_Angeles</td>
+
+              <td class="entry" valign="top" width="40.27061855670103%" headers="d107316e127 ">'Z' outputs offset without a colon, 'ZZ' outputs the offset with a colon, 'ZZZ'
+                or more outputs the zone id.</td>
+
+            </tr>
+
+            <tr class="row">
+              <td class="entry" valign="top" width="6.443298969072166%" headers="d107316e115 ">'</td>
+
+              <td class="entry" valign="top" width="23.90463917525773%" headers="d107316e118 ">escape character for text-based delimiters</td>
+
+              <td class="entry" valign="top" width="10.309278350515465%" headers="d107316e121 ">delimiter</td>
+
+              <td class="entry" valign="top" width="19.07216494845361%" headers="d107316e124 "> </td>
+
+              <td class="entry" valign="top" width="40.27061855670103%" headers="d107316e127 "> </td>
+
+            </tr>
+
+            <tr class="row">
+              <td class="entry" valign="top" width="6.443298969072166%" headers="d107316e115 ">''</td>
+
+              <td class="entry" valign="top" width="23.90463917525773%" headers="d107316e118 ">literal representation of a single quote</td>
+
+              <td class="entry" valign="top" width="10.309278350515465%" headers="d107316e121 ">literal</td>
+
+              <td class="entry" valign="top" width="19.07216494845361%" headers="d107316e124 ">'</td>
+
+              <td class="entry" valign="top" width="40.27061855670103%" headers="d107316e127 "> </td>
+
+            </tr>
+
+          </tbody>
+
+        </table>
+</div>
+
+    </div>
+
+    
+    <div class="section"><h2 class="title sectiontitle">Examples</h2>
+      
+      <p class="p">Define a new datetime calculated field based on the <em class="ph i">order_date</em> base field, which
+        contains timestamps in the format of: <em class="ph i">2002.07.10 at 15:08:56 PDT</em>:</p>
+
+      <p class="p"><samp class="ph codeph" id="ref_func_todate__example_func_todate">TO_DATE(order_date,"yyyy.MM.dd 'at' HH:mm:ss z")</samp></p>
+
+      
+      
+      <p class="p">Define a new datetime calculated field by first combining individual <em class="ph i">month</em>,
+          <em class="ph i">day</em>, <em class="ph i">year</em>, and <em class="ph i">depart_time</em> fields (using <samp class="ph codeph"><a class="xref" href="function_concat.html" title="CONCAT is a row function that returns a string by concatenating (combining together) the results of multiple string expressions.">CONCAT</a></samp>), and performing a transformation on
+          <em class="ph i">depart_time</em> to make sure three-digit times are converted to four-digit times (using
+            <samp class="ph codeph"><a class="xref" href="function_regex_replace.html" title="REGEX_REPLACE is a row function that evaluates a string value against a regular expression to determine if there is a match, and replaces matched strings with the specified replacement value.">REGEX_REPLACE</a></samp>):</p>
+
+      <p class="p"><samp class="ph codeph">TO_DATE(CONCAT(month,"/",day,"/",year,":",REGEX_REPLACE(depart_time,"\b(\d{3})\b","0$1")),"MM/dd/yyyy:HHmm")</samp></p>
+
+      
+    </div>
+
+    
+   
+   
+  </div>
+
+<div class="related-links"/>
+<div class="navfooter"><!---->
+<span class="navparent"><a class="link" href="../../reference/expression_language/row_conversion_functions_top.html" title="Data type conversion functions allow you to cast data values from one data type to another. These functions are used implicitly whenever you set the data type of a field or column in the Platfora user interface. The supported data types are: INTEGER, LONG, DOUBLE, FIXED, DATETIME, and STRING."><span class="navheader_label">Parent topic</span><span class="navheader_separator">: </span><span class="navheader_linktext">Data Type Conversion Functions</span></a></span>  </div><div class="footer">WebHelp output generated by<a href="http://www.oxygenxml.com" target="_blank"><span class="oXygenLogo"><img src="../../oxygen-webhelp/resources/img/LogoOxygen100x22.png" alt="Oxygen"/></span><span class="xmlauthor">XML Author</span></a></div>
+<div id="productInfo" style="display:none;"><span id="oxy_productID">webhelp</span><span id="oxy_productVersion">3.0</span></div><div id="loginData" style="display: none"><span class="bt_close" title="Close"><!----></span><form action="" target="passwordIframe" method="post" name="form_login" onsubmit="return loggInUser();" id="loginFormData" autocomplete="on"><input type="hidden" id="reloadComments" value="yes"><!----></input><table class="login"><thead><tr><td colspan="2"><span id="l_login2"><script type="text/javascript">$('#l_login2').html(getLocalization('label.login'));</script></span></td></tr><tr><td colspan="2"><div id="loginResponse"><!----></div></td></tr></thead><tr><td><span id="l_userName"><script type="text/javascript">$('#l_userName').html(getLocalization('label.userName'));</script></span></td><td><input name="usernameW" type="text" id="myUserName" autocomplete="on" required="required" autofocus="autofocus"><!----></input></td></tr><tr><td><span id="l_pswd"><script type="text/javascript">$('#l_pswd').html(getLocalization('label.pswd'));</script></span></td><td><input name="passwordW" type="password" id="myPassword" autocomplete="on" required="required"><!----></input></td></tr><tr><td colspan="2" align="left"><span id="ll_remember"><script type="text/javascript" xml:space="preserve">
+								$('#ll_remember').html(getLocalization('label.rememberme'));
+							</script></span>     <input name="myLoginRemember" type="checkbox" class="ck" id="myRemember" value="no"><!----></input></td></tr><tr><td colspan="2" align="center"><input id="l_bt_submit_log" type="submit" value="Submit" name="loginFormButton"><!----></input><script type="text/javascript">$('#l_bt_submit_log').attr('value',getLocalization('label.login'));</script><span class="btnHGlue"><!----></span><input class="bt_cancel" id="l_cancelLog" type="button" value="Cancel" name="loginFormButton"><!----></input><script type="text/javascript">$('#l_cancelLog').attr('value',getLocalization('label.cancel'));</script></td></tr></table><div class="loginAlternative"><span id="link_lostPwd" onclick="showLostPwd()"><script type="text/javascript">$('#link_lostPwd').html(getLocalization('label.lostPswd'));</script></span><span id="link_signUp" onclick="showSignUp()"><script type="text/javascript">$('#link_signUp').html(getLocalization('label.signUp'));</script></span></div></form><iframe id="passwordIframe" name="passwordIframe" style="display:none"><!----></iframe></div><div id="cmts"><!----></div></body>
+</html>

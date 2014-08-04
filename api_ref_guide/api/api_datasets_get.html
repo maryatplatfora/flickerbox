@@ -1,0 +1,2441 @@
+
+<!DOCTYPE html
+  PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xml:lang="en-us" lang="en-us">
+<head><meta xmlns="http://www.w3.org/1999/xhtml" name="description" content="Use the GET method to retrieve and list the datasets currently configured in Platfora. URL /api/v1/datasets HTTP Method GET URL Parameters None supported. Data Parameters None for GET requests. Sample ..."/><meta http-equiv="Content-Type" content="text/html; charset=utf-8"/><meta name="copyright" content="(C) Copyright 2005"/><meta name="DC.rights.owner" content="(C) Copyright 2005"/><meta name="DC.Type" content="reference"/><meta name="DC.Title" content="List All Datasets"/><meta name="abstract" content="Use the GET method to retrieve and list the datasets currently configured in Platfora."/><meta xmlns="http://www.w3.org/1999/xhtml" name="description" content="Use the GET method to retrieve and list the datasets currently configured in Platfora."/><meta name="DC.Relation" scheme="URI" content="../api/api_datasets_top.html"/><meta name="DC.Format" content="XHTML"/><meta name="DC.Identifier" content="ref_api_datasets_get"/><link rel="stylesheet" type="text/css" href="../oxygen-webhelp/resources/css/commonltr.css"><!----></link><title>List All Datasets</title><meta http-equiv="Content-Type" content="text/html; charset=utf-8"/><link rel="stylesheet" type="text/css" href="../oxygen-webhelp/resources/css/commonltr.css"><!----></link><link rel="stylesheet" type="text/css" href="../oxygen-webhelp/resources/css/webhelp_topic.css"><!----></link><link rel="stylesheet" type="text/css" href="../oxygen-webhelp/resources/skins/skin.css"><!----></link><link rel="stylesheet" type="text/css" href="../oxygen-webhelp/resources/css/jquery.realperson.css"><!----></link><link rel="stylesheet" type="text/css" href="../oxygen-webhelp/resources/css/comments.css"><!----></link><link rel="stylesheet" type="text/css" href="../oxygen-webhelp/resources/css/jquery.cleditor.css"><!----></link><link rel="stylesheet" type="text/css" href="../oxygen-webhelp/resources/css/admin.css"><!----></link><script type="text/javascript"><!--
+          
+          var prefix = "../index.html";
+          
+          --></script><script type="text/javascript" src="../oxygen-webhelp/resources/js/jquery-1.8.2.min.js"><!----></script><script type="text/javascript" src="../oxygen-webhelp/resources/js/jquery.cookie.js"><!----></script><script type="text/javascript" src="../oxygen-webhelp/resources/js/jquery-ui.custom.min.js"><!----></script><script type="text/javascript" charset="utf-8" src="../oxygen-webhelp/resources/js/webhelp_topic.js"><!----></script><script type="text/javascript" charset="utf-8" src="../oxygen-webhelp/resources/localization/strings.js"><!----></script><script type="text/javascript" charset="utf-8" src="../oxygen-webhelp/resources/js/init.js"><!----></script><script type="text/javascript" charset="utf-8" src="../oxygen-webhelp/resources/js/comments-functions.js"><!----></script></head>
+<body onload="init('../')" id="ref_api_datasets_get">
+<table class="nav"><tbody><tr><td colspan="2"><div id="printlink"><a href="javascript:window.print();" title="printThisPage"/></div><div id="permalink"><a href="#" title="linkToThis"/></div></td></tr><tr><td width="75%"><a class="navheader_parent_path" href="../api/api_datasets_top.html" title="Use the datasets resource to list datasets or create a new dataset.">datasets Resource</a></td><td><div class="navheader">
+<span class="navparent"><a class="link" href="../api/api_datasets_top.html" title="Use the datasets resource to list datasets or create a new dataset."><span class="navheader_label">Parent topic</span><span class="navheader_separator">: </span><span class="navheader_linktext">datasets Resource</span></a></span>  </div></td></tr></tbody></table>
+
+  <h1 class="title topictitle1">List All Datasets</h1>
+
+  
+
+
+  <div class="body refbody"><p class="shortdesc">Use the <samp class="ph codeph">GET</samp> method to retrieve and list the datasets currently
+    configured in Platfora.</p>
+
+
+  <div class="section"><h2 class="title sectiontitle">URL</h2>
+    
+    <p class="p"><samp class="ph codeph" id="ref_api_datasets_get__api_url_datasets_get">/api/v1/datasets</samp></p>
+
+  </div>
+
+  
+  <div class="section"><h2 class="title sectiontitle">HTTP Method</h2>
+    
+    <p class="p"><samp class="ph codeph">GET</samp></p>
+
+  </div>
+
+  
+   <div class="section"><h2 class="title sectiontitle">URL Parameters</h2>
+    
+    <p class="p">None supported.</p>
+
+     
+  </div>
+
+
+
+  <div class="section"><h2 class="title sectiontitle">Data Parameters</h2>
+    
+    <p class="p">None for <samp class="ph codeph">GET</samp> requests.</p>
+
+  </div>
+
+  
+  <div class="section"><h2 class="title sectiontitle">Sample Call</h2>
+    
+
+    <p class="p">For <samp class="ph codeph">GET</samp> requests, the body of the HTTP request should be empty.</p>
+
+  </div>
+
+
+
+  <div class="section"><h2 class="title sectiontitle">Success Response</h2>
+    
+    <p class="p">This response returns all datasets defined in Platfora. In this example, it includes the
+    Platfora Date and Time datasets.</p>
+
+    <p class="p">HTTP status return code: 200</p>
+
+    <p class="p">HTTP Body content:</p>
+
+    
+<pre class="pre codeblock">
+{
+  "_links": {
+    ...
+    }
+  },
+  "_metadata": {
+    ...
+  },
+  "data": {
+    "datasets": [
+      {
+        "abbreviation": "Airports",
+        "adapter": {
+          "adapterDetails": {
+            "hasHeader": "true",
+            "nullString": "\\N",
+            "path": "airports.csv",
+            "separatorChar": ","
+          },
+          "adapterType": "CSV"
+        },
+        "dataSource": {
+          "href": "http://myserver.com:8001/api/v1/datasources/2",
+          "id": "2",
+          "name": "Uploads"
+        },
+        "deprecated": false,
+        "description": "Domestic airport name and location information",
+        "effectivePermissions": 63,
+        "fields": [
+          {
+            "abbreviation": "Code",
+            "autoGenerated": false,
+            "deprecated": false,
+            "description": "international aviation transportation association 3 digit airport code",
+            "hidden": false,
+            "id": "32",
+            "includeOriginalValue": true,
+            "kind": "BASE",
+            "name": "Code",
+            "role": "VALUE",
+            "type": "STRING",
+            "version": "000000000000004C"
+          },
+          {
+            "abbreviation": "Name",
+            "autoGenerated": false,
+            "deprecated": false,
+            "description": "the name of the airport",
+            "hidden": false,
+            "id": "33",
+            "includeOriginalValue": true,
+            "kind": "BASE",
+            "name": "Name",
+            "role": "VALUE",
+            "type": "STRING",
+            "version": "000000000000004D"
+          },
+          {
+            "abbreviation": "Country",
+            "autoGenerated": false,
+            "deprecated": false,
+            "description": "the country of the airport",
+            "hidden": false,
+            "id": "34",
+            "includeOriginalValue": true,
+            "kind": "BASE",
+            "name": "Country",
+            "role": "VALUE",
+            "type": "STRING",
+            "version": "000000000000004E"
+          },
+          {
+            "abbreviation": "State",
+            "autoGenerated": false,
+            "deprecated": false,
+            "description": "the state of the airport",
+            "hidden": false,
+            "id": "35",
+            "includeOriginalValue": true,
+            "kind": "BASE",
+            "name": "State",
+            "role": "VALUE",
+            "type": "STRING",
+            "version": "000000000000004F"
+          },
+          {
+            "abbreviation": "City",
+            "autoGenerated": false,
+            "deprecated": false,
+            "description": "the city of the airport",
+            "hidden": false,
+            "id": "36",
+            "includeOriginalValue": true,
+            "kind": "BASE",
+            "name": "City",
+            "role": "VALUE",
+            "type": "STRING",
+            "version": "0000000000000050"
+          },
+          {
+            "abbreviation": "lat",
+            "autoGenerated": false,
+            "deprecated": false,
+            "description": "latitude of the airport",
+            "hidden": true,
+            "id": "37",
+            "includeOriginalValue": true,
+            "kind": "BASE",
+            "name": "lat",
+            "role": "VALUE",
+            "type": "DOUBLE",
+            "version": "0000000000000051"
+          },
+          {
+            "abbreviation": "Latitude",
+            "autoGenerated": false,
+            "dependencies": [
+              {
+                "path": [
+                  {
+                    "id": "37",
+                    "name": "lat",
+                    "version": "0000000000000051"
+                  }
+                ]
+              }
+            ],
+            "deprecated": false,
+            "description": "latitude of the airport rounded to ten thousandth of a degree",
+            "expression": "ROUND(lat, 4)",
+            "hidden": false,
+            "id": "38",
+            "includeOriginalValue": true,
+            "kind": "COMPUTED",
+            "name": "Latitude",
+            "role": "VALUE",
+            "type": "DOUBLE",
+            "version": "0000000000000052"
+          },
+          {
+            "abbreviation": "long",
+            "autoGenerated": false,
+            "deprecated": false,
+            "description": "longitude of the airport",
+            "hidden": true,
+            "id": "39",
+            "includeOriginalValue": true,
+            "kind": "BASE",
+            "name": "long",
+            "role": "VALUE",
+            "type": "DOUBLE",
+            "version": "0000000000000053"
+          },
+          {
+            "abbreviation": "Longitude",
+            "autoGenerated": false,
+            "dependencies": [
+              {
+                "path": [
+                  {
+                    "id": "39",
+                    "name": "long",
+                    "version": "0000000000000053"
+                  }
+                ]
+              }
+            ],
+            "deprecated": false,
+            "description": "longitude of the airport rounded to ten thousandth of a degree",
+            "expression": "ROUND(long, 4)",
+            "hidden": false,
+            "id": "40",
+            "includeOriginalValue": true,
+            "kind": "COMPUTED",
+            "name": "Longitude",
+            "role": "VALUE",
+            "type": "DOUBLE",
+            "version": "0000000000000054"
+          },
+          {
+            "abbreviation": "local_utc_time",
+            "autoGenerated": false,
+            "deprecated": false,
+            "description": "the local timezone expressed in universal time code",
+            "hidden": true,
+            "id": "41",
+            "includeOriginalValue": true,
+            "kind": "BASE",
+            "name": "local_utc_time",
+            "role": "VALUE",
+            "type": "INTEGER",
+            "version": "0000000000000055"
+          }
+        ],
+        "history": [
+          {
+            "lifecycleStage": "created",
+            "replaces": null,
+            "time": "2013-09-11T22:07:49.862Z",
+            "user": {
+              "href": "http://myserver.com:8001/api/v1/users/7",
+              "id": "7"
+            },
+            "version": "000000000000004B"
+          }
+        ],
+        "href": "http://myserver.com:8001/api/v1/datasets/3",
+        "id": "3",
+        "key": [
+          {
+            "abbreviation": "Code",
+            "autoGenerated": false,
+            "deprecated": false,
+            "description": "international aviation transportation association 3 digit airport code",
+            "hidden": false,
+            "id": "32",
+            "includeOriginalValue": true,
+            "kind": "BASE",
+            "name": "Code",
+            "role": "VALUE",
+            "type": "STRING",
+            "version": "000000000000004C"
+          }
+        ],
+        "name": "Airports",
+        "objectPermissions": {
+          "Create": [
+            {
+              "memberId": -1,
+              "type": "GROUP"
+            }
+          ],
+          "DataAccess": [
+            {
+              "memberId": -1,
+              "type": "GROUP"
+            }
+          ],
+          "Owner": [
+            {
+              "memberId": 7,
+              "type": "USER"
+            },
+            {
+              "memberId": 5094,
+              "type": "USER"
+            }
+          ]
+        },
+        "version": "000000000000004B"
+      },
+      {
+        "abbreviation": "Date",
+        "adapter": {
+          "adapterDetails": {
+            "encoding": "UTF-8",
+            "escapeChar": "\\",
+            "hasHeader": false,
+            "maxLineLength": 1000000,
+            "path": "date.csv",
+            "quoteChar": "\"",
+            "recordSeparator": "\n",
+            "separatorChar": ",",
+            "skipLines": 0
+          },
+          "adapterType": "CSV"
+        },
+        "dataSource": {
+          "href": "http://myserver.com:8001/api/v1/datasources/1",
+          "id": "1",
+          "name": "System"
+        },
+        "deprecated": false,
+        "description": "A basic calendar provided by Platfora.",
+        "effectivePermissions": 38,
+        "fields": [
+          {
+            "abbreviation": "Date",
+            "autoGenerated": false,
+            "deprecated": false,
+            "description": "A single day, expressed as a date-valued column (2012-01-31).",
+            "hidden": false,
+            "id": "1",
+            "includeOriginalValue": true,
+            "kind": "BASE",
+            "name": "Date",
+            "role": "VALUE",
+            "type": "DATETIME",
+            "version": "0000000000000013"
+          },
+          {
+            "abbreviation": "Month",
+            "autoGenerated": false,
+            "deprecated": false,
+            "description": "A calendar month (for example, Jan 2012)",
+            "hidden": false,
+            "id": "2",
+            "includeOriginalValue": true,
+            "kind": "BASE",
+            "name": "Month",
+            "role": "VALUE",
+            "type": "STRING",
+            "version": "0000000000000014"
+          },
+          {
+            "abbreviation": "Quarter",
+            "autoGenerated": false,
+            "deprecated": false,
+            "description": "A calendar quarter (for example, Q1 2012)",
+            "hidden": false,
+            "id": "3",
+            "includeOriginalValue": true,
+            "kind": "BASE",
+            "name": "Quarter",
+            "role": "VALUE",
+            "type": "STRING",
+            "version": "0000000000000015"
+          },
+          {
+            "abbreviation": "Weekday",
+            "autoGenerated": false,
+            "deprecated": false,
+            "description": "Day in week (for example, Sunday=1, Saturday=7)",
+            "hidden": false,
+            "id": "4",
+            "includeOriginalValue": true,
+            "kind": "BASE",
+            "name": "Weekday_Number",
+            "role": "VALUE",
+            "type": "INTEGER",
+            "version": "0000000000000016"
+          },
+          {
+            "abbreviation": "Weekday",
+            "autoGenerated": false,
+            "deprecated": false,
+            "description": "A day of the week (for example, Saturday)",
+            "hidden": false,
+            "id": "5",
+            "includeOriginalValue": true,
+            "kind": "BASE",
+            "name": "Weekday",
+            "role": "VALUE",
+            "type": "STRING",
+            "version": "0000000000000017"
+          },
+          {
+            "abbreviation": "Month Num",
+            "autoGenerated": false,
+            "deprecated": false,
+            "description": "Month number in the year (for example, January=1)",
+            "hidden": false,
+            "id": "6",
+            "includeOriginalValue": true,
+            "kind": "BASE",
+            "name": "Month_Number",
+            "role": "VALUE",
+            "type": "INTEGER",
+            "version": "0000000000000018"
+          },
+          {
+            "abbreviation": "Month",
+            "autoGenerated": false,
+            "deprecated": false,
+            "description": "A month of the year (for example, January)",
+            "hidden": false,
+            "id": "7",
+            "includeOriginalValue": true,
+            "kind": "BASE",
+            "name": "Month_Name",
+            "role": "VALUE",
+            "type": "STRING",
+            "version": "0000000000000019"
+          },
+          {
+            "abbreviation": "Quarter",
+            "autoGenerated": false,
+            "deprecated": false,
+            "description": "A calendar quarter without the year included (for example, Q1)",
+            "hidden": false,
+            "id": "8",
+            "includeOriginalValue": true,
+            "kind": "BASE",
+            "name": "Quarter_Name",
+            "role": "VALUE",
+            "type": "STRING",
+            "version": "000000000000001A"
+          },
+          {
+            "abbreviation": "Weekend?",
+            "autoGenerated": false,
+            "deprecated": false,
+            "description": "One of the values \"Weekend\" or \"Weekday\".  \"Weekend\" is used for Saturday and Sunday",
+            "hidden": false,
+            "id": "9",
+            "includeOriginalValue": true,
+            "kind": "BASE",
+            "name": "Work_Day",
+            "role": "VALUE",
+            "type": "STRING",
+            "version": "000000000000001B"
+          },
+          {
+            "abbreviation": "Year",
+            "autoGenerated": false,
+            "deprecated": false,
+            "description": "A calendar year (for example, 2012)",
+            "hidden": false,
+            "id": "10",
+            "includeOriginalValue": true,
+            "kind": "BASE",
+            "name": "Year",
+            "role": "VALUE",
+            "type": "INTEGER",
+            "version": "000000000000001C"
+          },
+          {
+            "abbreviation": "Day",
+            "autoGenerated": false,
+            "deprecated": false,
+            "description": "A day of the month (for example, 31 for January 31st)",
+            "hidden": false,
+            "id": "11",
+            "includeOriginalValue": true,
+            "kind": "BASE",
+            "name": "Day_of_Month",
+            "role": "VALUE",
+            "type": "INTEGER",
+            "version": "000000000000001D"
+          },
+          {
+            "abbreviation": "Week",
+            "autoGenerated": false,
+            "deprecated": false,
+            "description": "The week number within the year",
+            "hidden": false,
+            "id": "12",
+            "includeOriginalValue": true,
+            "kind": "BASE",
+            "name": "Week",
+            "role": "VALUE",
+            "type": "STRING",
+            "version": "000000000000001E"
+          },
+          {
+            "abbreviation": "Day",
+            "autoGenerated": false,
+            "deprecated": false,
+            "description": "The day number within the year",
+            "hidden": false,
+            "id": "13",
+            "includeOriginalValue": true,
+            "kind": "BASE",
+            "name": "Day_of_Year",
+            "role": "VALUE",
+            "type": "INTEGER",
+            "version": "000000000000001F"
+          }
+        ],
+        "history": [
+          {
+            "lifecycleStage": "created",
+            "replaces": null,
+            "time": "2013-09-11T22:06:39.334Z",
+            "user": {
+              "href": "http://myserver.com:8001/api/v1/users/-1",
+              "id": "-1"
+            },
+            "version": "0000000000000012"
+          }
+        ],
+        "href": "http://myserver.com:8001/api/v1/datasets/1",
+        "id": "1",
+        "key": [
+          {
+            "abbreviation": "Date",
+            "autoGenerated": false,
+            "deprecated": false,
+            "description": "A single day, expressed as a date-valued column (2012-01-31).",
+            "hidden": false,
+            "id": "1",
+            "includeOriginalValue": true,
+            "kind": "BASE",
+            "name": "Date",
+            "role": "VALUE",
+            "type": "DATETIME",
+            "version": "0000000000000013"
+          }
+        ],
+        "name": "Date",
+        "objectPermissions": {
+          "Create": [
+            {
+              "memberId": -1,
+              "type": "GROUP"
+            }
+          ],
+          "DataAccess": [
+            {
+              "memberId": -1,
+              "type": "GROUP"
+            }
+          ],
+          "Owner": [
+            {
+              "memberId": -1,
+              "type": "USER"
+            }
+          ]
+        },
+        "version": "0000000000000012"
+      },
+      {
+        "abbreviation": "Flights",
+        "adapter": {
+          "adapterDetails": {
+            "hasHeader": "true",
+            "nullString": "\\N",
+            "path": "flights.csv",
+            "separatorChar": ","
+          },
+          "adapterType": "CSV"
+        },
+        "dataSource": {
+          "href": "http://myserver.com:8001/api/v1/datasources/2",
+          "id": "2",
+          "name": "Uploads"
+        },
+        "deprecated": false,
+        "description": "Domestic FAA flight records from October 2012, the month of Hurricane Sandy",
+        "effectivePermissions": 63,
+        "fields": [
+          {
+            "abbreviation": "year",
+            "autoGenerated": false,
+            "deprecated": false,
+            "description": "year of flight departure",
+            "hidden": true,
+            "id": "42",
+            "includeOriginalValue": true,
+            "kind": "BASE",
+            "name": "year",
+            "role": "VALUE",
+            "type": "STRING",
+            "version": "0000000000000059"
+          },
+          {
+            "abbreviation": "month",
+            "autoGenerated": false,
+            "deprecated": false,
+            "description": "month 1-12 of flight departure",
+            "hidden": true,
+            "id": "43",
+            "includeOriginalValue": true,
+            "kind": "BASE",
+            "name": "month",
+            "role": "VALUE",
+            "type": "STRING",
+            "version": "000000000000005A"
+          },
+          {
+            "abbreviation": "day",
+            "autoGenerated": false,
+            "deprecated": false,
+            "description": "day 1-31 of flight departure",
+            "hidden": true,
+            "id": "44",
+            "includeOriginalValue": true,
+            "kind": "BASE",
+            "name": "day",
+            "role": "VALUE",
+            "type": "STRING",
+            "version": "000000000000005B"
+          },
+          {
+            "abbreviation": "Carrier Code",
+            "autoGenerated": false,
+            "deprecated": false,
+            "description": "the IATA carrier code",
+            "hidden": false,
+            "id": "45",
+            "includeOriginalValue": true,
+            "kind": "BASE",
+            "name": "Carrier Code",
+            "role": "VALUE",
+            "type": "STRING",
+            "version": "000000000000005C"
+          },
+          {
+            "abbreviation": "Tail Number",
+            "autoGenerated": false,
+            "deprecated": false,
+            "description": "the tail number of the aircraft",
+            "hidden": false,
+            "id": "46",
+            "includeOriginalValue": true,
+            "kind": "BASE",
+            "name": "Tail Number",
+            "role": "VALUE",
+            "type": "STRING",
+            "version": "000000000000005D"
+          },
+          {
+            "abbreviation": "Flight Number",
+            "autoGenerated": false,
+            "deprecated": false,
+            "description": "the flight number",
+            "hidden": false,
+            "id": "47",
+            "includeOriginalValue": true,
+            "kind": "BASE",
+            "name": "Flight Number",
+            "role": "VALUE",
+            "type": "INTEGER",
+            "version": "000000000000005E"
+          },
+          {
+            "abbreviation": "orig_airport",
+            "autoGenerated": false,
+            "deprecated": false,
+            "description": "the code of the origin airport where a flight departed",
+            "hidden": true,
+            "id": "48",
+            "includeOriginalValue": true,
+            "kind": "BASE",
+            "name": "orig_airport",
+            "role": "VALUE",
+            "type": "STRING",
+            "version": "000000000000005F"
+          },
+          {
+            "abbreviation": "dest_airport",
+            "autoGenerated": false,
+            "deprecated": false,
+            "description": "the code of the destination airport where a flight arrived",
+            "hidden": true,
+            "id": "49",
+            "includeOriginalValue": true,
+            "kind": "BASE",
+            "name": "dest_airport",
+            "role": "VALUE",
+            "type": "STRING",
+            "version": "0000000000000060"
+          },
+          {
+            "abbreviation": "crs_depart_time",
+            "autoGenerated": false,
+            "deprecated": false,
+            "description": "local departure time of flight as in the computer reservation system",
+            "hidden": true,
+            "id": "50",
+            "includeOriginalValue": true,
+            "kind": "BASE",
+            "name": "crs_depart_time",
+            "role": "VALUE",
+            "type": "STRING",
+            "version": "0000000000000061"
+          },
+          {
+            "abbreviation": "depart_time",
+            "autoGenerated": false,
+            "deprecated": false,
+            "description": "local departure time of a flight that took off",
+            "hidden": true,
+            "id": "51",
+            "includeOriginalValue": true,
+            "kind": "BASE",
+            "name": "depart_time",
+            "role": "VALUE",
+            "type": "STRING",
+            "version": "0000000000000062"
+          },
+          {
+            "abbreviation": "departure_delay",
+            "autoGenerated": false,
+            "deprecated": false,
+            "description": "the difference between scheduled and actual departure in minutes",
+            "hidden": true,
+            "id": "52",
+            "includeOriginalValue": true,
+            "kind": "BASE",
+            "name": "departure_delay",
+            "role": "VALUE",
+            "type": "INTEGER",
+            "version": "0000000000000063"
+          },
+          {
+            "abbreviation": "taxi_out_mins",
+            "autoGenerated": false,
+            "deprecated": false,
+            "description": "taxi time in minutes spent on the runway at the departure airport",
+            "hidden": true,
+            "id": "53",
+            "includeOriginalValue": true,
+            "kind": "BASE",
+            "name": "taxi_out_mins",
+            "role": "VALUE",
+            "type": "INTEGER",
+            "version": "0000000000000064"
+          },
+          {
+            "abbreviation": "taxi_in_mins",
+            "autoGenerated": false,
+            "deprecated": false,
+            "description": "taxi time in minutes spent on the runway at the arrival airport",
+            "hidden": true,
+            "id": "54",
+            "includeOriginalValue": true,
+            "kind": "BASE",
+            "name": "taxi_in_mins",
+            "role": "VALUE",
+            "type": "INTEGER",
+            "version": "0000000000000065"
+          },
+          {
+            "abbreviation": "crs_arrive_time",
+            "autoGenerated": false,
+            "deprecated": false,
+            "description": "local arrival time of a flight as in the computer reservation system",
+            "hidden": true,
+            "id": "55",
+            "includeOriginalValue": true,
+            "kind": "BASE",
+            "name": "crs_arrive_time",
+            "role": "VALUE",
+            "type": "STRING",
+            "version": "0000000000000066"
+          },
+          {
+            "abbreviation": "arrive_time",
+            "autoGenerated": false,
+            "deprecated": false,
+            "description": "local arrival time of a flight that landed",
+            "hidden": true,
+            "id": "56",
+            "includeOriginalValue": true,
+            "kind": "BASE",
+            "name": "arrive_time",
+            "role": "VALUE",
+            "type": "STRING",
+            "version": "0000000000000067"
+          },
+          {
+            "abbreviation": "arrival_delay",
+            "autoGenerated": false,
+            "deprecated": false,
+            "description": "the difference between scheduled and actual arrival time in minutes",
+            "hidden": true,
+            "id": "57",
+            "includeOriginalValue": true,
+            "kind": "BASE",
+            "name": "arrival_delay",
+            "role": "VALUE",
+            "type": "INTEGER",
+            "version": "0000000000000068"
+          },
+          {
+            "abbreviation": "cancel_boolean",
+            "autoGenerated": false,
+            "deprecated": false,
+            "description": "1 if flight was cancelled, 0 if it was not cancelled",
+            "hidden": true,
+            "id": "58",
+            "includeOriginalValue": true,
+            "kind": "BASE",
+            "name": "cancel_boolean",
+            "role": "VALUE",
+            "type": "INTEGER",
+            "version": "0000000000000069"
+          },
+          {
+            "abbreviation": "cancel_code",
+            "autoGenerated": false,
+            "deprecated": false,
+            "description": "cancel reason (A = carrier, B = weather, C = national airspace system, D = security)",
+            "hidden": true,
+            "id": "59",
+            "includeOriginalValue": true,
+            "kind": "BASE",
+            "name": "cancel_code",
+            "role": "VALUE",
+            "type": "STRING",
+            "version": "000000000000006A"
+          },
+          {
+            "abbreviation": "diverted_boolean",
+            "autoGenerated": false,
+            "deprecated": false,
+            "description": "1 if flight was diverted, 0 if it was not diverted",
+            "hidden": true,
+            "id": "60",
+            "includeOriginalValue": true,
+            "kind": "BASE",
+            "name": "diverted_boolean",
+            "role": "VALUE",
+            "type": "INTEGER",
+            "version": "000000000000006B"
+          },
+          {
+            "abbreviation": "Estimated Duration",
+            "autoGenerated": false,
+            "deprecated": false,
+            "description": "the total estimated duration of a flight in minutes from the computer reservation system",
+            "hidden": false,
+            "id": "61",
+            "includeOriginalValue": false,
+            "kind": "BASE",
+            "name": "Estimated Duration",
+            "quickfieldMeasures": [
+              "Avg",
+              "Sum"
+            ],
+            "role": "VALUE",
+            "type": "INTEGER",
+            "version": "000000000000006C"
+          },
+          {
+            "abbreviation": "Flight Duration",
+            "autoGenerated": false,
+            "deprecated": false,
+            "description": "the total actual duration in minutes of a flight",
+            "hidden": false,
+            "id": "62",
+            "includeOriginalValue": false,
+            "kind": "BASE",
+            "name": "Flight Duration",
+            "quickfieldMeasures": [
+              "Avg",
+              "Sum"
+            ],
+            "role": "VALUE",
+            "type": "INTEGER",
+            "version": "000000000000006D"
+          },
+          {
+            "abbreviation": "Airtime",
+            "autoGenerated": false,
+            "deprecated": false,
+            "description": "the time in the air in minutes of a flight",
+            "hidden": false,
+            "id": "63",
+            "includeOriginalValue": false,
+            "kind": "BASE",
+            "name": "Airtime",
+            "quickfieldMeasures": [
+              "Avg",
+              "Sum"
+            ],
+            "role": "VALUE",
+            "type": "INTEGER",
+            "version": "000000000000006E"
+          },
+          {
+            "abbreviation": "Distance",
+            "autoGenerated": false,
+            "deprecated": false,
+            "description": "the distance traveled in miles",
+            "hidden": false,
+            "id": "64",
+            "includeOriginalValue": false,
+            "kind": "BASE",
+            "name": "Distance",
+            "quickfieldMeasures": [
+              "Avg",
+              "Sum"
+            ],
+            "role": "VALUE",
+            "type": "INTEGER",
+            "version": "000000000000006F"
+          },
+          {
+            "abbreviation": "Departure Airport",
+            "autoGenerated": false,
+            "deprecated": false,
+            "description": "the airport of origin for a flight - joins to the Airports dataset",
+            "hidden": false,
+            "id": "65",
+            "kind": "REFERENCE",
+            "name": "Departure Airport",
+            "role": "REFERENCE",
+            "target": {
+              "datasetId": "3",
+              "datasetName": "Airports",
+              "datasetVersion": "000000000000004B",
+              "foreignKey": [
+                {
+                  "id": "48",
+                  "name": "orig_airport"
+                }
+              ],
+              "href": "http://myserver.com:8001/api/v1/datasets/3"
+            },
+            "type": "REFERENCE",
+            "version": "0000000000000070"
+          },
+          {
+            "abbreviation": "Arrival Airport",
+            "autoGenerated": false,
+            "deprecated": false,
+            "description": "the arrival airport of a flight - joins to the Airports dataset",
+            "hidden": false,
+            "id": "66",
+            "kind": "REFERENCE",
+            "name": "Arrival Airport",
+            "role": "REFERENCE",
+            "target": {
+              "datasetId": "3",
+              "datasetName": "Airports",
+              "datasetVersion": "000000000000004B",
+              "foreignKey": [
+                {
+                  "id": "49",
+                  "name": "dest_airport"
+                }
+              ],
+              "href": "http://myserver.com:8001/api/v1/datasets/3"
+            },
+            "type": "REFERENCE",
+            "version": "0000000000000071"
+          },
+          {
+            "abbreviation": "Departure Date",
+            "autoGenerated": false,
+            "deprecated": false,
+            "description": "the departure date of a flight - joins to Date dataset",
+            "hidden": false,
+            "id": "67",
+            "kind": "REFERENCE",
+            "name": "Departure Date",
+            "role": "REFERENCE",
+            "target": {
+              "datasetId": "1",
+              "datasetName": "Date",
+              "datasetVersion": "0000000000000012",
+              "foreignKey": [
+                {
+                  "id": "75",
+                  "name": "depart_datetime"
+                }
+              ],
+              "href": "http://myserver.com:8001/api/v1/datasets/1"
+            },
+            "type": "REFERENCE",
+            "version": "0000000000000072"
+          },
+          {
+            "abbreviation": "Departure Time",
+            "autoGenerated": false,
+            "deprecated": false,
+            "description": "the departure time of a flight - joins to Time dataset",
+            "hidden": false,
+            "id": "68",
+            "kind": "REFERENCE",
+            "name": "Departure Time",
+            "role": "REFERENCE",
+            "target": {
+              "datasetId": "2",
+              "datasetName": "Time",
+              "datasetVersion": "0000000000000033",
+              "foreignKey": [
+                {
+                  "id": "75",
+                  "name": "depart_datetime"
+                }
+              ],
+              "href": "http://myserver.com:8001/api/v1/datasets/2"
+            },
+            "type": "REFERENCE",
+            "version": "0000000000000073"
+          },
+          {
+            "abbreviation": "Scheduled Departure Date",
+            "autoGenerated": false,
+            "deprecated": false,
+            "description": "the scheduled departure date of a flight in the computer system- joins to Date dataset",
+            "hidden": false,
+            "id": "69",
+            "kind": "REFERENCE",
+            "name": "Scheduled Departure Date",
+            "role": "REFERENCE",
+            "target": {
+              "datasetId": "1",
+              "datasetName": "Date",
+              "datasetVersion": "0000000000000012",
+              "foreignKey": [
+                {
+                  "id": "76",
+                  "name": "crs_depart_datetime"
+                }
+              ],
+              "href": "http://myserver.com:8001/api/v1/datasets/1"
+            },
+            "type": "REFERENCE",
+            "version": "0000000000000074"
+          },
+          {
+            "abbreviation": "Scheduled Departure Time",
+            "autoGenerated": false,
+            "deprecated": false,
+            "description": "the scheduled departure time of a flight in the computer system - joins to Time dataset",
+            "hidden": false,
+            "id": "70",
+            "kind": "REFERENCE",
+            "name": "Scheduled Departure Time",
+            "role": "REFERENCE",
+            "target": {
+              "datasetId": "2",
+              "datasetName": "Time",
+              "datasetVersion": "0000000000000033",
+              "foreignKey": [
+                {
+                  "id": "76",
+                  "name": "crs_depart_datetime"
+                }
+              ],
+              "href": "http://myserver.com:8001/api/v1/datasets/2"
+            },
+            "type": "REFERENCE",
+            "version": "0000000000000075"
+          },
+          {
+            "abbreviation": "Scheduled Arrival Time",
+            "autoGenerated": false,
+            "deprecated": false,
+            "description": "the scheduled local arrival time of a flight in the computer system - joins to Time dataset",
+            "hidden": false,
+            "id": "71",
+            "kind": "REFERENCE",
+            "name": "Scheduled Arrival Time",
+            "role": "REFERENCE",
+            "target": {
+              "datasetId": "2",
+              "datasetName": "Time",
+              "datasetVersion": "0000000000000033",
+              "foreignKey": [
+                {
+                  "id": "78",
+                  "name": "crs_arrive_datetime"
+                }
+              ],
+              "href": "http://myserver.com:8001/api/v1/datasets/2"
+            },
+            "type": "REFERENCE",
+            "version": "0000000000000076"
+          },
+          {
+            "abbreviation": "Scheduled Arrival Date",
+            "autoGenerated": false,
+            "deprecated": false,
+            "description": "Do not use - Arrival Date is NULL in this data",
+            "hidden": true,
+            "id": "72",
+            "kind": "REFERENCE",
+            "name": "Scheduled Arrival Date",
+            "role": "REFERENCE",
+            "target": {
+              "datasetId": "1",
+              "datasetName": "Date",
+              "datasetVersion": "0000000000000012",
+              "foreignKey": [
+                {
+                  "id": "78",
+                  "name": "crs_arrive_datetime"
+                }
+              ],
+              "href": "http://myserver.com:8001/api/v1/datasets/1"
+            },
+            "type": "REFERENCE",
+            "version": "0000000000000077"
+          },
+          {
+            "abbreviation": "Arrival Time",
+            "autoGenerated": false,
+            "deprecated": false,
+            "description": "the actual local arrival time of a flight - joins to Time dataset",
+            "hidden": false,
+            "id": "73",
+            "kind": "REFERENCE",
+            "name": "Arrival Time",
+            "role": "REFERENCE",
+            "target": {
+              "datasetId": "2",
+              "datasetName": "Time",
+              "datasetVersion": "0000000000000033",
+              "foreignKey": [
+                {
+                  "id": "77",
+                  "name": "arrive_datetime"
+                }
+              ],
+              "href": "http://myserver.com:8001/api/v1/datasets/2"
+            },
+            "type": "REFERENCE",
+            "version": "0000000000000078"
+          },
+          {
+            "abbreviation": "Arrival Date",
+            "autoGenerated": false,
+            "deprecated": false,
+            "description": "Do not use - Arrival Date is NULL in this data",
+            "hidden": true,
+            "id": "74",
+            "kind": "REFERENCE",
+            "name": "Arrival Date",
+            "role": "REFERENCE",
+            "target": {
+              "datasetId": "1",
+              "datasetName": "Date",
+              "datasetVersion": "0000000000000012",
+              "foreignKey": [
+                {
+                  "id": "77",
+                  "name": "arrive_datetime"
+                }
+              ],
+              "href": "http://myserver.com:8001/api/v1/datasets/1"
+            },
+            "type": "REFERENCE",
+            "version": "0000000000000079"
+          },
+          {
+            "abbreviation": "depart_datetime",
+            "autoGenerated": false,
+            "dependencies": [
+              {
+                "path": [
+                  {
+                    "id": "51",
+                    "name": "depart_time",
+                    "version": "0000000000000062"
+                  }
+                ]
+              },
+              {
+                "path": [
+                  {
+                    "id": "44",
+                    "name": "day",
+                    "version": "000000000000005B"
+                  }
+                ]
+              },
+              {
+                "path": [
+                  {
+                    "id": "42",
+                    "name": "year",
+                    "version": "0000000000000059"
+                  }
+                ]
+              },
+              {
+                "path": [
+                  {
+                    "id": "43",
+                    "name": "month",
+                    "version": "000000000000005A"
+                  }
+                ]
+              }
+            ],
+            "deprecated": false,
+            "description": "date and local time of departure",
+            "expression": "TO_DATE(CONCAT(month,\"/\",day,\"/\",year,\":\",REGEX_REPLACE(depart_time,\"\\b(\\d{3})\\b\",\"0$1\")),\"MM/dd/yyyy:HHmm\")",
+            "hidden": true,
+            "id": "75",
+            "includeOriginalValue": true,
+            "kind": "COMPUTED",
+            "name": "depart_datetime",
+            "role": "VALUE",
+            "type": "DATETIME",
+            "version": "000000000000007A"
+          },
+          {
+            "abbreviation": "crs_depart_datetime",
+            "autoGenerated": false,
+            "dependencies": [
+              {
+                "path": [
+                  {
+                    "id": "43",
+                    "name": "month",
+                    "version": "000000000000005A"
+                  }
+                ]
+              },
+              {
+                "path": [
+                  {
+                    "id": "44",
+                    "name": "day",
+                    "version": "000000000000005B"
+                  }
+                ]
+              },
+              {
+                "path": [
+                  {
+                    "id": "50",
+                    "name": "crs_depart_time",
+                    "version": "0000000000000061"
+                  }
+                ]
+              },
+              {
+                "path": [
+                  {
+                    "id": "42",
+                    "name": "year",
+                    "version": "0000000000000059"
+                  }
+                ]
+              }
+            ],
+            "deprecated": false,
+            "description": "scheduled date and time of departure as in the computer reservation system",
+            "expression": "TO_DATE(CONCAT(month,\"/\",day,\"/\",year,\":\",REGEX_REPLACE(crs_depart_time,\"\\b(\\d{3})\\b\",\"0$1\")),\"MM/dd/yyyy:HHmm\")",
+            "hidden": true,
+            "id": "76",
+            "includeOriginalValue": true,
+            "kind": "COMPUTED",
+            "name": "crs_depart_datetime",
+            "role": "VALUE",
+            "type": "DATETIME",
+            "version": "000000000000007B"
+          },
+          {
+            "abbreviation": "arrive_datetime",
+            "autoGenerated": false,
+            "dependencies": [
+              {
+                "path": [
+                  {
+                    "id": "56",
+                    "name": "arrive_time",
+                    "version": "0000000000000067"
+                  }
+                ]
+              }
+            ],
+            "deprecated": false,
+            "description": "local time of arrival (has time only because sometimes a flight arrives on a different date than its departure)",
+            "expression": "TO_DATE(REGEX_REPLACE(arrive_time,\"\\b(\\d{3})\\b\",\"0$1\"),\"HHmm\")",
+            "hidden": true,
+            "id": "77",
+            "includeOriginalValue": true,
+            "kind": "COMPUTED",
+            "name": "arrive_datetime",
+            "role": "VALUE",
+            "type": "DATETIME",
+            "version": "000000000000007C"
+          },
+          {
+            "abbreviation": "crs_arrive_datetime",
+            "autoGenerated": false,
+            "dependencies": [
+              {
+                "path": [
+                  {
+                    "id": "55",
+                    "name": "crs_arrive_time",
+                    "version": "0000000000000066"
+                  }
+                ]
+              }
+            ],
+            "deprecated": false,
+            "description": "scheduled local time of arrival in computer reservation system",
+            "expression": "TO_DATE(REGEX_REPLACE(crs_arrive_time,\"\\b(\\d{3})\\b\",\"0$1\"),\"HHmm\")",
+            "hidden": true,
+            "id": "78",
+            "includeOriginalValue": true,
+            "kind": "COMPUTED",
+            "name": "crs_arrive_datetime",
+            "role": "VALUE",
+            "type": "DATETIME",
+            "version": "000000000000007D"
+          },
+          {
+            "abbreviation": "Cancel Status",
+            "autoGenerated": false,
+            "dependencies": [
+              {
+                "path": [
+                  {
+                    "id": "58",
+                    "name": "cancel_boolean",
+                    "version": "0000000000000069"
+                  }
+                ]
+              }
+            ],
+            "deprecated": false,
+            "description": "denotes if a flight was cancelled or not cancelled",
+            "expression": "CASE WHEN cancel_boolean=0 THEN \"Not Cancelled\" WHEN cancel_boolean=1 THEN \"Cancelled\" ELSE NULL END",
+            "hidden": false,
+            "id": "79",
+            "includeOriginalValue": true,
+            "kind": "COMPUTED",
+            "name": "Cancel Status",
+            "role": "VALUE",
+            "type": "STRING",
+            "version": "000000000000007E"
+          },
+          {
+            "abbreviation": "Cancel Reason",
+            "autoGenerated": false,
+            "dependencies": [
+              {
+                "path": [
+                  {
+                    "id": "59",
+                    "name": "cancel_code",
+                    "version": "000000000000006A"
+                  }
+                ]
+              }
+            ],
+            "deprecated": false,
+            "description": "if a flight was cancelled, denotes the reason for the cancellation",
+            "expression": "CASE WHEN cancel_code=\"A\" THEN \"Carrier\" WHEN cancel_code=\"B\" THEN \"Weather\" WHEN cancel_code=\"C\" THEN \"National Airspace System\" WHEN cancel_code=\"D\" THEN \"Security\" ELSE \"Not Applicable\" END",
+            "hidden": false,
+            "id": "80",
+            "includeOriginalValue": true,
+            "kind": "COMPUTED",
+            "name": "Cancel Reason",
+            "role": "VALUE",
+            "type": "STRING",
+            "version": "000000000000007F"
+          },
+          {
+            "abbreviation": "Diverted Status",
+            "autoGenerated": false,
+            "dependencies": [
+              {
+                "path": [
+                  {
+                    "id": "60",
+                    "name": "diverted_boolean",
+                    "version": "000000000000006B"
+                  }
+                ]
+              }
+            ],
+            "deprecated": false,
+            "description": "denotes if a flight was diverted from its original destination or not diverted",
+            "expression": "CASE WHEN diverted_boolean=0 THEN \"Not Diverted\" WHEN diverted_boolean=1 THEN \"Diverted\" ELSE NULL END",
+            "hidden": false,
+            "id": "81",
+            "includeOriginalValue": true,
+            "kind": "COMPUTED",
+            "name": "Diverted Status",
+            "role": "VALUE",
+            "type": "STRING",
+            "version": "0000000000000080"
+          },
+          {
+            "abbreviation": "Flight Records (COUNT)",
+            "autoGenerated": false,
+            "dependencies": [],
+            "deprecated": false,
+            "description": "number of rows in the flight dataset",
+            "expression": "COUNT()",
+            "hidden": false,
+            "id": "82",
+            "kind": "MEASURE",
+            "name": "Flight Records (COUNT)",
+            "role": "MEASURE",
+            "type": "LONG",
+            "version": "0000000000000081"
+          },
+          {
+            "abbreviation": "Arrival Delay (AVG)",
+            "autoGenerated": false,
+            "dependencies": [
+              {
+                "path": [
+                  {
+                    "id": "57",
+                    "name": "arrival_delay",
+                    "version": "0000000000000068"
+                  }
+                ]
+              }
+            ],
+            "deprecated": false,
+            "description": "the average arrival delay in minutes. early flights are negative values.",
+            "expression": "AVG(arrival_delay)",
+            "hidden": false,
+            "id": "83",
+            "kind": "MEASURE",
+            "name": "Arrival Delay (AVG)",
+            "role": "MEASURE",
+            "type": "DOUBLE",
+            "version": "0000000000000082"
+          },
+          {
+            "abbreviation": "Departure Delay (AVG)",
+            "autoGenerated": false,
+            "dependencies": [
+              {
+                "path": [
+                  {
+                    "id": "52",
+                    "name": "departure_delay",
+                    "version": "0000000000000063"
+                  }
+                ]
+              }
+            ],
+            "deprecated": false,
+            "description": "the average departure delay in minutes. early flights are negative values.",
+            "expression": "AVG(departure_delay)",
+            "hidden": false,
+            "id": "84",
+            "kind": "MEASURE",
+            "name": "Departure Delay (AVG)",
+            "role": "MEASURE",
+            "type": "DOUBLE",
+            "version": "0000000000000083"
+          },
+          {
+            "abbreviation": "Arrival Delay (MAX)",
+            "autoGenerated": false,
+            "dependencies": [
+              {
+                "path": [
+                  {
+                    "id": "57",
+                    "name": "arrival_delay",
+                    "version": "0000000000000068"
+                  }
+                ]
+              }
+            ],
+            "deprecated": false,
+            "description": "the longest arrival delay in minutes",
+            "expression": "MAX(arrival_delay)",
+            "hidden": false,
+            "id": "85",
+            "kind": "MEASURE",
+            "name": "Arrival Delay (MAX)",
+            "role": "MEASURE",
+            "type": "LONG",
+            "version": "0000000000000084"
+          },
+          {
+            "abbreviation": "Departure Delay (MAX)",
+            "autoGenerated": false,
+            "dependencies": [
+              {
+                "path": [
+                  {
+                    "id": "52",
+                    "name": "departure_delay",
+                    "version": "0000000000000063"
+                  }
+                ]
+              }
+            ],
+            "deprecated": false,
+            "description": "the longest departure delay in minutes",
+            "expression": "MAX(departure_delay)",
+            "hidden": false,
+            "id": "86",
+            "kind": "MEASURE",
+            "name": "Departure Delay (MAX)",
+            "role": "MEASURE",
+            "type": "LONG",
+            "version": "0000000000000085"
+          },
+          {
+            "abbreviation": "Taxi on Departure (MAX)",
+            "autoGenerated": false,
+            "dependencies": [
+              {
+                "path": [
+                  {
+                    "id": "53",
+                    "name": "taxi_out_mins",
+                    "version": "0000000000000064"
+                  }
+                ]
+              }
+            ],
+            "deprecated": false,
+            "description": "the maximum taxi time in minutes at the departure airport",
+            "expression": "MAX(taxi_out_mins)",
+            "hidden": false,
+            "id": "87",
+            "kind": "MEASURE",
+            "name": "Taxi on Departure (MAX)",
+            "role": "MEASURE",
+            "type": "LONG",
+            "version": "0000000000000086"
+          },
+          {
+            "abbreviation": "Taxi on Departure (AVG)",
+            "autoGenerated": false,
+            "dependencies": [
+              {
+                "path": [
+                  {
+                    "id": "53",
+                    "name": "taxi_out_mins",
+                    "version": "0000000000000064"
+                  }
+                ]
+              }
+            ],
+            "deprecated": false,
+            "description": "the average taxi time in minutes at the departure airport",
+            "expression": "AVG(taxi_out_mins)",
+            "hidden": false,
+            "id": "88",
+            "kind": "MEASURE",
+            "name": "Taxi on Departure (AVG)",
+            "role": "MEASURE",
+            "type": "DOUBLE",
+            "version": "0000000000000087"
+          },
+          {
+            "abbreviation": "Taxi on Arrival (MAX)",
+            "autoGenerated": false,
+            "dependencies": [
+              {
+                "path": [
+                  {
+                    "id": "54",
+                    "name": "taxi_in_mins",
+                    "version": "0000000000000065"
+                  }
+                ]
+              }
+            ],
+            "deprecated": false,
+            "description": "the maximum taxi time in minutes at the arrival airport",
+            "expression": "MAX(taxi_in_mins)",
+            "hidden": false,
+            "id": "89",
+            "kind": "MEASURE",
+            "name": "Taxi on Arrival (MAX)",
+            "role": "MEASURE",
+            "type": "LONG",
+            "version": "0000000000000088"
+          },
+          {
+            "abbreviation": "Taxi on Arrival (AVG)",
+            "autoGenerated": false,
+            "dependencies": [
+              {
+                "path": [
+                  {
+                    "id": "54",
+                    "name": "taxi_in_mins",
+                    "version": "0000000000000065"
+                  }
+                ]
+              }
+            ],
+            "deprecated": false,
+            "description": "the average taxi time in minutes at the arrival airport",
+            "expression": "AVG(taxi_in_mins)",
+            "hidden": false,
+            "id": "90",
+            "kind": "MEASURE",
+            "name": "Taxi on Arrival (AVG)",
+            "role": "MEASURE",
+            "type": "DOUBLE",
+            "version": "0000000000000089"
+          },
+          {
+            "abbreviation": "Planes (DISTINCT)",
+            "autoGenerated": false,
+            "dependencies": [
+              {
+                "path": [
+                  {
+                    "id": "46",
+                    "name": "Tail Number",
+                    "version": "000000000000005D"
+                  }
+                ]
+              }
+            ],
+            "deprecated": false,
+            "description": "the number of distinct aircraft in the data",
+            "expression": "DISTINCT([Tail Number])",
+            "hidden": false,
+            "id": "91",
+            "kind": "MEASURE",
+            "name": "Planes (DISTINCT)",
+            "role": "MEASURE",
+            "type": "LONG",
+            "version": "000000000000008A"
+          },
+          {
+            "abbreviation": "Carriers (DISTINCT)",
+            "autoGenerated": false,
+            "dependencies": [
+              {
+                "path": [
+                  {
+                    "id": "45",
+                    "name": "Carrier Code",
+                    "version": "000000000000005C"
+                  }
+                ]
+              }
+            ],
+            "deprecated": false,
+            "description": "the number of distinct airline carriers in the data",
+            "expression": "DISTINCT([Carrier Code])",
+            "hidden": false,
+            "id": "92",
+            "kind": "MEASURE",
+            "name": "Carriers (DISTINCT)",
+            "role": "MEASURE",
+            "type": "LONG",
+            "version": "000000000000008B"
+          },
+          {
+            "abbreviation": "Destinations (DISTINCT)",
+            "autoGenerated": false,
+            "dependencies": [
+              {
+                "path": [
+                  {
+                    "id": "49",
+                    "name": "dest_airport",
+                    "version": "0000000000000060"
+                  }
+                ]
+              }
+            ],
+            "deprecated": false,
+            "description": "the number of distinct arrival airports in the data",
+            "expression": "DISTINCT(dest_airport)",
+            "hidden": false,
+            "id": "93",
+            "kind": "MEASURE",
+            "name": "Destinations (DISTINCT)",
+            "role": "MEASURE",
+            "type": "LONG",
+            "version": "000000000000008C"
+          },
+          {
+            "abbreviation": "Origins (DISTINCT)",
+            "autoGenerated": false,
+            "dependencies": [
+              {
+                "path": [
+                  {
+                    "id": "48",
+                    "name": "orig_airport",
+                    "version": "000000000000005F"
+                  }
+                ]
+              }
+            ],
+            "deprecated": false,
+            "description": "the number of distinct departure airports in the data",
+            "expression": "DISTINCT(orig_airport)",
+            "hidden": false,
+            "id": "94",
+            "kind": "MEASURE",
+            "name": "Origins (DISTINCT)",
+            "role": "MEASURE",
+            "type": "LONG",
+            "version": "000000000000008D"
+          }
+        ],
+        "history": [
+          {
+            "lifecycleStage": "created",
+            "replaces": null,
+            "time": "2013-09-11T22:07:53.920Z",
+            "user": {
+              "href": "http://myserver.com:8001/api/v1/users/7",
+              "id": "7"
+            },
+            "version": "0000000000000058"
+          }
+        ],
+        "href": "http://myserver.com:8001/api/v1/datasets/4",
+        "id": "4",
+        "key": [],
+        "name": "Flights",
+        "objectPermissions": {
+          "Create": [
+            {
+              "memberId": -1,
+              "type": "GROUP"
+            }
+          ],
+          "DataAccess": [
+            {
+              "memberId": -1,
+              "type": "GROUP"
+            }
+          ],
+          "Owner": [
+            {
+              "memberId": 7,
+              "type": "USER"
+            },
+            {
+              "memberId": 5094,
+              "type": "USER"
+            }
+          ]
+        },
+        "version": "0000000000000058"
+      },
+      {
+        "abbreviation": "Time",
+        "adapter": {
+          "adapterDetails": {
+            "encoding": "UTF-8",
+            "escapeChar": "\\",
+            "hasHeader": false,
+            "maxLineLength": 1000000,
+            "path": "time.csv",
+            "quoteChar": "\"",
+            "recordSeparator": "\n",
+            "separatorChar": ",",
+            "skipLines": 0
+          },
+          "adapterType": "CSV"
+        },
+        "dataSource": {
+          "href": "http://myserver.com:8001/api/v1/datasources/1",
+          "id": "1",
+          "name": "System"
+        },
+        "deprecated": false,
+        "description": "Default time dataset with one second resolution.",
+        "effectivePermissions": 38,
+        "fields": [
+          {
+            "abbreviation": "Second of Day",
+            "autoGenerated": false,
+            "deprecated": false,
+            "description": "Number of seconds into a single day",
+            "hidden": false,
+            "id": "14",
+            "includeOriginalValue": true,
+            "kind": "BASE",
+            "name": "Second of Day",
+            "role": "VALUE",
+            "type": "INTEGER",
+            "version": "0000000000000034"
+          },
+          {
+            "abbreviation": "Time in Seconds",
+            "autoGenerated": false,
+            "deprecated": false,
+            "description": "Time of day with 1-second resolution",
+            "hidden": false,
+            "id": "15",
+            "includeOriginalValue": true,
+            "kind": "BASE",
+            "name": "Time in Seconds",
+            "role": "VALUE",
+            "type": "STRING",
+            "version": "0000000000000035"
+          },
+          {
+            "abbreviation": "Time in 5 Seconds",
+            "autoGenerated": false,
+            "deprecated": false,
+            "description": "Time of day with 5-second resolution",
+            "hidden": false,
+            "id": "16",
+            "includeOriginalValue": true,
+            "kind": "BASE",
+            "name": "Time in 5 Seconds",
+            "role": "VALUE",
+            "type": "STRING",
+            "version": "0000000000000036"
+          },
+          {
+            "abbreviation": "Time in 10 Seconds",
+            "autoGenerated": false,
+            "deprecated": false,
+            "description": "Time of day with 10-second resolution",
+            "hidden": false,
+            "id": "17",
+            "includeOriginalValue": true,
+            "kind": "BASE",
+            "name": "Time in 10 Seconds",
+            "role": "VALUE",
+            "type": "STRING",
+            "version": "0000000000000037"
+          },
+          {
+            "abbreviation": "Time in 15 Seconds",
+            "autoGenerated": false,
+            "deprecated": false,
+            "description": "Time of day with 15-second resolution",
+            "hidden": false,
+            "id": "18",
+            "includeOriginalValue": true,
+            "kind": "BASE",
+            "name": "Time in 15 Seconds",
+            "role": "VALUE",
+            "type": "STRING",
+            "version": "0000000000000038"
+          },
+          {
+            "abbreviation": "Time in 30 Seconds",
+            "autoGenerated": false,
+            "deprecated": false,
+            "description": "Time of day with 30-second resolution",
+            "hidden": false,
+            "id": "19",
+            "includeOriginalValue": true,
+            "kind": "BASE",
+            "name": "Time in 30 Seconds",
+            "role": "VALUE",
+            "type": "STRING",
+            "version": "0000000000000039"
+          },
+          {
+            "abbreviation": "Time in Minutes",
+            "autoGenerated": false,
+            "deprecated": false,
+            "description": "Time of day with 1-minute resolution",
+            "hidden": false,
+            "id": "20",
+            "includeOriginalValue": true,
+            "kind": "BASE",
+            "name": "Time in Minutes",
+            "role": "VALUE",
+            "type": "STRING",
+            "version": "000000000000003A"
+          },
+          {
+            "abbreviation": "Time in 5 Minutes",
+            "autoGenerated": false,
+            "deprecated": false,
+            "description": "Time of day with 5-minute resolution",
+            "hidden": false,
+            "id": "21",
+            "includeOriginalValue": true,
+            "kind": "BASE",
+            "name": "Time in 5 Minutes",
+            "role": "VALUE",
+            "type": "STRING",
+            "version": "000000000000003B"
+          },
+          {
+            "abbreviation": "Time in 10 Minutes",
+            "autoGenerated": false,
+            "deprecated": false,
+            "description": "Time of day with 10-minute resolution",
+            "hidden": false,
+            "id": "22",
+            "includeOriginalValue": true,
+            "kind": "BASE",
+            "name": "Time in 10 Minutes",
+            "role": "VALUE",
+            "type": "STRING",
+            "version": "000000000000003C"
+          },
+          {
+            "abbreviation": "Time in 15 Minutes",
+            "autoGenerated": false,
+            "deprecated": false,
+            "description": "Time of day with 15-minute resolution",
+            "hidden": false,
+            "id": "23",
+            "includeOriginalValue": true,
+            "kind": "BASE",
+            "name": "Time in 15 Minutes",
+            "role": "VALUE",
+            "type": "STRING",
+            "version": "000000000000003D"
+          },
+          {
+            "abbreviation": "Time in 30 Minutes",
+            "autoGenerated": false,
+            "deprecated": false,
+            "description": "Time of day with 30-minute resolution",
+            "hidden": false,
+            "id": "24",
+            "includeOriginalValue": true,
+            "kind": "BASE",
+            "name": "Time in 30 Minutes",
+            "role": "VALUE",
+            "type": "STRING",
+            "version": "000000000000003E"
+          },
+          {
+            "abbreviation": "Hour",
+            "autoGenerated": false,
+            "deprecated": false,
+            "description": "Hour of day",
+            "hidden": false,
+            "id": "25",
+            "includeOriginalValue": true,
+            "kind": "BASE",
+            "name": "Hour",
+            "role": "VALUE",
+            "type": "STRING",
+            "version": "000000000000003F"
+          },
+          {
+            "abbreviation": "Hour by 2",
+            "autoGenerated": false,
+            "deprecated": false,
+            "description": "Hour of day with 2-hour resolution",
+            "hidden": false,
+            "id": "26",
+            "includeOriginalValue": true,
+            "kind": "BASE",
+            "name": "Hour by 2",
+            "role": "VALUE",
+            "type": "STRING",
+            "version": "0000000000000040"
+          },
+          {
+            "abbreviation": "Hour by 3",
+            "autoGenerated": false,
+            "deprecated": false,
+            "description": "Hour of day with 3-hour resolution",
+            "hidden": false,
+            "id": "27",
+            "includeOriginalValue": true,
+            "kind": "BASE",
+            "name": "Hour by 3",
+            "role": "VALUE",
+            "type": "STRING",
+            "version": "0000000000000041"
+          },
+          {
+            "abbreviation": "Hour by 4",
+            "autoGenerated": false,
+            "deprecated": false,
+            "description": "Hour of day with 4-hour resolution",
+            "hidden": false,
+            "id": "28",
+            "includeOriginalValue": true,
+            "kind": "BASE",
+            "name": "Hour by 4",
+            "role": "VALUE",
+            "type": "STRING",
+            "version": "0000000000000042"
+          },
+          {
+            "abbreviation": "Hour by 6",
+            "autoGenerated": false,
+            "deprecated": false,
+            "description": "Hour of day with 6-hour resolution",
+            "hidden": false,
+            "id": "29",
+            "includeOriginalValue": true,
+            "kind": "BASE",
+            "name": "Hour by 6",
+            "role": "VALUE",
+            "type": "STRING",
+            "version": "0000000000000043"
+          },
+          {
+            "abbreviation": "Hour by 8",
+            "autoGenerated": false,
+            "deprecated": false,
+            "description": "Hour of day with 8-hour resolution",
+            "hidden": false,
+            "id": "30",
+            "includeOriginalValue": true,
+            "kind": "BASE",
+            "name": "Hour by 8",
+            "role": "VALUE",
+            "type": "STRING",
+            "version": "0000000000000044"
+          },
+          {
+            "abbreviation": "AM/PM",
+            "autoGenerated": false,
+            "deprecated": false,
+            "description": "AM = morning or PM = afternoon",
+            "hidden": false,
+            "id": "31",
+            "includeOriginalValue": true,
+            "kind": "BASE",
+            "name": "AM/PM",
+            "role": "VALUE",
+            "type": "STRING",
+            "version": "0000000000000045"
+          }
+        ],
+        "history": [
+          {
+            "lifecycleStage": "created",
+            "replaces": null,
+            "time": "2013-09-11T22:06:42.242Z",
+            "user": {
+              "href": "http://myserver.com:8001/api/v1/users/-1",
+              "id": "-1"
+            },
+            "version": "0000000000000033"
+          }
+        ],
+        "href": "http://myserver.com:8001/api/v1/datasets/2",
+        "id": "2",
+        "key": [
+          {
+            "abbreviation": "Second of Day",
+            "autoGenerated": false,
+            "deprecated": false,
+            "description": "Number of seconds into a single day",
+            "hidden": false,
+            "id": "14",
+            "includeOriginalValue": true,
+            "kind": "BASE",
+            "name": "Second of Day",
+            "role": "VALUE",
+            "type": "INTEGER",
+            "version": "0000000000000034"
+          }
+        ],
+        "name": "Time",
+        "objectPermissions": {
+          "Create": [
+            {
+              "memberId": -1,
+              "type": "GROUP"
+            }
+          ],
+          "DataAccess": [
+            {
+              "memberId": -1,
+              "type": "GROUP"
+            }
+          ],
+          "Owner": [
+            {
+              "memberId": -1,
+              "type": "USER"
+            }
+          ]
+        },
+        "version": "0000000000000033"
+      },
+      {
+        "abbreviation": "US_population_by_state",
+        "adapter": {
+          "adapterDetails": {
+            "delimDefinition": [],
+            "encoding": "UTF-8",
+            "escapeChar": "\\",
+            "filter": "",
+            "hasHeader": true,
+            "isLineBased": false,
+            "maxLineLength": 1000000,
+            "parserType": "TEXT",
+            "path": "US_population_by_state.csv",
+            "quoteChar": "\"",
+            "recordSeparator": null,
+            "regex": "",
+            "separatorChar": ",",
+            "skipLines": 0
+          },
+          "adapterType": "CSV"
+        },
+        "dataSource": {
+          "href": "http://myserver.com:8001/api/v1/datasources/2",
+          "id": "2",
+          "name": "Uploads"
+        },
+        "deprecated": false,
+        "effectivePermissions": 38,
+        "fields": [
+          {
+            "abbreviation": "Geographic Area",
+            "autoGenerated": false,
+            "deprecated": false,
+            "hidden": false,
+            "id": "111",
+            "includeOriginalValue": true,
+            "kind": "BASE",
+            "name": "Geographic Area",
+            "role": "VALUE",
+            "type": "STRING",
+            "version": "0000000000002F5E"
+          },
+          {
+            "abbreviation": "7/1/2010",
+            "autoGenerated": false,
+            "deprecated": false,
+            "hidden": false,
+            "id": "112",
+            "includeOriginalValue": true,
+            "kind": "BASE",
+            "name": "7/1/2010",
+            "role": "VALUE",
+            "type": "INTEGER",
+            "version": "0000000000002F5F"
+          },
+          {
+            "abbreviation": "July 1, 2009",
+            "autoGenerated": false,
+            "deprecated": false,
+            "hidden": false,
+            "id": "113",
+            "includeOriginalValue": true,
+            "kind": "BASE",
+            "name": "July 1, 2009",
+            "role": "VALUE",
+            "type": "STRING",
+            "version": "0000000000002F60"
+          },
+          {
+            "abbreviation": "July 1, 2008",
+            "autoGenerated": false,
+            "deprecated": false,
+            "hidden": false,
+            "id": "114",
+            "includeOriginalValue": true,
+            "kind": "BASE",
+            "name": "July 1, 2008",
+            "role": "VALUE",
+            "type": "STRING",
+            "version": "0000000000002F61"
+          },
+          {
+            "abbreviation": "July 1, 2007",
+            "autoGenerated": false,
+            "deprecated": false,
+            "hidden": false,
+            "id": "115",
+            "includeOriginalValue": true,
+            "kind": "BASE",
+            "name": "July 1, 2007",
+            "role": "VALUE",
+            "type": "STRING",
+            "version": "0000000000002F62"
+          },
+          {
+            "abbreviation": "July 1, 2006",
+            "autoGenerated": false,
+            "deprecated": false,
+            "hidden": false,
+            "id": "116",
+            "includeOriginalValue": true,
+            "kind": "BASE",
+            "name": "July 1, 2006",
+            "role": "VALUE",
+            "type": "STRING",
+            "version": "0000000000002F63"
+          },
+          {
+            "abbreviation": "July 1, 2005",
+            "autoGenerated": false,
+            "deprecated": false,
+            "hidden": false,
+            "id": "117",
+            "includeOriginalValue": true,
+            "kind": "BASE",
+            "name": "July 1, 2005",
+            "role": "VALUE",
+            "type": "STRING",
+            "version": "0000000000002F64"
+          },
+          {
+            "abbreviation": "July 1, 2004",
+            "autoGenerated": false,
+            "deprecated": false,
+            "hidden": false,
+            "id": "118",
+            "includeOriginalValue": true,
+            "kind": "BASE",
+            "name": "July 1, 2004",
+            "role": "VALUE",
+            "type": "STRING",
+            "version": "0000000000002F65"
+          },
+          {
+            "abbreviation": "July 1, 2003",
+            "autoGenerated": false,
+            "deprecated": false,
+            "hidden": false,
+            "id": "119",
+            "includeOriginalValue": true,
+            "kind": "BASE",
+            "name": "July 1, 2003",
+            "role": "VALUE",
+            "type": "STRING",
+            "version": "0000000000002F66"
+          },
+          {
+            "abbreviation": "July 1, 2002",
+            "autoGenerated": false,
+            "deprecated": false,
+            "hidden": false,
+            "id": "120",
+            "includeOriginalValue": true,
+            "kind": "BASE",
+            "name": "July 1, 2002",
+            "role": "VALUE",
+            "type": "STRING",
+            "version": "0000000000002F67"
+          },
+          {
+            "abbreviation": "July 1, 2001",
+            "autoGenerated": false,
+            "deprecated": false,
+            "hidden": false,
+            "id": "121",
+            "includeOriginalValue": true,
+            "kind": "BASE",
+            "name": "July 1, 2001",
+            "role": "VALUE",
+            "type": "STRING",
+            "version": "0000000000002F68"
+          },
+          {
+            "abbreviation": "July 1, 2000",
+            "autoGenerated": false,
+            "deprecated": false,
+            "hidden": false,
+            "id": "122",
+            "includeOriginalValue": true,
+            "kind": "BASE",
+            "name": "July 1, 2000",
+            "role": "VALUE",
+            "type": "STRING",
+            "version": "0000000000002F69"
+          },
+          {
+            "abbreviation": "April 1 2000 Estimates Base",
+            "autoGenerated": false,
+            "deprecated": false,
+            "hidden": false,
+            "id": "123",
+            "includeOriginalValue": true,
+            "kind": "BASE",
+            "name": "April 1 2000 Estimates Base",
+            "role": "VALUE",
+            "type": "STRING",
+            "version": "0000000000002F6A"
+          },
+          {
+            "abbreviation": "April 1 2000 Census",
+            "autoGenerated": false,
+            "deprecated": false,
+            "hidden": false,
+            "id": "124",
+            "includeOriginalValue": true,
+            "kind": "BASE",
+            "name": "April 1 2000 Census",
+            "role": "VALUE",
+            "type": "STRING",
+            "version": "0000000000002F6B"
+          },
+          {
+            "abbreviation": "column 14",
+            "autoGenerated": false,
+            "deprecated": false,
+            "hidden": true,
+            "id": "125",
+            "includeOriginalValue": true,
+            "kind": "BASE",
+            "name": "column 14",
+            "role": "VALUE",
+            "type": "STRING",
+            "version": "0000000000002F6C"
+          },
+          {
+            "abbreviation": "Total Records",
+            "autoGenerated": true,
+            "dependencies": [],
+            "deprecated": false,
+            "description": "System generated total record count (cannot be edited or deleted)",
+            "expression": "COUNT()",
+            "hidden": false,
+            "id": "126",
+            "kind": "MEASURE",
+            "name": "record count",
+            "role": "MEASURE",
+            "type": "LONG",
+            "version": "0000000000002F6D"
+          }
+        ],
+        "history": [
+          {
+            "lifecycleStage": "modified",
+            "replaces": "0000000000001DAB",
+            "time": "2013-09-19T22:21:46.807Z",
+            "user": {
+              "href": "http://myserver.com:8001/api/v1/users/5094",
+              "id": "5094"
+            },
+            "version": "0000000000001DAB"
+          },
+          {
+            "lifecycleStage": "created",
+            "replaces": null,
+            "time": "2013-09-19T22:21:46.807Z",
+            "user": {
+              "href": "http://myserver.com:8001/api/v1/users/5094",
+              "id": "5094"
+            },
+            "version": "0000000000001DAB"
+          }
+        ],
+        "href": "http://myserver.com:8001/api/v1/datasets/5",
+        "id": "5",
+        "key": [
+          {
+            "abbreviation": "Geographic Area",
+            "autoGenerated": false,
+            "deprecated": false,
+            "hidden": false,
+            "id": "111",
+            "includeOriginalValue": true,
+            "kind": "BASE",
+            "name": "Geographic Area",
+            "role": "VALUE",
+            "type": "STRING",
+            "version": "0000000000002F5E"
+          }
+        ],
+        "name": "US Pop by State",
+        "objectPermissions": {
+          "Create": [
+            {
+              "memberId": -1,
+              "type": "GROUP"
+            }
+          ],
+          "DataAccess": [
+            {
+              "memberId": -1,
+              "type": "GROUP"
+            }
+          ],
+          "Owner": [
+            {
+              "memberId": 5094,
+              "type": "USER"
+            }
+          ]
+        },
+        "version": "0000000000002F5D"
+      }
+    ]
+  }
+}
+</pre>
+
+
+  </div>
+
+  
+
+   
+   
+  </div>
+
+<div class="related-links"/>
+<div class="navfooter"><!---->
+<span class="navparent"><a class="link" href="../api/api_datasets_top.html" title="Use the datasets resource to list datasets or create a new dataset."><span class="navheader_label">Parent topic</span><span class="navheader_separator">: </span><span class="navheader_linktext">datasets Resource</span></a></span>  </div><div class="footer">WebHelp output generated by<a href="http://www.oxygenxml.com" target="_blank"><span class="oXygenLogo"><img src="../oxygen-webhelp/resources/img/LogoOxygen100x22.png" alt="Oxygen"/></span><span class="xmlauthor">XML Author</span></a></div>
+<div id="productInfo" style="display:none;"><span id="oxy_productID">api_ref_guide</span><span id="oxy_productVersion">2.0</span></div><div id="loginData" style="display: none"><span class="bt_close" title="Close"><!----></span><form action="" target="passwordIframe" method="post" name="form_login" onsubmit="return loggInUser();" id="loginFormData" autocomplete="on"><input type="hidden" id="reloadComments" value="yes"><!----></input><table class="login"><thead><tr><td colspan="2"><span id="l_login2"><script type="text/javascript">$('#l_login2').html(getLocalization('label.login'));</script></span></td></tr><tr><td colspan="2"><div id="loginResponse"><!----></div></td></tr></thead><tr><td><span id="l_userName"><script type="text/javascript">$('#l_userName').html(getLocalization('label.userName'));</script></span></td><td><input name="usernameW" type="text" id="myUserName" autocomplete="on" required="required" autofocus="autofocus"><!----></input></td></tr><tr><td><span id="l_pswd"><script type="text/javascript">$('#l_pswd').html(getLocalization('label.pswd'));</script></span></td><td><input name="passwordW" type="password" id="myPassword" autocomplete="on" required="required"><!----></input></td></tr><tr><td colspan="2" align="left"><span id="ll_remember"><script type="text/javascript" xml:space="preserve">
+								$('#ll_remember').html(getLocalization('label.rememberme'));
+							</script></span>     <input name="myLoginRemember" type="checkbox" class="ck" id="myRemember" value="no"><!----></input></td></tr><tr><td colspan="2" align="center"><input id="l_bt_submit_log" type="submit" value="Submit" name="loginFormButton"><!----></input><script type="text/javascript">$('#l_bt_submit_log').attr('value',getLocalization('label.login'));</script><span class="btnHGlue"><!----></span><input class="bt_cancel" id="l_cancelLog" type="button" value="Cancel" name="loginFormButton"><!----></input><script type="text/javascript">$('#l_cancelLog').attr('value',getLocalization('label.cancel'));</script></td></tr></table><div class="loginAlternative"><span id="link_lostPwd" onclick="showLostPwd()"><script type="text/javascript">$('#link_lostPwd').html(getLocalization('label.lostPswd'));</script></span><span id="link_signUp" onclick="showSignUp()"><script type="text/javascript">$('#link_signUp').html(getLocalization('label.signUp'));</script></span></div></form><iframe id="passwordIframe" name="passwordIframe" style="display:none"><!----></iframe></div><div id="cmts"><!----></div></body>
+</html>

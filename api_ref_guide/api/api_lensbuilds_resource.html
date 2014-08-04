@@ -1,0 +1,197 @@
+
+<!DOCTYPE html
+  PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xml:lang="en-us" lang="en-us">
+<head><meta xmlns="http://www.w3.org/1999/xhtml" name="description" content="The lensbuild resource allows you to launch a news lens build and then later retrieve information about it. A lensbuild resource has the following fields: Attribute Description lens A structure ..."/><meta http-equiv="Content-Type" content="text/html; charset=utf-8"/><meta name="copyright" content="(C) Copyright 2005"/><meta name="DC.rights.owner" content="(C) Copyright 2005"/><meta name="DC.Type" content="topic"/><meta name="DC.Title" content="Overview"/><meta name="DC.Relation" scheme="URI" content="../api/api_lensbuilds_top.html"/><meta name="DC.Format" content="XHTML"/><meta name="DC.Identifier" content="api_lensbuilds_entity"/><link rel="stylesheet" type="text/css" href="../oxygen-webhelp/resources/css/commonltr.css"><!----></link><title>Overview</title><meta http-equiv="Content-Type" content="text/html; charset=utf-8"/><link rel="stylesheet" type="text/css" href="../oxygen-webhelp/resources/css/commonltr.css"><!----></link><link rel="stylesheet" type="text/css" href="../oxygen-webhelp/resources/css/webhelp_topic.css"><!----></link><link rel="stylesheet" type="text/css" href="../oxygen-webhelp/resources/skins/skin.css"><!----></link><link rel="stylesheet" type="text/css" href="../oxygen-webhelp/resources/css/jquery.realperson.css"><!----></link><link rel="stylesheet" type="text/css" href="../oxygen-webhelp/resources/css/comments.css"><!----></link><link rel="stylesheet" type="text/css" href="../oxygen-webhelp/resources/css/jquery.cleditor.css"><!----></link><link rel="stylesheet" type="text/css" href="../oxygen-webhelp/resources/css/admin.css"><!----></link><script type="text/javascript"><!--
+          
+          var prefix = "../index.html";
+          
+          --></script><script type="text/javascript" src="../oxygen-webhelp/resources/js/jquery-1.8.2.min.js"><!----></script><script type="text/javascript" src="../oxygen-webhelp/resources/js/jquery.cookie.js"><!----></script><script type="text/javascript" src="../oxygen-webhelp/resources/js/jquery-ui.custom.min.js"><!----></script><script type="text/javascript" charset="utf-8" src="../oxygen-webhelp/resources/js/webhelp_topic.js"><!----></script><script type="text/javascript" charset="utf-8" src="../oxygen-webhelp/resources/localization/strings.js"><!----></script><script type="text/javascript" charset="utf-8" src="../oxygen-webhelp/resources/js/init.js"><!----></script><script type="text/javascript" charset="utf-8" src="../oxygen-webhelp/resources/js/comments-functions.js"><!----></script></head>
+<body onload="init('../')">
+<table class="nav"><tbody><tr><td colspan="2"><div id="printlink"><a href="javascript:window.print();" title="printThisPage"/></div><div id="permalink"><a href="#" title="linkToThis"/></div></td></tr><tr><td width="75%"><a class="navheader_parent_path" href="../api/api_lensbuilds_top.html" title="Use the lensbuilds resource to launch a lens build or list a build's status.">lensbuilds Resource</a></td><td><div class="navheader">
+<span class="navparent"><a class="link" href="../api/api_lensbuilds_top.html" title="Use the lensbuilds resource to launch a lens build or list a build's status."><span class="navheader_label">Parent topic</span><span class="navheader_separator">: </span><span class="navheader_linktext">lensbuilds Resource</span></a></span>  </div></td></tr></tbody></table>
+
+  <div class="nested0" id="api_lensbuilds_entity">
+    <h1 class="title topictitle1">Overview</h1>
+
+    <div class="body">
+      <p class="p">The <samp class="ph codeph">lensbuild</samp> resource allows you to launch a news lens build and then later retrieve information about it. A <samp class="ph codeph">lensbuild</samp> resource has the following fields: </p>
+
+      
+<div class="tablenoborder"><table cellpadding="4" cellspacing="0" summary="" id="api_lensbuilds_entity__lensbuildses_attrs" class="table" frame="border" border="1" rules="all">
+          
+          
+          <thead class="thead" align="left">
+            <tr class="row">
+              <th class="entry" valign="top" width="19.801980198019802%" id="d5611e35">
+                <p class="p">Attribute</p>
+
+              </th>
+
+              <th class="entry" valign="top" width="80.19801980198021%" id="d5611e41">
+                <p class="p">Description</p>
+
+              </th>
+
+            </tr>
+
+          </thead>
+
+          <tbody class="tbody">
+            <tr class="row">
+              <td class="entry" valign="top" width="19.801980198019802%" headers="d5611e35 ">
+                <p class="p"><span class="keyword parmname">lens</span></p>
+
+              </td>
+
+              <td class="entry" valign="top" width="80.19801980198021%" headers="d5611e41 ">
+                <p class="p">A structure describing the lens. This structure contains the lens' <samp class="ph codeph">id</samp> and an <samp class="ph codeph">href</samp> value. </p>
+
+              </td>
+
+            </tr>
+
+            <tr class="row">
+              <td class="entry" valign="top" width="19.801980198019802%" headers="d5611e35 ">
+                <p class="p"><span class="keyword parmname">buildEnd</span></p>
+
+              </td>
+
+              <td class="entry" valign="top" width="80.19801980198021%" headers="d5611e41 ">
+                <p class="p">Timestamp representing when the build completed.  This is not returned for builds that </p>
+
+              </td>
+
+            </tr>
+
+            <tr class="row">
+              <td class="entry" valign="top" width="19.801980198019802%" headers="d5611e35 ">
+                <p class="p"><span class="keyword parmname">buildMessage</span></p>
+
+              </td>
+
+              <td class="entry" valign="top" width="80.19801980198021%" headers="d5611e41 ">
+                <p class="p">Current message on the build. </p>
+
+              </td>
+
+            </tr>
+
+            <tr class="row">
+              <td class="entry" valign="top" width="19.801980198019802%" headers="d5611e35 ">
+                <p class="p"><span class="keyword parmname">buildStart</span></p>
+
+              </td>
+
+              <td class="entry" valign="top" width="80.19801980198021%" headers="d5611e41 ">
+                <p class="p">Timestamp representing when the build started.</p>
+
+              </td>
+
+            </tr>
+
+            <tr class="row">
+              <td class="entry" valign="top" width="19.801980198019802%" headers="d5611e35 ">
+                <p class="p"><span class="keyword parmname">createdBy</span></p>
+
+              </td>
+
+              <td class="entry" valign="top" width="80.19801980198021%" headers="d5611e41 ">
+                <p class="p">A structure describing the user that started the lens build. This structure contains the user's <samp class="ph codeph">id</samp> and an <samp class="ph codeph">href</samp> value. </p>
+
+              </td>
+
+            </tr>
+
+            <tr class="row">
+              <td class="entry" valign="top" width="19.801980198019802%" headers="d5611e35 ">
+                <p class="p"><span class="keyword parmname">href</span></p>
+
+              </td>
+
+              <td class="entry" valign="top" width="80.19801980198021%" headers="d5611e41 ">
+                <p class="p">The URL of the build resource.</p>
+
+              </td>
+
+            </tr>
+
+            <tr class="row">
+              <td class="entry" valign="top" width="19.801980198019802%" headers="d5611e35 ">
+                <p class="p"><span class="keyword parmname">id</span></p>
+
+              </td>
+
+              <td class="entry" valign="top" width="80.19801980198021%" headers="d5611e41 ">
+                <p class="p">The internal system identifier for the build.</p>
+
+              </td>
+
+            </tr>
+
+            <tr class="row">
+              <td class="entry" valign="top" width="19.801980198019802%" headers="d5611e35 ">
+                <p class="p"><span class="keyword parmname">status</span></p>
+
+              </td>
+
+              <td class="entry" valign="top" width="80.19801980198021%" headers="d5611e41 ">The build status. After a build starts but before it completes, the <span class="keyword parmname">status</span> is one of:<ul class="ul" id="api_lensbuilds_entity__ul_avp_qkc_zn">
+                <li class="li">UNDEFINED</li>
+
+                <li class="li">DEFINED</li>
+
+                <li class="li">SCHEDULED</li>
+
+                <li class="li">BUILDING</li>
+
+                <li class="li">CANCELING</li>
+
+              </ul>
+
+                <p class="p">After a build completes, the <span class="keyword parmname">status</span> is one of:</p>
+
+                <ul class="ul">
+                  <li class="li">SUCCESSFUL</li>
+
+                  <li class="li">CANCELED</li>
+
+                  <li class="li">FAILED</li>
+
+                  <li class="li">REMOVED</li>
+
+                  <li class="li">ABORTED</li>
+
+                </ul>
+</td>
+
+            </tr>
+
+            <tr class="row">
+              <td class="entry" valign="top" width="19.801980198019802%" headers="d5611e35 ">
+                <p class="p"><span class="keyword parmname">type</span></p>
+
+              </td>
+
+              <td class="entry" valign="top" width="80.19801980198021%" headers="d5611e41 ">
+                <p class="p">This is set by the system and is reserved.</p>
+
+              </td>
+
+            </tr>
+
+          </tbody>
+
+        </table>
+</div>
+
+    </div>
+
+  <div class="related-links"/>
+</div>
+
+<div class="navfooter"><!---->
+<span class="navparent"><a class="link" href="../api/api_lensbuilds_top.html" title="Use the lensbuilds resource to launch a lens build or list a build's status."><span class="navheader_label">Parent topic</span><span class="navheader_separator">: </span><span class="navheader_linktext">lensbuilds Resource</span></a></span>  </div><div class="footer">WebHelp output generated by<a href="http://www.oxygenxml.com" target="_blank"><span class="oXygenLogo"><img src="../oxygen-webhelp/resources/img/LogoOxygen100x22.png" alt="Oxygen"/></span><span class="xmlauthor">XML Author</span></a></div>
+<div id="productInfo" style="display:none;"><span id="oxy_productID">api_ref_guide</span><span id="oxy_productVersion">2.0</span></div><div id="loginData" style="display: none"><span class="bt_close" title="Close"><!----></span><form action="" target="passwordIframe" method="post" name="form_login" onsubmit="return loggInUser();" id="loginFormData" autocomplete="on"><input type="hidden" id="reloadComments" value="yes"><!----></input><table class="login"><thead><tr><td colspan="2"><span id="l_login2"><script type="text/javascript">$('#l_login2').html(getLocalization('label.login'));</script></span></td></tr><tr><td colspan="2"><div id="loginResponse"><!----></div></td></tr></thead><tr><td><span id="l_userName"><script type="text/javascript">$('#l_userName').html(getLocalization('label.userName'));</script></span></td><td><input name="usernameW" type="text" id="myUserName" autocomplete="on" required="required" autofocus="autofocus"><!----></input></td></tr><tr><td><span id="l_pswd"><script type="text/javascript">$('#l_pswd').html(getLocalization('label.pswd'));</script></span></td><td><input name="passwordW" type="password" id="myPassword" autocomplete="on" required="required"><!----></input></td></tr><tr><td colspan="2" align="left"><span id="ll_remember"><script type="text/javascript" xml:space="preserve">
+								$('#ll_remember').html(getLocalization('label.rememberme'));
+							</script></span>     <input name="myLoginRemember" type="checkbox" class="ck" id="myRemember" value="no"><!----></input></td></tr><tr><td colspan="2" align="center"><input id="l_bt_submit_log" type="submit" value="Submit" name="loginFormButton"><!----></input><script type="text/javascript">$('#l_bt_submit_log').attr('value',getLocalization('label.login'));</script><span class="btnHGlue"><!----></span><input class="bt_cancel" id="l_cancelLog" type="button" value="Cancel" name="loginFormButton"><!----></input><script type="text/javascript">$('#l_cancelLog').attr('value',getLocalization('label.cancel'));</script></td></tr></table><div class="loginAlternative"><span id="link_lostPwd" onclick="showLostPwd()"><script type="text/javascript">$('#link_lostPwd').html(getLocalization('label.lostPswd'));</script></span><span id="link_signUp" onclick="showSignUp()"><script type="text/javascript">$('#link_signUp').html(getLocalization('label.signUp'));</script></span></div></form><iframe id="passwordIframe" name="passwordIframe" style="display:none"><!----></iframe></div><div id="cmts"><!----></div></body>
+</html>

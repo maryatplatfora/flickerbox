@@ -1,0 +1,161 @@
+
+<!DOCTYPE html
+  PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xml:lang="en-us" lang="en-us">
+<head><meta xmlns="http://www.w3.org/1999/xhtml" name="description" content="Whenever possible, Platfora tries to conserve processing resources on the Hadoop cluster by only processing the source data files it needs for the lens. If a source data file has already been ..."/><meta http-equiv="Content-Type" content="text/html; charset=utf-8"/><meta name="copyright" content="(C) Copyright 2005"/><meta name="DC.rights.owner" content="(C) Copyright 2005"/><meta name="DC.Type" content="concept"/><meta name="DC.Title" content="Understand Incremental vs Full Lens Builds"/><meta name="abstract" content="This section describes how a lens build determines if it needs to process all of the source data (full lens build) or just the new source data that was added since the last time the lens was built (incremental lens build). Incremental lens builds are more desirable because they are faster and use fewer resources."/><meta xmlns="http://www.w3.org/1999/xhtml" name="description" content="This section describes how a lens build determines if it needs to process all of the source data (full lens build) or just the new source data that was added since the last time the lens was built (incremental lens build). Incremental lens builds are more desirable because they are faster and use fewer resources."/><meta name="DC.Relation" scheme="URI" content="../../lens/build_process/lens_source_data_input.html"/><meta name="DC.Relation" scheme="URI" content="../../lens/build_process/lens_source_data_input.html"/><meta name="DC.Format" content="XHTML"/><meta name="DC.Identifier" content="lens_incremental_processing"/><link rel="stylesheet" type="text/css" href="../../oxygen-webhelp/resources/css/commonltr.css"><!----></link><title>Understand Incremental vs Full Lens Builds</title><meta http-equiv="Content-Type" content="text/html; charset=utf-8"/><link rel="stylesheet" type="text/css" href="../../oxygen-webhelp/resources/css/commonltr.css"><!----></link><link rel="stylesheet" type="text/css" href="../../oxygen-webhelp/resources/css/webhelp_topic.css"><!----></link><link rel="stylesheet" type="text/css" href="../../oxygen-webhelp/resources/skins/skin.css"><!----></link><link rel="stylesheet" type="text/css" href="../../oxygen-webhelp/resources/css/jquery.realperson.css"><!----></link><link rel="stylesheet" type="text/css" href="../../oxygen-webhelp/resources/css/comments.css"><!----></link><link rel="stylesheet" type="text/css" href="../../oxygen-webhelp/resources/css/jquery.cleditor.css"><!----></link><link rel="stylesheet" type="text/css" href="../../oxygen-webhelp/resources/css/admin.css"><!----></link><script type="text/javascript"><!--
+          
+          var prefix = "../../index.html";
+          
+          --></script><script type="text/javascript" src="../../oxygen-webhelp/resources/js/jquery-1.8.2.min.js"><!----></script><script type="text/javascript" src="../../oxygen-webhelp/resources/js/jquery.cookie.js"><!----></script><script type="text/javascript" src="../../oxygen-webhelp/resources/js/jquery-ui.custom.min.js"><!----></script><script type="text/javascript" charset="utf-8" src="../../oxygen-webhelp/resources/js/webhelp_topic.js"><!----></script><script type="text/javascript" charset="utf-8" src="../../oxygen-webhelp/resources/localization/strings.js"><!----></script><script type="text/javascript" charset="utf-8" src="../../oxygen-webhelp/resources/js/init.js"><!----></script><script type="text/javascript" charset="utf-8" src="../../oxygen-webhelp/resources/js/comments-functions.js"><!----></script></head>
+<body onload="init('../../')" id="lens_incremental_processing">
+<table class="nav"><tbody><tr><td colspan="2"><div id="printlink"><a href="javascript:window.print();" title="printThisPage"/></div><div id="permalink"><a href="#" title="linkToThis"/></div></td></tr><tr><td width="75%"/><td><div class="navheader">
+<span class="navparent"><a class="link" href="../../lens/build_process/lens_source_data_input.html" title="This section describes how Platfora determines what source data files to process for a given lens build."><span class="navheader_label">Parent topic</span><span class="navheader_separator">: </span><span class="navheader_linktext">Understand Source Data Input to a Lens Build</span></a></span>  
+<span class="navparent"><a class="link" href="../../lens/build_process/lens_source_data_input.html" title="This section describes how Platfora determines what source data files to process for a given lens build."><span class="navheader_label">Parent topic</span><span class="navheader_separator">: </span><span class="navheader_linktext">Understand Source Data Input to a Lens Build</span></a></span>  </div></td></tr></tbody></table>
+
+ <h1 class="title topictitle1">Understand Incremental vs Full Lens Builds</h1>
+
+ 
+ 
+ <div class="body conbody"><div class="abstract">
+  <p class="p">Whenever possible, Platfora tries to conserve processing resources on the Hadoop cluster by
+   only processing the source data files it needs for the lens. If a source data file has already
+   been processed once for a particular lens definition, Platfora can reuse that work from past lens
+   builds and not process that file again. However, if the underlying data has changed in some way,
+   Platfora must re-process all of the source data files in order to ensure data accuracy.</p>
+
+  <div class="shortdesc">This section describes how a lens build determines if it needs to process all of the
+   source data (full lens build) or just the new source data that was added since the last time the
+   lens was built (incremental lens build). Incremental lens builds are more desirable because they
+   are faster and use fewer resources.</div>
+
+ </div>
+
+  <div class="section"><h2 class="title sectiontitle">The Default Build Behavior</h2>
+   
+   <p class="p">When you first create a lens, Platfora builds the lens data using a full build. During the
+    build, Platfora stores a record of the build inputs. Then, as it manages that lens, Platfora can
+    determine if any build inputs changed. Platfora rebuilds a lens whenever a user manually fires a
+    build by pressing a lens' <span class="ph uicontrol">Build</span> button or a scheduled build is fired by
+    the system. </p>
+
+   <p class="p">Whenever a build is fired, Platfora first compares the last build inputs to the new build
+    inputs. If nothing changed between the two builds, Platfora reuses the results of the last
+    build. If there are changes and those changes fall within certain conditions, Platfora does an
+    incremental lens build. If it cannot do an incremental build, Platfora does a full rebuild.</p>
+
+   <p class="p"> Platfora defaults to incremental builds because they are faster than full rebuilds. You can
+    optimize lens build performance in your environment by understanding the conditions that
+    determine if a lens build is full or incremental. </p>
+
+  </div>
+
+  <div class="section"><h2 class="title sectiontitle">What Determines whether a Lens Build is Full or Incremental?</h2>
+   
+   <p class="p">An incremental build appends new data to an existing lens without changing any previously
+    built data. So, Platfora can only incrementally build changes that add but that do not modify or
+    delete old build inputs. For this reason, Platfora can only incrementally build lenses that rely
+    only on HDFS or HIVE data sources.</p>
+
+   <p class="p">HDFS directory or HIVE partitions permit incremental builds because they support wildcard
+    configurations. Wildcard configurations typically acquire new data through pattern matching
+    incoming data. They do not modify or delete existing data. An incremental lens build retrieves
+    the newly added data, processes it, and appends it to the old data in Platfora. The old data is
+    not changed.</p>
+
+   <p class="p">Even though a data source is HIVE or HDFS, it does not guarantee that a lens will always build
+    incrementally. Under certain conditions, Platfora always builds the full lens. When any of the
+    following happens between the last build and a new build, Platfora does a full lens build:</p>
+
+   <ul class="ul">
+    <li class="li"><p class="p">The lens has a LAST X DAYS filter and the last build occurred outside the filter's
+     parameters.</p>
+</li>
+
+    <li class="li"><p class="p">The lens is modified. For example, a user changes the description or adds a
+     field.</p>
+</li>
+
+    <li class="li"><p class="p">The dataset is modified. For example, a user adds a field to the dataset.</p>
+</li>
+
+    <li class="li"><p class="p">A referenced dimension dataset changes in any way.</p>
+</li>
+
+    <li class="li"><p class="p">A data source is modified. For example, a file is modified or a file is deleted from an
+     HDFS directory.</p>
+</li>
+
+   </ul>
+
+   <p class="p">A full lens build can be resource intensive and it can take a long time. Which is why Platfora
+    always tries to do an incremental build if it can. You can increase the chances Platfora does an
+    incremental build by relaxing the build behavior for dimension data.</p>
+
+  </div>
+
+  <div class="section"><h2 class="title sectiontitle">Increase Incremental Builds by Relaxing Dimension Build Behavior</h2>
+   
+   <p class="p">By default, any change to a referenced dimension dataset triggers a full lens build. You can
+    configure Platfora to relax this behavior by setting the
+    <samp class="ph codeph">platfora.builder.incremental.dimensions</samp> to true. When this is true, Platfora
+    picks up new files added to referenced dataset's source incrementally. </p>
+
+   <p class="p">Under relaxed dimension build behavior, incremental build results can differ from full lens
+    build results. These differences arise because incremental builds do not update previous built
+    data when new data comes in. For example, if a fact row's foreign key references a dimension row
+    that was not ingested, the fact row shows a NULL or unjoined dimension value after an
+    incremental build. Later, if new dimension data file includes the key, a subsequent incremental
+    build would <em class="ph i">not</em> resolve the join. A full lens build would of course.</p>
+
+   <p class="p">Yet another inconsistency can appear when new dimension rows introduce duplicate primary keys.
+    In this case, a fact row reference resolves to a dimension row's primary key. So, the fact row
+    has a non-null dimension value. Later, in the next incremental build, new dimension data comes
+    in with the same primary key <em class="ph i">and</em> new fact rows reference this key. The new fact rows do
+    not resolve because their dimension value resolve to what is now a duplicate primary key. The
+    old fact rows are unchanged as they resolved in the previous incremental build.</p>
+
+   <p class="p">A full lens build corrects the inconsistencies that result from these incremental situations.
+    So, when relaxing your environment's dimension build behavior, you need to consider the
+    potential for inconsistency as balanced by efficiencies in lens processing. </p>
+
+  </div>
+
+  <div class="section"><h2 class="title sectiontitle">Real-world Example of Relaxing Dimension Build Behavior </h2>
+   
+   <p class="p">It is helpful to think of a real-world example. Consider a company that does daily analysis of
+    its website traffic. The traffic dataset contains fact data in which each row represents a page
+    view. Each page view has a corresponding session where the page view happened. So, the page view
+    fact data references dimension data for sessions. The dimension data has a row for each session. </p>
+
+   <p class="p">The traffic dataset contain fact and dimension data sourced from files in an HDFS directory.
+    Every day new page view and session files are added with the last days' data. The company
+    creates a lens and a vizboard based on the dataset. The lens configuration and vizboard rarely
+    change. The company schedules a lens build every day at 1 AM when they are sure the new website
+    traffic files are available in HDFS. </p>
+
+   <p class="p">Since the Marketing VP wants the daily analysis with her morning coffee, the updated vizboard
+    must be ready before 8 AM. The data covers hundreds of thousands of page views. A full build of
+    the lens takes 6-8 hours. An incremental build takes 2 or 3 at the most. As the Marketing VP is
+    looking for gross trends, she is happy if the data is largely but not precisely accurate. So,
+    small data inconsistencies in the report are OK. </p>
+
+   <p class="p">In this environment, setting <samp class="ph codeph">platfora.builder.incremental.dimensions</samp> to true
+    makes sense. Monday through Friday, the scheduled build runs as an incremental build because
+    nothing is changing but the additions of new source data files. The data administrator sets up a
+    LAST X DAYS filter on the data and schedules a build every Sunday morning at 9 AM. The filter
+    causes the Sunday's build to do a full lens build. The full lens build completes well before
+    Monday at 1 AM when the "business day" build runs.</p>
+
+  </div>
+
+  
+ </div>
+
+<div class="related-links"/>
+<div class="navfooter"><!---->
+<span class="navparent"><a class="link" href="../../lens/build_process/lens_source_data_input.html" title="This section describes how Platfora determines what source data files to process for a given lens build."><span class="navheader_label">Parent topic</span><span class="navheader_separator">: </span><span class="navheader_linktext">Understand Source Data Input to a Lens Build</span></a></span>  
+<span class="navparent"><a class="link" href="../../lens/build_process/lens_source_data_input.html" title="This section describes how Platfora determines what source data files to process for a given lens build."><span class="navheader_label">Parent topic</span><span class="navheader_separator">: </span><span class="navheader_linktext">Understand Source Data Input to a Lens Build</span></a></span>  </div><div class="footer">WebHelp output generated by<a href="http://www.oxygenxml.com" target="_blank"><span class="oXygenLogo"><img src="../../oxygen-webhelp/resources/img/LogoOxygen100x22.png" alt="Oxygen"/></span><span class="xmlauthor">XML Author</span></a></div>
+<div id="productInfo" style="display:none;"><span id="oxy_productID">webhelp</span><span id="oxy_productVersion">3.0</span></div><div id="loginData" style="display: none"><span class="bt_close" title="Close"><!----></span><form action="" target="passwordIframe" method="post" name="form_login" onsubmit="return loggInUser();" id="loginFormData" autocomplete="on"><input type="hidden" id="reloadComments" value="yes"><!----></input><table class="login"><thead><tr><td colspan="2"><span id="l_login2"><script type="text/javascript">$('#l_login2').html(getLocalization('label.login'));</script></span></td></tr><tr><td colspan="2"><div id="loginResponse"><!----></div></td></tr></thead><tr><td><span id="l_userName"><script type="text/javascript">$('#l_userName').html(getLocalization('label.userName'));</script></span></td><td><input name="usernameW" type="text" id="myUserName" autocomplete="on" required="required" autofocus="autofocus"><!----></input></td></tr><tr><td><span id="l_pswd"><script type="text/javascript">$('#l_pswd').html(getLocalization('label.pswd'));</script></span></td><td><input name="passwordW" type="password" id="myPassword" autocomplete="on" required="required"><!----></input></td></tr><tr><td colspan="2" align="left"><span id="ll_remember"><script type="text/javascript" xml:space="preserve">
+								$('#ll_remember').html(getLocalization('label.rememberme'));
+							</script></span>     <input name="myLoginRemember" type="checkbox" class="ck" id="myRemember" value="no"><!----></input></td></tr><tr><td colspan="2" align="center"><input id="l_bt_submit_log" type="submit" value="Submit" name="loginFormButton"><!----></input><script type="text/javascript">$('#l_bt_submit_log').attr('value',getLocalization('label.login'));</script><span class="btnHGlue"><!----></span><input class="bt_cancel" id="l_cancelLog" type="button" value="Cancel" name="loginFormButton"><!----></input><script type="text/javascript">$('#l_cancelLog').attr('value',getLocalization('label.cancel'));</script></td></tr></table><div class="loginAlternative"><span id="link_lostPwd" onclick="showLostPwd()"><script type="text/javascript">$('#link_lostPwd').html(getLocalization('label.lostPswd'));</script></span><span id="link_signUp" onclick="showSignUp()"><script type="text/javascript">$('#link_signUp').html(getLocalization('label.signUp'));</script></span></div></form><iframe id="passwordIframe" name="passwordIframe" style="display:none"><!----></iframe></div><div id="cmts"><!----></div></body>
+</html>

@@ -1,0 +1,87 @@
+
+<!DOCTYPE html
+  PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xml:lang="en-us" lang="en-us">
+<head><meta xmlns="http://www.w3.org/1999/xhtml" name="description" content="Expressions most often operate on the values in fields. To do this, you provide a field name to the function. This section explains how to use field names in expressions. Referring to Fields in the ..."/><meta http-equiv="Content-Type" content="text/html; charset=utf-8"/><meta name="copyright" content="(C) Copyright 2005"/><meta name="DC.rights.owner" content="(C) Copyright 2005"/><meta name="DC.Type" content="concept"/><meta name="DC.Title" content="Fields in an Expression"/><meta name="abstract" content="This section explains how to use field names in expressions."/><meta xmlns="http://www.w3.org/1999/xhtml" name="description" content="This section explains how to use field names in expressions."/><meta name="DC.Relation" scheme="URI" content="../../../dataset/common_lang_elements_top.html"/><meta name="DC.Format" content="XHTML"/><meta name="DC.Identifier" content="expression_field_refs"/><link rel="stylesheet" type="text/css" href="../../../oxygen-webhelp/resources/css/commonltr.css"><!----></link><title>Fields in an Expression</title><meta http-equiv="Content-Type" content="text/html; charset=utf-8"/><link rel="stylesheet" type="text/css" href="../../../oxygen-webhelp/resources/css/commonltr.css"><!----></link><link rel="stylesheet" type="text/css" href="../../../oxygen-webhelp/resources/css/webhelp_topic.css"><!----></link><link rel="stylesheet" type="text/css" href="../../../oxygen-webhelp/resources/skins/skin.css"><!----></link><link rel="stylesheet" type="text/css" href="../../../oxygen-webhelp/resources/css/jquery.realperson.css"><!----></link><link rel="stylesheet" type="text/css" href="../../../oxygen-webhelp/resources/css/comments.css"><!----></link><link rel="stylesheet" type="text/css" href="../../../oxygen-webhelp/resources/css/jquery.cleditor.css"><!----></link><link rel="stylesheet" type="text/css" href="../../../oxygen-webhelp/resources/css/admin.css"><!----></link><script type="text/javascript"><!--
+          
+          var prefix = "../../../index.html";
+          
+          --></script><script type="text/javascript" src="../../../oxygen-webhelp/resources/js/jquery-1.8.2.min.js"><!----></script><script type="text/javascript" src="../../../oxygen-webhelp/resources/js/jquery.cookie.js"><!----></script><script type="text/javascript" src="../../../oxygen-webhelp/resources/js/jquery-ui.custom.min.js"><!----></script><script type="text/javascript" charset="utf-8" src="../../../oxygen-webhelp/resources/js/webhelp_topic.js"><!----></script><script type="text/javascript" charset="utf-8" src="../../../oxygen-webhelp/resources/localization/strings.js"><!----></script><script type="text/javascript" charset="utf-8" src="../../../oxygen-webhelp/resources/js/init.js"><!----></script><script type="text/javascript" charset="utf-8" src="../../../oxygen-webhelp/resources/js/comments-functions.js"><!----></script></head>
+<body onload="init('../../../')" id="expression_field_refs">
+<table class="nav"><tbody><tr><td colspan="2"><div id="printlink"><a href="javascript:window.print();" title="printThisPage"/></div><div id="permalink"><a href="#" title="linkToThis"/></div></td></tr><tr><td width="75%"><a class="navheader_parent_path" href="../../../dataset/../dataset/use_expressions_top.html" title="Platfora includes an expression language to support advanced data analysis processing.">Work with Platfora's Expression Language</a> / <a class="navheader_parent_path" href="../../../dataset/common_lang_elements_top.html" title="In this section you learn how Platfora's expression language and programmatic query support are related, where you can use them, and which components they share.">Understand Expression Basics</a></td><td><div class="navheader">
+<span class="navparent"><a class="link" href="../../../dataset/common_lang_elements_top.html" title="In this section you learn how Platfora's expression language and programmatic query support are related, where you can use them, and which components they share."><span class="navheader_label">Parent topic</span><span class="navheader_separator">: </span><span class="navheader_linktext">Understand Expression Basics</span></a></span>  </div></td></tr></tbody></table>
+
+ <h1 class="title topictitle1">Fields in an Expression</h1>
+
+ 
+ <div class="body conbody"><div class="abstract">Expressions most often operate on the values in fields. To do this, you provide a field name to the function. <span class="shortdesc">This section explains how to use field names in expressions.</span>
+</div>
+
+  <div class="section"><h2 class="title sectiontitle">Referring to Fields in the Current Dataset</h2>
+   
+   <p class="p">When you specify a field name in an expression, if the field name does not contain spaces or special characters, you can simply refer to the field by its name. For example, the following expression sums the values of the <em class="ph i">sales</em> field:</p>
+
+   <pre class="pre codeblock">SUM(sales)</pre>
+
+   <p class="p">Enclose field names with square brackets (<samp class="ph codeph">[]</samp>) if they contain spaces, special characters, reserved keywords (such as function names), or start with numeric characters. For
+   example:</p>
+<pre class="pre codeblock">SUM([Sale Amount])</pre>
+<pre class="pre codeblock">SUM([2013_data])</pre>
+<pre class="pre codeblock">SUM([count])</pre>
+
+   <p class="p">If a field name contains a ] (closing square bracket), you must escape the closing square bracket by doubling it ]]. So if the field name is:</p>
+
+    <pre class="pre codeblock">Min([crs_flight_duration]) </pre>
+
+    <p class="p">
+     You enclose the entire field name in square brackets and escape the closing bracket that is part of the actual field name:</p>
+
+   <pre class="pre codeblock">[Min([crs_flight_duration]])]&gt;</pre>
+
+   <div class="p">If you are using the expression builder, it provides the correct escapes for you.<div class="note note"><span class="notetitle">Note:</span> Field is a synonym for dataset column. The documentation uses the word field because that is the terminology used in Platfora's user interface.</div>
+</div>
+
+  </div>
+
+    <div class="section"><h2 class="title sectiontitle">Use Dot Notation for Fields in a Referenced Dataset</h2>
+      
+      <p class="p">Your expression might refer to a field in the focus dataset. (Focus dataset is simply the current dataset you are working with.) You also might include a field in a referenced dataset. When including fields in a referenced dataset, must qualify the field name with the
+        proper notation. The convention is <em class="ph i">reference_name.field_name</em>. </p>
+
+      <p class="p">Don't confuse a reference name with the dataset name; they are not the same. When you refer to a dataset, you give the reference a name.  Use . (dot) notation to separate the two components. For example consider, the <kbd class="ph userinput">salesTransactions</kbd> dataset which
+        goes by the <kbd class="ph userinput">salesbyYear</kbd> reference name. To refer to the <em class="ph i">Year</em> field of the <em class="ph i">salesTransactions</em> referenced dataset, you use this notation:</p>
+
+      <pre class="pre codeblock">salesbyYear.Year</pre>
+
+      <p class="p">Just as with field names, you must escape reference names if they contain spaces, special characters, reserved keywords (such as function names), or start with numeric characters. For example:</p>
+
+      <pre class="pre codeblock">
+ [site sessions].sessionLength</pre>
+
+    </div>
+
+  <div class="section"><h2 class="title sectiontitle">Aggregated Functions and Fields in a Referenced Dataset</h2>
+    
+   <p class="p">You cannot directly calculate a measure on a field belonging to a referenced dataset. This means you cannot use these fields as input to the aggregate functions:</p>
+
+   <pre class="pre codeblock">AVG([site sessions].sessionLength)</pre>
+
+   <p class="p"> Instead, use a two-step process. First, define <kbd class="ph userinput">theLength</kbd> computed field whose expression is just the path to the referenced dataset field:</p>
+
+    <pre class="pre codeblock">[site sessions].sessionLength</pre>
+
+   <p class="p">Then, use the computed field as an argument to a second computed filed <kbd class="ph userinput">avg_session</kbd> containing the aggregate expression:</p>
+
+   <pre class="pre codeblock">AVG([site sessions].sessionLength)</pre>
+
+  </div>
+
+ </div>
+
+<div class="related-links"/>
+<div class="navfooter"><!---->
+<span class="navparent"><a class="link" href="../../../dataset/common_lang_elements_top.html" title="In this section you learn how Platfora's expression language and programmatic query support are related, where you can use them, and which components they share."><span class="navheader_label">Parent topic</span><span class="navheader_separator">: </span><span class="navheader_linktext">Understand Expression Basics</span></a></span>  </div><div class="footer">WebHelp output generated by<a href="http://www.oxygenxml.com" target="_blank"><span class="oXygenLogo"><img src="../../../oxygen-webhelp/resources/img/LogoOxygen100x22.png" alt="Oxygen"/></span><span class="xmlauthor">XML Author</span></a></div>
+<div id="productInfo" style="display:none;"><span id="oxy_productID">webhelp</span><span id="oxy_productVersion">3.0</span></div><div id="loginData" style="display: none"><span class="bt_close" title="Close"><!----></span><form action="" target="passwordIframe" method="post" name="form_login" onsubmit="return loggInUser();" id="loginFormData" autocomplete="on"><input type="hidden" id="reloadComments" value="yes"><!----></input><table class="login"><thead><tr><td colspan="2"><span id="l_login2"><script type="text/javascript">$('#l_login2').html(getLocalization('label.login'));</script></span></td></tr><tr><td colspan="2"><div id="loginResponse"><!----></div></td></tr></thead><tr><td><span id="l_userName"><script type="text/javascript">$('#l_userName').html(getLocalization('label.userName'));</script></span></td><td><input name="usernameW" type="text" id="myUserName" autocomplete="on" required="required" autofocus="autofocus"><!----></input></td></tr><tr><td><span id="l_pswd"><script type="text/javascript">$('#l_pswd').html(getLocalization('label.pswd'));</script></span></td><td><input name="passwordW" type="password" id="myPassword" autocomplete="on" required="required"><!----></input></td></tr><tr><td colspan="2" align="left"><span id="ll_remember"><script type="text/javascript" xml:space="preserve">
+								$('#ll_remember').html(getLocalization('label.rememberme'));
+							</script></span>     <input name="myLoginRemember" type="checkbox" class="ck" id="myRemember" value="no"><!----></input></td></tr><tr><td colspan="2" align="center"><input id="l_bt_submit_log" type="submit" value="Submit" name="loginFormButton"><!----></input><script type="text/javascript">$('#l_bt_submit_log').attr('value',getLocalization('label.login'));</script><span class="btnHGlue"><!----></span><input class="bt_cancel" id="l_cancelLog" type="button" value="Cancel" name="loginFormButton"><!----></input><script type="text/javascript">$('#l_cancelLog').attr('value',getLocalization('label.cancel'));</script></td></tr></table><div class="loginAlternative"><span id="link_lostPwd" onclick="showLostPwd()"><script type="text/javascript">$('#link_lostPwd').html(getLocalization('label.lostPswd'));</script></span><span id="link_signUp" onclick="showSignUp()"><script type="text/javascript">$('#link_signUp').html(getLocalization('label.signUp'));</script></span></div></form><iframe id="passwordIframe" name="passwordIframe" style="display:none"><!----></iframe></div><div id="cmts"><!----></div></body>
+</html>

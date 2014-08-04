@@ -1,0 +1,88 @@
+
+<!DOCTYPE html
+  PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xml:lang="en-us" lang="en-us">
+<head><meta xmlns="http://www.w3.org/1999/xhtml" name="description" content="You can add a header and footer to the Platfora application. This feature is useful if you want to display a system-wide message such as an outage announcement. Administrators can configure a header ..."/><meta http-equiv="Content-Type" content="text/html; charset=utf-8"/><meta name="copyright" content="(C) Copyright 2005"/><meta name="DC.rights.owner" content="(C) Copyright 2005"/><meta name="DC.Type" content="task"/><meta name="DC.Title" content="Customize the Application Header and Footer"/><meta name="abstract" content="You can add a header and footer to the Platfora application. This feature is useful if you want to display a system-wide message such as an outage announcement."/><meta xmlns="http://www.w3.org/1999/xhtml" name="description" content="You can add a header and footer to the Platfora application. This feature is useful if you want to display a system-wide message such as an outage announcement."/><meta name="DC.Relation" scheme="URI" content="../../system/resources/other_topics_top.html"/><meta name="DC.Format" content="XHTML"/><meta name="DC.Identifier" content="customize_headerfooter"/><link rel="stylesheet" type="text/css" href="../../oxygen-webhelp/resources/css/commonltr.css"><!----></link><title>Customize the Application Header and Footer</title><meta http-equiv="Content-Type" content="text/html; charset=utf-8"/><link rel="stylesheet" type="text/css" href="../../oxygen-webhelp/resources/css/commonltr.css"><!----></link><link rel="stylesheet" type="text/css" href="../../oxygen-webhelp/resources/css/webhelp_topic.css"><!----></link><link rel="stylesheet" type="text/css" href="../../oxygen-webhelp/resources/skins/skin.css"><!----></link><link rel="stylesheet" type="text/css" href="../../oxygen-webhelp/resources/css/jquery.realperson.css"><!----></link><link rel="stylesheet" type="text/css" href="../../oxygen-webhelp/resources/css/comments.css"><!----></link><link rel="stylesheet" type="text/css" href="../../oxygen-webhelp/resources/css/jquery.cleditor.css"><!----></link><link rel="stylesheet" type="text/css" href="../../oxygen-webhelp/resources/css/admin.css"><!----></link><script type="text/javascript"><!--
+          
+          var prefix = "../../index.html";
+          
+          --></script><script type="text/javascript" src="../../oxygen-webhelp/resources/js/jquery-1.8.2.min.js"><!----></script><script type="text/javascript" src="../../oxygen-webhelp/resources/js/jquery.cookie.js"><!----></script><script type="text/javascript" src="../../oxygen-webhelp/resources/js/jquery-ui.custom.min.js"><!----></script><script type="text/javascript" charset="utf-8" src="../../oxygen-webhelp/resources/js/webhelp_topic.js"><!----></script><script type="text/javascript" charset="utf-8" src="../../oxygen-webhelp/resources/localization/strings.js"><!----></script><script type="text/javascript" charset="utf-8" src="../../oxygen-webhelp/resources/js/init.js"><!----></script><script type="text/javascript" charset="utf-8" src="../../oxygen-webhelp/resources/js/comments-functions.js"><!----></script></head>
+<body onload="init('../../')" id="customize_headerfooter">
+<table class="nav"><tbody><tr><td colspan="2"><div id="printlink"><a href="javascript:window.print();" title="printThisPage"/></div><div id="permalink"><a href="#" title="linkToThis"/></div></td></tr><tr><td width="75%"><a class="navheader_parent_path" href="../../system/resources/../../system/system_admin_top.html" title="From the Platfora System page, authorized system administrators can manage and monitor various aspects of the Platfora system, such as lens builds, user access, data access, server resources, and system configuration. Users who do not have system administrator permissions will only have access to the System page to monitor and manage their own lenses.">System Administration</a> / <a class="navheader_parent_path" href="../../system/resources/other_topics_top.html" title="The Resources tab of the System page is where system administrators can monitor resources such as Platfora server memory, disk utilization, and status.">Other Management Topics</a></td><td><div class="navheader">
+<span class="navparent"><a class="link" href="../../system/resources/other_topics_top.html" title="The Resources tab of the System page is where system administrators can monitor resources such as Platfora server memory, disk utilization, and status."><span class="navheader_label">Parent topic</span><span class="navheader_separator">: </span><span class="navheader_linktext">Other Management Topics</span></a></span>  </div></td></tr></tbody></table>
+
+    <h1 class="title topictitle1">Customize the Application Header and Footer</h1>
+
+    
+    <div class="body taskbody"><p class="shortdesc">You can add a header and footer to the Platfora application. This feature is useful if you want to display a system-wide message such as an outage announcement. </p>
+
+        <div class="section context">
+            <div class="p">Administrators can configure a header and/or a footer message for the Platfora application. The properties that control these messages are the following: <ul class="ul">
+                    <li class="li"><samp class="ph codeph">platfora.footer.dismissable</samp></li>
+
+                    <li class="li"><samp class="ph codeph">platfora.footer.enabled</samp></li>
+
+                    <li class="li"><samp class="ph codeph">platfora.footer.message</samp></li>
+
+                    <li class="li"><samp class="ph codeph">platfora.header.dismissable</samp></li>
+
+                    <li class="li"><samp class="ph codeph">platfora.header.enabled</samp></li>
+
+                    <li class="li"><samp class="ph codeph">platfora.header.message</samp></li>
+
+                </ul>
+Both messages have a maximum length of 350 characters. The message text can contain HTML markup. The HTML markup counts toward the character limit.</div>
+
+            <p class="p">You can configure whether or not users can dismiss either or both of the header or footer. When a user dismisses either message it remains dismissed for all the user's subsequent sessions. Dismissal only applies to the current message. If you configure a new message, the system presents that to the user.</p>
+   
+            
+        </div>
+
+        <div class="section"><h2 class="title sectiontitle">Configuration Procedure</h2>
+            
+        </div>
+
+        <ol class="ol steps"><li class="li step stepexpand">
+                <span class="ph cmd">Log in to Platfora as a user with administrator rights.</span>
+            </li>
+<li class="li step stepexpand">
+                <span class="ph cmd">Select the <span class="ph uicontrol">System</span> tab.</span>
+            </li>
+<li class="li step stepexpand">
+                <span class="ph cmd">Choose <span class="ph uicontrol">Global Settings</span> from the menu bar.</span>
+                <div class="itemgroup stepresult">The <span class="ph uicontrol">Global Settings</span> dialog displays.</div>
+            </li>
+<li class="li step stepexpand">
+                <span class="ph cmd">Select <span class="ph uicontrol">Headers and Footers</span> from the sidebar.</span>
+            </li>
+<li class="li step stepexpand">
+                <span class="ph cmd">Configure the values for the header, the footer, or both.</span>
+                <div class="itemgroup stepxmp">For example, you could use a <samp class="ph codeph">platfora.footer.message</samp> similar to the following:
+                    <pre class="pre codeblock"><strong class="ph b">Security Access</strong>: Access to this system is controlled by S.O.P. 214.5</pre>
+
+                </div>
+            </li>
+<li class="li step stepexpand">
+                <span class="ph cmd">Press <span class="ph uicontrol">Apply</span> to save your settings.</span>
+            </li>
+<li class="li step stepexpand">
+                <span class="ph cmd">Restart the server for your changes to take effect.</span>
+                <div class="itemgroup stepxmp"> <div class="p"> 
+                    The message in this example results in the following footer:
+                    <div class="fig fignone"><br/><div class="imageleft"><img class="image imageleft" src="../../images/./admin/set_header_footer.png" height="214" width="805"/></div><br/>
+                        
+                    </div>
+</div>
+</div>
+            </li>
+</ol>
+
+    </div>
+
+<div class="related-links"/>
+<div class="navfooter"><!---->
+<span class="navparent"><a class="link" href="../../system/resources/other_topics_top.html" title="The Resources tab of the System page is where system administrators can monitor resources such as Platfora server memory, disk utilization, and status."><span class="navheader_label">Parent topic</span><span class="navheader_separator">: </span><span class="navheader_linktext">Other Management Topics</span></a></span>  </div><div class="footer">WebHelp output generated by<a href="http://www.oxygenxml.com" target="_blank"><span class="oXygenLogo"><img src="../../oxygen-webhelp/resources/img/LogoOxygen100x22.png" alt="Oxygen"/></span><span class="xmlauthor">XML Author</span></a></div>
+<div id="productInfo" style="display:none;"><span id="oxy_productID">webhelp</span><span id="oxy_productVersion">3.0</span></div><div id="loginData" style="display: none"><span class="bt_close" title="Close"><!----></span><form action="" target="passwordIframe" method="post" name="form_login" onsubmit="return loggInUser();" id="loginFormData" autocomplete="on"><input type="hidden" id="reloadComments" value="yes"><!----></input><table class="login"><thead><tr><td colspan="2"><span id="l_login2"><script type="text/javascript">$('#l_login2').html(getLocalization('label.login'));</script></span></td></tr><tr><td colspan="2"><div id="loginResponse"><!----></div></td></tr></thead><tr><td><span id="l_userName"><script type="text/javascript">$('#l_userName').html(getLocalization('label.userName'));</script></span></td><td><input name="usernameW" type="text" id="myUserName" autocomplete="on" required="required" autofocus="autofocus"><!----></input></td></tr><tr><td><span id="l_pswd"><script type="text/javascript">$('#l_pswd').html(getLocalization('label.pswd'));</script></span></td><td><input name="passwordW" type="password" id="myPassword" autocomplete="on" required="required"><!----></input></td></tr><tr><td colspan="2" align="left"><span id="ll_remember"><script type="text/javascript" xml:space="preserve">
+								$('#ll_remember').html(getLocalization('label.rememberme'));
+							</script></span>     <input name="myLoginRemember" type="checkbox" class="ck" id="myRemember" value="no"><!----></input></td></tr><tr><td colspan="2" align="center"><input id="l_bt_submit_log" type="submit" value="Submit" name="loginFormButton"><!----></input><script type="text/javascript">$('#l_bt_submit_log').attr('value',getLocalization('label.login'));</script><span class="btnHGlue"><!----></span><input class="bt_cancel" id="l_cancelLog" type="button" value="Cancel" name="loginFormButton"><!----></input><script type="text/javascript">$('#l_cancelLog').attr('value',getLocalization('label.cancel'));</script></td></tr></table><div class="loginAlternative"><span id="link_lostPwd" onclick="showLostPwd()"><script type="text/javascript">$('#link_lostPwd').html(getLocalization('label.lostPswd'));</script></span><span id="link_signUp" onclick="showSignUp()"><script type="text/javascript">$('#link_signUp').html(getLocalization('label.signUp'));</script></span></div></form><iframe id="passwordIframe" name="passwordIframe" style="display:none"><!----></iframe></div><div id="cmts"><!----></div></body>
+</html>

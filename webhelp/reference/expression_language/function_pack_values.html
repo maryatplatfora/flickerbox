@@ -1,0 +1,126 @@
+
+<!DOCTYPE html
+  PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xml:lang="en-us" lang="en-us">
+<head><meta xmlns="http://www.w3.org/1999/xhtml" name="description" content="PACK_VALUES is a row function that returns multiple output values packed into a single string of key/value pairs separated by the Platfora default key and pair separators. This is useful when the ..."/><meta http-equiv="Content-Type" content="text/html; charset=utf-8"/><meta name="copyright" content="(C) Copyright 2005"/><meta name="DC.rights.owner" content="(C) Copyright 2005"/><meta name="DC.Type" content="reference"/><meta name="DC.Title" content="PACK_VALUES"/><meta name="abstract" content="PACK_VALUES is a row function that returns multiple output values packed into a single string of key/value pairs separated by the Platfora default key and pair separators. This is useful when the OUTPUT clause of a PARTITION expression returns multiple output values. The string returned is in a format that can be read by the EXTRACT_VALUE function. PACK_VALUES uses the same key and pair separator values that EXTRACT_VALUE uses (the Unicode escape sequences u0003 and u0002, respectively)."/><meta xmlns="http://www.w3.org/1999/xhtml" name="description" content="PACK_VALUES is a row function that returns multiple output values packed into a single string of key/value pairs separated by the Platfora default key and pair separators. This is useful when the OUTPUT clause of a PARTITION expression returns multiple output values. The string returned is in a format that can be read by the EXTRACT_VALUE function. PACK_VALUES uses the same key and pair separator values that EXTRACT_VALUE uses (the Unicode escape sequences u0003 and u0002, respectively)."/><meta name="DC.Relation" scheme="URI" content="../../reference/expression_language/row_string_functions_top.html"/><meta name="DC.Format" content="XHTML"/><meta name="DC.Identifier" content="ref_func_pack_values"/><link rel="stylesheet" type="text/css" href="../../oxygen-webhelp/resources/css/commonltr.css"><!----></link><title>PACK_VALUES</title><meta http-equiv="Content-Type" content="text/html; charset=utf-8"/><link rel="stylesheet" type="text/css" href="../../oxygen-webhelp/resources/css/commonltr.css"><!----></link><link rel="stylesheet" type="text/css" href="../../oxygen-webhelp/resources/css/webhelp_topic.css"><!----></link><link rel="stylesheet" type="text/css" href="../../oxygen-webhelp/resources/skins/skin.css"><!----></link><link rel="stylesheet" type="text/css" href="../../oxygen-webhelp/resources/css/jquery.realperson.css"><!----></link><link rel="stylesheet" type="text/css" href="../../oxygen-webhelp/resources/css/comments.css"><!----></link><link rel="stylesheet" type="text/css" href="../../oxygen-webhelp/resources/css/jquery.cleditor.css"><!----></link><link rel="stylesheet" type="text/css" href="../../oxygen-webhelp/resources/css/admin.css"><!----></link><script type="text/javascript"><!--
+          
+          var prefix = "../../index.html";
+          
+          --></script><script type="text/javascript" src="../../oxygen-webhelp/resources/js/jquery-1.8.2.min.js"><!----></script><script type="text/javascript" src="../../oxygen-webhelp/resources/js/jquery.cookie.js"><!----></script><script type="text/javascript" src="../../oxygen-webhelp/resources/js/jquery-ui.custom.min.js"><!----></script><script type="text/javascript" charset="utf-8" src="../../oxygen-webhelp/resources/js/webhelp_topic.js"><!----></script><script type="text/javascript" charset="utf-8" src="../../oxygen-webhelp/resources/localization/strings.js"><!----></script><script type="text/javascript" charset="utf-8" src="../../oxygen-webhelp/resources/js/init.js"><!----></script><script type="text/javascript" charset="utf-8" src="../../oxygen-webhelp/resources/js/comments-functions.js"><!----></script></head>
+<body onload="init('../../')" id="ref_func_pack_values">
+<table class="nav"><tbody><tr><td colspan="2"><div id="printlink"><a href="javascript:window.print();" title="printThisPage"/></div><div id="permalink"><a href="#" title="linkToThis"/></div></td></tr><tr><td width="75%"><a class="navheader_parent_path" href="../../reference/expression_language/../../reference/expression_language/expression_reference_top.html" title="An expression computes or produces a value by combining fields (or columns), constant values, operators, and functions. Platfora has a built-in expression language. You use the language's functions and operators to create a computed field.">Expression and Query Language Reference</a> / <a class="navheader_parent_path" href="../../reference/expression_language/row_string_functions_top.html" title="String functions allow you to manipulate and transform textual data, such as combining string values or extracting a portion of a string value.">String Functions</a></td><td><div class="navheader">
+<span class="navparent"><a class="link" href="../../reference/expression_language/row_string_functions_top.html" title="String functions allow you to manipulate and transform textual data, such as combining string values or extracting a portion of a string value."><span class="navheader_label">Parent topic</span><span class="navheader_separator">: </span><span class="navheader_linktext">String Functions</span></a></span>  </div></td></tr></tbody></table>
+
+  <h1 class="title topictitle1">PACK_VALUES</h1>
+
+  
+  <div class="body refbody"><p class="shortdesc"><samp class="ph codeph">PACK_VALUES</samp> is a row function that returns multiple output values
+    packed into a single string of key/value pairs separated by the Platfora default key and pair
+    separators. This is useful when the <samp class="ph codeph">OUTPUT</samp> clause of a
+      <samp class="ph codeph">PARTITION</samp> expression returns multiple output values. The string returned is
+    in a format that can be read by the <samp class="ph codeph">EXTRACT_VALUE</samp> function.
+      <samp class="ph codeph">PACK_VALUES</samp> uses the same key and pair separator values that
+      <samp class="ph codeph">EXTRACT_VALUE</samp> uses (the Unicode escape sequences <samp class="ph codeph">u0003</samp> and
+      <samp class="ph codeph">u0002</samp>, respectively).</p>
+
+    
+    <div class="section"><h2 class="title sectiontitle">Syntax</h2>
+      
+      <samp class="ph codeph" id="ref_func_pack_values__syntax_func_pack_values"><span class="ph synph"><span class="keyword kwd">PACK_VALUES</span>(<span class="ph var">key_string</span>,<span class="ph var">value_expression</span>[,<span class="ph var">key_string</span>,<span class="ph var">value_expression</span>][,...])</span></samp>
+    </div>
+
+    
+    <div class="section"><h2 class="title sectiontitle">Return Value</h2>
+      <p class="p">Returns one value per row of type <samp class="ph codeph">STRING</samp>. If the value for either
+          <samp class="ph codeph">key_string</samp> or <samp class="ph codeph">value_expression</samp> of a pair is null or contains either
+        of the two separators, the full key/value pair is omitted from the return value.</p>
+
+    </div>
+
+    
+    
+    <div class="section"><h2 class="title sectiontitle">Input Parameters</h2>
+      
+      
+      <dl class="dl parml">
+        
+          <dt class="dt pt dlterm">key_string</dt>
+
+          <dd class="dd pd">At least one required. A field name of any type, a literal string or number, or an
+            expression that returns any value.</dd>
+
+        
+        
+          <dt class="dt pt dlterm">value_expression</dt>
+
+          <dd class="dd pd">At least one required. A field name of any type, a literal string or number, or an
+            expression that returns any value. The expression must include one
+              <samp class="ph codeph">value_expression</samp> instance for each <samp class="ph codeph">key_string</samp>
+            instance.</dd>
+
+        
+      </dl>
+
+    </div>
+
+    
+    
+    
+    <div class="section"><h2 class="title sectiontitle">Examples</h2>
+      
+      <p class="p">Combine the values of the <em class="ph i">custid</em> and <em class="ph i">age</em> fields into a single string
+        field.</p>
+
+      <p class="p"><samp class="ph codeph" id="ref_func_pack_values__example_func_pack_values">PACK_VALUES("ID",custid,"Age",age)</samp></p>
+
+      
+      <p class="p">The following expression returns ID<em class="ph i">\u0003</em>5555<em class="ph i">\u0002</em>Age<em class="ph i">\u0003</em>29 when
+        the value of the <em class="ph i">custid</em> field is 5555 and the value of the <em class="ph i">age</em> field is
+        29:</p>
+
+      <p class="p"><samp class="ph codeph">PACK_VALUES("ID",custid,"Age",age)</samp></p>
+
+      
+      <p class="p">The following expression returns Age<em class="ph i">\u0003</em>29 when the value of the <em class="ph i">age</em> field
+        is 29:</p>
+
+      <p class="p"><samp class="ph codeph">PACK_VALUES("ID",NULL,"Age",age)</samp></p>
+
+      
+      <p class="p">The following expression returns <em class="ph i">29</em> as a <samp class="ph codeph">STRING</samp> value when the
+          <em class="ph i">age</em> field is an <samp class="ph codeph">INTEGER</samp> and its value is 29:</p>
+
+      <p class="p"><samp class="ph codeph">EXTRACT_VALUE(PACK_VALUES("ID",custid,"Age",age),"Age")</samp></p>
+
+      
+      
+      <p class="p">You might want to use the <samp class="ph codeph">PACK_VALUES</samp> function to combine multiple field
+        values into a single value in the <samp class="ph codeph">OUTPUT</samp> clause of the <a class="xref" href="function_partition.html" title="PARTITION is an event series processing language that partitions the rows of a dataset, orders the rows sequentially (typically by a timestamp), and searches for matching patterns in a set of rows. Computed fields that are defined in a dataset using a PARTITION expression are considered event series processing computed fields. Event series processing computed fields are processed differently than regular computed fields. Instead of computing values from the input of a single row, they compute values from inputs of multiple rows in the dataset.">PARTITION</a> (event series processing) function. Then you can use the
+          <a class="xref" href="function_extract_value.html" title="EXTRACT_VALUE is a row function that extracts the value for the given key from a string containing delimited key/value pairs.">EXTRACT_VALUE</a> function in a different computed field in the
+        dataset to get one of the values returned by the <samp class="ph codeph">PARTITION</samp> function. For
+        example, in the example below, the <samp class="ph codeph">PARTITION</samp> function creates a set of rows
+        that defines the previous five web pages accessed in a particular user session:</p>
+
+        
+        <pre class="pre codeblock">PARTITION BY Session
+ORDER BY Time DESC
+PATTERN (A?, B?, C?, D?, E)
+DEFINE A AS true, B AS true, C AS true, D AS true, E AS true
+OUTPUT PACK_VALUES("A", A.Page, "B", B.Page, "C", C.Page, "D", D.Page)</pre>
+
+     
+      
+    </div>
+
+    
+   
+   
+  </div>
+
+<div class="related-links"/>
+<div class="navfooter"><!---->
+<span class="navparent"><a class="link" href="../../reference/expression_language/row_string_functions_top.html" title="String functions allow you to manipulate and transform textual data, such as combining string values or extracting a portion of a string value."><span class="navheader_label">Parent topic</span><span class="navheader_separator">: </span><span class="navheader_linktext">String Functions</span></a></span>  </div><div class="footer">WebHelp output generated by<a href="http://www.oxygenxml.com" target="_blank"><span class="oXygenLogo"><img src="../../oxygen-webhelp/resources/img/LogoOxygen100x22.png" alt="Oxygen"/></span><span class="xmlauthor">XML Author</span></a></div>
+<div id="productInfo" style="display:none;"><span id="oxy_productID">webhelp</span><span id="oxy_productVersion">3.0</span></div><div id="loginData" style="display: none"><span class="bt_close" title="Close"><!----></span><form action="" target="passwordIframe" method="post" name="form_login" onsubmit="return loggInUser();" id="loginFormData" autocomplete="on"><input type="hidden" id="reloadComments" value="yes"><!----></input><table class="login"><thead><tr><td colspan="2"><span id="l_login2"><script type="text/javascript">$('#l_login2').html(getLocalization('label.login'));</script></span></td></tr><tr><td colspan="2"><div id="loginResponse"><!----></div></td></tr></thead><tr><td><span id="l_userName"><script type="text/javascript">$('#l_userName').html(getLocalization('label.userName'));</script></span></td><td><input name="usernameW" type="text" id="myUserName" autocomplete="on" required="required" autofocus="autofocus"><!----></input></td></tr><tr><td><span id="l_pswd"><script type="text/javascript">$('#l_pswd').html(getLocalization('label.pswd'));</script></span></td><td><input name="passwordW" type="password" id="myPassword" autocomplete="on" required="required"><!----></input></td></tr><tr><td colspan="2" align="left"><span id="ll_remember"><script type="text/javascript" xml:space="preserve">
+								$('#ll_remember').html(getLocalization('label.rememberme'));
+							</script></span>     <input name="myLoginRemember" type="checkbox" class="ck" id="myRemember" value="no"><!----></input></td></tr><tr><td colspan="2" align="center"><input id="l_bt_submit_log" type="submit" value="Submit" name="loginFormButton"><!----></input><script type="text/javascript">$('#l_bt_submit_log').attr('value',getLocalization('label.login'));</script><span class="btnHGlue"><!----></span><input class="bt_cancel" id="l_cancelLog" type="button" value="Cancel" name="loginFormButton"><!----></input><script type="text/javascript">$('#l_cancelLog').attr('value',getLocalization('label.cancel'));</script></td></tr></table><div class="loginAlternative"><span id="link_lostPwd" onclick="showLostPwd()"><script type="text/javascript">$('#link_lostPwd').html(getLocalization('label.lostPswd'));</script></span><span id="link_signUp" onclick="showSignUp()"><script type="text/javascript">$('#link_signUp').html(getLocalization('label.signUp'));</script></span></div></form><iframe id="passwordIframe" name="passwordIframe" style="display:none"><!----></iframe></div><div id="cmts"><!----></div></body>
+</html>

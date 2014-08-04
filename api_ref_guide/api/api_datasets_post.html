@@ -1,0 +1,597 @@
+
+<!DOCTYPE html
+  PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xml:lang="en-us" lang="en-us">
+<head><meta xmlns="http://www.w3.org/1999/xhtml" name="description" content="Use the POST method to create a single dataset. You can only create one dataset at a time. This allows Platfora to return a different HTTP response code for each dataset. URL /api/v1/datasets HTTP ..."/><meta http-equiv="Content-Type" content="text/html; charset=utf-8"/><meta name="copyright" content="(C) Copyright 2005"/><meta name="DC.rights.owner" content="(C) Copyright 2005"/><meta name="DC.Type" content="reference"/><meta name="DC.Title" content="Create Datasets"/><meta name="abstract" content="Use the POST method to create a single dataset."/><meta xmlns="http://www.w3.org/1999/xhtml" name="description" content="Use the POST method to create a single dataset."/><meta name="DC.Relation" scheme="URI" content="../api/api_datasets_top.html"/><meta name="DC.Format" content="XHTML"/><meta name="DC.Identifier" content="ref_api_datasets_post"/><link rel="stylesheet" type="text/css" href="../oxygen-webhelp/resources/css/commonltr.css"><!----></link><title>Create Datasets</title><meta http-equiv="Content-Type" content="text/html; charset=utf-8"/><link rel="stylesheet" type="text/css" href="../oxygen-webhelp/resources/css/commonltr.css"><!----></link><link rel="stylesheet" type="text/css" href="../oxygen-webhelp/resources/css/webhelp_topic.css"><!----></link><link rel="stylesheet" type="text/css" href="../oxygen-webhelp/resources/skins/skin.css"><!----></link><link rel="stylesheet" type="text/css" href="../oxygen-webhelp/resources/css/jquery.realperson.css"><!----></link><link rel="stylesheet" type="text/css" href="../oxygen-webhelp/resources/css/comments.css"><!----></link><link rel="stylesheet" type="text/css" href="../oxygen-webhelp/resources/css/jquery.cleditor.css"><!----></link><link rel="stylesheet" type="text/css" href="../oxygen-webhelp/resources/css/admin.css"><!----></link><script type="text/javascript"><!--
+          
+          var prefix = "../index.html";
+          
+          --></script><script type="text/javascript" src="../oxygen-webhelp/resources/js/jquery-1.8.2.min.js"><!----></script><script type="text/javascript" src="../oxygen-webhelp/resources/js/jquery.cookie.js"><!----></script><script type="text/javascript" src="../oxygen-webhelp/resources/js/jquery-ui.custom.min.js"><!----></script><script type="text/javascript" charset="utf-8" src="../oxygen-webhelp/resources/js/webhelp_topic.js"><!----></script><script type="text/javascript" charset="utf-8" src="../oxygen-webhelp/resources/localization/strings.js"><!----></script><script type="text/javascript" charset="utf-8" src="../oxygen-webhelp/resources/js/init.js"><!----></script><script type="text/javascript" charset="utf-8" src="../oxygen-webhelp/resources/js/comments-functions.js"><!----></script></head>
+<body onload="init('../')" id="ref_api_datasets_post">
+<table class="nav"><tbody><tr><td colspan="2"><div id="printlink"><a href="javascript:window.print();" title="printThisPage"/></div><div id="permalink"><a href="#" title="linkToThis"/></div></td></tr><tr><td width="75%"><a class="navheader_parent_path" href="../api/api_datasets_top.html" title="Use the datasets resource to list datasets or create a new dataset.">datasets Resource</a></td><td><div class="navheader">
+<span class="navparent"><a class="link" href="../api/api_datasets_top.html" title="Use the datasets resource to list datasets or create a new dataset."><span class="navheader_label">Parent topic</span><span class="navheader_separator">: </span><span class="navheader_linktext">datasets Resource</span></a></span>  </div></td></tr></tbody></table>
+
+    <h1 class="title topictitle1">Create Datasets</h1>
+
+    
+
+
+    <div class="body refbody"><div class="abstract"><span class="shortdesc">Use the <samp class="ph codeph">POST</samp> method to create a single
+            dataset.</span>
+ You can only create one dataset at a time. This allows Platfora to
+        return a different HTTP response code for each dataset. </div>
+
+
+        <div class="section"><h2 class="title sectiontitle">URL</h2>
+            
+            <p class="p"><samp class="ph codeph" id="ref_api_datasets_post__api_url_datasets_post">/api/v1/datasets</samp></p>
+
+        </div>
+
+
+        <div class="section"><h2 class="title sectiontitle">HTTP Method</h2>
+            
+            <p class="p"><samp class="ph codeph">POST</samp></p>
+
+        </div>
+
+
+        <div class="section"><h2 class="title sectiontitle">URL Parameters</h2>
+            
+            <p class="p">None for <samp class="ph codeph">POST</samp>.</p>
+
+        </div>
+
+
+
+        <div class="section"><h2 class="title sectiontitle">Data Parameters</h2>
+            
+            <p class="p"/>
+
+            <pre class="pre codeblock">
+{
+    "data": {
+        "datasets": [
+            {
+                "abbreviation": "<em class="ph i">string</em>",
+                "adapter": {
+                    "adapterDetails": {
+                        "delimDefinition": [],
+                        "encoding": "UTF-8",
+                        "escapeChar": "",
+                        "filter": "",
+                        "hasHeader": (true|false),
+                        "isLineBased": (true|false),
+                        "maxLineLength": <em class="ph i">integer</em>,
+                        "path": "<em class="ph i">string</em>",
+                        "quoteChar": "",
+                        "recordSeparator": null, 
+                        "regex": "",
+                        "separatorChar": "<em class="ph i">string</em>",
+                        "skipLines": <em class="ph i">integer</em>,
+                        "useSequenceFile": (true|false)
+                    },
+                    "adapterType": "(CSV|HIVE|PROTON|APACHE|REGEX|LINE|JSON|AVRO|JAVA|DYNAMIC|XML)"
+                },
+                "dataSource": {
+                    "href": "<em class="ph i">string</em>", 
+                    "id": <em class="ph i">integer</em>,
+                    "name": "<em class="ph i">string</em>" 
+                },
+                "dependencies": [
+                    {
+                        "datasetId": <em class="ph i">integer</em>,
+                        "datasetVersion": "<em class="ph i">hexadecimal</em>"
+                    }
+                ],
+                "fields": [
+                    {
+                        "abbreviation": "<em class="ph i">string</em>",
+                        "description": "<em class="ph i">string</em>",
+                        "expression": "<em class="ph i">string</em>",
+                        "hidden": (false|true),
+                        "kind": "(REFERENCE|BASE|MEASURE|COMPUTED)",
+                        "name": "<em class="ph i">string</em>",
+                        "target": {
+                            "datasetId": "<em class="ph i">integer</em>",
+                            "foreignKey": [ 
+                                {
+                                    "id": <em class="ph i">integer</em>,
+                                    "name": "<em class="ph i">string</em>"
+                                }
+                                ...
+                            ]
+                        },
+                        "type": "(REFERENCE|DATETIME|STRING|INTEGER|LONG|DOUBLE)",
+                    },
+                    ...
+                ],
+                "key": [ 
+                    { 
+                        "kind": "(BASE|MEASURE|COMPUTED)",
+                        "name": <em class="ph i">integer</em> 
+                    }
+                ],
+                "name": "<em class="ph i">string</em>",
+                "partitioningKey": "",
+            }
+        ]
+    }
+}
+</pre>
+
+        </div>
+
+
+        <div class="section"><h2 class="title sectiontitle">Sample Call</h2>
+            
+            <p class="p">This sample POST body creates a dataset called <em class="ph i">requests_t</em> using the
+                    <span class="ph uicontrol">Uploads</span> data source. The Platfora server assigns an ID
+                value to the dataset as it creates the dataset. </p>
+
+            <pre class="pre codeblock">
+{
+    "data": {
+        "datasets": [
+            {
+                "abbreviation": "requests_t",
+                "adapter": {
+                    "adapterDetails": {
+                        "delimDefinition": [],
+                        "encoding": "UTF-8",
+                        "escapeChar": "",
+                        "filter": "",
+                        "hasHeader": true,
+                        "isLineBased": false,
+                        "maxLineLength": 1000000,
+                        "path": "requests.tsv",
+                        "quoteChar": "",
+                        "recordSeparator": null,
+                        "regex": "",
+                        "separatorChar": "\t",
+                        "skipLines": 0,
+                        "useSequenceFile": false
+                    },
+                    "adapterType": "CSV"
+                },
+                "dataSource": {
+                    "href": "http://myserver.com:8001/api/v1/datasources/2",
+                    "id": "2",
+                    "name": "Uploads"
+                },
+                "fields": [
+                    {
+                        "abbreviation": "id",
+                        "description": "primary key",
+                        "hidden": false,
+                        "kind": "BASE",
+                        "name": "id",
+                        "type": "INTEGER"
+                    },
+                    {
+                        "abbreviation": "time",
+                        "description": "request datetime",
+                        "hidden": false,
+                        "kind": "BASE",
+                        "name": "time",
+                        "type": "DATETIME"
+                    },
+                    {
+                        "abbreviation": "bytes",
+                        "description": "bytes delivered for the request",
+                        "hidden": false,
+                        "kind": "BASE",
+                        "name": "bytes",
+                        "type": "INTEGER"
+                    },
+                    {
+                        "abbreviation": "duration",
+                        "description": "how long in seconds it took to service the request",
+                        "hidden": false,
+                        "kind": "BASE",
+                        "name": "duration",
+                        "type": "DOUBLE"
+                    },
+                    {
+                        "abbreviation": "bandwidth",
+                        "description": "average bandwidth to service the request",
+                        "expression": "bytes * 8 / duration / 1000000",
+                        "hidden": false,
+                        "kind": "COMPUTED",
+                        "name": "bandwidth_mps_raw",
+                        "type": "DOUBLE"
+                    },
+                    {
+                        "abbreviation": "server_id",
+                        "description": "foreign key into the servers dataset",
+                        "hidden": false,
+                        "kind": "BASE",
+                        "name": "server_id",
+                        "type": "INTEGER"
+                    },
+                    {
+                        "abbreviation": "edge server",
+                        "description": "edge server that serviced the request",
+                        "hidden": false,
+                        "kind": "REFERENCE",
+                        "name": "edge server",
+                        "target": {
+                            "datasetId": "6",
+                            "datasetVersion": 2e+40,
+                            "foreignKey": [
+                                {
+                                    "id": 1918,
+                                    "name": "server_id"
+                                }
+                            ]
+                        },
+                        "type": "REFERENCE"
+                    },
+                    {
+                        "abbreviation": "# Records",
+                        "description": "total number of rows in the dataset",
+                        "expression": "COUNT()",
+                        "hidden": false,
+                        "kind": "MEASURE",
+                        "name": "Total Records",
+                        "type": "LONG"
+                    },
+                    {
+                        "abbreviation": "Total Bytes",
+                        "description": "total bytes delivered",
+                        "expression": "SUM(bytes)",
+                        "hidden": false,
+                        "kind": "MEASURE",
+                        "name": "Total Bytes Delivered",
+                        "type": "LONG"
+                    }
+                ],
+                "key": [
+                    {
+                        "kind": "BASE",
+                        "name": "id"
+                    }
+                ],
+                "name": "requests_test",
+                "partitioningKey": ""
+            }
+        ]
+    }
+}
+</pre>
+
+        </div>
+
+
+
+        <div class="section"><h2 class="title sectiontitle">Success Response</h2>
+            
+            <p class="p">This body response is returned when the dataset defined in the POST request is
+                successfully created. It lists the dataset defined the body of the POST request,
+                including additional information, such as the size in bytes.</p>
+
+            <p class="p">HTTP status return code: 201</p>
+
+            <p class="p">HTTP Body content:</p>
+
+            <pre class="pre codeblock">
+{
+    "_links": {
+        ...
+        }
+    },
+    "_metadata": {
+        ...
+        }
+    },
+    "data": {
+        "datasets": [
+            {
+                "abbreviation": "requests_test",
+                "adapter": {
+                    "adapterDetails": {
+                        "delimDefinition": [],
+                        "encoding": "UTF-8",
+                        "escapeChar": "",
+                        "filter": "",
+                        "hasHeader": true,
+                        "isLineBased": false,
+                        "maxLineLength": 1000000,
+                        "path": "requests.tsv",
+                        "quoteChar": "",
+                        "recordSeparator": null,
+                        "regex": "",
+                        "separatorChar": "\t",
+                        "skipLines": 0,
+                        "useSequenceFile": false
+                    },
+                    "adapterType": "CSV"
+                },
+                "dataSource": {
+                    "href": "http://myserver.com:8001/api/v1/datasources/2",
+                    "id": "2",
+                    "name": "Uploads"
+                },
+                "deprecated": false,
+                "fields": [
+                    {
+                        "abbreviation": "id",
+                        "autoGenerated": false,
+                        "deprecated": false,
+                        "description": "primary key",
+                        "hidden": false,
+                        "id": "130",
+                        "includeOriginalValue": true,
+                        "kind": "BASE",
+                        "name": "id",
+                        "role": "VALUE",
+                        "type": "INTEGER",
+                        "version": "000000000000300C"
+                    },
+                    {
+                        "abbreviation": "time",
+                        "autoGenerated": false,
+                        "deprecated": false,
+                        "description": "request datetime",
+                        "hidden": false,
+                        "id": "131",
+                        "includeOriginalValue": true,
+                        "kind": "BASE",
+                        "name": "time",
+                        "role": "VALUE",
+                        "type": "DATETIME",
+                        "version": "000000000000300D"
+                    },
+                    {
+                        "abbreviation": "bytes",
+                        "autoGenerated": false,
+                        "deprecated": false,
+                        "description": "bytes delivered for the request",
+                        "hidden": false,
+                        "id": "132",
+                        "includeOriginalValue": true,
+                        "kind": "BASE",
+                        "name": "bytes",
+                        "role": "VALUE",
+                        "type": "INTEGER",
+                        "version": "000000000000300E"
+                    },
+                    {
+                        "abbreviation": "duration",
+                        "autoGenerated": false,
+                        "deprecated": false,
+                        "description": "how long in seconds it took to service the request",
+                        "hidden": false,
+                        "id": "133",
+                        "includeOriginalValue": true,
+                        "kind": "BASE",
+                        "name": "duration",
+                        "role": "VALUE",
+                        "type": "DOUBLE",
+                        "version": "000000000000300F"
+                    },
+                    {
+                        "abbreviation": "bandwidth",
+                        "autoGenerated": false,
+                        "dependencies": [
+                            {
+                                "path": [
+                                    {
+                                        "id": "133",
+                                        "name": "duration",
+                                        "version": "000000000000300F"
+                                    }
+                                ]
+                            },
+                            {
+                                "path": [
+                                    {
+                                        "id": "132",
+                                        "name": "bytes",
+                                        "version": "000000000000300E"
+                                    }
+                                ]
+                            }
+                        ],
+                        "deprecated": false,
+                        "description": "average bandwidth to service the request",
+                        "expression": "bytes * 8 / duration / 1000000",
+                        "hidden": false,
+                        "id": "134",
+                        "includeOriginalValue": true,
+                        "kind": "COMPUTED",
+                        "name": "bandwidth_mps_raw",
+                        "role": "VALUE",
+                        "type": "DOUBLE",
+                        "version": "0000000000003010"
+                    },
+                    {
+                        "abbreviation": "server_id",
+                        "autoGenerated": false,
+                        "deprecated": false,
+                        "description": "foreign key into the servers dataset",
+                        "hidden": false,
+                        "id": "135",
+                        "includeOriginalValue": true,
+                        "kind": "BASE",
+                        "name": "server_id",
+                        "role": "VALUE",
+                        "type": "INTEGER",
+                        "version": "0000000000003011"
+                    },
+                    {
+                        "abbreviation": "edge server",
+                        "autoGenerated": false,
+                        "deprecated": false,
+                        "description": "edge server that serviced the request",
+                        "hidden": false,
+                        "id": "136",
+                        "kind": "REFERENCE",
+                        "name": "edge server",
+                        "role": "REFERENCE",
+                        "target": {
+                            "datasetId": "6",
+                            "datasetName": "edge server",
+                            "datasetVersion": "0000000000002FFA",
+                            "foreignKey": [
+                                {
+                                    "id": "135",
+                                    "name": "server_id"
+                                }
+                            ],
+                            "href": "http://myserver.com:8001/api/v1/datasets/6"
+                        },
+                        "type": "REFERENCE",
+                        "version": "0000000000003012"
+                    },
+                    {
+                        "abbreviation": "# Records",
+                        "autoGenerated": false,
+                        "dependencies": [],
+                        "deprecated": false,
+                        "description": "total number of rows in the dataset",
+                        "expression": "COUNT()",
+                        "hidden": false,
+                        "id": "137",
+                        "kind": "MEASURE",
+                        "name": "Total Records",
+                        "role": "MEASURE",
+                        "type": "LONG",
+                        "version": "0000000000003013"
+                    },
+                    {
+                        "abbreviation": "Total Bytes",
+                        "autoGenerated": false,
+                        "dependencies": [
+                            {
+                                "path": [
+                                    {
+                                        "id": "132",
+                                        "name": "bytes",
+                                        "version": "000000000000300E"
+                                    }
+                                ]
+                            }
+                        ],
+                        "deprecated": false,
+                        "description": "total bytes delivered",
+                        "expression": "SUM(bytes)",
+                        "hidden": false,
+                        "id": "138",
+                        "kind": "MEASURE",
+                        "name": "Total Bytes Delivered",
+                        "role": "MEASURE",
+                        "type": "LONG",
+                        "version": "0000000000003014"
+                    },
+                    {
+                        "abbreviation": "time Date",
+                        "autoGenerated": true,
+                        "deprecated": false,
+                        "description": "Automatic reference to Date",
+                        "hidden": false,
+                        "id": "139",
+                        "kind": "REFERENCE",
+                        "name": "time Date",
+                        "role": "REFERENCE",
+                        "target": {
+                            "datasetId": "1",
+                            "datasetName": "Date",
+                            "datasetVersion": "0000000000000012",
+                            "foreignKey": [
+                                {
+                                    "id": "131",
+                                    "name": "time"
+                                }
+                            ],
+                            "href": "http://myserver.com:8001/api/v1/datasets/1"
+                        },
+                        "type": "REFERENCE",
+                        "version": "0000000000003015"
+                    },
+                    {
+                        "abbreviation": "time Time",
+                        "autoGenerated": true,
+                        "deprecated": false,
+                        "description": "Automatic reference to Time",
+                        "hidden": false,
+                        "id": "140",
+                        "kind": "REFERENCE",
+                        "name": "time Time",
+                        "role": "REFERENCE",
+                        "target": {
+                            "datasetId": "2",
+                            "datasetName": "Time",
+                            "datasetVersion": "0000000000000033",
+                            "foreignKey": [
+                                {
+                                    "id": "131",
+                                    "name": "time"
+                                }
+                            ],
+                            "href": "http://myserver.com:8001/api/v1/datasets/2"
+                        },
+                        "type": "REFERENCE",
+                        "version": "0000000000003016"
+                    }
+                ],
+                "history": [
+                    {
+                        "lifecycleStage": "created",
+                        "replaces": null,
+                        "time": "2013-09-20T00:33:03.210Z",
+                        "user": {
+                            "href": "http://myserver.com:8001/api/v1/users/7",
+                            "id": "7"
+                        },
+                        "version": "000000000000300B"
+                    }
+                ],
+                "href": "http://myserver.com:8001/api/v1/datasets/7",
+                "id": "7",
+                "key": [
+                    {
+                        "abbreviation": "id",
+                        "autoGenerated": false,
+                        "deprecated": false,
+                        "description": "primary key",
+                        "hidden": false,
+                        "id": "130",
+                        "includeOriginalValue": true,
+                        "kind": "BASE",
+                        "name": "id",
+                        "role": "VALUE",
+                        "type": "INTEGER",
+                        "version": "000000000000300C"
+                    }
+                ],
+                "name": "requests_test",
+                "objectPermissions": {
+                    "Owner": [
+                        {
+                            "memberId": 7,
+                            "type": "USER"
+                        }
+                    ]
+                },
+                "version": "000000000000300B"
+            }
+        ]
+    }
+}
+</pre>
+
+        </div>
+
+
+
+
+    </div>
+
+<div class="related-links"/>
+<div class="navfooter"><!---->
+<span class="navparent"><a class="link" href="../api/api_datasets_top.html" title="Use the datasets resource to list datasets or create a new dataset."><span class="navheader_label">Parent topic</span><span class="navheader_separator">: </span><span class="navheader_linktext">datasets Resource</span></a></span>  </div><div class="footer">WebHelp output generated by<a href="http://www.oxygenxml.com" target="_blank"><span class="oXygenLogo"><img src="../oxygen-webhelp/resources/img/LogoOxygen100x22.png" alt="Oxygen"/></span><span class="xmlauthor">XML Author</span></a></div>
+<div id="productInfo" style="display:none;"><span id="oxy_productID">api_ref_guide</span><span id="oxy_productVersion">2.0</span></div><div id="loginData" style="display: none"><span class="bt_close" title="Close"><!----></span><form action="" target="passwordIframe" method="post" name="form_login" onsubmit="return loggInUser();" id="loginFormData" autocomplete="on"><input type="hidden" id="reloadComments" value="yes"><!----></input><table class="login"><thead><tr><td colspan="2"><span id="l_login2"><script type="text/javascript">$('#l_login2').html(getLocalization('label.login'));</script></span></td></tr><tr><td colspan="2"><div id="loginResponse"><!----></div></td></tr></thead><tr><td><span id="l_userName"><script type="text/javascript">$('#l_userName').html(getLocalization('label.userName'));</script></span></td><td><input name="usernameW" type="text" id="myUserName" autocomplete="on" required="required" autofocus="autofocus"><!----></input></td></tr><tr><td><span id="l_pswd"><script type="text/javascript">$('#l_pswd').html(getLocalization('label.pswd'));</script></span></td><td><input name="passwordW" type="password" id="myPassword" autocomplete="on" required="required"><!----></input></td></tr><tr><td colspan="2" align="left"><span id="ll_remember"><script type="text/javascript" xml:space="preserve">
+								$('#ll_remember').html(getLocalization('label.rememberme'));
+							</script></span>     <input name="myLoginRemember" type="checkbox" class="ck" id="myRemember" value="no"><!----></input></td></tr><tr><td colspan="2" align="center"><input id="l_bt_submit_log" type="submit" value="Submit" name="loginFormButton"><!----></input><script type="text/javascript">$('#l_bt_submit_log').attr('value',getLocalization('label.login'));</script><span class="btnHGlue"><!----></span><input class="bt_cancel" id="l_cancelLog" type="button" value="Cancel" name="loginFormButton"><!----></input><script type="text/javascript">$('#l_cancelLog').attr('value',getLocalization('label.cancel'));</script></td></tr></table><div class="loginAlternative"><span id="link_lostPwd" onclick="showLostPwd()"><script type="text/javascript">$('#link_lostPwd').html(getLocalization('label.lostPswd'));</script></span><span id="link_signUp" onclick="showSignUp()"><script type="text/javascript">$('#link_signUp').html(getLocalization('label.signUp'));</script></span></div></form><iframe id="passwordIframe" name="passwordIframe" style="display:none"><!----></iframe></div><div id="cmts"><!----></div></body>
+</html>

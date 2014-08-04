@@ -1,0 +1,92 @@
+
+<!DOCTYPE html
+  PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xml:lang="en-us" lang="en-us">
+<head><meta xmlns="http://www.w3.org/1999/xhtml" name="description" content="You can configure a lens so Platfora sends an email message to users when it detects an anomaly in lens data. Do this by defining a lens notification. You might want to define a lens notification so ..."/><meta http-equiv="Content-Type" content="text/html; charset=utf-8"/><meta name="copyright" content="(C) Copyright 2005"/><meta name="DC.rights.owner" content="(C) Copyright 2005"/><meta name="DC.Type" content="task"/><meta name="DC.Title" content="Manage Lens Notifications"/><meta name="abstract" content="You can configure a lens so Platfora sends an email message to users when it detects an anomaly in lens data. Do this by defining a lens notification. You might want to define a lens notification so data analysts know when to view a vizboard to analyze the data further."/><meta xmlns="http://www.w3.org/1999/xhtml" name="description" content="You can configure a lens so Platfora sends an email message to users when it detects an anomaly in lens data. Do this by defining a lens notification. You might want to define a lens notification so data analysts know when to view a vizboard to analyze the data further."/><meta name="DC.Relation" scheme="URI" content="../../lens/manage/manage_lenses.html"/><meta name="DC.Relation" scheme="URI" content="../../system/configure_email_server.html"/><meta name="DC.Relation" scheme="URI" content="../../lens/notifications/add_lens_notification.html"/><meta name="DC.Relation" scheme="URI" content="../../lens/notifications/disable_lens_notification.html"/><meta name="DC.Format" content="XHTML"/><meta name="DC.Identifier" content="lens_notifications"/><link rel="stylesheet" type="text/css" href="../../oxygen-webhelp/resources/css/commonltr.css"><!----></link><title>Manage Lens Notifications</title><meta http-equiv="Content-Type" content="text/html; charset=utf-8"/><link rel="stylesheet" type="text/css" href="../../oxygen-webhelp/resources/css/commonltr.css"><!----></link><link rel="stylesheet" type="text/css" href="../../oxygen-webhelp/resources/css/webhelp_topic.css"><!----></link><link rel="stylesheet" type="text/css" href="../../oxygen-webhelp/resources/skins/skin.css"><!----></link><link rel="stylesheet" type="text/css" href="../../oxygen-webhelp/resources/css/jquery.realperson.css"><!----></link><link rel="stylesheet" type="text/css" href="../../oxygen-webhelp/resources/css/comments.css"><!----></link><link rel="stylesheet" type="text/css" href="../../oxygen-webhelp/resources/css/jquery.cleditor.css"><!----></link><link rel="stylesheet" type="text/css" href="../../oxygen-webhelp/resources/css/admin.css"><!----></link><script type="text/javascript"><!--
+          
+          var prefix = "../../index.html";
+          
+          --></script><script type="text/javascript" src="../../oxygen-webhelp/resources/js/jquery-1.8.2.min.js"><!----></script><script type="text/javascript" src="../../oxygen-webhelp/resources/js/jquery.cookie.js"><!----></script><script type="text/javascript" src="../../oxygen-webhelp/resources/js/jquery-ui.custom.min.js"><!----></script><script type="text/javascript" charset="utf-8" src="../../oxygen-webhelp/resources/js/webhelp_topic.js"><!----></script><script type="text/javascript" charset="utf-8" src="../../oxygen-webhelp/resources/localization/strings.js"><!----></script><script type="text/javascript" charset="utf-8" src="../../oxygen-webhelp/resources/js/init.js"><!----></script><script type="text/javascript" charset="utf-8" src="../../oxygen-webhelp/resources/js/comments-functions.js"><!----></script></head>
+<body onload="init('../../')" id="lens_notifications">
+<table class="nav"><tbody><tr><td colspan="2"><div id="printlink"><a href="javascript:window.print();" title="printThisPage"/></div><div id="permalink"><a href="#" title="linkToThis"/></div></td></tr><tr><td width="75%"><a class="navheader_parent_path" href="../../lens/manage/../../lens/lens_builder.html" title="To request data from Hadoop and load it into Platfora, you must define and build a lens. A lens can be though of as a dynamic, on-demand data mart purpose-built for a specific analysis project.">Build a Lens (Load Data)</a> / <a class="navheader_parent_path" href="../../lens/manage/manage_lenses.html" title="After a lens is defined, you can edit it, build it, check its status, update/rebuild it (refresh its data), or delete it. Lenses can be managed from the Data Catalog or System page.">Manage Lenses</a></td><td><div class="navheader">
+<span class="navparent"><a class="link" href="../../lens/manage/manage_lenses.html" title="After a lens is defined, you can edit it, build it, check its status, update/rebuild it (refresh its data), or delete it. Lenses can be managed from the Data Catalog or System page."><span class="navheader_label">Parent topic</span><span class="navheader_separator">: </span><span class="navheader_linktext">Manage Lenses</span></a></span>  </div></td></tr></tbody></table>
+
+    <h1 class="title topictitle1">Manage Lens Notifications</h1>
+
+    
+    <div class="body taskbody"><p class="shortdesc">You can configure a lens so Platfora sends an email message to users when it detects
+        an anomaly in lens data. Do this by defining a lens notification. You might want to define a
+        lens notification so data analysts know when to view a vizboard to analyze the data
+        further.</p>
+
+       <div class="section context">
+           <p class="p">When Platfora builds a lens, it queries the lens data to search for data that meets the defined
+               criteria. When it detects that some data meets the criteria, it notifies users with the
+               results of the query it ran against the lens. Analysts might then choose to view a vizboard
+               based on the same lens so they can investigate the data further.</p>
+
+           
+           <p class="p">Consider the following rules and guidelines when working with lens notifications:</p>
+
+           <ul class="ul">
+               <li class="li">
+                   <p class="p">Platfora must be configured to connect to an email server using SMTP. For details on how to
+                       do this, see <a class="xref" href="../../system/configure_email_server.html" title="To enable Platfora to send email messages, you must configure Platfora to connect as a client to an outgoing email server that uses SMTP (Simple Mail Transfer Protocol).">Configure Platfora to Send Email</a>.</p>
+
+               </li>
+
+               <li class="li">
+                   <p class="p">To define a rule, the lens must be built already.</p>
+
+               </li>
+
+               <li class="li">
+                   <p class="p">You can define multiple notification rules per lens. Each rule results in a different
+                       email message.</p>
+
+               </li>
+
+               <li class="li"><p class="p">The rule can only return results for one measure in the lens. However, it can filter on multiple
+                   measures.</p>
+</li>
+
+               <li class="li">
+                   <p class="p">The email message only contains data on the fields chosen in the lens notification rule.</p>
+
+               </li>
+
+               <li class="li">
+                   <p class="p">Platfora sends email notifications after a lens is built, not after the lens notification is
+                       created or edited.</p>
+
+               </li>
+
+               <li class="li">
+                   <p class="p">You can disable a lens notification after it has been defined. You might want to do that to
+                       temporarily stop notifying users while retaining the logic defined in the notification
+                       rule.</p>
+
+               </li>
+
+           </ul>
+
+       </div>
+
+    </div>
+
+<div class="related-links">
+<ul class="ullinks">
+<li class="link ulchildlink"><strong><a href="../../system/configure_email_server.html">Configure Platfora to Send Email</a></strong><br/>
+To enable Platfora to send email messages, you must configure Platfora to connect as         a client to an outgoing email server that uses SMTP (Simple Mail Transfer Protocol). </li>
+<li class="link ulchildlink"><strong><a href="../../lens/notifications/add_lens_notification.html">Add a Lens Notification Rule</a></strong><br/>
+Define a lens notification rule so Platfora sends an email to notify users when the         data in a lens build meets specified criteria. You can define multiple rules per         lens.</li>
+<li class="link ulchildlink"><strong><a href="../../lens/notifications/disable_lens_notification.html">Disable a Lens Notification Rule</a></strong><br/>
+Disabling a lens notification rule allows you temporarily stop notifications while         retaining the logic defined in the notification rule.</li>
+</ul>
+</div>
+<div class="navfooter"><!---->
+<span class="navparent"><a class="link" href="../../lens/manage/manage_lenses.html" title="After a lens is defined, you can edit it, build it, check its status, update/rebuild it (refresh its data), or delete it. Lenses can be managed from the Data Catalog or System page."><span class="navheader_label">Parent topic</span><span class="navheader_separator">: </span><span class="navheader_linktext">Manage Lenses</span></a></span>  </div><div class="footer">WebHelp output generated by<a href="http://www.oxygenxml.com" target="_blank"><span class="oXygenLogo"><img src="../../oxygen-webhelp/resources/img/LogoOxygen100x22.png" alt="Oxygen"/></span><span class="xmlauthor">XML Author</span></a></div>
+<div id="productInfo" style="display:none;"><span id="oxy_productID">webhelp</span><span id="oxy_productVersion">3.0</span></div><div id="loginData" style="display: none"><span class="bt_close" title="Close"><!----></span><form action="" target="passwordIframe" method="post" name="form_login" onsubmit="return loggInUser();" id="loginFormData" autocomplete="on"><input type="hidden" id="reloadComments" value="yes"><!----></input><table class="login"><thead><tr><td colspan="2"><span id="l_login2"><script type="text/javascript">$('#l_login2').html(getLocalization('label.login'));</script></span></td></tr><tr><td colspan="2"><div id="loginResponse"><!----></div></td></tr></thead><tr><td><span id="l_userName"><script type="text/javascript">$('#l_userName').html(getLocalization('label.userName'));</script></span></td><td><input name="usernameW" type="text" id="myUserName" autocomplete="on" required="required" autofocus="autofocus"><!----></input></td></tr><tr><td><span id="l_pswd"><script type="text/javascript">$('#l_pswd').html(getLocalization('label.pswd'));</script></span></td><td><input name="passwordW" type="password" id="myPassword" autocomplete="on" required="required"><!----></input></td></tr><tr><td colspan="2" align="left"><span id="ll_remember"><script type="text/javascript" xml:space="preserve">
+								$('#ll_remember').html(getLocalization('label.rememberme'));
+							</script></span>     <input name="myLoginRemember" type="checkbox" class="ck" id="myRemember" value="no"><!----></input></td></tr><tr><td colspan="2" align="center"><input id="l_bt_submit_log" type="submit" value="Submit" name="loginFormButton"><!----></input><script type="text/javascript">$('#l_bt_submit_log').attr('value',getLocalization('label.login'));</script><span class="btnHGlue"><!----></span><input class="bt_cancel" id="l_cancelLog" type="button" value="Cancel" name="loginFormButton"><!----></input><script type="text/javascript">$('#l_cancelLog').attr('value',getLocalization('label.cancel'));</script></td></tr></table><div class="loginAlternative"><span id="link_lostPwd" onclick="showLostPwd()"><script type="text/javascript">$('#link_lostPwd').html(getLocalization('label.lostPswd'));</script></span><span id="link_signUp" onclick="showSignUp()"><script type="text/javascript">$('#link_signUp').html(getLocalization('label.signUp'));</script></span></div></form><iframe id="passwordIframe" name="passwordIframe" style="display:none"><!----></iframe></div><div id="cmts"><!----></div></body>
+</html>

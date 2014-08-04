@@ -1,0 +1,126 @@
+
+<!DOCTYPE html
+  PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xml:lang="en-us" lang="en-us">
+<head><meta xmlns="http://www.w3.org/1999/xhtml" name="description" content="Object access permissions control what users can do with a Platfora object (a data source, dataset, lens, or vizboard). Object access and data access are completely independent of each other in ..."/><meta http-equiv="Content-Type" content="text/html; charset=utf-8"/><meta name="copyright" content="(C) Copyright 2005"/><meta name="DC.rights.owner" content="(C) Copyright 2005"/><meta name="DC.Type" content="concept"/><meta name="DC.Title" content="Understand Object Permissions"/><meta name="abstract" content="Object access permissions control what users can do with a Platfora object (a data source, dataset, lens, or vizboard). Object access and data access are completely independent of each other in Platfora. A user must be granted access to both in order to work with an object and the data it contains."/><meta xmlns="http://www.w3.org/1999/xhtml" name="description" content="Object access permissions control what users can do with a Platfora object (a data source, dataset, lens, or vizboard). Object access and data access are completely independent of each other in Platfora. A user must be granted access to both in order to work with an object and the data it contains."/><meta name="DC.Relation" scheme="URI" content="../../system/security/about_security_model.html"/><meta name="DC.Format" content="XHTML"/><meta name="DC.Identifier" content="about_object_permissions"/><link rel="stylesheet" type="text/css" href="../../oxygen-webhelp/resources/css/commonltr.css"><!----></link><title>Understand Object Permissions</title><meta http-equiv="Content-Type" content="text/html; charset=utf-8"/><link rel="stylesheet" type="text/css" href="../../oxygen-webhelp/resources/css/commonltr.css"><!----></link><link rel="stylesheet" type="text/css" href="../../oxygen-webhelp/resources/css/webhelp_topic.css"><!----></link><link rel="stylesheet" type="text/css" href="../../oxygen-webhelp/resources/skins/skin.css"><!----></link><link rel="stylesheet" type="text/css" href="../../oxygen-webhelp/resources/css/jquery.realperson.css"><!----></link><link rel="stylesheet" type="text/css" href="../../oxygen-webhelp/resources/css/comments.css"><!----></link><link rel="stylesheet" type="text/css" href="../../oxygen-webhelp/resources/css/jquery.cleditor.css"><!----></link><link rel="stylesheet" type="text/css" href="../../oxygen-webhelp/resources/css/admin.css"><!----></link><script type="text/javascript"><!--
+          
+          var prefix = "../../index.html";
+          
+          --></script><script type="text/javascript" src="../../oxygen-webhelp/resources/js/jquery-1.8.2.min.js"><!----></script><script type="text/javascript" src="../../oxygen-webhelp/resources/js/jquery.cookie.js"><!----></script><script type="text/javascript" src="../../oxygen-webhelp/resources/js/jquery-ui.custom.min.js"><!----></script><script type="text/javascript" charset="utf-8" src="../../oxygen-webhelp/resources/js/webhelp_topic.js"><!----></script><script type="text/javascript" charset="utf-8" src="../../oxygen-webhelp/resources/localization/strings.js"><!----></script><script type="text/javascript" charset="utf-8" src="../../oxygen-webhelp/resources/js/init.js"><!----></script><script type="text/javascript" charset="utf-8" src="../../oxygen-webhelp/resources/js/comments-functions.js"><!----></script></head>
+<body onload="init('../../')" id="about_object_permissions">
+<table class="nav"><tbody><tr><td colspan="2"><div id="printlink"><a href="javascript:window.print();" title="printThisPage"/></div><div id="permalink"><a href="#" title="linkToThis"/></div></td></tr><tr><td width="75%"><a class="navheader_parent_path" href="../../system/security/../../system/system_admin_top.html" title="From the Platfora System page, authorized system administrators can manage and monitor various aspects of the Platfora system, such as lens builds, user access, data access, server resources, and system configuration. Users who do not have system administrator permissions will only have access to the System page to monitor and manage their own lenses.">System Administration</a> / <a class="navheader_parent_path" href="../../system/security/about_security_model.html" title="Platfora provides role-based access control (RBAC) to configure what users can do in the Platfora application, what data they can see, and what objects they can access. Access can be controlled at both broad and detail levels.">Manage Access and Permissions</a></td><td><div class="navheader">
+<span class="navparent"><a class="link" href="../../system/security/about_security_model.html" title="Platfora provides role-based access control (RBAC) to configure what users can do in the Platfora application, what data they can see, and what objects they can access. Access can be controlled at both broad and detail levels."><span class="navheader_label">Parent topic</span><span class="navheader_separator">: </span><span class="navheader_linktext">Manage Access and Permissions</span></a></span>  </div></td></tr></tbody></table>
+
+ <h1 class="title topictitle1">Understand Object Permissions</h1>
+
+ 
+ <div class="body conbody"><p class="shortdesc">Object access permissions control what users can do with a Platfora object (a data
+  source, dataset, lens, or vizboard). Object access and data access are completely independent of
+  each other in Platfora. A user must be granted access to both in order to work with an object and
+  the data it contains. </p>
+
+  <p class="p">For example, if a Mary has <strong class="ph b">View Only</strong> object access to a vizboard, that means she can
+   open the vizboard and navigate its pages. However, if the visualizations within the vizboard were
+   created with source data that Mary is not allowed to see, those visualizations will be disabled
+   for Mary (grayed out). </p>
+
+  <p class="p">The following permissions can be granted on Platfora objects:</p>
+
+  <div class="p">
+   
+<div class="tablenoborder"><table cellpadding="4" cellspacing="0" summary="" class="table" frame="border" border="1" rules="all">
+     
+     
+     <thead class="thead" align="left">
+      <tr class="row">
+       <th class="entry" valign="top" width="20%" id="d163412e38">Object</th>
+
+       <th class="entry" valign="top" width="80%" id="d163412e41">Permissions</th>
+
+      </tr>
+
+     </thead>
+
+     <tbody class="tbody">
+      <tr class="row">
+       <td class="entry" valign="top" width="20%" headers="d163412e38 "><strong class="ph b">Data Source</strong>
+       </td>
+
+       <td class="entry" valign="top" width="80%" headers="d163412e41 ">
+        <p class="p"><em class="ph i">The ability to create, update or delete data sources is restricted to System
+          Administrators only</em></p>
+
+        <p class="p"><strong class="ph b">Define Datasets</strong> – The ability to define datasets based on files residing in the
+         data source location.</p>
+
+        <p class="p"><strong class="ph b">Manage Permissions</strong> – <em class="ph i">Define Datasets</em> plus the ability to grant <em class="ph i">Define
+          Datasets</em> access to others.</p>
+
+       </td>
+
+      </tr>
+
+      <tr class="row">
+       <td class="entry" valign="top" width="20%" headers="d163412e38 "><strong class="ph b">Dataset</strong>
+       </td>
+
+       <td class="entry" valign="top" width="80%" headers="d163412e41 ">
+        <p class="p"><strong class="ph b">Own</strong> – The ability to edit and delete the dataset, and grant permissions to others.
+         The dataset creator is the default owner.</p>
+
+        <p class="p"><strong class="ph b">Edit</strong> – The ability to edit the dataset definition and define/build lenses.</p>
+
+        <p class="p"><strong class="ph b">Define Lens</strong> – The ability to see the <strong class="ph b">Data Catalog</strong> view only of the dataset
+         (cannot see raw data) and define/build lenses from the dataset. </p>
+
+       </td>
+
+      </tr>
+
+      <tr class="row">
+       <td class="entry" valign="top" width="20%" headers="d163412e38 "><strong class="ph b">Lens</strong></td>
+
+       <td class="entry" valign="top" width="80%" headers="d163412e41 ">
+        <p class="p"><strong class="ph b">Own</strong> – The ability to edit and delete the lens definition, unbuild a lens, and
+         grant permissions to others. The lens creator is the default owner.</p>
+
+        <p class="p"><strong class="ph b">Edit</strong> – The ability to edit the lens definition and update/rebuild the lens.</p>
+
+       </td>
+
+      </tr>
+
+      <tr class="row">
+       <td class="entry" valign="top" width="20%" headers="d163412e38 "><strong class="ph b">Vizboard</strong></td>
+
+       <td class="entry" valign="top" width="80%" headers="d163412e41 ">
+        <p class="p"><strong class="ph b">Own</strong> – The ability to edit and delete the vizboard, and grant permissions to
+         others. The vizboard creator is the default owner.</p>
+
+        <p class="p"><strong class="ph b">Edit</strong> – The ability to edit the vizboard and its contained pages and
+         visualizations. Can save or duplicate the vizboard.</p>
+
+        <p class="p"><strong class="ph b">View Only</strong> – The ability to view the vizboard and its contained pages and
+         visualizations. Can adjust filters and page layout controls in the current session only
+         (cannot save changes). </p>
+
+       </td>
+
+      </tr>
+
+     </tbody>
+
+    </table>
+</div>
+
+  </div>
+
+ </div>
+
+<div class="related-links"/>
+<div class="navfooter"><!---->
+<span class="navparent"><a class="link" href="../../system/security/about_security_model.html" title="Platfora provides role-based access control (RBAC) to configure what users can do in the Platfora application, what data they can see, and what objects they can access. Access can be controlled at both broad and detail levels."><span class="navheader_label">Parent topic</span><span class="navheader_separator">: </span><span class="navheader_linktext">Manage Access and Permissions</span></a></span>  </div><div class="footer">WebHelp output generated by<a href="http://www.oxygenxml.com" target="_blank"><span class="oXygenLogo"><img src="../../oxygen-webhelp/resources/img/LogoOxygen100x22.png" alt="Oxygen"/></span><span class="xmlauthor">XML Author</span></a></div>
+<div id="productInfo" style="display:none;"><span id="oxy_productID">webhelp</span><span id="oxy_productVersion">3.0</span></div><div id="loginData" style="display: none"><span class="bt_close" title="Close"><!----></span><form action="" target="passwordIframe" method="post" name="form_login" onsubmit="return loggInUser();" id="loginFormData" autocomplete="on"><input type="hidden" id="reloadComments" value="yes"><!----></input><table class="login"><thead><tr><td colspan="2"><span id="l_login2"><script type="text/javascript">$('#l_login2').html(getLocalization('label.login'));</script></span></td></tr><tr><td colspan="2"><div id="loginResponse"><!----></div></td></tr></thead><tr><td><span id="l_userName"><script type="text/javascript">$('#l_userName').html(getLocalization('label.userName'));</script></span></td><td><input name="usernameW" type="text" id="myUserName" autocomplete="on" required="required" autofocus="autofocus"><!----></input></td></tr><tr><td><span id="l_pswd"><script type="text/javascript">$('#l_pswd').html(getLocalization('label.pswd'));</script></span></td><td><input name="passwordW" type="password" id="myPassword" autocomplete="on" required="required"><!----></input></td></tr><tr><td colspan="2" align="left"><span id="ll_remember"><script type="text/javascript" xml:space="preserve">
+								$('#ll_remember').html(getLocalization('label.rememberme'));
+							</script></span>     <input name="myLoginRemember" type="checkbox" class="ck" id="myRemember" value="no"><!----></input></td></tr><tr><td colspan="2" align="center"><input id="l_bt_submit_log" type="submit" value="Submit" name="loginFormButton"><!----></input><script type="text/javascript">$('#l_bt_submit_log').attr('value',getLocalization('label.login'));</script><span class="btnHGlue"><!----></span><input class="bt_cancel" id="l_cancelLog" type="button" value="Cancel" name="loginFormButton"><!----></input><script type="text/javascript">$('#l_cancelLog').attr('value',getLocalization('label.cancel'));</script></td></tr></table><div class="loginAlternative"><span id="link_lostPwd" onclick="showLostPwd()"><script type="text/javascript">$('#link_lostPwd').html(getLocalization('label.lostPswd'));</script></span><span id="link_signUp" onclick="showSignUp()"><script type="text/javascript">$('#link_signUp').html(getLocalization('label.signUp'));</script></span></div></form><iframe id="passwordIframe" name="passwordIframe" style="display:none"><!----></iframe></div><div id="cmts"><!----></div></body>
+</html>

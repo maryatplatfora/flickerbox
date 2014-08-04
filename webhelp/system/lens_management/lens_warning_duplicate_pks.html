@@ -1,0 +1,64 @@
+
+<!DOCTYPE html
+  PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xml:lang="en-us" lang="en-us">
+<head><meta xmlns="http://www.w3.org/1999/xhtml" name="description" content="A Duplicate Primary Keys warning only occurs when building a lens from a dataset that references other datasets. This means that a referenced dataset had duplicate primary key values, and those ..."/><meta http-equiv="Content-Type" content="text/html; charset=utf-8"/><meta name="copyright" content="(C) Copyright 2005"/><meta name="DC.rights.owner" content="(C) Copyright 2005"/><meta name="DC.Type" content="task"/><meta name="DC.Title" content="Duplicate Primary Keys"/><meta name="abstract" content="A Duplicate Primary Keys warning only occurs when building a lens from a dataset that references other datasets. This means that a referenced dataset had duplicate primary key values, and those duplicate rows were dropped before joining to the fact dataset."/><meta xmlns="http://www.w3.org/1999/xhtml" name="description" content="A Duplicate Primary Keys warning only occurs when building a lens from a dataset that references other datasets. This means that a referenced dataset had duplicate primary key values, and those duplicate rows were dropped before joining to the fact dataset."/><meta name="DC.Relation" scheme="URI" content="../../system/lens_management/lens_warnings.html"/><meta name="DC.Format" content="XHTML"/><meta name="DC.Identifier" content="admin_lens_warning_duplicate_pk"/><link rel="stylesheet" type="text/css" href="../../oxygen-webhelp/resources/css/commonltr.css"><!----></link><title>Duplicate Primary Keys</title><meta http-equiv="Content-Type" content="text/html; charset=utf-8"/><link rel="stylesheet" type="text/css" href="../../oxygen-webhelp/resources/css/commonltr.css"><!----></link><link rel="stylesheet" type="text/css" href="../../oxygen-webhelp/resources/css/webhelp_topic.css"><!----></link><link rel="stylesheet" type="text/css" href="../../oxygen-webhelp/resources/skins/skin.css"><!----></link><link rel="stylesheet" type="text/css" href="../../oxygen-webhelp/resources/css/jquery.realperson.css"><!----></link><link rel="stylesheet" type="text/css" href="../../oxygen-webhelp/resources/css/comments.css"><!----></link><link rel="stylesheet" type="text/css" href="../../oxygen-webhelp/resources/css/jquery.cleditor.css"><!----></link><link rel="stylesheet" type="text/css" href="../../oxygen-webhelp/resources/css/admin.css"><!----></link><script type="text/javascript"><!--
+          
+          var prefix = "../../index.html";
+          
+          --></script><script type="text/javascript" src="../../oxygen-webhelp/resources/js/jquery-1.8.2.min.js"><!----></script><script type="text/javascript" src="../../oxygen-webhelp/resources/js/jquery.cookie.js"><!----></script><script type="text/javascript" src="../../oxygen-webhelp/resources/js/jquery-ui.custom.min.js"><!----></script><script type="text/javascript" charset="utf-8" src="../../oxygen-webhelp/resources/js/webhelp_topic.js"><!----></script><script type="text/javascript" charset="utf-8" src="../../oxygen-webhelp/resources/localization/strings.js"><!----></script><script type="text/javascript" charset="utf-8" src="../../oxygen-webhelp/resources/js/init.js"><!----></script><script type="text/javascript" charset="utf-8" src="../../oxygen-webhelp/resources/js/comments-functions.js"><!----></script></head>
+<body onload="init('../../')" id="admin_lens_warning_duplicate_pk">
+<table class="nav"><tbody><tr><td colspan="2"><div id="printlink"><a href="javascript:window.print();" title="printThisPage"/></div><div id="permalink"><a href="#" title="linkToThis"/></div></td></tr><tr><td width="75%"><a class="navheader_parent_path" href="../../system/lens_management/../../system/lens_management/system_lens_top.html" title="The Activities &amp; Lenses tab of the System page is where you can manage all lenses in Platfora and monitor the status of lens builds. System administrators can manage all lenses in the system. Other roles can only manage lenses they own.">Manage Lens Builds and Lenses</a> / <a class="navheader_parent_path" href="../../system/lens_management/lens_warnings.html" title="This section describes the types of lens data quality warnings that Platfora reports and how to handle them.">Investigate Lens Data Quality Warnings</a></td><td><div class="navheader">
+<span class="navparent"><a class="link" href="../../system/lens_management/lens_warnings.html" title="This section describes the types of lens data quality warnings that Platfora reports and how to handle them."><span class="navheader_label">Parent topic</span><span class="navheader_separator">: </span><span class="navheader_linktext">Investigate Lens Data Quality Warnings</span></a></span>  </div></td></tr></tbody></table>
+
+    <h1 class="title topictitle1">Duplicate Primary Keys</h1>
+
+    
+    <div class="body taskbody"><div class="abstract">
+    <div class="shortdesc">A <em class="ph i">Duplicate Primary Keys</em> warning only occurs when building a lens from a
+            dataset that references other datasets. This means that a referenced dataset had
+            duplicate primary key values, and those duplicate rows were dropped before joining to
+            the fact dataset.</div>
+
+        <p class="p">During lens processing <em class="ph i">all</em> rows that have a duplicate primary key values are
+            dropped in the referenced dataset before joining. For example, if there are two rows
+            that have the same primary key value, both rows will be discarded before joining to the
+            fact dataset. Any referenced dimension fields for those discarded rows will use the
+            default values instead.</p>
+
+    </div>
+
+        
+        <div class="section steps-informal">
+            <p class="p">To investigate what the duplicate key values are, check the Platfora server log
+                located in <samp class="ph codeph">$PLATFORA_DATA_DIR/logs/platfora-server.log</samp> on the
+                Platfora master node. </p>
+
+            <p class="p">You can also check recent log file entries in the <span class="ph uicontrol">Nodes</span>
+                section of the <span class="ph uicontrol">System &gt; Resources</span> page, but the log viewer
+                only shows the most recent 3500 lines of the server log file.</p>
+
+            <p class="p">Search in the log file for the string <samp class="ph codeph">Duplicate primary key</samp>. </p>
+
+            <p class="p">The log lines that list the duplicate key values look something like this:</p>
+
+            <div class="p">
+                <pre class="pre codeblock">attempt_201310301935_0565_m_000000_0&gt; 2014-04-22 23:14:54,178 WARN com.platfora.proton.builder.hadoop.DimensionMap: 
+Duplicate primary key based on reference Plane__ref__122__Planes__dimmap: {<strong class="ph b">Tail Number:N617QX</strong>}</pre>
+
+            </div>
+
+            <p class="p">The primary key field name and duplicate value are listed at the end of the log
+                line.</p>
+
+        </div>
+
+    </div>
+
+<div class="related-links"/>
+<div class="navfooter"><!---->
+<span class="navparent"><a class="link" href="../../system/lens_management/lens_warnings.html" title="This section describes the types of lens data quality warnings that Platfora reports and how to handle them."><span class="navheader_label">Parent topic</span><span class="navheader_separator">: </span><span class="navheader_linktext">Investigate Lens Data Quality Warnings</span></a></span>  </div><div class="footer">WebHelp output generated by<a href="http://www.oxygenxml.com" target="_blank"><span class="oXygenLogo"><img src="../../oxygen-webhelp/resources/img/LogoOxygen100x22.png" alt="Oxygen"/></span><span class="xmlauthor">XML Author</span></a></div>
+<div id="productInfo" style="display:none;"><span id="oxy_productID">webhelp</span><span id="oxy_productVersion">3.0</span></div><div id="loginData" style="display: none"><span class="bt_close" title="Close"><!----></span><form action="" target="passwordIframe" method="post" name="form_login" onsubmit="return loggInUser();" id="loginFormData" autocomplete="on"><input type="hidden" id="reloadComments" value="yes"><!----></input><table class="login"><thead><tr><td colspan="2"><span id="l_login2"><script type="text/javascript">$('#l_login2').html(getLocalization('label.login'));</script></span></td></tr><tr><td colspan="2"><div id="loginResponse"><!----></div></td></tr></thead><tr><td><span id="l_userName"><script type="text/javascript">$('#l_userName').html(getLocalization('label.userName'));</script></span></td><td><input name="usernameW" type="text" id="myUserName" autocomplete="on" required="required" autofocus="autofocus"><!----></input></td></tr><tr><td><span id="l_pswd"><script type="text/javascript">$('#l_pswd').html(getLocalization('label.pswd'));</script></span></td><td><input name="passwordW" type="password" id="myPassword" autocomplete="on" required="required"><!----></input></td></tr><tr><td colspan="2" align="left"><span id="ll_remember"><script type="text/javascript" xml:space="preserve">
+								$('#ll_remember').html(getLocalization('label.rememberme'));
+							</script></span>     <input name="myLoginRemember" type="checkbox" class="ck" id="myRemember" value="no"><!----></input></td></tr><tr><td colspan="2" align="center"><input id="l_bt_submit_log" type="submit" value="Submit" name="loginFormButton"><!----></input><script type="text/javascript">$('#l_bt_submit_log').attr('value',getLocalization('label.login'));</script><span class="btnHGlue"><!----></span><input class="bt_cancel" id="l_cancelLog" type="button" value="Cancel" name="loginFormButton"><!----></input><script type="text/javascript">$('#l_cancelLog').attr('value',getLocalization('label.cancel'));</script></td></tr></table><div class="loginAlternative"><span id="link_lostPwd" onclick="showLostPwd()"><script type="text/javascript">$('#link_lostPwd').html(getLocalization('label.lostPswd'));</script></span><span id="link_signUp" onclick="showSignUp()"><script type="text/javascript">$('#link_signUp').html(getLocalization('label.signUp'));</script></span></div></form><iframe id="passwordIframe" name="passwordIframe" style="display:none"><!----></iframe></div><div id="cmts"><!----></div></body>
+</html>

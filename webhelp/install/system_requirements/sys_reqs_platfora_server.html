@@ -1,0 +1,172 @@
+
+<!DOCTYPE html
+  PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xml:lang="en-us" lang="en-us">
+<head><meta xmlns="http://www.w3.org/1999/xhtml" name="description" content="Platfora recommends the following minimum system requirements for Platfora servers. For multi-node installations, the master server and all worker servers must be the same operating system (OS) and ..."/><meta http-equiv="Content-Type" content="text/html; charset=utf-8"/><meta name="copyright" content="(C) Copyright 2005"/><meta name="DC.rights.owner" content="(C) Copyright 2005"/><meta name="DC.Type" content="reference"/><meta name="DC.Title" content="Platfora Server and Worker Requirements"/><meta name="abstract" content="Platfora recommends the following minimum system requirements for Platfora servers. For multi-node installations, the master server and all worker servers must be the same operating system (OS) and system configuration (same amount of memory, CPU, etc.)."/><meta xmlns="http://www.w3.org/1999/xhtml" name="description" content="Platfora recommends the following minimum system requirements for Platfora servers. For multi-node installations, the master server and all worker servers must be the same operating system (OS) and system configuration (same amount of memory, CPU, etc.)."/><meta name="DC.Relation" scheme="URI" content="../../system/install_planning/install_plan_intro.html"/><meta name="DC.Format" content="XHTML"/><meta name="DC.Identifier" content="sys_reqs_platfora_server"/><link rel="stylesheet" type="text/css" href="../../oxygen-webhelp/resources/css/commonltr.css"><!----></link><title>Platfora Server and Worker Requirements</title><meta http-equiv="Content-Type" content="text/html; charset=utf-8"/><link rel="stylesheet" type="text/css" href="../../oxygen-webhelp/resources/css/commonltr.css"><!----></link><link rel="stylesheet" type="text/css" href="../../oxygen-webhelp/resources/css/webhelp_topic.css"><!----></link><link rel="stylesheet" type="text/css" href="../../oxygen-webhelp/resources/skins/skin.css"><!----></link><link rel="stylesheet" type="text/css" href="../../oxygen-webhelp/resources/css/jquery.realperson.css"><!----></link><link rel="stylesheet" type="text/css" href="../../oxygen-webhelp/resources/css/comments.css"><!----></link><link rel="stylesheet" type="text/css" href="../../oxygen-webhelp/resources/css/jquery.cleditor.css"><!----></link><link rel="stylesheet" type="text/css" href="../../oxygen-webhelp/resources/css/admin.css"><!----></link><script type="text/javascript"><!--
+          
+          var prefix = "../../index.html";
+          
+          --></script><script type="text/javascript" src="../../oxygen-webhelp/resources/js/jquery-1.8.2.min.js"><!----></script><script type="text/javascript" src="../../oxygen-webhelp/resources/js/jquery.cookie.js"><!----></script><script type="text/javascript" src="../../oxygen-webhelp/resources/js/jquery-ui.custom.min.js"><!----></script><script type="text/javascript" charset="utf-8" src="../../oxygen-webhelp/resources/js/webhelp_topic.js"><!----></script><script type="text/javascript" charset="utf-8" src="../../oxygen-webhelp/resources/localization/strings.js"><!----></script><script type="text/javascript" charset="utf-8" src="../../oxygen-webhelp/resources/js/init.js"><!----></script><script type="text/javascript" charset="utf-8" src="../../oxygen-webhelp/resources/js/comments-functions.js"><!----></script></head>
+<body onload="init('../../')" id="sys_reqs_platfora_server">
+<table class="nav"><tbody><tr><td colspan="2"><div id="printlink"><a href="javascript:window.print();" title="printThisPage"/></div><div id="permalink"><a href="#" title="linkToThis"/></div></td></tr><tr><td width="75%"><a class="navheader_parent_path" href="../../system/install_planning/../../system/system_admin_top.html" title="From the Platfora System page, authorized system administrators can manage and monitor various aspects of the Platfora system, such as lens builds, user access, data access, server resources, and system configuration. Users who do not have system administrator permissions will only have access to the System page to monitor and manage their own lenses.">System Administration</a> / <a class="navheader_parent_path" href="../../system/install_planning/install_plan_intro.html" title="This section describes the Platfora installation. You'll learn about the hardware and software requirements for a Platfora master and/or server node. You'll also learn about the supported Hadoop implementations and what is required of them. Finally, you'll learn about the components of a Platfora installation. If you want to install the Platfora software, refer to the appropriate Platfora install guide for your Hadoop implementation.">Understand the Platfora Installation</a></td><td><div class="navheader">
+<span class="navparent"><a class="link" href="../../system/install_planning/install_plan_intro.html" title="This section describes the Platfora installation. You'll learn about the hardware and software requirements for a Platfora master and/or server node. You'll also learn about the supported Hadoop implementations and what is required of them. Finally, you'll learn about the components of a Platfora installation. If you want to install the Platfora software, refer to the appropriate Platfora install guide for your Hadoop implementation."><span class="navheader_label">Parent topic</span><span class="navheader_separator">: </span><span class="navheader_linktext">Understand the Platfora Installation</span></a></span>  </div></td></tr></tbody></table>
+
+  <h1 class="title topictitle1">Platfora Server and Worker Requirements</h1>
+
+  
+  <div class="body refbody"><p class="shortdesc">Platfora recommends the following minimum system requirements for Platfora servers. For
+    multi-node installations, the master server and all worker servers must be the same operating
+    system (OS) and system configuration (same amount of memory, CPU, etc.). </p>
+
+    
+    
+<div class="tablenoborder"><table cellpadding="4" cellspacing="0" summary="" id="sys_reqs_platfora_server__table_sys_reqs_platfora_server" class="table header_left" frame="border" border="1" rules="all">
+        
+        
+        <tbody class="tbody">
+
+          <tr class="row">
+            <td class="entry" valign="top" width="24.93765586034913%"><p class="p">64-bit Operating System or Amazon Machine Image (AMIs)</p>
+</td>
+
+            <td class="entry" valign="top" width="75.06234413965088%"><p class="p">Amazon Linux AMI 2014.03</p>
+<p class="p">CentOS 6.2 or higher (CentOs 7.0 is <strong class="ph b">not</strong> supported.)</p>
+<p class="p">RHEL 6.2 or higher (RHEL 7.0 is <strong class="ph b">not</strong> supported.)</p>
+<p class="p">Ubuntu 12.04.1 LTS or higher</p>
+
+              <p class="p">Security-Enhanced Linux 6.2<a name="fnsrc_1" href="#fntarg_1"><sup>1</sup></a></p>
+</td>
+
+          </tr>
+
+          <tr class="row">
+            <td class="entry" valign="top" width="24.93765586034913%"><p class="p">EC2 Instance Types</p>
+</td>
+
+            <td class="entry" valign="top" width="75.06234413965088%">
+              <p class="p">For production installations, Platfora recommends using one of the High-Memory
+                  <a class="xref" href="http://docs.amazonwebservices.com/AWSEC2/latest/UserGuide/instance-types.html#AvailableInstanceTypes" target="_blank">EC2 instance types</a> for the Platfora server: </p>
+
+              <p class="p">m2.xlarge</p>
+
+              <p class="p">m2.2xlarge</p>
+
+              <p class="p">m2.4xlarge</p>
+
+            </td>
+
+          </tr>
+
+          <tr class="row">
+            <td class="entry" valign="top" width="24.93765586034913%"><p class="p">Software</p>
+</td>
+
+            <td class="entry" valign="top" width="75.06234413965088%">
+              <p class="p">Java 1.7</p>
+
+              <p class="p">Python 2.6.8, 2.7.1, 2.7.3 through 2.7.6 (3.0 not supported)</p>
+
+              <p class="p">PostgreSQL 9.2.1-1, 9.2.1-1.28 (AMZN), 9.2.5, 9.2.7 or 9.3 (master only)</p>
+
+            </td>
+
+          </tr>
+
+          <tr class="row">
+            <td class="entry" valign="top" width="24.93765586034913%"><p class="p">Unix Utilities</p>
+</td>
+
+            <td class="entry" valign="top" width="75.06234413965088%"><p class="p">rsync, ssh, scp, cp, tar, tail, sysctl, ntp, <span class="ph">wget</span></p>
+</td>
+
+          </tr>
+
+          <tr class="row">
+            <td class="entry" valign="top" width="24.93765586034913%"><p class="p">Memory</p>
+</td>
+
+            <td class="entry" valign="top" width="75.06234413965088%">
+              <p class="p">64 GB minimum, 256 recommended</p>
+
+              <div class="p">
+                <div class="note note"><span class="notetitle">Note:</span> The server needs enough memory to accommodate actively used lens data.
+                  Additionally, it needs 1-2 GB reserved for normal operations and the lens query
+                  engine workspace.</div>
+
+              </div>
+
+            </td>
+
+          </tr>
+
+          <tr class="row">
+            <td class="entry" valign="top" width="24.93765586034913%"><p class="p">CPU</p>
+</td>
+
+            <td class="entry" valign="top" width="75.06234413965088%">8 cores minimum, 16 recommended</td>
+
+          </tr>
+
+          <tr class="row">
+            <td class="entry" valign="top" width="24.93765586034913%"><p class="p">Disk </p>
+</td>
+
+            <td class="entry" valign="top" width="75.06234413965088%">
+              <p class="p">All Platfora nodes (master or worker) require 300MB for the Platfora installation.
+                  <span class="ph">Every node requires high-speed
+                  local storage and a local disk cache configured as a single logical volume.
+                  Hardware RAID is recommended for the best performance.</span><span class="ph">
+                  Platfora can work with either EBS or ephemeral disk volumes on Amazon EC2. EBS
+                  volumes are slower, but safer (data is not lost if the EC2 instance is
+                  restarted).</span></p>
+
+              <p class="p"/>
+
+              <p class="p">All nodes combined require appropriate free space for aggregated data structures
+                (Platfora lenses). At a minimum, you will need twice the amount of disk space as the
+                amount of system memory. </p>
+
+              <p class="p"/>
+
+              <p class="p">The Platfora master node requires an additional, approximately 700 MB for metadata
+                catalog (dataset definitions, vizboard and visualization definitions, lens
+                definitions, etc.)</p>
+
+            </td>
+
+          </tr>
+
+          <tr class="row">
+            <td class="entry" valign="top" width="24.93765586034913%"><p class="p">Network</p>
+</td>
+
+            <td class="entry" valign="top" width="75.06234413965088%">
+              <p class="p">1 Gbps reliable network connectivity between Platfora master server and query
+                processing servers</p>
+
+              <p class="p">1 Gbps reliable network connectivity between Platfora master server and Hadoop
+                NameNode and JobTracker <span class="ph">(ResourceManager
+                  for YARN distributions) </span>node</p>
+
+              <p class="p">Network bandwidth should be comparable to the amount of memory on the Platfora
+                master server</p>
+
+            </td>
+
+          </tr>
+
+        </tbody>
+
+      </table>
+</div>
+
+  </div>
+
+<div class="related-links"/>
+<div class="fn"><a name="fntarg_1" href="#fnsrc_1"><sup>1</sup></a>  If you wish to install Security-Enhanced Linux, refer to <a class="xref" href="http://goo.gl/UprGXr" target="_blank">Platfora's Support site</a> for
+                  installation instructions.</div><div class="navfooter"><!---->
+<span class="navparent"><a class="link" href="../../system/install_planning/install_plan_intro.html" title="This section describes the Platfora installation. You'll learn about the hardware and software requirements for a Platfora master and/or server node. You'll also learn about the supported Hadoop implementations and what is required of them. Finally, you'll learn about the components of a Platfora installation. If you want to install the Platfora software, refer to the appropriate Platfora install guide for your Hadoop implementation."><span class="navheader_label">Parent topic</span><span class="navheader_separator">: </span><span class="navheader_linktext">Understand the Platfora Installation</span></a></span>  </div><div class="footer">WebHelp output generated by<a href="http://www.oxygenxml.com" target="_blank"><span class="oXygenLogo"><img src="../../oxygen-webhelp/resources/img/LogoOxygen100x22.png" alt="Oxygen"/></span><span class="xmlauthor">XML Author</span></a></div>
+<div id="productInfo" style="display:none;"><span id="oxy_productID">webhelp</span><span id="oxy_productVersion">3.0</span></div><div id="loginData" style="display: none"><span class="bt_close" title="Close"><!----></span><form action="" target="passwordIframe" method="post" name="form_login" onsubmit="return loggInUser();" id="loginFormData" autocomplete="on"><input type="hidden" id="reloadComments" value="yes"><!----></input><table class="login"><thead><tr><td colspan="2"><span id="l_login2"><script type="text/javascript">$('#l_login2').html(getLocalization('label.login'));</script></span></td></tr><tr><td colspan="2"><div id="loginResponse"><!----></div></td></tr></thead><tr><td><span id="l_userName"><script type="text/javascript">$('#l_userName').html(getLocalization('label.userName'));</script></span></td><td><input name="usernameW" type="text" id="myUserName" autocomplete="on" required="required" autofocus="autofocus"><!----></input></td></tr><tr><td><span id="l_pswd"><script type="text/javascript">$('#l_pswd').html(getLocalization('label.pswd'));</script></span></td><td><input name="passwordW" type="password" id="myPassword" autocomplete="on" required="required"><!----></input></td></tr><tr><td colspan="2" align="left"><span id="ll_remember"><script type="text/javascript" xml:space="preserve">
+								$('#ll_remember').html(getLocalization('label.rememberme'));
+							</script></span>     <input name="myLoginRemember" type="checkbox" class="ck" id="myRemember" value="no"><!----></input></td></tr><tr><td colspan="2" align="center"><input id="l_bt_submit_log" type="submit" value="Submit" name="loginFormButton"><!----></input><script type="text/javascript">$('#l_bt_submit_log').attr('value',getLocalization('label.login'));</script><span class="btnHGlue"><!----></span><input class="bt_cancel" id="l_cancelLog" type="button" value="Cancel" name="loginFormButton"><!----></input><script type="text/javascript">$('#l_cancelLog').attr('value',getLocalization('label.cancel'));</script></td></tr></table><div class="loginAlternative"><span id="link_lostPwd" onclick="showLostPwd()"><script type="text/javascript">$('#link_lostPwd').html(getLocalization('label.lostPswd'));</script></span><span id="link_signUp" onclick="showSignUp()"><script type="text/javascript">$('#link_signUp').html(getLocalization('label.signUp'));</script></span></div></form><iframe id="passwordIframe" name="passwordIframe" style="display:none"><!----></iframe></div><div id="cmts"><!----></div></body>
+</html>

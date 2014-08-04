@@ -1,0 +1,113 @@
+
+<!DOCTYPE html
+  PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xml:lang="en-us" lang="en-us">
+<head><meta xmlns="http://www.w3.org/1999/xhtml" name="description" content="Orders and optionally limit the results of a SELECT statement. Syntax GROUP BY group-ordering [ , group-ordering ] The group-ordering clause has the following syntax: column-name [ SORT [ BY ..."/><meta http-equiv="Content-Type" content="text/html; charset=utf-8"/><meta name="copyright" content="(C) Copyright 2005"/><meta name="DC.rights.owner" content="(C) Copyright 2005"/><meta name="DC.Type" content="reference"/><meta name="DC.Title" content="GROUP BY Clause"/><meta name="abstract" content="Orders and optionally limit the results of a SELECT statement."/><meta xmlns="http://www.w3.org/1999/xhtml" name="description" content="Orders and optionally limit the results of a SELECT statement."/><meta name="DC.Relation" scheme="URI" content="../../reference/sql/select_statement.html"/><meta name="DC.Format" content="XHTML"/><meta name="DC.Identifier" content="group_by_clause"/><link rel="stylesheet" type="text/css" href="../../oxygen-webhelp/resources/css/commonltr.css"><!----></link><title>GROUP BY Clause</title><meta http-equiv="Content-Type" content="text/html; charset=utf-8"/><link rel="stylesheet" type="text/css" href="../../oxygen-webhelp/resources/css/commonltr.css"><!----></link><link rel="stylesheet" type="text/css" href="../../oxygen-webhelp/resources/css/webhelp_topic.css"><!----></link><link rel="stylesheet" type="text/css" href="../../oxygen-webhelp/resources/skins/skin.css"><!----></link><link rel="stylesheet" type="text/css" href="../../oxygen-webhelp/resources/css/jquery.realperson.css"><!----></link><link rel="stylesheet" type="text/css" href="../../oxygen-webhelp/resources/css/comments.css"><!----></link><link rel="stylesheet" type="text/css" href="../../oxygen-webhelp/resources/css/jquery.cleditor.css"><!----></link><link rel="stylesheet" type="text/css" href="../../oxygen-webhelp/resources/css/admin.css"><!----></link><script type="text/javascript"><!--
+          
+          var prefix = "../../index.html";
+          
+          --></script><script type="text/javascript" src="../../oxygen-webhelp/resources/js/jquery-1.8.2.min.js"><!----></script><script type="text/javascript" src="../../oxygen-webhelp/resources/js/jquery.cookie.js"><!----></script><script type="text/javascript" src="../../oxygen-webhelp/resources/js/jquery-ui.custom.min.js"><!----></script><script type="text/javascript" charset="utf-8" src="../../oxygen-webhelp/resources/js/webhelp_topic.js"><!----></script><script type="text/javascript" charset="utf-8" src="../../oxygen-webhelp/resources/localization/strings.js"><!----></script><script type="text/javascript" charset="utf-8" src="../../oxygen-webhelp/resources/js/init.js"><!----></script><script type="text/javascript" charset="utf-8" src="../../oxygen-webhelp/resources/js/comments-functions.js"><!----></script></head>
+<body onload="init('../../')" id="group_by_clause">
+<table class="nav"><tbody><tr><td colspan="2"><div id="printlink"><a href="javascript:window.print();" title="printThisPage"/></div><div id="permalink"><a href="#" title="linkToThis"/></div></td></tr><tr><td width="75%"><a class="navheader_parent_path" href="../../reference/sql/../../reference/expression_language/expression_reference_top.html" title="An expression computes or produces a value by combining fields (or columns), constant values, operators, and functions. Platfora has a built-in expression language. You use the language's functions and operators to create a computed field.">Expression and Query Language Reference</a> / <a class="navheader_parent_path" href="../../reference/sql/select_statement.html" title="Queries an aggregate lens. A SELECT statement is input to a progammatic lens query.">SELECT Statement</a></td><td><div class="navheader">
+<span class="navparent"><a class="link" href="../../reference/sql/select_statement.html" title="Queries an aggregate lens. A SELECT statement is input to a progammatic lens query."><span class="navheader_label">Parent topic</span><span class="navheader_separator">: </span><span class="navheader_linktext">SELECT Statement</span></a></span>  </div></td></tr></tbody></table>
+
+  <h1 class="title topictitle1">GROUP BY Clause</h1>
+
+  
+  <div class="body refbody"><p class="shortdesc">Orders and optionally limit the results of a <samp class="ph codeph">SELECT</samp> statement.</p>
+
+    <div class="section refsyn"><h2 class="title sectiontitle">Syntax</h2>
+      
+      <div style="display: block; border: 1 black solid; padding: 2pt; color: maroon; margin-bottom: 6pt;">
+         
+          <kbd><b>GROUP BY</b></kbd>
+          <var>group-ordering</var>
+          <kbd class="ph sep">[ ,</kbd>
+          <var>group-ordering</var>
+          <kbd class="ph sep">]</kbd>
+         
+      </div>
+      <p class="p"/>
+
+      <p class="p">The <var class="keyword varname">group-ordering</var> clause has the following syntax:</p>
+
+      <div style="display: block; border: 1 black solid; padding: 2pt; color: maroon; margin-bottom: 6pt;">
+         
+          <var>column-name</var>
+          <kbd class="ph sep">[ </kbd>
+          <kbd><b>SORT</b></kbd>
+          <kbd class="ph sep">[</kbd>
+          <kbd><b>BY</b></kbd>
+          <var>measure-name</var>
+          <kbd class="ph sep">]</kbd>
+           
+            <kbd class="ph sep">[</kbd>
+             { 
+              <kbd><b>ASC</b></kbd>
+               | <kbd class="ph sep">|</kbd>
+              <kbd><b> | DESC</b></kbd>
+             } 
+            <kbd class="ph sep">]</kbd>
+           
+           
+            <kbd class="ph sep">[</kbd>
+            <kbd><b>LIMIT</b></kbd>
+            <var>integer</var>
+            <kbd class="ph sep">[</kbd>
+            <kbd><b>WITH OTHERS</b></kbd>
+            <kbd class="ph sep"> ] ]</kbd>
+           
+         
+      </div>
+    </div>
+
+    <div class="section"><h2 class="title sectiontitle">Description</h2>
+      
+      <p class="p">Use a <samp class="ph codeph">GROUP BY</samp> clause to order and optionally limit results of a <samp class="ph codeph">SELECT</samp>. If the <samp class="ph codeph">SELECT</samp> statement includes a dimension column, you <samp class="ph codeph">must</samp> supply <samp class="ph codeph">GROUP BY</samp> clause that includes the dimension
+        column. Otherwise, the <samp class="ph codeph">GROUP BY</samp> clause is optional. </p>
+
+      <p class="p">A <samp class="ph codeph">GROUP BY</samp> can include more than one column. To do this, delimit each column with a , (comma) as illustrated here:</p>
+
+      <div class="p">
+        <pre class="pre codeblock">GROUP BY col_A, col_B, col_c</pre>
+
+      </div>
+
+      <p class="p">You can <samp class="ph codeph">GROUP BY</samp> a new computed field that is not defined in the lens. To do this, you add the field using the <samp class="ph codeph">DEFINE</samp> clause and then use the field in the <samp class="ph codeph">GROUP BY</samp> clause. Alternatively, you can define the computed field
+        in the <samp class="ph codeph">SELECT</samp> list, associate an alias with the field, and use the alias in the <samp class="ph codeph">GROUP BY</samp> clause.</p>
+
+      
+      <p class="p">A <samp class="ph codeph">SORT</samp> specification is optional.  If you do not specify <samp class="ph codeph">SORT</samp>, the query returns in an unspecified order.  To sort the columns by their values ("natural sorting order"), simply specify <samp class="ph codeph">ASC</samp> (ascending) or
+          <samp class="ph codeph">DESC</samp> (descending).  <samp class="ph codeph">ASC</samp> is the default <samp class="ph codeph">SORT</samp> order when sorting by natural values.</p>
+
+      <p class="p">To <samp class="ph codeph">SORT</samp> a particular column by another measure or measure expression use the <samp class="ph codeph">SORT BY</samp> phrase.  You can specify a <var class="keyword varname">measure-name</var> in the <samp class="ph codeph">SORT BY</samp> clause that need not be in the <samp class="ph codeph">SELECT</samp> list.
+        You can also order the sort in either <samp class="ph codeph">ASC</samp> or <samp class="ph codeph">DESC</samp> order. Unlike natural value sorts, <samp class="ph codeph">SORT BY</samp> default to the DESC (descending) sorting order.</p>
+
+
+     <div class="p"><pre class="pre codeblock">GROUP BY col_A SORT BY meas_1 ASC, col_B SORT DESC, col_c SORT BY measure_expression ASC</pre>
+</div>
+
+
+      <p class="p">Using <samp class="ph codeph">GROUP BY</samp> with multiple <samp class="ph codeph">SORT BY</samp> combinations allows you to group values with respect to one another.  Consider three potential grouping columns, say <samp class="ph codeph">Fee</samp>, <samp class="ph codeph">Fi</samp>, and <samp class="ph codeph">Foe</samp>. Sorting on
+        column <samp class="ph codeph">Fee</samp> sorts the records on the <samp class="ph codeph">Fee</samp> value. Another <samp class="ph codeph">SORT BY</samp> clause on column <samp class="ph codeph">Fi</samp>, sorts <samp class="ph codeph">Fi</samp> values within the existing <samp class="ph codeph">Fee</samp> sort. </p>
+
+      <p class="p">Use the <samp class="ph codeph">LIMIT</samp> keyword to reduce the number of groups returned. For example, if you are sorting airports by the number of departing flights in <samp class="ph codeph">DESC</samp> order (most flights to least flights), you could <samp class="ph codeph">LIMIT</samp> the
+          <samp class="ph codeph">SORT</samp> to the 10 busiest airports. </p>
+
+      <pre class="pre codeblock">GROUP BY airports SORT BY total_departures DESC LIMIT 10 </pre>
+
+      <p class="p">The <samp class="ph codeph">LIMIT</samp> restricts the results to top 10 busiest departure airports. The <samp class="ph codeph">LIMIT</samp> clause excludes other airports. You can use the <samp class="ph codeph">WITH OTHERS</samp> keyword to combine all the other airports not in the top 10 under a single
+          <span class="ph uicontrol">Others</span> group. </p>
+
+      
+    </div>
+
+  </div>
+
+<div class="related-links"/>
+<div class="navfooter"><!---->
+<span class="navparent"><a class="link" href="../../reference/sql/select_statement.html" title="Queries an aggregate lens. A SELECT statement is input to a progammatic lens query."><span class="navheader_label">Parent topic</span><span class="navheader_separator">: </span><span class="navheader_linktext">SELECT Statement</span></a></span>  </div><div class="footer">WebHelp output generated by<a href="http://www.oxygenxml.com" target="_blank"><span class="oXygenLogo"><img src="../../oxygen-webhelp/resources/img/LogoOxygen100x22.png" alt="Oxygen"/></span><span class="xmlauthor">XML Author</span></a></div>
+<div id="productInfo" style="display:none;"><span id="oxy_productID">webhelp</span><span id="oxy_productVersion">3.0</span></div><div id="loginData" style="display: none"><span class="bt_close" title="Close"><!----></span><form action="" target="passwordIframe" method="post" name="form_login" onsubmit="return loggInUser();" id="loginFormData" autocomplete="on"><input type="hidden" id="reloadComments" value="yes"><!----></input><table class="login"><thead><tr><td colspan="2"><span id="l_login2"><script type="text/javascript">$('#l_login2').html(getLocalization('label.login'));</script></span></td></tr><tr><td colspan="2"><div id="loginResponse"><!----></div></td></tr></thead><tr><td><span id="l_userName"><script type="text/javascript">$('#l_userName').html(getLocalization('label.userName'));</script></span></td><td><input name="usernameW" type="text" id="myUserName" autocomplete="on" required="required" autofocus="autofocus"><!----></input></td></tr><tr><td><span id="l_pswd"><script type="text/javascript">$('#l_pswd').html(getLocalization('label.pswd'));</script></span></td><td><input name="passwordW" type="password" id="myPassword" autocomplete="on" required="required"><!----></input></td></tr><tr><td colspan="2" align="left"><span id="ll_remember"><script type="text/javascript" xml:space="preserve">
+								$('#ll_remember').html(getLocalization('label.rememberme'));
+							</script></span>     <input name="myLoginRemember" type="checkbox" class="ck" id="myRemember" value="no"><!----></input></td></tr><tr><td colspan="2" align="center"><input id="l_bt_submit_log" type="submit" value="Submit" name="loginFormButton"><!----></input><script type="text/javascript">$('#l_bt_submit_log').attr('value',getLocalization('label.login'));</script><span class="btnHGlue"><!----></span><input class="bt_cancel" id="l_cancelLog" type="button" value="Cancel" name="loginFormButton"><!----></input><script type="text/javascript">$('#l_cancelLog').attr('value',getLocalization('label.cancel'));</script></td></tr></table><div class="loginAlternative"><span id="link_lostPwd" onclick="showLostPwd()"><script type="text/javascript">$('#link_lostPwd').html(getLocalization('label.lostPswd'));</script></span><span id="link_signUp" onclick="showSignUp()"><script type="text/javascript">$('#link_signUp').html(getLocalization('label.signUp'));</script></span></div></form><iframe id="passwordIframe" name="passwordIframe" style="display:none"><!----></iframe></div><div id="cmts"><!----></div></body>
+</html>

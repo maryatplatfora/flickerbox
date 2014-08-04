@@ -1,0 +1,222 @@
+
+<!DOCTYPE html
+  PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xml:lang="en-us" lang="en-us">
+<head><meta xmlns="http://www.w3.org/1999/xhtml" name="description" content="A delimited file is a plain text file format for describing tabular data. It refers to any file that is plain text (typically ASCII or Unicode characters), has one record per line, has records divided ..."/><meta http-equiv="Content-Type" content="text/html; charset=utf-8"/><meta name="copyright" content="(C) Copyright 2005"/><meta name="DC.rights.owner" content="(C) Copyright 2005"/><meta name="DC.Type" content="task"/><meta name="DC.Title" content="Parse Delimited Files"/><meta name="abstract" content="A delimited file is a plain text file format for describing tabular data. It refers to any file that is plain text (typically ASCII or Unicode characters), has one record per line, has records divided into fields, and has the same sequence of fields for every record."/><meta xmlns="http://www.w3.org/1999/xhtml" name="description" content="A delimited file is a plain text file format for describing tabular data. It refers to any file that is plain text (typically ASCII or Unicode characters), has one record per line, has records divided into fields, and has the same sequence of fields for every record."/><meta name="DC.Relation" scheme="URI" content="../../dataset/parse/parse_data_top.html"/><meta name="DC.Relation" scheme="URI" content="../../dataset/parse/parse_add_custom_delimiter.html"/><meta name="DC.Format" content="XHTML"/><meta name="DC.Identifier" content="parse_delimited_source_files"/><link rel="stylesheet" type="text/css" href="../../oxygen-webhelp/resources/css/commonltr.css"><!----></link><title>Parse Delimited Files</title><meta http-equiv="Content-Type" content="text/html; charset=utf-8"/><link rel="stylesheet" type="text/css" href="../../oxygen-webhelp/resources/css/commonltr.css"><!----></link><link rel="stylesheet" type="text/css" href="../../oxygen-webhelp/resources/css/webhelp_topic.css"><!----></link><link rel="stylesheet" type="text/css" href="../../oxygen-webhelp/resources/skins/skin.css"><!----></link><link rel="stylesheet" type="text/css" href="../../oxygen-webhelp/resources/css/jquery.realperson.css"><!----></link><link rel="stylesheet" type="text/css" href="../../oxygen-webhelp/resources/css/comments.css"><!----></link><link rel="stylesheet" type="text/css" href="../../oxygen-webhelp/resources/css/jquery.cleditor.css"><!----></link><link rel="stylesheet" type="text/css" href="../../oxygen-webhelp/resources/css/admin.css"><!----></link><script type="text/javascript"><!--
+          
+          var prefix = "../../index.html";
+          
+          --></script><script type="text/javascript" src="../../oxygen-webhelp/resources/js/jquery-1.8.2.min.js"><!----></script><script type="text/javascript" src="../../oxygen-webhelp/resources/js/jquery.cookie.js"><!----></script><script type="text/javascript" src="../../oxygen-webhelp/resources/js/jquery-ui.custom.min.js"><!----></script><script type="text/javascript" charset="utf-8" src="../../oxygen-webhelp/resources/js/webhelp_topic.js"><!----></script><script type="text/javascript" charset="utf-8" src="../../oxygen-webhelp/resources/localization/strings.js"><!----></script><script type="text/javascript" charset="utf-8" src="../../oxygen-webhelp/resources/js/init.js"><!----></script><script type="text/javascript" charset="utf-8" src="../../oxygen-webhelp/resources/js/comments-functions.js"><!----></script></head>
+<body onload="init('../../')" id="parse_delimited_source_files">
+<table class="nav"><tbody><tr><td colspan="2"><div id="printlink"><a href="javascript:window.print();" title="printThisPage"/></div><div id="permalink"><a href="#" title="linkToThis"/></div></td></tr><tr><td width="75%"><a class="navheader_parent_path" href="../../dataset/parse/../../dataset/dataset_top.html" title="Source data is mapped into Platfora by creating a dataset. A dataset describes the characteristics of the source data, such as its file locations, the structure of individual rows or records, the fields and data types, and the processing logic to cleanse, transform, and aggregate the data when it is loaded into Platfora. The collection of modeled datasets make up the data catalog (the source data items available to Platfora users).">Define Datasets</a> / <a class="navheader_parent_path" href="../../dataset/parse/parse_data_top.html" title="The Parse Data step of the dataset workspace is where you describe your source data in tabular format by parsing it into rows (records) and columns (fields). For Platfora to be able to parse the source data, each record must have a similar data structure.">Parse Source Data into Rows and Columns</a></td><td><div class="navheader">
+<span class="navparent"><a class="link" href="../../dataset/parse/parse_data_top.html" title="The Parse Data step of the dataset workspace is where you describe your source data in tabular format by parsing it into rows (records) and columns (fields). For Platfora to be able to parse the source data, each record must have a similar data structure."><span class="navheader_label">Parent topic</span><span class="navheader_separator">: </span><span class="navheader_linktext">Parse Source Data into Rows and Columns</span></a></span>  </div></td></tr></tbody></table>
+
+    <h1 class="title topictitle1">Parse Delimited Files</h1>
+
+    
+    <div class="body taskbody"><p class="shortdesc">A delimited file is a plain text file format for describing tabular data. It refers
+        to any file that is plain text (typically ASCII or Unicode characters), has one record per
+        line, has records divided into fields, and has the same sequence of fields for every
+        record.</p>
+
+        <div class="section context"><p class="p">Delimited records (or rows) are separated by line breaks, and fields (or
+                columns) within a line are separated by a special character called the
+                    <em class="ph i">delimiter</em> (usually a comma or tab character). If the delimiter also
+                appears in the field values, it must be escaped. The Platfora delimited parser
+                supports single character escapes (such as a backslash), as well as enclosing field
+                values in double quotes (as is common with CSV files). </p>
+<div class="fig fignone"/>
+<img class="image" src="../../images/./dataset/dataset_parser_delimited.png"/></div>
+
+        <div class="section steps-informal">
+            <p class="p">On the <span class="ph uicontrol">Parse Data</span> step of the dataset workspace, set the
+                    <span class="ph uicontrol">Parsing Controls</span> as follows:</p>
+
+            <div class="p">
+                
+<div class="tablenoborder"><table cellpadding="4" cellspacing="0" summary="" class="table" frame="border" border="1" rules="all">
+                        
+                        
+                        <thead class="thead" align="left">
+                            <tr class="row">
+                                <th class="entry" valign="top" width="20.876826722338205%" id="d48028e49">Parser Control</th>
+
+                                <th class="entry" valign="top" width="79.12317327766179%" id="d48028e52">Description</th>
+
+                            </tr>
+
+                        </thead>
+
+                        <tbody class="tbody">
+                            <tr class="row">
+                                <td class="entry" valign="top" width="20.876826722338205%" headers="d48028e49 "><span class="ph uicontrol">File Type</span></td>
+
+                                <td class="entry" valign="top" width="79.12317327766179%" headers="d48028e52 "><p class="p">Choose the <span class="ph uicontrol">Delimited</span> parser for
+                                    delimited text and CSV files. The
+                                        <span class="ph uicontrol">Wrangled</span> view shows the data with the
+                                    parsing logic applied.</p>
+ </td>
+
+                            </tr>
+
+                            <tr class="row">
+                                <td class="entry" valign="top" width="20.876826722338205%" headers="d48028e49 "><span class="ph uicontrol">Row Delimiter</span></td>
+
+                                <td class="entry" valign="top" width="79.12317327766179%" headers="d48028e52 ">
+                                    <p class="p">Specifies a single character used to separate rows (or
+                                        records) in your source data files. </p>
+
+                                    <p class="p">In most delimited files, rows are separated by a new line,
+                                        such as the line feed character, carriage return character,
+                                        or carriage return plus line feed. Line feed is the standard
+                                        new line representation on UNIX-like operating systems.
+                                        Other operating systems (such as Windows) may use carriage
+                                        return individually, or carriage return plus line feed.
+                                        Selecting <span class="ph uicontrol">Any New Line</span> will recognize
+                                        any of these representations of a new line as the row
+                                        delimiter.</p>
+
+                                </td>
+
+                            </tr>
+
+
+                            <tr class="row">
+                                <td class="entry" valign="top" width="20.876826722338205%" headers="d48028e49 "><span class="ph uicontrol">Ignore Top Rows</span></td>
+
+                                <td class="entry" valign="top" width="79.12317327766179%" headers="d48028e52 ">
+                                    <p class="p">Specifies the number of lines at the beginning of the file to
+                                        ignore when reading the source file during data ingest and
+                                        lens builds. Enter the number of lines to ignore and click
+                                            <span class="ph uicontrol">Update</span>. To use this with the
+                                            <span class="ph uicontrol">Raw Files Contains Header</span> option,
+                                        ensure that the line containing the column names is visible
+                                        and is the first remaining line.</p>
+
+                                </td>
+
+                            </tr>
+
+                            
+
+
+                            <tr class="row">
+                                <td class="entry" valign="top" width="20.876826722338205%" headers="d48028e49 "><span class="ph uicontrol">Column Delimiter</span></td>
+
+
+
+                                <td class="entry" valign="top" width="79.12317327766179%" headers="d48028e52 "><p class="p">Specifies the single character used to separate the columns (or fields) of a row in your source
+                                    data files. Comma and tab are the most commonly used column
+                                    delimiters. </p>
+</td>
+
+                            </tr>
+
+                            <tr class="row">
+                                <td class="entry" valign="top" width="20.876826722338205%" headers="d48028e49 "><span class="ph uicontrol">Escape Character</span></td>
+
+                                <td class="entry" valign="top" width="79.12317327766179%" headers="d48028e52 ">
+                                    <p class="p">Specifies the single character used to escape delimiter
+                                        characters that occur within your data values. </p>
+
+                                    <p class="p">If your data values contain delimiter characters, those
+                                        characters must be escaped, otherwise the parser will assume
+                                        the special character denotes a new row or column.</p>
+
+                                    <p class="p">For comma-separated values (CSV) files, it is common practice
+                                        to escape delimiters by enclosing the entire field value
+                                        within double quotes. If your source data uses this
+                                        convention, then you should specify a <span class="ph uicontrol">Quote
+                                            Character</span> instead of an <span class="ph uicontrol">Escape
+                                            Character</span>. </p>
+
+                                </td>
+
+                            </tr>
+
+                            <tr class="row">
+                                <td class="entry" valign="top" width="20.876826722338205%" headers="d48028e49 "><span class="ph uicontrol">Quote Character</span></td>
+
+                                <td class="entry" valign="top" width="79.12317327766179%" headers="d48028e52 ">
+                                    <p class="p">The quote character is used to enclose individual data values
+                                        in CSV-formatted files. The quote character is usually the
+                                        double quote character (<samp class="ph codeph">"</samp>).
+                                        If a data value contains a delimiter, then enclosing the
+                                        value in double quotes treats every character within the
+                                        quotes as data, including the delimiters. If the data also
+                                        contains the quote character, the quote character can also
+                                        be used to escape itself.</p>
+
+                                    <p class="p">For example, suppose you have a row with these three data
+                                        values:</p>
+
+                                    <pre class="pre codeblock">weekly special
+wine, beer, and soda
+"2 for 1" or 9.99 each</pre>
+
+                                    
+                                    <div class="p">If the column delimiter is a comma, and the quote character
+                                        is a double quote, a correctly formatted row in the source
+                                        data would look like this:
+                                        <pre class="pre codeblock">"weekly special","wine, beer, and soda","""2 for 1"" or 9.99 each"                                       </pre>
+</div>
+
+                                </td>
+
+                            </tr>
+
+                            <tr class="row">
+                                <td class="entry" valign="top" width="20.876826722338205%" headers="d48028e49 "><span class="ph uicontrol">Raw File Contains Header</span></td>
+
+                                <td class="entry" valign="top" width="79.12317327766179%" headers="d48028e52 ">
+                                    <p class="p">A header is a special row containing column names at the
+                                        beginning of a data source file. If your source data files
+                                        have a header row as the first line in the file, select this
+                                        check-box. This will treat the first line in each source
+                                        file as a header row instead of as a row of data.</p>
+
+                                </td>
+
+                            </tr>
+
+                            <tr class="row">
+                                <td class="entry" valign="top" width="20.876826722338205%" headers="d48028e49 "><span class="ph uicontrol">Upload Field Names</span></td>
+
+                                <td class="entry" valign="top" width="79.12317327766179%" headers="d48028e52 ">
+                                    <p class="p">Allows you to upload a comma or tab delimited text file
+                                        containing the field information you want to set. When a
+                                        dataset has a lot of fields to manage, it may be easier to
+                                        update several field names, descriptions, data types, and
+                                        visibility settings all at once rather than editing each
+                                        field one-by-one.</p>
+
+                                    <p class="p">For more information, see <a class="xref" href="../manage_fields/base/bulk_edit_dataset_fields.html" title="When a dataset has a lot of fields to manage, it may be easier to update several field names, data types, descriptions, and visibility settings all at once rather than editing each field one-by-one in the Platfora application. To do this, you can upload a comma or tab delimited text file containing the field information you want to set.">Edit Multiple Fields at Once</a>.</p>
+
+                                </td>
+
+                            </tr>
+
+                        </tbody>
+
+                    </table>
+</div>
+
+            </div>
+
+            
+        </div>
+
+    </div>
+
+<div class="related-links">
+<ul class="ullinks">
+<li class="link ulchildlink"><strong><a href="../../dataset/parse/parse_add_custom_delimiter.html">Add a Custom Delimiter</a></strong><br/>
+In some cases, your source data may use a custom delimiter that is not available in         the <span class="ph uicontrol">Column Delimiter</span> or <span class="ph uicontrol">Row Delimiter</span> menu         choices. Platfora allows you to define a custom delimiter as either a character string or as         a decimal-encoded ASCII value.</li>
+</ul>
+</div>
+<div class="navfooter"><!---->
+<span class="navparent"><a class="link" href="../../dataset/parse/parse_data_top.html" title="The Parse Data step of the dataset workspace is where you describe your source data in tabular format by parsing it into rows (records) and columns (fields). For Platfora to be able to parse the source data, each record must have a similar data structure."><span class="navheader_label">Parent topic</span><span class="navheader_separator">: </span><span class="navheader_linktext">Parse Source Data into Rows and Columns</span></a></span>  </div><div class="footer">WebHelp output generated by<a href="http://www.oxygenxml.com" target="_blank"><span class="oXygenLogo"><img src="../../oxygen-webhelp/resources/img/LogoOxygen100x22.png" alt="Oxygen"/></span><span class="xmlauthor">XML Author</span></a></div>
+<div id="productInfo" style="display:none;"><span id="oxy_productID">webhelp</span><span id="oxy_productVersion">3.0</span></div><div id="loginData" style="display: none"><span class="bt_close" title="Close"><!----></span><form action="" target="passwordIframe" method="post" name="form_login" onsubmit="return loggInUser();" id="loginFormData" autocomplete="on"><input type="hidden" id="reloadComments" value="yes"><!----></input><table class="login"><thead><tr><td colspan="2"><span id="l_login2"><script type="text/javascript">$('#l_login2').html(getLocalization('label.login'));</script></span></td></tr><tr><td colspan="2"><div id="loginResponse"><!----></div></td></tr></thead><tr><td><span id="l_userName"><script type="text/javascript">$('#l_userName').html(getLocalization('label.userName'));</script></span></td><td><input name="usernameW" type="text" id="myUserName" autocomplete="on" required="required" autofocus="autofocus"><!----></input></td></tr><tr><td><span id="l_pswd"><script type="text/javascript">$('#l_pswd').html(getLocalization('label.pswd'));</script></span></td><td><input name="passwordW" type="password" id="myPassword" autocomplete="on" required="required"><!----></input></td></tr><tr><td colspan="2" align="left"><span id="ll_remember"><script type="text/javascript" xml:space="preserve">
+								$('#ll_remember').html(getLocalization('label.rememberme'));
+							</script></span>     <input name="myLoginRemember" type="checkbox" class="ck" id="myRemember" value="no"><!----></input></td></tr><tr><td colspan="2" align="center"><input id="l_bt_submit_log" type="submit" value="Submit" name="loginFormButton"><!----></input><script type="text/javascript">$('#l_bt_submit_log').attr('value',getLocalization('label.login'));</script><span class="btnHGlue"><!----></span><input class="bt_cancel" id="l_cancelLog" type="button" value="Cancel" name="loginFormButton"><!----></input><script type="text/javascript">$('#l_cancelLog').attr('value',getLocalization('label.cancel'));</script></td></tr></table><div class="loginAlternative"><span id="link_lostPwd" onclick="showLostPwd()"><script type="text/javascript">$('#link_lostPwd').html(getLocalization('label.lostPswd'));</script></span><span id="link_signUp" onclick="showSignUp()"><script type="text/javascript">$('#link_signUp').html(getLocalization('label.signUp'));</script></span></div></form><iframe id="passwordIframe" name="passwordIframe" style="display:none"><!----></iframe></div><div id="cmts"><!----></div></body>
+</html>

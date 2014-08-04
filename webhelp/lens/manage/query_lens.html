@@ -1,0 +1,142 @@
+
+<!DOCTYPE html
+  PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xml:lang="en-us" lang="en-us">
+<head><meta xmlns="http://www.w3.org/1999/xhtml" name="description" content="Platfora includes a programmatic query access feature you can use to query a lens. This section describes support for querying lenses using Platfora's expression language and programmatic query ..."/><meta http-equiv="Content-Type" content="text/html; charset=utf-8"/><meta name="copyright" content="(C) Copyright 2005"/><meta name="DC.rights.owner" content="(C) Copyright 2005"/><meta name="DC.Type" content="topic"/><meta name="DC.Title" content="Query a Lens with Programmatic Query Acces (PQA)"/><meta name="abstract" content="This section describes support for querying lenses using Platfora's expression language and programmatic query access."/><meta xmlns="http://www.w3.org/1999/xhtml" name="description" content="This section describes support for querying lenses using Platfora's expression language and programmatic query access."/><meta name="DC.Relation" scheme="URI" content="../../dataset/use_expressions_top.html"/><meta name="DC.Format" content="XHTML"/><meta name="DC.Identifier" content="query_lens"/><link rel="stylesheet" type="text/css" href="../../oxygen-webhelp/resources/css/commonltr.css"><!----></link><title>Query a Lens with Programmatic Query Acces (PQA)</title><meta http-equiv="Content-Type" content="text/html; charset=utf-8"/><link rel="stylesheet" type="text/css" href="../../oxygen-webhelp/resources/css/commonltr.css"><!----></link><link rel="stylesheet" type="text/css" href="../../oxygen-webhelp/resources/css/webhelp_topic.css"><!----></link><link rel="stylesheet" type="text/css" href="../../oxygen-webhelp/resources/skins/skin.css"><!----></link><link rel="stylesheet" type="text/css" href="../../oxygen-webhelp/resources/css/jquery.realperson.css"><!----></link><link rel="stylesheet" type="text/css" href="../../oxygen-webhelp/resources/css/comments.css"><!----></link><link rel="stylesheet" type="text/css" href="../../oxygen-webhelp/resources/css/jquery.cleditor.css"><!----></link><link rel="stylesheet" type="text/css" href="../../oxygen-webhelp/resources/css/admin.css"><!----></link><script type="text/javascript"><!--
+          
+          var prefix = "../../index.html";
+          
+          --></script><script type="text/javascript" src="../../oxygen-webhelp/resources/js/jquery-1.8.2.min.js"><!----></script><script type="text/javascript" src="../../oxygen-webhelp/resources/js/jquery.cookie.js"><!----></script><script type="text/javascript" src="../../oxygen-webhelp/resources/js/jquery-ui.custom.min.js"><!----></script><script type="text/javascript" charset="utf-8" src="../../oxygen-webhelp/resources/js/webhelp_topic.js"><!----></script><script type="text/javascript" charset="utf-8" src="../../oxygen-webhelp/resources/localization/strings.js"><!----></script><script type="text/javascript" charset="utf-8" src="../../oxygen-webhelp/resources/js/init.js"><!----></script><script type="text/javascript" charset="utf-8" src="../../oxygen-webhelp/resources/js/comments-functions.js"><!----></script></head>
+<body onload="init('../../')" id="query_lens">
+<table class="nav"><tbody><tr><td colspan="2"><div id="printlink"><a href="javascript:window.print();" title="printThisPage"/></div><div id="permalink"><a href="#" title="linkToThis"/></div></td></tr><tr><td width="75%"><a class="navheader_parent_path" href="../../dataset/use_expressions_top.html" title="Platfora includes an expression language to support advanced data analysis processing.">Work with Platfora's Expression Language</a></td><td><div class="navheader">
+<span class="navparent"><a class="link" href="../../dataset/use_expressions_top.html" title="Platfora includes an expression language to support advanced data analysis processing."><span class="navheader_label">Parent topic</span><span class="navheader_separator">: </span><span class="navheader_linktext">Work with Platfora's Expression Language</span></a></span>  </div></td></tr></tbody></table>
+
+  <h1 class="title topictitle1">Query a Lens with Programmatic Query Acces (PQA)</h1>
+
+  
+  <div class="body"><div class="abstract">Platfora includes a programmatic query access feature you can use to query a lens.  <span class="shortdesc">This section describes support for querying lenses using Platfora's expression language and programmatic query access.</span>
+</div>
+
+    
+  <div class="section">  <p class="p">Platfora allows you to make a query against an aggregate lens in your Platfora instance. This feature is not meant as an end-user feature. Rather it is intended to allow you to write programs that make the SQL queries. For example, you could write a simple command-line
+        client for querying a lens. Since programmatic query access is meant for use by programs rather than people, a caller make the queries through REST API calls.</p>
+
+  </div>
+
+    <div class="section">
+      <p class="p">A query consists of a <samp class="ph codeph">SELECT</samp> statement with one or more optional clauses. The statement and its clauses use the same language elements you encounter when building a computed field and/or a lens filter.</p>
+
+      <div style="display: block; border: 1 black solid; padding: 2pt; color: maroon; margin-bottom: 6pt;">
+         
+          <kbd class="ph delim">[</kbd>
+          <kbd><b>DEFINE</b></kbd>
+          <var>alias-name</var>
+          <kbd><b>AS</b></kbd>
+          <var>expression</var>
+          <kbd class="ph delim"> [ </kbd>
+          <kbd><b>DEFINE</b></kbd>
+          <kbd class="ph delim"> ... ]  ]</kbd>
+         
+         
+          <kbd><b>SELECT</b></kbd>
+          <var>measure-column</var>
+          <kbd class="ph delim"> [ </kbd>
+            <kbd><b>AS</b></kbd> <var>alias-name</var>
+            <kbd class="ph delim">]</kbd> <kbd class="ph delim">|</kbd>
+          <var>measure-expression</var> 
+          <kbd><b>AS</b></kbd> <var>alias-name</var>
+           
+          <kbd class="ph delim"> [ ,</kbd>
+           { 
+            <var>column</var>
+               | <kbd class="ph delim"> [ </kbd>
+              <kbd><b> | AS</b></kbd> <var> | alias-name</var>
+               | <kbd class="ph delim">]</kbd>  | <kbd class="ph delim">|</kbd>
+              <var> | expression</var> 
+              <kbd><b> | AS</b></kbd> <var> | alias-name</var> 
+           } 
+          <kbd class="ph delim"> [ , ...] ]</kbd>
+           
+         
+         
+          <kbd><b>FROM</b></kbd>
+          <var>lens-name</var>
+         
+         
+          <kbd class="ph sep">[</kbd>
+          <kbd><b>WHERE</b></kbd>
+          <var>predicate-expression</var>
+          <kbd class="ph sep"> [ </kbd>
+          <kbd><b>AND</b></kbd>
+          <var>predicate-expression</var>
+          <kbd class="ph sep">]</kbd>
+          <kbd class="ph sep">]</kbd>
+         
+         
+          <kbd class="ph sep">[</kbd>
+          <kbd><b>GROUP BY</b></kbd>
+          <var>column-name</var>
+          <kbd class="ph sep">[</kbd>
+          <kbd class="ph sep">[,</kbd>
+          <var>group-ordering</var>
+          <kbd class="ph sep">] ]</kbd>
+         
+         
+          <kbd class="ph sep">[</kbd>
+          <kbd><b>HAVING</b></kbd>
+          <var>measure-predicate-expression</var>
+          <kbd class="ph sep">]</kbd>
+         
+      </div>
+      <p class="p">For example, you make a query like the following:</p>
+
+      <pre class="pre codeblock">
+        SELECT [device].[manufacturer], [user].[gender], [Num Users] 
+        FROM bo_view2G_PSM 
+        WHERE video.genre %3D "Action/Comedy" 
+        AND user.gender !%3D "male" 
+        GROUP BY [device].[manufacturer], [user].[gender]
+      </pre>
+
+      <p class="p">Once you know the query structure, you make an REST call use the <samp class="ph codeph">query</samp> endpoint. You can pass the query as a parameter to a GET or as JSON body to a POST. </p>
+
+      <div class="p">
+        <pre class="pre codeblock">https://<var class="keyword varname">hostname</var>:<var class="keyword varname">port</var>/api/v1/query?query=""SELECT <var class="keyword varname">measure-expression</var>, ..."</pre>
+
+      </div>
+
+        
+        
+    </div>
+
+   <div class="section"><h2 class="title sectiontitle">Considerations for Using Programmatic Query Access</h2>
+     
+     <p class="p">Here are some considerations to keep in mind when using making queries:</p>
+
+     <ul class="ul">
+       <li class="li">You can only query aggregate lenses. You cannot query event series lenses.</li>
+
+       <li class="li">Queries run against the currently built version of the lens.</li>
+
+       <li class="li">Queries that once worked can later fail because the underlying dataset or lens changed.</li>
+
+       <li class="li">You cannot do a <samp class="ph codeph">SELECT *</samp> on a lens.</li>
+
+     </ul>
+
+     
+     <p class="p">For specific details on using the SELECT statement, see the syntax references in the <cite class="cite">Platfora Expression and Query Language Reference</cite>.</p>
+
+   </div>
+
+    
+      </div>
+
+ 
+<div class="related-links"/>
+<div class="navfooter"><!---->
+<span class="navparent"><a class="link" href="../../dataset/use_expressions_top.html" title="Platfora includes an expression language to support advanced data analysis processing."><span class="navheader_label">Parent topic</span><span class="navheader_separator">: </span><span class="navheader_linktext">Work with Platfora's Expression Language</span></a></span>  </div><div class="footer">WebHelp output generated by<a href="http://www.oxygenxml.com" target="_blank"><span class="oXygenLogo"><img src="../../oxygen-webhelp/resources/img/LogoOxygen100x22.png" alt="Oxygen"/></span><span class="xmlauthor">XML Author</span></a></div>
+<div id="productInfo" style="display:none;"><span id="oxy_productID">webhelp</span><span id="oxy_productVersion">3.0</span></div><div id="loginData" style="display: none"><span class="bt_close" title="Close"><!----></span><form action="" target="passwordIframe" method="post" name="form_login" onsubmit="return loggInUser();" id="loginFormData" autocomplete="on"><input type="hidden" id="reloadComments" value="yes"><!----></input><table class="login"><thead><tr><td colspan="2"><span id="l_login2"><script type="text/javascript">$('#l_login2').html(getLocalization('label.login'));</script></span></td></tr><tr><td colspan="2"><div id="loginResponse"><!----></div></td></tr></thead><tr><td><span id="l_userName"><script type="text/javascript">$('#l_userName').html(getLocalization('label.userName'));</script></span></td><td><input name="usernameW" type="text" id="myUserName" autocomplete="on" required="required" autofocus="autofocus"><!----></input></td></tr><tr><td><span id="l_pswd"><script type="text/javascript">$('#l_pswd').html(getLocalization('label.pswd'));</script></span></td><td><input name="passwordW" type="password" id="myPassword" autocomplete="on" required="required"><!----></input></td></tr><tr><td colspan="2" align="left"><span id="ll_remember"><script type="text/javascript" xml:space="preserve">
+								$('#ll_remember').html(getLocalization('label.rememberme'));
+							</script></span>     <input name="myLoginRemember" type="checkbox" class="ck" id="myRemember" value="no"><!----></input></td></tr><tr><td colspan="2" align="center"><input id="l_bt_submit_log" type="submit" value="Submit" name="loginFormButton"><!----></input><script type="text/javascript">$('#l_bt_submit_log').attr('value',getLocalization('label.login'));</script><span class="btnHGlue"><!----></span><input class="bt_cancel" id="l_cancelLog" type="button" value="Cancel" name="loginFormButton"><!----></input><script type="text/javascript">$('#l_cancelLog').attr('value',getLocalization('label.cancel'));</script></td></tr></table><div class="loginAlternative"><span id="link_lostPwd" onclick="showLostPwd()"><script type="text/javascript">$('#link_lostPwd').html(getLocalization('label.lostPswd'));</script></span><span id="link_signUp" onclick="showSignUp()"><script type="text/javascript">$('#link_signUp').html(getLocalization('label.signUp'));</script></span></div></form><iframe id="passwordIframe" name="passwordIframe" style="display:none"><!----></iframe></div><div id="cmts"><!----></div></body>
+</html>

@@ -1,0 +1,147 @@
+
+<!DOCTYPE html
+  PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xml:lang="en-us" lang="en-us">
+<head><meta xmlns="http://www.w3.org/1999/xhtml" name="description" content="Groups are specified by a pair of parenthesis around a subpattern in the regular expression. By placing part of a regular expression inside parentheses, you group that part of the regular expression ..."/><meta http-equiv="Content-Type" content="text/html; charset=utf-8"/><meta name="copyright" content="(C) Copyright 2005"/><meta name="DC.rights.owner" content="(C) Copyright 2005"/><meta name="DC.Type" content="reference"/><meta name="DC.Title" content="Regex Capturing Groups"/><meta name="abstract" content="Groups are specified by a pair of parenthesis around a subpattern in the regular expression. By placing part of a regular expression inside parentheses, you group that part of the regular expression together. This allows you to apply regex operators and quantifiers to the entire group at once. Besides grouping part of a regular expression together, parenthesis also create a capturing group. Capturing groups are used to determine which matching values to save or return from your regular expression."/><meta xmlns="http://www.w3.org/1999/xhtml" name="description" content="Groups are specified by a pair of parenthesis around a subpattern in the regular expression. By placing part of a regular expression inside parentheses, you group that part of the regular expression together. This allows you to apply regex operators and quantifiers to the entire group at once. Besides grouping part of a regular expression together, parenthesis also create a capturing group. Capturing groups are used to determine which matching values to save or return from your regular expression."/><meta name="DC.Relation" scheme="URI" content="../../reference/regular_expressions/regex_ref_top.html"/><meta name="DC.Format" content="XHTML"/><meta name="DC.Identifier" content="ref_regex_groups"/><link rel="stylesheet" type="text/css" href="../../oxygen-webhelp/resources/css/commonltr.css"><!----></link><title>Regex Capturing Groups</title><meta http-equiv="Content-Type" content="text/html; charset=utf-8"/><link rel="stylesheet" type="text/css" href="../../oxygen-webhelp/resources/css/commonltr.css"><!----></link><link rel="stylesheet" type="text/css" href="../../oxygen-webhelp/resources/css/webhelp_topic.css"><!----></link><link rel="stylesheet" type="text/css" href="../../oxygen-webhelp/resources/skins/skin.css"><!----></link><link rel="stylesheet" type="text/css" href="../../oxygen-webhelp/resources/css/jquery.realperson.css"><!----></link><link rel="stylesheet" type="text/css" href="../../oxygen-webhelp/resources/css/comments.css"><!----></link><link rel="stylesheet" type="text/css" href="../../oxygen-webhelp/resources/css/jquery.cleditor.css"><!----></link><link rel="stylesheet" type="text/css" href="../../oxygen-webhelp/resources/css/admin.css"><!----></link><script type="text/javascript"><!--
+          
+          var prefix = "../../index.html";
+          
+          --></script><script type="text/javascript" src="../../oxygen-webhelp/resources/js/jquery-1.8.2.min.js"><!----></script><script type="text/javascript" src="../../oxygen-webhelp/resources/js/jquery.cookie.js"><!----></script><script type="text/javascript" src="../../oxygen-webhelp/resources/js/jquery-ui.custom.min.js"><!----></script><script type="text/javascript" charset="utf-8" src="../../oxygen-webhelp/resources/js/webhelp_topic.js"><!----></script><script type="text/javascript" charset="utf-8" src="../../oxygen-webhelp/resources/localization/strings.js"><!----></script><script type="text/javascript" charset="utf-8" src="../../oxygen-webhelp/resources/js/init.js"><!----></script><script type="text/javascript" charset="utf-8" src="../../oxygen-webhelp/resources/js/comments-functions.js"><!----></script></head>
+<body onload="init('../../')" id="ref_regex_groups">
+<table class="nav"><tbody><tr><td colspan="2"><div id="printlink"><a href="javascript:window.print();" title="printThisPage"/></div><div id="permalink"><a href="#" title="linkToThis"/></div></td></tr><tr><td width="75%"><a class="navheader_parent_path" href="../../reference/regular_expressions/../../reference/expression_language/expression_reference_top.html" title="An expression computes or produces a value by combining fields (or columns), constant values, operators, and functions. Platfora has a built-in expression language. You use the language's functions and operators to create a computed field.">Expression and Query Language Reference</a> / <a class="navheader_parent_path" href="../../reference/regular_expressions/regex_ref_top.html" title="Regular expressions, also referred to as regex or regexp, are a standardized collection of special characters and constructs used for matching strings of text. They provide a flexible and precise language for matching particular characters, words, or patterns of characters. Regular expressions vary in complexity using a combination of basic constructs to describe a string matching pattern. This reference describes the most common regular expression matching patterns, but is not a comprehensive list.">Regular Expression Reference</a></td><td><div class="navheader">
+<span class="navparent"><a class="link" href="../../reference/regular_expressions/regex_ref_top.html" title="Regular expressions, also referred to as regex or regexp, are a standardized collection of special characters and constructs used for matching strings of text. They provide a flexible and precise language for matching particular characters, words, or patterns of characters. Regular expressions vary in complexity using a combination of basic constructs to describe a string matching pattern. This reference describes the most common regular expression matching patterns, but is not a comprehensive list."><span class="navheader_label">Parent topic</span><span class="navheader_separator">: </span><span class="navheader_linktext">Regular Expression Reference</span></a></span>  </div></td></tr></tbody></table>
+
+  <h1 class="title topictitle1">Regex Capturing Groups</h1>
+
+  
+  <div class="body refbody"><p class="shortdesc">Groups are specified by a pair of parenthesis around a subpattern in the regular
+    expression. By placing part of a regular expression inside parentheses, you group that part of
+    the regular expression together. This allows you to apply regex operators and quantifiers to the
+    entire group at once. Besides grouping part of a regular expression together, parenthesis also
+    create a <em class="ph i">capturing group</em>. Capturing groups are used to determine which matching values to
+    save or return from your regular expression. </p>
+
+    <div class="section"><h2 class="title sectiontitle">Group Numbering</h2>
+      
+      <p class="p">A regular expression can have more than one group and the groups can be nested. The groups
+        are numbered 1-<em class="ph i">n</em> from left to right, starting with the first opening parenthesis.
+        There is always an implicit group 0, which contains the entire match. For example, the
+        pattern: </p>
+
+      <pre class="pre codeblock">(a(b*))+(c)</pre>
+
+      <p class="p">contains three groups: </p>
+
+      <pre class="pre codeblock">group 1: (a(b*))
+group 2: (b*) 
+group 3: (c)</pre>
+
+      
+    </div>
+
+    <div class="section"><h2 class="title sectiontitle">Capturing Groups</h2>
+      
+      <p class="p">By default, a group <em class="ph i">captures</em> the text that produces a match. Besides grouping part
+        of a regular expression together, parenthesis also create a <em class="ph i">capturing group</em> or a
+          <em class="ph i">backreference</em>. The portion of the string matched by the grouped subexpression is
+        captured in memory for later retrieval or use.</p>
+
+      <p class="p"><strong class="ph b">Capturing Groups and the Regex Line Parser</strong></p>
+
+      <p class="p">When you choose the <span class="ph uicontrol">Regex</span> line parser during the <span class="ph uicontrol">Parse
+          Data</span> phase of the data ingest process, Platfora uses capturing groups to
+        determine what parts of the regular expression to return as columns. The
+          <span class="ph uicontrol">Regex</span> line parser applies the user-supplied regular expression
+        against each line in the source file, and returns <em class="ph i">each</em> capturing group in the regular
+        expression as a column value.     </p>
+
+      <p class="p">For example, suppose you had user records in a file, and the lines were formatted like
+        this: </p>
+
+      
+        <pre class="pre codeblock">Name: John Smith Address: 123 Main St. Age: 25 Comment: Active
+Name: Sally R. Jones Address: 2 E. El Camino Real Age: 32
+Name: Rod Rogers Address: 55 Elm Street Comment: Suspended</pre>
+
+      <p class="p">You could use the following regular expression to extract the <em class="ph i">Full Name</em>, <em class="ph i">Last
+          Name</em>, <em class="ph i">Address</em>, <em class="ph i">Age</em>, and <em class="ph i">Comment</em> column values:</p>
+
+      <pre class="pre codeblock">Name: (.*\s(\p{Alpha}+)) Address:\s+(.*) Age:\s+([0-9]+)(?:\s+Comment:\s+(.*))?</pre>
+
+      <p class="p"><strong class="ph b">Capturing Groups and the REGEX Function</strong></p>
+
+      <p class="p">The <samp class="ph codeph">REGEX</samp> function can be used to extract a portion of a string value. For
+        the <samp class="ph codeph">REGEX</samp> function, only the value of the <em class="ph i">first</em> capturing group is
+        returned. For example, if you wanted to match all possible email address strings with a
+        pattern of <em class="ph i">username</em>@<em class="ph i">provider</em>.<em class="ph i">domain</em>, but only return the
+          <em class="ph i">provider</em> portion of the email address from the <em class="ph i">email</em> field:</p>
+
+      <p class="p"><samp class="ph codeph">REGEX(email,"^[a-zA-Z0-9._%+-]+@<strong class="ph b">([a-zA-Z0-9._-]+)</strong>\.[a-zA-Z]{2,4}$")</samp></p>
+
+      <p class="p"><strong class="ph b">Capturing Groups and the REGEX_REPLACE Function</strong></p>
+
+      <p class="p">The <samp class="ph codeph">REGEX_REPLACE</samp> function is used to match a string value, and replace
+        matched strings with another value. The <samp class="ph codeph">REGEX_REPLACE</samp> function takes three
+        arguments: an input string, a matching regex, and a replacement regex. Capturing groups can
+        be used to capture backreferences (see <a class="xref" href="regex_groups.html#ref_regex_groups__ref_regex_group_backreferences">Backreferences</a>), but do not
+        control what portions of the match are returned (the entire match is always returned). </p>
+
+    </div>
+
+    <div class="section"><h2 class="title sectiontitle">Backreferences</h2>
+      
+      <p class="p">Backreferences allow you to capture and reuse a subexpression match inside the same regular
+        expression. You can reuse a capturing group as a backreference by referring to its group
+        number preceded by a backslash (for example, <samp class="ph codeph">\1</samp> refers to capturing group
+        1, <samp class="ph codeph">\2</samp> refers to capturing group 2, and so on). </p>
+
+      <p class="p">For example, if you wanted to match a pair of HTML tags and their enclosed text, you could
+        capture the opening tag into a backreference, and then reuse it to match the corresponding
+        closing tag:</p>
+
+      <pre class="pre codeblock"> <strong class="ph b">(</strong>&lt;<strong class="ph b">([A-Z][A-Z0-9]*)</strong>\b[^&gt;]*&gt;.*?&lt;/<strong class="ph b">\2</strong>&gt;<strong class="ph b">)</strong> </pre>
+
+      <p class="p">This regular expression contains two capturing groups, the outermost capturing group (which
+        captures the entire string), and one which captures the string matched by
+          <samp class="ph codeph">[A-Z][A-Z0-9]*</samp> into backreference number two. This backreference can then
+        be reused with <samp class="ph codeph">\2</samp> (backslash two) to match the corresponding closing HTML
+        tag. </p>
+
+      <p class="p">When referring  to capturing groups in the <em class="ph i">previous</em> regular expression, the
+        backreference syntax is slightly different. The backreference group number is preceded by a
+        dollar sign instead of a backslash (for example, <samp class="ph codeph">$1</samp> refers to capturing
+        group 1 of the previous expression). An example of this would be the
+          <samp class="ph codeph">REGEX_REPLACE</samp> function, which takes two regular expressions: one for the
+        matching string, and one for the replacement string. </p>
+
+      <p class="p">The following example matches the values in a <em class="ph i">phone_number</em> field where phone number
+        values are formatted as <samp class="ph codeph">xxx.xxx.xxxx</samp>, and replaces them with phone number
+        values formatted as <samp class="ph codeph">(xxx) xxx-xxxx</samp>. Notice the backreferences in the
+        replacement expression; they refer to the capturing groups of the previous matching
+        expression:</p>
+
+      <p class="p"><samp class="ph codeph" id="ref_regex_groups__example_func_regex_replace">REGEX_REPLACE(phone_number,"([0-9]{3})\.([[0-9]]{3})\.([[0-9]]{4})","<strong class="ph b">\($1\)
+            $2-$3</strong>") </samp>
+      </p>
+
+    </div>
+
+    <div class="section"><h2 class="title sectiontitle"> Non-Capturing Groups</h2>
+      
+      <p class="p">In some cases, you may want to use parenthesis to group subpatterns, but <em class="ph i">not</em> capture
+        text. A non-capturing group starts with <samp class="ph codeph">(?:</samp> (a question mark and colon
+        following the opening parenthesis). For example, <samp class="ph codeph">h(?:a|i|o)t</samp> matches
+          <samp class="ph codeph">hat</samp> or <samp class="ph codeph">hit</samp> or <samp class="ph codeph">hot</samp>, but does not capture
+        the <samp class="ph codeph">a</samp>, <samp class="ph codeph">i</samp>, or <samp class="ph codeph">o</samp> from the subexpression. </p>
+
+    </div>
+
+  </div>
+
+<div class="related-links"/>
+<div class="navfooter"><!---->
+<span class="navparent"><a class="link" href="../../reference/regular_expressions/regex_ref_top.html" title="Regular expressions, also referred to as regex or regexp, are a standardized collection of special characters and constructs used for matching strings of text. They provide a flexible and precise language for matching particular characters, words, or patterns of characters. Regular expressions vary in complexity using a combination of basic constructs to describe a string matching pattern. This reference describes the most common regular expression matching patterns, but is not a comprehensive list."><span class="navheader_label">Parent topic</span><span class="navheader_separator">: </span><span class="navheader_linktext">Regular Expression Reference</span></a></span>  </div><div class="footer">WebHelp output generated by<a href="http://www.oxygenxml.com" target="_blank"><span class="oXygenLogo"><img src="../../oxygen-webhelp/resources/img/LogoOxygen100x22.png" alt="Oxygen"/></span><span class="xmlauthor">XML Author</span></a></div>
+<div id="productInfo" style="display:none;"><span id="oxy_productID">webhelp</span><span id="oxy_productVersion">3.0</span></div><div id="loginData" style="display: none"><span class="bt_close" title="Close"><!----></span><form action="" target="passwordIframe" method="post" name="form_login" onsubmit="return loggInUser();" id="loginFormData" autocomplete="on"><input type="hidden" id="reloadComments" value="yes"><!----></input><table class="login"><thead><tr><td colspan="2"><span id="l_login2"><script type="text/javascript">$('#l_login2').html(getLocalization('label.login'));</script></span></td></tr><tr><td colspan="2"><div id="loginResponse"><!----></div></td></tr></thead><tr><td><span id="l_userName"><script type="text/javascript">$('#l_userName').html(getLocalization('label.userName'));</script></span></td><td><input name="usernameW" type="text" id="myUserName" autocomplete="on" required="required" autofocus="autofocus"><!----></input></td></tr><tr><td><span id="l_pswd"><script type="text/javascript">$('#l_pswd').html(getLocalization('label.pswd'));</script></span></td><td><input name="passwordW" type="password" id="myPassword" autocomplete="on" required="required"><!----></input></td></tr><tr><td colspan="2" align="left"><span id="ll_remember"><script type="text/javascript" xml:space="preserve">
+								$('#ll_remember').html(getLocalization('label.rememberme'));
+							</script></span>     <input name="myLoginRemember" type="checkbox" class="ck" id="myRemember" value="no"><!----></input></td></tr><tr><td colspan="2" align="center"><input id="l_bt_submit_log" type="submit" value="Submit" name="loginFormButton"><!----></input><script type="text/javascript">$('#l_bt_submit_log').attr('value',getLocalization('label.login'));</script><span class="btnHGlue"><!----></span><input class="bt_cancel" id="l_cancelLog" type="button" value="Cancel" name="loginFormButton"><!----></input><script type="text/javascript">$('#l_cancelLog').attr('value',getLocalization('label.cancel'));</script></td></tr></table><div class="loginAlternative"><span id="link_lostPwd" onclick="showLostPwd()"><script type="text/javascript">$('#link_lostPwd').html(getLocalization('label.lostPswd'));</script></span><span id="link_signUp" onclick="showSignUp()"><script type="text/javascript">$('#link_signUp').html(getLocalization('label.signUp'));</script></span></div></form><iframe id="passwordIframe" name="passwordIframe" style="display:none"><!----></iframe></div><div id="cmts"><!----></div></body>
+</html>

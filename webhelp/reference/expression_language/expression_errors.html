@@ -1,0 +1,122 @@
+
+<!DOCTYPE html
+  PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xml:lang="en-us" lang="en-us">
+<head><meta xmlns="http://www.w3.org/1999/xhtml" name="description" content="You cannot save a computed field that contains an error in the expression syntax. If your expression is not valid syntax, you will get an error message. This section describes some common expression ..."/><meta http-equiv="Content-Type" content="text/html; charset=utf-8"/><meta name="copyright" content="(C) Copyright 2005"/><meta name="DC.rights.owner" content="(C) Copyright 2005"/><meta name="DC.Type" content="concept"/><meta name="DC.Title" content="Common Causes of Expression Errors"/><meta name="abstract" content="You cannot save a computed field that contains an error in the expression syntax. If your expression is not valid syntax, you will get an error message. This section describes some common expression errors and possible causes to investigate."/><meta xmlns="http://www.w3.org/1999/xhtml" name="description" content="You cannot save a computed field that contains an error in the expression syntax. If your expression is not valid syntax, you will get an error message. This section describes some common expression errors and possible causes to investigate."/><meta name="DC.Relation" scheme="URI" content="../../reference/expression_language/expression_reference_top.html"/><meta name="DC.Format" content="XHTML"/><meta name="DC.Identifier" content="expression_errors"/><link rel="stylesheet" type="text/css" href="../../oxygen-webhelp/resources/css/commonltr.css"><!----></link><title>Common Causes of Expression Errors</title><meta http-equiv="Content-Type" content="text/html; charset=utf-8"/><link rel="stylesheet" type="text/css" href="../../oxygen-webhelp/resources/css/commonltr.css"><!----></link><link rel="stylesheet" type="text/css" href="../../oxygen-webhelp/resources/css/webhelp_topic.css"><!----></link><link rel="stylesheet" type="text/css" href="../../oxygen-webhelp/resources/skins/skin.css"><!----></link><link rel="stylesheet" type="text/css" href="../../oxygen-webhelp/resources/css/jquery.realperson.css"><!----></link><link rel="stylesheet" type="text/css" href="../../oxygen-webhelp/resources/css/comments.css"><!----></link><link rel="stylesheet" type="text/css" href="../../oxygen-webhelp/resources/css/jquery.cleditor.css"><!----></link><link rel="stylesheet" type="text/css" href="../../oxygen-webhelp/resources/css/admin.css"><!----></link><script type="text/javascript"><!--
+          
+          var prefix = "../../index.html";
+          
+          --></script><script type="text/javascript" src="../../oxygen-webhelp/resources/js/jquery-1.8.2.min.js"><!----></script><script type="text/javascript" src="../../oxygen-webhelp/resources/js/jquery.cookie.js"><!----></script><script type="text/javascript" src="../../oxygen-webhelp/resources/js/jquery-ui.custom.min.js"><!----></script><script type="text/javascript" charset="utf-8" src="../../oxygen-webhelp/resources/js/webhelp_topic.js"><!----></script><script type="text/javascript" charset="utf-8" src="../../oxygen-webhelp/resources/localization/strings.js"><!----></script><script type="text/javascript" charset="utf-8" src="../../oxygen-webhelp/resources/js/init.js"><!----></script><script type="text/javascript" charset="utf-8" src="../../oxygen-webhelp/resources/js/comments-functions.js"><!----></script></head>
+<body onload="init('../../')" id="expression_errors">
+<table class="nav"><tbody><tr><td colspan="2"><div id="printlink"><a href="javascript:window.print();" title="printThisPage"/></div><div id="permalink"><a href="#" title="linkToThis"/></div></td></tr><tr><td width="75%"><a class="navheader_parent_path" href="../../reference/expression_language/expression_reference_top.html" title="An expression computes or produces a value by combining fields (or columns), constant values, operators, and functions. Platfora has a built-in expression language. You use the language's functions and operators to create a computed field.">Expression and Query Language Reference</a></td><td><div class="navheader">
+<span class="navparent"><a class="link" href="../../reference/expression_language/expression_reference_top.html" title="An expression computes or produces a value by combining fields (or columns), constant values, operators, and functions. Platfora has a built-in expression language. You use the language's functions and operators to create a computed field."><span class="navheader_label">Parent topic</span><span class="navheader_separator">: </span><span class="navheader_linktext">Expression and Query Language Reference</span></a></span>  </div></td></tr></tbody></table>
+
+ <h1 class="title topictitle1">Common Causes of Expression Errors</h1>
+
+ 
+ 
+ <div class="body conbody"><p class="shortdesc">You cannot save a computed field that contains an error in the expression syntax. If
+  your expression is not valid syntax, you will get an error message. This section describes some
+  common expression errors and possible causes to investigate.</p>
+
+  
+  <div class="section">
+   <p class="p"><strong class="ph b">Error like this?</strong></p>
+
+   <pre class="pre codeblock">Platfora expected the string `)', but instead received `F'.
+TO_LONG(New Field)</pre>
+
+   <p class="p">Possible causes:</p>
+
+   <ul class="ul">
+    <li class="li">
+     <p class="p">Does a field need to be enclosed in square brackets (bracketed)? Field and dataset names
+      used in a function must be enclosed in square brackets ([ ]) if they contain spaces, special
+      characters, reserved keywords, or start with numeric characters.</p>
+
+    </li>
+
+    <li class="li">
+     <p class="p">Does a function use invalid syntax? Check the function reference documentation and verify
+      the syntax of the function. Look for misspelled words or missing key words, arguments,
+      brackets, or parentheses.</p>
+
+    </li>
+
+    <li class="li">
+     <p class="p">Does a field or dataset name contain a character that needs to be escaped? Field and dataset
+      names may contain a right square bracket (<samp class="ph codeph">]</samp>), but it must be preceded by
+      another right square bracket (<samp class="ph codeph">]]</samp>).</p>
+
+    </li>
+
+    <li class="li">
+     <p class="p">Does a literal string contain a character that needs to be escaped? Literal strings may
+      contain a double quote (<samp class="ph codeph">"</samp>), but it must be preceded by another double quote
+       (<samp class="ph codeph">""</samp>).</p>
+
+    </li>
+
+   </ul>
+
+   <p class="p"><strong class="ph b">Error like this?</strong></p>
+
+   <pre class="pre codeblock">Field not found: carrier_name</pre>
+
+    <p class="p">Possible causes:</p>
+
+    <ul class="ul">
+    <li class="li">
+     <p class="p">Does a literal string need to be enclosed in double quotes (<samp class="ph codeph">"</samp>)?</p>
+
+    </li>
+
+    <li class="li">
+     <p class="p">Is the field in a referenced dataset and need to be qualified with the reference name?
+      Functions can use a field that is in a dataset referenced by the current dataset. You must
+      specify the full path of the downstream field name by using the reference field name, like
+       <em class="ph i">referencename</em>.<em class="ph i">fieldname</em>.</p>
+
+    </li>
+
+    </ul>
+
+   
+   <p class="p"><strong class="ph b">Error like this?</strong></p>
+
+   <pre class="pre codeblock">Function REGEX takes 2 arguments with types STRING, STRING, but one
+argument of type INTEGER was provided.</pre>
+
+   <p class="p">Possible causes:</p>
+
+   <ul class="ul">
+    <li class="li"><p class="p">Verify all arguments use the correct data type. </p>
+</li>
+
+    <li class="li"><p class="p">If the argument is a field, you might need to change the data type in the base field or use a
+     data type conversion function. </p>
+</li>
+
+    <li class="li"><p class="p">If the argument is an expression, edit the expression so it resolves to the proper data
+     type.</p>
+</li>
+
+   </ul>
+
+   
+   <p class="p"/>
+
+   
+  </div>
+
+  
+ 
+ </div>
+
+<div class="related-links"/>
+<div class="navfooter"><!---->
+<span class="navparent"><a class="link" href="../../reference/expression_language/expression_reference_top.html" title="An expression computes or produces a value by combining fields (or columns), constant values, operators, and functions. Platfora has a built-in expression language. You use the language's functions and operators to create a computed field."><span class="navheader_label">Parent topic</span><span class="navheader_separator">: </span><span class="navheader_linktext">Expression and Query Language Reference</span></a></span>  </div><div class="footer">WebHelp output generated by<a href="http://www.oxygenxml.com" target="_blank"><span class="oXygenLogo"><img src="../../oxygen-webhelp/resources/img/LogoOxygen100x22.png" alt="Oxygen"/></span><span class="xmlauthor">XML Author</span></a></div>
+<div id="productInfo" style="display:none;"><span id="oxy_productID">webhelp</span><span id="oxy_productVersion">3.0</span></div><div id="loginData" style="display: none"><span class="bt_close" title="Close"><!----></span><form action="" target="passwordIframe" method="post" name="form_login" onsubmit="return loggInUser();" id="loginFormData" autocomplete="on"><input type="hidden" id="reloadComments" value="yes"><!----></input><table class="login"><thead><tr><td colspan="2"><span id="l_login2"><script type="text/javascript">$('#l_login2').html(getLocalization('label.login'));</script></span></td></tr><tr><td colspan="2"><div id="loginResponse"><!----></div></td></tr></thead><tr><td><span id="l_userName"><script type="text/javascript">$('#l_userName').html(getLocalization('label.userName'));</script></span></td><td><input name="usernameW" type="text" id="myUserName" autocomplete="on" required="required" autofocus="autofocus"><!----></input></td></tr><tr><td><span id="l_pswd"><script type="text/javascript">$('#l_pswd').html(getLocalization('label.pswd'));</script></span></td><td><input name="passwordW" type="password" id="myPassword" autocomplete="on" required="required"><!----></input></td></tr><tr><td colspan="2" align="left"><span id="ll_remember"><script type="text/javascript" xml:space="preserve">
+								$('#ll_remember').html(getLocalization('label.rememberme'));
+							</script></span>     <input name="myLoginRemember" type="checkbox" class="ck" id="myRemember" value="no"><!----></input></td></tr><tr><td colspan="2" align="center"><input id="l_bt_submit_log" type="submit" value="Submit" name="loginFormButton"><!----></input><script type="text/javascript">$('#l_bt_submit_log').attr('value',getLocalization('label.login'));</script><span class="btnHGlue"><!----></span><input class="bt_cancel" id="l_cancelLog" type="button" value="Cancel" name="loginFormButton"><!----></input><script type="text/javascript">$('#l_cancelLog').attr('value',getLocalization('label.cancel'));</script></td></tr></table><div class="loginAlternative"><span id="link_lostPwd" onclick="showLostPwd()"><script type="text/javascript">$('#link_lostPwd').html(getLocalization('label.lostPswd'));</script></span><span id="link_signUp" onclick="showSignUp()"><script type="text/javascript">$('#link_signUp').html(getLocalization('label.signUp'));</script></span></div></form><iframe id="passwordIframe" name="passwordIframe" style="display:none"><!----></iframe></div><div id="cmts"><!----></div></body>
+</html>

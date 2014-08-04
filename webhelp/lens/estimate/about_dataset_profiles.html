@@ -1,0 +1,81 @@
+
+<!DOCTYPE html
+  PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xml:lang="en-us" lang="en-us">
+<head><meta xmlns="http://www.w3.org/1999/xhtml" name="description" content="Dataset profiling takes a sampling of rows (50,000 by default) to determine the characteristics of the data, such as the number of distinct values per field, the distribution of values, and the size ..."/><meta http-equiv="Content-Type" content="text/html; charset=utf-8"/><meta name="copyright" content="(C) Copyright 2005"/><meta name="DC.rights.owner" content="(C) Copyright 2005"/><meta name="DC.Type" content="concept"/><meta name="DC.Title" content="About Dataset Profiles"/><meta name="abstract" content="Dataset profiling takes a sampling of rows (50,000 by default) to determine the characteristics of the data, such as the number of distinct values per field, the distribution of values, and the size of the various fields in the dataset."/><meta xmlns="http://www.w3.org/1999/xhtml" name="description" content="Dataset profiling takes a sampling of rows (50,000 by default) to determine the characteristics of the data, such as the number of distinct values per field, the distribution of values, and the size of the various fields in the dataset."/><meta name="DC.Relation" scheme="URI" content="../../lens/estimate/lens_profile_estimates.html"/><meta name="DC.Relation" scheme="URI" content="../../lens/estimate/profile_a_dataset.html"/><meta name="DC.Format" content="XHTML"/><meta name="DC.Identifier" content="about_dataset_profiles"/><link rel="stylesheet" type="text/css" href="../../oxygen-webhelp/resources/css/commonltr.css"><!----></link><title>About Dataset Profiles</title><meta http-equiv="Content-Type" content="text/html; charset=utf-8"/><link rel="stylesheet" type="text/css" href="../../oxygen-webhelp/resources/css/commonltr.css"><!----></link><link rel="stylesheet" type="text/css" href="../../oxygen-webhelp/resources/css/webhelp_topic.css"><!----></link><link rel="stylesheet" type="text/css" href="../../oxygen-webhelp/resources/skins/skin.css"><!----></link><link rel="stylesheet" type="text/css" href="../../oxygen-webhelp/resources/css/jquery.realperson.css"><!----></link><link rel="stylesheet" type="text/css" href="../../oxygen-webhelp/resources/css/comments.css"><!----></link><link rel="stylesheet" type="text/css" href="../../oxygen-webhelp/resources/css/jquery.cleditor.css"><!----></link><link rel="stylesheet" type="text/css" href="../../oxygen-webhelp/resources/css/admin.css"><!----></link><script type="text/javascript"><!--
+          
+          var prefix = "../../index.html";
+          
+          --></script><script type="text/javascript" src="../../oxygen-webhelp/resources/js/jquery-1.8.2.min.js"><!----></script><script type="text/javascript" src="../../oxygen-webhelp/resources/js/jquery.cookie.js"><!----></script><script type="text/javascript" src="../../oxygen-webhelp/resources/js/jquery-ui.custom.min.js"><!----></script><script type="text/javascript" charset="utf-8" src="../../oxygen-webhelp/resources/js/webhelp_topic.js"><!----></script><script type="text/javascript" charset="utf-8" src="../../oxygen-webhelp/resources/localization/strings.js"><!----></script><script type="text/javascript" charset="utf-8" src="../../oxygen-webhelp/resources/js/init.js"><!----></script><script type="text/javascript" charset="utf-8" src="../../oxygen-webhelp/resources/js/comments-functions.js"><!----></script></head>
+<body onload="init('../../')" id="about_dataset_profiles">
+<table class="nav"><tbody><tr><td colspan="2"><div id="printlink"><a href="javascript:window.print();" title="printThisPage"/></div><div id="permalink"><a href="#" title="linkToThis"/></div></td></tr><tr><td width="75%"><a class="navheader_parent_path" href="../../lens/estimate/../../lens/lens_builder.html" title="To request data from Hadoop and load it into Platfora, you must define and build a lens. A lens can be though of as a dynamic, on-demand data mart purpose-built for a specific analysis project.">Build a Lens (Load Data)</a> / <a class="navheader_parent_path" href="../../lens/estimate/lens_profile_estimates.html" title="The size of an aggregate lens is determined by how much source data you request (the number of input rows), the number of dimension fields you select, and the cardinality (or number of unique values) of the dimension fields you select. Platfora can help estimate the size of a lens by profiling the data in the dataset.">Estimate Lens Size</a></td><td><div class="navheader">
+<span class="navparent"><a class="link" href="../../lens/estimate/lens_profile_estimates.html" title="The size of an aggregate lens is determined by how much source data you request (the number of input rows), the number of dimension fields you select, and the cardinality (or number of unique values) of the dimension fields you select. Platfora can help estimate the size of a lens by profiling the data in the dataset."><span class="navheader_label">Parent topic</span><span class="navheader_separator">: </span><span class="navheader_linktext">Estimate Lens Size</span></a></span>  </div></td></tr></tbody></table>
+
+ <h1 class="title topictitle1">About Dataset Profiles</h1>
+
+ 
+ <div class="body conbody"><p class="shortdesc">Dataset profiling takes a sampling of rows (50,000 by default) to determine the
+  characteristics of the data, such as the number of distinct values per field, the distribution of
+  values, and the size of the various fields in the dataset.</p>
+
+  <p class="p">Profiling a dataset runs a series of MapReduce jobs in Hadoop, and builds a special purpose
+      lens called a profile lens. This lens cannot be opened or used in a vizboard like a regular
+      lens. The sole purpose of the profile lens is to scan the source data and capture the data
+      heuristics. These heuristics are then used to estimate lens output size in the lens builder. </p>
+
+  <p class="p">Having more information about the source data can guide users to make better choices when they
+      create a lens, which can reduce the overall lens size and build time.</p>
+
+  <div class="p">Some good things to know about dataset profiles: <ul class="ul">
+    <li class="li">
+     <p class="p">When you profile a dataset, any of its referenced datasets are profiled too.</p>
+
+    </li>
+
+    <li class="li">
+     <p class="p">You do not need to rerun dataset profile jobs every time new source data arrives in Hadoop.
+      The data characteristics of a dataset typically do not change that often. </p>
+
+    </li>
+
+    <li class="li">
+     <p class="p">You must have <span class="ph uicontrol">Define Lens from Dataset</span> object permission on a dataset
+      in order to profile it.</p>
+
+    </li>
+
+    <li class="li">
+     <p class="p">The time is takes to run a profile job depends on the amount of source data in Hadoop. If
+      there is a lot of data to scan and sample, it can take a while.</p>
+
+    </li>
+
+    <li class="li">
+     <p class="p">Profile lenses use the naming convention, <strong class="ph b"><em class="ph i">dataset_name</em> profile</strong>.</p>
+
+    </li>
+
+    <li class="li">
+     <p class="p">The data hueristics collected during profiling are only applicable to estimating the output
+            size of an aggregate lens. There is no lens output size estimation for event series
+            lenses. </p>
+
+    </li>
+
+   </ul>
+</div>
+
+ </div>
+
+<div class="related-links">
+<ul class="ullinks">
+<li class="link ulchildlink"><strong><a href="../../lens/estimate/profile_a_dataset.html">Profile a Dataset</a></strong><br/>
+You can profile a dataset as long as you have data access and <span class="ph uicontrol">Define Lens             from Dataset</span> permissions on the dataset. Profiling a dataset initiates a         special lens build to sample the source data and collect its data         characteristics.</li>
+</ul>
+</div>
+<div class="navfooter"><!---->
+<span class="navparent"><a class="link" href="../../lens/estimate/lens_profile_estimates.html" title="The size of an aggregate lens is determined by how much source data you request (the number of input rows), the number of dimension fields you select, and the cardinality (or number of unique values) of the dimension fields you select. Platfora can help estimate the size of a lens by profiling the data in the dataset."><span class="navheader_label">Parent topic</span><span class="navheader_separator">: </span><span class="navheader_linktext">Estimate Lens Size</span></a></span>  </div><div class="footer">WebHelp output generated by<a href="http://www.oxygenxml.com" target="_blank"><span class="oXygenLogo"><img src="../../oxygen-webhelp/resources/img/LogoOxygen100x22.png" alt="Oxygen"/></span><span class="xmlauthor">XML Author</span></a></div>
+<div id="productInfo" style="display:none;"><span id="oxy_productID">webhelp</span><span id="oxy_productVersion">3.0</span></div><div id="loginData" style="display: none"><span class="bt_close" title="Close"><!----></span><form action="" target="passwordIframe" method="post" name="form_login" onsubmit="return loggInUser();" id="loginFormData" autocomplete="on"><input type="hidden" id="reloadComments" value="yes"><!----></input><table class="login"><thead><tr><td colspan="2"><span id="l_login2"><script type="text/javascript">$('#l_login2').html(getLocalization('label.login'));</script></span></td></tr><tr><td colspan="2"><div id="loginResponse"><!----></div></td></tr></thead><tr><td><span id="l_userName"><script type="text/javascript">$('#l_userName').html(getLocalization('label.userName'));</script></span></td><td><input name="usernameW" type="text" id="myUserName" autocomplete="on" required="required" autofocus="autofocus"><!----></input></td></tr><tr><td><span id="l_pswd"><script type="text/javascript">$('#l_pswd').html(getLocalization('label.pswd'));</script></span></td><td><input name="passwordW" type="password" id="myPassword" autocomplete="on" required="required"><!----></input></td></tr><tr><td colspan="2" align="left"><span id="ll_remember"><script type="text/javascript" xml:space="preserve">
+								$('#ll_remember').html(getLocalization('label.rememberme'));
+							</script></span>     <input name="myLoginRemember" type="checkbox" class="ck" id="myRemember" value="no"><!----></input></td></tr><tr><td colspan="2" align="center"><input id="l_bt_submit_log" type="submit" value="Submit" name="loginFormButton"><!----></input><script type="text/javascript">$('#l_bt_submit_log').attr('value',getLocalization('label.login'));</script><span class="btnHGlue"><!----></span><input class="bt_cancel" id="l_cancelLog" type="button" value="Cancel" name="loginFormButton"><!----></input><script type="text/javascript">$('#l_cancelLog').attr('value',getLocalization('label.cancel'));</script></td></tr></table><div class="loginAlternative"><span id="link_lostPwd" onclick="showLostPwd()"><script type="text/javascript">$('#link_lostPwd').html(getLocalization('label.lostPswd'));</script></span><span id="link_signUp" onclick="showSignUp()"><script type="text/javascript">$('#link_signUp').html(getLocalization('label.signUp'));</script></span></div></form><iframe id="passwordIframe" name="passwordIframe" style="display:none"><!----></iframe></div><div id="cmts"><!----></div></body>
+</html>

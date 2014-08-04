@@ -1,0 +1,96 @@
+
+<!DOCTYPE html
+  PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xml:lang="en-us" lang="en-us">
+<head><meta xmlns="http://www.w3.org/1999/xhtml" name="description" content="After you have written and compiled a user defined function (UDF) Java class, you must install your class on the Platfora master server and enable it so that it can be seen and used in the Platfora ..."/><meta http-equiv="Content-Type" content="text/html; charset=utf-8"/><meta name="copyright" content="(C) Copyright 2005"/><meta name="DC.rights.owner" content="(C) Copyright 2005"/><meta name="DC.Type" content="task"/><meta name="DC.Title" content="Adding a UDF to the Platfora Expression Builder"/><meta name="abstract" content="After you have written and compiled a user defined function (UDF) Java class, you must install your class on the Platfora master server and enable it so that it can be seen and used in the Platfora expression builder."/><meta xmlns="http://www.w3.org/1999/xhtml" name="description" content="After you have written and compiled a user defined function (UDF) Java class, you must install your class on the Platfora master server and enable it so that it can be seen and used in the Platfora expression builder."/><meta name="DC.Relation" scheme="URI" content="../../../reference/expression_language/udf/add_udf_top.html"/><meta name="DC.Format" content="XHTML"/><meta name="DC.Identifier" content="install_udf_class"/><link rel="stylesheet" type="text/css" href="../../../oxygen-webhelp/resources/css/commonltr.css"><!----></link><title>Adding a UDF to the Platfora Expression Builder</title><meta http-equiv="Content-Type" content="text/html; charset=utf-8"/><link rel="stylesheet" type="text/css" href="../../../oxygen-webhelp/resources/css/commonltr.css"><!----></link><link rel="stylesheet" type="text/css" href="../../../oxygen-webhelp/resources/css/webhelp_topic.css"><!----></link><link rel="stylesheet" type="text/css" href="../../../oxygen-webhelp/resources/skins/skin.css"><!----></link><link rel="stylesheet" type="text/css" href="../../../oxygen-webhelp/resources/css/jquery.realperson.css"><!----></link><link rel="stylesheet" type="text/css" href="../../../oxygen-webhelp/resources/css/comments.css"><!----></link><link rel="stylesheet" type="text/css" href="../../../oxygen-webhelp/resources/css/jquery.cleditor.css"><!----></link><link rel="stylesheet" type="text/css" href="../../../oxygen-webhelp/resources/css/admin.css"><!----></link><script type="text/javascript"><!--
+          
+          var prefix = "../../../index.html";
+          
+          --></script><script type="text/javascript" src="../../../oxygen-webhelp/resources/js/jquery-1.8.2.min.js"><!----></script><script type="text/javascript" src="../../../oxygen-webhelp/resources/js/jquery.cookie.js"><!----></script><script type="text/javascript" src="../../../oxygen-webhelp/resources/js/jquery-ui.custom.min.js"><!----></script><script type="text/javascript" charset="utf-8" src="../../../oxygen-webhelp/resources/js/webhelp_topic.js"><!----></script><script type="text/javascript" charset="utf-8" src="../../../oxygen-webhelp/resources/localization/strings.js"><!----></script><script type="text/javascript" charset="utf-8" src="../../../oxygen-webhelp/resources/js/init.js"><!----></script><script type="text/javascript" charset="utf-8" src="../../../oxygen-webhelp/resources/js/comments-functions.js"><!----></script></head>
+<body onload="init('../../../')" id="install_udf_class">
+<table class="nav"><tbody><tr><td colspan="2"><div id="printlink"><a href="javascript:window.print();" title="printThisPage"/></div><div id="permalink"><a href="#" title="linkToThis"/></div></td></tr><tr><td width="75%"><a class="navheader_parent_path" href="../../../reference/expression_language/udf/../../../reference/expression_language/expression_reference_top.html" title="An expression computes or produces a value by combining fields (or columns), constant values, operators, and functions. Platfora has a built-in expression language. You use the language's functions and operators to create a computed field.">Expression and Query Language Reference</a> / <a class="navheader_parent_path" href="../../../reference/expression_language/udf/add_udf_top.html" title="User defined functions (UDFs) allow you to define your own per-row processing logic, and then expose that functionality to users in the Platfora application expression builder.">User Defined Functions (UDFs)</a></td><td><div class="navheader">
+<span class="navparent"><a class="link" href="../../../reference/expression_language/udf/add_udf_top.html" title="User defined functions (UDFs) allow you to define your own per-row processing logic, and then expose that functionality to users in the Platfora application expression builder."><span class="navheader_label">Parent topic</span><span class="navheader_separator">: </span><span class="navheader_linktext">User Defined Functions (UDFs)</span></a></span>  </div></td></tr></tbody></table>
+
+  <h1 class="title topictitle1">Adding a UDF to the Platfora Expression Builder</h1>
+
+  
+  <div class="body taskbody"><p class="shortdesc">After you have written and compiled a user defined function (UDF) Java class, you must
+    install your class on the Platfora master server and enable it so that it can be seen and used
+    in the Platfora expression builder. </p>
+
+    <div class="section context">This task is performed on the Platfora master server.</div>
+
+    <div class="section prereq p">
+      <p class="p">Before you begin, you must have written and compiled a Java class for your user defined
+        function. See <a class="xref" href="write_udf_java_program.html" title="User defined functions (UDFs) are written in the Java programming language and implement the Platfora-provided Java interface, com.platfora.udf.UserDefinedFunction.">Writing a Platfora UDF Java Program</a>.</p>
+
+    </div>
+
+    <ol class="ol steps"><li class="li step">
+        <span class="ph cmd">Create a directory named <samp class="ph codeph">extlib</samp> in the Platfora data directory on the
+          Platfora master server.</span>
+        
+          <p class="p">For example:</p>
+
+          <pre class="pre codeblock"><samp class="ph systemoutput">$</samp> <kbd class="ph userinput">mkdir $PLATFORA_DATA_DIR/extlib</kbd></pre>
+
+        
+      </li>
+<li class="li step">
+        <span class="ph cmd">Copy the Java archive (<samp class="ph codeph">.jar</samp>) file containing your UDF class to the
+            <samp class="ph codeph">$PLATFORA_DATA_DIR/extlib</samp> directory on the Platfora master server. </span>
+        
+          <p class="p">For example:</p>
+
+          <pre class="pre codeblock"><samp class="ph systemoutput">$</samp> <kbd class="ph userinput">cp repeat-string-udf.jar $PLATFORA_DATA_DIR/extlib/</kbd></pre>
+
+        
+      </li>
+<li class="li step">
+        <span class="ph cmd">Set the Platfora server configuration property,
+            <samp class="ph codeph">platfora.udf.class.names</samp>, so it contains the name of your UDF Java
+          class. If you have more than one class, separate the class names with a comma. </span>
+        
+          <p class="p">For example, to set this property using the <samp class="ph codeph">platfora-config</samp>
+            command-line utility:</p>
+
+          <pre class="pre codeblock"><samp class="ph systemoutput">$</samp> <kbd class="ph userinput">$PLATFORA_HOME/bin/platfora-config set --key platfora.udf.class.names --value RepeatString</kbd></pre>
+
+        
+      </li>
+<li class="li step">
+        <span class="ph cmd">Restart the Platfora server:</span>
+        
+          <pre class="pre codeblock"><samp class="ph systemoutput">$</samp> <kbd class="ph userinput">platfora-services restart</kbd></pre>
+
+        
+      </li>
+</ol>
+
+    <div class="section result">
+      <p class="p">The user defined function will then be available for defining computed field expressions in
+        the <span class="ph uicontrol">Add Field</span> dialog of the Platfora application.</p>
+
+      <div class="fig fignone"><img class="image" src="../../../images/./dataset/computed_fields/udf_expression_builder.png"/>
+        
+      </div>
+
+      <div class="p">
+        <div class="note note"><span class="notetitle">Note:</span> Due to the way some web browsers cache Javascript files, the newly added function may
+          not appear in the <span class="ph uicontrol">Functions</span> list for up to 24 hours. However, the
+          function is immediately available for use and recognized by the
+            <span class="ph uicontrol">Expression</span> auto-complete feature. </div>
+
+      </div>
+
+    </div>
+
+  </div>
+
+<div class="related-links"/>
+<div class="navfooter"><!---->
+<span class="navparent"><a class="link" href="../../../reference/expression_language/udf/add_udf_top.html" title="User defined functions (UDFs) allow you to define your own per-row processing logic, and then expose that functionality to users in the Platfora application expression builder."><span class="navheader_label">Parent topic</span><span class="navheader_separator">: </span><span class="navheader_linktext">User Defined Functions (UDFs)</span></a></span>  </div><div class="footer">WebHelp output generated by<a href="http://www.oxygenxml.com" target="_blank"><span class="oXygenLogo"><img src="../../../oxygen-webhelp/resources/img/LogoOxygen100x22.png" alt="Oxygen"/></span><span class="xmlauthor">XML Author</span></a></div>
+<div id="productInfo" style="display:none;"><span id="oxy_productID">webhelp</span><span id="oxy_productVersion">3.0</span></div><div id="loginData" style="display: none"><span class="bt_close" title="Close"><!----></span><form action="" target="passwordIframe" method="post" name="form_login" onsubmit="return loggInUser();" id="loginFormData" autocomplete="on"><input type="hidden" id="reloadComments" value="yes"><!----></input><table class="login"><thead><tr><td colspan="2"><span id="l_login2"><script type="text/javascript">$('#l_login2').html(getLocalization('label.login'));</script></span></td></tr><tr><td colspan="2"><div id="loginResponse"><!----></div></td></tr></thead><tr><td><span id="l_userName"><script type="text/javascript">$('#l_userName').html(getLocalization('label.userName'));</script></span></td><td><input name="usernameW" type="text" id="myUserName" autocomplete="on" required="required" autofocus="autofocus"><!----></input></td></tr><tr><td><span id="l_pswd"><script type="text/javascript">$('#l_pswd').html(getLocalization('label.pswd'));</script></span></td><td><input name="passwordW" type="password" id="myPassword" autocomplete="on" required="required"><!----></input></td></tr><tr><td colspan="2" align="left"><span id="ll_remember"><script type="text/javascript" xml:space="preserve">
+								$('#ll_remember').html(getLocalization('label.rememberme'));
+							</script></span>     <input name="myLoginRemember" type="checkbox" class="ck" id="myRemember" value="no"><!----></input></td></tr><tr><td colspan="2" align="center"><input id="l_bt_submit_log" type="submit" value="Submit" name="loginFormButton"><!----></input><script type="text/javascript">$('#l_bt_submit_log').attr('value',getLocalization('label.login'));</script><span class="btnHGlue"><!----></span><input class="bt_cancel" id="l_cancelLog" type="button" value="Cancel" name="loginFormButton"><!----></input><script type="text/javascript">$('#l_cancelLog').attr('value',getLocalization('label.cancel'));</script></td></tr></table><div class="loginAlternative"><span id="link_lostPwd" onclick="showLostPwd()"><script type="text/javascript">$('#link_lostPwd').html(getLocalization('label.lostPswd'));</script></span><span id="link_signUp" onclick="showSignUp()"><script type="text/javascript">$('#link_signUp').html(getLocalization('label.signUp'));</script></span></div></form><iframe id="passwordIframe" name="passwordIframe" style="display:none"><!----></iframe></div><div id="cmts"><!----></div></body>
+</html>

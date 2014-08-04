@@ -1,0 +1,89 @@
+
+<!DOCTYPE html
+  PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xml:lang="en-us" lang="en-us">
+<head><meta xmlns="http://www.w3.org/1999/xhtml" name="description" content="Sometimes you need want to use a literal value in an expression, as opposed to a field. How you specify a literal value depends on its data type (text, numeric, or date). This section explains how to ..."/><meta http-equiv="Content-Type" content="text/html; charset=utf-8"/><meta name="copyright" content="(C) Copyright 2005"/><meta name="DC.rights.owner" content="(C) Copyright 2005"/><meta name="DC.Type" content="concept"/><meta name="DC.Title" content="Literal Values in an Expression"/><meta name="abstract" content="This section explains how to use literals in expressions."/><meta xmlns="http://www.w3.org/1999/xhtml" name="description" content="This section explains how to use literals in expressions."/><meta name="DC.Relation" scheme="URI" content="../../../dataset/common_lang_elements_top.html"/><meta name="DC.Format" content="XHTML"/><meta name="DC.Identifier" content="about_expression_literals"/><link rel="stylesheet" type="text/css" href="../../../oxygen-webhelp/resources/css/commonltr.css"><!----></link><title>Literal Values in an Expression</title><meta http-equiv="Content-Type" content="text/html; charset=utf-8"/><link rel="stylesheet" type="text/css" href="../../../oxygen-webhelp/resources/css/commonltr.css"><!----></link><link rel="stylesheet" type="text/css" href="../../../oxygen-webhelp/resources/css/webhelp_topic.css"><!----></link><link rel="stylesheet" type="text/css" href="../../../oxygen-webhelp/resources/skins/skin.css"><!----></link><link rel="stylesheet" type="text/css" href="../../../oxygen-webhelp/resources/css/jquery.realperson.css"><!----></link><link rel="stylesheet" type="text/css" href="../../../oxygen-webhelp/resources/css/comments.css"><!----></link><link rel="stylesheet" type="text/css" href="../../../oxygen-webhelp/resources/css/jquery.cleditor.css"><!----></link><link rel="stylesheet" type="text/css" href="../../../oxygen-webhelp/resources/css/admin.css"><!----></link><script type="text/javascript"><!--
+          
+          var prefix = "../../../index.html";
+          
+          --></script><script type="text/javascript" src="../../../oxygen-webhelp/resources/js/jquery-1.8.2.min.js"><!----></script><script type="text/javascript" src="../../../oxygen-webhelp/resources/js/jquery.cookie.js"><!----></script><script type="text/javascript" src="../../../oxygen-webhelp/resources/js/jquery-ui.custom.min.js"><!----></script><script type="text/javascript" charset="utf-8" src="../../../oxygen-webhelp/resources/js/webhelp_topic.js"><!----></script><script type="text/javascript" charset="utf-8" src="../../../oxygen-webhelp/resources/localization/strings.js"><!----></script><script type="text/javascript" charset="utf-8" src="../../../oxygen-webhelp/resources/js/init.js"><!----></script><script type="text/javascript" charset="utf-8" src="../../../oxygen-webhelp/resources/js/comments-functions.js"><!----></script></head>
+<body onload="init('../../../')" id="about_expression_literals">
+<table class="nav"><tbody><tr><td colspan="2"><div id="printlink"><a href="javascript:window.print();" title="printThisPage"/></div><div id="permalink"><a href="#" title="linkToThis"/></div></td></tr><tr><td width="75%"><a class="navheader_parent_path" href="../../../dataset/../dataset/use_expressions_top.html" title="Platfora includes an expression language to support advanced data analysis processing.">Work with Platfora's Expression Language</a> / <a class="navheader_parent_path" href="../../../dataset/common_lang_elements_top.html" title="In this section you learn how Platfora's expression language and programmatic query support are related, where you can use them, and which components they share.">Understand Expression Basics</a></td><td><div class="navheader">
+<span class="navparent"><a class="link" href="../../../dataset/common_lang_elements_top.html" title="In this section you learn how Platfora's expression language and programmatic query support are related, where you can use them, and which components they share."><span class="navheader_label">Parent topic</span><span class="navheader_separator">: </span><span class="navheader_linktext">Understand Expression Basics</span></a></span>  </div></td></tr></tbody></table>
+
+ <h1 class="title topictitle1">Literal Values in an Expression</h1>
+
+ 
+ <div class="body conbody"><div class="abstract">Sometimes you need want to use a literal value in an expression, as opposed to a field. How you specify a literal value depends on its data type (text, numeric, or
+  date).  <span class="shortdesc">This section explains how to use literals in expressions.</span>
+</div>
+
+  <div class="section"><h2 class="title sectiontitle">Literal STRING Values</h2>
+   
+   <div class="p">To specify a literal or actual STRING value, enclose the value in double quotes (<samp class="ph codeph">"</samp>). For example, this expression converts the values of a <em class="ph i">gender</em> field to the literal values of <em class="ph i">male</em>, <em class="ph i">female</em>, or
+    <em class="ph i">unknown</em>:<pre class="pre codeblock">CASE WHEN gender=<strong class="ph b">"</strong>M<strong class="ph b">"</strong> THEN <strong class="ph b">"</strong>male<strong class="ph b">"</strong> WHEN gender=<strong class="ph b">"</strong>F<strong class="ph b">"</strong> THEN <strong class="ph b">"</strong>female<strong class="ph b">"</strong> ELSE <strong class="ph b">"</strong>unknown<strong class="ph b">"</strong> END</pre>
+</div>
+
+   
+   
+   <p class="p">To escape a literal quote within a literal value itself, double the literal quote character. For example:</p>
+
+   <div class="p">
+    <pre class="pre codeblock">CASE WHEN height="60<strong class="ph b">""</strong>" THEN "5 feet" WHEN height="72<strong class="ph b">""</strong>" THEN "6 feet" ELSE "other" END</pre>
+
+   </div>
+
+   <p class="p">The <samp class="ph codeph">REGEX()</samp> function is a special case. In the <samp class="ph codeph">REGEX()</samp> function, string expressions are also enclosed in quotes. When a string expression contains literal quotes, double the literal quote character. For example: </p>
+
+   <div class="p">
+    <pre class="pre codeblock">REGEX(height, "\d\'(\d)+<strong class="ph b">""</strong>")</pre>
+
+   </div>
+
+   
+  </div>
+
+  
+  <div class="section"><h2 class="title sectiontitle">Literal DATE and DATETIME Values</h2>
+   
+   <p class="p">To refer to a DATETIME value in a filter expression, the date format must be <samp class="ph codeph">yyyy-MM-dd</samp> without any enclosing quotation marks or other punctuation. </p>
+
+   <div class="p"><pre class="pre codeblock">order_date BETWEEN 2012-12-01 AND 2012-12-31</pre>
+</div>
+<p class="p">To refer to a literal date value, you must specify the format of the date and time components using <samp class="ph codeph"><a class="xref" href="../../../reference/expression_language/function_todate.html" title="TO_DATE is a row function that converts STRING values to DATETIME values, and specifies the format of the date and time elements in the string.">TO_DATE()</a></samp>, which takes a string literal argument
+    and a format string. For example:</p>
+
+   <div class="p">
+    <pre class="pre codeblock">CASE WHEN order_date=TO_DATE("2013-01-01 00:00:59 PST","yyyy-MM-dd HH:mm:ss z") THEN "free shipping" ELSE "standard shipping" DONE</pre>
+
+   </div>
+
+  </div>
+
+  
+  <div class="section"><h2 class="title sectiontitle">Literal Numeric Values</h2>
+   
+   
+   <p class="p">For literal numeric values, you can just specify the number itself without any special
+    escaping or formatting. For example: </p>
+
+   <div class="p">
+    <pre class="pre codeblock">CASE WHEN is_married=<strong class="ph b">1</strong> THEN "married" is_married=<strong class="ph b">0</strong> THEN "not_married" ELSE NULL END</pre>
+
+   </div>
+
+   
+  </div>
+
+  
+  
+  
+ </div>
+
+<div class="related-links"/>
+<div class="navfooter"><!---->
+<span class="navparent"><a class="link" href="../../../dataset/common_lang_elements_top.html" title="In this section you learn how Platfora's expression language and programmatic query support are related, where you can use them, and which components they share."><span class="navheader_label">Parent topic</span><span class="navheader_separator">: </span><span class="navheader_linktext">Understand Expression Basics</span></a></span>  </div><div class="footer">WebHelp output generated by<a href="http://www.oxygenxml.com" target="_blank"><span class="oXygenLogo"><img src="../../../oxygen-webhelp/resources/img/LogoOxygen100x22.png" alt="Oxygen"/></span><span class="xmlauthor">XML Author</span></a></div>
+<div id="productInfo" style="display:none;"><span id="oxy_productID">webhelp</span><span id="oxy_productVersion">3.0</span></div><div id="loginData" style="display: none"><span class="bt_close" title="Close"><!----></span><form action="" target="passwordIframe" method="post" name="form_login" onsubmit="return loggInUser();" id="loginFormData" autocomplete="on"><input type="hidden" id="reloadComments" value="yes"><!----></input><table class="login"><thead><tr><td colspan="2"><span id="l_login2"><script type="text/javascript">$('#l_login2').html(getLocalization('label.login'));</script></span></td></tr><tr><td colspan="2"><div id="loginResponse"><!----></div></td></tr></thead><tr><td><span id="l_userName"><script type="text/javascript">$('#l_userName').html(getLocalization('label.userName'));</script></span></td><td><input name="usernameW" type="text" id="myUserName" autocomplete="on" required="required" autofocus="autofocus"><!----></input></td></tr><tr><td><span id="l_pswd"><script type="text/javascript">$('#l_pswd').html(getLocalization('label.pswd'));</script></span></td><td><input name="passwordW" type="password" id="myPassword" autocomplete="on" required="required"><!----></input></td></tr><tr><td colspan="2" align="left"><span id="ll_remember"><script type="text/javascript" xml:space="preserve">
+								$('#ll_remember').html(getLocalization('label.rememberme'));
+							</script></span>     <input name="myLoginRemember" type="checkbox" class="ck" id="myRemember" value="no"><!----></input></td></tr><tr><td colspan="2" align="center"><input id="l_bt_submit_log" type="submit" value="Submit" name="loginFormButton"><!----></input><script type="text/javascript">$('#l_bt_submit_log').attr('value',getLocalization('label.login'));</script><span class="btnHGlue"><!----></span><input class="bt_cancel" id="l_cancelLog" type="button" value="Cancel" name="loginFormButton"><!----></input><script type="text/javascript">$('#l_cancelLog').attr('value',getLocalization('label.cancel'));</script></td></tr></table><div class="loginAlternative"><span id="link_lostPwd" onclick="showLostPwd()"><script type="text/javascript">$('#link_lostPwd').html(getLocalization('label.lostPswd'));</script></span><span id="link_signUp" onclick="showSignUp()"><script type="text/javascript">$('#link_signUp').html(getLocalization('label.signUp'));</script></span></div></form><iframe id="passwordIframe" name="passwordIframe" style="display:none"><!----></iframe></div><div id="cmts"><!----></div></body>
+</html>

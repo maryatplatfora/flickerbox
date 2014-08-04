@@ -1,0 +1,124 @@
+
+<!DOCTYPE html
+  PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xml:lang="en-us" lang="en-us">
+<head><meta xmlns="http://www.w3.org/1999/xhtml" name="description" content="Each dataset field, whether a base or a computed field, has a data type attribute. The data type defines what kind of values the field can hold. Platfora has a number of built-in data types you can ..."/><meta http-equiv="Content-Type" content="text/html; charset=utf-8"/><meta name="copyright" content="(C) Copyright 2005"/><meta name="DC.rights.owner" content="(C) Copyright 2005"/><meta name="DC.Type" content="reference"/><meta name="DC.Title" content="About Platfora Data Types"/><meta name="abstract" content="Platfora has a number of built-in data types you can assign to dataset fields."/><meta xmlns="http://www.w3.org/1999/xhtml" name="description" content="Platfora has a number of built-in data types you can assign to dataset fields."/><meta name="DC.Relation" scheme="URI" content="../../dataset/manage_fields/manage_fields_top.html"/><meta name="DC.Format" content="XHTML"/><meta name="DC.Identifier" content="dataset_field_datatypes"/><link rel="stylesheet" type="text/css" href="../../oxygen-webhelp/resources/css/commonltr.css"><!----></link><title>About Platfora Data Types</title><meta http-equiv="Content-Type" content="text/html; charset=utf-8"/><link rel="stylesheet" type="text/css" href="../../oxygen-webhelp/resources/css/commonltr.css"><!----></link><link rel="stylesheet" type="text/css" href="../../oxygen-webhelp/resources/css/webhelp_topic.css"><!----></link><link rel="stylesheet" type="text/css" href="../../oxygen-webhelp/resources/skins/skin.css"><!----></link><link rel="stylesheet" type="text/css" href="../../oxygen-webhelp/resources/css/jquery.realperson.css"><!----></link><link rel="stylesheet" type="text/css" href="../../oxygen-webhelp/resources/css/comments.css"><!----></link><link rel="stylesheet" type="text/css" href="../../oxygen-webhelp/resources/css/jquery.cleditor.css"><!----></link><link rel="stylesheet" type="text/css" href="../../oxygen-webhelp/resources/css/admin.css"><!----></link><script type="text/javascript"><!--
+          
+          var prefix = "../../index.html";
+          
+          --></script><script type="text/javascript" src="../../oxygen-webhelp/resources/js/jquery-1.8.2.min.js"><!----></script><script type="text/javascript" src="../../oxygen-webhelp/resources/js/jquery.cookie.js"><!----></script><script type="text/javascript" src="../../oxygen-webhelp/resources/js/jquery-ui.custom.min.js"><!----></script><script type="text/javascript" charset="utf-8" src="../../oxygen-webhelp/resources/js/webhelp_topic.js"><!----></script><script type="text/javascript" charset="utf-8" src="../../oxygen-webhelp/resources/localization/strings.js"><!----></script><script type="text/javascript" charset="utf-8" src="../../oxygen-webhelp/resources/js/init.js"><!----></script><script type="text/javascript" charset="utf-8" src="../../oxygen-webhelp/resources/js/comments-functions.js"><!----></script></head>
+<body onload="init('../../')" id="dataset_field_datatypes">
+<table class="nav"><tbody><tr><td colspan="2"><div id="printlink"><a href="javascript:window.print();" title="printThisPage"/></div><div id="permalink"><a href="#" title="linkToThis"/></div></td></tr><tr><td width="75%"><a class="navheader_parent_path" href="../../dataset/manage_fields/../../dataset/dataset_top.html" title="Source data is mapped into Platfora by creating a dataset. A dataset describes the characteristics of the source data, such as its file locations, the structure of individual rows or records, the fields and data types, and the processing logic to cleanse, transform, and aggregate the data when it is loaded into Platfora. The collection of modeled datasets make up the data catalog (the source data items available to Platfora users).">Define Datasets</a> / <a class="navheader_parent_path" href="../../dataset/manage_fields/manage_fields_top.html" title="The Manage Fields step of the dataset workspace is where you verify, cleanse, and transform the raw data fields into the actual fields that users can browse and select in the Platfora data catalog. This is where the majority of the dataset definition work is performed.">Manage Dataset Fields</a></td><td><div class="navheader">
+<span class="navparent"><a class="link" href="../../dataset/manage_fields/manage_fields_top.html" title="The Manage Fields step of the dataset workspace is where you verify, cleanse, and transform the raw data fields into the actual fields that users can browse and select in the Platfora data catalog. This is where the majority of the dataset definition work is performed."><span class="navheader_label">Parent topic</span><span class="navheader_separator">: </span><span class="navheader_linktext">Manage Dataset Fields</span></a></span>  </div></td></tr></tbody></table>
+
+  <h1 class="title topictitle1">About Platfora Data Types</h1>
+
+  
+  <div class="body refbody"><div class="abstract">Each dataset field, whether a base or a computed field, has a data type attribute. The data type
+    defines what kind of values the field can hold.  <span class="shortdesc">Platfora has a number of built-in data types you can assign to dataset fields.</span>
+ </div>
+
+    <div class="section">
+      <p class="p">The dataset parser attempts to guess a field's data type by sampling the data. A base
+        field's data type restricts the expressions you can apply to that field. For example, you
+        can only calculate a sum with numeric fields. For computed fields, the expression's result
+        determines the field's data type.</p>
+
+      <p class="p">You may want to change a base field's data type to accommodate the computed field processing you plan
+        to do. For example, many value manipulation functions require input values to be strings. </p>
+
+      <p class="p">Platfora supports the following data types:</p>
+
+    
+<div class="tablenoborder"><table cellpadding="4" cellspacing="0" summary="" id="dataset_field_datatypes__tbl_data_types" class="table" frame="border" border="1" rules="all"><caption><span class="tablecap">Table 1. Platfora Data Types</span></caption>
+        
+        
+        
+        <thead class="thead" align="left">
+          <tr class="row">
+            <th class="entry" valign="top" width="21.231422505307858%" id="d46113e46">Type</th>
+
+            <th class="entry" valign="top" width="28.450106157112526%" id="d46113e49">Description</th>
+
+            <th class="entry" valign="top" width="50.318471337579616%" id="d46113e52">Range of Values</th>
+
+          </tr>
+
+        </thead>
+
+        <tbody class="tbody">
+          <tr class="row">
+            <td class="entry" valign="top" width="21.231422505307858%" headers="d46113e46 ">STRING</td>
+
+            <td class="entry" valign="top" width="28.450106157112526%" headers="d46113e49 ">variable length non-unicode string data</td>
+
+            <td class="entry" valign="top" width="50.318471337579616%" headers="d46113e52 ">maximum string length of 2,147,483,647</td>
+
+          </tr>
+
+          <tr class="row">
+            <td class="entry" valign="top" width="21.231422505307858%" headers="d46113e46 ">DATETIME</td>
+
+            <td class="entry" valign="top" width="28.450106157112526%" headers="d46113e49 ">date combined with a time of day with fractional seconds based on a 24-hour
+              clock</td>
+
+            <td class="entry" valign="top" width="50.318471337579616%" headers="d46113e52 ">date range: January 1, 1753, through December 31, 9999, time range: 00:00:00
+              through 23:59:59.997</td>
+
+          </tr>
+
+          <tr class="row">
+            <td class="entry" valign="top" width="21.231422505307858%" headers="d46113e46 ">FIXED</td>
+
+            <td class="entry" valign="top" width="28.450106157112526%" headers="d46113e49 ">Fixed decimal values with accuracy to a ten-thousandth of a numeric unit</td>
+
+            <td class="entry" valign="top" width="50.318471337579616%" headers="d46113e52 ">-922,337,203,685,477.5808 through 2^63 - 1 (+922,337,203,685,477.5807), with
+              accuracy to a ten-thousandth of a numeric unit.</td>
+
+          </tr>
+
+          <tr class="row">
+            <td class="entry" valign="top" width="21.231422505307858%" headers="d46113e46 ">INTEGER</td>
+
+            <td class="entry" valign="top" width="28.450106157112526%" headers="d46113e49 ">32-bit integer (whole number)</td>
+
+            <td class="entry" valign="top" width="50.318471337579616%" headers="d46113e52 ">-2,147,483,648 to 2,147,483,647</td>
+
+          </tr>
+
+          <tr class="row">
+            <td class="entry" valign="top" width="21.231422505307858%" headers="d46113e46 ">LONG</td>
+
+            <td class="entry" valign="top" width="28.450106157112526%" headers="d46113e49 ">64-bit long integer (whole number)</td>
+
+            <td class="entry" valign="top" width="50.318471337579616%" headers="d46113e52 ">-9,223,372,036,854,775,808 to 9,223,372,036,854,775,807</td>
+
+          </tr>
+
+          <tr class="row">
+            <td class="entry" valign="top" width="21.231422505307858%" headers="d46113e46 ">DOUBLE</td>
+
+            <td class="entry" valign="top" width="28.450106157112526%" headers="d46113e49 ">double-precision 64-bit floating point number</td>
+
+            <td class="entry" valign="top" width="50.318471337579616%" headers="d46113e52 ">4.94065645841246544e-324d to 1.79769313486231570e+308d (positive or
+              negative)</td>
+
+          </tr>
+
+        </tbody>
+
+      </table>
+</div>
+
+
+    </div>
+
+  </div>
+
+<div class="related-links"/>
+<div class="navfooter"><!---->
+<span class="navparent"><a class="link" href="../../dataset/manage_fields/manage_fields_top.html" title="The Manage Fields step of the dataset workspace is where you verify, cleanse, and transform the raw data fields into the actual fields that users can browse and select in the Platfora data catalog. This is where the majority of the dataset definition work is performed."><span class="navheader_label">Parent topic</span><span class="navheader_separator">: </span><span class="navheader_linktext">Manage Dataset Fields</span></a></span>  </div><div class="footer">WebHelp output generated by<a href="http://www.oxygenxml.com" target="_blank"><span class="oXygenLogo"><img src="../../oxygen-webhelp/resources/img/LogoOxygen100x22.png" alt="Oxygen"/></span><span class="xmlauthor">XML Author</span></a></div>
+<div id="productInfo" style="display:none;"><span id="oxy_productID">webhelp</span><span id="oxy_productVersion">3.0</span></div><div id="loginData" style="display: none"><span class="bt_close" title="Close"><!----></span><form action="" target="passwordIframe" method="post" name="form_login" onsubmit="return loggInUser();" id="loginFormData" autocomplete="on"><input type="hidden" id="reloadComments" value="yes"><!----></input><table class="login"><thead><tr><td colspan="2"><span id="l_login2"><script type="text/javascript">$('#l_login2').html(getLocalization('label.login'));</script></span></td></tr><tr><td colspan="2"><div id="loginResponse"><!----></div></td></tr></thead><tr><td><span id="l_userName"><script type="text/javascript">$('#l_userName').html(getLocalization('label.userName'));</script></span></td><td><input name="usernameW" type="text" id="myUserName" autocomplete="on" required="required" autofocus="autofocus"><!----></input></td></tr><tr><td><span id="l_pswd"><script type="text/javascript">$('#l_pswd').html(getLocalization('label.pswd'));</script></span></td><td><input name="passwordW" type="password" id="myPassword" autocomplete="on" required="required"><!----></input></td></tr><tr><td colspan="2" align="left"><span id="ll_remember"><script type="text/javascript" xml:space="preserve">
+								$('#ll_remember').html(getLocalization('label.rememberme'));
+							</script></span>     <input name="myLoginRemember" type="checkbox" class="ck" id="myRemember" value="no"><!----></input></td></tr><tr><td colspan="2" align="center"><input id="l_bt_submit_log" type="submit" value="Submit" name="loginFormButton"><!----></input><script type="text/javascript">$('#l_bt_submit_log').attr('value',getLocalization('label.login'));</script><span class="btnHGlue"><!----></span><input class="bt_cancel" id="l_cancelLog" type="button" value="Cancel" name="loginFormButton"><!----></input><script type="text/javascript">$('#l_cancelLog').attr('value',getLocalization('label.cancel'));</script></td></tr></table><div class="loginAlternative"><span id="link_lostPwd" onclick="showLostPwd()"><script type="text/javascript">$('#link_lostPwd').html(getLocalization('label.lostPswd'));</script></span><span id="link_signUp" onclick="showSignUp()"><script type="text/javascript">$('#link_signUp').html(getLocalization('label.signUp'));</script></span></div></form><iframe id="passwordIframe" name="passwordIframe" style="display:none"><!----></iframe></div><div id="cmts"><!----></div></body>
+</html>

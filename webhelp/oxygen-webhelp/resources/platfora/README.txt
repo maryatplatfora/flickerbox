@@ -1,0 +1,1 @@
+This directory contains custom files used for the Platfora Webhelp.

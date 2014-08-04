@@ -1,0 +1,205 @@
+
+<!DOCTYPE html
+  PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xml:lang="en-us" lang="en-us">
+<head><meta xmlns="http://www.w3.org/1999/xhtml" name="description" content="You can review activity on the Platfora system using the logs in the $PLATFORA_DATA_DIR/logs directory. This directory exists on every master and worker node. Standard Log Files Platfora users ..."/><meta http-equiv="Content-Type" content="text/html; charset=utf-8"/><meta name="copyright" content="(C) Copyright 2005"/><meta name="DC.rights.owner" content="(C) Copyright 2005"/><meta name="DC.Type" content="task"/><meta name="DC.Title" content="Using the Platfora Logs"/><meta name="abstract" content="You can review activity on the Platfora system using the logs in the $PLATFORA_DATA_DIR/logs directory. This directory exists on every master and worker node."/><meta xmlns="http://www.w3.org/1999/xhtml" name="description" content="You can review activity on the Platfora system using the logs in the $PLATFORA_DATA_DIR/logs directory. This directory exists on every master and worker node."/><meta name="DC.Relation" scheme="URI" content="../../system/resources/system_resources_top.html"/><meta name="DC.Format" content="XHTML"/><meta name="DC.Identifier" content="usage_logs"/><link rel="stylesheet" type="text/css" href="../../oxygen-webhelp/resources/css/commonltr.css"><!----></link><title>Using the Platfora Logs</title><meta http-equiv="Content-Type" content="text/html; charset=utf-8"/><link rel="stylesheet" type="text/css" href="../../oxygen-webhelp/resources/css/commonltr.css"><!----></link><link rel="stylesheet" type="text/css" href="../../oxygen-webhelp/resources/css/webhelp_topic.css"><!----></link><link rel="stylesheet" type="text/css" href="../../oxygen-webhelp/resources/skins/skin.css"><!----></link><link rel="stylesheet" type="text/css" href="../../oxygen-webhelp/resources/css/jquery.realperson.css"><!----></link><link rel="stylesheet" type="text/css" href="../../oxygen-webhelp/resources/css/comments.css"><!----></link><link rel="stylesheet" type="text/css" href="../../oxygen-webhelp/resources/css/jquery.cleditor.css"><!----></link><link rel="stylesheet" type="text/css" href="../../oxygen-webhelp/resources/css/admin.css"><!----></link><script type="text/javascript"><!--
+          
+          var prefix = "../../index.html";
+          
+          --></script><script type="text/javascript" src="../../oxygen-webhelp/resources/js/jquery-1.8.2.min.js"><!----></script><script type="text/javascript" src="../../oxygen-webhelp/resources/js/jquery.cookie.js"><!----></script><script type="text/javascript" src="../../oxygen-webhelp/resources/js/jquery-ui.custom.min.js"><!----></script><script type="text/javascript" charset="utf-8" src="../../oxygen-webhelp/resources/js/webhelp_topic.js"><!----></script><script type="text/javascript" charset="utf-8" src="../../oxygen-webhelp/resources/localization/strings.js"><!----></script><script type="text/javascript" charset="utf-8" src="../../oxygen-webhelp/resources/js/init.js"><!----></script><script type="text/javascript" charset="utf-8" src="../../oxygen-webhelp/resources/js/comments-functions.js"><!----></script></head>
+<body onload="init('../../')" id="usage_logs">
+<table class="nav"><tbody><tr><td colspan="2"><div id="printlink"><a href="javascript:window.print();" title="printThisPage"/></div><div id="permalink"><a href="#" title="linkToThis"/></div></td></tr><tr><td width="75%"><a class="navheader_parent_path" href="../../system/resources/../../system/resources/other_topics_top.html" title="The Resources tab of the System page is where system administrators can monitor resources such as Platfora server memory, disk utilization, and status.">Other Management Topics</a> / <a class="navheader_parent_path" href="../../system/resources/system_resources_top.html" title="The Performance section of the Resources tab is where administrators can monitor how Platfora is serving lens query requests. You can use the log files to monitor other activities releated to your Platfora installation.">Monitoring the Platfora System</a></td><td><div class="navheader">
+<span class="navparent"><a class="link" href="../../system/resources/system_resources_top.html" title="The Performance section of the Resources tab is where administrators can monitor how Platfora is serving lens query requests. You can use the log files to monitor other activities releated to your Platfora installation."><span class="navheader_label">Parent topic</span><span class="navheader_separator">: </span><span class="navheader_linktext">Monitoring the Platfora System</span></a></span>  </div></td></tr></tbody></table>
+
+    <h1 class="title topictitle1">Using the Platfora Logs</h1>
+
+    
+    <div class="body taskbody"><p class="shortdesc">You can review activity on the Platfora system using the logs in the <span class="ph filepath">$PLATFORA_DATA_DIR/logs</span> directory. This directory exists on every master and worker node.</p>
+
+        <div class="section"><h2 class="title sectiontitle">Standard Log Files</h2>
+            
+            <p class="p">Platfora users Apache's log4j Service to define and configure its log files. The master node's <span class="ph filepath">$PLATFORA_HOME/conf</span> directory contains the log configuration files. The master node supports the following log files:</p>
+
+ <div class="p">           
+<div class="tablenoborder"><table cellpadding="4" cellspacing="0" summary="" id="usage_logs__table_qdl_lrx_n4" class="table" frame="border" border="1" rules="all">
+         
+         
+         <thead class="thead" align="left">
+             <tr class="row">
+                 <th class="entry" valign="top" width="28.57142857142857%" id="d161325e43">Log</th>
+
+                 <th class="entry" valign="top" width="71.42857142857143%" id="d161325e46">Description</th>
+
+             </tr>
+
+         </thead>
+
+         <tbody class="tbody">
+             <tr class="row">
+                 <td class="entry" valign="top" width="28.57142857142857%" headers="d161325e43 "><span class="ph filepath">platfora-server.log</span></td>
+
+                 <td class="entry" valign="top" width="71.42857142857143%" headers="d161325e46 ">The primary log file. Contains messages from the Platfora system. Lens build failures, program exceptions, and other key messages appear in this log. For example, you would use this log to troubleshoot connection issues.</td>
+
+             </tr>
+
+             <tr class="row">
+                 <td class="entry" valign="top" width="28.57142857142857%" headers="d161325e43 "><span class="ph filepath">access.<var class="keyword varname">YYYY</var>_MM_<var class="keyword varname">DD</var>.log</span></td>
+
+                 <td class="entry" valign="top" width="71.42857142857143%" headers="d161325e46 ">A daily log of the REST requests made to the server. This log rolls over every day.</td>
+
+             </tr>
+
+             <tr class="row">
+                 <td class="entry" valign="top" width="28.57142857142857%" headers="d161325e43 "><p class="p"><span class="ph filepath">platfora-events.log</span></p>
+</td>
+
+                 <td class="entry" valign="top" width="71.42857142857143%" headers="d161325e46 ">Contains query event messages. Each message is a JSON formatted string with the following format:
+                     <pre class="pre">
+{
+  "type": "Message Type",
+  "actor": "akka://Platfora/user/Query_1403553496123_2010/DictionaryFromMeta_7",
+  "target": "akka://Platfora/user/Query_1403553496123_2010",
+  "message": "Message",
+  "time": 1403568008505,
+  "user": "username",
+  "node": "0"
+ }</pre>
+
+                 </td>
+
+             </tr>
+
+             <tr class="row">
+                 <td class="entry" valign="top" width="28.57142857142857%" headers="d161325e43 "><samp class="ph codeph">platfora-cluster.log</samp></td>
+
+                 <td class="entry" valign="top" width="71.42857142857143%" headers="d161325e46 "> Records the Platfora the node availability. </td>
+
+             </tr>
+
+             <tr class="row">
+                 <td class="entry" valign="top" width="28.57142857142857%" headers="d161325e43 "><span class="ph filepath">platfora-access-audit.log</span></td>
+
+                 <td class="entry" valign="top" width="71.42857142857143%" headers="d161325e46 ">Contains messages from object access system.</td>
+
+             </tr>
+
+             <tr class="row">
+                 <td class="entry" valign="top" width="28.57142857142857%" headers="d161325e43 "><span class="ph filepath">platforaWatchdog.log</span></td>
+
+                 <td class="entry" valign="top" width="71.42857142857143%" headers="d161325e46 "> Contains messages from the Platfora server service. </td>
+
+             </tr>
+
+             <tr class="row">
+                 <td class="entry" valign="top" width="28.57142857142857%" headers="d161325e43 "><span class="ph filepath">pg.log</span></td>
+
+                 <td class="entry" valign="top" width="71.42857142857143%" headers="d161325e46 ">Contains messages from Platfora's Postgres database.</td>
+
+             </tr>
+
+             <tr class="row">
+                 <td class="entry" valign="top" width="28.57142857142857%" headers="d161325e43 "><span class="ph filepath">platfora-agent.log</span></td>
+
+                 <td class="entry" valign="top" width="71.42857142857143%" headers="d161325e46 "> Contains messages from EMR clients. </td>
+
+             </tr>
+
+             <tr class="row">
+                 <td class="entry" valign="top" width="28.57142857142857%" headers="d161325e43 "><span class="ph filepath">hadoop-check.log</span></td>
+
+                 <td class="entry" valign="top" width="71.42857142857143%" headers="d161325e46 ">Contains message from Platfora's hadoop-check utility. You run this utility after installing Platfora or at the request of Platfora Support.</td>
+
+             </tr>
+
+         </tbody>
+
+     </table>
+</div>
+</div>
+
+        </div>
+
+        <div class="section"><h2 class="title sectiontitle">Unsupported Log Files</h2>
+            
+            <p class="p">The following log files are not supported. Platfora may remove them or change their formats at any time without notice. You should not build upon or rely on these files. </p>
+
+            <div class="p">
+                
+<div class="tablenoborder"><table cellpadding="4" cellspacing="0" summary="" id="usage_logs__unsupported" class="table" frame="border" border="1" rules="all">
+                        
+                        
+                        <thead class="thead" align="left">
+                            <tr class="row">
+                                <th class="entry" valign="top" width="33.33333333333333%" id="d161325e180">Log</th>
+
+                                <th class="entry" valign="top" width="66.66666666666666%" id="d161325e183">Description</th>
+
+                            </tr>
+
+                        </thead>
+
+                        <tbody class="tbody">
+                            <tr class="row">
+                                <td class="entry" valign="top" width="33.33333333333333%" headers="d161325e180 "><span class="ph filepath">proton-usage.log</span></td>
+
+                                <td class="entry" valign="top" width="66.66666666666666%" headers="d161325e183 ">An internal log file. This file logs some but not all user activity. Because this is meant for use by Platfora, the format of this file is not guaranteed nor would you necessarily find all expected events in this log.</td>
+
+                            </tr>
+
+                            <tr class="row">
+                                <td class="entry" valign="top" width="33.33333333333333%" headers="d161325e180 "><span class="ph filepath">proton-detailedbuild.log</span></td>
+
+                                <td class="entry" valign="top" width="66.66666666666666%" headers="d161325e183 ">An internal log file, this file contains messages from the lens build jobs. </td>
+
+                            </tr>
+
+                            <tr class="row">
+                                <td class="entry" valign="top" width="33.33333333333333%" headers="d161325e180 "><span class="ph filepath">proton-interestbuild.log</span></td>
+
+                                <td class="entry" valign="top" width="66.66666666666666%" headers="d161325e183 ">An internal log file, this file contains messages from lens builds. Each entry is a set of comma-separated values in the following order: <ul class="ul">
+                                        <li class="li">user</li>
+
+                                        <li class="li">sessionId</li>
+
+                                        <li class="li">ipAddress</li>
+
+                                        <li class="li">event</li>
+
+                                        <li class="li">start</li>
+
+                                        <li class="li">duration</li>
+
+                                        <li class="li">buildrecordid</li>
+
+                                        <li class="li">sources</li>
+
+                                        <li class="li">reports</li>
+
+                                        <li class="li">hostname</li>
+
+                                        <li class="li">jobtracker</li>
+
+                                    </ul>
+ Because this is meant for use by Platfora, the format of this file is not guaranteed nor would you necessarily find all expected events in this log.</td>
+
+                            </tr>
+
+                        </tbody>
+
+                    </table>
+</div>
+
+            </div>
+
+        </div>
+
+
+    </div>
+
+<div class="related-links"/>
+<div class="navfooter"><!---->
+<span class="navparent"><a class="link" href="../../system/resources/system_resources_top.html" title="The Performance section of the Resources tab is where administrators can monitor how Platfora is serving lens query requests. You can use the log files to monitor other activities releated to your Platfora installation."><span class="navheader_label">Parent topic</span><span class="navheader_separator">: </span><span class="navheader_linktext">Monitoring the Platfora System</span></a></span>  </div><div class="footer">WebHelp output generated by<a href="http://www.oxygenxml.com" target="_blank"><span class="oXygenLogo"><img src="../../oxygen-webhelp/resources/img/LogoOxygen100x22.png" alt="Oxygen"/></span><span class="xmlauthor">XML Author</span></a></div>
+<div id="productInfo" style="display:none;"><span id="oxy_productID">webhelp</span><span id="oxy_productVersion">3.0</span></div><div id="loginData" style="display: none"><span class="bt_close" title="Close"><!----></span><form action="" target="passwordIframe" method="post" name="form_login" onsubmit="return loggInUser();" id="loginFormData" autocomplete="on"><input type="hidden" id="reloadComments" value="yes"><!----></input><table class="login"><thead><tr><td colspan="2"><span id="l_login2"><script type="text/javascript">$('#l_login2').html(getLocalization('label.login'));</script></span></td></tr><tr><td colspan="2"><div id="loginResponse"><!----></div></td></tr></thead><tr><td><span id="l_userName"><script type="text/javascript">$('#l_userName').html(getLocalization('label.userName'));</script></span></td><td><input name="usernameW" type="text" id="myUserName" autocomplete="on" required="required" autofocus="autofocus"><!----></input></td></tr><tr><td><span id="l_pswd"><script type="text/javascript">$('#l_pswd').html(getLocalization('label.pswd'));</script></span></td><td><input name="passwordW" type="password" id="myPassword" autocomplete="on" required="required"><!----></input></td></tr><tr><td colspan="2" align="left"><span id="ll_remember"><script type="text/javascript" xml:space="preserve">
+								$('#ll_remember').html(getLocalization('label.rememberme'));
+							</script></span>     <input name="myLoginRemember" type="checkbox" class="ck" id="myRemember" value="no"><!----></input></td></tr><tr><td colspan="2" align="center"><input id="l_bt_submit_log" type="submit" value="Submit" name="loginFormButton"><!----></input><script type="text/javascript">$('#l_bt_submit_log').attr('value',getLocalization('label.login'));</script><span class="btnHGlue"><!----></span><input class="bt_cancel" id="l_cancelLog" type="button" value="Cancel" name="loginFormButton"><!----></input><script type="text/javascript">$('#l_cancelLog').attr('value',getLocalization('label.cancel'));</script></td></tr></table><div class="loginAlternative"><span id="link_lostPwd" onclick="showLostPwd()"><script type="text/javascript">$('#link_lostPwd').html(getLocalization('label.lostPswd'));</script></span><span id="link_signUp" onclick="showSignUp()"><script type="text/javascript">$('#link_signUp').html(getLocalization('label.signUp'));</script></span></div></form><iframe id="passwordIframe" name="passwordIframe" style="display:none"><!----></iframe></div><div id="cmts"><!----></div></body>
+</html>

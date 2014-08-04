@@ -1,0 +1,363 @@
+
+<!DOCTYPE html
+  PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xml:lang="en-us" lang="en-us">
+<head><meta xmlns="http://www.w3.org/1999/xhtml" name="description" content="The servers in your Hadoop cluster must allow connections from the Platfora servers. If using Hive as a data source, Platfora must have access to the Hive Metastore server port. If you are using a ..."/><meta http-equiv="Content-Type" content="text/html; charset=utf-8"/><meta name="copyright" content="(C) Copyright 2005"/><meta name="DC.rights.owner" content="(C) Copyright 2005"/><meta name="DC.Type" content="reference"/><meta name="DC.Title" content="Ports to Open on Hadoop Nodes"/><meta name="abstract" content="The servers in your Hadoop cluster must allow connections from the Platfora servers. If using Hive as a data source, Platfora must have access to the Hive Metastore server port."/><meta xmlns="http://www.w3.org/1999/xhtml" name="description" content="The servers in your Hadoop cluster must allow connections from the Platfora servers. If using Hive as a data source, Platfora must have access to the Hive Metastore server port."/><meta name="DC.Relation" scheme="URI" content="../../install/system_requirements/sys_reqs_ports.html"/><meta name="DC.Format" content="XHTML"/><meta name="DC.Identifier" content="sys_reqs_ports_hadoop"/><link rel="stylesheet" type="text/css" href="../../oxygen-webhelp/resources/css/commonltr.css"><!----></link><title>Ports to Open on Hadoop Nodes</title><meta http-equiv="Content-Type" content="text/html; charset=utf-8"/><link rel="stylesheet" type="text/css" href="../../oxygen-webhelp/resources/css/commonltr.css"><!----></link><link rel="stylesheet" type="text/css" href="../../oxygen-webhelp/resources/css/webhelp_topic.css"><!----></link><link rel="stylesheet" type="text/css" href="../../oxygen-webhelp/resources/skins/skin.css"><!----></link><link rel="stylesheet" type="text/css" href="../../oxygen-webhelp/resources/css/jquery.realperson.css"><!----></link><link rel="stylesheet" type="text/css" href="../../oxygen-webhelp/resources/css/comments.css"><!----></link><link rel="stylesheet" type="text/css" href="../../oxygen-webhelp/resources/css/jquery.cleditor.css"><!----></link><link rel="stylesheet" type="text/css" href="../../oxygen-webhelp/resources/css/admin.css"><!----></link><script type="text/javascript"><!--
+          
+          var prefix = "../../index.html";
+          
+          --></script><script type="text/javascript" src="../../oxygen-webhelp/resources/js/jquery-1.8.2.min.js"><!----></script><script type="text/javascript" src="../../oxygen-webhelp/resources/js/jquery.cookie.js"><!----></script><script type="text/javascript" src="../../oxygen-webhelp/resources/js/jquery-ui.custom.min.js"><!----></script><script type="text/javascript" charset="utf-8" src="../../oxygen-webhelp/resources/js/webhelp_topic.js"><!----></script><script type="text/javascript" charset="utf-8" src="../../oxygen-webhelp/resources/localization/strings.js"><!----></script><script type="text/javascript" charset="utf-8" src="../../oxygen-webhelp/resources/js/init.js"><!----></script><script type="text/javascript" charset="utf-8" src="../../oxygen-webhelp/resources/js/comments-functions.js"><!----></script></head>
+<body onload="init('../../')" id="sys_reqs_ports_hadoop">
+<table class="nav"><tbody><tr><td colspan="2"><div id="printlink"><a href="javascript:window.print();" title="printThisPage"/></div><div id="permalink"><a href="#" title="linkToThis"/></div></td></tr><tr><td width="75%"><a class="navheader_parent_path" href="../../install/system_requirements/../../system/install_planning/install_plan_intro.html" title="This section describes the Platfora installation. You'll learn about the hardware and software requirements for a Platfora master and/or server node. You'll also learn about the supported Hadoop implementations and what is required of them. Finally, you'll learn about the components of a Platfora installation. If you want to install the Platfora software, refer to the appropriate Platfora install guide for your Hadoop implementation.">Understand the Platfora Installation</a> / <a class="navheader_parent_path" href="../../install/system_requirements/sys_reqs_ports.html" title="You must open ports in the firewall of your Platfora nodes to allow client access and intra-cluster communications. You also must open ports within your Hadoop cluster to allow access from Platfora. This section lists the default ports required.">Port Configuration Requirements</a></td><td><div class="navheader">
+<span class="navparent"><a class="link" href="../../install/system_requirements/sys_reqs_ports.html" title="You must open ports in the firewall of your Platfora nodes to allow client access and intra-cluster communications. You also must open ports within your Hadoop cluster to allow access from Platfora. This section lists the default ports required."><span class="navheader_label">Parent topic</span><span class="navheader_separator">: </span><span class="navheader_linktext">Port Configuration Requirements</span></a></span>  </div></td></tr></tbody></table>
+
+  <h1 class="title topictitle1">Ports to Open on Hadoop Nodes</h1>
+
+  
+  
+  <div class="body refbody"><p class="shortdesc">The servers in your Hadoop cluster must allow connections from the Platfora servers. If using Hive as a data source, Platfora must have access
+    to the Hive Metastore server port.
+  </p>
+
+    <div class="section">
+      <p class="p">If you are using a pre-YARN distribution use this table:</p>
+
+      
+<div class="tablenoborder"><table cellpadding="4" cellspacing="0" summary="" id="sys_reqs_ports_hadoop__table_hadoop_ports" class="table" frame="border" border="1" rules="all">
+        
+        
+        
+        
+        <thead class="thead" align="left">
+          <tr class="row">
+            <th class="entry" valign="top" width="24.70784641068447%" id="d63728e36">
+              <p class="p">Hadoop Service</p>
+
+            </th>
+
+            <th class="entry" valign="top" width="18.030050083472453%" id="d63728e42">
+              <p class="p">Default Port</p>
+
+            </th>
+
+            <th class="entry" valign="top" width="16.69449081803005%" id="d63728e48">
+              <p class="p">Apache Port </p>
+
+            </th>
+
+            <th class="entry" valign="top" width="40.56761268781302%" id="d63728e54">
+              <p class="p">Allow connections from…</p>
+
+            </th>
+
+          </tr>
+
+        </thead>
+
+        <tbody class="tbody">
+          <tr class="row">
+            <td class="entry" valign="top" width="24.70784641068447%" headers="d63728e36 ">
+              <p class="p">HDFS NameNode</p>
+
+            </td>
+
+            <td class="entry" valign="top" width="18.030050083472453%" headers="d63728e42 ">
+              <p class="p">8020</p>
+
+            </td>
+
+            <td class="entry" valign="top" width="16.69449081803005%" headers="d63728e48 ">
+              <p class="p">9000</p>
+
+            </td>
+
+            <td class="entry" valign="top" width="40.56761268781302%" headers="d63728e54 ">
+              <p class="p">Platfora master and worker servers</p>
+
+            </td>
+
+          </tr>
+
+          <tr class="row">
+            <td class="entry" valign="top" width="24.70784641068447%" headers="d63728e36 ">
+              <p class="p">
+                JobTracker</p>
+
+            </td>
+
+            <td class="entry" valign="top" width="18.030050083472453%" headers="d63728e42 ">
+              <p class="p">8021</p>
+
+
+            </td>
+
+            <td class="entry" valign="top" width="16.69449081803005%" headers="d63728e48 ">
+              <p class="p">9001</p>
+
+  
+            </td>
+
+            <td class="entry" valign="top" width="40.56761268781302%" headers="d63728e54 ">
+              <p class="p">Platfora master server</p>
+
+            </td>
+
+          </tr>
+
+          <tr class="row">
+            <td class="entry" valign="top" width="24.70784641068447%" headers="d63728e36 ">
+              <p class="p">JobTracker Web UI</p>
+
+            </td>
+
+            <td class="entry" valign="top" width="18.030050083472453%" headers="d63728e42 ">
+              <p class="p">50030</p>
+
+            </td>
+
+            <td class="entry" valign="top" width="16.69449081803005%" headers="d63728e48 ">
+              <p class="p">50030</p>
+
+            </td>
+
+            <td class="entry" valign="top" width="40.56761268781302%" headers="d63728e54 ">
+              <p class="p">External user network</p>
+
+            </td>
+
+          </tr>
+
+          <tr class="row">
+            <td class="entry" valign="top" width="24.70784641068447%" headers="d63728e36 ">
+              <p class="p">HDFS DataNodes</p>
+
+            </td>
+
+            <td class="entry" valign="top" width="18.030050083472453%" headers="d63728e42 ">
+              <p class="p">50010</p>
+
+            </td>
+
+            <td class="entry" valign="top" width="16.69449081803005%" headers="d63728e48 ">
+              <p class="p">50010</p>
+
+            </td>
+
+            <td class="entry" valign="top" width="40.56761268781302%" headers="d63728e54 ">
+              <p class="p">Platfora master and worker servers</p>
+
+            </td>
+
+          </tr>
+
+          <tr class="row">
+            <td class="entry" valign="top" width="24.70784641068447%" headers="d63728e36 ">
+              <p class="p">Hive Thrift Metastore </p>
+
+            </td>
+
+            <td class="entry" valign="top" width="18.030050083472453%" headers="d63728e42 ">
+              <p class="p">9083 (CDH4, HDP1, MapR)</p>
+
+                <p class="p">9983 (HDP2)</p>
+
+            </td>
+
+            <td class="entry" valign="top" width="16.69449081803005%" headers="d63728e48 ">
+              <p class="p">10000</p>
+
+            </td>
+
+            <td class="entry" valign="top" width="40.56761268781302%" headers="d63728e54 ">
+              <p class="p">Platfora master server</p>
+
+            </td>
+
+          </tr>
+
+        </tbody>
+
+      </table>
+</div>
+</div>
+
+  <div class="section">  
+    <p class="p">If you are using a YARN-based distribution use this table:</p>
+
+    
+<div class="tablenoborder"><table cellpadding="4" cellspacing="0" summary="" id="sys_reqs_ports_hadoop__table_hadoop_ports_yarn" class="table" frame="border" border="1" rules="all">
+        
+        
+        
+        
+        <thead class="thead" align="left">
+          <tr class="row">
+            <th class="entry" valign="top" width="24.70784641068447%" id="d63728e227">
+              <p class="p">Hadoop Service</p>
+
+            </th>
+
+            <th class="entry" valign="top" width="18.030050083472453%" id="d63728e233">
+              <p class="p">Default Port</p>
+
+            </th>
+
+            <th class="entry" valign="top" width="16.69449081803005%" id="d63728e239">
+              <p class="p">Apache Port </p>
+
+            </th>
+
+            <th class="entry" valign="top" width="40.56761268781302%" id="d63728e245">
+              <p class="p">Allow connections from…</p>
+
+            </th>
+
+          </tr>
+
+        </thead>
+
+        <tbody class="tbody">
+          <tr class="row">
+            <td class="entry" valign="top" width="24.70784641068447%" headers="d63728e227 ">
+              <p class="p">HDFS NameNode</p>
+
+            </td>
+
+            <td class="entry" valign="top" width="18.030050083472453%" headers="d63728e233 ">
+              <p class="p">8020</p>
+
+            </td>
+
+            <td class="entry" valign="top" width="16.69449081803005%" headers="d63728e239 ">
+              <p class="p">9000</p>
+
+            </td>
+
+            <td class="entry" valign="top" width="40.56761268781302%" headers="d63728e245 ">
+              <p class="p">Platfora master and worker servers</p>
+
+            </td>
+
+          </tr>
+
+          <tr class="row">
+            <td class="entry" valign="top" width="24.70784641068447%" headers="d63728e227 ">
+              <p class="p">ResourceManager</p>
+
+            </td>
+
+            <td class="entry" valign="top" width="18.030050083472453%" headers="d63728e233 ">
+                            <p class="p">8030,8031,</p>
+
+              <p class="p">8032,8033</p>
+
+            </td>
+
+            <td class="entry" valign="top" width="16.69449081803005%" headers="d63728e239 ">
+              
+              <p class="p">8030,8031,</p>
+
+              <p class="p">8032,8033</p>
+
+            </td>
+
+            <td class="entry" valign="top" width="40.56761268781302%" headers="d63728e245 ">
+              <p class="p">Platfora master server</p>
+
+            </td>
+
+          </tr>
+
+          <tr class="row">
+            <td class="entry" valign="top" width="24.70784641068447%" headers="d63728e227 ">
+              <p class="p">ResourceManagerWeb UI</p>
+
+            </td>
+
+            <td class="entry" valign="top" width="18.030050083472453%" headers="d63728e233 ">  
+              <p class="p">8088</p>
+
+            </td>
+
+            <td class="entry" valign="top" width="16.69449081803005%" headers="d63728e239 ">
+              <p class="p">8088</p>
+
+            </td>
+
+            <td class="entry" valign="top" width="40.56761268781302%" headers="d63728e245 ">
+              <p class="p">External user network</p>
+
+            </td>
+
+          </tr>
+
+          <tr class="row">
+            <td class="entry" valign="top" width="24.70784641068447%" headers="d63728e227 ">
+              <p class="p">HDFS DataNodes</p>
+
+            </td>
+
+            <td class="entry" valign="top" width="18.030050083472453%" headers="d63728e233 ">
+              <p class="p">50010</p>
+
+            </td>
+
+            <td class="entry" valign="top" width="16.69449081803005%" headers="d63728e239 ">
+              <p class="p">50010</p>
+
+            </td>
+
+            <td class="entry" valign="top" width="40.56761268781302%" headers="d63728e245 ">
+              <p class="p">Platfora master and worker servers</p>
+
+            </td>
+
+          </tr>
+
+          <tr class="row">
+            <td class="entry" valign="top" width="24.70784641068447%" headers="d63728e227 ">
+              <p class="p">Hive Thrift Metastore </p>
+
+            </td>
+
+            <td class="entry" valign="top" width="18.030050083472453%" headers="d63728e233 ">9083 (CDH4, HDP1, MapR)<p class="p">9983 (HDP2)</p>
+</td>
+
+            <td class="entry" valign="top" width="16.69449081803005%" headers="d63728e239 ">
+              <p class="p">10000</p>
+
+            </td>
+
+            <td class="entry" valign="top" width="40.56761268781302%" headers="d63728e245 ">
+              <p class="p">Platfora master server</p>
+
+            </td>
+
+          </tr>
+
+          <tr class="row">
+            <td class="entry" valign="top" width="24.70784641068447%" headers="d63728e227 ">Job History Server</td>
+
+            <td class="entry" valign="top" width="18.030050083472453%" headers="d63728e233 ">10020</td>
+
+            <td class="entry" valign="top" width="16.69449081803005%" headers="d63728e239 ">10020</td>
+
+            <td class="entry" valign="top" width="40.56761268781302%" headers="d63728e245 ">Platfora master server</td>
+
+          </tr>
+
+        </tbody>
+
+      </table>
+</div>
+</div>
+
+  </div>
+
+<div class="related-links"/>
+<div class="navfooter"><!---->
+<span class="navparent"><a class="link" href="../../install/system_requirements/sys_reqs_ports.html" title="You must open ports in the firewall of your Platfora nodes to allow client access and intra-cluster communications. You also must open ports within your Hadoop cluster to allow access from Platfora. This section lists the default ports required."><span class="navheader_label">Parent topic</span><span class="navheader_separator">: </span><span class="navheader_linktext">Port Configuration Requirements</span></a></span>  </div><div class="footer">WebHelp output generated by<a href="http://www.oxygenxml.com" target="_blank"><span class="oXygenLogo"><img src="../../oxygen-webhelp/resources/img/LogoOxygen100x22.png" alt="Oxygen"/></span><span class="xmlauthor">XML Author</span></a></div>
+<div id="productInfo" style="display:none;"><span id="oxy_productID">webhelp</span><span id="oxy_productVersion">3.0</span></div><div id="loginData" style="display: none"><span class="bt_close" title="Close"><!----></span><form action="" target="passwordIframe" method="post" name="form_login" onsubmit="return loggInUser();" id="loginFormData" autocomplete="on"><input type="hidden" id="reloadComments" value="yes"><!----></input><table class="login"><thead><tr><td colspan="2"><span id="l_login2"><script type="text/javascript">$('#l_login2').html(getLocalization('label.login'));</script></span></td></tr><tr><td colspan="2"><div id="loginResponse"><!----></div></td></tr></thead><tr><td><span id="l_userName"><script type="text/javascript">$('#l_userName').html(getLocalization('label.userName'));</script></span></td><td><input name="usernameW" type="text" id="myUserName" autocomplete="on" required="required" autofocus="autofocus"><!----></input></td></tr><tr><td><span id="l_pswd"><script type="text/javascript">$('#l_pswd').html(getLocalization('label.pswd'));</script></span></td><td><input name="passwordW" type="password" id="myPassword" autocomplete="on" required="required"><!----></input></td></tr><tr><td colspan="2" align="left"><span id="ll_remember"><script type="text/javascript" xml:space="preserve">
+								$('#ll_remember').html(getLocalization('label.rememberme'));
+							</script></span>     <input name="myLoginRemember" type="checkbox" class="ck" id="myRemember" value="no"><!----></input></td></tr><tr><td colspan="2" align="center"><input id="l_bt_submit_log" type="submit" value="Submit" name="loginFormButton"><!----></input><script type="text/javascript">$('#l_bt_submit_log').attr('value',getLocalization('label.login'));</script><span class="btnHGlue"><!----></span><input class="bt_cancel" id="l_cancelLog" type="button" value="Cancel" name="loginFormButton"><!----></input><script type="text/javascript">$('#l_cancelLog').attr('value',getLocalization('label.cancel'));</script></td></tr></table><div class="loginAlternative"><span id="link_lostPwd" onclick="showLostPwd()"><script type="text/javascript">$('#link_lostPwd').html(getLocalization('label.lostPswd'));</script></span><span id="link_signUp" onclick="showSignUp()"><script type="text/javascript">$('#link_signUp').html(getLocalization('label.signUp'));</script></span></div></form><iframe id="passwordIframe" name="passwordIframe" style="display:none"><!----></iframe></div><div id="cmts"><!----></div></body>
+</html>

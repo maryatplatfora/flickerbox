@@ -1,0 +1,94 @@
+
+<!DOCTYPE html
+  PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xml:lang="en-us" lang="en-us">
+<head><meta xmlns="http://www.w3.org/1999/xhtml" name="description" content="Datasets can take a long time to create, especially if it contains a large number of base fields and computed fields. Platfora allows users to make a copy of an existing dataset. The duplicated ..."/><meta http-equiv="Content-Type" content="text/html; charset=utf-8"/><meta name="copyright" content="(C) Copyright 2005"/><meta name="DC.rights.owner" content="(C) Copyright 2005"/><meta name="DC.Type" content="task"/><meta name="DC.Title" content="Duplicate a Dataset"/><meta name="abstract" content="Platfora allows users to make a copy of an existing dataset. The duplicated dataset uses the same characteristics as the original dataset, such as its data source and field definitions."/><meta xmlns="http://www.w3.org/1999/xhtml" name="description" content="Platfora allows users to make a copy of an existing dataset. The duplicated dataset uses the same characteristics as the original dataset, such as its data source and field definitions."/><meta name="DC.Relation" scheme="URI" content="../dataset/dataset_top.html"/><meta name="DC.Format" content="XHTML"/><meta name="DC.Identifier" content="duplicate_dataset"/><link rel="stylesheet" type="text/css" href="../oxygen-webhelp/resources/css/commonltr.css"><!----></link><title>Duplicate a Dataset</title><meta http-equiv="Content-Type" content="text/html; charset=utf-8"/><link rel="stylesheet" type="text/css" href="../oxygen-webhelp/resources/css/commonltr.css"><!----></link><link rel="stylesheet" type="text/css" href="../oxygen-webhelp/resources/css/webhelp_topic.css"><!----></link><link rel="stylesheet" type="text/css" href="../oxygen-webhelp/resources/skins/skin.css"><!----></link><link rel="stylesheet" type="text/css" href="../oxygen-webhelp/resources/css/jquery.realperson.css"><!----></link><link rel="stylesheet" type="text/css" href="../oxygen-webhelp/resources/css/comments.css"><!----></link><link rel="stylesheet" type="text/css" href="../oxygen-webhelp/resources/css/jquery.cleditor.css"><!----></link><link rel="stylesheet" type="text/css" href="../oxygen-webhelp/resources/css/admin.css"><!----></link><script type="text/javascript"><!--
+          
+          var prefix = "../index.html";
+          
+          --></script><script type="text/javascript" src="../oxygen-webhelp/resources/js/jquery-1.8.2.min.js"><!----></script><script type="text/javascript" src="../oxygen-webhelp/resources/js/jquery.cookie.js"><!----></script><script type="text/javascript" src="../oxygen-webhelp/resources/js/jquery-ui.custom.min.js"><!----></script><script type="text/javascript" charset="utf-8" src="../oxygen-webhelp/resources/js/webhelp_topic.js"><!----></script><script type="text/javascript" charset="utf-8" src="../oxygen-webhelp/resources/localization/strings.js"><!----></script><script type="text/javascript" charset="utf-8" src="../oxygen-webhelp/resources/js/init.js"><!----></script><script type="text/javascript" charset="utf-8" src="../oxygen-webhelp/resources/js/comments-functions.js"><!----></script></head>
+<body onload="init('../')" id="duplicate_dataset">
+<table class="nav"><tbody><tr><td colspan="2"><div id="printlink"><a href="javascript:window.print();" title="printThisPage"/></div><div id="permalink"><a href="#" title="linkToThis"/></div></td></tr><tr><td width="75%"><a class="navheader_parent_path" href="../dataset/dataset_top.html" title="Source data is mapped into Platfora by creating a dataset. A dataset describes the characteristics of the source data, such as its file locations, the structure of individual rows or records, the fields and data types, and the processing logic to cleanse, transform, and aggregate the data when it is loaded into Platfora. The collection of modeled datasets make up the data catalog (the source data items available to Platfora users).">Define Datasets</a></td><td><div class="navheader">
+<span class="navparent"><a class="link" href="../dataset/dataset_top.html" title="Source data is mapped into Platfora by creating a dataset. A dataset describes the characteristics of the source data, such as its file locations, the structure of individual rows or records, the fields and data types, and the processing logic to cleanse, transform, and aggregate the data when it is loaded into Platfora. The collection of modeled datasets make up the data catalog (the source data items available to Platfora users)."><span class="navheader_label">Parent topic</span><span class="navheader_separator">: </span><span class="navheader_linktext">Define Datasets</span></a></span>  </div></td></tr></tbody></table>
+
+    <h1 class="title topictitle1">Duplicate a Dataset</h1>
+
+    
+    <div class="body taskbody"><div class="abstract">Datasets can take a long time to create, especially if it contains a large number of
+        base fields and computed fields.  <span class="shortdesc">Platfora allows users to make a copy of an
+            existing dataset. The duplicated dataset uses the same characteristics as the original
+            dataset, such as its data source and field definitions.</span>
+ The owner of the
+        duplicated dataset is the user who makes the copy. After duplicating the dataset, you can
+        then edit it as required.</div>
+
+        
+        
+        <div class="section context">
+            <div class="p">You might want to create a copy of an existing dataset to:<ul class="ul" id="duplicate_dataset__ul_arq_lp2_xl">
+                    <li class="li">
+                        <p class="p">Experiment with changes to the dataset computed fields without affecting
+                            the original dataset.</p>
+
+                    </li>
+
+                    <li class="li">
+                        <p class="p">Create another dataset that accesses different source files for users
+                            that only have access to source files in a different path.</p>
+
+                    </li>
+
+                    <li class="li">
+                        <p class="p">Change the name of the dataset (then delete the original dataset).</p>
+
+                    </li>
+
+                </ul>
+
+            </div>
+
+            
+            <div class="fig fignone"><img class="image" src="../images/./dataset/duplicate_dataset.png" alt="edit dataset"/>
+            
+        </div>
+</div>
+
+        <ol class="ol steps"><li class="li step stepexpand">
+                <span class="ph cmd">Edit an existing dataset, and open the <span class="ph uicontrol">Save</span> menu.</span>
+            </li>
+<li class="li step stepexpand">
+                <span class="ph cmd">Select <span class="ph uicontrol">Save As</span>.</span>
+            </li>
+<li class="li step stepexpand">
+                <span class="ph cmd">Enter a unique name for the new dataset, and click
+                    <span class="ph uicontrol">Save</span>.</span>
+                <div class="itemgroup stepresult">Platfora makes a copy of the current version of the dataset using the
+                    new name and keeps the new dataset in edit mode. Any dataset changes that were
+                    made since saving the previous dataset are applied to the new dataset only.
+                        <div class="note note"><span class="notetitle">Note:</span> Once a dataset is saved, you cannot change its
+                    name.</div>
+</div>
+            </li>
+<li class="li step stepexpand">
+                <span class="ph cmd">Continue editing the new dataset as necessary, or click
+                        <span class="ph uicontrol">Cancel</span> to close it.</span>
+            </li>
+</ol>
+
+        <div class="section postreq">
+            <p class="p">Since duplicating a dataset changes its name, references to the previous dataset will
+                not be automatically updated to point to the duplicated dataset. You must manually
+                edit the other datasets and update their references to point to the new dataset name
+                instead. </p>
+
+        </div>
+
+    </div>
+
+<div class="related-links"/>
+<div class="navfooter"><!---->
+<span class="navparent"><a class="link" href="../dataset/dataset_top.html" title="Source data is mapped into Platfora by creating a dataset. A dataset describes the characteristics of the source data, such as its file locations, the structure of individual rows or records, the fields and data types, and the processing logic to cleanse, transform, and aggregate the data when it is loaded into Platfora. The collection of modeled datasets make up the data catalog (the source data items available to Platfora users)."><span class="navheader_label">Parent topic</span><span class="navheader_separator">: </span><span class="navheader_linktext">Define Datasets</span></a></span>  </div><div class="footer">WebHelp output generated by<a href="http://www.oxygenxml.com" target="_blank"><span class="oXygenLogo"><img src="../oxygen-webhelp/resources/img/LogoOxygen100x22.png" alt="Oxygen"/></span><span class="xmlauthor">XML Author</span></a></div>
+<div id="productInfo" style="display:none;"><span id="oxy_productID">webhelp</span><span id="oxy_productVersion">3.0</span></div><div id="loginData" style="display: none"><span class="bt_close" title="Close"><!----></span><form action="" target="passwordIframe" method="post" name="form_login" onsubmit="return loggInUser();" id="loginFormData" autocomplete="on"><input type="hidden" id="reloadComments" value="yes"><!----></input><table class="login"><thead><tr><td colspan="2"><span id="l_login2"><script type="text/javascript">$('#l_login2').html(getLocalization('label.login'));</script></span></td></tr><tr><td colspan="2"><div id="loginResponse"><!----></div></td></tr></thead><tr><td><span id="l_userName"><script type="text/javascript">$('#l_userName').html(getLocalization('label.userName'));</script></span></td><td><input name="usernameW" type="text" id="myUserName" autocomplete="on" required="required" autofocus="autofocus"><!----></input></td></tr><tr><td><span id="l_pswd"><script type="text/javascript">$('#l_pswd').html(getLocalization('label.pswd'));</script></span></td><td><input name="passwordW" type="password" id="myPassword" autocomplete="on" required="required"><!----></input></td></tr><tr><td colspan="2" align="left"><span id="ll_remember"><script type="text/javascript" xml:space="preserve">
+								$('#ll_remember').html(getLocalization('label.rememberme'));
+							</script></span>     <input name="myLoginRemember" type="checkbox" class="ck" id="myRemember" value="no"><!----></input></td></tr><tr><td colspan="2" align="center"><input id="l_bt_submit_log" type="submit" value="Submit" name="loginFormButton"><!----></input><script type="text/javascript">$('#l_bt_submit_log').attr('value',getLocalization('label.login'));</script><span class="btnHGlue"><!----></span><input class="bt_cancel" id="l_cancelLog" type="button" value="Cancel" name="loginFormButton"><!----></input><script type="text/javascript">$('#l_cancelLog').attr('value',getLocalization('label.cancel'));</script></td></tr></table><div class="loginAlternative"><span id="link_lostPwd" onclick="showLostPwd()"><script type="text/javascript">$('#link_lostPwd').html(getLocalization('label.lostPswd'));</script></span><span id="link_signUp" onclick="showSignUp()"><script type="text/javascript">$('#link_signUp').html(getLocalization('label.signUp'));</script></span></div></form><iframe id="passwordIframe" name="passwordIframe" style="display:none"><!----></iframe></div><div id="cmts"><!----></div></body>
+</html>

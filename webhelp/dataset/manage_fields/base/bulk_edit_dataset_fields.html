@@ -1,0 +1,108 @@
+
+<!DOCTYPE html
+  PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xml:lang="en-us" lang="en-us">
+<head><meta xmlns="http://www.w3.org/1999/xhtml" name="description" content="When a dataset has a lot of fields to manage, it may be easier to update several field names, data types, descriptions, and visibility settings all at once rather than editing each field one-by-one in ..."/><meta http-equiv="Content-Type" content="text/html; charset=utf-8"/><meta name="copyright" content="(C) Copyright 2005"/><meta name="DC.rights.owner" content="(C) Copyright 2005"/><meta name="DC.Type" content="task"/><meta name="DC.Title" content="Edit Multiple Fields at Once"/><meta name="abstract" content="When a dataset has a lot of fields to manage, it may be easier to update several field names, data types, descriptions, and visibility settings all at once rather than editing each field one-by-one in the Platfora application. To do this, you can upload a comma or tab delimited text file containing the field information you want to set."/><meta xmlns="http://www.w3.org/1999/xhtml" name="description" content="When a dataset has a lot of fields to manage, it may be easier to update several field names, data types, descriptions, and visibility settings all at once rather than editing each field one-by-one in the Platfora application. To do this, you can upload a comma or tab delimited text file containing the field information you want to set."/><meta name="DC.Relation" scheme="URI" content="../../../dataset/manage_fields/base/manage_base_fields.html"/><meta name="DC.Format" content="XHTML"/><meta name="DC.Identifier" content="bulk_edit_dataset_fields"/><link rel="stylesheet" type="text/css" href="../../../oxygen-webhelp/resources/css/commonltr.css"><!----></link><title>Edit Multiple Fields at Once</title><meta http-equiv="Content-Type" content="text/html; charset=utf-8"/><link rel="stylesheet" type="text/css" href="../../../oxygen-webhelp/resources/css/commonltr.css"><!----></link><link rel="stylesheet" type="text/css" href="../../../oxygen-webhelp/resources/css/webhelp_topic.css"><!----></link><link rel="stylesheet" type="text/css" href="../../../oxygen-webhelp/resources/skins/skin.css"><!----></link><link rel="stylesheet" type="text/css" href="../../../oxygen-webhelp/resources/css/jquery.realperson.css"><!----></link><link rel="stylesheet" type="text/css" href="../../../oxygen-webhelp/resources/css/comments.css"><!----></link><link rel="stylesheet" type="text/css" href="../../../oxygen-webhelp/resources/css/jquery.cleditor.css"><!----></link><link rel="stylesheet" type="text/css" href="../../../oxygen-webhelp/resources/css/admin.css"><!----></link><script type="text/javascript"><!--
+          
+          var prefix = "../../../index.html";
+          
+          --></script><script type="text/javascript" src="../../../oxygen-webhelp/resources/js/jquery-1.8.2.min.js"><!----></script><script type="text/javascript" src="../../../oxygen-webhelp/resources/js/jquery.cookie.js"><!----></script><script type="text/javascript" src="../../../oxygen-webhelp/resources/js/jquery-ui.custom.min.js"><!----></script><script type="text/javascript" charset="utf-8" src="../../../oxygen-webhelp/resources/js/webhelp_topic.js"><!----></script><script type="text/javascript" charset="utf-8" src="../../../oxygen-webhelp/resources/localization/strings.js"><!----></script><script type="text/javascript" charset="utf-8" src="../../../oxygen-webhelp/resources/js/init.js"><!----></script><script type="text/javascript" charset="utf-8" src="../../../oxygen-webhelp/resources/js/comments-functions.js"><!----></script></head>
+<body onload="init('../../../')" id="bulk_edit_dataset_fields">
+<table class="nav"><tbody><tr><td colspan="2"><div id="printlink"><a href="javascript:window.print();" title="printThisPage"/></div><div id="permalink"><a href="#" title="linkToThis"/></div></td></tr><tr><td width="75%"><a class="navheader_parent_path" href="../../../dataset/manage_fields/base/../../../dataset/manage_fields/manage_fields_top.html" title="The Manage Fields step of the dataset workspace is where you verify, cleanse, and transform the raw data fields into the actual fields that users can browse and select in the Platfora data catalog. This is where the majority of the dataset definition work is performed.">Manage Dataset Fields</a> / <a class="navheader_parent_path" href="../../../dataset/manage_fields/base/manage_base_fields.html" title="When you first add a dataset, it only has its Base fields. These are the fields parsed direcly from the raw source data.">Manage Base Fields</a></td><td><div class="navheader">
+<span class="navparent"><a class="link" href="../../../dataset/manage_fields/base/manage_base_fields.html" title="When you first add a dataset, it only has its Base fields. These are the fields parsed direcly from the raw source data."><span class="navheader_label">Parent topic</span><span class="navheader_separator">: </span><span class="navheader_linktext">Manage Base Fields</span></a></span>  </div></td></tr></tbody></table>
+
+    <h1 class="title topictitle1">Edit Multiple Fields at Once</h1>
+
+    
+    <div class="body taskbody"><p class="shortdesc">When a dataset has a lot of fields to manage, it may be easier to update several
+        field names, data types, descriptions, and visibility settings all at once rather than
+        editing each field one-by-one in the Platfora application. To do this, you can upload a
+        comma or tab delimited text file containing the field information you want to
+        set.</p>
+
+        <div class="section context">
+            <div class="fig fignone"><img class="image" src="../../../images/./dataset/dataset_fields_bulk_edit.png"/>
+        </div>
+
+        
+        </div>
+
+        <ol class="ol steps"><li class="li step">
+                <span class="ph cmd">Create an update file on your local machine containing the field information
+                    you want to update.</span>
+                
+                    <p class="p">This
+                        file must meet the following specifications:</p>
+
+                    <ul class="ul">
+                        <li class="li">It must be a comma-delimited or tab-delimited text file. </li>
+
+                        <li class="li">It can contain up to four lines (separated by a new line). Any
+                            additional lines in the file will be ignored.</li>
+
+                        <li class="li">Field names are specified on the first line of the file.</li>
+
+                        <li class="li">Field data types are specified on the second line of the file (
+                                <samp class="ph codeph">DOUBLE</samp>, <samp class="ph codeph">FIXED</samp>,
+                                <samp class="ph codeph">INTEGER</samp>, <samp class="ph codeph">LONG</samp>,
+                                <samp class="ph codeph">STRING</samp>, or <samp class="ph codeph">DATETIME</samp>). </li>
+
+                        <li class="li">Field descriptions are specified on the third line of the file. </li>
+
+                        <li class="li">Field visibility settings are specified on the fourth line of the file
+                                (<em class="ph i">Hidden</em> or <em class="ph i">Not Hidden</em>).</li>
+
+                        <li class="li">On a line, values must be be specified in the column order of the
+                            dataset.</li>
+
+                    </ul>
+
+                
+            </li>
+<li class="li step">
+                <span class="ph cmd">On the <span class="ph uicontrol">Parse Data</span> step of the dataset workspace, click
+                        <span class="ph uicontrol">Upload Field Names</span>. Find and open your update
+                    file.</span>
+            </li>
+<li class="li step">
+                <span class="ph cmd">After uploading the file, advance to the <span class="ph uicontrol">Manage Fields</span>
+                    step to confirm the results.</span>
+            </li>
+</ol>
+
+        
+        <div class="example"><h2 class="title sectiontitle">Example Update Files</h2>
+            
+            <p class="p">Here is an update file that updates the field names, descriptions, data types, and
+                visibility settings for the first four columns of a dataset. </p>
+
+            <pre class="pre codeblock">UserID,Name,Email,Address
+INTEGER,STRING,STRING,STRING
+The unique user ID,The user's name,The email linked to this user's account, The user's mailing address
+Hidden,Not Hidden,Not Hidden,Not Hidden</pre>
+
+            <p class="p">The double-quote character can be used to quote field names or descriptions. This is
+                useful if a field name or description contains the delimiter character (comma or
+                tab). For example: </p>
+
+            <pre class="pre codeblock">UserID,Name,Email
+
+,"The user's name, both first and last.",,The user's mailing address
+HIDDEN</pre>
+
+            <p class="p">Notice how lines can be left blank, and values can be skipped over by leaving them
+                out or by specifying nothing between the two delimiters. Missing values will not be
+                updated in the Platfora dataset definition (the dataset will use the previously set
+                values). </p>
+
+        </div>
+
+    </div>
+
+<div class="related-links"/>
+<div class="navfooter"><!---->
+<span class="navparent"><a class="link" href="../../../dataset/manage_fields/base/manage_base_fields.html" title="When you first add a dataset, it only has its Base fields. These are the fields parsed direcly from the raw source data."><span class="navheader_label">Parent topic</span><span class="navheader_separator">: </span><span class="navheader_linktext">Manage Base Fields</span></a></span>  </div><div class="footer">WebHelp output generated by<a href="http://www.oxygenxml.com" target="_blank"><span class="oXygenLogo"><img src="../../../oxygen-webhelp/resources/img/LogoOxygen100x22.png" alt="Oxygen"/></span><span class="xmlauthor">XML Author</span></a></div>
+<div id="productInfo" style="display:none;"><span id="oxy_productID">webhelp</span><span id="oxy_productVersion">3.0</span></div><div id="loginData" style="display: none"><span class="bt_close" title="Close"><!----></span><form action="" target="passwordIframe" method="post" name="form_login" onsubmit="return loggInUser();" id="loginFormData" autocomplete="on"><input type="hidden" id="reloadComments" value="yes"><!----></input><table class="login"><thead><tr><td colspan="2"><span id="l_login2"><script type="text/javascript">$('#l_login2').html(getLocalization('label.login'));</script></span></td></tr><tr><td colspan="2"><div id="loginResponse"><!----></div></td></tr></thead><tr><td><span id="l_userName"><script type="text/javascript">$('#l_userName').html(getLocalization('label.userName'));</script></span></td><td><input name="usernameW" type="text" id="myUserName" autocomplete="on" required="required" autofocus="autofocus"><!----></input></td></tr><tr><td><span id="l_pswd"><script type="text/javascript">$('#l_pswd').html(getLocalization('label.pswd'));</script></span></td><td><input name="passwordW" type="password" id="myPassword" autocomplete="on" required="required"><!----></input></td></tr><tr><td colspan="2" align="left"><span id="ll_remember"><script type="text/javascript" xml:space="preserve">
+								$('#ll_remember').html(getLocalization('label.rememberme'));
+							</script></span>     <input name="myLoginRemember" type="checkbox" class="ck" id="myRemember" value="no"><!----></input></td></tr><tr><td colspan="2" align="center"><input id="l_bt_submit_log" type="submit" value="Submit" name="loginFormButton"><!----></input><script type="text/javascript">$('#l_bt_submit_log').attr('value',getLocalization('label.login'));</script><span class="btnHGlue"><!----></span><input class="bt_cancel" id="l_cancelLog" type="button" value="Cancel" name="loginFormButton"><!----></input><script type="text/javascript">$('#l_cancelLog').attr('value',getLocalization('label.cancel'));</script></td></tr></table><div class="loginAlternative"><span id="link_lostPwd" onclick="showLostPwd()"><script type="text/javascript">$('#link_lostPwd').html(getLocalization('label.lostPswd'));</script></span><span id="link_signUp" onclick="showSignUp()"><script type="text/javascript">$('#link_signUp').html(getLocalization('label.signUp'));</script></span></div></form><iframe id="passwordIframe" name="passwordIframe" style="display:none"><!----></iframe></div><div id="cmts"><!----></div></body>
+</html>

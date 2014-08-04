@@ -1,0 +1,127 @@
+
+<!DOCTYPE html
+  PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xml:lang="en-us" lang="en-us">
+<head><meta xmlns="http://www.w3.org/1999/xhtml" name="description" content="The data catalog does not have a centralized tab or view that shows all of the segments that have been created in Platfora. You can find segments by looking in a particular dataset to see if any ..."/><meta http-equiv="Content-Type" content="text/html; charset=utf-8"/><meta name="copyright" content="(C) Copyright 2005"/><meta name="DC.rights.owner" content="(C) Copyright 2005"/><meta name="DC.Type" content="task"/><meta name="DC.Title" content="Find Available Segments"/><meta name="abstract" content="The data catalog does not have a centralized tab or view that shows all of the segments that have been created in Platfora. You can find segments by looking in a particular dataset to see if any segments have been created from that dataset."/><meta xmlns="http://www.w3.org/1999/xhtml" name="description" content="The data catalog does not have a centralized tab or view that shows all of the segments that have been created in Platfora. You can find segments by looking in a particular dataset to see if any segments have been created from that dataset."/><meta name="DC.Relation" scheme="URI" content="../data_catalog/data_catalog.html"/><meta name="DC.Format" content="XHTML"/><meta name="DC.Identifier" content="browse_segments"/><link rel="stylesheet" type="text/css" href="../oxygen-webhelp/resources/css/commonltr.css"><!----></link><title>Find Available Segments</title><meta http-equiv="Content-Type" content="text/html; charset=utf-8"/><link rel="stylesheet" type="text/css" href="../oxygen-webhelp/resources/css/commonltr.css"><!----></link><link rel="stylesheet" type="text/css" href="../oxygen-webhelp/resources/css/webhelp_topic.css"><!----></link><link rel="stylesheet" type="text/css" href="../oxygen-webhelp/resources/skins/skin.css"><!----></link><link rel="stylesheet" type="text/css" href="../oxygen-webhelp/resources/css/jquery.realperson.css"><!----></link><link rel="stylesheet" type="text/css" href="../oxygen-webhelp/resources/css/comments.css"><!----></link><link rel="stylesheet" type="text/css" href="../oxygen-webhelp/resources/css/jquery.cleditor.css"><!----></link><link rel="stylesheet" type="text/css" href="../oxygen-webhelp/resources/css/admin.css"><!----></link><script type="text/javascript"><!--
+          
+          var prefix = "../index.html";
+          
+          --></script><script type="text/javascript" src="../oxygen-webhelp/resources/js/jquery-1.8.2.min.js"><!----></script><script type="text/javascript" src="../oxygen-webhelp/resources/js/jquery.cookie.js"><!----></script><script type="text/javascript" src="../oxygen-webhelp/resources/js/jquery-ui.custom.min.js"><!----></script><script type="text/javascript" charset="utf-8" src="../oxygen-webhelp/resources/js/webhelp_topic.js"><!----></script><script type="text/javascript" charset="utf-8" src="../oxygen-webhelp/resources/localization/strings.js"><!----></script><script type="text/javascript" charset="utf-8" src="../oxygen-webhelp/resources/js/init.js"><!----></script><script type="text/javascript" charset="utf-8" src="../oxygen-webhelp/resources/js/comments-functions.js"><!----></script></head>
+<body onload="init('../')" id="browse_segments">
+<table class="nav"><tbody><tr><td colspan="2"><div id="printlink"><a href="javascript:window.print();" title="printThisPage"/></div><div id="permalink"><a href="#" title="linkToThis"/></div></td></tr><tr><td width="75%"><a class="navheader_parent_path" href="../data_catalog/data_catalog.html" title="The data catalog is a collection of data items available and visible to Platfora users. Data administrators build the data catalog by defining and modeling datasets in Platfora that point to source data in Hadoop. When users request data from a dataset, that request is materialized in Platfora as a lens. The data catalog shows all of the datasets (data available for request) and lenses (data that is ready for analysis) that have been created by Platfora users.">Explore the Data Catalog</a></td><td><div class="navheader">
+<span class="navparent"><a class="link" href="../data_catalog/data_catalog.html" title="The data catalog is a collection of data items available and visible to Platfora users. Data administrators build the data catalog by defining and modeling datasets in Platfora that point to source data in Hadoop. When users request data from a dataset, that request is materialized in Platfora as a lens. The data catalog shows all of the datasets (data available for request) and lenses (data that is ready for analysis) that have been created by Platfora users."><span class="navheader_label">Parent topic</span><span class="navheader_separator">: </span><span class="navheader_linktext">Explore the Data Catalog</span></a></span>  </div></td></tr></tbody></table>
+
+    <h1 class="title topictitle1">Find Available Segments</h1>
+
+    
+    <div class="body taskbody"><p class="shortdesc">The data catalog does not have a centralized tab or view that shows all of the
+            <a href="../glossary/gdef_segment.html" title="&#xA;        A segment is a special type of dimension field that you can create to group&#xA;            together members of a population that meet some defined common criteria. A segment is a&#xA;            based on members of a dimension dataset (such as customers) that have some behavior in&#xA;            common (such as purchasing a particular product).&#xA;        In Platfora, a segment is always based on a dimension (or referenced) dataset, and must&#xA;            include at least one condition from a fact or event dataset. For example, customers&#xA;                who are female would not be considered a valid segment, however customers who&#xA;                are female that  made a purchase would be. A segment is not just people or&#xA;            things that share common attributes, but also share a common behavior or action.   &#xA;        Behind the scenes, segments are saved as a special type of lens that can be used and&#xA;            updated independently of the lens that they were created from. For example, you can&#xA;            create a segment from a customer purchases lens but then use that segment in a&#xA;            different customer support calls lens. As long as the lenses have a conforming&#xA;            dimension in common (such as customer), then segments can be used to compare&#xA;            behaviors of a group of individuals across multiple fact or event datasets.    &#xA;    "><dfn class="term">segments</dfn></a> that have been created in Platfora. You can find segments by
+        looking in a particular dataset to see if any segments have been created from that dataset. </p>
+
+        <div class="section context">
+            <div class="fig fignone"><img class="image" src="../images/./data_catalog/dataset_catalog_segments.png"/>
+                
+            </div>
+
+        </div>
+
+        <ol class="ol steps"><li class="li step">
+                <span class="ph cmd">Go to the <span class="ph uicontrol">Data Catalog</span>.</span>
+            </li>
+<li class="li step">
+                <span class="ph cmd">Find the dataset that you would want to segment and open it.</span>
+            </li>
+<li class="li step">
+                <span class="ph cmd">Choose the <span class="ph uicontrol">Segments</span> tab. </span>
+                <p class="p">If you do not see a <span class="ph uicontrol">Segments</span> tab on the dataset details page, this means
+                        the dataset is not eligible to define segments. A dataset must be the target
+                        of an incoming reference in order to define segments from it. </p>
+
+                    <p class="p">In this release, segments cannot be defined from the data catalog. Segments
+                        can only be defined in the vizboard from a lens where the key of this
+                        dataset is included in the lens as a referenced field.</p>
+
+            </li>
+<li class="li step">
+                <span class="ph cmd">Click a segment to see its details or action menu.</span>
+            </li>
+<li class="li step">
+                <span class="ph cmd">The segment details shows:</span>
+                
+                    <div class="p">
+                        
+<div class="tablenoborder"><table cellpadding="4" cellspacing="0" summary="" class="table" frame="border" border="1" rules="all">
+                                
+                                
+                                <tbody class="tbody">
+                                    <tr class="row">
+                                        <td class="entry" valign="top" width="27.47252747252747%"><strong class="ph b">Segment Name</strong></td>
+
+                                        <td class="entry" valign="top" width="72.52747252747253%">The name given to the segment when it was defined in
+                                            the vizboard</td>
+
+                                    </tr>
+
+                                    <tr class="row">
+                                        <td class="entry" valign="top" width="27.47252747252747%"><strong class="ph b">Segment Dataset</strong></td>
+
+                                        <td class="entry" valign="top" width="72.52747252747253%">The segment dataset is the same as the currently
+                                            selected dataset</td>
+
+                                    </tr>
+
+                                    <tr class="row">
+                                        <td class="entry" valign="top" width="27.47252747252747%"><strong class="ph b">Segment Count</strong></td>
+
+                                        <td class="entry" valign="top" width="72.52747252747253%">The key members of this dataset that met the segment
+                                            conditions defined in the vizboard.</td>
+
+                                    </tr>
+
+                                    <tr class="row">
+                                        <td class="entry" valign="top" width="27.47252747252747%"><strong class="ph b">Created By</strong></td>
+
+                                        <td class="entry" valign="top" width="72.52747252747253%">The time the segment was defined and the user who
+                                            created it.</td>
+
+                                    </tr>
+
+                                    <tr class="row">
+                                        <td class="entry" valign="top" width="27.47252747252747%"><strong class="ph b">Modified By</strong></td>
+
+                                        <td class="entry" valign="top" width="72.52747252747253%">The time the segment was last refreshed and the user
+                                            who last updated it. Segments can be refreshed from the
+                                                <span class="ph uicontrol">System</span> page.</td>
+
+                                    </tr>
+
+                                </tbody>
+
+                            </table>
+</div>
+
+                    </div>
+
+                
+            </li>
+<li class="li step">
+                <span class="ph cmd">From the segment action menu you can <span class="ph uicontrol">Delete</span> the segment
+                    or edit its <span class="ph uicontrol">Permissions</span>. </span>
+                
+                    <p class="p">To view or edit the segment conditions, you must go to a vizboard where the
+                        segment is in use. Choose <span class="ph uicontrol">Show Vizboards</span> to find
+                        vizboards that are using the segment.</p>
+
+                
+            </li>
+</ol>
+
+    </div>
+
+<div class="related-links"/>
+<div class="navfooter"><!---->
+<span class="navparent"><a class="link" href="../data_catalog/data_catalog.html" title="The data catalog is a collection of data items available and visible to Platfora users. Data administrators build the data catalog by defining and modeling datasets in Platfora that point to source data in Hadoop. When users request data from a dataset, that request is materialized in Platfora as a lens. The data catalog shows all of the datasets (data available for request) and lenses (data that is ready for analysis) that have been created by Platfora users."><span class="navheader_label">Parent topic</span><span class="navheader_separator">: </span><span class="navheader_linktext">Explore the Data Catalog</span></a></span>  </div><div class="footer">WebHelp output generated by<a href="http://www.oxygenxml.com" target="_blank"><span class="oXygenLogo"><img src="../oxygen-webhelp/resources/img/LogoOxygen100x22.png" alt="Oxygen"/></span><span class="xmlauthor">XML Author</span></a></div>
+<div id="productInfo" style="display:none;"><span id="oxy_productID">webhelp</span><span id="oxy_productVersion">3.0</span></div><div id="loginData" style="display: none"><span class="bt_close" title="Close"><!----></span><form action="" target="passwordIframe" method="post" name="form_login" onsubmit="return loggInUser();" id="loginFormData" autocomplete="on"><input type="hidden" id="reloadComments" value="yes"><!----></input><table class="login"><thead><tr><td colspan="2"><span id="l_login2"><script type="text/javascript">$('#l_login2').html(getLocalization('label.login'));</script></span></td></tr><tr><td colspan="2"><div id="loginResponse"><!----></div></td></tr></thead><tr><td><span id="l_userName"><script type="text/javascript">$('#l_userName').html(getLocalization('label.userName'));</script></span></td><td><input name="usernameW" type="text" id="myUserName" autocomplete="on" required="required" autofocus="autofocus"><!----></input></td></tr><tr><td><span id="l_pswd"><script type="text/javascript">$('#l_pswd').html(getLocalization('label.pswd'));</script></span></td><td><input name="passwordW" type="password" id="myPassword" autocomplete="on" required="required"><!----></input></td></tr><tr><td colspan="2" align="left"><span id="ll_remember"><script type="text/javascript" xml:space="preserve">
+								$('#ll_remember').html(getLocalization('label.rememberme'));
+							</script></span>     <input name="myLoginRemember" type="checkbox" class="ck" id="myRemember" value="no"><!----></input></td></tr><tr><td colspan="2" align="center"><input id="l_bt_submit_log" type="submit" value="Submit" name="loginFormButton"><!----></input><script type="text/javascript">$('#l_bt_submit_log').attr('value',getLocalization('label.login'));</script><span class="btnHGlue"><!----></span><input class="bt_cancel" id="l_cancelLog" type="button" value="Cancel" name="loginFormButton"><!----></input><script type="text/javascript">$('#l_cancelLog').attr('value',getLocalization('label.cancel'));</script></td></tr></table><div class="loginAlternative"><span id="link_lostPwd" onclick="showLostPwd()"><script type="text/javascript">$('#link_lostPwd').html(getLocalization('label.lostPswd'));</script></span><span id="link_signUp" onclick="showSignUp()"><script type="text/javascript">$('#link_signUp').html(getLocalization('label.signUp'));</script></span></div></form><iframe id="passwordIframe" name="passwordIframe" style="display:none"><!----></iframe></div><div id="cmts"><!----></div></body>
+</html>

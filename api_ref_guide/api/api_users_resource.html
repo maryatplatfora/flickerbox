@@ -1,0 +1,141 @@
+
+<!DOCTYPE html
+  PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xml:lang="en-us" lang="en-us">
+<head><meta xmlns="http://www.w3.org/1999/xhtml" name="description" content="The users resource represents a user account in Platfora. You can create users locally in Platfora or reuse users defined through an external directory service such as LDAP. A user has an associated ..."/><meta http-equiv="Content-Type" content="text/html; charset=utf-8"/><meta name="copyright" content="(C) Copyright 2005"/><meta name="DC.rights.owner" content="(C) Copyright 2005"/><meta name="DC.Type" content="topic"/><meta name="DC.Title" content="Overview"/><meta name="DC.Relation" scheme="URI" content="../api/api_users_top.html"/><meta name="DC.Format" content="XHTML"/><meta name="DC.Identifier" content="api_users_entity"/><link rel="stylesheet" type="text/css" href="../oxygen-webhelp/resources/css/commonltr.css"><!----></link><title>Overview</title><meta http-equiv="Content-Type" content="text/html; charset=utf-8"/><link rel="stylesheet" type="text/css" href="../oxygen-webhelp/resources/css/commonltr.css"><!----></link><link rel="stylesheet" type="text/css" href="../oxygen-webhelp/resources/css/webhelp_topic.css"><!----></link><link rel="stylesheet" type="text/css" href="../oxygen-webhelp/resources/skins/skin.css"><!----></link><link rel="stylesheet" type="text/css" href="../oxygen-webhelp/resources/css/jquery.realperson.css"><!----></link><link rel="stylesheet" type="text/css" href="../oxygen-webhelp/resources/css/comments.css"><!----></link><link rel="stylesheet" type="text/css" href="../oxygen-webhelp/resources/css/jquery.cleditor.css"><!----></link><link rel="stylesheet" type="text/css" href="../oxygen-webhelp/resources/css/admin.css"><!----></link><script type="text/javascript"><!--
+          
+          var prefix = "../index.html";
+          
+          --></script><script type="text/javascript" src="../oxygen-webhelp/resources/js/jquery-1.8.2.min.js"><!----></script><script type="text/javascript" src="../oxygen-webhelp/resources/js/jquery.cookie.js"><!----></script><script type="text/javascript" src="../oxygen-webhelp/resources/js/jquery-ui.custom.min.js"><!----></script><script type="text/javascript" charset="utf-8" src="../oxygen-webhelp/resources/js/webhelp_topic.js"><!----></script><script type="text/javascript" charset="utf-8" src="../oxygen-webhelp/resources/localization/strings.js"><!----></script><script type="text/javascript" charset="utf-8" src="../oxygen-webhelp/resources/js/init.js"><!----></script><script type="text/javascript" charset="utf-8" src="../oxygen-webhelp/resources/js/comments-functions.js"><!----></script></head>
+<body onload="init('../')">
+<table class="nav"><tbody><tr><td colspan="2"><div id="printlink"><a href="javascript:window.print();" title="printThisPage"/></div><div id="permalink"><a href="#" title="linkToThis"/></div></td></tr><tr><td width="75%"><a class="navheader_parent_path" href="../api/api_users_top.html" title="Use the users resource to create a data source or list data sources.">users Resource</a></td><td><div class="navheader">
+<span class="navparent"><a class="link" href="../api/api_users_top.html" title="Use the users resource to create a data source or list data sources."><span class="navheader_label">Parent topic</span><span class="navheader_separator">: </span><span class="navheader_linktext">users Resource</span></a></span>  </div></td></tr></tbody></table>
+
+  <div class="nested0" id="api_users_entity">
+    <h1 class="title topictitle1">Overview</h1>
+
+    <div class="body">
+      <p class="p">The <samp class="ph codeph">users</samp> resource represents a user account in Platfora. You can create users locally in Platfora or reuse users defined through an external directory service such as LDAP. </p>
+
+      <p class="p">A user has an associated <samp class="ph codeph">systemRole</samp> that grants permissions to Platfora objects. Administrators can also grant users rights by assigning them group membership. All users belong to the system defined <span class="ph uicontrol">Everyone</span> group. A user's
+          <samp class="ph codeph">effectiveRole</samp> is computed value after considering all their group memberships; The most permissive role takes precedence. </p>
+
+      <p class="p">You can create a user but you cannot delete one.  You can disable a user.  Disabling a user prevents the user from interacting with Platfora either through the browser application or through another client.</p>
+
+        <p class="p">A user resource has the following attributes: </p>
+
+        
+<div class="tablenoborder"><table cellpadding="4" cellspacing="0" summary="" id="api_users_entity__groupses_attrs" class="table" frame="border" border="1" rules="all">
+            
+            
+            <thead class="thead" align="left">
+              <tr class="row">
+                <th class="entry" valign="top" width="20%" id="d10655e50"><p class="p">Attribute</p>
+</th>
+
+                <th class="entry" valign="top" width="80%" id="d10655e54"><p class="p">Description</p>
+</th>
+
+              </tr>
+
+            </thead>
+
+            <tbody class="tbody">
+              <tr class="row">
+                <td class="entry" valign="top" width="20%" headers="d10655e50 "><p class="p"><span class="keyword parmname">name</span></p>
+</td>
+
+                <td class="entry" valign="top" width="80%" headers="d10655e54 "><p class="p">A name for display in the UI but not for logging into the system.</p>
+</td>
+
+              </tr>
+
+              <tr class="row">
+                <td class="entry" valign="top" width="20%" headers="d10655e50 "><p class="p"><span class="keyword parmname">disabled</span></p>
+</td>
+
+                <td class="entry" valign="top" width="80%" headers="d10655e54 "><p class="p">Status of the user.  This is either <samp class="ph codeph ignore_table_context">false</samp> or <samp class="ph codeph ignore_table_context">true</samp>.</p>
+</td>
+
+              </tr>
+
+              <tr class="row">
+                <td class="entry" valign="top" width="20%" headers="d10655e50 "><p class="p"><span class="keyword parmname">systemRole</span></p>
+</td>
+
+                <td class="entry" valign="top" width="80%" headers="d10655e54 "><p class="p">This is the system role assigned directly to the user.</p>
+</td>
+
+              </tr>
+              
+              <tr class="row">
+                <td class="entry" valign="top" width="20%" headers="d10655e50 "><p class="p"><span class="keyword parmname">groupMemberships</span></p>
+</td>
+
+                <td class="entry" valign="top" width="80%" headers="d10655e54 "><p class="p">An array describing each group the user belongs to. Each member of the array has an <samp class="ph codeph ignore_table_context">href</samp> and an <samp class="ph codeph">id</samp> field.</p>
+</td>
+
+              </tr>
+
+              <tr class="row">
+                <td class="entry" valign="top" width="20%" headers="d10655e50 "><p class="p"><span class="keyword parmname">effectiveRole</span></p>
+</td>
+
+                <td class="entry" valign="top" width="80%" headers="d10655e54 "><p class="p">The derived system role when taking into consideration the user's group memberships.</p>
+</td>
+
+              </tr>
+
+              <tr class="row">
+                <td class="entry" valign="top" width="20%" headers="d10655e50 "><p class="p"><span class="keyword parmname">href</span></p>
+</td>
+
+                <td class="entry" valign="top" width="80%" headers="d10655e54 "><p class="p">A quick link to the user.</p>
+</td>
+
+              </tr>
+
+              <tr class="row">
+                <td class="entry" valign="top" width="20%" headers="d10655e50 "><p class="p"><span class="keyword parmname">id</span></p>
+</td>
+
+                <td class="entry" valign="top" width="80%" headers="d10655e54 "><p class="p">The internal identifier for the user.</p>
+</td>
+
+              </tr>
+
+              <tr class="row">
+                <td class="entry" valign="top" width="20%" headers="d10655e50 "><p class="p"><span class="keyword parmname">type</span></p>
+</td>
+
+                <td class="entry" valign="top" width="80%" headers="d10655e54 "><p class="p">Where the user is defined. This can be either <samp class="ph codeph ignore_table_context">LOCAL</samp> to Platfora or from an <samp class="ph codeph ignore_table_context">EXTERNAL</samp> directory service.</p>
+</td>
+
+              </tr>
+
+              <tr class="row">
+                <td class="entry" valign="top" width="20%" headers="d10655e50 "><p class="p"><span class="keyword parmname">userName</span></p>
+</td>
+
+                <td class="entry" valign="top" width="80%" headers="d10655e54 "><p class="p">The name used to log into the Platfora application.</p>
+</td>
+
+              </tr>
+
+            </tbody>
+
+          </table>
+</div>
+
+    </div>
+
+  <div class="related-links"/>
+</div>
+
+ 
+<div class="navfooter"><!---->
+<span class="navparent"><a class="link" href="../api/api_users_top.html" title="Use the users resource to create a data source or list data sources."><span class="navheader_label">Parent topic</span><span class="navheader_separator">: </span><span class="navheader_linktext">users Resource</span></a></span>  </div><div class="footer">WebHelp output generated by<a href="http://www.oxygenxml.com" target="_blank"><span class="oXygenLogo"><img src="../oxygen-webhelp/resources/img/LogoOxygen100x22.png" alt="Oxygen"/></span><span class="xmlauthor">XML Author</span></a></div>
+<div id="productInfo" style="display:none;"><span id="oxy_productID">api_ref_guide</span><span id="oxy_productVersion">2.0</span></div><div id="loginData" style="display: none"><span class="bt_close" title="Close"><!----></span><form action="" target="passwordIframe" method="post" name="form_login" onsubmit="return loggInUser();" id="loginFormData" autocomplete="on"><input type="hidden" id="reloadComments" value="yes"><!----></input><table class="login"><thead><tr><td colspan="2"><span id="l_login2"><script type="text/javascript">$('#l_login2').html(getLocalization('label.login'));</script></span></td></tr><tr><td colspan="2"><div id="loginResponse"><!----></div></td></tr></thead><tr><td><span id="l_userName"><script type="text/javascript">$('#l_userName').html(getLocalization('label.userName'));</script></span></td><td><input name="usernameW" type="text" id="myUserName" autocomplete="on" required="required" autofocus="autofocus"><!----></input></td></tr><tr><td><span id="l_pswd"><script type="text/javascript">$('#l_pswd').html(getLocalization('label.pswd'));</script></span></td><td><input name="passwordW" type="password" id="myPassword" autocomplete="on" required="required"><!----></input></td></tr><tr><td colspan="2" align="left"><span id="ll_remember"><script type="text/javascript" xml:space="preserve">
+								$('#ll_remember').html(getLocalization('label.rememberme'));
+							</script></span>     <input name="myLoginRemember" type="checkbox" class="ck" id="myRemember" value="no"><!----></input></td></tr><tr><td colspan="2" align="center"><input id="l_bt_submit_log" type="submit" value="Submit" name="loginFormButton"><!----></input><script type="text/javascript">$('#l_bt_submit_log').attr('value',getLocalization('label.login'));</script><span class="btnHGlue"><!----></span><input class="bt_cancel" id="l_cancelLog" type="button" value="Cancel" name="loginFormButton"><!----></input><script type="text/javascript">$('#l_cancelLog').attr('value',getLocalization('label.cancel'));</script></td></tr></table><div class="loginAlternative"><span id="link_lostPwd" onclick="showLostPwd()"><script type="text/javascript">$('#link_lostPwd').html(getLocalization('label.lostPswd'));</script></span><span id="link_signUp" onclick="showSignUp()"><script type="text/javascript">$('#link_signUp').html(getLocalization('label.signUp'));</script></span></div></form><iframe id="passwordIframe" name="passwordIframe" style="display:none"><!----></iframe></div><div id="cmts"><!----></div></body>
+</html>

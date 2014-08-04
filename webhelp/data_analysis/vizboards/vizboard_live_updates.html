@@ -1,0 +1,68 @@
+
+<!DOCTYPE html
+  PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xml:lang="en-us" lang="en-us">
+<head><meta xmlns="http://www.w3.org/1999/xhtml" name="description" content="When working in a vizboard, you can choose to pause live updates for the vizboard. This allows you to conserve resources on the Platfora cluster by reducing the number of times the web application ..."/><meta http-equiv="Content-Type" content="text/html; charset=utf-8"/><meta name="copyright" content="(C) Copyright 2005"/><meta name="DC.rights.owner" content="(C) Copyright 2005"/><meta name="DC.Type" content="concept"/><meta name="DC.Title" content="Turn Live Updates Off and On"/><meta name="abstract" content="When working in a vizboard, you can choose to pause live updates for the vizboard. This allows you to conserve resources on the Platfora cluster by reducing the number of times the web application queries and renders data."/><meta xmlns="http://www.w3.org/1999/xhtml" name="description" content="When working in a vizboard, you can choose to pause live updates for the vizboard. This allows you to conserve resources on the Platfora cluster by reducing the number of times the web application queries and renders data."/><meta name="DC.Relation" scheme="URI" content="../../data_analysis/vizboards/vizboards_top.html"/><meta name="DC.Format" content="XHTML"/><meta name="DC.Identifier" content="vizboard_live_updates"/><link rel="stylesheet" type="text/css" href="../../oxygen-webhelp/resources/css/commonltr.css"><!----></link><title>Turn Live Updates Off and On</title><meta http-equiv="Content-Type" content="text/html; charset=utf-8"/><link rel="stylesheet" type="text/css" href="../../oxygen-webhelp/resources/css/commonltr.css"><!----></link><link rel="stylesheet" type="text/css" href="../../oxygen-webhelp/resources/css/webhelp_topic.css"><!----></link><link rel="stylesheet" type="text/css" href="../../oxygen-webhelp/resources/skins/skin.css"><!----></link><link rel="stylesheet" type="text/css" href="../../oxygen-webhelp/resources/css/jquery.realperson.css"><!----></link><link rel="stylesheet" type="text/css" href="../../oxygen-webhelp/resources/css/comments.css"><!----></link><link rel="stylesheet" type="text/css" href="../../oxygen-webhelp/resources/css/jquery.cleditor.css"><!----></link><link rel="stylesheet" type="text/css" href="../../oxygen-webhelp/resources/css/admin.css"><!----></link><script type="text/javascript"><!--
+          
+          var prefix = "../../index.html";
+          
+          --></script><script type="text/javascript" src="../../oxygen-webhelp/resources/js/jquery-1.8.2.min.js"><!----></script><script type="text/javascript" src="../../oxygen-webhelp/resources/js/jquery.cookie.js"><!----></script><script type="text/javascript" src="../../oxygen-webhelp/resources/js/jquery-ui.custom.min.js"><!----></script><script type="text/javascript" charset="utf-8" src="../../oxygen-webhelp/resources/js/webhelp_topic.js"><!----></script><script type="text/javascript" charset="utf-8" src="../../oxygen-webhelp/resources/localization/strings.js"><!----></script><script type="text/javascript" charset="utf-8" src="../../oxygen-webhelp/resources/js/init.js"><!----></script><script type="text/javascript" charset="utf-8" src="../../oxygen-webhelp/resources/js/comments-functions.js"><!----></script></head>
+<body onload="init('../../')" id="vizboard_live_updates">
+<table class="nav"><tbody><tr><td colspan="2"><div id="printlink"><a href="javascript:window.print();" title="printThisPage"/></div><div id="permalink"><a href="#" title="linkToThis"/></div></td></tr><tr><td width="75%"><a class="navheader_parent_path" href="../../data_analysis/vizboards/../../data_analysis/analyze_data_top.html" title="Vizboards is the business intelligence (BI) and data analytics area of Platfora. Once you have pulled data into Platfora by creating a lens, you can explore and interact with the data using Platfora's visualization builder tools. To begin analyzing data, you first create a project document called a vizboard. A vizboard is a container for one or more visualizations.">Analyze Data</a> / <a class="navheader_parent_path" href="../../data_analysis/vizboards/vizboards_top.html" title="In Platfora, the vizboard is where you create and manage visualizations around a particular project or subject area. Typically, you would create one vizboard for each data analysis project that you are working on. A vizboard can contain one or more pages and pages can contain one or more visualizations.">Working in a Vizboard</a></td><td><div class="navheader">
+<span class="navparent"><a class="link" href="../../data_analysis/vizboards/vizboards_top.html" title="In Platfora, the vizboard is where you create and manage visualizations around a particular project or subject area. Typically, you would create one vizboard for each data analysis project that you are working on. A vizboard can contain one or more pages and pages can contain one or more visualizations."><span class="navheader_label">Parent topic</span><span class="navheader_separator">: </span><span class="navheader_linktext">Working in a Vizboard</span></a></span>  </div></td></tr></tbody></table>
+
+ <h1 class="title topictitle1">Turn Live Updates Off and On</h1>
+
+ 
+ <div class="body conbody"><p class="shortdesc">When working in a vizboard, you can choose to pause live updates for the vizboard. This
+  allows you to conserve resources on the Platfora cluster by reducing the number of times the web
+  application queries and renders data.</p>
+
+  <p class="p">By default, when you make a change to a visualization (viz) in a vizboard, the Platfora web
+   application updates the viz in real-time by querying the Platfora server and rendering the change
+   in the viz. Modifying a viz uses resources on the Platfora cluster, such as memory, network
+   bandwidth, and CPU cycles. Typically, lenses with more data use more resources during viz
+   updates.</p>
+
+
+
+<div class="section"><h2 class="title sectiontitle">When to Turn Live Updates Off</h2>
+ 
+  <p class="p">You might want to pause live updates when you are working with a very large lens, high
+    cardinality dimension fields, or a large number of unique data points. By default, each change
+    to the builder or filter drop zones issues a new query. When working with large data, you may
+    not want to wait for each change to finish rendering before you can make another change. </p>
+
+   <p class="p">For example, you might want to pause live updates while arranging multiple fields in the
+    builder drop zones, then issue the query once you have all the fields and filters in place. This
+    way, the query is only executed one time and the application only renders the filtered data, not
+    all of the data.</p>
+
+
+</div>
+
+  
+ 
+<div class="section"><h2 class="title sectiontitle">How to Turn Live Updates Off and On</h2> 
+ 
+ <p class="p">To control live updates, use the <span class="ph uicontrol">Live Updates</span> button in the vizboard page
+    control menu. Turning off live updates pauses automatic updates for all visualizations in the
+    vizboard. When live updates are turned off, the application does not query and render the data
+    as you modify a viz. To update a viz after modifying it, you can either click <span class="ph uicontrol">Update
+     Now</span> in the viz, or turn on live updates again.</p>
+
+  <div class="fig fignone"><img class="image" src="../../images/./vizboard/vizboard_live_updates.png" alt="vizboard live updates"/>
+   
+  </div>
+
+</div>
+
+ </div>
+
+<div class="related-links"/>
+<div class="navfooter"><!---->
+<span class="navparent"><a class="link" href="../../data_analysis/vizboards/vizboards_top.html" title="In Platfora, the vizboard is where you create and manage visualizations around a particular project or subject area. Typically, you would create one vizboard for each data analysis project that you are working on. A vizboard can contain one or more pages and pages can contain one or more visualizations."><span class="navheader_label">Parent topic</span><span class="navheader_separator">: </span><span class="navheader_linktext">Working in a Vizboard</span></a></span>  </div><div class="footer">WebHelp output generated by<a href="http://www.oxygenxml.com" target="_blank"><span class="oXygenLogo"><img src="../../oxygen-webhelp/resources/img/LogoOxygen100x22.png" alt="Oxygen"/></span><span class="xmlauthor">XML Author</span></a></div>
+<div id="productInfo" style="display:none;"><span id="oxy_productID">webhelp</span><span id="oxy_productVersion">3.0</span></div><div id="loginData" style="display: none"><span class="bt_close" title="Close"><!----></span><form action="" target="passwordIframe" method="post" name="form_login" onsubmit="return loggInUser();" id="loginFormData" autocomplete="on"><input type="hidden" id="reloadComments" value="yes"><!----></input><table class="login"><thead><tr><td colspan="2"><span id="l_login2"><script type="text/javascript">$('#l_login2').html(getLocalization('label.login'));</script></span></td></tr><tr><td colspan="2"><div id="loginResponse"><!----></div></td></tr></thead><tr><td><span id="l_userName"><script type="text/javascript">$('#l_userName').html(getLocalization('label.userName'));</script></span></td><td><input name="usernameW" type="text" id="myUserName" autocomplete="on" required="required" autofocus="autofocus"><!----></input></td></tr><tr><td><span id="l_pswd"><script type="text/javascript">$('#l_pswd').html(getLocalization('label.pswd'));</script></span></td><td><input name="passwordW" type="password" id="myPassword" autocomplete="on" required="required"><!----></input></td></tr><tr><td colspan="2" align="left"><span id="ll_remember"><script type="text/javascript" xml:space="preserve">
+								$('#ll_remember').html(getLocalization('label.rememberme'));
+							</script></span>     <input name="myLoginRemember" type="checkbox" class="ck" id="myRemember" value="no"><!----></input></td></tr><tr><td colspan="2" align="center"><input id="l_bt_submit_log" type="submit" value="Submit" name="loginFormButton"><!----></input><script type="text/javascript">$('#l_bt_submit_log').attr('value',getLocalization('label.login'));</script><span class="btnHGlue"><!----></span><input class="bt_cancel" id="l_cancelLog" type="button" value="Cancel" name="loginFormButton"><!----></input><script type="text/javascript">$('#l_cancelLog').attr('value',getLocalization('label.cancel'));</script></td></tr></table><div class="loginAlternative"><span id="link_lostPwd" onclick="showLostPwd()"><script type="text/javascript">$('#link_lostPwd').html(getLocalization('label.lostPswd'));</script></span><span id="link_signUp" onclick="showSignUp()"><script type="text/javascript">$('#link_signUp').html(getLocalization('label.signUp'));</script></span></div></form><iframe id="passwordIframe" name="passwordIframe" style="display:none"><!----></iframe></div><div id="cmts"><!----></div></body>
+</html>

@@ -1,0 +1,175 @@
+
+<!DOCTYPE html
+  PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xml:lang="en-us" lang="en-us">
+<head><meta xmlns="http://www.w3.org/1999/xhtml" name="description" content="Every aggregate lens needs at least one dimension field. Dimension fields are used to group and filter measure data in an aggregate lens. You can add dimension fields from the currently selected focus ..."/><meta http-equiv="Content-Type" content="text/html; charset=utf-8"/><meta name="copyright" content="(C) Copyright 2005"/><meta name="DC.rights.owner" content="(C) Copyright 2005"/><meta name="DC.Type" content="task"/><meta name="DC.Title" content="Choose Dimension Fields (Aggregate Lens)"/><meta name="abstract" content="Every aggregate lens needs at least one dimension field. Dimension fields are used to group and filter measure data in an aggregate lens. You can add dimension fields from the currently selected focus dataset or any of its referenced datasets."/><meta xmlns="http://www.w3.org/1999/xhtml" name="description" content="Every aggregate lens needs at least one dimension field. Dimension fields are used to group and filter measure data in an aggregate lens. You can add dimension fields from the currently selected focus dataset or any of its referenced datasets."/><meta name="DC.Relation" scheme="URI" content="../../lens/create/choose_agg_lens_fields.html"/><meta name="DC.Format" content="XHTML"/><meta name="DC.Identifier" content="lens_dimension_fields"/><link rel="stylesheet" type="text/css" href="../../oxygen-webhelp/resources/css/commonltr.css"><!----></link><title>Choose Dimension Fields (Aggregate Lens)</title><meta http-equiv="Content-Type" content="text/html; charset=utf-8"/><link rel="stylesheet" type="text/css" href="../../oxygen-webhelp/resources/css/commonltr.css"><!----></link><link rel="stylesheet" type="text/css" href="../../oxygen-webhelp/resources/css/webhelp_topic.css"><!----></link><link rel="stylesheet" type="text/css" href="../../oxygen-webhelp/resources/skins/skin.css"><!----></link><link rel="stylesheet" type="text/css" href="../../oxygen-webhelp/resources/css/jquery.realperson.css"><!----></link><link rel="stylesheet" type="text/css" href="../../oxygen-webhelp/resources/css/comments.css"><!----></link><link rel="stylesheet" type="text/css" href="../../oxygen-webhelp/resources/css/jquery.cleditor.css"><!----></link><link rel="stylesheet" type="text/css" href="../../oxygen-webhelp/resources/css/admin.css"><!----></link><script type="text/javascript"><!--
+          
+          var prefix = "../../index.html";
+          
+          --></script><script type="text/javascript" src="../../oxygen-webhelp/resources/js/jquery-1.8.2.min.js"><!----></script><script type="text/javascript" src="../../oxygen-webhelp/resources/js/jquery.cookie.js"><!----></script><script type="text/javascript" src="../../oxygen-webhelp/resources/js/jquery-ui.custom.min.js"><!----></script><script type="text/javascript" charset="utf-8" src="../../oxygen-webhelp/resources/js/webhelp_topic.js"><!----></script><script type="text/javascript" charset="utf-8" src="../../oxygen-webhelp/resources/localization/strings.js"><!----></script><script type="text/javascript" charset="utf-8" src="../../oxygen-webhelp/resources/js/init.js"><!----></script><script type="text/javascript" charset="utf-8" src="../../oxygen-webhelp/resources/js/comments-functions.js"><!----></script></head>
+<body onload="init('../../')" id="lens_dimension_fields">
+<table class="nav"><tbody><tr><td colspan="2"><div id="printlink"><a href="javascript:window.print();" title="printThisPage"/></div><div id="permalink"><a href="#" title="linkToThis"/></div></td></tr><tr><td width="75%"><a class="navheader_parent_path" href="../../lens/create/../../lens/create/choose_lens_fields.html" title="Choosing fields for a lens depends on the lens type you pick (Aggregate Lens or Event Series Lens), and the type of analysis you plan to do. Aggregate lenses need both measure fields (aggregated variable data) and dimension fields (categorical data). Event series lenses only need dimension fields - measures are optional and not always applicable to event series analysis.">Choose Lens Fields</a> / <a class="navheader_parent_path" href="../../lens/create/choose_agg_lens_fields.html" title="Every aggregate lens must have at least one measure field and one dimension field to be a valid lens. Choose only the fields you need to do your analysis. You can always come back and modify the lens later if you decide you need other fields. You can choose fields from the currently selected dataset, as well as from any datasets it references.">Choose Aggregate Lens Fields</a></td><td><div class="navheader">
+<span class="navparent"><a class="link" href="../../lens/create/choose_agg_lens_fields.html" title="Every aggregate lens must have at least one measure field and one dimension field to be a valid lens. Choose only the fields you need to do your analysis. You can always come back and modify the lens later if you decide you need other fields. You can choose fields from the currently selected dataset, as well as from any datasets it references."><span class="navheader_label">Parent topic</span><span class="navheader_separator">: </span><span class="navheader_linktext">Choose Aggregate Lens Fields</span></a></span>  </div></td></tr></tbody></table>
+
+    <h1 class="title topictitle1">Choose Dimension Fields (Aggregate Lens)</h1>
+
+    
+    <div class="body taskbody"><p class="shortdesc">Every aggregate lens needs at least one dimension field. Dimension fields are used to
+        group and filter measure data in an aggregate lens. You can add dimension fields from the
+        currently selected focus dataset or any of its referenced datasets. </p>
+
+        <div class="section context">
+            <div class="fig fignone"><img class="image" src="../../images/./lens_builder/agg_lens_choose_measures.png"/></div>
+
+            <div class="p">
+                <ol class="ol">
+                    <li class="li">Dimension fields are denoted by a cube icon.</li>
+
+                    <li class="li"><p class="p">Click <span class="ph uicontrol">Add All</span> or <span class="ph uicontrol">Remove All</span> to
+                        add or remove all of the dimension fields grouped under a particular dataset
+                        or reference.</p>
+ <p class="p"><span class="ph uicontrol">Add All</span> and <span class="ph uicontrol">Remove All</span> does not apply to nested
+                            references. You must select fields from each referenced dataset
+                            independently.</p>
+</li>
+
+                    <li class="li">Expand references to see the dimension fields available in referenced
+                        datasets.</li>
+
+                    <li class="li">You cannot select measure fields of a referenced dimension dataset, only
+                        dimension fields. Measure fields can only be selected from the focus
+                        dataset.</li>
+
+                    <li class="li">Click the plus icon <img class="image" src="../../images/./icons/icn_lens_plus_sign.png"/> to <strong class="ph b">add</strong> a dimension field to your lens.</li>
+
+                    <li class="li"><p class="p">Click a dimension field to see the details about it. The following information is available about
+                            a field, depending on it's field type and whether or not the dataset has
+                            been profiled. Data heuristic information is only applicable to
+                            aggregate lenses.</p>
+
+                        <div class="p">
+                            
+<div class="tablenoborder"><table cellpadding="4" cellspacing="0" summary="" class="table" frame="border" border="1" rules="all">
+                                    
+                                    
+                                    <tbody class="tbody">
+                                        <tr class="row">
+                                            <td class="entry" valign="top" width="34.48275862068966%"><strong class="ph b">Field Type</strong></td>
+
+                                            <td class="entry" valign="top" width="65.51724137931035%">Either <strong class="ph b">Base</strong> or <strong class="ph b">Computed</strong>. Base field
+                                                values come directly from the source data. Computed
+                                                field values have been transformed or processed in
+                                                some way.</td>
+
+                                        </tr>
+
+                                        <tr class="row">
+                                            <td class="entry" valign="top" width="34.48275862068966%"><strong class="ph b">Field Name</strong></td>
+
+                                            <td class="entry" valign="top" width="65.51724137931035%">The name of the field as defined in the
+                                                dataset.</td>
+
+                                        </tr>
+
+                                        <tr class="row">
+                                            <td class="entry" valign="top" width="34.48275862068966%"><strong class="ph b">Estimated Distinct Values</strong></td>
+
+                                            <td class="entry" valign="top" width="65.51724137931035%">If the dataset has been profiled, this is an
+                                                estimate of how many unique values the field has.
+                                                This information is only applicable to aggregate
+                                                lenses.</td>
+
+                                        </tr>
+
+                                        <tr class="row">
+                                            <td class="entry" valign="top" width="34.48275862068966%"><strong class="ph b">Data Distribution</strong></td>
+
+                                            <td class="entry" valign="top" width="65.51724137931035%">If the dataset has been profiled, this shows the
+                                                top 20 values for that field and an estimation of
+                                                how the top values are distributed across all the
+                                                rows of the dataset. This information is only
+                                                applicable to aggregate lenses.</td>
+
+                                        </tr>
+
+                                        <tr class="row">
+                                            <td class="entry" valign="top" width="34.48275862068966%"><strong class="ph b">Example Data</strong></td>
+
+                                            <td class="entry" valign="top" width="65.51724137931035%">Shows a sampling of the field values from 20
+                                                dataset rows. This is not available for certain
+                                                types of computed fields, such as measures, event
+                                                series computed fields, or computed fields that
+                                                reference other datasets.</td>
+
+                                        </tr>
+
+                                        <tr class="row">
+                                            <td class="entry" valign="top" width="34.48275862068966%"><strong class="ph b">Description</strong></td>
+
+                                            <td class="entry" valign="top" width="65.51724137931035%">The description of the field that has been added
+                                                to the Platfora dataset definition.</td>
+
+                                        </tr>
+
+                                        <tr class="row">
+                                            <td class="entry" valign="top" width="34.48275862068966%"><strong class="ph b">Expression</strong></td>
+
+                                            <td class="entry" valign="top" width="65.51724137931035%">If it is a computed field, the expression used to
+                                                derive the field values.</td>
+
+                                        </tr>
+
+                                        <tr class="row">
+                                            <td class="entry" valign="top" width="34.48275862068966%"><strong class="ph b">Data Type</strong></td>
+
+                                            <td class="entry" valign="top" width="65.51724137931035%">The data type: STRING, DATETIME, INTEGER, LONG,
+                                                FIXED, or DOUBLE.</td>
+
+                                        </tr>
+
+                                        <tr class="row">
+                                            <td class="entry" valign="top" width="34.48275862068966%"><strong class="ph b">Path</strong></td>
+
+                                            <td class="entry" valign="top" width="65.51724137931035%">If it is a field from a referenced dataset, shows
+                                                the dataset name, reference name, and field
+                                                name.</td>
+
+                                        </tr>
+
+                                        <tr class="row">
+                                            <td class="entry" valign="top" width="34.48275862068966%"><strong class="ph b">Default Value</strong></td>
+
+                                            <td class="entry" valign="top" width="65.51724137931035%">The default value that will be substituted for
+                                                NULL dimension values when the lens is built. If
+                                                n/a, then Platfora will use the defaults of January
+                                                1, 1970 for datetimes, NULL for strings, and 0 for
+                                                numeric data types.</td>
+
+                                        </tr>
+
+                                    </tbody>
+
+                                </table>
+</div>
+
+                        </div>
+
+                    
+                    </li>
+
+                </ol>
+
+            </div>
+
+        </div>
+
+        
+    </div>
+
+<div class="related-links"/>
+<div class="navfooter"><!---->
+<span class="navparent"><a class="link" href="../../lens/create/choose_agg_lens_fields.html" title="Every aggregate lens must have at least one measure field and one dimension field to be a valid lens. Choose only the fields you need to do your analysis. You can always come back and modify the lens later if you decide you need other fields. You can choose fields from the currently selected dataset, as well as from any datasets it references."><span class="navheader_label">Parent topic</span><span class="navheader_separator">: </span><span class="navheader_linktext">Choose Aggregate Lens Fields</span></a></span>  </div><div class="footer">WebHelp output generated by<a href="http://www.oxygenxml.com" target="_blank"><span class="oXygenLogo"><img src="../../oxygen-webhelp/resources/img/LogoOxygen100x22.png" alt="Oxygen"/></span><span class="xmlauthor">XML Author</span></a></div>
+<div id="productInfo" style="display:none;"><span id="oxy_productID">webhelp</span><span id="oxy_productVersion">3.0</span></div><div id="loginData" style="display: none"><span class="bt_close" title="Close"><!----></span><form action="" target="passwordIframe" method="post" name="form_login" onsubmit="return loggInUser();" id="loginFormData" autocomplete="on"><input type="hidden" id="reloadComments" value="yes"><!----></input><table class="login"><thead><tr><td colspan="2"><span id="l_login2"><script type="text/javascript">$('#l_login2').html(getLocalization('label.login'));</script></span></td></tr><tr><td colspan="2"><div id="loginResponse"><!----></div></td></tr></thead><tr><td><span id="l_userName"><script type="text/javascript">$('#l_userName').html(getLocalization('label.userName'));</script></span></td><td><input name="usernameW" type="text" id="myUserName" autocomplete="on" required="required" autofocus="autofocus"><!----></input></td></tr><tr><td><span id="l_pswd"><script type="text/javascript">$('#l_pswd').html(getLocalization('label.pswd'));</script></span></td><td><input name="passwordW" type="password" id="myPassword" autocomplete="on" required="required"><!----></input></td></tr><tr><td colspan="2" align="left"><span id="ll_remember"><script type="text/javascript" xml:space="preserve">
+								$('#ll_remember').html(getLocalization('label.rememberme'));
+							</script></span>     <input name="myLoginRemember" type="checkbox" class="ck" id="myRemember" value="no"><!----></input></td></tr><tr><td colspan="2" align="center"><input id="l_bt_submit_log" type="submit" value="Submit" name="loginFormButton"><!----></input><script type="text/javascript">$('#l_bt_submit_log').attr('value',getLocalization('label.login'));</script><span class="btnHGlue"><!----></span><input class="bt_cancel" id="l_cancelLog" type="button" value="Cancel" name="loginFormButton"><!----></input><script type="text/javascript">$('#l_cancelLog').attr('value',getLocalization('label.cancel'));</script></td></tr></table><div class="loginAlternative"><span id="link_lostPwd" onclick="showLostPwd()"><script type="text/javascript">$('#link_lostPwd').html(getLocalization('label.lostPswd'));</script></span><span id="link_signUp" onclick="showSignUp()"><script type="text/javascript">$('#link_signUp').html(getLocalization('label.signUp'));</script></span></div></form><iframe id="passwordIframe" name="passwordIframe" style="display:none"><!----></iframe></div><div id="cmts"><!----></div></body>
+</html>

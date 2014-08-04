@@ -1,0 +1,115 @@
+
+<!DOCTYPE html
+  PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xml:lang="en-us" lang="en-us">
+<head><meta xmlns="http://www.w3.org/1999/xhtml" name="description" content="Unjoined Foreign Keys or NULL Foreign Keys warnings only occur when building a lens from a dataset that references other datasets. This means that the foreign key column(s) of the fact dataset ..."/><meta http-equiv="Content-Type" content="text/html; charset=utf-8"/><meta name="copyright" content="(C) Copyright 2005"/><meta name="DC.rights.owner" content="(C) Copyright 2005"/><meta name="DC.Type" content="task"/><meta name="DC.Title" content="Unjoined and NULL Foreign Keys"/><meta name="abstract" content="Unjoined Foreign Keys or NULL Foreign Keys warnings only occur when building a lens from a dataset that references other datasets. This means that the foreign key column(s) of the fact dataset contains key values that cannot be found in the referenced dataset."/><meta xmlns="http://www.w3.org/1999/xhtml" name="description" content="Unjoined Foreign Keys or NULL Foreign Keys warnings only occur when building a lens from a dataset that references other datasets. This means that the foreign key column(s) of the fact dataset contains key values that cannot be found in the referenced dataset."/><meta name="DC.Relation" scheme="URI" content="../../system/lens_management/lens_warnings.html"/><meta name="DC.Format" content="XHTML"/><meta name="DC.Identifier" content="admin_lens_warning_unjoined_fk"/><link rel="stylesheet" type="text/css" href="../../oxygen-webhelp/resources/css/commonltr.css"><!----></link><title>Unjoined and NULL Foreign Keys</title><meta http-equiv="Content-Type" content="text/html; charset=utf-8"/><link rel="stylesheet" type="text/css" href="../../oxygen-webhelp/resources/css/commonltr.css"><!----></link><link rel="stylesheet" type="text/css" href="../../oxygen-webhelp/resources/css/webhelp_topic.css"><!----></link><link rel="stylesheet" type="text/css" href="../../oxygen-webhelp/resources/skins/skin.css"><!----></link><link rel="stylesheet" type="text/css" href="../../oxygen-webhelp/resources/css/jquery.realperson.css"><!----></link><link rel="stylesheet" type="text/css" href="../../oxygen-webhelp/resources/css/comments.css"><!----></link><link rel="stylesheet" type="text/css" href="../../oxygen-webhelp/resources/css/jquery.cleditor.css"><!----></link><link rel="stylesheet" type="text/css" href="../../oxygen-webhelp/resources/css/admin.css"><!----></link><script type="text/javascript"><!--
+          
+          var prefix = "../../index.html";
+          
+          --></script><script type="text/javascript" src="../../oxygen-webhelp/resources/js/jquery-1.8.2.min.js"><!----></script><script type="text/javascript" src="../../oxygen-webhelp/resources/js/jquery.cookie.js"><!----></script><script type="text/javascript" src="../../oxygen-webhelp/resources/js/jquery-ui.custom.min.js"><!----></script><script type="text/javascript" charset="utf-8" src="../../oxygen-webhelp/resources/js/webhelp_topic.js"><!----></script><script type="text/javascript" charset="utf-8" src="../../oxygen-webhelp/resources/localization/strings.js"><!----></script><script type="text/javascript" charset="utf-8" src="../../oxygen-webhelp/resources/js/init.js"><!----></script><script type="text/javascript" charset="utf-8" src="../../oxygen-webhelp/resources/js/comments-functions.js"><!----></script></head>
+<body onload="init('../../')" id="admin_lens_warning_unjoined_fk">
+<table class="nav"><tbody><tr><td colspan="2"><div id="printlink"><a href="javascript:window.print();" title="printThisPage"/></div><div id="permalink"><a href="#" title="linkToThis"/></div></td></tr><tr><td width="75%"><a class="navheader_parent_path" href="../../system/lens_management/../../system/lens_management/system_lens_top.html" title="The Activities &amp; Lenses tab of the System page is where you can manage all lenses in Platfora and monitor the status of lens builds. System administrators can manage all lenses in the system. Other roles can only manage lenses they own.">Manage Lens Builds and Lenses</a> / <a class="navheader_parent_path" href="../../system/lens_management/lens_warnings.html" title="This section describes the types of lens data quality warnings that Platfora reports and how to handle them.">Investigate Lens Data Quality Warnings</a></td><td><div class="navheader">
+<span class="navparent"><a class="link" href="../../system/lens_management/lens_warnings.html" title="This section describes the types of lens data quality warnings that Platfora reports and how to handle them."><span class="navheader_label">Parent topic</span><span class="navheader_separator">: </span><span class="navheader_linktext">Investigate Lens Data Quality Warnings</span></a></span>  </div></td></tr></tbody></table>
+
+    <h1 class="title topictitle1">Unjoined and NULL Foreign Keys</h1>
+
+    
+    
+    <div class="body taskbody"><div class="abstract">
+        
+        <div class="shortdesc"><em class="ph i">Unjoined Foreign Keys</em> or <em class="ph i">NULL Foreign Keys</em> warnings only occur when
+            building a lens from a dataset that references other datasets. This means that the
+            foreign key column(s) of the fact dataset contains key values that cannot be found in
+            the referenced dataset. </div>
+
+        <p class="p">These unjoined fact rows will remain in the lens, however the missing dimension field
+            values are substituted with default values during lens processing. For some datasets,
+            unjoined or null foreign keys may be normal and expected.</p>
+
+    </div>
+
+        
+        <div class="section"><h2 class="title sectiontitle">Investigate Unjoined and NULL Foreign Keys</h2>
+            
+            <p class="p">Platfora logs each row of the fact dataset that contains an unjoined foreign key.
+                NULL foreign key values are counted separately from unjoined foreign key values, and
+                are not logged in the data quality log file. To see the foreign key values that did
+                not join, open the lens data quality warning and click <strong class="ph b">View Details</strong>. </p>
+
+            <div class="p">
+                <ol class="ol">
+                    <li class="li"><p class="p">Enter a search string to filter the log lines that are shown. The search string is
+                            case-insensitive, but it does not recognize wildcard characters.</p>
+</li>
+
+                    <li class="li"><p class="p">The report viewer shows the first 100 lines of the lens data quality logs.</p>
+<p class="p">For the <span class="ph uicontrol">UNJOINED_FOREIGN_KEY</span> warning type, the
+                                <span class="ph uicontrol">Field</span> column contains the foreign key field
+                            name(s) and <span class="ph uicontrol">Value</span> contains the key values from
+                            the fact dataset that did not join to the referenced dataset. Since the
+                            log shows individual rows that did not join, it is very common to see
+                            field/value pairs listed more than once.</p>
+</li>
+
+                    <li class="li"><p class="p">The report shows the location of the lens data quality logs in the remote file system so you can
+                            investigate further offline if needed.</p>
+</li>
+
+                </ol>
+
+            </div>
+
+            <div class="fig fignone"><img class="image" src="../../images/./admin/lens_warning_fk.png"/>
+                 
+            </div>
+
+        </div>
+
+        
+        <div class="section"><h2 class="title sectiontitle">Configure Unjoined Foreign Key Report Limits</h2>
+            
+            <p class="p">By default, logging unjoined foreign key rows is turned on. You can disable logging
+                using the <a class="xref" href="../../reference/platfora_properties/platfora.builder.record.data.quality.errors.html" title="Enables or disables the logging of rows containing lens data quality errors.">platfora.builder.record.data.quality.errors</a> property.
+                Disabling this property will still report unjoined foreign key warnings, it will
+                just disable writing the problem rows to a log file. Note that only unjoined foreign
+                key rows are logged. NULL foreign key rows are not logged - just the total count is
+                reported. </p>
+
+            <p class="p">If logging is enabled, the <a class="xref" href="../../reference/platfora_properties/platfora.builder.error.rows.threshold.html" title="The maximum number of lens data quality error rows that will be recorded per map task. If this limit is exceeded, then just that map task will stop writing its data quality log file.">platfora.builder.error.rows.threshold</a> property sets a cap on the number of rows that are logged. The  <a class="xref" href="../../reference/platfora_properties/platfora.builder.abort.error.threshold.html" title="The maximum number of lens data quality error rows allowed per lens build. If this limit is exceeded for a lens build job, then the lens build will abort and fail.">platfora.builder.abort.error.threshold</a> property sets the maximum
+                problem rows that are acceptable before you decide to abort the lens build entirely. </p>
+
+            <p class="p">By default, only the foreign key field names and values that did not join are logged.
+                If you would also like to log the source data file that contains these rows, you can
+                enable the <a class="xref" href="../../reference/platfora_properties/platfora.builder.record.error.filepaths.html" title="Enables or disables the logging of file path information for each line in a data quality report file.">platfora.builder.record.error.filepaths</a> property. Note
+                that setting this property to true can significantly slow down lens builds. It
+                should only be enabled temporarily for troubleshooting purposes and not
+                indefinitely. </p>
+
+        </div>
+
+        
+        <div class="section"><h2 class="title sectiontitle">Maintain Lens Data Quality Report Files</h2><p class="p">Each version of a lens
+                build writes its lens quality log files to its own location in the remote
+                distributed file system (such as HDFS or S3). If a lens build is incremental, log
+                files are written for only the new data that is processed each time, not for the
+                rows that were detected and logged on previous lens builds. </p>
+Lens data quality
+            report files are written
+                        to:<p class="p"><samp class="ph codeph"><var class="keyword varname">&lt;platfora-directory-in-hdfs&gt;</var>/workspace/build-<var class="keyword varname">&lt;lens-name&gt;</var>-<var class="keyword varname">&lt;timestamp&gt;</var>-<var class="keyword varname">&lt;lens-version&gt;</var>/<var class="keyword varname">&lt;dataset-name&gt;</var>/quality</samp></p>
+<p class="p">Old
+                data quality log files from previous lens builds are automatically cleaned . These
+                files are only written in the remote DFS, they are not copied to the Platfora
+                servers. </p>
+<p class="p"> </p>
+</div>
+
+        
+    </div>
+
+<div class="related-links"/>
+<div class="navfooter"><!---->
+<span class="navparent"><a class="link" href="../../system/lens_management/lens_warnings.html" title="This section describes the types of lens data quality warnings that Platfora reports and how to handle them."><span class="navheader_label">Parent topic</span><span class="navheader_separator">: </span><span class="navheader_linktext">Investigate Lens Data Quality Warnings</span></a></span>  </div><div class="footer">WebHelp output generated by<a href="http://www.oxygenxml.com" target="_blank"><span class="oXygenLogo"><img src="../../oxygen-webhelp/resources/img/LogoOxygen100x22.png" alt="Oxygen"/></span><span class="xmlauthor">XML Author</span></a></div>
+<div id="productInfo" style="display:none;"><span id="oxy_productID">webhelp</span><span id="oxy_productVersion">3.0</span></div><div id="loginData" style="display: none"><span class="bt_close" title="Close"><!----></span><form action="" target="passwordIframe" method="post" name="form_login" onsubmit="return loggInUser();" id="loginFormData" autocomplete="on"><input type="hidden" id="reloadComments" value="yes"><!----></input><table class="login"><thead><tr><td colspan="2"><span id="l_login2"><script type="text/javascript">$('#l_login2').html(getLocalization('label.login'));</script></span></td></tr><tr><td colspan="2"><div id="loginResponse"><!----></div></td></tr></thead><tr><td><span id="l_userName"><script type="text/javascript">$('#l_userName').html(getLocalization('label.userName'));</script></span></td><td><input name="usernameW" type="text" id="myUserName" autocomplete="on" required="required" autofocus="autofocus"><!----></input></td></tr><tr><td><span id="l_pswd"><script type="text/javascript">$('#l_pswd').html(getLocalization('label.pswd'));</script></span></td><td><input name="passwordW" type="password" id="myPassword" autocomplete="on" required="required"><!----></input></td></tr><tr><td colspan="2" align="left"><span id="ll_remember"><script type="text/javascript" xml:space="preserve">
+								$('#ll_remember').html(getLocalization('label.rememberme'));
+							</script></span>     <input name="myLoginRemember" type="checkbox" class="ck" id="myRemember" value="no"><!----></input></td></tr><tr><td colspan="2" align="center"><input id="l_bt_submit_log" type="submit" value="Submit" name="loginFormButton"><!----></input><script type="text/javascript">$('#l_bt_submit_log').attr('value',getLocalization('label.login'));</script><span class="btnHGlue"><!----></span><input class="bt_cancel" id="l_cancelLog" type="button" value="Cancel" name="loginFormButton"><!----></input><script type="text/javascript">$('#l_cancelLog').attr('value',getLocalization('label.cancel'));</script></td></tr></table><div class="loginAlternative"><span id="link_lostPwd" onclick="showLostPwd()"><script type="text/javascript">$('#link_lostPwd').html(getLocalization('label.lostPswd'));</script></span><span id="link_signUp" onclick="showSignUp()"><script type="text/javascript">$('#link_signUp').html(getLocalization('label.signUp'));</script></span></div></form><iframe id="passwordIframe" name="passwordIframe" style="display:none"><!----></iframe></div><div id="cmts"><!----></div></body>
+</html>

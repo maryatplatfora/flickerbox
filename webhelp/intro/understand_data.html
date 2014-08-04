@@ -1,0 +1,416 @@
+
+<!DOCTYPE html
+  PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xml:lang="en-us" lang="en-us">
+<head><meta xmlns="http://www.w3.org/1999/xhtml" name="description" content="This section introduces the concept of data dimensions and measures. It is important to understand these concepts as they can impact lens build design and efficiency. At the dataset level and later at ..."/><meta http-equiv="Content-Type" content="text/html; charset=utf-8"/><meta name="copyright" content="(C) Copyright 2005"/><meta name="DC.rights.owner" content="(C) Copyright 2005"/><meta name="DC.Type" content="concept"/><meta name="DC.Title" content="Understand Dimensions and Measures"/><meta name="abstract" content="This section introduces the concept of data dimensions and measures. It is important to understand these concepts as they can impact lens build design and efficiency."/><meta xmlns="http://www.w3.org/1999/xhtml" name="description" content="This section introduces the concept of data dimensions and measures. It is important to understand these concepts as they can impact lens build design and efficiency."/><meta name="DC.Relation" scheme="URI" content="../intro/intro_to_platfora.html"/><meta name="DC.Format" content="XHTML"/><meta name="DC.Identifier" content="understand_data"/><link rel="stylesheet" type="text/css" href="../oxygen-webhelp/resources/css/commonltr.css"><!----></link><title>Understand Dimensions and Measures</title><meta http-equiv="Content-Type" content="text/html; charset=utf-8"/><link rel="stylesheet" type="text/css" href="../oxygen-webhelp/resources/css/commonltr.css"><!----></link><link rel="stylesheet" type="text/css" href="../oxygen-webhelp/resources/css/webhelp_topic.css"><!----></link><link rel="stylesheet" type="text/css" href="../oxygen-webhelp/resources/skins/skin.css"><!----></link><link rel="stylesheet" type="text/css" href="../oxygen-webhelp/resources/css/jquery.realperson.css"><!----></link><link rel="stylesheet" type="text/css" href="../oxygen-webhelp/resources/css/comments.css"><!----></link><link rel="stylesheet" type="text/css" href="../oxygen-webhelp/resources/css/jquery.cleditor.css"><!----></link><link rel="stylesheet" type="text/css" href="../oxygen-webhelp/resources/css/admin.css"><!----></link><script type="text/javascript"><!--
+          
+          var prefix = "../index.html";
+          
+          --></script><script type="text/javascript" src="../oxygen-webhelp/resources/js/jquery-1.8.2.min.js"><!----></script><script type="text/javascript" src="../oxygen-webhelp/resources/js/jquery.cookie.js"><!----></script><script type="text/javascript" src="../oxygen-webhelp/resources/js/jquery-ui.custom.min.js"><!----></script><script type="text/javascript" charset="utf-8" src="../oxygen-webhelp/resources/js/webhelp_topic.js"><!----></script><script type="text/javascript" charset="utf-8" src="../oxygen-webhelp/resources/localization/strings.js"><!----></script><script type="text/javascript" charset="utf-8" src="../oxygen-webhelp/resources/js/init.js"><!----></script><script type="text/javascript" charset="utf-8" src="../oxygen-webhelp/resources/js/comments-functions.js"><!----></script></head>
+<body onload="init('../')" id="understand_data">
+<table class="nav"><tbody><tr><td colspan="2"><div id="printlink"><a href="javascript:window.print();" title="printThisPage"/></div><div id="permalink"><a href="#" title="linkToThis"/></div></td></tr><tr><td width="75%"><a class="navheader_parent_path" href="../intro/intro_to_platfora.html" title="This section introduces you to the Platfora software. You'll learn why Platfora is useful. You'll also get a quick introduction to the architecture, the key components, and the data pipeline.">Get an Introduction to Platfora</a></td><td><div class="navheader">
+<span class="navparent"><a class="link" href="../intro/intro_to_platfora.html" title="This section introduces you to the Platfora software. You'll learn why Platfora is useful. You'll also get a quick introduction to the architecture, the key components, and the data pipeline."><span class="navheader_label">Parent topic</span><span class="navheader_separator">: </span><span class="navheader_linktext">Get an Introduction to Platfora</span></a></span>  </div></td></tr></tbody></table>
+
+ <h1 class="title topictitle1">Understand Dimensions and Measures</h1>
+
+ 
+ <div class="body conbody"><div class="abstract"><span class="shortdesc">This section introduces the concept of data dimensions and measures. It is
+   important to understand these concepts as they can impact lens build design and
+   efficiency.</span>
+</div>
+
+  <div class="section"> At the dataset level and later at the lens build level, Platfora distinguishes between
+   dimension data and measure data. Either type of data can appear in a dataset or lens field. </div>
+
+  <div class="section"><h2 class="title sectiontitle">Data Dimensions </h2>
+   <p class="p">A dimension is data that answers who, what, where, and when questions. The following table
+    shows examples of each.</p>
+
+   
+<div class="tablenoborder"><table cellpadding="4" cellspacing="0" summary="" id="understand_data__dimension_table" class="table" frame="border" border="1" rules="all">
+     
+     
+     <thead class="thead" align="left">
+      <tr class="row">
+       <th class="entry" valign="top" width="33.33333333333333%" id="d65803e38"><p class="p">Dimension Type</p>
+</th>
+
+       <th class="entry" valign="top" width="66.66666666666666%" id="d65803e42"><p class="p">Example</p>
+</th>
+
+      </tr>
+
+     </thead>
+
+     <tbody class="tbody">
+      <tr class="row">
+       <td class="entry" valign="top" width="33.33333333333333%" headers="d65803e38 "><p class="p">Who</p>
+</td>
+
+       <td class="entry" valign="top" width="66.66666666666666%" headers="d65803e42 "><p class="p">customer name, gender, title, customer ID, social security number</p>
+</td>
+
+      </tr>
+
+      <tr class="row">
+       <td class="entry" valign="top" width="33.33333333333333%" headers="d65803e38 "><p class="p">What</p>
+</td>
+
+       <td class="entry" valign="top" width="66.66666666666666%" headers="d65803e42 "><p class="p">product type, call type, account type, product ID, revenue, orders,
+        sales</p>
+</td>
+
+      </tr>
+
+      <tr class="row">
+       <td class="entry" valign="top" width="33.33333333333333%" headers="d65803e38 "><p class="p">Where</p>
+</td>
+
+       <td class="entry" valign="top" width="66.66666666666666%" headers="d65803e42 "><p class="p">geo code, zip code, sales channel id, address, state, longitude,
+        latitude</p>
+</td>
+
+      </tr>
+
+      <tr class="row">
+       <td class="entry" valign="top" width="33.33333333333333%" headers="d65803e38 "><p class="p">When</p>
+</td>
+
+       <td class="entry" valign="top" width="66.66666666666666%" headers="d65803e42 "><p class="p">date, timestamp, month</p>
+</td>
+
+      </tr>
+
+     </tbody>
+
+    </table>
+</div>
+
+   <p class="p">Dimensions can be numeric, text, or time-based. You can categorize or group dimension data. If
+    you are familiar with SQL, dimensions are values you would GROUP BY.  For example, all the men
+    in the 94403 zip code or total sales by month. </p>
+
+  </div>
+
+  <div class="section"><h2 class="title sectiontitle"> Data Measures </h2>
+   
+   <p class="p">A measure is a numeric value representing an aggregation. Measures answer "how" questions
+    about data such as how many or how long?  If you are familiar with SQL, measure values
+    come from the aggregate functions such as SUM(), COUNT(), MAX(), MIN().  The following table
+    shows examples of measures:</p>
+
+   
+<div class="tablenoborder"><table cellpadding="4" cellspacing="0" summary="" id="understand_data__measure_table" class="table" frame="border" border="1" rules="all">
+     
+     
+     <thead class="thead" align="left">
+      <tr class="row">
+       <th class="entry" valign="top" width="33.33333333333333%" id="d65803e121">
+        <p class="p">Measure Type</p>
+
+       </th>
+
+       <th class="entry" valign="top" width="66.66666666666666%" id="d65803e127">
+        <p class="p">Example</p>
+
+       </th>
+
+      </tr>
+
+     </thead>
+
+     <tbody class="tbody">
+      <tr class="row">
+       <td class="entry" valign="top" width="33.33333333333333%" headers="d65803e121 ">
+        <p class="p">How much or how many</p>
+
+       </td>
+
+       <td class="entry" valign="top" width="66.66666666666666%" headers="d65803e127 ">
+        <p class="p">sum of all revenue by geo, sum of all sales, count distinct numaximum unit price, minimum
+         number of feedback</p>
+
+       </td>
+
+      </tr>
+
+      <tr class="row">
+       <td class="entry" valign="top" width="33.33333333333333%" headers="d65803e121 ">
+        <p class="p">How long </p>
+
+       </td>
+
+       <td class="entry" valign="top" width="66.66666666666666%" headers="d65803e127 ">
+        <p class="p">total minutes on a call, number of days between sales</p>
+
+       </td>
+
+      </tr>
+
+      <tr class="row">
+       <td class="entry" valign="top" width="33.33333333333333%" headers="d65803e121 ">To what degree</td>
+
+       <td class="entry" valign="top" width="66.66666666666666%" headers="d65803e127 ">maximum number of users, minimum page hits</td>
+
+      </tr>
+
+     </tbody>
+
+    </table>
+</div>
+
+   <p class="p">Unlike dimensions, measures are always numeric. For example, the following table displays
+    different types of dimensions:</p>
+
+   
+   
+<div class="tablenoborder"><table cellpadding="4" cellspacing="0" summary="" id="understand_data__measure_ex_table" class="table" frame="border" border="1" rules="all">
+    
+    
+    
+    
+    
+    
+    
+    
+    <thead class="thead" align="left">
+     <tr class="row">
+      <th class="entry" valign="top" width="12.5%" id="d65803e211">
+       <p class="p">Date</p>
+
+      </th>
+
+      <th class="entry" valign="top" width="12.5%" id="d65803e217">
+       <p class="p">Trans_id</p>
+
+      </th>
+
+      <th class="entry" valign="top" width="12.5%" id="d65803e223">
+       <p class="p">Prod_id</p>
+
+      </th>
+
+      <th class="entry" valign="top" width="12.5%" id="d65803e229">
+       <p class="p">Quantity</p>
+
+      </th>
+
+      <th class="entry" valign="top" width="12.5%" id="d65803e235">
+       <p class="p">Unit Cost</p>
+
+      </th>
+
+      <th class="entry" valign="top" width="12.5%" id="d65803e242">Sale</th>
+
+      <th class="entry" valign="top" width="12.5%" id="d65803e245">
+       <p class="p">Product</p>
+
+      </th>
+
+      <th class="entry" valign="top" width="12.5%" id="d65803e251">
+       <p class="p">Customer</p>
+
+      </th>
+
+     </tr>
+
+    </thead>
+
+    <tbody class="tbody">
+     <tr class="row">
+      <td class="entry" valign="top" width="12.5%" headers="d65803e211 ">
+       <p class="p">1/19/13</p>
+
+      </td>
+
+      <td class="entry" valign="top" width="12.5%" headers="d65803e217 ">
+       <p class="p">12345</p>
+
+      </td>
+
+      <td class="entry" valign="top" width="12.5%" headers="d65803e223 ">
+       <p class="p">9896</p>
+
+      </td>
+
+      <td class="entry" valign="top" width="12.5%" headers="d65803e229 ">
+       <p class="p">1</p>
+
+      </td>
+
+      <td class="entry" valign="top" width="12.5%" headers="d65803e235 ">
+       <p class="p">99.99</p>
+
+      </td>
+
+      <td class="entry" valign="top" width="12.5%" headers="d65803e242 ">
+       <p class="p">99.99</p>
+
+      </td>
+
+      <td class="entry" valign="top" width="12.5%" headers="d65803e245 ">
+       <p class="p">Pants</p>
+
+      </td>
+
+      <td class="entry" valign="top" width="12.5%" headers="d65803e251 ">
+       <p class="p">jabrams</p>
+
+      </td>
+
+     </tr>
+
+     <tr class="row">
+      <td class="entry" valign="top" width="12.5%" headers="d65803e211 ">
+       <p class="p">1/29/13</p>
+
+      </td>
+
+      <td class="entry" valign="top" width="12.5%" headers="d65803e217 ">
+       <p class="p">12346</p>
+
+      </td>
+
+      <td class="entry" valign="top" width="12.5%" headers="d65803e223 ">
+       <p class="p">3164</p>
+
+      </td>
+
+      <td class="entry" valign="top" width="12.5%" headers="d65803e229 ">
+       <p class="p">4</p>
+
+      </td>
+
+      <td class="entry" valign="top" width="12.5%" headers="d65803e235 ">
+       <p class="p">139.99</p>
+
+      </td>
+
+      <td class="entry" valign="top" width="12.5%" headers="d65803e242 ">
+       <p class="p">559.96</p>
+
+      </td>
+
+      <td class="entry" valign="top" width="12.5%" headers="d65803e245 ">
+       <p class="p">Shoes</p>
+
+      </td>
+
+      <td class="entry" valign="top" width="12.5%" headers="d65803e251 ">
+       <p class="p">phyams</p>
+
+      </td>
+
+     </tr>
+
+     <tr class="row">
+      <td class="entry" valign="top" width="12.5%" headers="d65803e211 ">
+       <p class="p">2/25/13</p>
+
+      </td>
+
+      <td class="entry" valign="top" width="12.5%" headers="d65803e217 ">
+       <p class="p">12347</p>
+
+      </td>
+
+      <td class="entry" valign="top" width="12.5%" headers="d65803e223 ">
+       <p class="p">3551</p>
+
+      </td>
+
+      <td class="entry" valign="top" width="12.5%" headers="d65803e229 ">
+       <p class="p">2</p>
+
+      </td>
+
+      <td class="entry" valign="top" width="12.5%" headers="d65803e235 ">
+       <p class="p">46.99</p>
+
+      </td>
+
+      <td class="entry" valign="top" width="12.5%" headers="d65803e242 ">
+       <p class="p">93.98</p>
+
+      </td>
+
+      <td class="entry" valign="top" width="12.5%" headers="d65803e245 ">
+       <p class="p">Shirts</p>
+
+      </td>
+
+      <td class="entry" valign="top" width="12.5%" headers="d65803e251 ">
+       <p class="p">dlean</p>
+
+      </td>
+
+     </tr>
+
+     <tr class="row">
+      <td class="entry" valign="top" width="12.5%" headers="d65803e211 ">
+       <p class="p">2/25/13</p>
+
+      </td>
+
+      <td class="entry" valign="top" width="12.5%" headers="d65803e217 ">
+       <p class="p">12348</p>
+
+      </td>
+
+      <td class="entry" valign="top" width="12.5%" headers="d65803e223 ">
+       <p class="p">3551</p>
+
+      </td>
+
+      <td class="entry" valign="top" width="12.5%" headers="d65803e229 ">
+       <p class="p">1</p>
+
+      </td>
+
+      <td class="entry" valign="top" width="12.5%" headers="d65803e235 ">
+       <p class="p">30.99</p>
+
+      </td>
+
+      <td class="entry" valign="top" width="12.5%" headers="d65803e242 ">
+       <p class="p">30.99</p>
+
+      </td>
+
+      <td class="entry" valign="top" width="12.5%" headers="d65803e245 ">
+       <p class="p">Shirts</p>
+
+      </td>
+
+      <td class="entry" valign="top" width="12.5%" headers="d65803e251 ">
+       <p class="p">dlean</p>
+
+      </td>
+
+     </tr>
+
+    </tbody>
+
+   </table>
+</div>
+
+   <p class="p">You can apply a measure to any field. For example, you might sum the sale column to get the
+    total sales (784.92). You also might count the distinct  products in the Product column (3).
+    Even though one <strong class="ph b">Sale</strong> is an numeric and the <strong class="ph b">Product</strong> is text, the resulting measure
+    in both cases is a numeric. </p>
+
+   <p class="p">Not all dimensions lend themselves to all measures. For example, you could sum the
+     <strong class="ph b">Prod_id</strong> column but it wouldn't make much sense to total the product ids. It <em class="ph i">would</em>
+    make sense to maybe count how many distinct products you have.</p>
+
+  </div>
+
+ </div>
+
+<div class="related-links"/>
+<div class="navfooter"><!---->
+<span class="navparent"><a class="link" href="../intro/intro_to_platfora.html" title="This section introduces you to the Platfora software. You'll learn why Platfora is useful. You'll also get a quick introduction to the architecture, the key components, and the data pipeline."><span class="navheader_label">Parent topic</span><span class="navheader_separator">: </span><span class="navheader_linktext">Get an Introduction to Platfora</span></a></span>  </div><div class="footer">WebHelp output generated by<a href="http://www.oxygenxml.com" target="_blank"><span class="oXygenLogo"><img src="../oxygen-webhelp/resources/img/LogoOxygen100x22.png" alt="Oxygen"/></span><span class="xmlauthor">XML Author</span></a></div>
+<div id="productInfo" style="display:none;"><span id="oxy_productID">webhelp</span><span id="oxy_productVersion">3.0</span></div><div id="loginData" style="display: none"><span class="bt_close" title="Close"><!----></span><form action="" target="passwordIframe" method="post" name="form_login" onsubmit="return loggInUser();" id="loginFormData" autocomplete="on"><input type="hidden" id="reloadComments" value="yes"><!----></input><table class="login"><thead><tr><td colspan="2"><span id="l_login2"><script type="text/javascript">$('#l_login2').html(getLocalization('label.login'));</script></span></td></tr><tr><td colspan="2"><div id="loginResponse"><!----></div></td></tr></thead><tr><td><span id="l_userName"><script type="text/javascript">$('#l_userName').html(getLocalization('label.userName'));</script></span></td><td><input name="usernameW" type="text" id="myUserName" autocomplete="on" required="required" autofocus="autofocus"><!----></input></td></tr><tr><td><span id="l_pswd"><script type="text/javascript">$('#l_pswd').html(getLocalization('label.pswd'));</script></span></td><td><input name="passwordW" type="password" id="myPassword" autocomplete="on" required="required"><!----></input></td></tr><tr><td colspan="2" align="left"><span id="ll_remember"><script type="text/javascript" xml:space="preserve">
+								$('#ll_remember').html(getLocalization('label.rememberme'));
+							</script></span>     <input name="myLoginRemember" type="checkbox" class="ck" id="myRemember" value="no"><!----></input></td></tr><tr><td colspan="2" align="center"><input id="l_bt_submit_log" type="submit" value="Submit" name="loginFormButton"><!----></input><script type="text/javascript">$('#l_bt_submit_log').attr('value',getLocalization('label.login'));</script><span class="btnHGlue"><!----></span><input class="bt_cancel" id="l_cancelLog" type="button" value="Cancel" name="loginFormButton"><!----></input><script type="text/javascript">$('#l_cancelLog').attr('value',getLocalization('label.cancel'));</script></td></tr></table><div class="loginAlternative"><span id="link_lostPwd" onclick="showLostPwd()"><script type="text/javascript">$('#link_lostPwd').html(getLocalization('label.lostPswd'));</script></span><span id="link_signUp" onclick="showSignUp()"><script type="text/javascript">$('#link_signUp').html(getLocalization('label.signUp'));</script></span></div></form><iframe id="passwordIframe" name="passwordIframe" style="display:none"><!----></iframe></div><div id="cmts"><!----></div></body>
+</html>

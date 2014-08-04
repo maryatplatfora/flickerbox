@@ -1,0 +1,360 @@
+
+<!DOCTYPE html
+  PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xml:lang="en-us" lang="en-us">
+<head><meta xmlns="http://www.w3.org/1999/xhtml" name="description" content="Each REST API request and response uses the exact same payload which contains metadata about the resource objects it contains. Inside each payload is the operation of the request, such as the data for ..."/><meta http-equiv="Content-Type" content="text/html; charset=utf-8"/><meta name="copyright" content="(C) Copyright 2005"/><meta name="DC.rights.owner" content="(C) Copyright 2005"/><meta name="DC.Type" content="reference"/><meta name="DC.Title" content="Common Call Metadata"/><meta name="abstract" content="Each REST API request and response uses the exact same payload which contains metadata about the resource objects it contains. Inside each payload is the operation of the request, such as the data for creating a data source in the POST to the datasources resource, or the response from Platfora, such as the list of datasets from a GET to the datasets resource. Since all API requests and responses use the same structure, clients can reuse logic when creating requests and processing responses."/><meta xmlns="http://www.w3.org/1999/xhtml" name="description" content="Each REST API request and response uses the exact same payload which contains metadata about the resource objects it contains. Inside each payload is the operation of the request, such as the data for creating a data source in the POST to the datasources resource, or the response from Platfora, such as the list of datasets from a GET to the datasets resource. Since all API requests and responses use the same structure, clients can reuse logic when creating requests and processing responses."/><meta name="DC.Relation" scheme="URI" content="../api/api_reference_top.html"/><meta name="DC.Format" content="XHTML"/><meta name="DC.Identifier" content="ref_api_payload_metadata"/><link rel="stylesheet" type="text/css" href="../oxygen-webhelp/resources/css/commonltr.css"><!----></link><title>Common Call Metadata</title><meta http-equiv="Content-Type" content="text/html; charset=utf-8"/><link rel="stylesheet" type="text/css" href="../oxygen-webhelp/resources/css/commonltr.css"><!----></link><link rel="stylesheet" type="text/css" href="../oxygen-webhelp/resources/css/webhelp_topic.css"><!----></link><link rel="stylesheet" type="text/css" href="../oxygen-webhelp/resources/skins/skin.css"><!----></link><link rel="stylesheet" type="text/css" href="../oxygen-webhelp/resources/css/jquery.realperson.css"><!----></link><link rel="stylesheet" type="text/css" href="../oxygen-webhelp/resources/css/comments.css"><!----></link><link rel="stylesheet" type="text/css" href="../oxygen-webhelp/resources/css/jquery.cleditor.css"><!----></link><link rel="stylesheet" type="text/css" href="../oxygen-webhelp/resources/css/admin.css"><!----></link><script type="text/javascript"><!--
+          
+          var prefix = "../index.html";
+          
+          --></script><script type="text/javascript" src="../oxygen-webhelp/resources/js/jquery-1.8.2.min.js"><!----></script><script type="text/javascript" src="../oxygen-webhelp/resources/js/jquery.cookie.js"><!----></script><script type="text/javascript" src="../oxygen-webhelp/resources/js/jquery-ui.custom.min.js"><!----></script><script type="text/javascript" charset="utf-8" src="../oxygen-webhelp/resources/js/webhelp_topic.js"><!----></script><script type="text/javascript" charset="utf-8" src="../oxygen-webhelp/resources/localization/strings.js"><!----></script><script type="text/javascript" charset="utf-8" src="../oxygen-webhelp/resources/js/init.js"><!----></script><script type="text/javascript" charset="utf-8" src="../oxygen-webhelp/resources/js/comments-functions.js"><!----></script></head>
+<body onload="init('../')" id="ref_api_payload_metadata">
+<table class="nav"><tbody><tr><td colspan="2"><div id="printlink"><a href="javascript:window.print();" title="printThisPage"/></div><div id="permalink"><a href="#" title="linkToThis"/></div></td></tr><tr><td width="75%"><a class="navheader_parent_path" href="../api/api_reference_top.html" title="Platfora has a built-in Representational State Transfer (REST) API which consists of several calls that can be used to integrate with Platfora using HTTP. This is the web services layer upon which all integrations with Platfora are performed.">Using the Platfora REST API</a></td><td><div class="navheader">
+<span class="navparent"><a class="link" href="../api/api_reference_top.html" title="Platfora has a built-in Representational State Transfer (REST) API which consists of several calls that can be used to integrate with Platfora using HTTP. This is the web services layer upon which all integrations with Platfora are performed."><span class="navheader_label">Parent topic</span><span class="navheader_separator">: </span><span class="navheader_linktext">Using the Platfora REST API</span></a></span>  </div></td></tr></tbody></table>
+
+  <h1 class="title topictitle1">Common Call Metadata</h1>
+
+  
+
+
+  <div class="body refbody"><p class="shortdesc">Each REST API request and response uses the exact same payload which contains metadata
+    about the resource objects it contains. Inside each payload is the operation of the request,
+    such as the data for creating a data source in the POST to the <samp class="ph codeph">datasources</samp>
+    resource, or the response from Platfora, such as the list of datasets from a GET to the
+      <samp class="ph codeph">datasets</samp> resource. Since all API requests and responses use the same
+    structure, clients can reuse logic when creating requests and processing responses.</p>
+
+
+
+
+    <div class="section"><h2 class="title sectiontitle">About the REST API Payload</h2>
+      
+      <p class="p">Information forthcoming.
+        </p>
+
+
+
+    </div>
+
+
+
+    <div class="section"><h2 class="title sectiontitle">Sample Payload for a Request</h2>
+      
+      <p class="p">The text below is the payload to use when creating the body of a POST request.</p>
+
+      
+<pre class="pre codeblock">
+{
+    "data": {<em class="ph i">resource_objects_in_request</em>}
+}
+</pre>
+
+      
+    </div>
+
+    
+
+
+
+    <div class="section"><h2 class="title sectiontitle">Sample Payload for a Response</h2>
+      
+      <p class="p">The text below is the payload for the response from a GET <samp class="ph codeph">/api/v1/datasources/<em class="ph i">id</em></samp></p>
+
+
+      <pre class="pre codeblock">
+{
+    "_links": {
+        "self": {
+            "href": "http://myserver.com:8001/api/v1/lenses",
+            "rel": "self",
+            "title": "Lenses"
+        }
+    },
+    "_metadata": {
+        "apiVersion": "1.0",
+        "code": 20000,
+        "count": 1,
+        "developerMessage": "Successful call to get list of lenses.",
+        "error": false,
+        "maxRecords": 1,
+        "message": "Successful call to get list of lenses.",
+        "messageI18N": "Successful call to get list of lenses.",
+        "offset": 0,
+        "requestTime": "2013-07-03T17:24:26.606Z",
+        "responseTime": "2013-07-03T17:24:27.896Z",
+        "status": 200,
+        "valueMap": {}
+    },
+
+    "data": {<em class="ph i">resource_objects_from_server</em>
+    }
+}
+</pre>
+
+      
+    </div>
+
+    
+     <div class="section"><h2 class="title sectiontitle">"_links" Section Parameters</h2>
+      
+       <p class="p">REST API responses always include the <samp class="ph codeph">_links</samp> section. Requests should not
+        use this section.</p>
+
+       
+       <dl class="dl parml">  
+         
+           <dt class="dt pt dlterm">self</dt>
+
+           <dd class="dd pd">Required for responses. This is a container for a collection of parameters that
+            inform the API client </dd>
+
+           <dd class="dd pd">Example: <samp class="ph codeph">"self": {<em class="ph i">list_of_parameters</em>}</samp></dd>
+
+         
+         
+           <dt class="dt pt dlterm">href</dt>
+
+           <dd class="dd pd">Required for responses. The URL that was used in the request that caused this
+            response.</dd>
+
+           <dd class="dd pd">Example: <samp class="ph codeph">"href": "http://myserver.com:8001/api/v1/lenses",</samp></dd>
+
+         
+         
+           <dt class="dt pt dlterm">rel</dt>
+
+           <dd class="dd pd">Required for responses.
+            </dd>
+
+           <dd class="dd pd">Example: <samp class="ph codeph">"rel": "self",</samp></dd>
+
+         
+         
+           <dt class="dt pt dlterm">title</dt>
+
+           <dd class="dd pd">Required for responses.
+            </dd>
+
+           <dd class="dd pd">Example: <samp class="ph codeph">"title": "Lenses"</samp></dd>
+
+         
+         
+       </dl>
+
+    </div>
+
+
+
+    <div class="section"><h2 class="title sectiontitle">"_metadata" Section Parameters</h2>
+      
+      <p class="p">REST API requests must include an empty <samp class="ph codeph">_metadata</samp> section. All parameters
+        below are required for REST API responses. Requests should use the following text for the
+          <samp class="ph codeph">_metadata</samp> section:</p>
+
+      <pre class="pre codeblock">"_metadata": {
+},      </pre>
+
+      
+      
+      <dl class="dl parml">  
+        
+          <dt class="dt pt dlterm">apiVersion</dt>
+
+          <dd class="dd pd">Required for responses, omitted for requests. The version of the REST API used for the
+            request or response.</dd>
+
+          <dd class="dd pd">Example: <samp class="ph codeph">"apiVersion": "1.0",</samp></dd>
+ 
+        
+
+        
+          <dt class="dt pt dlterm">code</dt>
+
+          <dd class="dd pd">Required for responses, omitted for requests. A numeric code that helps Platfora
+            Customer Support troubleshoot errors. Primarily for Platfora use.</dd>
+
+          <dd class="dd pd">Example: <samp class="ph codeph">"code": "20100",</samp></dd>
+
+        
+        
+        
+          <dt class="dt pt dlterm">count</dt>
+
+          <dd class="dd pd">Required for responses, omitted for requests. The number of resource objects included in the
+            request or response.</dd>
+
+          <dd class="dd pd">Example: <samp class="ph codeph">"count": "2",</samp></dd>
+
+        
+
+        
+          <dt class="dt pt dlterm">developerMessage</dt>
+
+          <dd class="dd pd">Required for responses, omitted for requests. A string text message that helps
+            Platfora Customer Support troubleshoot errors. Primarily for Platfora use.</dd>
+
+          <dd class="dd pd">Example: <samp class="ph codeph">"developerMessage": "VizBoard 'My VizBoard' was created at
+              2013-04-16T17:23:10.254Z by http://server/api/v1/users/1432.",</samp></dd>
+
+        
+
+        
+          <dt class="dt pt dlterm">error</dt>
+
+          <dd class="dd pd">Required for responses, omitted for requests. Indicates whether or not the server
+            encountered an error processing the request.</dd>
+
+          <dd class="dd pd">Example when the server successfully processes the request: <samp class="ph codeph">"error":
+              "false",</samp></dd>
+
+          <dd class="dd pd">Example when the server returns an error: <samp class="ph codeph">"error": "true",</samp></dd>
+
+        
+        
+        
+          <dt class="dt pt dlterm">limit</dt>
+
+          <dd class="dd pd">Required for responses, omitted for requests. Indicates the number of resource objects
+            that were limited in the response. Useful when the request used the
+              <samp class="ph codeph">limit</samp> URL parameter to limit the number of returned objects.</dd>
+
+          <dd class="dd pd">Example: <samp class="ph codeph">"limit": "2",</samp></dd>
+
+        
+        
+        
+          <dt class="dt pt dlterm">maxRecords</dt>
+
+          <dd class="dd pd">Required for responses, omitted for requests. Indicates the maximum number of resource
+            objects allowed in the response. This value comes from the <samp class="ph codeph">maxRecords</samp>
+            URL parameter in the request. Note that the actual numbef of objects in the response may
+            be less. For exampe, there might be fewer objects than the maximum allowed, or the
+            server might impose a lower limit than the number indicated in the
+              <samp class="ph codeph">maxRecords</samp> URL parameter in the request to protect resources.</dd>
+
+          <dd class="dd pd">Example: <samp class="ph codeph">"maxRecords": "121",</samp></dd>
+
+        
+        
+        
+          <dt class="dt pt dlterm">message</dt>
+
+          <dd class="dd pd">Required for responses, omitted for requests. Message returned from the server in
+            English. This may include either informational or error text. </dd>
+
+          <dd class="dd pd">Example: <samp class="ph codeph">"message": "VizBoard \"My VizBoard\" created.",</samp></dd>
+
+        
+        
+        
+          <dt class="dt pt dlterm">messageI18N</dt>
+
+          <dd class="dd pd">Required for responses, omitted for requests. Message returned from the server in a
+            localized language (for future support). This may include either informational or error
+            text.</dd>
+
+          <dd class="dd pd">Example: <samp class="ph codeph">"messageI18N": "VizBoard \"${name}\" created.",</samp></dd>
+
+        
+        
+        
+          <dt class="dt pt dlterm">moreInfo</dt>
+
+          <dd class="dd pd">Required for responses, omitted for requests. A URL where you can find more
+            information about the code that was returned.</dd>
+
+          <dd class="dd pd">Example: <samp class="ph codeph">"moreInfo":
+            "http://www.platfora.com/apidocs/v1/codes/20100"</samp></dd>
+
+        
+        
+        
+          <dt class="dt pt dlterm">offset</dt>
+
+          <dd class="dd pd">Required for responses, omitted for requests. Indicates the number of resource objects
+            that were skipped before listing the objects in the response. Useful when the request
+            used the <samp class="ph codeph">offset</samp> URL parameter to skip some objects.</dd>
+
+          <dd class="dd pd">Example: <samp class="ph codeph">"offset": "0",</samp></dd>
+
+        
+        
+        
+          <dt class="dt pt dlterm">requestTime</dt>
+
+          <dd class="dd pd">Required for responses, omitted for requests. The time that the server saw the
+            request, in ISO 8601 format in Coordinated Universal Time (UTC). You can specify "now"
+            with: <samp class="ph codeph">datetime.utcnow().strftime("%Y-%m-%dT%H:%M:%S.%fZ")</samp></dd>
+
+          <dd class="dd pd">Example: <samp class="ph codeph">"requestTime": "2013-04-16T14:34:32.198Z",</samp></dd>
+
+        
+        
+        
+          <dt class="dt pt dlterm">responseTime</dt>
+
+          <dd class="dd pd">Required for responses, omitted for requests. The time that the server sent the
+            response, in ISO 8601 format in Coordinated Universal Time (UTC). You can specify "now"
+            with: <samp class="ph codeph">datetime.utcnow().strftime("%Y-%m-%dT%H:%M:%S.%fZ")</samp></dd>
+
+          <dd class="dd pd">Example: <samp class="ph codeph">"responseTime": "2013-04-16T14:39:53.296Z",</samp></dd>
+
+        
+        
+        
+          <dt class="dt pt dlterm">status</dt>
+
+          <dd class="dd pd">Required for responses, omitted for requests. The HTTP response code, such as 201. The
+            status should match the HTTP status code in the response sent to the client.</dd>
+
+          <dd class="dd pd">Example when the server successfully processed the request and created a new resource:
+              <samp class="ph codeph">"status": "201",</samp></dd>
+
+        
+        
+        
+          <dt class="dt pt dlterm">valueMap</dt>
+
+          <dd class="dd pd">Required for responses, omitted for requests.
+            </dd>
+
+          <dd class="dd pd">Example: <samp class="ph codeph">"valueMap": { "name": "My VizBoard" },</samp></dd>
+
+        
+        
+        
+          <dt class="dt pt dlterm">next</dt>
+
+          <dd class="dd pd">Required for responses, omitted for requests. When the response returns a subset of
+            resource objects due to the <samp class="ph codeph">offset</samp> and <samp class="ph codeph">limit</samp>
+            parameters (a paginated result), the <samp class="ph codeph">next</samp> parameter is includes a URL
+            to make it easy for the client to get the next set (page) of results.</dd>
+
+          <dd class="dd pd">Example: <samp class="ph codeph">"next": "/api/v2/datasets?offset=2&amp;limit=2</samp></dd>
+
+        
+        
+        
+      </dl>
+
+    </div>
+
+    
+    <div class="section"><h2 class="title sectiontitle">"data" Section</h2>
+      
+      <p class="p">This section contains the resource object(s) in the request or response. For more
+        information on the structure of this section for each resource object type, see the REST API
+        documentation for each resource type, such as <samp class="ph codeph">datasets</samp>.
+        </p>
+
+    </div>
+
+   
+  </div>
+
+<div class="related-links"/>
+<div class="navfooter"><!---->
+<span class="navparent"><a class="link" href="../api/api_reference_top.html" title="Platfora has a built-in Representational State Transfer (REST) API which consists of several calls that can be used to integrate with Platfora using HTTP. This is the web services layer upon which all integrations with Platfora are performed."><span class="navheader_label">Parent topic</span><span class="navheader_separator">: </span><span class="navheader_linktext">Using the Platfora REST API</span></a></span>  </div><div class="footer">WebHelp output generated by<a href="http://www.oxygenxml.com" target="_blank"><span class="oXygenLogo"><img src="../oxygen-webhelp/resources/img/LogoOxygen100x22.png" alt="Oxygen"/></span><span class="xmlauthor">XML Author</span></a></div>
+<div id="productInfo" style="display:none;"><span id="oxy_productID">api_ref_guide</span><span id="oxy_productVersion">2.0</span></div><div id="loginData" style="display: none"><span class="bt_close" title="Close"><!----></span><form action="" target="passwordIframe" method="post" name="form_login" onsubmit="return loggInUser();" id="loginFormData" autocomplete="on"><input type="hidden" id="reloadComments" value="yes"><!----></input><table class="login"><thead><tr><td colspan="2"><span id="l_login2"><script type="text/javascript">$('#l_login2').html(getLocalization('label.login'));</script></span></td></tr><tr><td colspan="2"><div id="loginResponse"><!----></div></td></tr></thead><tr><td><span id="l_userName"><script type="text/javascript">$('#l_userName').html(getLocalization('label.userName'));</script></span></td><td><input name="usernameW" type="text" id="myUserName" autocomplete="on" required="required" autofocus="autofocus"><!----></input></td></tr><tr><td><span id="l_pswd"><script type="text/javascript">$('#l_pswd').html(getLocalization('label.pswd'));</script></span></td><td><input name="passwordW" type="password" id="myPassword" autocomplete="on" required="required"><!----></input></td></tr><tr><td colspan="2" align="left"><span id="ll_remember"><script type="text/javascript" xml:space="preserve">
+								$('#ll_remember').html(getLocalization('label.rememberme'));
+							</script></span>     <input name="myLoginRemember" type="checkbox" class="ck" id="myRemember" value="no"><!----></input></td></tr><tr><td colspan="2" align="center"><input id="l_bt_submit_log" type="submit" value="Submit" name="loginFormButton"><!----></input><script type="text/javascript">$('#l_bt_submit_log').attr('value',getLocalization('label.login'));</script><span class="btnHGlue"><!----></span><input class="bt_cancel" id="l_cancelLog" type="button" value="Cancel" name="loginFormButton"><!----></input><script type="text/javascript">$('#l_cancelLog').attr('value',getLocalization('label.cancel'));</script></td></tr></table><div class="loginAlternative"><span id="link_lostPwd" onclick="showLostPwd()"><script type="text/javascript">$('#link_lostPwd').html(getLocalization('label.lostPswd'));</script></span><span id="link_signUp" onclick="showSignUp()"><script type="text/javascript">$('#link_signUp').html(getLocalization('label.signUp'));</script></span></div></form><iframe id="passwordIframe" name="passwordIframe" style="display:none"><!----></iframe></div><div id="cmts"><!----></div></body>
+</html>

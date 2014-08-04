@@ -1,0 +1,564 @@
+
+<!DOCTYPE html
+  PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xml:lang="en-us" lang="en-us">
+<head><meta xmlns="http://www.w3.org/1999/xhtml" name="description" content="Platfora datasets define how to parse, cleanse, transform, and process Hadoop source data. The sample flights data comes with four predefined datasets : Flights , Monthly Carrier Activity , Airports , ..."/><meta http-equiv="Content-Type" content="text/html; charset=utf-8"/><meta name="copyright" content="(C) Copyright 2005"/><meta name="DC.rights.owner" content="(C) Copyright 2005"/><meta name="DC.Type" content="task"/><meta name="DC.Title" content="Add a Dataset"/><meta name="abstract" content="Platfora datasets define how to parse, cleanse, transform, and process Hadoop source data. The sample flights data comes with four predefined datasets: Flights, Monthly Carrier Activity, Airports, and Airline Carriers. You can examine these datasets to see different examples of computed fields, measures, and references. In this exercise, you will add an additional dataset for Planes."/><meta xmlns="http://www.w3.org/1999/xhtml" name="description" content="Platfora datasets define how to parse, cleanse, transform, and process Hadoop source data. The sample flights data comes with four predefined datasets: Flights, Monthly Carrier Activity, Airports, and Airline Carriers. You can examine these datasets to see different examples of computed fields, measures, and references. In this exercise, you will add an additional dataset for Planes."/><meta name="DC.Relation" scheme="URI" content="../tutorial/tutorial_top.html"/><meta name="DC.Format" content="XHTML"/><meta name="DC.Identifier" content="tutorial_datasets"/><link rel="stylesheet" type="text/css" href="../oxygen-webhelp/resources/css/commonltr.css"><!----></link><title>Add a Dataset</title><meta http-equiv="Content-Type" content="text/html; charset=utf-8"/><link rel="stylesheet" type="text/css" href="../oxygen-webhelp/resources/css/commonltr.css"><!----></link><link rel="stylesheet" type="text/css" href="../oxygen-webhelp/resources/css/webhelp_topic.css"><!----></link><link rel="stylesheet" type="text/css" href="../oxygen-webhelp/resources/skins/skin.css"><!----></link><link rel="stylesheet" type="text/css" href="../oxygen-webhelp/resources/css/jquery.realperson.css"><!----></link><link rel="stylesheet" type="text/css" href="../oxygen-webhelp/resources/css/comments.css"><!----></link><link rel="stylesheet" type="text/css" href="../oxygen-webhelp/resources/css/jquery.cleditor.css"><!----></link><link rel="stylesheet" type="text/css" href="../oxygen-webhelp/resources/css/admin.css"><!----></link><script type="text/javascript"><!--
+          
+          var prefix = "../index.html";
+          
+          --></script><script type="text/javascript" src="../oxygen-webhelp/resources/js/jquery-1.8.2.min.js"><!----></script><script type="text/javascript" src="../oxygen-webhelp/resources/js/jquery.cookie.js"><!----></script><script type="text/javascript" src="../oxygen-webhelp/resources/js/jquery-ui.custom.min.js"><!----></script><script type="text/javascript" charset="utf-8" src="../oxygen-webhelp/resources/js/webhelp_topic.js"><!----></script><script type="text/javascript" charset="utf-8" src="../oxygen-webhelp/resources/localization/strings.js"><!----></script><script type="text/javascript" charset="utf-8" src="../oxygen-webhelp/resources/js/init.js"><!----></script><script type="text/javascript" charset="utf-8" src="../oxygen-webhelp/resources/js/comments-functions.js"><!----></script></head>
+<body onload="init('../')" id="tutorial_datasets">
+<table class="nav"><tbody><tr><td colspan="2"><div id="printlink"><a href="javascript:window.print();" title="printThisPage"/></div><div id="permalink"><a href="#" title="linkToThis"/></div></td></tr><tr><td width="75%"><a class="navheader_parent_path" href="../tutorial/tutorial_top.html" title="The best way to learn a new product is by example. This tutorial walks you through the major features of Platfora using some sample data that comes with your Platfora server installation. After completing this tutorial, you should have a good understanding of how to create datasets, lenses, vizboards, and visualizations.">Getting Started Tutorial</a></td><td><div class="navheader">
+<span class="navparent"><a class="link" href="../tutorial/tutorial_top.html" title="The best way to learn a new product is by example. This tutorial walks you through the major features of Platfora using some sample data that comes with your Platfora server installation. After completing this tutorial, you should have a good understanding of how to create datasets, lenses, vizboards, and visualizations."><span class="navheader_label">Parent topic</span><span class="navheader_separator">: </span><span class="navheader_linktext">Getting Started Tutorial</span></a></span>  </div></td></tr></tbody></table>
+
+    <h1 class="title topictitle1">Add a Dataset</h1>
+
+    
+    <div class="body taskbody"><p class="shortdesc">Platfora datasets define how to parse, cleanse, transform, and process Hadoop source
+        data. The sample flights data comes with four predefined <a href="../glossary/gdef_dataset.html" title="&#xA;        A dataset is a collection of external data files residing in&#xA;                a data source that can be described in table&#xA;                form (rows and columns). Source data is mapped into Platfora by creating a dataset&#xA;                definition. &#xA;        A dataset definition describes the rows and columns, the base fields and their associated&#xA;            data types, computed fields, measure aggregations, and references (or joins) to other&#xA;            related datasets. The collection of dataset definitions make up the data catalog (the&#xA;            data items available to Platfora users).&#xA;        &#xA;            &#xA;        &#xA;        &#xA;        &#xA;    "><dfn class="term">datasets</dfn></a>: <em class="ph i">Flights</em>, <em class="ph i">Monthly Carrier Activity</em>, <em class="ph i">Airports</em>, and
+            <em class="ph i">Airline Carriers</em>. You can examine these datasets to see different examples of
+        computed fields, measures, and references. In this exercise, you will add an additional
+        dataset for <em class="ph i">Planes</em>. </p>
+
+        <div class="section context">
+            <p class="p">The dataset workspace is where you define or edit a dataset. A dataset is a metadata
+                description of where the source data is located in Hadoop, how it is structured, and
+                how it should be processed. The dataset workspace is divided into six steps. You do
+                not have to do the steps in order - you can move back and forth between steps as you
+                work on the dataset definition.</p>
+
+        </div>
+
+        <div class="section"><h2 class="title sectiontitle">Step 1: Select Data</h2>
+            
+            <p class="p">The first step in creating a dataset is selecting some source data that resides in
+                Hadoop. This is accomplished by choosing files from a data source. The tutorial data
+                is added to the default <span class="ph uicontrol">Uploads</span> data source. </p>
+
+            <div class="fig fignone"><img class="image" src="../images/./tutorial/tutorial_dataset_select_data.png"/>
+                
+            </div>
+
+            <div class="p">
+                <ol class="ol">
+                    <li class="li">Go to the <span class="ph uicontrol">Data Catalog</span>, and select the
+                            <span class="ph uicontrol">Datasets</span> tab.</li>
+
+                    <li class="li">Click <span class="ph uicontrol">Add Dataset</span>.</li>
+
+                    <li class="li">In the <span class="ph uicontrol">Source List</span>, select the
+                            <span class="ph uicontrol">Uploads</span> data source.</li>
+
+                    <li class="li">Select the <span class="ph filepath">planes.csv</span> file.</li>
+
+                    <li class="li">Click <span class="ph uicontrol">Continue</span>.</li>
+
+                </ol>
+
+            </div>
+
+        </div>
+
+        
+        <div class="section"><h2 class="title sectiontitle">Step 2: Parse Data</h2>
+            
+            <p class="p">The <span class="ph uicontrol">Parse Data</span> step of the dataset workspace is where you
+                describe your source data by parsing it into rows (records) and columns (fields).
+                For Platfora to be able to parse the source data, each record must have a similar
+                data structure. </p>
+
+            <p class="p">Platfora takes a sampling of the first 20 lines in the source file. The
+                    <span class="ph uicontrol">Wrangled</span> tab shows the data with the parsing logic
+                applied. The <span class="ph uicontrol">Raw</span> tab shows the raw lines as they are in the
+                source data.</p>
+
+            <p class="p">The tutorial data files are in comma-separated values (csv) file format, which uses
+                the <span class="ph uicontrol">Delimited</span> parser.</p>
+
+            <div class="fig fignone"><img class="image" src="../images/./tutorial/tutorial_dataset_parse.png"/>
+                
+            </div>
+
+            <div class="p">
+                <ol class="ol">
+                    <li class="li">Make sure the <span class="ph uicontrol">Delimited</span> parser is selected. The
+                            <span class="ph filepath">planes.csv</span> file uses the default row and column
+                        delimiters.</li>
+
+                    <li class="li">Select <span class="ph uicontrol">Raw file contains header</span>. This uses the first
+                        line for the column names rather than as a data record.</li>
+
+                    <li class="li">Click <span class="ph uicontrol">Continue</span>.</li>
+
+                </ol>
+
+            </div>
+
+        </div>
+
+        
+        <div class="section"><h2 class="title sectiontitle">Step 3: Manage Fields</h2>
+            
+            <p class="p">The <span class="ph uicontrol">Manage Fields</span> step is where you verify, cleanse, and
+                transform the raw data fields. The result is data that users can browse and select
+                in the Platfora data catalog. The <span class="ph uicontrol">Managed Fields</span> step is
+                where you do the majority of the dataset definition work.</p>
+
+            <p class="p">A dataset can contain base fields and computed fields. <span class="ph uicontrol">Base</span> fields come
+                directly from the source data. <span class="ph uicontrol">Computed</span> fields are fields
+                that you transformation or process.</p>
+
+            <p class="p">During the <span class="ph uicontrol">Parse Data</span> step, Platfora automatically
+                transformations date fields it recognizes. For example, the
+                    <span class="ph filepath">planes.csv</span> source contains an
+                    <span class="ph uicontrol">xx_date_acquired</span> column. The column contains simple
+                string dates such as <kbd class="ph userinput">10/25/10</kbd>. When you bring the source into
+                your dataset, Platfora automatically transforms this string field into DATETIME
+                format. The new DATETIME value references two Platfora built-in datasets TIME and
+                DATE (more about these later).  The original string date had no time, so Platfora
+                use midnight for the time on all the fields.</p>
+
+            <p class="p">Platfora also automatically adds a <em class="ph i">Total Records</em> field to your data. Total
+                Records is a computed field that uses an aggregation function to compute a measure.
+                The measure is the count of records in the dataset. You'll learn more about
+                functions later. </p>
+
+            
+            <div class="fig fignone"><img class="image" src="../images/./tutorial/tutorial_dataset_fields.png"/>
+                
+            </div>
+
+            
+            <div class="p">
+                <ol class="ol">
+                    <li class="li"><p class="p">Hide the base fields that are prefixed with <em class="ph i">xx_</em> (<em class="ph i">xx_carrier</em>,
+                            <em class="ph i">xx_lease_status</em>, <em class="ph i">xx_in_operation</em>,
+                        <em class="ph i">xx_acquired_date</em>). This data will be processed using computed fields
+                        or references.</p>
+</li>
+
+                    <li class="li">
+                        <p class="p">Enter descriptions for the existing fields:</p>
+
+                        <div class="p">
+                            
+<div class="tablenoborder"><table cellpadding="4" cellspacing="0" summary="" class="table" frame="border" border="1" rules="all">
+                                    
+                                    
+                                    <thead class="thead" align="left">
+                                        <tr class="row">
+                                            <th class="entry" valign="top" width="23.97868561278863%" id="d170112e251"><p class="p">Field Name</p>
+</th>
+
+                                            <th class="entry" valign="top" width="76.02131438721136%" id="d170112e255"><p class="p">Description</p>
+</th>
+
+                                        </tr>
+
+                                    </thead>
+
+                                    <tbody class="tbody">
+                                        <tr class="row">
+                                            <td class="entry" valign="top" width="23.97868561278863%" headers="d170112e251 "><p class="p">xx_carrier</p>
+</td>
+
+                                            <td class="entry" valign="top" width="76.02131438721136%" headers="d170112e255 "><p class="p">Hidden - the code of the carrier that operates
+                                                this plane</p>
+</td>
+
+                                        </tr>
+
+                                        <tr class="row">
+                                            <td class="entry" valign="top" width="23.97868561278863%" headers="d170112e251 "><p class="p">Model Year</p>
+</td>
+
+                                            <td class="entry" valign="top" width="76.02131438721136%" headers="d170112e255 "><p class="p">The model year of a plane</p>
+</td>
+
+                                        </tr>
+
+                                        <tr class="row">
+                                            <td class="entry" valign="top" width="23.97868561278863%" headers="d170112e251 "><p class="p">Tail Number</p>
+</td>
+
+                                            <td class="entry" valign="top" width="76.02131438721136%" headers="d170112e255 "><p class="p">The vehicle registration number of a
+                                                plane</p>
+</td>
+
+                                        </tr>
+
+                                        <tr class="row">
+                                            <td class="entry" valign="top" width="23.97868561278863%" headers="d170112e251 "><p class="p">xx_lease_status</p>
+</td>
+
+                                            <td class="entry" valign="top" width="76.02131438721136%" headers="d170112e255 "><p class="p">Hidden - denotes the asset reporting status of
+                                                the plane</p>
+</td>
+
+                                        </tr>
+
+                                        <tr class="row">
+                                            <td class="entry" valign="top" width="23.97868561278863%" headers="d170112e251 "><p class="p">xx_in_operation</p>
+</td>
+
+                                            <td class="entry" valign="top" width="76.02131438721136%" headers="d170112e255 "><p class="p">Hidden - denotes if the plane is operating or
+                                                not</p>
+</td>
+
+                                        </tr>
+
+                                        <tr class="row">
+                                            <td class="entry" valign="top" width="23.97868561278863%" headers="d170112e251 "><p class="p">Seats</p>
+</td>
+
+                                            <td class="entry" valign="top" width="76.02131438721136%" headers="d170112e255 "><p class="p">The number of commercial passenger seats
+                                                available</p>
+</td>
+
+                                        </tr>
+
+                                        <tr class="row">
+                                            <td class="entry" valign="top" width="23.97868561278863%" headers="d170112e251 "><p class="p">Manufacturer</p>
+</td>
+
+                                            <td class="entry" valign="top" width="76.02131438721136%" headers="d170112e255 "><p class="p">The manufacturer of the plane</p>
+</td>
+
+                                        </tr>
+
+                                        <tr class="row">
+                                            <td class="entry" valign="top" width="23.97868561278863%" headers="d170112e251 "><p class="p">Model</p>
+</td>
+
+                                            <td class="entry" valign="top" width="76.02131438721136%" headers="d170112e255 "><p class="p">The model of the plane</p>
+</td>
+
+                                        </tr>
+
+                                        <tr class="row">
+                                            <td class="entry" valign="top" width="23.97868561278863%" headers="d170112e251 "><p class="p">Weight Capacity</p>
+</td>
+
+                                            <td class="entry" valign="top" width="76.02131438721136%" headers="d170112e255 "><p class="p">The maximum weight in pounds that this plane can
+                                                carry</p>
+</td>
+
+                                        </tr>
+
+                                        <tr class="row">
+                                            <td class="entry" valign="top" width="23.97868561278863%" headers="d170112e251 "><p class="p">xx_date_acquired</p>
+</td>
+
+                                            <td class="entry" valign="top" width="76.02131438721136%" headers="d170112e255 "><p class="p">Hidden - the date the carrier acquired the
+                                                plane</p>
+</td>
+
+                                        </tr>
+
+                                        <tr class="row">
+                                            <td class="entry" valign="top" width="23.97868561278863%" headers="d170112e251 "><p class="p">Total Records</p>
+</td>
+
+                                            <td class="entry" valign="top" width="76.02131438721136%" headers="d170112e255 "><p class="p">The count of records in this dataset</p>
+</td>
+
+                                        </tr>
+
+                                    </tbody>
+
+                                </table>
+</div>
+
+                        </div>
+
+                    </li>
+
+                    <li class="li">
+                        <p class="p">Add quick measure aggregations on the following fields:</p>
+
+                        <div class="p">
+                            
+<div class="tablenoborder"><table cellpadding="4" cellspacing="0" summary="" class="table" frame="border" border="1" rules="all">
+                                    
+                                    
+                                    <thead class="thead" align="left">
+                                        <tr class="row">
+                                            <th class="entry" valign="top" width="23.923444976076556%" id="d170112e409">Field Name</th>
+
+                                            <th class="entry" valign="top" width="76.07655502392345%" id="d170112e412">Quick Measure Aggregations</th>
+
+                                        </tr>
+
+                                    </thead>
+
+                                    <tbody class="tbody">
+                                        <tr class="row">
+                                            <td class="entry" valign="top" width="23.923444976076556%" headers="d170112e409 ">
+                                                <p class="p">Seats</p>
+
+                                            </td>
+
+                                            <td class="entry" valign="top" width="76.07655502392345%" headers="d170112e412 ">
+                                                <p class="p">Sum</p>
+
+                                                <p class="p">Avg</p>
+
+                                            </td>
+
+                                        </tr>
+
+                                        <tr class="row">
+                                            <td class="entry" valign="top" width="23.923444976076556%" headers="d170112e409 ">
+                                                <p class="p">Weight Capacity</p>
+
+                                            </td>
+
+                                            <td class="entry" valign="top" width="76.07655502392345%" headers="d170112e412 ">
+                                                <p class="p">Sum</p>
+
+                                                <p class="p">Avg</p>
+
+                                                <p class="p">Min</p>
+
+                                                <p class="p">Max</p>
+
+                                            </td>
+
+                                        </tr>
+
+                                    </tbody>
+
+                                </table>
+</div>
+
+                        </div>
+
+                    </li>
+
+                    <li class="li">
+                        <p class="p">Click <span class="ph uicontrol">Add Field</span> to add a new computed field. </p>
+
+                        <p class="p">Create the following computed fields (you must
+                                <span class="ph uicontrol">Save</span> to add them to the dataset):</p>
+
+                        <div class="p">
+                            
+<div class="tablenoborder"><table cellpadding="4" cellspacing="0" summary="" class="table" frame="border" border="1" rules="all">
+                                    
+                                    
+                                    
+                                    <thead class="thead" align="left">
+                                        <tr class="row">
+                                            <th class="entry" valign="top" width="19.880715705765407%" id="d170112e496">
+                                                <p class="p">Computed Field Name</p>
+
+                                            </th>
+
+                                            <th class="entry" valign="top" width="20.079522862823065%" id="d170112e502">
+                                                <p class="p">Description</p>
+
+                                            </th>
+
+                                            <th class="entry" valign="top" width="60.03976143141154%" id="d170112e508">
+                                                <p class="p">Expression</p>
+
+                                            </th>
+
+                                        </tr>
+
+                                    </thead>
+
+                                    <tbody class="tbody">
+                                        <tr class="row">
+                                            <td class="entry" valign="top" width="19.880715705765407%" headers="d170112e496 ">
+                                                <p class="p">Lease Status</p>
+
+                                            </td>
+
+                                            <td class="entry" valign="top" width="20.079522862823065%" headers="d170112e502 ">
+                                                <p class="p">Denotes if a carrier owns or leases the plane. An
+                                                  operating lease is like renting. A capital lease
+                                                  is more like a loan.</p>
+
+                                            </td>
+
+                                            <td class="entry" valign="top" width="60.03976143141154%" headers="d170112e508 ">
+                                                <p class="p"><samp class="ph codeph">CASE WHEN xx_lease_status="a" THEN
+                                                  "Capital Lease" WHEN xx_lease_status="b" THEN
+                                                  "Operating Lease" WHEN xx_lease_status="O" THEN
+                                                  "Owned" ELSE "Other" END</samp></p>
+
+                                            </td>
+
+                                        </tr>
+
+                                        <tr class="row">
+                                            <td class="entry" valign="top" width="19.880715705765407%" headers="d170112e496 "><p class="p">In Operation?</p>
+</td>
+
+                                            <td class="entry" valign="top" width="20.079522862823065%" headers="d170112e502 "><p class="p">Denotes if a plane is in operation or not</p>
+</td>
+
+                                            <td class="entry" valign="top" width="60.03976143141154%" headers="d170112e508 "><p class="p"><samp class="ph codeph">CASE WHEN xx_in_operation="Y" THEN "Yes" ELSE "No" END</samp></p>
+</td>
+
+                                        </tr>
+
+                                    </tbody>
+
+                                </table>
+</div>
+
+                        </div>
+
+                    </li>
+
+                    <li class="li"><p class="p">Click <span class="ph uicontrol">Continue</span>.</p>
+</li>
+
+                </ol>
+
+            </div>
+
+            
+        </div>
+
+        
+        <div class="section"><h2 class="title sectiontitle">Step 4: Create References</h2>
+            
+            <p class="p">A reference allows two datasets to be joined together on fields that they share in
+                common. A reference creates a link in one dataset to the primary key of another
+                dataset.</p>
+
+            <p class="p">The built-in <em class="ph i">Date</em> and <em class="ph i">Time</em> dimension datasets have a hierarchy that
+                allows users to explore dates at different granularities. In some cases, these
+                references may not be relevant (for example, if there is no time component in your
+                data). You can hide or rename these auto-generated references, but you cannot delete
+                them.</p>
+
+            <div class="fig fignone"><img class="image" src="../images/./tutorial/tutorial_dataset_references.png"/>
+                
+            </div>
+
+            <div class="p">
+                <ol class="ol">
+                    <li class="li">Select the auto-generated reference to <em class="ph i">Date</em>. </li>
+
+                    <li class="li">Change the reference name to <em class="ph i">Acquired Date</em> and click
+                            <span class="ph uicontrol">Update</span>.</li>
+
+                    <li class="li">Click <span class="ph uicontrol">Add New</span> to define a new reference.</li>
+
+                    <li class="li">In the <span class="ph uicontrol">Define References</span> panel, select <em class="ph i">Airline
+                            Carriers</em> for the <span class="ph uicontrol">Focus Dataset</span>, select
+                            <em class="ph i">xx_carrier_code</em> for the <span class="ph uicontrol">Foreign Key</span>, and
+                        enter <em class="ph i">Carrier</em> as the reference name. </li>
+
+                    <li class="li">Click <span class="ph uicontrol">Add</span> to add it to the dataset.</li>
+
+                    <li class="li">Select <span class="ph uicontrol">Hidden</span> on the auto-generated reference to
+                            <em class="ph i">Time</em>. </li>
+
+                    <li class="li">Click <span class="ph uicontrol">Continue</span>.</li>
+
+                </ol>
+
+            </div>
+
+            
+        </div>
+
+        
+        <div class="section"><h2 class="title sectiontitle">Step 5: Define Key</h2>
+            
+            <p class="p">A key is single field (or combination of fields) that uniquely identifies a row in a
+                dataset, similar to a primary key in a relational database. A dataset must have a
+                key defined to be the target of a reference, the base dataset of a segment,
+                or the focus of an event series lens. Also, the key field(s) used to join two
+                datasets must be of the same data type.</p>
+
+            <div class="fig fignone"><img class="image" src="../images/./tutorial/tutorial_dataset_key.png"/>
+                
+            </div>
+
+            <div class="p">
+                <ol class="ol">
+                    <li class="li">Select <span class="ph uicontrol">Include in Key</span> for the <em class="ph i">xx_carrier</em> and
+                        the <em class="ph i">Tail Number</em> field (this dataset has a compound key). </li>
+
+                    <li class="li">Click <span class="ph uicontrol">Continue</span>.</li>
+
+                </ol>
+
+            </div>
+
+            
+        </div>
+
+        
+        <div class="section"><h2 class="title sectiontitle">Step 6: Finish and Save</h2>
+            
+            <p class="p">The last step in defining a dataset is making sure the name is what you want to
+                appear in the Platfora data catalog. You cannot change the dataset name after it has
+                been saved, so choose the name carefully! You may also want to add a description to
+                help users understand the data in the dataset. </p>
+
+            <div class="fig fignone"><img class="image" src="../images/./tutorial/tutorial_dataset_finish.png"/>
+                
+            </div>
+
+            <div class="p">
+                <ol class="ol">
+                    <li class="li">Change the dataset name to <em class="ph i">Planes</em>.</li>
+
+                    <li class="li">Enter a description for the dataset. </li>
+
+                    <li class="li">Click <span class="ph uicontrol">Finish</span>.</li>
+
+                </ol>
+
+            </div>
+
+            
+        </div>
+
+        
+        <div class="section"><h2 class="title sectiontitle">Step 7: Edit Dataset Permissions</h2>
+            
+            <p class="p">By default, a dataset is owned by the user that created it. To make the <em class="ph i">Planes</em>
+                dataset fully available to other users, we will assign ownership to the
+                    <span class="ph uicontrol">Everyone</span> group.</p>
+
+            <div class="fig fignone"><img class="image" src="../images/./tutorial/tutorial_planes_dataset_permissions.png"/>
+                
+            </div>
+
+            <div class="p">
+                <ol class="ol">
+                    <li class="li">Choose <span class="ph uicontrol">Permissions</span> from the <em class="ph i">Planes</em> dataset
+                        action menu.</li>
+
+                    <li class="li">Find the <span class="ph uicontrol">Everyone</span> group, click <span class="ph uicontrol">move
+                            to...</span>, and select <span class="ph uicontrol">Own</span>.</li>
+
+                    <li class="li">Click <span class="ph uicontrol">OK</span>.</li>
+
+                </ol>
+
+            </div>
+
+            
+        </div>
+
+        
+    
+        
+    </div>
+
+<div class="related-links"/>
+<div class="navfooter"><!---->
+<span class="navparent"><a class="link" href="../tutorial/tutorial_top.html" title="The best way to learn a new product is by example. This tutorial walks you through the major features of Platfora using some sample data that comes with your Platfora server installation. After completing this tutorial, you should have a good understanding of how to create datasets, lenses, vizboards, and visualizations."><span class="navheader_label">Parent topic</span><span class="navheader_separator">: </span><span class="navheader_linktext">Getting Started Tutorial</span></a></span>  </div><div class="footer">WebHelp output generated by<a href="http://www.oxygenxml.com" target="_blank"><span class="oXygenLogo"><img src="../oxygen-webhelp/resources/img/LogoOxygen100x22.png" alt="Oxygen"/></span><span class="xmlauthor">XML Author</span></a></div>
+<div id="productInfo" style="display:none;"><span id="oxy_productID">webhelp</span><span id="oxy_productVersion">3.0</span></div><div id="loginData" style="display: none"><span class="bt_close" title="Close"><!----></span><form action="" target="passwordIframe" method="post" name="form_login" onsubmit="return loggInUser();" id="loginFormData" autocomplete="on"><input type="hidden" id="reloadComments" value="yes"><!----></input><table class="login"><thead><tr><td colspan="2"><span id="l_login2"><script type="text/javascript">$('#l_login2').html(getLocalization('label.login'));</script></span></td></tr><tr><td colspan="2"><div id="loginResponse"><!----></div></td></tr></thead><tr><td><span id="l_userName"><script type="text/javascript">$('#l_userName').html(getLocalization('label.userName'));</script></span></td><td><input name="usernameW" type="text" id="myUserName" autocomplete="on" required="required" autofocus="autofocus"><!----></input></td></tr><tr><td><span id="l_pswd"><script type="text/javascript">$('#l_pswd').html(getLocalization('label.pswd'));</script></span></td><td><input name="passwordW" type="password" id="myPassword" autocomplete="on" required="required"><!----></input></td></tr><tr><td colspan="2" align="left"><span id="ll_remember"><script type="text/javascript" xml:space="preserve">
+								$('#ll_remember').html(getLocalization('label.rememberme'));
+							</script></span>     <input name="myLoginRemember" type="checkbox" class="ck" id="myRemember" value="no"><!----></input></td></tr><tr><td colspan="2" align="center"><input id="l_bt_submit_log" type="submit" value="Submit" name="loginFormButton"><!----></input><script type="text/javascript">$('#l_bt_submit_log').attr('value',getLocalization('label.login'));</script><span class="btnHGlue"><!----></span><input class="bt_cancel" id="l_cancelLog" type="button" value="Cancel" name="loginFormButton"><!----></input><script type="text/javascript">$('#l_cancelLog').attr('value',getLocalization('label.cancel'));</script></td></tr></table><div class="loginAlternative"><span id="link_lostPwd" onclick="showLostPwd()"><script type="text/javascript">$('#link_lostPwd').html(getLocalization('label.lostPswd'));</script></span><span id="link_signUp" onclick="showSignUp()"><script type="text/javascript">$('#link_signUp').html(getLocalization('label.signUp'));</script></span></div></form><iframe id="passwordIframe" name="passwordIframe" style="display:none"><!----></iframe></div><div id="cmts"><!----></div></body>
+</html>

@@ -1,0 +1,68 @@
+
+<!DOCTYPE html
+  PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xml:lang="en-us" lang="en-us">
+<head><meta xmlns="http://www.w3.org/1999/xhtml" name="description" content="You can add computed fields in a dataset or in the vizboard. While computed fields are largely the same in both interfaces, there are differences you need to be aware of. Raw Source versus ..."/><meta http-equiv="Content-Type" content="text/html; charset=utf-8"/><meta name="copyright" content="(C) Copyright 2005"/><meta name="DC.rights.owner" content="(C) Copyright 2005"/><meta name="DC.Type" content="concept"/><meta name="DC.Title" content="Differences between Dataset and Vizboard Computed Fields"/><meta name="abstract" content="You can add computed fields in a dataset or in the vizboard. While computed fields are largely the same in both interfaces, there are differences you need to be aware of."/><meta xmlns="http://www.w3.org/1999/xhtml" name="description" content="You can add computed fields in a dataset or in the vizboard. While computed fields are largely the same in both interfaces, there are differences you need to be aware of."/><meta name="DC.Relation" scheme="URI" content="../../dataset/manage_fields/use_computed_top.html"/><meta name="DC.Format" content="XHTML"/><meta name="DC.Identifier" content="vb_computed_fields_top"/><link rel="stylesheet" type="text/css" href="../../oxygen-webhelp/resources/css/commonltr.css"><!----></link><title>Differences between Dataset and Vizboard Computed Fields</title><meta http-equiv="Content-Type" content="text/html; charset=utf-8"/><link rel="stylesheet" type="text/css" href="../../oxygen-webhelp/resources/css/commonltr.css"><!----></link><link rel="stylesheet" type="text/css" href="../../oxygen-webhelp/resources/css/webhelp_topic.css"><!----></link><link rel="stylesheet" type="text/css" href="../../oxygen-webhelp/resources/skins/skin.css"><!----></link><link rel="stylesheet" type="text/css" href="../../oxygen-webhelp/resources/css/jquery.realperson.css"><!----></link><link rel="stylesheet" type="text/css" href="../../oxygen-webhelp/resources/css/comments.css"><!----></link><link rel="stylesheet" type="text/css" href="../../oxygen-webhelp/resources/css/jquery.cleditor.css"><!----></link><link rel="stylesheet" type="text/css" href="../../oxygen-webhelp/resources/css/admin.css"><!----></link><script type="text/javascript"><!--
+          
+          var prefix = "../../index.html";
+          
+          --></script><script type="text/javascript" src="../../oxygen-webhelp/resources/js/jquery-1.8.2.min.js"><!----></script><script type="text/javascript" src="../../oxygen-webhelp/resources/js/jquery.cookie.js"><!----></script><script type="text/javascript" src="../../oxygen-webhelp/resources/js/jquery-ui.custom.min.js"><!----></script><script type="text/javascript" charset="utf-8" src="../../oxygen-webhelp/resources/js/webhelp_topic.js"><!----></script><script type="text/javascript" charset="utf-8" src="../../oxygen-webhelp/resources/localization/strings.js"><!----></script><script type="text/javascript" charset="utf-8" src="../../oxygen-webhelp/resources/js/init.js"><!----></script><script type="text/javascript" charset="utf-8" src="../../oxygen-webhelp/resources/js/comments-functions.js"><!----></script></head>
+<body onload="init('../../')" id="vb_computed_fields_top">
+<table class="nav"><tbody><tr><td colspan="2"><div id="printlink"><a href="javascript:window.print();" title="printThisPage"/></div><div id="permalink"><a href="#" title="linkToThis"/></div></td></tr><tr><td width="75%"><a class="navheader_parent_path" href="../../dataset/manage_fields/../../dataset/use_expressions_top.html" title="Platfora includes an expression language to support advanced data analysis processing.">Work with Platfora's Expression Language</a> / <a class="navheader_parent_path" href="../../dataset/manage_fields/use_computed_top.html" title="You can add computed fields in a dataset or in the vizboard. This section discusses some differences between computed fields in datasets and vizboards, provides examples of computed fields, and discusses troubleshooting errors.">Use Computed Fields</a></td><td><div class="navheader">
+<span class="navparent"><a class="link" href="../../dataset/manage_fields/use_computed_top.html" title="You can add computed fields in a dataset or in the vizboard. This section discusses some differences between computed fields in datasets and vizboards, provides examples of computed fields, and discusses troubleshooting errors."><span class="navheader_label">Parent topic</span><span class="navheader_separator">: </span><span class="navheader_linktext">Use Computed Fields</span></a></span>  </div></td></tr></tbody></table>
+
+ <h1 class="title topictitle1">Differences between Dataset and Vizboard Computed Fields</h1>
+
+ 
+ <div class="body conbody"><p class="shortdesc">You can add computed fields in a dataset or in the vizboard. While computed fields are largely the same in both interfaces, there are differences you need to be aware of.</p>
+
+  <div class="section"><h2 class="title sectiontitle">Raw Source versus Pre-aggregated Lenses</h2>
+   
+   <p class="p">In a dataset, a computed field is built against the raw source data. When the build completes, the results is pre-aggregated data in a lens. Changing a computed field in a dataset, causes the lens to rebuild. </p>
+
+   <p class="p">Computed fields in Vizboards run on the lens data.  When you change a computed field in the Vizboard, the computed fields are immediately available for use in visualizations. There is no need to rebuild the lens.</p>
+
+  </div>
+
+  <div class="section"><h2 class="title sectiontitle">Limitations of Vizboard Computed Fields</h2>
+   
+  <p class="p">Because the vizboard can only query pre-aggregated lens data, vizboard computed fields have limitations that computed fields in datasets don't have.   These limitations are the following: </p>
+
+   <ul class="ul">
+    <li class="li">You can only define a new vizboard computed field that operates on fields that exist in the currently selected lens. A vizboard computed field can break if it operates on fields that are later removed from the lens or dataset. </li>
+
+    <li class="li">
+     <p class="p">A vizboard computed field is only available within the vizboard where it was defined. It is not available from the dataset or other lenses. </p>
+
+    </li>
+
+  
+    <li class="li">
+     <p class="p">You cannot use aggregate functions to add new measures from dimension data in the Vizboard. You can compute new measures from existing measures already in the lens. This means you can use <samp class="ph codeph">ROLLUP</samp> function but you cannot use <samp class="ph codeph">SUM</samp> or <samp class="ph codeph">AVG</samp>.</p>
+
+    </li>
+
+    <li class="li">
+     <p class="p">You cannot use custom user-defined functions (UDFs) in a vizboard computed field expressions.</p>
+
+    </li>
+
+    <li class="li">
+     <p class="p">You cannot edit or delete a vizboard computed field if a visualization relies on it. Instead, remove the field from the visualization, then edit or delete it.</p>
+
+    </li>
+
+   </ul>
+
+   
+  </div>
+
+ </div>
+
+<div class="related-links"/>
+<div class="navfooter"><!---->
+<span class="navparent"><a class="link" href="../../dataset/manage_fields/use_computed_top.html" title="You can add computed fields in a dataset or in the vizboard. This section discusses some differences between computed fields in datasets and vizboards, provides examples of computed fields, and discusses troubleshooting errors."><span class="navheader_label">Parent topic</span><span class="navheader_separator">: </span><span class="navheader_linktext">Use Computed Fields</span></a></span>  </div><div class="footer">WebHelp output generated by<a href="http://www.oxygenxml.com" target="_blank"><span class="oXygenLogo"><img src="../../oxygen-webhelp/resources/img/LogoOxygen100x22.png" alt="Oxygen"/></span><span class="xmlauthor">XML Author</span></a></div>
+<div id="productInfo" style="display:none;"><span id="oxy_productID">webhelp</span><span id="oxy_productVersion">3.0</span></div><div id="loginData" style="display: none"><span class="bt_close" title="Close"><!----></span><form action="" target="passwordIframe" method="post" name="form_login" onsubmit="return loggInUser();" id="loginFormData" autocomplete="on"><input type="hidden" id="reloadComments" value="yes"><!----></input><table class="login"><thead><tr><td colspan="2"><span id="l_login2"><script type="text/javascript">$('#l_login2').html(getLocalization('label.login'));</script></span></td></tr><tr><td colspan="2"><div id="loginResponse"><!----></div></td></tr></thead><tr><td><span id="l_userName"><script type="text/javascript">$('#l_userName').html(getLocalization('label.userName'));</script></span></td><td><input name="usernameW" type="text" id="myUserName" autocomplete="on" required="required" autofocus="autofocus"><!----></input></td></tr><tr><td><span id="l_pswd"><script type="text/javascript">$('#l_pswd').html(getLocalization('label.pswd'));</script></span></td><td><input name="passwordW" type="password" id="myPassword" autocomplete="on" required="required"><!----></input></td></tr><tr><td colspan="2" align="left"><span id="ll_remember"><script type="text/javascript" xml:space="preserve">
+								$('#ll_remember').html(getLocalization('label.rememberme'));
+							</script></span>     <input name="myLoginRemember" type="checkbox" class="ck" id="myRemember" value="no"><!----></input></td></tr><tr><td colspan="2" align="center"><input id="l_bt_submit_log" type="submit" value="Submit" name="loginFormButton"><!----></input><script type="text/javascript">$('#l_bt_submit_log').attr('value',getLocalization('label.login'));</script><span class="btnHGlue"><!----></span><input class="bt_cancel" id="l_cancelLog" type="button" value="Cancel" name="loginFormButton"><!----></input><script type="text/javascript">$('#l_cancelLog').attr('value',getLocalization('label.cancel'));</script></td></tr></table><div class="loginAlternative"><span id="link_lostPwd" onclick="showLostPwd()"><script type="text/javascript">$('#link_lostPwd').html(getLocalization('label.lostPswd'));</script></span><span id="link_signUp" onclick="showSignUp()"><script type="text/javascript">$('#link_signUp').html(getLocalization('label.signUp'));</script></span></div></form><iframe id="passwordIframe" name="passwordIframe" style="display:none"><!----></iframe></div><div id="cmts"><!----></div></body>
+</html>

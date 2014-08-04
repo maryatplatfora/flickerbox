@@ -1,0 +1,327 @@
+
+<!DOCTYPE html
+  PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xml:lang="en-us" lang="en-us">
+<head><meta xmlns="http://www.w3.org/1999/xhtml" name="description" content="An aggregate lens can be built from any dataset. There are no special data modeling requirements to build an aggregate lens. Aggregate lenses contain aggregated measure data grouped by the various ..."/><meta http-equiv="Content-Type" content="text/html; charset=utf-8"/><meta name="copyright" content="(C) Copyright 2005"/><meta name="DC.rights.owner" content="(C) Copyright 2005"/><meta name="DC.Type" content="concept"/><meta name="DC.Title" content="About Aggregate Lenses"/><meta name="abstract" content="An aggregate lens can be built from any dataset. There are no special data modeling requirements to build an aggregate lens. Aggregate lenses contain aggregated measure data grouped by the various dimension fields you select from the dataset. Choose this lens type when you want to do ad hoc data analysis."/><meta xmlns="http://www.w3.org/1999/xhtml" name="description" content="An aggregate lens can be built from any dataset. There are no special data modeling requirements to build an aggregate lens. Aggregate lenses contain aggregated measure data grouped by the various dimension fields you select from the dataset. Choose this lens type when you want to do ad hoc data analysis."/><meta name="DC.Relation" scheme="URI" content="../../lens/create/lens_type.html"/><meta name="DC.Format" content="XHTML"/><meta name="DC.Identifier" content="about_aggregate_lenses"/><link rel="stylesheet" type="text/css" href="../../oxygen-webhelp/resources/css/commonltr.css"><!----></link><title>About Aggregate Lenses</title><meta http-equiv="Content-Type" content="text/html; charset=utf-8"/><link rel="stylesheet" type="text/css" href="../../oxygen-webhelp/resources/css/commonltr.css"><!----></link><link rel="stylesheet" type="text/css" href="../../oxygen-webhelp/resources/css/webhelp_topic.css"><!----></link><link rel="stylesheet" type="text/css" href="../../oxygen-webhelp/resources/skins/skin.css"><!----></link><link rel="stylesheet" type="text/css" href="../../oxygen-webhelp/resources/css/jquery.realperson.css"><!----></link><link rel="stylesheet" type="text/css" href="../../oxygen-webhelp/resources/css/comments.css"><!----></link><link rel="stylesheet" type="text/css" href="../../oxygen-webhelp/resources/css/jquery.cleditor.css"><!----></link><link rel="stylesheet" type="text/css" href="../../oxygen-webhelp/resources/css/admin.css"><!----></link><script type="text/javascript"><!--
+          
+          var prefix = "../../index.html";
+          
+          --></script><script type="text/javascript" src="../../oxygen-webhelp/resources/js/jquery-1.8.2.min.js"><!----></script><script type="text/javascript" src="../../oxygen-webhelp/resources/js/jquery.cookie.js"><!----></script><script type="text/javascript" src="../../oxygen-webhelp/resources/js/jquery-ui.custom.min.js"><!----></script><script type="text/javascript" charset="utf-8" src="../../oxygen-webhelp/resources/js/webhelp_topic.js"><!----></script><script type="text/javascript" charset="utf-8" src="../../oxygen-webhelp/resources/localization/strings.js"><!----></script><script type="text/javascript" charset="utf-8" src="../../oxygen-webhelp/resources/js/init.js"><!----></script><script type="text/javascript" charset="utf-8" src="../../oxygen-webhelp/resources/js/comments-functions.js"><!----></script></head>
+<body onload="init('../../')" id="about_aggregate_lenses">
+<table class="nav"><tbody><tr><td colspan="2"><div id="printlink"><a href="javascript:window.print();" title="printThisPage"/></div><div id="permalink"><a href="#" title="linkToThis"/></div></td></tr><tr><td width="75%"><a class="navheader_parent_path" href="../../lens/create/../../lens/create_lens.html" title="A lens is always defined from the focal point of a single dataset in the data catalog. Once you have located a dataset that has the data you need, first check and see if there are any existing lenses that you can use. If not, click Create Lens on the dataset details page to define and build a new lens from that dataset.">Create a Lens</a> / <a class="navheader_parent_path" href="../../lens/create/lens_type.html" title="There are two types of lenses you can create in Platfora: an Aggregate Lens or an Event Series Lens. The type of lens you can choose depends on the underlying characteristics of the dataset you pick as the focus of your lens. The type of lens you build also determines what kinds of visualizations you can create and what kinds of analyses you can perform when using the lens in a vizboard.">Choose the Lens Type</a></td><td><div class="navheader">
+<span class="navparent"><a class="link" href="../../lens/create/lens_type.html" title="There are two types of lenses you can create in Platfora: an Aggregate Lens or an Event Series Lens. The type of lens you can choose depends on the underlying characteristics of the dataset you pick as the focus of your lens. The type of lens you build also determines what kinds of visualizations you can create and what kinds of analyses you can perform when using the lens in a vizboard."><span class="navheader_label">Parent topic</span><span class="navheader_separator">: </span><span class="navheader_linktext">Choose the Lens Type</span></a></span>  </div></td></tr></tbody></table>
+
+ <h1 class="title topictitle1">About Aggregate Lenses</h1>
+
+ 
+ <div class="body conbody"><p class="shortdesc">An aggregate lens can be built from any dataset. There are no special data modeling
+  requirements to build an aggregate lens. Aggregate lenses contain aggregated measure data grouped
+  by the various dimension fields you select from the dataset. Choose this lens type when you want
+  to do ad hoc data analysis. </p>
+
+  <p class="p">An aggregate lens contains a selection of <a href="../../glossary/gdef_measure.html" title="&#xA;        A measure is a numeric value representing an aggregation of some dataset metric (such as total dollars sold, average number of users, and so on). To create measures, you add computed fields to a dataset or a lens.&#xA;            &#xA;        When a lens is built, the build calculates any measures and stores them in the lens. In a visualization, measures provide the basis for quantitative analysis.&#xA;        Measures represent a set of real-world events (or facts) and typically answer &#34;how&#34; questions about data such as how many or how long? If you are familiar with SQL, measure values come from the aggregate functions such as SUM(), COUNT(), MAX(), MIN(). Measure fields&#xA;            are typically derived from numeric fields in a dataset, and their values are always the result of an aggregation (average, count, sum, min, max, and so on). &#xA;    "><dfn class="term">measure</dfn></a> and <a href="../../glossary/gdef_dimension.html" title="&#xA;        A dimension is a type of field (or a&#xA;                collection of fields) that allows you to analyze a measure&#xA;                from different perspectives to derive meaning from the data. Dimensions are&#xA;                used to summarize, filter, categorize, and group quantitative measure data in order&#xA;                to answer business questions.&#xA;        For example, a product dimension can help you understand which products generate&#xA;            the most revenue for your business. A date dimension can show you the breakdown&#xA;            of sales by year, quarter, month, or day. &#xA;        Dimension fields can be character-type data (such as product categories), datetime-type&#xA;            data (such as months, days, or hours), or categorical numeric-type data (such as customer ratings on a scale of 1-10). &#xA;    "><dfn class="term">dimension</dfn></a> fields chosen from the focal point of a single
+    <dfn class="term">fact</dfn> dataset. A completed or <dfn class="term">built</dfn> lens can be thought of as a table
+   that contains aggregated measure data values grouped by the selected dimension values.</p>
+
+  
+  <p class="p">For example, suppose you had the following simple dataset containing 6 rows:</p>
+
+  <div class="p">
+   
+<div class="tablenoborder"><table cellpadding="4" cellspacing="0" summary="" class="table" frame="border" border="1" rules="all">
+     
+     
+     
+     
+     
+     
+     
+     <thead class="thead" align="left">
+      <tr class="row">
+       <th class="entry" valign="top" width="14.285714285714285%" id="d70148e58">id</th>
+
+       <th class="entry" valign="top" width="14.701803051317613%" id="d70148e61">date</th>
+
+       <th class="entry" valign="top" width="13.869625520110956%" id="d70148e64">customer</th>
+
+       <th class="entry" valign="top" width="14.285714285714285%" id="d70148e67">product</th>
+
+       <th class="entry" valign="top" width="14.285714285714285%" id="d70148e70">quantity</th>
+
+       <th class="entry" valign="top" width="14.285714285714285%" id="d70148e74">unit price</th>
+
+       <th class="entry" valign="top" width="14.285714285714285%" id="d70148e77">total amount</th>
+
+      </tr>
+
+     </thead>
+
+     <tbody class="tbody">
+      <tr class="row">
+       <td class="entry" valign="top" width="14.285714285714285%" headers="d70148e58 ">1</td>
+
+       <td class="entry" valign="top" width="14.701803051317613%" headers="d70148e61 ">Jan 1 2013</td>
+
+       <td class="entry" valign="top" width="13.869625520110956%" headers="d70148e64 ">smith</td>
+
+       <td class="entry" valign="top" width="14.285714285714285%" headers="d70148e67 ">tea</td>
+
+       <td class="entry" valign="top" width="14.285714285714285%" headers="d70148e70 ">2</td>
+
+       <td class="entry" valign="top" width="14.285714285714285%" headers="d70148e74 ">1.00</td>
+
+       <td class="entry" valign="top" width="14.285714285714285%" headers="d70148e77 ">2.00</td>
+
+      </tr>
+
+      <tr class="row">
+       <td class="entry" valign="top" width="14.285714285714285%" headers="d70148e58 ">2</td>
+
+       <td class="entry" valign="top" width="14.701803051317613%" headers="d70148e61 ">Jan 1 2013</td>
+
+       <td class="entry" valign="top" width="13.869625520110956%" headers="d70148e64 ">hutchinson</td>
+
+       <td class="entry" valign="top" width="14.285714285714285%" headers="d70148e67 ">coffee</td>
+
+       <td class="entry" valign="top" width="14.285714285714285%" headers="d70148e70 ">1</td>
+
+       <td class="entry" valign="top" width="14.285714285714285%" headers="d70148e74 ">1.00</td>
+
+       <td class="entry" valign="top" width="14.285714285714285%" headers="d70148e77 ">1.00</td>
+
+      </tr>
+
+      <tr class="row">
+       <td class="entry" valign="top" width="14.285714285714285%" headers="d70148e58 ">3</td>
+
+       <td class="entry" valign="top" width="14.701803051317613%" headers="d70148e61 ">Jan 2 2013</td>
+
+       <td class="entry" valign="top" width="13.869625520110956%" headers="d70148e64 ">smith</td>
+
+       <td class="entry" valign="top" width="14.285714285714285%" headers="d70148e67 ">coffee</td>
+
+       <td class="entry" valign="top" width="14.285714285714285%" headers="d70148e70 ">1</td>
+
+       <td class="entry" valign="top" width="14.285714285714285%" headers="d70148e74 ">1.00</td>
+
+       <td class="entry" valign="top" width="14.285714285714285%" headers="d70148e77 ">1.00</td>
+
+      </tr>
+
+      <tr class="row">
+       <td class="entry" valign="top" width="14.285714285714285%" headers="d70148e58 ">4</td>
+
+       <td class="entry" valign="top" width="14.701803051317613%" headers="d70148e61 ">Jan 2 2013</td>
+
+       <td class="entry" valign="top" width="13.869625520110956%" headers="d70148e64 ">smith</td>
+
+       <td class="entry" valign="top" width="14.285714285714285%" headers="d70148e67 ">coffee</td>
+
+       <td class="entry" valign="top" width="14.285714285714285%" headers="d70148e70 ">3</td>
+
+       <td class="entry" valign="top" width="14.285714285714285%" headers="d70148e74 ">1.00</td>
+
+       <td class="entry" valign="top" width="14.285714285714285%" headers="d70148e77 ">3.00</td>
+
+      </tr>
+
+      <tr class="row">
+       <td class="entry" valign="top" width="14.285714285714285%" headers="d70148e58 ">5</td>
+
+       <td class="entry" valign="top" width="14.701803051317613%" headers="d70148e61 ">Jan 2 2013</td>
+
+       <td class="entry" valign="top" width="13.869625520110956%" headers="d70148e64 ">smith</td>
+
+       <td class="entry" valign="top" width="14.285714285714285%" headers="d70148e67 ">tea</td>
+
+       <td class="entry" valign="top" width="14.285714285714285%" headers="d70148e70 ">1</td>
+
+       <td class="entry" valign="top" width="14.285714285714285%" headers="d70148e74 ">1.00</td>
+
+       <td class="entry" valign="top" width="14.285714285714285%" headers="d70148e77 ">1.00</td>
+
+      </tr>
+
+      <tr class="row">
+       <td class="entry" valign="top" width="14.285714285714285%" headers="d70148e58 ">6</td>
+
+       <td class="entry" valign="top" width="14.701803051317613%" headers="d70148e61 ">Jan 3 2013</td>
+
+       <td class="entry" valign="top" width="13.869625520110956%" headers="d70148e64 ">hutchinson</td>
+
+       <td class="entry" valign="top" width="14.285714285714285%" headers="d70148e67 ">tea</td>
+
+       <td class="entry" valign="top" width="14.285714285714285%" headers="d70148e70 ">1</td>
+
+       <td class="entry" valign="top" width="14.285714285714285%" headers="d70148e74 ">1.00</td>
+
+       <td class="entry" valign="top" width="14.285714285714285%" headers="d70148e77 ">1.00</td>
+
+      </tr>
+
+     </tbody>
+
+    </table>
+</div>
+
+  </div>
+
+  <p class="p">In Platfora, a <a href="../../glossary/gdef_measure.html" title="&#xA;        A measure is a numeric value representing an aggregation of some dataset metric (such as total dollars sold, average number of users, and so on). To create measures, you add computed fields to a dataset or a lens.&#xA;            &#xA;        When a lens is built, the build calculates any measures and stores them in the lens. In a visualization, measures provide the basis for quantitative analysis.&#xA;        Measures represent a set of real-world events (or facts) and typically answer &#34;how&#34; questions about data such as how many or how long? If you are familiar with SQL, measure values come from the aggregate functions such as SUM(), COUNT(), MAX(), MIN(). Measure fields&#xA;            are typically derived from numeric fields in a dataset, and their values are always the result of an aggregation (average, count, sum, min, max, and so on). &#xA;    "><dfn class="term">measure</dfn></a> is always aggregated data. So in the
+   example above, the field <em class="ph i">total amount</em> would only be considered a measure if an aggregate
+   function, such as <samp class="ph codeph">SUM</samp>, were applied to that field. </p>
+
+  <p class="p">A <a href="../../glossary/gdef_dimension.html" title="&#xA;        A dimension is a type of field (or a&#xA;                collection of fields) that allows you to analyze a measure&#xA;                from different perspectives to derive meaning from the data. Dimensions are&#xA;                used to summarize, filter, categorize, and group quantitative measure data in order&#xA;                to answer business questions.&#xA;        For example, a product dimension can help you understand which products generate&#xA;            the most revenue for your business. A date dimension can show you the breakdown&#xA;            of sales by year, quarter, month, or day. &#xA;        Dimension fields can be character-type data (such as product categories), datetime-type&#xA;            data (such as months, days, or hours), or categorical numeric-type data (such as customer ratings on a scale of 1-10). &#xA;    "><dfn class="term">dimension</dfn></a> is always used to group the aggregated measure
+   data. Suppose we chose the <em class="ph i">product</em> field as a dimension in our lens. There would be two
+   groups in this case: <em class="ph i">coffee</em> and <em class="ph i">tea</em>. </p>
+
+  <p class="p">If our lens only contained that one measure (sum of <em class="ph i">total amount</em>) and that one dimesion
+   (<em class="ph i">product</em>), then the data in the lens would look something like this:</p>
+
+  <div class="p">
+   
+<div class="tablenoborder"><table cellpadding="4" cellspacing="0" summary="" class="table" frame="border" border="1" rules="all">
+     
+     
+     <thead class="thead" align="left">
+      <tr class="row">
+       <th class="entry" valign="top" width="50%" id="d70148e290">dimension = product</th>
+
+       <th class="entry" valign="top" width="50%" id="d70148e293">measure = total amount (Sum)</th>
+
+      </tr>
+
+     </thead>
+
+     <tbody class="tbody">
+      <tr class="row">
+       <td class="entry" valign="top" width="50%" headers="d70148e290 ">tea</td>
+
+       <td class="entry" valign="top" width="50%" headers="d70148e293 ">4.00</td>
+
+      </tr>
+
+      <tr class="row">
+       <td class="entry" valign="top" width="50%" headers="d70148e290 ">coffee</td>
+
+       <td class="entry" valign="top" width="50%" headers="d70148e293 ">5.00</td>
+
+      </tr>
+
+     </tbody>
+
+    </table>
+</div>
+
+  </div>
+
+  <p class="p">Suppose we added one more measure (sum of <em class="ph i">quantity</em>) and one more dimesion
+   (<em class="ph i">customer</em>) to our lens. The measure values are then calculated for each combination of
+   dimension values. In this case, the data in the lens would look something like this:</p>
+
+  <div class="p">
+   
+<div class="tablenoborder"><table cellpadding="4" cellspacing="0" summary="" class="table" frame="border" border="1" rules="all">
+     
+     
+     
+     <thead class="thead" align="left">
+      <tr class="row">
+       <th class="entry" valign="top" width="33.33333333333333%" id="d70148e347">dimensions = product, customer, product+customer</th>
+
+       <th class="entry" valign="top" width="33.33333333333333%" id="d70148e350">measure = total amount (Sum)</th>
+
+       <th class="entry" valign="top" width="33.33333333333333%" id="d70148e353">measure = quantity (Sum)</th>
+
+      </tr>
+
+     </thead>
+
+     <tbody class="tbody">
+      <tr class="row">
+       <td class="entry" valign="top" width="33.33333333333333%" headers="d70148e347 ">tea</td>
+
+       <td class="entry" valign="top" width="33.33333333333333%" headers="d70148e350 ">4.00</td>
+
+       <td class="entry" valign="top" width="33.33333333333333%" headers="d70148e353 ">4</td>
+
+      </tr>
+
+      <tr class="row">
+       <td class="entry" valign="top" width="33.33333333333333%" headers="d70148e347 ">coffee</td>
+
+       <td class="entry" valign="top" width="33.33333333333333%" headers="d70148e350 ">5.00</td>
+
+       <td class="entry" valign="top" width="33.33333333333333%" headers="d70148e353 ">5</td>
+
+      </tr>
+
+      <tr class="row">
+       <td class="entry" valign="top" width="33.33333333333333%" headers="d70148e347 ">smith</td>
+
+       <td class="entry" valign="top" width="33.33333333333333%" headers="d70148e350 ">7.00</td>
+
+       <td class="entry" valign="top" width="33.33333333333333%" headers="d70148e353 ">7</td>
+
+      </tr>
+
+      <tr class="row">
+       <td class="entry" valign="top" width="33.33333333333333%" headers="d70148e347 ">hutchinson</td>
+
+       <td class="entry" valign="top" width="33.33333333333333%" headers="d70148e350 ">2.00</td>
+
+       <td class="entry" valign="top" width="33.33333333333333%" headers="d70148e353 ">2</td>
+
+      </tr>
+
+      <tr class="row">
+       <td class="entry" valign="top" width="33.33333333333333%" headers="d70148e347 ">smith, tea</td>
+
+       <td class="entry" valign="top" width="33.33333333333333%" headers="d70148e350 ">3.00</td>
+
+       <td class="entry" valign="top" width="33.33333333333333%" headers="d70148e353 ">3</td>
+
+      </tr>
+
+      <tr class="row">
+       <td class="entry" valign="top" width="33.33333333333333%" headers="d70148e347 ">smith, coffee</td>
+
+       <td class="entry" valign="top" width="33.33333333333333%" headers="d70148e350 ">4.00</td>
+
+       <td class="entry" valign="top" width="33.33333333333333%" headers="d70148e353 ">4</td>
+
+      </tr>
+
+      <tr class="row">
+       <td class="entry" valign="top" width="33.33333333333333%" headers="d70148e347 ">hutchinson, tea</td>
+
+       <td class="entry" valign="top" width="33.33333333333333%" headers="d70148e350 ">1.00</td>
+
+       <td class="entry" valign="top" width="33.33333333333333%" headers="d70148e353 ">1</td>
+
+      </tr>
+
+      <tr class="row">
+       <td class="entry" valign="top" width="33.33333333333333%" headers="d70148e347 ">hutchinson, coffee</td>
+
+       <td class="entry" valign="top" width="33.33333333333333%" headers="d70148e350 ">1.00</td>
+
+       <td class="entry" valign="top" width="33.33333333333333%" headers="d70148e353 ">1</td>
+
+      </tr>
+
+     </tbody>
+
+    </table>
+</div>
+
+  </div>
+
+ </div>
+
+<div class="related-links"/>
+<div class="navfooter"><!---->
+<span class="navparent"><a class="link" href="../../lens/create/lens_type.html" title="There are two types of lenses you can create in Platfora: an Aggregate Lens or an Event Series Lens. The type of lens you can choose depends on the underlying characteristics of the dataset you pick as the focus of your lens. The type of lens you build also determines what kinds of visualizations you can create and what kinds of analyses you can perform when using the lens in a vizboard."><span class="navheader_label">Parent topic</span><span class="navheader_separator">: </span><span class="navheader_linktext">Choose the Lens Type</span></a></span>  </div><div class="footer">WebHelp output generated by<a href="http://www.oxygenxml.com" target="_blank"><span class="oXygenLogo"><img src="../../oxygen-webhelp/resources/img/LogoOxygen100x22.png" alt="Oxygen"/></span><span class="xmlauthor">XML Author</span></a></div>
+<div id="productInfo" style="display:none;"><span id="oxy_productID">webhelp</span><span id="oxy_productVersion">3.0</span></div><div id="loginData" style="display: none"><span class="bt_close" title="Close"><!----></span><form action="" target="passwordIframe" method="post" name="form_login" onsubmit="return loggInUser();" id="loginFormData" autocomplete="on"><input type="hidden" id="reloadComments" value="yes"><!----></input><table class="login"><thead><tr><td colspan="2"><span id="l_login2"><script type="text/javascript">$('#l_login2').html(getLocalization('label.login'));</script></span></td></tr><tr><td colspan="2"><div id="loginResponse"><!----></div></td></tr></thead><tr><td><span id="l_userName"><script type="text/javascript">$('#l_userName').html(getLocalization('label.userName'));</script></span></td><td><input name="usernameW" type="text" id="myUserName" autocomplete="on" required="required" autofocus="autofocus"><!----></input></td></tr><tr><td><span id="l_pswd"><script type="text/javascript">$('#l_pswd').html(getLocalization('label.pswd'));</script></span></td><td><input name="passwordW" type="password" id="myPassword" autocomplete="on" required="required"><!----></input></td></tr><tr><td colspan="2" align="left"><span id="ll_remember"><script type="text/javascript" xml:space="preserve">
+								$('#ll_remember').html(getLocalization('label.rememberme'));
+							</script></span>     <input name="myLoginRemember" type="checkbox" class="ck" id="myRemember" value="no"><!----></input></td></tr><tr><td colspan="2" align="center"><input id="l_bt_submit_log" type="submit" value="Submit" name="loginFormButton"><!----></input><script type="text/javascript">$('#l_bt_submit_log').attr('value',getLocalization('label.login'));</script><span class="btnHGlue"><!----></span><input class="bt_cancel" id="l_cancelLog" type="button" value="Cancel" name="loginFormButton"><!----></input><script type="text/javascript">$('#l_cancelLog').attr('value',getLocalization('label.cancel'));</script></td></tr></table><div class="loginAlternative"><span id="link_lostPwd" onclick="showLostPwd()"><script type="text/javascript">$('#link_lostPwd').html(getLocalization('label.lostPswd'));</script></span><span id="link_signUp" onclick="showSignUp()"><script type="text/javascript">$('#link_signUp').html(getLocalization('label.signUp'));</script></span></div></form><iframe id="passwordIframe" name="passwordIframe" style="display:none"><!----></iframe></div><div id="cmts"><!----></div></body>
+</html>

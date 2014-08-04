@@ -1,0 +1,62 @@
+
+<!DOCTYPE html
+  PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xml:lang="en-us" lang="en-us">
+<head><meta xmlns="http://www.w3.org/1999/xhtml" name="description" content="Platfora refreshes the data access permissions based on the current HDFS file permissions at midnight every day and when Platfora restarts. Midnight is determined by the configured time zone for the ..."/><meta http-equiv="Content-Type" content="text/html; charset=utf-8"/><meta name="copyright" content="(C) Copyright 2005"/><meta name="DC.rights.owner" content="(C) Copyright 2005"/><meta name="DC.Type" content="task"/><meta name="DC.Title" content="Refresh Data Access Permissions from HDFS"/><meta name="abstract" content="Platfora refreshes the data access permissions based on the current HDFS file permissions at midnight every day and when Platfora restarts. Midnight is determined by the configured time zone for the Platfora master node. System administrators can choose to refresh the data access permissions manually at other times."/><meta xmlns="http://www.w3.org/1999/xhtml" name="description" content="Platfora refreshes the data access permissions based on the current HDFS file permissions at midnight every day and when Platfora restarts. Midnight is determined by the configured time zone for the Platfora master node. System administrators can choose to refresh the data access permissions manually at other times."/><meta name="DC.Relation" scheme="URI" content="../../system/security/about_hdfs_delegated_auth.html"/><meta name="DC.Format" content="XHTML"/><meta name="DC.Identifier" content="updating_permissions_from_hdfs"/><link rel="stylesheet" type="text/css" href="../../oxygen-webhelp/resources/css/commonltr.css"><!----></link><title>Refresh Data Access Permissions from HDFS</title><meta http-equiv="Content-Type" content="text/html; charset=utf-8"/><link rel="stylesheet" type="text/css" href="../../oxygen-webhelp/resources/css/commonltr.css"><!----></link><link rel="stylesheet" type="text/css" href="../../oxygen-webhelp/resources/css/webhelp_topic.css"><!----></link><link rel="stylesheet" type="text/css" href="../../oxygen-webhelp/resources/skins/skin.css"><!----></link><link rel="stylesheet" type="text/css" href="../../oxygen-webhelp/resources/css/jquery.realperson.css"><!----></link><link rel="stylesheet" type="text/css" href="../../oxygen-webhelp/resources/css/comments.css"><!----></link><link rel="stylesheet" type="text/css" href="../../oxygen-webhelp/resources/css/jquery.cleditor.css"><!----></link><link rel="stylesheet" type="text/css" href="../../oxygen-webhelp/resources/css/admin.css"><!----></link><script type="text/javascript"><!--
+          
+          var prefix = "../../index.html";
+          
+          --></script><script type="text/javascript" src="../../oxygen-webhelp/resources/js/jquery-1.8.2.min.js"><!----></script><script type="text/javascript" src="../../oxygen-webhelp/resources/js/jquery.cookie.js"><!----></script><script type="text/javascript" src="../../oxygen-webhelp/resources/js/jquery-ui.custom.min.js"><!----></script><script type="text/javascript" charset="utf-8" src="../../oxygen-webhelp/resources/js/webhelp_topic.js"><!----></script><script type="text/javascript" charset="utf-8" src="../../oxygen-webhelp/resources/localization/strings.js"><!----></script><script type="text/javascript" charset="utf-8" src="../../oxygen-webhelp/resources/js/init.js"><!----></script><script type="text/javascript" charset="utf-8" src="../../oxygen-webhelp/resources/js/comments-functions.js"><!----></script></head>
+<body onload="init('../../')" id="updating_permissions_from_hdfs">
+<table class="nav"><tbody><tr><td colspan="2"><div id="printlink"><a href="javascript:window.print();" title="printThisPage"/></div><div id="permalink"><a href="#" title="linkToThis"/></div></td></tr><tr><td width="75%"><a class="navheader_parent_path" href="../../system/security/../../system/security/manage_data_access_top.html" title="Data access grants the ability to view data exposed by a data source. Users must have data access to a source in order to use datasets, lenses, or vizboards that use data from the source. Users have access to data in a source by being granted data access to a configured data source or dataset. Platfora can be configured to enforce data access permissions at different levels.">Configure Data Access</a> / <a class="navheader_parent_path" href="../../system/security/about_hdfs_delegated_auth.html" title="System administrators can configure Platfora so that it grants data access permissions to LDAP users based on the users' file permissions in HDFS. By default, users have access to data in a source by a system administrator granting them data access to a configured data source or dataset. However, to base all data access permissions on HDFS file permissions, enable the HDFS Delegated Authorization feature.">Understand HDFS Delegated Authorization</a></td><td><div class="navheader">
+<span class="navparent"><a class="link" href="../../system/security/about_hdfs_delegated_auth.html" title="System administrators can configure Platfora so that it grants data access permissions to LDAP users based on the users' file permissions in HDFS. By default, users have access to data in a source by a system administrator granting them data access to a configured data source or dataset. However, to base all data access permissions on HDFS file permissions, enable the HDFS Delegated Authorization feature."><span class="navheader_label">Parent topic</span><span class="navheader_separator">: </span><span class="navheader_linktext">Understand HDFS Delegated Authorization</span></a></span>  </div></td></tr></tbody></table>
+
+    <h1 class="title topictitle1">Refresh Data Access Permissions from HDFS</h1>
+
+    
+    <div class="body taskbody"><div class="abstract"><span class="shortdesc">Platfora refreshes the data access permissions based on the current HDFS file permissions
+            at midnight every day and when Platfora restarts. Midnight is determined by the
+            configured time zone for the Platfora master node. System administrators can choose to
+            refresh the data access permissions manually at other times.</span>
+</div>
+
+        <div class="section context">
+            <div class="p"><div class="note note"><span class="notetitle">Note:</span> Refreshing data access permissions may take a long time, during which system performance may
+                    be slow. The time required to refresh the data access permissions depends on the
+                    number of datasets and the number of files in each dataset.</div>
+</div>
+
+            <p class="p"><img class="image" src="../../images/./system/refresh_perms.png"/></p>
+
+        </div>
+
+        <ol class="ol steps"><li class="li step">
+                <span class="ph cmd">Go to the <span class="ph uicontrol">System</span> page.</span>
+            </li>
+<li class="li step">
+                <span class="ph cmd">Go to the <span class="ph uicontrol">Users</span> tab.</span>
+            </li>
+<li class="li step">
+                <span class="ph cmd">Click the <span class="ph uicontrol">System Privileges</span> link.</span>
+            </li>
+<li class="li step">
+                <span class="ph cmd">In the <span class="ph uicontrol">Data Access</span> section, click <span class="ph uicontrol">Refresh
+                        Permissions</span>.</span>
+            </li>
+<li class="li step">
+                <span class="ph cmd">Click <span class="ph uicontrol">Continue</span> in the dialog that appears.</span>
+            </li>
+<li class="li step">
+                <span class="ph cmd">After the permissions are updated, click <span class="ph uicontrol">Cancel</span>.</span>
+            </li>
+</ol>
+
+    </div>
+
+<div class="related-links"/>
+<div class="navfooter"><!---->
+<span class="navparent"><a class="link" href="../../system/security/about_hdfs_delegated_auth.html" title="System administrators can configure Platfora so that it grants data access permissions to LDAP users based on the users' file permissions in HDFS. By default, users have access to data in a source by a system administrator granting them data access to a configured data source or dataset. However, to base all data access permissions on HDFS file permissions, enable the HDFS Delegated Authorization feature."><span class="navheader_label">Parent topic</span><span class="navheader_separator">: </span><span class="navheader_linktext">Understand HDFS Delegated Authorization</span></a></span>  </div><div class="footer">WebHelp output generated by<a href="http://www.oxygenxml.com" target="_blank"><span class="oXygenLogo"><img src="../../oxygen-webhelp/resources/img/LogoOxygen100x22.png" alt="Oxygen"/></span><span class="xmlauthor">XML Author</span></a></div>
+<div id="productInfo" style="display:none;"><span id="oxy_productID">webhelp</span><span id="oxy_productVersion">3.0</span></div><div id="loginData" style="display: none"><span class="bt_close" title="Close"><!----></span><form action="" target="passwordIframe" method="post" name="form_login" onsubmit="return loggInUser();" id="loginFormData" autocomplete="on"><input type="hidden" id="reloadComments" value="yes"><!----></input><table class="login"><thead><tr><td colspan="2"><span id="l_login2"><script type="text/javascript">$('#l_login2').html(getLocalization('label.login'));</script></span></td></tr><tr><td colspan="2"><div id="loginResponse"><!----></div></td></tr></thead><tr><td><span id="l_userName"><script type="text/javascript">$('#l_userName').html(getLocalization('label.userName'));</script></span></td><td><input name="usernameW" type="text" id="myUserName" autocomplete="on" required="required" autofocus="autofocus"><!----></input></td></tr><tr><td><span id="l_pswd"><script type="text/javascript">$('#l_pswd').html(getLocalization('label.pswd'));</script></span></td><td><input name="passwordW" type="password" id="myPassword" autocomplete="on" required="required"><!----></input></td></tr><tr><td colspan="2" align="left"><span id="ll_remember"><script type="text/javascript" xml:space="preserve">
+								$('#ll_remember').html(getLocalization('label.rememberme'));
+							</script></span>     <input name="myLoginRemember" type="checkbox" class="ck" id="myRemember" value="no"><!----></input></td></tr><tr><td colspan="2" align="center"><input id="l_bt_submit_log" type="submit" value="Submit" name="loginFormButton"><!----></input><script type="text/javascript">$('#l_bt_submit_log').attr('value',getLocalization('label.login'));</script><span class="btnHGlue"><!----></span><input class="bt_cancel" id="l_cancelLog" type="button" value="Cancel" name="loginFormButton"><!----></input><script type="text/javascript">$('#l_cancelLog').attr('value',getLocalization('label.cancel'));</script></td></tr></table><div class="loginAlternative"><span id="link_lostPwd" onclick="showLostPwd()"><script type="text/javascript">$('#link_lostPwd').html(getLocalization('label.lostPswd'));</script></span><span id="link_signUp" onclick="showSignUp()"><script type="text/javascript">$('#link_signUp').html(getLocalization('label.signUp'));</script></span></div></form><iframe id="passwordIframe" name="passwordIframe" style="display:none"><!----></iframe></div><div id="cmts"><!----></div></body>
+</html>

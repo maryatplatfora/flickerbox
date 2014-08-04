@@ -1,0 +1,98 @@
+
+<!DOCTYPE html
+  PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xml:lang="en-us" lang="en-us">
+<head><meta xmlns="http://www.w3.org/1999/xhtml" name="description" content="Using the October 2012 Flight Data lens, you can visually analyze and explore the flights data by building visualizations (viz for short). In Platfora, visualizations are created and managed within a ..."/><meta http-equiv="Content-Type" content="text/html; charset=utf-8"/><meta name="copyright" content="(C) Copyright 2005"/><meta name="DC.rights.owner" content="(C) Copyright 2005"/><meta name="DC.Type" content="task"/><meta name="DC.Title" content="Build Ad Hoc Visualizations"/><meta name="abstract" content="Using the October 2012 Flight Data lens, you can visually analyze and explore the flights data by building visualizations (viz for short). In Platfora, visualizations are created and managed within a special project document called a vizboard. In this exercise, we will create three common types of viz charts in the Flights Tutorial vizboard: a bar chart, a scatterplot, and a heatmap."/><meta xmlns="http://www.w3.org/1999/xhtml" name="description" content="Using the October 2012 Flight Data lens, you can visually analyze and explore the flights data by building visualizations (viz for short). In Platfora, visualizations are created and managed within a special project document called a vizboard. In this exercise, we will create three common types of viz charts in the Flights Tutorial vizboard: a bar chart, a scatterplot, and a heatmap."/><meta name="DC.Relation" scheme="URI" content="../tutorial/tutorial_top.html"/><meta name="DC.Relation" scheme="URI" content="../tutorial/create_tutorial_barchart.html"/><meta name="DC.Relation" scheme="URI" content="../tutorial/create_tutorial_scatterplot.html"/><meta name="DC.Relation" scheme="URI" content="../tutorial/create_tutorial_heatmap.html"/><meta name="DC.Format" content="XHTML"/><meta name="DC.Identifier" content="tutorial_viz_top"/><link rel="stylesheet" type="text/css" href="../oxygen-webhelp/resources/css/commonltr.css"><!----></link><title>Build Ad Hoc Visualizations</title><meta http-equiv="Content-Type" content="text/html; charset=utf-8"/><link rel="stylesheet" type="text/css" href="../oxygen-webhelp/resources/css/commonltr.css"><!----></link><link rel="stylesheet" type="text/css" href="../oxygen-webhelp/resources/css/webhelp_topic.css"><!----></link><link rel="stylesheet" type="text/css" href="../oxygen-webhelp/resources/skins/skin.css"><!----></link><link rel="stylesheet" type="text/css" href="../oxygen-webhelp/resources/css/jquery.realperson.css"><!----></link><link rel="stylesheet" type="text/css" href="../oxygen-webhelp/resources/css/comments.css"><!----></link><link rel="stylesheet" type="text/css" href="../oxygen-webhelp/resources/css/jquery.cleditor.css"><!----></link><link rel="stylesheet" type="text/css" href="../oxygen-webhelp/resources/css/admin.css"><!----></link><script type="text/javascript"><!--
+          
+          var prefix = "../index.html";
+          
+          --></script><script type="text/javascript" src="../oxygen-webhelp/resources/js/jquery-1.8.2.min.js"><!----></script><script type="text/javascript" src="../oxygen-webhelp/resources/js/jquery.cookie.js"><!----></script><script type="text/javascript" src="../oxygen-webhelp/resources/js/jquery-ui.custom.min.js"><!----></script><script type="text/javascript" charset="utf-8" src="../oxygen-webhelp/resources/js/webhelp_topic.js"><!----></script><script type="text/javascript" charset="utf-8" src="../oxygen-webhelp/resources/localization/strings.js"><!----></script><script type="text/javascript" charset="utf-8" src="../oxygen-webhelp/resources/js/init.js"><!----></script><script type="text/javascript" charset="utf-8" src="../oxygen-webhelp/resources/js/comments-functions.js"><!----></script></head>
+<body onload="init('../')" id="tutorial_viz_top">
+<table class="nav"><tbody><tr><td colspan="2"><div id="printlink"><a href="javascript:window.print();" title="printThisPage"/></div><div id="permalink"><a href="#" title="linkToThis"/></div></td></tr><tr><td width="75%"><a class="navheader_parent_path" href="../tutorial/tutorial_top.html" title="The best way to learn a new product is by example. This tutorial walks you through the major features of Platfora using some sample data that comes with your Platfora server installation. After completing this tutorial, you should have a good understanding of how to create datasets, lenses, vizboards, and visualizations.">Getting Started Tutorial</a></td><td><div class="navheader">
+<span class="navparent"><a class="link" href="../tutorial/tutorial_top.html" title="The best way to learn a new product is by example. This tutorial walks you through the major features of Platfora using some sample data that comes with your Platfora server installation. After completing this tutorial, you should have a good understanding of how to create datasets, lenses, vizboards, and visualizations."><span class="navheader_label">Parent topic</span><span class="navheader_separator">: </span><span class="navheader_linktext">Getting Started Tutorial</span></a></span>  </div></td></tr></tbody></table>
+
+    <h1 class="title topictitle1">Build Ad Hoc Visualizations</h1>
+
+    
+    <div class="body taskbody"><p class="shortdesc">Using the <em class="ph i">October 2012 Flight Data</em> lens, you can visually analyze and explore
+        the flights data by building <a href="../glossary/gdef_visualization.html" title="&#xA;        A visualization (or viz for short) is a graphical&#xA;                representation of certain data fields chosen from the perspective of a single&#xA;                Platfora lens. It is a query of lens data that is visually rendered based on the&#xA;                types of fields chosen (measure or dimension), their order and placement in the&#xA;                    Builder drop zones, and the various appearance encodings&#xA;                applied to the data (color, size, shape, and so on).&#xA;        &#xA;        A viz shows aggregated measure data grouped and&#xA;            filtered by the chosen dimensions. A chart&#xA;            in Platfora can best be described as a recipe of dimension and measure fields,&#xA;            plus axis placement (X-axis and Y-axis), plus appearance encodings (Color, Size, Shape,&#xA;            Opacity, Labels), plus mark type (Point, Line, Bar, Area, and so on).&#xA;    "><dfn class="term">visualizations</dfn></a> (viz
+        for short). In Platfora, visualizations are created and managed within a special project
+        document called a <a href="../glossary/gdef_vizboard.html" title="&#xA;        A vizboard is the starting point for data analysis, and can&#xA;                be thought of as a dashboard or project workspace. The vizboard is the canvas for&#xA;                discovering and sharing data insights.&#xA;            &#xA;        &#xA;        A vizboard contains one or more pages of&#xA;            visualizations that together are meant&#xA;            to tell a data story. The individual visualizations on a vizboard page can be&#xA;            related (use the same underlying data), or unrelated (use completely different&#xA;            data). A vizboard can be saved, versioned, and shared with others.&#xA;    "><dfn class="term">vizboard</dfn></a>. In this exercise, we will
+        create three common types of viz charts in the <em class="ph i">Flights Tutorial</em> vizboard: a bar
+        chart, a scatterplot, and a heatmap. </p>
+
+       <div class="section context">
+           <p class="p">The <em class="ph i">October 2012 Flight Data</em> lens is an aggregate lens, which is built to
+                support ad hoc data analysis. Ad hoc analysis involves slicing and dicing measure
+                data by different dimensions to discover trends or anomolies in the data.</p>
+
+       </div>
+ 
+        <div class="section"><h2 class="title sectiontitle">Viz Builder Basics</h2>
+            
+            <p class="p">A <span class="ph uicontrol">Chart</span> viz shows aggregated <a href="../glossary/gdef_measure.html" title="&#xA;        A measure is a numeric value representing an aggregation of some dataset metric (such as total dollars sold, average number of users, and so on). To create measures, you add computed fields to a dataset or a lens.&#xA;            &#xA;        When a lens is built, the build calculates any measures and stores them in the lens. In a visualization, measures provide the basis for quantitative analysis.&#xA;        Measures represent a set of real-world events (or facts) and typically answer &#34;how&#34; questions about data such as how many or how long? If you are familiar with SQL, measure values come from the aggregate functions such as SUM(), COUNT(), MAX(), MIN(). Measure fields&#xA;            are typically derived from numeric fields in a dataset, and their values are always the result of an aggregation (average, count, sum, min, max, and so on). &#xA;    "><dfn class="term">measure</dfn></a> data grouped and filtered by the chosen <a href="../glossary/gdef_dimension.html" title="&#xA;        A dimension is a type of field (or a&#xA;                collection of fields) that allows you to analyze a measure&#xA;                from different perspectives to derive meaning from the data. Dimensions are&#xA;                used to summarize, filter, categorize, and group quantitative measure data in order&#xA;                to answer business questions.&#xA;        For example, a product dimension can help you understand which products generate&#xA;            the most revenue for your business. A date dimension can show you the breakdown&#xA;            of sales by year, quarter, month, or day. &#xA;        Dimension fields can be character-type data (such as product categories), datetime-type&#xA;            data (such as months, days, or hours), or categorical numeric-type data (such as customer ratings on a scale of 1-10). &#xA;    "><dfn class="term">dimensions</dfn></a>. A <em class="ph i">chart</em> in Platfora can best
+                be described as a <em class="ph i">recipe</em> of dimension and measure fields, plus axis placement
+                    (<span class="ph uicontrol">X-axis</span> and <span class="ph uicontrol">Y-axis</span>), plus
+                appearance encodings (<span class="ph uicontrol">Color</span>, <span class="ph uicontrol">Size</span>,
+                    <span class="ph uicontrol">Shape</span>, <span class="ph uicontrol">Opacity</span>,
+                    <span class="ph uicontrol">Labels</span>), plus mark type (<span class="ph uicontrol">Point</span>,
+                    <span class="ph uicontrol">Line</span>, <span class="ph uicontrol">Bar</span>,
+                    <span class="ph uicontrol">Area</span>, and so on).</p>
+
+            <div class="p">
+                <div class="fig fignone"><img class="image" src="../images/./tutorial/tutorial_viz_builder_basics.png"/>
+                    
+                </div>
+
+            </div>
+
+            <div class="p">
+                <ol class="ol">
+                    <li class="li">Drag fields from the lens data panel to the drop zones in the viz builder
+                        panel.</li>
+
+                    <li class="li">Choose the mark type. <span class="ph uicontrol">Auto</span> (the default) will choose
+                        the best mark representation based on the fields in your viz.</li>
+
+                    <li class="li">Set field <span class="ph uicontrol">Options</span>, such as the display name, number
+                        format, or sort order. The field options vary depending on the field role
+                            (<dfn class="term">measure</dfn> or <dfn class="term">dimension</dfn>).</li>
+
+                    <li class="li">Adjust mark appearance controls, such as color, size, opacity, shape or text
+                        labels.</li>
+
+                    <li class="li">Click the viz title to rename a viz.</li>
+
+                    <li class="li">From the viz toolbar, you can delete, copy, export, comment, or navigate
+                        within a viz.</li>
+
+                    <li class="li">Drag fields to the <span class="ph uicontrol">Filters</span> drop zone to limit the
+                        data shown in the viz.</li>
+
+                </ol>
+
+            </div>
+
+        </div>
+
+        
+        
+        
+    </div>
+
+<div class="related-links">
+<ul class="ullinks">
+<li class="link ulchildlink"><strong><a href="../tutorial/create_tutorial_barchart.html">Build a Bar Chart Viz</a></strong><br/>
+A bar chart is used to compare a quantitative value (measure) across one or more         categorical dimensions. You can show cumulative dimension values within a single bar by         adding an additional dimension to the <span class="ph uicontrol">Color</span> drop-zone. In this         exercise, we will build a bar chart using the sample data in the <em class="ph i">October 2012 Flight             Data</em> lens, that compares the number of cancelled flights to non-cancelled flights on         the dates surrounding Hurricane Sandy. </li>
+<li class="link ulchildlink"><strong><a href="../tutorial/create_tutorial_scatterplot.html">Build a Scatterplot Viz</a></strong><br/>
+Scatterplots are used to show the correlation of two measures over a common         dimension. In this exercise, you will build a scatterplot using the sample data in the             <em class="ph i">October 2012 Flight Data</em> lens, that looks at the correlation of flight departure         delays to flight arrival delays on the days surrounding Hurricane Sandy. </li>
+<li class="link ulchildlink"><strong><a href="../tutorial/create_tutorial_heatmap.html">Build a Heatmap Viz</a></strong><br/>
+Heatmaps are used to compare a measure across multiple dimensions using color to show         variations in the data. In this exercise we will build a heatmap to compare the busiest         departure and arrival airports in terms of number of flights using the sample data in the             <em class="ph i">October 2012 Flight Data</em> lens. </li>
+</ul>
+</div>
+<div class="navfooter"><!---->
+<span class="navparent"><a class="link" href="../tutorial/tutorial_top.html" title="The best way to learn a new product is by example. This tutorial walks you through the major features of Platfora using some sample data that comes with your Platfora server installation. After completing this tutorial, you should have a good understanding of how to create datasets, lenses, vizboards, and visualizations."><span class="navheader_label">Parent topic</span><span class="navheader_separator">: </span><span class="navheader_linktext">Getting Started Tutorial</span></a></span>  </div><div class="footer">WebHelp output generated by<a href="http://www.oxygenxml.com" target="_blank"><span class="oXygenLogo"><img src="../oxygen-webhelp/resources/img/LogoOxygen100x22.png" alt="Oxygen"/></span><span class="xmlauthor">XML Author</span></a></div>
+<div id="productInfo" style="display:none;"><span id="oxy_productID">webhelp</span><span id="oxy_productVersion">3.0</span></div><div id="loginData" style="display: none"><span class="bt_close" title="Close"><!----></span><form action="" target="passwordIframe" method="post" name="form_login" onsubmit="return loggInUser();" id="loginFormData" autocomplete="on"><input type="hidden" id="reloadComments" value="yes"><!----></input><table class="login"><thead><tr><td colspan="2"><span id="l_login2"><script type="text/javascript">$('#l_login2').html(getLocalization('label.login'));</script></span></td></tr><tr><td colspan="2"><div id="loginResponse"><!----></div></td></tr></thead><tr><td><span id="l_userName"><script type="text/javascript">$('#l_userName').html(getLocalization('label.userName'));</script></span></td><td><input name="usernameW" type="text" id="myUserName" autocomplete="on" required="required" autofocus="autofocus"><!----></input></td></tr><tr><td><span id="l_pswd"><script type="text/javascript">$('#l_pswd').html(getLocalization('label.pswd'));</script></span></td><td><input name="passwordW" type="password" id="myPassword" autocomplete="on" required="required"><!----></input></td></tr><tr><td colspan="2" align="left"><span id="ll_remember"><script type="text/javascript" xml:space="preserve">
+								$('#ll_remember').html(getLocalization('label.rememberme'));
+							</script></span>     <input name="myLoginRemember" type="checkbox" class="ck" id="myRemember" value="no"><!----></input></td></tr><tr><td colspan="2" align="center"><input id="l_bt_submit_log" type="submit" value="Submit" name="loginFormButton"><!----></input><script type="text/javascript">$('#l_bt_submit_log').attr('value',getLocalization('label.login'));</script><span class="btnHGlue"><!----></span><input class="bt_cancel" id="l_cancelLog" type="button" value="Cancel" name="loginFormButton"><!----></input><script type="text/javascript">$('#l_cancelLog').attr('value',getLocalization('label.cancel'));</script></td></tr></table><div class="loginAlternative"><span id="link_lostPwd" onclick="showLostPwd()"><script type="text/javascript">$('#link_lostPwd').html(getLocalization('label.lostPswd'));</script></span><span id="link_signUp" onclick="showSignUp()"><script type="text/javascript">$('#link_signUp').html(getLocalization('label.signUp'));</script></span></div></form><iframe id="passwordIframe" name="passwordIframe" style="display:none"><!----></iframe></div><div id="cmts"><!----></div></body>
+</html>

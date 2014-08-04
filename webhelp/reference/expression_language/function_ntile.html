@@ -1,0 +1,468 @@
+
+<!DOCTYPE html
+  PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xml:lang="en-us" lang="en-us">
+<head><meta xmlns="http://www.w3.org/1999/xhtml" name="description" content="NTILE is a windowing aggregate function that divides a partitioned group of rows into the specified number of buckets, and returns the bucket number to which the current row belongs. NTILE must be ..."/><meta http-equiv="Content-Type" content="text/html; charset=utf-8"/><meta name="copyright" content="(C) Copyright 2005"/><meta name="DC.rights.owner" content="(C) Copyright 2005"/><meta name="DC.Type" content="reference"/><meta name="DC.Title" content="NTILE"/><meta name="abstract" content="NTILE is a windowing aggregate function that divides a partitioned group of rows into the specified number of buckets, and returns the bucket number to which the current row belongs. NTILE must be used within a ROLLUP expression."/><meta xmlns="http://www.w3.org/1999/xhtml" name="description" content="NTILE is a windowing aggregate function that divides a partitioned group of rows into the specified number of buckets, and returns the bucket number to which the current row belongs. NTILE must be used within a ROLLUP expression."/><meta name="DC.Relation" scheme="URI" content="../../reference/expression_language/window_functions_top.html"/><meta name="DC.Format" content="XHTML"/><meta name="DC.Identifier" content="ref_func_ntile"/><link rel="stylesheet" type="text/css" href="../../oxygen-webhelp/resources/css/commonltr.css"><!----></link><title>NTILE</title><meta http-equiv="Content-Type" content="text/html; charset=utf-8"/><link rel="stylesheet" type="text/css" href="../../oxygen-webhelp/resources/css/commonltr.css"><!----></link><link rel="stylesheet" type="text/css" href="../../oxygen-webhelp/resources/css/webhelp_topic.css"><!----></link><link rel="stylesheet" type="text/css" href="../../oxygen-webhelp/resources/skins/skin.css"><!----></link><link rel="stylesheet" type="text/css" href="../../oxygen-webhelp/resources/css/jquery.realperson.css"><!----></link><link rel="stylesheet" type="text/css" href="../../oxygen-webhelp/resources/css/comments.css"><!----></link><link rel="stylesheet" type="text/css" href="../../oxygen-webhelp/resources/css/jquery.cleditor.css"><!----></link><link rel="stylesheet" type="text/css" href="../../oxygen-webhelp/resources/css/admin.css"><!----></link><script type="text/javascript"><!--
+          
+          var prefix = "../../index.html";
+          
+          --></script><script type="text/javascript" src="../../oxygen-webhelp/resources/js/jquery-1.8.2.min.js"><!----></script><script type="text/javascript" src="../../oxygen-webhelp/resources/js/jquery.cookie.js"><!----></script><script type="text/javascript" src="../../oxygen-webhelp/resources/js/jquery-ui.custom.min.js"><!----></script><script type="text/javascript" charset="utf-8" src="../../oxygen-webhelp/resources/js/webhelp_topic.js"><!----></script><script type="text/javascript" charset="utf-8" src="../../oxygen-webhelp/resources/localization/strings.js"><!----></script><script type="text/javascript" charset="utf-8" src="../../oxygen-webhelp/resources/js/init.js"><!----></script><script type="text/javascript" charset="utf-8" src="../../oxygen-webhelp/resources/js/comments-functions.js"><!----></script></head>
+<body onload="init('../../')" id="ref_func_ntile">
+<table class="nav"><tbody><tr><td colspan="2"><div id="printlink"><a href="javascript:window.print();" title="printThisPage"/></div><div id="permalink"><a href="#" title="linkToThis"/></div></td></tr><tr><td width="75%"><a class="navheader_parent_path" href="../../reference/expression_language/../../reference/expression_language/expression_reference_top.html" title="An expression computes or produces a value by combining fields (or columns), constant values, operators, and functions. Platfora has a built-in expression language. You use the language's functions and operators to create a computed field.">Expression and Query Language Reference</a> / <a class="navheader_parent_path" href="../../reference/expression_language/window_functions_top.html" title="Window functions can only be used in conjunction with ROLLUP. ROLLUP is a modifier to an aggregate expression that determines the partitioning and ordering of a rowset before the associated aggregate function or window function is applied. ROLLUP defines a window or user-specified set of rows within a query result set. A window function then computes a value for each row in the window. You can use window functions to compute aggregated values such as moving averages, cumulative aggregates, running totals, or a top N per group results.">ROLLUP and Window Functions</a></td><td><div class="navheader">
+<span class="navparent"><a class="link" href="../../reference/expression_language/window_functions_top.html" title="Window functions can only be used in conjunction with ROLLUP. ROLLUP is a modifier to an aggregate expression that determines the partitioning and ordering of a rowset before the associated aggregate function or window function is applied. ROLLUP defines a window or user-specified set of rows within a query result set. A window function then computes a value for each row in the window. You can use window functions to compute aggregated values such as moving averages, cumulative aggregates, running totals, or a top N per group results."><span class="navheader_label">Parent topic</span><span class="navheader_separator">: </span><span class="navheader_linktext">ROLLUP and Window Functions</span></a></span>  </div></td></tr></tbody></table>
+
+  <h1 class="title topictitle1">NTILE</h1>
+
+  
+  <div class="body refbody"><p class="shortdesc">
+    <samp class="ph codeph">NTILE</samp> is a windowing aggregate function that divides a partitioned group of
+    rows into the specified number of buckets, and returns the bucket number to which the current
+    row belongs. <samp class="ph codeph">NTILE</samp> must be used within a <samp class="ph codeph">ROLLUP</samp>
+    expression.</p>
+
+    
+    <div class="section"><h2 class="title sectiontitle">Syntax</h2>
+      <pre class="pre codeblock"><span class="ph synph"><span class="keyword kwd">ROLLUP</span> <span class="keyword kwd">NTILE</span>(<span class="ph var">integer</span>)
+          <span class="keyword kwd">TO</span> ([<span class="ph var">partitioning_column</span>]) 
+               <span class="keyword kwd">ORDER BY</span> (<span class="ph var">ordering_column</span> [ASC | DESC])
+                 <span class="keyword kwd">ROWS</span>|<span class="keyword kwd">RANGE</span> <span class="ph var">window_boundary</span> [<span class="ph var">window_boundary</span>] 
+               | <span class="keyword kwd">BETWEEN</span> <span class="ph var">window_boundary</span> <span class="keyword kwd">AND</span> <span class="ph var">window_boundary</span> ] </span>
+
+<em class="ph i">where <var class="keyword varname">window_boundary</var> can be one of:</em>
+
+<span class="ph synph"><span class="keyword kwd">UNBOUNDED PRECEDING</span>
+<span class="ph var">value</span> <span class="keyword kwd">PRECEDING</span>
+<span class="ph var">value</span> <span class="keyword kwd">FOLLOWING</span>
+<span class="keyword kwd">UNBOUNDED FOLLOWING</span></span></pre>
+
+    </div>
+
+
+
+    <div class="section"><h2 class="title sectiontitle">Description</h2>
+      
+      <p class="p"><samp class="ph codeph">NTILE</samp> is a window aggregate function typically used to calculate
+        percentiles. A percentile (or centile) is a measure used in statistics indicating the value
+        below which a given percentage of records in a group falls. For example, the 20th percentile
+        is the value (or score) below which 20 percent of the records may be found. The term
+        percentile is often used in the reporting of test scores. For example, if a score is in the
+        86th percentile, it is higher than 86% of the other scores. The 25th percentile is also
+        known as the first quartile (Q1), the 50th percentile as the median or second quartile (Q2),
+        and the 75th percentile as the third quartile (Q3). In general, percentiles, deciles and
+        quartiles are specific types of <em class="ph i">n</em>tiles.</p>
+
+      <p class="p"><samp class="ph codeph">NTILE</samp> must be used within a <samp class="ph codeph">ROLLUP<a class="xref" href="function_rollup.html" title="ROLLUP is a modifier to an aggregate function that turns a regular aggregate function into a windowed, partitioned, or adaptive aggregate function. This is useful when you want to compute an aggregation over a subset of rows within the overall result of a viz query.">ROLLUP</a></samp> expression in place of the
+          <var class="keyword varname">aggregate_expression</var> of the <samp class="ph codeph">ROLLUP</samp>.</p>
+
+      <p class="p">The <samp class="ph codeph">TO</samp> clause of the <samp class="ph codeph">ROLLUP</samp> is used to specify a fixed
+        dimension column used to partition a group of input rows. To define a global
+          <samp class="ph codeph">NTILE</samp> ranking that can adapt to any dimension groupings used in a viz,
+        specify an empty <samp class="ph codeph">TO</samp> clause. </p>
+
+      <p class="p">The <samp class="ph codeph">ORDER BY</samp> clause of the <samp class="ph codeph">ROLLUP</samp> expression determines
+        how to order the rows before they are divided into buckets. The <samp class="ph codeph">ORDER BY</samp>
+        clause should specify the measure field for which you want to calculate
+          <samp class="ph codeph">NTILE</samp> bucket values. A centile would be 100 buckets, a decile would be 10
+        buckets, a quartile 4 buckets, and so on. The buckets in the partition are numbered starting
+        at one.</p>
+
+      <p class="p">For example, suppose we had a dataset with the following rows and columns and you want to
+        divide the year-to-date sales into four buckets (quartiles) with the highest quartile ranked
+        as 1 and the lowest ranked as 4. Supposing a  measure field has been defined called
+          <em class="ph i">Sum_YTD_Sales</em>, defined as <samp class="ph codeph">SUM([Sales YTD])</samp>, you could then define
+        a measure called <em class="ph i">YTD_Sales_Quartile</em> using the following expression:</p>
+
+      <pre class="pre codeblock">ROLLUP NTILE(4) TO() ORDER BY(Sum_YTD_Sales DESC) ROWS UNBOUNDED PRECEDING</pre>
+
+      <div class="p">
+        
+<div class="tablenoborder"><table cellpadding="4" cellspacing="0" summary="" class="table" frame="border" border="1" rules="all">
+            
+            
+            
+            
+            <thead class="thead" align="left">
+              <tr class="row">
+                <th class="entry" valign="top" width="10.455486542443063%" id="d94543e212">Name</th>
+
+                <th class="entry" valign="top" width="10.351966873706003%" id="d94543e215">Gender</th>
+
+                <th class="entry" valign="top" width="16.35610766045549%" id="d94543e218">Sales YTD</th>
+
+                <th class="entry" valign="top" width="62.83643892339544%" id="d94543e221">YTD_Sales_Quartile</th>
+
+              </tr>
+
+            </thead>
+
+            <tbody class="tbody">
+              <tr class="row">
+                <td class="entry" valign="top" width="10.455486542443063%" headers="d94543e212 ">Chen</td>
+
+                <td class="entry" valign="top" width="10.351966873706003%" headers="d94543e215 ">F</td>
+
+                <td class="entry" valign="top" width="16.35610766045549%" headers="d94543e218 ">3,500,000</td>
+
+                <td class="entry" valign="top" width="62.83643892339544%" headers="d94543e221 ">1</td>
+
+              </tr>
+
+              <tr class="row">
+                <td class="entry" valign="top" width="10.455486542443063%" headers="d94543e212 ">John</td>
+
+                <td class="entry" valign="top" width="10.351966873706003%" headers="d94543e215 ">M</td>
+
+                <td class="entry" valign="top" width="16.35610766045549%" headers="d94543e218 ">3,100,000</td>
+
+                <td class="entry" valign="top" width="62.83643892339544%" headers="d94543e221 ">1</td>
+
+              </tr>
+
+              <tr class="row">
+                <td class="entry" valign="top" width="10.455486542443063%" headers="d94543e212 ">Pete</td>
+
+                <td class="entry" valign="top" width="10.351966873706003%" headers="d94543e215 ">M</td>
+
+                <td class="entry" valign="top" width="16.35610766045549%" headers="d94543e218 ">2,900,000</td>
+
+                <td class="entry" valign="top" width="62.83643892339544%" headers="d94543e221 ">1</td>
+
+              </tr>
+
+              <tr class="row">
+                <td class="entry" valign="top" width="10.455486542443063%" headers="d94543e212 ">Daria</td>
+
+                <td class="entry" valign="top" width="10.351966873706003%" headers="d94543e215 ">F</td>
+
+                <td class="entry" valign="top" width="16.35610766045549%" headers="d94543e218 ">2,500,000</td>
+
+                <td class="entry" valign="top" width="62.83643892339544%" headers="d94543e221 ">2</td>
+
+              </tr>
+
+              <tr class="row">
+                <td class="entry" valign="top" width="10.455486542443063%" headers="d94543e212 ">Jennie</td>
+
+                <td class="entry" valign="top" width="10.351966873706003%" headers="d94543e215 ">F</td>
+
+                <td class="entry" valign="top" width="16.35610766045549%" headers="d94543e218 ">2,200,000</td>
+
+                <td class="entry" valign="top" width="62.83643892339544%" headers="d94543e221 ">2</td>
+
+              </tr>
+
+              <tr class="row">
+                <td class="entry" valign="top" width="10.455486542443063%" headers="d94543e212 ">Mary</td>
+
+                <td class="entry" valign="top" width="10.351966873706003%" headers="d94543e215 ">F</td>
+
+                <td class="entry" valign="top" width="16.35610766045549%" headers="d94543e218 ">2,100,000</td>
+
+                <td class="entry" valign="top" width="62.83643892339544%" headers="d94543e221 ">2</td>
+
+              </tr>
+
+              <tr class="row">
+                <td class="entry" valign="top" width="10.455486542443063%" headers="d94543e212 ">Mike</td>
+
+                <td class="entry" valign="top" width="10.351966873706003%" headers="d94543e215 ">M</td>
+
+                <td class="entry" valign="top" width="16.35610766045549%" headers="d94543e218 ">1,900,000</td>
+
+                <td class="entry" valign="top" width="62.83643892339544%" headers="d94543e221 ">3</td>
+
+              </tr>
+
+              <tr class="row">
+                <td class="entry" valign="top" width="10.455486542443063%" headers="d94543e212 ">Brian</td>
+
+                <td class="entry" valign="top" width="10.351966873706003%" headers="d94543e215 ">M</td>
+
+                <td class="entry" valign="top" width="16.35610766045549%" headers="d94543e218 ">1,700,000</td>
+
+                <td class="entry" valign="top" width="62.83643892339544%" headers="d94543e221 ">3</td>
+
+              </tr>
+
+              <tr class="row">
+                <td class="entry" valign="top" width="10.455486542443063%" headers="d94543e212 ">Molly</td>
+
+                <td class="entry" valign="top" width="10.351966873706003%" headers="d94543e215 ">F</td>
+
+                <td class="entry" valign="top" width="16.35610766045549%" headers="d94543e218 ">1,500,000</td>
+
+                <td class="entry" valign="top" width="62.83643892339544%" headers="d94543e221 ">3</td>
+
+              </tr>
+
+              <tr class="row">
+                <td class="entry" valign="top" width="10.455486542443063%" headers="d94543e212 ">Theresa</td>
+
+                <td class="entry" valign="top" width="10.351966873706003%" headers="d94543e215 ">F</td>
+
+                <td class="entry" valign="top" width="16.35610766045549%" headers="d94543e218 ">1,200,000</td>
+
+                <td class="entry" valign="top" width="62.83643892339544%" headers="d94543e221 ">4</td>
+
+              </tr>
+
+              <tr class="row">
+                <td class="entry" valign="top" width="10.455486542443063%" headers="d94543e212 ">Hans</td>
+
+                <td class="entry" valign="top" width="10.351966873706003%" headers="d94543e215 ">M</td>
+
+                <td class="entry" valign="top" width="16.35610766045549%" headers="d94543e218 ">900,000</td>
+
+                <td class="entry" valign="top" width="62.83643892339544%" headers="d94543e221 ">4</td>
+
+              </tr>
+
+              <tr class="row">
+                <td class="entry" valign="top" width="10.455486542443063%" headers="d94543e212 ">Ben</td>
+
+                <td class="entry" valign="top" width="10.351966873706003%" headers="d94543e215 ">M</td>
+
+                <td class="entry" valign="top" width="16.35610766045549%" headers="d94543e218 ">500,000</td>
+
+                <td class="entry" valign="top" width="62.83643892339544%" headers="d94543e221 ">4</td>
+
+              </tr>
+
+            </tbody>
+
+          </table>
+</div>
+
+      </div>
+
+      <p class="p">Because the <samp class="ph codeph">TO</samp> clause of the <samp class="ph codeph">ROLLUP</samp> expression is empty,
+        the quartile partitioning adapts to whatever dimensions are used in the viz. For example, if
+        you include the <em class="ph i">Gender</em> dimension field in the viz, the quartiles would then be
+        computed per gender. The following example divides each gender  into buckets with each
+        gender having 6 year-to-date sales values. The two extra values (the remainder of 6 / 4) are
+        allocated to buckets 1 and 2, which therefore have one more value than buckets 3 or 4.</p>
+
+      <div class="p">
+        
+<div class="tablenoborder"><table cellpadding="4" cellspacing="0" summary="" class="table" frame="border" border="1" rules="all">
+            
+            
+            
+            
+            <thead class="thead" align="left">
+              <tr class="row">
+                <th class="entry" valign="top" width="10.455486542443063%" id="d94543e445">Name</th>
+
+                <th class="entry" valign="top" width="10.351966873706003%" id="d94543e448">Gender</th>
+
+                <th class="entry" valign="top" width="16.35610766045549%" id="d94543e451">Sales YTD</th>
+
+                <th class="entry" valign="top" width="62.83643892339544%" id="d94543e454">YTD_Sales_Quartile (partitioned by Gender)</th>
+
+              </tr>
+
+            </thead>
+
+            <tbody class="tbody">
+              <tr class="row">
+                <td class="entry" valign="top" width="10.455486542443063%" headers="d94543e445 ">Chen</td>
+
+                <td class="entry" valign="top" width="10.351966873706003%" headers="d94543e448 ">F</td>
+
+                <td class="entry" valign="top" width="16.35610766045549%" headers="d94543e451 ">3,500,000</td>
+
+                <td class="entry" valign="top" width="62.83643892339544%" headers="d94543e454 ">1</td>
+
+              </tr>
+
+              <tr class="row">
+                <td class="entry" valign="top" width="10.455486542443063%" headers="d94543e445 ">Daria</td>
+
+                <td class="entry" valign="top" width="10.351966873706003%" headers="d94543e448 ">F</td>
+
+                <td class="entry" valign="top" width="16.35610766045549%" headers="d94543e451 ">2,500,000</td>
+
+                <td class="entry" valign="top" width="62.83643892339544%" headers="d94543e454 ">1</td>
+
+              </tr>
+
+              <tr class="row">
+                <td class="entry" valign="top" width="10.455486542443063%" headers="d94543e445 ">Jennie</td>
+
+                <td class="entry" valign="top" width="10.351966873706003%" headers="d94543e448 ">F</td>
+
+                <td class="entry" valign="top" width="16.35610766045549%" headers="d94543e451 ">2,200,000</td>
+
+                <td class="entry" valign="top" width="62.83643892339544%" headers="d94543e454 ">2</td>
+
+              </tr>
+
+              <tr class="row">
+                <td class="entry" valign="top" width="10.455486542443063%" headers="d94543e445 ">Mary</td>
+
+                <td class="entry" valign="top" width="10.351966873706003%" headers="d94543e448 ">F</td>
+
+                <td class="entry" valign="top" width="16.35610766045549%" headers="d94543e451 ">2,100,000</td>
+
+                <td class="entry" valign="top" width="62.83643892339544%" headers="d94543e454 ">2</td>
+
+              </tr>
+
+              <tr class="row">
+                <td class="entry" valign="top" width="10.455486542443063%" headers="d94543e445 ">Molly</td>
+
+                <td class="entry" valign="top" width="10.351966873706003%" headers="d94543e448 ">F</td>
+
+                <td class="entry" valign="top" width="16.35610766045549%" headers="d94543e451 ">1,500,000</td>
+
+                <td class="entry" valign="top" width="62.83643892339544%" headers="d94543e454 ">3</td>
+
+              </tr>
+
+              <tr class="row">
+                <td class="entry" valign="top" width="10.455486542443063%" headers="d94543e445 ">Theresa</td>
+
+                <td class="entry" valign="top" width="10.351966873706003%" headers="d94543e448 ">F</td>
+
+                <td class="entry" valign="top" width="16.35610766045549%" headers="d94543e451 ">1,200,000</td>
+
+                <td class="entry" valign="top" width="62.83643892339544%" headers="d94543e454 ">4</td>
+
+              </tr>
+
+              <tr class="row">
+                <td class="entry" valign="top" width="10.455486542443063%" headers="d94543e445 ">John</td>
+
+                <td class="entry" valign="top" width="10.351966873706003%" headers="d94543e448 ">M</td>
+
+                <td class="entry" valign="top" width="16.35610766045549%" headers="d94543e451 ">3,100,000</td>
+
+                <td class="entry" valign="top" width="62.83643892339544%" headers="d94543e454 ">1</td>
+
+              </tr>
+
+              <tr class="row">
+                <td class="entry" valign="top" width="10.455486542443063%" headers="d94543e445 ">Pete</td>
+
+                <td class="entry" valign="top" width="10.351966873706003%" headers="d94543e448 ">M</td>
+
+                <td class="entry" valign="top" width="16.35610766045549%" headers="d94543e451 ">2,900,000</td>
+
+                <td class="entry" valign="top" width="62.83643892339544%" headers="d94543e454 ">1</td>
+
+              </tr>
+
+              <tr class="row">
+                <td class="entry" valign="top" width="10.455486542443063%" headers="d94543e445 ">Mike</td>
+
+                <td class="entry" valign="top" width="10.351966873706003%" headers="d94543e448 ">M</td>
+
+                <td class="entry" valign="top" width="16.35610766045549%" headers="d94543e451 ">1,900,000</td>
+
+                <td class="entry" valign="top" width="62.83643892339544%" headers="d94543e454 ">2</td>
+
+              </tr>
+
+              <tr class="row">
+                <td class="entry" valign="top" width="10.455486542443063%" headers="d94543e445 ">Brian</td>
+
+                <td class="entry" valign="top" width="10.351966873706003%" headers="d94543e448 ">M</td>
+
+                <td class="entry" valign="top" width="16.35610766045549%" headers="d94543e451 ">1,700,000</td>
+
+                <td class="entry" valign="top" width="62.83643892339544%" headers="d94543e454 ">2</td>
+
+              </tr>
+
+              <tr class="row">
+                <td class="entry" valign="top" width="10.455486542443063%" headers="d94543e445 ">Hans</td>
+
+                <td class="entry" valign="top" width="10.351966873706003%" headers="d94543e448 ">M</td>
+
+                <td class="entry" valign="top" width="16.35610766045549%" headers="d94543e451 ">900,000</td>
+
+                <td class="entry" valign="top" width="62.83643892339544%" headers="d94543e454 ">3</td>
+
+              </tr>
+
+              <tr class="row">
+                <td class="entry" valign="top" width="10.455486542443063%" headers="d94543e445 ">Ben</td>
+
+                <td class="entry" valign="top" width="10.351966873706003%" headers="d94543e448 ">M</td>
+
+                <td class="entry" valign="top" width="16.35610766045549%" headers="d94543e451 ">500,000</td>
+
+                <td class="entry" valign="top" width="62.83643892339544%" headers="d94543e454 ">4</td>
+
+              </tr>
+
+            </tbody>
+
+          </table>
+</div>
+
+      </div>
+
+    </div>
+
+
+    <div class="section"><h2 class="title sectiontitle">Return Value</h2>
+      <p class="p">Returns a value of type <samp class="ph codeph">LONG</samp>.</p>
+
+     </div>
+
+    
+    
+    <div class="section"><h2 class="title sectiontitle">Input Parameters</h2>
+      
+      <dl class="dl parml">
+        
+          <dt class="dt pt dlterm">ROLLUP</dt>
+
+          <dd class="dd pd">Required. <samp class="ph codeph">NTILE</samp> must be used within a <samp class="ph codeph">ROLLUP<a class="xref" href="function_rollup.html" title="ROLLUP is a modifier to an aggregate function that turns a regular aggregate function into a windowed, partitioned, or adaptive aggregate function. This is useful when you want to compute an aggregation over a subset of rows within the overall result of a viz query.">ROLLUP</a></samp> expression in place of the
+              <var class="keyword varname">aggregate_expression</var> of the <samp class="ph codeph">ROLLUP</samp>. The </dd>
+
+        
+        
+          <dt class="dt pt dlterm">integer</dt>
+
+          <dd class="dd pd">Required. An integer that specifies the number of buckets to divide the partitioned
+            rows into.</dd>
+
+        
+      </dl>
+
+    </div>
+
+    
+    <div class="section"><h2 class="title sectiontitle">Examples</h2>
+      
+      <p class="p">Perhaps the most common use case for <samp class="ph codeph">NTILE</samp> is to get a global ranking of
+        result rows. For example, if you wanted to get the percentile of <em class="ph i">Total Records</em> per
+          <em class="ph i">City</em>, you may think the expression to use is:  <samp class="ph codeph">ROLLUP NTILE(100) TO
+            <strong class="ph b">(City)</strong> ORDER BY <strong class="ph b">([Total Records] DESC)</strong> ROWS UNBOUNDED PRECEDING</samp>. </p>
+
+      <p class="p">However, by leaving the <samp class="ph codeph">TO</samp> clause blank, the percentile buckets can adapt
+        to whatever dimension(s) you use in the viz. To calculate the <em class="ph i">Total Records</em>
+        percentiles by <em class="ph i">City</em>, you could define a global <em class="ph i">Total_Records_Percentiles</em>
+        measure and then use this measure in conjunction with the <em class="ph i">City</em> dimension in the viz
+        (or any other dimension for that matter).</p>
+
+      <p class="p"><samp class="ph codeph" id="ref_func_ntile__example_func_ntile">ROLLUP NTILE(100) TO () ORDER BY ([Total Records] DESC)
+          ROWS UNBOUNDED PRECEDING</samp></p>
+
+      
+    </div>
+
+    
+   
+   
+  </div>
+
+<div class="related-links"/>
+<div class="navfooter"><!---->
+<span class="navparent"><a class="link" href="../../reference/expression_language/window_functions_top.html" title="Window functions can only be used in conjunction with ROLLUP. ROLLUP is a modifier to an aggregate expression that determines the partitioning and ordering of a rowset before the associated aggregate function or window function is applied. ROLLUP defines a window or user-specified set of rows within a query result set. A window function then computes a value for each row in the window. You can use window functions to compute aggregated values such as moving averages, cumulative aggregates, running totals, or a top N per group results."><span class="navheader_label">Parent topic</span><span class="navheader_separator">: </span><span class="navheader_linktext">ROLLUP and Window Functions</span></a></span>  </div><div class="footer">WebHelp output generated by<a href="http://www.oxygenxml.com" target="_blank"><span class="oXygenLogo"><img src="../../oxygen-webhelp/resources/img/LogoOxygen100x22.png" alt="Oxygen"/></span><span class="xmlauthor">XML Author</span></a></div>
+<div id="productInfo" style="display:none;"><span id="oxy_productID">webhelp</span><span id="oxy_productVersion">3.0</span></div><div id="loginData" style="display: none"><span class="bt_close" title="Close"><!----></span><form action="" target="passwordIframe" method="post" name="form_login" onsubmit="return loggInUser();" id="loginFormData" autocomplete="on"><input type="hidden" id="reloadComments" value="yes"><!----></input><table class="login"><thead><tr><td colspan="2"><span id="l_login2"><script type="text/javascript">$('#l_login2').html(getLocalization('label.login'));</script></span></td></tr><tr><td colspan="2"><div id="loginResponse"><!----></div></td></tr></thead><tr><td><span id="l_userName"><script type="text/javascript">$('#l_userName').html(getLocalization('label.userName'));</script></span></td><td><input name="usernameW" type="text" id="myUserName" autocomplete="on" required="required" autofocus="autofocus"><!----></input></td></tr><tr><td><span id="l_pswd"><script type="text/javascript">$('#l_pswd').html(getLocalization('label.pswd'));</script></span></td><td><input name="passwordW" type="password" id="myPassword" autocomplete="on" required="required"><!----></input></td></tr><tr><td colspan="2" align="left"><span id="ll_remember"><script type="text/javascript" xml:space="preserve">
+								$('#ll_remember').html(getLocalization('label.rememberme'));
+							</script></span>     <input name="myLoginRemember" type="checkbox" class="ck" id="myRemember" value="no"><!----></input></td></tr><tr><td colspan="2" align="center"><input id="l_bt_submit_log" type="submit" value="Submit" name="loginFormButton"><!----></input><script type="text/javascript">$('#l_bt_submit_log').attr('value',getLocalization('label.login'));</script><span class="btnHGlue"><!----></span><input class="bt_cancel" id="l_cancelLog" type="button" value="Cancel" name="loginFormButton"><!----></input><script type="text/javascript">$('#l_cancelLog').attr('value',getLocalization('label.cancel'));</script></td></tr></table><div class="loginAlternative"><span id="link_lostPwd" onclick="showLostPwd()"><script type="text/javascript">$('#link_lostPwd').html(getLocalization('label.lostPswd'));</script></span><span id="link_signUp" onclick="showSignUp()"><script type="text/javascript">$('#link_signUp').html(getLocalization('label.signUp'));</script></span></div></form><iframe id="passwordIframe" name="passwordIframe" style="display:none"><!----></iframe></div><div id="cmts"><!----></div></body>
+</html>
